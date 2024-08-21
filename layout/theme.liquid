@@ -15,23 +15,19 @@
   <!--gsap scrips-->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <!--adobe font links-->
-  <link rel="stylesheet" href="https://use.typekit.net/lcp7gex.css">
-  <link rel="stylesheet" href="https://use.typekit.net/lcp7gex.css">
+  <!--google font jakarta links-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <!-- Header hook for plugins -->
-  {{ 'application.css' | asset_url | stylesheet_tag }}
+  {{ 'main.css' | asset_url | stylesheet_tag }}
 </head>
 
 
-<body>
-  
+<body> 
   <main role="main">
     {{ content_for_layout }}
   </main>
-
-  
-  
-  
 </body>
 
 </html>
