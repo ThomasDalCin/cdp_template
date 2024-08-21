@@ -1,12 +1,22 @@
 {
-    "sections": {
-        "hero-section": {
-            "type": "hero",
-            "settings": {
-            }
-        }
+  "sections": {
+    "hero-section": {
+      "type": "hero",
+      "settings": {
+        "swiper_image_1": "shopify:\/\/shop_images\/PardoYatch-Home-Hero-01.png",
+        "swiper_image_2": "shopify:\/\/shop_images\/PardoYatch-Home-Walkaround.jpg",
+        "swiper_image_3": "shopify:\/\/shop_images\/PardoYatch-Home-Hero-01.png"
+      }
     },
-    "order": [
-        "hero-section"
-    ]
+    "gamma-section": {
+        "type": "gamma",
+        "settings": {
+
+        }
+    }
+  },
+  "order": [
+    "hero-section",
+    "gamma-section"
+  ]
 }

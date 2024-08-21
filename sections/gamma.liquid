@@ -1,0 +1,74 @@
+{% assign sorted_collections = collections | sort: 'published_at' %}
+
+<div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
+    <div
+        class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4">
+        <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2">
+            {% for collection in sorted_collections %}
+            <div class="chips-block cursor-pointer p-2 px-4 rounded-lg"
+                data-target="{{ collection.title }}">
+                <p class="body-12">{{ collection.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="tab-container w-full h-auto flex flex-col gap-y-6">
+            {% for collection in sorted_collections %}
+            <div class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden" id="{{ collection.title }}">
+                <div class="tab-title">
+                    <h2 class="header-2">{{ collection.title }}</h2>
+                </div>
+                <div class="tab-image">
+                    <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}"
+                        class="w-full max-w-md h-auto object-cover rounded-lg">
+                </div>
+                <div class="tab-description">
+                    <p class="body-12">{{ collection.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get all chips
+        const chips = document.querySelectorAll('.chips-block');
+        // Get all tab-panes
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        // Add click event to chips
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const target = chip.getAttribute('data-target');
+
+                // Hide all tab-panes
+                tabPanes.forEach(pane => {
+                    if (pane.id === target) {
+                        // Show the selected tab-pane
+                        pane.classList.remove('hidden');
+                        pane.classList.add('flex');
+                    } else {
+                        // Hide other tab-panes
+                        pane.classList.add('hidden');
+                        pane.classList.remove('flex');
+                    }
+                });
+                // Remove 'active' class from all chips
+                chips.forEach(c => c.classList.remove('active'));
+
+                // Add 'active' class to the clicked chip
+                chip.classList.add('active');
+            });
+        });
+
+        if (tabPanes.length > 0) {
+            tabPanes[0].classList.remove('hidden');
+            tabPanes[0].classList.add('flex');
+            // Set the first chip as active by default
+
+            chips[0].classList.add('active');
+        }
+    });
+</script>

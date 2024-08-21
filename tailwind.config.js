@@ -7,7 +7,11 @@ module.exports = {
     './snippets/*.liquid'
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'custom': '0px 0px 12px 0px rgba(30, 29, 29, 0.20)',
+      }
+    },
   },
   plugins: [],
 }
