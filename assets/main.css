@@ -446,6 +446,32 @@ video {
   display: none;
 }
 
+body {
+  /* Optimize font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* General font settings */
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: -0.4px;
+}
+
+/* Custom text classes */
+
+.big-header-1 {
+  font-weight: 600;
+  font-size: var(--big-header-1);
+  line-height: var(--big-header-1-height);
+}
+
+.header-3 {
+  font-weight: 600;
+  font-size: var(--header-3);
+  line-height: var(--header-3-height);
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -566,24 +592,20 @@ video {
   inset: 0px;
 }
 
-.left-4 {
-  left: 1rem;
-}
-
-.top-\[92px\] {
-  top: 92px;
-}
-
-.bottom-0 {
-  bottom: 0px;
-}
-
 .bottom-4 {
   bottom: 1rem;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
 .right-4 {
   right: 1rem;
+}
+
+.top-\[92px\] {
+  top: 92px;
 }
 
 .z-0 {
@@ -616,10 +638,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .w-full {
@@ -658,14 +676,6 @@ video {
   row-gap: 2.5rem;
 }
 
-.border-r-\[24px\] {
-  border-right-width: 24px;
-}
-
-.border-r {
-  border-right-width: 1px;
-}
-
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -690,32 +700,27 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.brightness-75 {
-  --tw-brightness: brightness(.75);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-/*persnoalized css here*/
+/* Personalized CSS */
 
 ::-webkit-scrollbar {
   display: none;
 }
 
 :root {
-  /*general color*/
+  /* General colors */
   --primary-text-color: #0000;
   --secondary-text-color: #ffff;
   --primary-background-color: #F7F7F7;
   --secondary-background-color: #EFEEED;
   --accent-color: #8C7372;
   --footer-color: #333333;
-  /*system color*/
+  /* System colors */
   --error-color: #E40D0D;
   --inactive-color: #646464;
   --hover-color: #BEBEBE;
   --background-color: #3F3E3E;
   --valitadion-color: #29BD52;
-  /*font variables*/
+  /* Font variables */
   --big-header-1: 60px;
   --big-header-1-height: 40px;
   --header-2: 40px;
@@ -741,103 +746,5 @@ video {
   --body-small: 12px;
   --body-small-height: 18px;
   --caption: 10px;
-  --caption-height: 16px
-
-}
-
-body {
-  /*optimize font*/
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /*general font settings*/
-  font-family: "Plus Jakarta Sans", sans-serif !important;
-  font-optical-sizing: auto !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  letter-spacing: -0.4px;
-}
-
-/*custom text classes*/
-
-.big-header-1 {
-  font-weight: 600;
-  font-size: var(--big-header-1);
-  line-height: var(--big-header-1-height);
-}
-
-.header-2 {
-  font-weight: 600;
-  font-size: var(--header-2);
-  line-height: var(--header-2-height);
-}
-
-.header-3 {
-  font-weight: 600;
-  font-size: var(--header-3);
-  line-height: var(--header-3-height);
-}
-
-.header-4 {
-  font-weight: 600;
-  font-size: var(--header-4);
-  line-height: var(--header-4-height);
-}
-
-.header-1-medium {
-  font-weight: 500;
-  font-size: var(--header-1-medium);
-  line-height: var(--header-1-medium-height);
-}
-
-.body-16-medium {
-  font-weight: 500;
-  font-size: var(--body-16-medium);
-  line-height: var(--body-16-medium-height);
-}
-
-.body-14-medium {
-  font-weight: 500;
-  font-size: var(--body-14-medium);
-  line-height: var(--body-14-medium-height);
-}
-
-.header-1 {
-  font-weight: 400;
-  font-size: var(--header-1);
-  font-size: var(--header-1-height);
-}
-
-.body-16 {
-  font-weight: 400;
-  font-size: var(--body-16);
-  font-size: var(--body-16-height);
-}
-
-.body-14 {
-  font-weight: 400;
-  font-size: var(--body-14);
-  font-size: var(--body-14-height);
-}
-
-.body-12 {
-  font-weight: 400;
-  font-size: var(--body-12);
-  font-size: var(--body-12-height);
-}
-
-.body-small {
-  font-weight: 400;
-  font-size: var(--body-small);
-  font-size: var(--body-small-height);
-}
-
-.caption {
-  font-weight: 400;
-  font-size: var(--caption);
-  font-size: var(--caption-height);
-}
-
-.icon-size{
-  width: 24px;
-  height: 24px;
+  --caption-height: 16px;
 }
