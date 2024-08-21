@@ -582,14 +582,11 @@ body {
 
 .hero-cta {
   display: flex;
-  padding: 0.75rem;
-  /* Questo corrisponde a p-3 */
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  /* Questo corrisponde a gap-2 */
   width: 100%;
-  /* Questo corrisponde a w-full */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
   background: var(--secondary-text-color);
   border-radius: 24px;
 }
@@ -678,14 +675,6 @@ body {
   justify-content: flex-start;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .gap-y-10 {
   row-gap: 2.5rem;
 }
@@ -693,10 +682,6 @@ body {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .italic {
