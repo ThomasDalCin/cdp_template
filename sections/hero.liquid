@@ -1,7 +1,7 @@
 <div class="hero-wrapper w-full h-dvh relative">
   <div class="wrapper-slider w-full h-full absolute inset-0 z-0">
     <div class="swiper mySwiper w-full h-full relative">
-      <div class="swiper-wrapper brightness-75">
+      <div class="swiper-wrapper">
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
         {% for swiper_image in swiper_images %}
           {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
@@ -11,13 +11,35 @@
                 src="{{ image_url }}"
                 alt="Slide {{ forloop.index }}"
                 class="swiper-img w-full h-full object-cover block">
+              <div class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10">
+                {% case forloop.index0 %}
+                  {% when 0 %}
+                    <h2 class="big-header-1 text-white">GT75</h2>
+                    <div class="hero-cta flex p-3 justify-center items-center gap-2  w-full" style="background: var(--secondary-text-color); border-radius:24px">
+                      <p>Discover it</p>
+                      {% render "cta-icon" %}
+                    </div>
+                  {% when 1 %}
+                    <h2 class="big-header-1 text-white">E60</h2>
+                    <div class="hero-cta flex p-3 justify-center items-center gap-2 w-full" style="background: var(--secondary-text-color); border-radius:24px">
+                      <p>Discover it</p>
+                      {% render "cta-icon" %}
+                    </div>
+                  {% when 2 %}
+                    <h2 class="big-header-1 text-white">Details.</h2>
+                    <div class="hero-cta flex p-3 justify-center items-center gap-2  w-full" style="background: var(--secondary-text-color); border-radius:24px">
+                      <p>Watch the full experience</p>
+                      {% render "cta-icon" %}
+                    </div>
+                {% endcase %}
+              </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
       <div class="container-swiper-pagination absolute left-4 top-[92px] z-10">
         <div class="swiper-pagination mb-8 flex items-center justify-start"></div>
-        <h3 class="header-3" style="color:var(--secondary-text-color)">Shaped by the sea.</h3>
+        <h3 class="header-3" style="color: var(--secondary-text-color)">Shaped by the sea.</h3>
       </div>
     </div>
   </div>
@@ -40,7 +62,9 @@
 
 <!-- Swiper Custom Style -->
 <style>
-  .container-swiper-pagination {}
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--secondary-text-color) !important;
+  }
 </style>
 
 
