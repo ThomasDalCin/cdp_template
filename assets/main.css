@@ -580,6 +580,20 @@ body {
   --tw-contain-style:  ;
 }
 
+.hero-cta {
+  display: flex;
+  padding: 0.75rem;
+  /* Questo corrisponde a p-3 */
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  /* Questo corrisponde a gap-2 */
+  width: 100%;
+  /* Questo corrisponde a w-full */
+  background: var(--secondary-text-color);
+  border-radius: 24px;
+}
+
 .absolute {
   position: absolute;
 }
