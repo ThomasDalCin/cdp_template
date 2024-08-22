@@ -15,9 +15,7 @@
     },
     "collab-section": {
       "type": "collab",
-      "settings": {
-
-      }
+      "settings": {}
     }
   },
   "order": [
