@@ -1,0 +1,34 @@
+<div class="collab-scroll w-full h-auto flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4">
+    {% assign collab_images = "collab_image_1,collab_image_2," | split: "," %}
+    {% for collab_image in collab_images %}
+        {% assign collab_image_url = section.settings[collab_image] |  img_url: 'master' %}
+        {% if collab_image_url %}
+            <div class="collab-container">
+                <img
+                  src="{{ collab_image_url }}"
+                  class="w-full h-full object-contain"
+                  alt="Collab {{ forloop.index }}"
+                >
+              </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "collab",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "collab_image_1",
+        "label": "Collab Image 1",
+        "info": "Choose the collab Image"
+      }, {
+        "type": "image_picker",
+        "id": "collab_image_2",
+        "label": "Collab Image 2",
+        "info": "Choose the collab Image"
+      }
+    ]
+  }
+{% endschema %}
