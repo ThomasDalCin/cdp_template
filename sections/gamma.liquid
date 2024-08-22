@@ -1,58 +1,61 @@
 {% assign sorted_collections = collections | sort: 'published_at' %}
 
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
-    <div
-        class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4">
-        <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2">
-            {% for collection in sorted_collections %}
-            <div class="chips-block cursor-pointer p-2 px-4 rounded-lg" data-target="{{ collection.title }}">
-                <p class="body-12">{{ collection.title }}</p>
-            </div>
-            {% endfor %}
+  <div class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4">
+    <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2">
+      {% for collection in sorted_collections %}
+        <div class="chips-block cursor-pointer p-2 px-4 rounded-lg" data-target="{{ collection.title }}">
+          <p class="body-12">{{ collection.title }}</p>
         </div>
-        <div class="tab-container w-full h-auto flex flex-col gap-y-6">
-            {% for collection in sorted_collections %}
-            <div class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden" id="{{ collection.title }}">
-                <div class="tab-title">
-                    <h2 class="header-2">{{ collection.title }}</h2>
-                </div>
-                <div class="tab-image">
-                    <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}"
-                        class="w-full max-w-md h-auto object-cover rounded-lg">
-                </div>
-                <div class="tab-description">
-                    <p class="body-12">{{ collection.description }}</p>
-                </div>
-                {% if collection.products.size > 0 %}
-                <div class="tab-model flex flex-col gap-y-2">
-                    <p class="body-small">Models</p>
-                    <div class="badge-container flex flex-row items-center justify-start gap-x-2">
-                        {% for product in collection.products %}
-                        <div class="badge-product" data-target="{{ product.title }}">
-                            {{ product.title | replace: 'Pardo', '' }}
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="magnetic-scroll w-full h-auto flex flex-row overflow-x-auto space-x-2">
-                        {% for product in collection.products %}
-                        {% assign product_images = product.images %}
-                        {% if product_images.size > 0 %}
-                        {% assign model_image = product_images[0] %}
-                        <div
-                            class="image-scroll w-[240px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center">
-                            <img class="w-full h-full object-contain pImage" src="{{ model_image | img_url: 'master' }}"
-                                alt="{{ product.title }}" id="{{ product.title }}">
-                            <p class="header-3">{{ product.title | replace: 'Pardo', '' }}</p>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
+      {% endfor %}
     </div>
+    <div class="tab-container w-full h-auto flex flex-col gap-y-6">
+      {% for collection in sorted_collections %}
+        <div class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden" id="{{ collection.title }}">
+          <div class="tab-title">
+            <h2 class="header-2">{{ collection.title }}</h2>
+          </div>
+          <div class="tab-image">
+            <img
+              src="{{ collection.image | img_url: 'master' }}"
+              alt="{{ collection.title }}"
+              class="w-full max-w-md h-auto object-cover rounded-lg">
+          </div>
+          <div class="tab-description">
+            <p class="body-12">{{ collection.description }}</p>
+          </div>
+          {% if collection.products.size > 0 %}
+            <div class="tab-model flex flex-col gap-y-2">
+              <p class="body-small">Models</p>
+              <div class="badge-container flex flex-row items-center justify-start gap-x-2">
+                {% for product in collection.products %}
+                  <div class="badge-product" data-target="{{ product.title }}">
+                    {{ product.title | replace: 'Pardo', '' }}
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="magnetic-scroll w-full h-auto flex flex-row overflow-x-auto space-x-2">
+                {% for product in collection.products %}
+                  {% assign product_images = product.images %}
+                  {% if product_images.size > 0 %}
+                    {% assign model_image = product_images[0] %}
+                    <div class="image-scroll w-[240px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center">
+                      <img
+                        class="w-full h-full object-contain pImage"
+                        src="{{ model_image | img_url: 'master' }}"
+                        alt="{{ product.title }}"
+                        id="{{ product.title }}">
+                      <p class="header-3">{{ product.title | replace: 'Pardo', '' }}</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 <script>
@@ -67,12 +70,12 @@
         const pImages = document.querySelectorAll('.pImage');
         // Get the magnetic scroll container
         const magneticScroll = document.querySelector('.magnetic-scroll');
-
+  
         // Add click event to chips
         chips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const target = chip.getAttribute('data-target');
-
+  
                 // Hide all tab-panes
                 tabPanes.forEach(pane => {
                     if (pane.id === target) {
@@ -87,24 +90,24 @@
                 });
                 // Remove 'active' class from all chips
                 chips.forEach(c => c.classList.remove('active'));
-
+  
                 // Add 'active' class to the clicked chip
                 chip.classList.add('active');
             });
         });
-
+  
         if (tabPanes.length > 0) {
             tabPanes[0].classList.remove('hidden');
             tabPanes[0].classList.add('flex');
             // Set the first chip as active by default
             chips[0].classList.add('active');
         }
-
+  
         // Add click event to badges
         badges.forEach((badge) => {
             badge.addEventListener('click', () => {
                 const target = badge.getAttribute('data-target');
-
+  
                 // Find the corresponding image-scroll element
                 pImages.forEach((image) => {
                     if (image.id === target) {
@@ -118,5 +121,4 @@
             });
         });
     });
-
 </script>
