@@ -60,38 +60,32 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Get all chips
+        
         const chips = document.querySelectorAll('.chips-block');
-        // Get all tab-panes
+        
         const tabPanes = document.querySelectorAll('.tab-pane');
-        // Get all badges
+        
         const badges = document.querySelectorAll('.badge-product');
-        //get all images
+        
         const pImages = document.querySelectorAll('.pImage');
-        // Get the magnetic scroll container
+       
         const magneticScroll = document.querySelector('.magnetic-scroll');
   
-        // Add click event to chips
+       
         chips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const target = chip.getAttribute('data-target');
   
-                // Hide all tab-panes
                 tabPanes.forEach(pane => {
                     if (pane.id === target) {
-                        // Show the selected tab-pane
                         pane.classList.remove('hidden');
                         pane.classList.add('flex');
                     } else {
-                        // Hide other tab-panes
                         pane.classList.add('hidden');
                         pane.classList.remove('flex');
                     }
                 });
-                // Remove 'active' class from all chips
                 chips.forEach(c => c.classList.remove('active'));
-  
-                // Add 'active' class to the clicked chip
                 chip.classList.add('active');
             });
         });
@@ -99,16 +93,15 @@
         if (tabPanes.length > 0) {
             tabPanes[0].classList.remove('hidden');
             tabPanes[0].classList.add('flex');
-            // Set the first chip as active by default
             chips[0].classList.add('active');
         }
   
-        // Add click event to badges
+        
         badges.forEach((badge) => {
             badge.addEventListener('click', () => {
                 const target = badge.getAttribute('data-target');
   
-                // Find the corresponding image-scroll element
+                
                 pImages.forEach((image) => {
                     if (image.id === target) {
                         let targetImage = image;
