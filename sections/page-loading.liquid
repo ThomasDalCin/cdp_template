@@ -1,0 +1,48 @@
+<div
+    class="loading-wrapper w-full h-dvh bg-[var(--accent-dark-color)] fixed inset-0 z-[99999] transition-all linear duration-300">
+    <div class="loading-wrapper-container w-full h-full flex items-center justify-center">
+        <div
+            class="container-loading-logo w-[102px] h-auto flex flex-col items-center justify-center gap-y-3 overflow-hidden">
+            <div class="loading-logo w-full h-auto">
+                {% render 'pardo-logo-one' %}
+            </div>
+            <div
+                class="loading-bar-container w-full h-auto flex flex-col gap-3 items-center justify-center -translate-y-28 transition-all ease-in-out duration-700">
+                <div class="loading-yatch-logo w-auto h-auto">
+                    {% render 'pardo-yatch' %}
+                </div>
+                <div class="loading-bar w-full h-[2px] rounded-sm bg-[var(--secondary-background-color)] relative">
+                    <div
+                        class="loading-progress-bar w-0 h-full bg-[var(--accent-color)] absolute left-0 top-0 transition-all ease-in duration-1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Ottieni gli elementi
+        const loadingWrap = document.querySelector('.loading-wrapper');
+        const loadingBarContainer = document.querySelector('.loading-bar-container');
+        const progressBar = document.querySelector('.loading-progress-bar');
+
+        setTimeout(() => {
+            loadingBarContainer.classList.add('translate-y-0');
+            loadingBarContainer.addEventListener('transitionend', () => {
+                progressBar.classList.add('w-full');
+
+
+                progressBar.addEventListener('transitionend', () => {
+                    setTimeout(() => {
+                        loadingWrap.classList.add('opacity-0');
+                        loadingWrap.addEventListener('transitionend', () => {
+                            loadingWrap.style.display = 'none';
+                        }, {once: true});
+                    }, 1000);
+                }, {once: true});
+            }, {once: true});
+        }, 200);
+    });
+</script>

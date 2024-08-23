@@ -1,58 +1,79 @@
-<div
-   class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out">
-   <div class="navbar-container flex items-center justify-between flex-row relative pb-2">
-      <div class="menu-yachts-label transition-colors duration-300 ease-in-out">
-         <p class="body-small chip-text">Yachts</p>
+<div class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out">
+  <div class="navbar-container flex items-center justify-between flex-row relative pb-2">
+    <div class="menu-yachts-label transition-colors duration-300 ease-in-out">
+      <p class="body-small chip-text">Yachts</p>
+    </div>
+    <div
+      class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div class="pardo-logo w-full h-full">
+        <img id="pardo-logo" class="object-contain w-full h-full"
+          src="https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625"
+          alt="pardo-logo">
       </div>
-      <div
-         class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-         <div class="pardo-logo w-full h-full">
-            <img id="pardo-logo" class="object-contain w-full h-full"
-               src="https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625"
-               alt="pardo-logo">
-         </div>
+    </div>
+    <div class="menu-icon w-auto h-auto text-white transition-colors duration-300 ease-in-out">
+      <div class="container-open-icon">
+        {% render 'menu-icon' %}
       </div>
-      <div class="menu-icon w-auto h-auto text-white transition-colors duration-300 ease-in-out">
-         {% render 'menu-icon' %}
+      <div class="container-close-icon hidden">
+        {% render 'x-icon' %}
       </div>
-   </div>
-   <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden">
-      <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
-         {% for link in linklists.yatch.links %}
-         {% assign matching_collection = collections[link.object.handle] %}
-         {% assign product_count = 0 %}
-         {% if matching_collection %}
-         {% assign product_count = matching_collection.products_count %}
-         {% endif %}
+    </div>
+  </div>
+  <!--menu containers-->
+  <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
+      {% for link in linklists.yatch.links %}
+      {% assign matching_collection = collections[link.object.handle] %}
+      {% assign product_count = 0 %}
+      {% if matching_collection %}
+      {% assign product_count = matching_collection.products_count %}
+      {% endif %}
 
-         <li class="header-1-medium text-white list-none inline-flex items-center relative">
-            <div class="relative inline-block">
-               {{ link.title | link_to: link.url }}
-               {% if matching_collection %}
-               {% if product_count.size > 0 %}
-               <span
-                  class="product-count absolute top-0 -right-2 text-white body-16 px-2 py-1 transform translate-x-1/2 -translate-y-1/2">
-                  {{ product_count }}
-               </span>
-               {% endif %}
-               {% endif %}
-            </div>
-         </li>
-         {% endfor %}
-      </div>
-   </div>
+      <li class="header-1-medium text-white list-none inline-flex items-center relative">
+        <div class="relative inline-block">
+          {{ link.title | link_to: link.url }}
+          {% if matching_collection %}
+          {% if product_count.size > 0 %}
+          <span
+            class="product-count absolute top-0 -right-2 text-white body-16 px-2 py-1 transform translate-x-1/2 -translate-y-1/2">
+            {{ product_count }}
+          </span>
+          {% endif %}
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
+      {% for link in linklists.main-menu.links %}
+      <li class="header-1-medium text-white list-none inline-flex items-center relative">
+        {{ link.title | link_to: link.url }}
+      </li>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
 </div>
-
 
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Navbar elements
     const navbar = document.querySelector('.navbar');
     const menuIcon = document.querySelector('.menu-icon');
     const menuChip = document.querySelector('.menu-yachts-label');
     const logo = document.getElementById('pardo-logo');
+    // Menu types
     const menuYatch = document.querySelector('.yatch-menu-container');
+    const mainMenu = document.querySelector('.main-menu-container');
+    // Chip label
     const chipText = document.querySelector('.chip-text');
+    // Menu icons
+    const openIcon = document.querySelector('.container-open-icon');
+    const closeIcon = document.querySelector('.container-close-icon');
 
     // Crea un elemento <style> e aggiungilo al <head>
     const styleElement = document.createElement('style');
@@ -65,20 +86,21 @@
         background-color: white;
       }
       .toAccent {
-        background-color: var(--accent-color);
+        background-color: var(--accent-dark-color);
       }
       .no-scroll {
         overflow: hidden;
       }
     `;
     document.head.appendChild(styleElement);
-
+    
     function updateNavbarStyle() {
-      const isMenuVisible = menuYatch.classList.contains('flex');
+      const isMenuYatchVisible = menuYatch.classList.contains('flex');
+      const isMenuMainVisible = mainMenu.classList.contains('flex');
       const hasScrolled = window.scrollY > 10;
 
       // Se il menu è visibile
-      if (isMenuVisible) {
+      if (isMenuYatchVisible || isMenuMainVisible) {
         navbar.classList.add('toAccent');
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
@@ -104,27 +126,55 @@
     window.addEventListener('scroll', updateNavbarStyle);
 
     menuChip.addEventListener('click', () => {
-      const isMenuHidden = menuYatch.classList.contains('hidden');
-      if (isMenuHidden) {
-        // Mostra il menu
+      // Check if the main menu is visible, if yes do nothing
+      if (mainMenu.classList.contains('flex')) return;
+
+      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+      if (isMenuYatchHidden) {
+        // Show the menu
         menuYatch.classList.remove('hidden');
         menuYatch.classList.add('flex');
         chipText.innerHTML = 'Close';
         document.body.classList.add('no-scroll');
-        updateNavbarStyle(); 
+        updateNavbarStyle();
       } else {
-        // Nascondi il menu
+        // Hide the menu
         menuYatch.classList.remove('flex');
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle(); 
+        updateNavbarStyle();
+      }
+    });
+
+    menuIcon.addEventListener('click', () => {
+      // Check if the Yatch menu is visible, if yes do nothing
+      if (menuYatch.classList.contains('flex')) return;
+
+      const isMenuMainHidden = mainMenu.classList.contains('hidden');
+      if (isMenuMainHidden) {
+        // Show the menu
+        mainMenu.classList.remove('hidden');
+        mainMenu.classList.add('flex');
+        openIcon.classList.add('hidden');
+        openIcon.classList.remove('flex');
+        closeIcon.classList.add('flex');
+        closeIcon.classList.remove('hidden');
+        document.body.classList.add('no-scroll');
+        updateNavbarStyle();
+      } else {
+        // Hide the menu
+        mainMenu.classList.remove('flex');
+        mainMenu.classList.add('hidden');
+        openIcon.classList.add('flex');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        closeIcon.classList.remove('flex');
+        document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
       }
     });
 
     updateNavbarStyle();
   });
 </script>
-
-
-
