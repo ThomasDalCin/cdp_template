@@ -48,7 +48,8 @@
       {% for product in collection.products %}
       {% assign productMainImg = product.images[0] %}
       <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
-        <li class="container-product-main-image w-full h-auto list-none">
+        <li class="container-product-main-image w-full h-auto list-none"
+          data-product-collection="{{ collection.title}}">
           <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
             alt="{{ product.title }}">
         </li>
@@ -269,20 +270,34 @@
 
     updateNavbarStyle();
 
-    //
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
+    const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
+
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
+
+        productCols.forEach((product) => {
+          product.parentElement.classList.add('hidden');
+        });
+
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
+
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
+            productCols.forEach((product) => {
+              const productCollection = product.getAttribute('data-product-collection');
+              if (chipCol.innerText.trim() === productCollection) {
+                product.parentElement.classList.remove('hidden');
+              }
+            });
           }
         });
       });
     });
+
   });
 </script>
