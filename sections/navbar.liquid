@@ -157,7 +157,7 @@
       const isMenuMainVisible = mainMenu.classList.contains('flex');
       const hasScrolled = window.scrollY > 10;
 
-      // Se il menu è visibile
+      // if the yatch menu or main menu are open
       if (isMenuYatchVisible || isMenuMainVisible) {
         navbar.classList.add('toAccent');
         navbar.classList.remove('toBlack');
@@ -165,7 +165,7 @@
         menuChip.classList.remove('toBlack');
         logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
       } else {
-        // Se il menu non è visibile
+        // If the menu is not open but is scrolled
         if (hasScrolled) {
           navbar.classList.add('toBlack');
           navbar.classList.remove('toAccent');
@@ -215,6 +215,8 @@
         updateNavbarStyle();
       }
     });
+
+    updateNavbarStyle();
 
     menuIcon.addEventListener('click', () => {
       // Check if the Yatch menu is visible, if yes do nothing
@@ -268,8 +270,8 @@
       logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
     });
 
-    updateNavbarStyle();
 
+    //handle product items displayed on second level menu
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
