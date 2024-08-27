@@ -4,42 +4,56 @@
       <div class="swiper-wrapper">
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
         {% for swiper_image in swiper_images %}
-          {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
-          {% if image_url %}
-            <div class="swiper-slide relative">
-              <img
-                src="{{ image_url }}"
-                alt="Slide {{ forloop.index }}"
-                class="swiper-img w-full h-full object-cover block">
-              <div class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10">
-                {% case forloop.index0 %}
-                  {% when 0 %}
-                    <h2 class="big-header-1 text-white">GT75</h2>
-                    <div class="hero-cta">
-                      <p>Discover it</p>
-                      {% render "cta-icon" %}
-                    </div>
-                  {% when 1 %}
-                    <h2 class="big-header-1 text-white">E60</h2>
-                    <div class="hero-cta">
-                      <p>Discover it</p>
-                      {% render "cta-icon" %}
-                    </div>
-                  {% when 2 %}
-                    <h2 class="big-header-1 text-white">Details.</h2>
-                    <div class="hero-cta">
-                      <p>Watch the full experience</p>
-                      {% render "cta-icon" %}
-                    </div>
-                {% endcase %}
-              </div>
+        {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
+        {% if image_url %}
+        <div class="swiper-slide relative">
+          <img src="{{ image_url }}" alt="Slide {{ forloop.index }}"
+            class="swiper-img w-full h-full object-cover block">
+          <div
+            class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10">
+            {% case forloop.index0 %}
+            {% when 0 %}
+            <h2 class="big-header-1 text-white">GT75</h2>
+            <div class="hero-cta">
+              <p>Discover it</p>
+              {% render "cta-icon" %}
             </div>
-          {% endif %}
+            {% when 1 %}
+            <h2 class="big-header-1 text-white">E60</h2>
+            <div class="hero-cta">
+              <p>Discover it</p>
+              {% render "cta-icon" %}
+            </div>
+            {% when 2 %}
+            <h2 class="big-header-1 text-white">Details.</h2>
+            <div class="hero-cta">
+              <p>Watch the full experience</p>
+              {% render "cta-icon" %}
+            </div>
+            {% endcase %}
+          </div>
+        </div>
+        {% endif %}
         {% endfor %}
       </div>
       <div class="container-swiper-pagination absolute left-4 top-[120px] z-10">
         <div class="swiper-pagination mb-8 flex items-center justify-start"></div>
         <h3 class="header-3" style="color: var(--secondary-text-color)">Shaped by the sea.</h3>
+        {%- comment -%}
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign dimensions = product.metafields.custom.dimensions.value %}
+        {% if dimensions %}
+        <!-- Itera attraverso i metaoggetti -->
+        {% for dimension in dimensions %}
+        <p>Beam: {{ dimension.beam | default: 'Not available' }}</p>
+        <p>Length Over All: {{ dimension.length_over_all | default: 'Not available' }}</p>
+        <p>Max Draft: {{ dimension.max_draft | default: 'Not available' }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+        {%- endcomment -%}
       </div>
     </div>
   </div>
@@ -48,13 +62,13 @@
 <!-- Initialize Swiper -->
 <script>
   var swiper = new Swiper(".mySwiper", {
-    effect: 'fade', 
+    effect: 'fade',
     fadeEffect: {
       crossFade: true
     },
     pagination: {
       el: ".swiper-pagination",
-      clickable: true 
+      clickable: true
     },
     loop: true
   });
@@ -69,25 +83,25 @@
 
 
 {% schema %}
-  {
-    "name": "hero-section",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "swiper_image_1",
-        "label": "Swiper Image 1",
-        "info": "Choose the Swiper Image"
-      }, {
-        "type": "image_picker",
-        "id": "swiper_image_2",
-        "label": "Swiper Image 2",
-        "info": "Choose the Swiper Image"
-      }, {
-        "type": "image_picker",
-        "id": "swiper_image_3",
-        "label": "Swiper Image 3",
-        "info": "Choose the Swiper Image"
-      }
-    ]
-  }
+{
+"name": "hero-section",
+"settings": [
+{
+"type": "image_picker",
+"id": "swiper_image_1",
+"label": "Swiper Image 1",
+"info": "Choose the Swiper Image"
+}, {
+"type": "image_picker",
+"id": "swiper_image_2",
+"label": "Swiper Image 2",
+"info": "Choose the Swiper Image"
+}, {
+"type": "image_picker",
+"id": "swiper_image_3",
+"label": "Swiper Image 3",
+"info": "Choose the Swiper Image"
+}
+]
+}
 {% endschema %}
