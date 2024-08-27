@@ -38,6 +38,10 @@
         {% render 'arrow-down' %}
       </div>
       {% endfor %}
+      <div class="chips-label flex items-center space-x-2">
+        <div class="chips-text text-nowrap body-14" id="collection-chips-title">View All</div>
+        {% render 'arrow-down' %}
+      </div>
     </div>
 
     <!-- Second Level Menu Items -->
@@ -78,9 +82,9 @@
         data-collection="{{ link.object.handle }}">
         <div class="relative inline-block">
           {% if allLinksTitle contains link.title %}
-          {{ link.title | link_to: 'javascript:void(0);' }} <!-- Assegna javascript:void(0); ai titoli specifici -->
+          {{ link.title | link_to: 'javascript:void(0);' }} 
           {% else %}
-          {{ link.title | link_to: link.url }} <!-- Comportamento normale per gli altri link -->
+          {{ link.title | link_to: link.url }} 
           {% endif %}
 
           {% if matching_collection %}
@@ -289,6 +293,24 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
+
+          chipCol.addEventListener('click', (e) =>{
+              const chipClicked = e.currentTarget;
+              allChipsCollection.forEach((el)=>{
+                el.parentElement.classList.remove('chips-label-active')
+              })
+              chipClicked.parentElement.classList.add('chips-label-active');
+              productCols.forEach((product)=>{
+                if(chipClicked.innerText === product.getAttribute('data-product-collection')){
+                  product.parentElement.classList.remove('hidden');
+                } else if (chipClicked.innerText === 'View All') {
+                  product.parentElement.classList.remove('hidden');
+                } else {
+                  product.parentElement.classList.add('hidden');
+                }
+              })
+            })
+          
           //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
