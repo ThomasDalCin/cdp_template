@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-
+  <!-- Secon level Menu Container -->
   <div
     class="second-level-menu-container w-full h-screen flex flex-col bg-[var(--primary-background-color)] absolute left-0 right-0 p-4 z-30 hidden">
     <!-- Back Navigation Container -->
@@ -121,18 +121,17 @@
     const menuIcon = document.querySelector('.menu-icon');
     const menuChip = document.querySelector('.menu-yachts-label');
     const logo = document.getElementById('pardo-logo');
-    const secondMenu = document.querySelector('.second-level-menu-container');
-    const navDynamicHeight = navbar.offsetHeight;
-    secondMenu.style.top = `${navDynamicHeight}px`;
     // Menu types
     const menuYatch = document.querySelector('.yatch-menu-container');
     const mainMenu = document.querySelector('.main-menu-container');
+    const secondMenu = document.querySelector('.second-level-menu-container');
+    const navDynamicHeight = navbar.offsetHeight;
+    secondMenu.style.top = `${navDynamicHeight}px`;
     // Chip label
     const chipText = document.querySelector('.chip-text');
     // Menu icons
     const openIcon = document.querySelector('.container-open-icon');
     const closeIcon = document.querySelector('.container-close-icon');
-
     // Crea un elemento <style> e aggiungilo al <head>
     const styleElement = document.createElement('style');
     styleElement.innerHTML = `
@@ -168,7 +167,6 @@
         // If the menu is not open but is scrolled
         if (hasScrolled) {
           navbar.classList.add('toBlack');
-          navbar.classList.remove('toAccent');
           menuIcon.classList.add('toBlack');
           menuChip.classList.add('toBlack');
           logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-black.png?v=1724339311';
@@ -180,7 +178,7 @@
         }
       }
     }
-
+    //handle scroll event and add style to the Navbar
     window.addEventListener('scroll', updateNavbarStyle);
 
     menuChip.addEventListener('click', () => {
@@ -189,6 +187,7 @@
 
       const isMenuYatchHidden = menuYatch.classList.contains('hidden');
       const isSecondMenuOpen = secondMenu.classList.contains('flex');
+
       if (isMenuYatchHidden) {
         // Show the menu
         menuYatch.classList.remove('hidden');
@@ -223,6 +222,7 @@
       if (menuYatch.classList.contains('flex')) return;
 
       const isMenuMainHidden = mainMenu.classList.contains('hidden');
+
       if (isMenuMainHidden) {
         // Show the menu
         mainMenu.classList.remove('hidden');
@@ -276,18 +276,20 @@
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
 
+    //set click event for each link inside the second menu
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
+        //remove number items foreach link
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-
+        //hide each product item
         productCols.forEach((product) => {
           product.parentElement.classList.add('hidden');
         });
-
+        //get foreach chips element his parent and prevent active class
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
-
+          //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
             productCols.forEach((product) => {
