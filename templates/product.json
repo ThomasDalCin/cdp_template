@@ -1,6 +1,10 @@
 {
     "sections": {
+        "product-features": {
+            "type": "product-feature",
+            "settings": {}
+        }
 
     },
-    "order": [""]
+    "order": ["product-features"]
 }

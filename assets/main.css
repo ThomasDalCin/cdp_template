@@ -484,6 +484,12 @@ body {
   line-height: var(--header-1-medium-height);
 }
 
+.body-16-medium {
+  font-weight: 500;
+  font-size: var(--body-16-medium);
+  line-height: var(--body-16-medium-height);
+}
+
 .body-16 {
   font-weight: 400;
   font-size: var(--body-16);
@@ -989,6 +995,10 @@ body {
 
 .gap-y-6 {
   row-gap: 1.5rem;
+}
+
+.gap-y-4 {
+  row-gap: 1rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
