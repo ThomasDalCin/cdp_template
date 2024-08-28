@@ -39,21 +39,6 @@
       <div class="container-swiper-pagination absolute left-4 top-[120px] z-10">
         <div class="swiper-pagination mb-8 flex items-center justify-start"></div>
         <h3 class="header-3" style="color: var(--secondary-text-color)">Shaped by the sea.</h3>
-        {%- comment -%}
-        {% for collection in collections %}
-        {% for product in collection.products %}
-        {% assign dimensions = product.metafields.custom.dimensions.value %}
-        {% if dimensions %}
-        <!-- Itera attraverso i metaoggetti -->
-        {% for dimension in dimensions %}
-        <p>Beam: {{ dimension.beam | default: 'Not available' }}</p>
-        <p>Length Over All: {{ dimension.length_over_all | default: 'Not available' }}</p>
-        <p>Max Draft: {{ dimension.max_draft | default: 'Not available' }}</p>
-        {% endfor %}
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
-        {%- endcomment -%}
       </div>
     </div>
   </div>

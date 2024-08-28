@@ -54,8 +54,8 @@
       <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
         <li class="container-product-main-image w-full h-auto list-none"
           data-product-collection="{{ collection.title}}">
-          <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
-            alt="{{ product.title }}">
+          <a href="{{ product.url }}" class="w-full h-auto"> <img class="product-main-img w-full h-auto object-contain"
+              src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}"></a>
         </li>
         <p class="header-1-medium">{{ product.title | replace: "Pardo", "" }}</p>
       </div>
@@ -82,9 +82,9 @@
         data-collection="{{ link.object.handle }}">
         <div class="relative inline-block">
           {% if allLinksTitle contains link.title %}
-          {{ link.title | link_to: 'javascript:void(0);' }} 
+          {{ link.title | link_to: 'javascript:void(0);' }}
           {% else %}
-          {{ link.title | link_to: link.url }} 
+          {{ link.title | link_to: link.url }}
           {% endif %}
 
           {% if matching_collection %}
@@ -294,23 +294,23 @@
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
 
-          chipCol.addEventListener('click', (e) =>{
-              const chipClicked = e.currentTarget;
-              allChipsCollection.forEach((el)=>{
-                el.parentElement.classList.remove('chips-label-active')
-              })
-              chipClicked.parentElement.classList.add('chips-label-active');
-              productCols.forEach((product)=>{
-                if(chipClicked.innerText === product.getAttribute('data-product-collection')){
-                  product.parentElement.classList.remove('hidden');
-                } else if (chipClicked.innerText === 'View All') {
-                  product.parentElement.classList.remove('hidden');
-                } else {
-                  product.parentElement.classList.add('hidden');
-                }
-              })
+          chipCol.addEventListener('click', (e) => {
+            const chipClicked = e.currentTarget;
+            allChipsCollection.forEach((el) => {
+              el.parentElement.classList.remove('chips-label-active')
             })
-          
+            chipClicked.parentElement.classList.add('chips-label-active');
+            productCols.forEach((product) => {
+              if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
+                product.parentElement.classList.remove('hidden');
+              } else if (chipClicked.innerText === 'View All') {
+                product.parentElement.classList.remove('hidden');
+              } else {
+                product.parentElement.classList.add('hidden');
+              }
+            })
+          })
+
           //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
