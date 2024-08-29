@@ -1,0 +1,62 @@
+<!--product description drowpdown componente -->
+<div class="dropdown-container w-full h-auto flex flex-col gap-y-10 px-4 mb-10 mt-[100px]">
+    <div class="dropdown-content w-full h-auto flex flex-col p-4 rounded-xl bg-[var(--primary-background-color)]">
+        <div class="dropdown-container-top w-full h-auto flex flex-row justify-between items-center">
+            <p class="body-16-medium">Description</p>
+            <div class="dropdown-container-icon w-auto h-auto" id="plus-icon">
+                {% render 'plus-icon' %}
+            </div>
+            <div class="dropdown-container-icon w-auto h-auto hidden" id="minus-icon">
+                {% render 'minus-icon' %}
+            </div>
+        </div>
+        <div class="dropdown-container-text transition-all duration-200 ease-linear close-dropDown">
+            <p class="body-12">{{ product.description }}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+/*component dropwdown style settings*/
+.open-dropDown {
+    height: auto;
+    overflow: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.close-dropDown {
+    height: 0;
+    overflow: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+</style>
+
+<script>
+// Get dropdown icons
+const openIcon = document.getElementById('plus-icon');
+const closeIcon = document.getElementById('minus-icon');
+const icons = [openIcon, closeIcon]
+// Get dropdown container
+const dropDownWrap = document.querySelector('.dropdown-container-text');
+
+// Function to toggle dropdown
+function toggleDropdown() {
+    if (dropDownWrap.classList.contains('close-dropDown')) {
+        dropDownWrap.classList.remove('close-dropDown');
+        dropDownWrap.classList.add('open-dropDown');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+    } else {
+        dropDownWrap.classList.remove('open-dropDown');
+        dropDownWrap.classList.add('close-dropDown');
+        closeIcon.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+    }
+}
+
+icons.forEach((icon)=>{
+    icon.addEventListener('click', toggleDropdown)
+})
+</script>

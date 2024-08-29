@@ -3,8 +3,15 @@
         "product-features": {
             "type": "product-features",
             "settings": {}
+        },
+        "product-description": {
+            "type": "product-description",
+            "settings": {}
+        },
+        "product-top-view-gallery": {
+            "type": "top-view-gallery",
+            "settings": {}
         }
-
     },
-    "order": ["product-features"]
+    "order": ["product-top-view-gallery","product-description", "product-features"]
 }
