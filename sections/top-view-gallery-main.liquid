@@ -1,200 +1,274 @@
 <!-- Top main product gallery images component -->
 <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 mt-[56px]">
 
-    <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
-        <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="external-tab">
-            <p class="body-14">External</p>
-            <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>
-        </div>
-        <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="internal-tab">
-            <p class="body-14">Internal</p>
-            <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out"></div>
-        </div>
+  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="external-tab">
+      <p class="body-14">External</p>
+      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="internal-tab">
+      <p class="body-14">Internal</p>
+      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out"></div>
+    </div>
+  </div>
+
+  {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
+  {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+
+  <div
+    class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    id="external-content"
+    data-attribute="external-gallery">
+    <div class="video-container w-full h-auto relative">
+      {% if external_gallery %}
+        {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" | 
+ split: "," %}
+        {% assign external_video = external_images[0] %}
+        {% assign productVideo = external_gallery[external_video] %}
+
+        {% if productVideo %}
+          <video
+            id="productVideo"
+            class="video w-full h-[220px] rounded-lg"
+            preload="metadata"
+            muted
+            poster="{{ productVideo | img_url: 'master' }}">
+            <source src="{{ productVideo | file_url }}" type="video/mp4">
+          </video>
+          <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
+            <svg
+              class="w-12 h-12 text-white fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        {% else %}
+          {% assign first_image = external_gallery[external_images[1]] %}
+          <img
+            src="{{ first_image | img_url: 'master' }}"
+            class="w-full h-[220px] rounded-lg object-cover"
+            alt="Fallback image">
+        {% endif %}
+      {% endif %}
     </div>
 
-    {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
-    {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+    <div class="w-full max-h-[220px] h-auto">
+      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+        {% for external_image in external_images %}
+          {% assign external_img = external_gallery[external_image] %}
+          <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+            <img
+              src="{{ external_img | img_url: 'master' }}"
+              class="w-full h-full object-cover rounded-lg"
+              alt=""
+              data-external-src="{{ external_img | img_url: 'master' }}">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden" id="external-content" data-attribute="external-gallery">
-        <div class="video-container w-full h-auto relative">
-            {% if external_gallery %}
-                {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" | split: "," %}
-                {% assign external_video = external_images[0] %}
-                {% assign productVideo = external_gallery[external_video] %}
-
-                {% if productVideo %}
-                    <video id="productVideo" class="video w-full h-[220px] rounded-lg" preload="metadata" muted poster="{{ productVideo | img_url: 'master' }}">
-                        <source src="{{ productVideo | file_url }}" type="video/mp4">
-                    </video>
-                    <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
-                        <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </div>
-                {% else %}
-                    {% assign first_image = external_gallery[external_images[1]] %}
-                    <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover" alt="Fallback image">
-                {% endif %}
-            {% endif %}
-        </div>
-
-        <div class="w-full max-h-[220px] h-auto">
-            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-                {% for external_image in external_images %}
-                    {% assign external_img = external_gallery[external_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-                        <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg" alt="" data-external-src="{{ external_img | img_url: 'master' }}">
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+  <div
+    class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    id="internal-content"
+    data-attribute="internal-gallery">
+    <div class="main-img-container w-full h-auto relative">
+      {% if internal_gallery %}
+        {% assign internal_images = "image_up_one,image_up_two,image_up_three,image_up_four,image_up_five" | split:
+ "," %}
+        {% assign first_image = internal_gallery[internal_images[0]] %}
+        <img
+          src="{{ first_image | img_url: 'master' }}"
+          class="w-full h-[220px] rounded-lg object-cover object-center"
+          alt="Fallback image">
+      {% endif %}
     </div>
 
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden" id="internal-content" data-attribute="internal-gallery">
-        <div class="main-img-container w-full h-auto relative">
-            {% if internal_gallery %}
-                {% assign internal_images = "image_up_one,image_up_two,image_up_three,image_up_four,image_up_five" | split: "," %}
-                {% assign first_image = internal_gallery[internal_images[0]] %}
-                <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center" alt="Fallback image">
-            {% endif %}
-        </div>
-
-        <div class="w-full h-auto">
-            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-                {% for internal_image in internal_images %}
-                    {% assign internal_img = internal_gallery[internal_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-                        <!-- Add the data-image-src attribute -->
-                        <img src="{{ internal_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg gallery-main-scroll-image" data-image-src="{{ internal_img | img_url: 'master' }}" alt="">
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+    <div class="w-full h-auto">
+      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+        {% for internal_image in internal_images %}
+          {% assign internal_img = internal_gallery[internal_image] %}
+            <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+              <!-- Add the data-image-src attribute -->
+            <img
+              src="{{ internal_img | img_url: 'master' }}"
+              class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+              data-image-src="{{ internal_img | img_url: 'master' }}"
+              alt="">
+          </div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
+
+
+  <div
+    class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7"
+    data-tab="{{ visible-tab }}"
+    id="tab-in-out">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="inboard-tab">
+      <p class="body-14">Inboard</p>
+      <div class="tab-in-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer" id="outboard-tab">
+      <p class="body-14">Outboard</p>
+      <div class="tab-out-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out"></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- JavaScript to handle video play/pause and main image change -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const video = document.getElementById('productVideo');
-    const playButton = document.getElementById('playButton');
-
-    if (video && playButton) {
-        playButton.style.display = 'flex';
-
-        playButton.addEventListener('click', function () {
-            if (video.paused) {
-                video.play();
-                playButton.style.display = 'none';
-            } else {
-                video.pause();
-                playButton.style.display = 'flex';
-            }
-        });
-
-        video.addEventListener('click', function () {
-            if (video.paused) {
-                video.play();
-                playButton.style.display = 'none';
-            } else {
-                video.pause();
-                playButton.style.display = 'flex';
-            }
-        });
-
-        video.addEventListener('play', function () {
-            playButton.style.display = 'none';
-        });
-
-        video.addEventListener('pause', function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        const video = document.getElementById('productVideo');
+        const playButton = document.getElementById('playButton');
+  
+        if (video && playButton) {
             playButton.style.display = 'flex';
+  
+            playButton.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                    playButton.style.display = 'none';
+                } else {
+                    video.pause();
+                    playButton.style.display = 'flex';
+                }
+            });
+  
+            video.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                    playButton.style.display = 'none';
+                } else {
+                    video.pause();
+                    playButton.style.display = 'flex';
+                }
+            });
+  
+            video.addEventListener('play', function () {
+                playButton.style.display = 'none';
+            });
+  
+            video.addEventListener('pause', function () {
+                playButton.style.display = 'flex';
+            });
+  
+            video.addEventListener('ended', function () {
+                playButton.style.display = 'flex';
+            });
+        }
+  
+        const externalTab = document.getElementById('external-tab');
+        const internalTab = document.getElementById('internal-tab');
+        const externalContent = document.getElementById('external-content');
+        const internalContent = document.getElementById('internal-content');
+        const externalRect = externalTab.querySelector('.tab-rect');
+        const internalRect = internalTab.querySelector('.tab-rect');
+  
+        function showTab(tab, content, rect) {
+            // Hide all tabs and rectangles
+            externalContent.classList.add('hidden');
+            internalContent.classList.add('hidden');
+            externalRect.classList.add('hidden');
+            internalRect.classList.add('hidden');
+  
+            // Show the selected tab content and rectangle
+            content.classList.remove('hidden');
+            rect.classList.remove('hidden');
+        }
+  
+        externalTab.addEventListener('click', function () {
+            showTab(externalTab, externalContent, externalRect);
         });
-
-        video.addEventListener('ended', function () {
-            playButton.style.display = 'flex';
+  
+        internalTab.addEventListener('click', function () {
+            showTab(internalTab, internalContent, internalRect);
         });
-    }
-
-    const externalTab = document.getElementById('external-tab');
-    const internalTab = document.getElementById('internal-tab');
-    const externalContent = document.getElementById('external-content');
-    const internalContent = document.getElementById('internal-content');
-    const externalRect = externalTab.querySelector('.tab-rect');
-    const internalRect = internalTab.querySelector('.tab-rect');
-
-    function showTab(tab, content, rect) {
-        // Hide all tabs and rectangles
-        externalContent.classList.add('hidden');
-        internalContent.classList.add('hidden');
-        externalRect.classList.add('hidden');
-        internalRect.classList.add('hidden');
-
-        // Show the selected tab content and rectangle
-        content.classList.remove('hidden');
-        rect.classList.remove('hidden');
-    }
-
-    externalTab.addEventListener('click', function () {
+  
+        // Show the external tab by default
         showTab(externalTab, externalContent, externalRect);
-    });
-
-    internalTab.addEventListener('click', function () {
-        showTab(internalTab, internalContent, internalRect);
-    });
-
-    // Show the external tab by default
-    showTab(externalTab, externalContent, externalRect);
-
-    // Functionality to change the main image in the internal tab
-    const mainImgContainer = document.querySelector('.main-img-container img');
-    
-    if (mainImgContainer) {
-        internalContent.addEventListener('click', function (event) {
-            const clickedImage = event.target;
-
-            if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
-                const newImageSrc = clickedImage.getAttribute('data-image-src');
-                
-                if (newImageSrc) {
-                    mainImgContainer.src = newImageSrc;
+  
+        // Functionality to change the main image in the internal tab
+        const mainImgContainer = document.querySelector('.main-img-container img');
+  
+        if (mainImgContainer) {
+            internalContent.addEventListener('click', function (event) {
+                const clickedImage = event.target;
+  
+                if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
+                    const newImageSrc = clickedImage.getAttribute('data-image-src');
+  
+                    if (newImageSrc) {
+                        mainImgContainer.src = newImageSrc;
+                    }
                 }
-            }
+            });
+        }
+  
+        // Functionality to change the main image in the external tab
+        const videoContainer = document.querySelector('.video');
+        const videoSettings = document.querySelector('.video-settings');
+        const parentVideo = document.querySelector('.video-container');
+        const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
+        const mainImg = document.createElement('img');
+        const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
+  
+        mainImg.setAttribute('src', '');
+        classesToAdd.forEach((className) => {
+            mainImg.classList.add(className);
         });
+  
+        allExternalImages.forEach((img, index) => {
+            img.addEventListener('click', (e) => {
+                let currentSrc = e.currentTarget.getAttribute('data-external-src');
+  
+                if (index === 0) {
+                    if (!document.body.contains(videoContainer)) {
+                        parentVideo.innerHTML = '';
+                        parentVideo.appendChild(videoContainer);
+                        parentVideo.appendChild(videoSettings);
+                    }
+                } else {
+                    if (document.body.contains(videoContainer)) {
+                        videoContainer.remove();
+                        videoSettings.remove();
+                    }
+                    parentVideo.appendChild(mainImg);
+                    mainImg.setAttribute('src', currentSrc);
+                }
+            });
+        });
+  
+   // Select the tab section by its ID
+  const inOutTab = document.getElementById('tab-in-out'); 
+  
+  if (inOutTab) { 
+    const inOutTabValue = inOutTab.getAttribute('data-tab');
+    if (inOutTabValue === "true") {
+        inOutTab.classList.add('hidden');
+    } else {
+        inOutTab.classList.remove('hidden');
     }
-    
-    // Functionality to change the main image in the external tab
-    const videoContainer = document.querySelector('.video');
-    const videoSettings = document.querySelector('.video-settings');
-    const parentVideo = document.querySelector('.video-container');
-    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
-    const mainImg = document.createElement('img');
-    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
-
-    mainImg.setAttribute('src', '');
-    classesToAdd.forEach((className) => {
-        mainImg.classList.add(className);
-    });
-
-    allExternalImages.forEach((img, index) => {
-        img.addEventListener('click', (e) => {
-            let currentSrc = e.currentTarget.getAttribute('data-external-src');
-            
-            if (index === 0) {
-                if (!document.body.contains(videoContainer)) {
-                    parentVideo.innerHTML = '';
-                    parentVideo.appendChild(videoContainer);
-                    parentVideo.appendChild(videoSettings);
-                }
-            } else {
-                if (document.body.contains(videoContainer)) {
-                    videoContainer.remove(); 
-                    videoSettings.remove();
-                }
-                parentVideo.appendChild(mainImg);
-                mainImg.setAttribute('src', currentSrc); 
-            }
-        });
-    });
-
-});
+  }
+  });
 </script>
+
+
+{% schema %}
+  {
+    "name": "top-view-settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "visible-tab",
+        "default": true,
+        "label": "Set visibility tab content"
+
+      }
+
+    ]
+  }
+{% endschema %}
