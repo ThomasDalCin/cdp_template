@@ -248,9 +248,11 @@
   if (inOutTab) { 
     const inOutTabValue = inOutTab.getAttribute('data-tab');
     if (inOutTabValue === false) {
-        inOutTab.classList.add('hidden');
-    } else {
+        inOutTab.classList.add('block');
         inOutTab.classList.remove('hidden');
+    } else {
+        inOutTab.classList.add('hidden');
+        inOutTab.classList.remove('block');
     }
   }
   });
