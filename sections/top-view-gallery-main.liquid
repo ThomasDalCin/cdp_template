@@ -316,7 +316,8 @@
       overlay.classList.remove('hidden');
       overlay.classList.add('flex');
       variantImg.setAttribute('src', src);
-      
+
+
       const mainIntImgOverlay = document.getElementById('overlay-int-variant-img');
       const mainExtImgOverlay = document.getElementById('overlay-ext-variant-img');
       const allScrollableImages = document.querySelectorAll('.magnetic-images');
@@ -330,16 +331,19 @@
             }
           });
         });
-      } 
+      }
 
       if (mainExtImgOverlay) {
 
 allScrollableImages.forEach((img) => {
   img.addEventListener('click', (e) => {
-    console.log(img)
+    const clickedImageSrc = e.currentTarget.src;
+    if (mainExtImgOverlay.src !== clickedImageSrc) {
+      mainExtImgOverlay.src = clickedImageSrc;
+    }
   });
 });
-
+}
     }
 
 
