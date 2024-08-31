@@ -187,6 +187,7 @@
 
 
 <!-- JavaScript to handle video play/pause and main image change -->
+<!-- JavaScript to handle video play/pause and main image change -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Video control setup
@@ -331,6 +332,7 @@
     const overlayInt = document.getElementById('overlay-internal');
     const overlayExt = document.getElementById('overlay-external');
 
+    // Function to handle click on dynamically created mainImg
     function handleMainImgClick() {
       const mainImgSrc = mainImg.getAttribute('src');
       if (mainImgSrc) {
@@ -387,5 +389,6 @@
         }
       });
     }
+
   });
 </script>
