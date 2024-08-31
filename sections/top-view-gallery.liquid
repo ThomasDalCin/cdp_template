@@ -135,7 +135,7 @@
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
                     <img src="{{ imageInteriorItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain overlay-main-img" alt="">
+                        class="w-full h-[565px] max-h-[600px] object-contain" alt="">
                     <div
                         class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
                         {% render 'back-arrow-icon' %}
@@ -195,7 +195,7 @@
         });
 
         const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
-        const closest = insideImgsOverlay.closest('.overlay-main-img');
+        const closest = insideImgsOverlay.closest('img');
         console.log(closest)
 
     });
