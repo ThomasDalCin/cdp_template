@@ -323,7 +323,9 @@
     allScrollableImages.forEach((img) => {
       img.addEventListener('click', (e) => {
         const clickedImageSrc = e.currentTarget.src;
-        console.log(clickedImageSrc)
+        if (mainIntImgOverlay.src !== clickedImageSrc) {
+          mainIntImgOverlay.src = clickedImageSrc;
+        }
       });
     });
   }
