@@ -236,11 +236,13 @@
     const internalRect = internalTab.querySelector('.tab-rect');
 
     function showTab(tab, content, rect) {
+      // Hide all tabs and rectangles
       externalContent.classList.add('hidden');
       internalContent.classList.add('hidden');
       externalRect.classList.add('hidden');
       internalRect.classList.add('hidden');
 
+      // Show the selected tab content and rectangle
       content.classList.remove('hidden');
       rect.classList.remove('hidden');
     }
@@ -256,6 +258,7 @@
     // Show the external tab by default
     showTab(externalTab, externalContent, externalRect);
 
+    // Functionality to change the main image in the internal tab
     const mainImgContainer = document.querySelector('.main-img-container img');
 
     if (mainImgContainer) {
@@ -272,44 +275,86 @@
       });
     }
 
-    const allExternalImages = document.querySelectorAll("img[data-external-src]");
-    const overlayExt = document.getElementById('overlay-external');
-    const overlayExtImg = document.getElementById('overlay-ext-variant-img');
-    const closeExtOverlayButton = document.getElementById('close-external-overlay');
+    // Functionality to change the main image in the external tab
+    const videoContainer = document.querySelector('.video');
+    const videoSettings = document.querySelector('.video-settings');
+    const parentVideo = document.querySelector('.video-container');
+    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
+    const mainImg = document.createElement('img');
+    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
 
-    function showOverlay(overlay, imgElement, imgSrc) {
-      overlay.classList.remove('hidden');
-      overlay.classList.add('flex');
-      imgElement.src = imgSrc;
-    }
+    mainImg.setAttribute('src', '');
+    classesToAdd.forEach((className) => {
+      mainImg.classList.add(className);
+    });
 
-    function hideOverlay(overlay, imgElement) {
-      overlay.classList.add('hidden');
-      overlay.classList.remove('flex');
-      imgElement.src = '';
-    }
+    mainImg.setAttribute('id', 'first-external-img')
 
-    allExternalImages.forEach((img) => {
+    allExternalImages.forEach((img, index) => {
       img.addEventListener('click', (e) => {
-        const imgSrc = e.currentTarget.getAttribute('data-external-src');
-        showOverlay(overlayExt, overlayExtImg, imgSrc);
+        let currentSrc = e.currentTarget.getAttribute('data-external-src');
+
+        if (index === 0) {
+          if (!document.body.contains(videoContainer)) {
+            parentVideo.innerHTML = '';
+            parentVideo.appendChild(videoContainer);
+            parentVideo.appendChild(videoSettings);
+          }
+        } else {
+          if (document.body.contains(videoContainer)) {
+            videoContainer.remove();
+            videoSettings.remove();
+          }
+          parentVideo.appendChild(mainImg);
+          mainImg.setAttribute('src', currentSrc);
+        }
       });
     });
 
-    closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt, overlayExtImg));
-
+    //handle internal overlay
     const firstInternalImg = document.getElementById('first-internal-img');
-    const overlayInt = document.getElementById('overlay-internal');
-    const overlayIntImg = document.getElementById('overlay-int-variant-img');
+    const firstExternalImg = document.getElementById('first-external-img');
+    const variantOverlayImg = document.getElementById('overlay-int-variant-img');
+    const variantOverlayExtImg = document.getElementById('overlay-ext-variant-img');
     const closeIntOverlayButton = document.getElementById('close-internal-overlay');
+    const closeExtOverlayButton = document.getElementById('close-external-overlay');
+    const overlayInt = document.getElementById('overlay-internal');
+    const overlayExt = document.getElementById('overlay-external');
 
-    if (firstInternalImg) {
-      firstInternalImg.addEventListener('click', (e) => {
-        const imgSrc = e.currentTarget.getAttribute('src');
-        showOverlay(overlayInt, overlayIntImg, imgSrc);
-      });
+    function showOverlay(overlay, src) {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      variantOverlayImg.setAttribute('src', src)
     }
 
-    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt, overlayIntImg));
+    function hideOverlay(overlay) {
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      variantOverlayImg.setAttribute('src', "");
+    }
+
+    firstInternalImg.addEventListener('click', (e) => {
+      const firstInternalImgSrc = e.currentTarget.getAttribute('src');
+      const isoverlayOpen = overlayInt.classList.contains('flex');
+      if (isoverlayOpen) {
+        hideOverlay(overlayInt);
+      } else {
+        showOverlay(overlayInt, firstInternalImgSrc);
+      }
+    });
+
+    firstExternalImg.addEventListener('click', (e) => {
+      const firstExternalImgSrc = e.currentTarget.getAttribute('src');
+      const isExternalOverlayOpen = overlayExt.classList.contains('flex');
+      if (isExternalOverlayOpen) {
+        hideOverlay(overlayExt);
+      } else {
+        showOverlay(overlayExt, firstExternalImgSrc);
+      }
+    });
+
+    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
+    closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt));
+
   });
-</script>
+</script> 
