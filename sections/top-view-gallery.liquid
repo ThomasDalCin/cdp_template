@@ -198,9 +198,10 @@
         insideImgsOverlay.forEach(img => {
             img.addEventListener('click', (e) => {
                 const imgClicked = e.currentTarget;
+                // Usa il punto per indicare che stai cercando un elemento con la classe 'main-galley-img'
                 const mainGalleryImg = imgClicked.closest('.main-galley-img');
                 if (mainGalleryImg) {
-                    console.log(mainGalleryImg);
+                    console.log('Elemento trovato:', mainGalleryImg);
                 } else {
                     console.log('Nessun elemento con la classe main-galley-img trovato');
                 }
