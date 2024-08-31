@@ -41,7 +41,7 @@
                     {% if overlayScrollImage %}
                     <div
                         class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-                        <img src="{{ overlayScrollImage | img_url: 'master'}}" class="w-full h-full object-contain"
+                        <img src="{{ overlayScrollImage | img_url: 'master'}}" class="w-full h-full object-contain overlay-up-img"
                             alt="">
                     </div>
                     {% endif %}
@@ -95,7 +95,7 @@
                     {% if overlayDownScrollImage %}
                     <div
                         class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-                        <img src="{{ overlayDownScrollImage | img_url: 'master'}}" class="w-full h-full object-contain"
+                        <img src="{{ overlayDownScrollImage | img_url: 'master'}}" class="w-full h-full object-contain overlay-galley-img"
                             alt="">
                     </div>
                     {% endif %}
@@ -150,7 +150,7 @@
                     <div
                         class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
                         <img src="{{ overlayInteriorScrollImage | img_url: 'master'}}"
-                            class="w-full h-full object-contain" alt="">
+                            class="w-full h-full object-contain  overlay-galley-img" alt="">
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -193,5 +193,9 @@
                 }
             });
         });
+
+        const insideImgsOverlay = document.querySelectorAll('overlay-galley-img');
+        console.log(insideImgsOverlay)
+
     });
 </script>
