@@ -44,7 +44,7 @@
       {% else %}
       {% assign first_image = external_gallery[external_images[1]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover"
-        alt="Fallback image" id="first-external-img">
+        alt="Fallback image">
       {% endif %}
       {% endif %}
     </div>
