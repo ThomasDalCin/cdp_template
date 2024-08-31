@@ -81,7 +81,7 @@
          {% assign external_img = external_gallery[external_image] %}
          <div
          class="container-scroll-image w-[208px] rounded-xl h-[128px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-         <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-contain rounded-xl" alt="">
+         <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-cover  rounded-xl" alt="">
        </div>
          {% endfor %}
        </div>
@@ -144,7 +144,7 @@
           {% assign internal_img = internal_gallery[internal_image] %}
           <div
           class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-          <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain rounded-xl" alt="">
+          <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-cover rounded-xl" alt="">
         </div>
           {% endfor %}
         </div>
