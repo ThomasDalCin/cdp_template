@@ -271,20 +271,33 @@
 
     //handle overlay
     const firstInternalImg = document.getElementById('first-internal-img');
-    const closeIntOverlayButton = document.getElementById('close-internal-overlay');
-    firstInternalImg.addEventListener('click', () => {
-      const overlayInternal = document.getElementById('overlay-internal');
-      const overlayIntOpen = overlayInternal.classList.contains('flex');
-      if(overlayInternal){
-        overlayInternal.classList.remove('hidden');
-        overlayInternal.classList.add('flex');
-        if(overlayIntOpen){
-          closeIntOverlayButton.addEventListener('click', () => {
-            overlayInternal.classList.remove('flex');
-            overlayInternal.classList.add('hidden');
-          })
-        }
-      }
-    })
+const closeIntOverlayButton = document.getElementById('close-internal-overlay');
+const overlayInt = document.getElementById('overlay-internal');
+
+// Funzione per mostrare l'overlay
+function showOverlay(overlay) {
+  overlay.classList.remove('hidden');
+  overlay.classList.add('flex');
+}
+
+// Funzione per nascondere l'overlay
+function hideOverlay(overlay) {
+  overlay.classList.add('hidden');
+  overlay.classList.remove('flex');
+}
+
+// Aggiungi il gestore di eventi per aprire o chiudere l'overlay quando si clicca sull'immagine
+firstInternalImg.addEventListener('click', () => {
+  const isoverlayOpen = overlayInt.classList.contains('flex');  // Controlla se l'overlay è aperto al momento del clic
+  if (isoverlayOpen) {
+    hideOverlay(overlayInt);  // Nascondi l'overlay se è già aperto
+  } else {
+    showOverlay(overlayInt);  // Mostra l'overlay se è nascosto
+  }
+});
+
+// Aggiungi il gestore di eventi per chiudere l'overlay quando si clicca sul pulsante di chiusura
+closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
+
   });
 </script>
