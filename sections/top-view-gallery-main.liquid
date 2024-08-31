@@ -81,12 +81,47 @@
           <!-- Add the data-image-src attribute -->
           <img src="{{ internal_img | img_url: 'master' }}"
             class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
-            data-image-src="{{ internal_img | img_url: 'master' }}" alt="">
+            data-image-src="{{ internal_img | img_url: 'master' }}" alt="" data-internal-overlay="overlay-internal-gallery">
         </div>
         {% endfor %}
       </div>
     </div>
-    {% endif %} <!-- Chiusura endif aggiunta qui -->
+
+      <!-- Overlay Internal -->
+      <div id="overlay-internal" class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+        <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
+            <div
+                class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
+                <img src="{{ first_image | img_url: 'master' }}"
+                    class="w-full h-[565px] max-h-[600px] object-contain" alt="">
+                <div
+                    class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-internal-overlay">
+                    {% render 'back-arrow-icon' %}
+                    <p class="body-14-medium ml-2">Back</p>
+                </div>
+            </div>
+            <div
+                class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+                <div
+                    class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+                    <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain"
+                        alt="">
+                </div>
+            </div>
+            <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
+                <div class="cta-delear">
+                    <p class="body-14-medium">Locate dealer</p>
+                    {% render 'cta-icon' %}
+                </div>
+                <div class="cta-brochure">
+                    <p class="body-14-medium">Download brochure</p>
+                    {% render 'download-icon' %}
+                </div>
+            </div>
+        </div>
+      </div>
+
+    {% endif %} 
   </div>
    
   <!--in-out tab section-->
@@ -106,6 +141,8 @@
       </div>
     </div>
   </div>
+
+ </div>
 </div>
 
 
@@ -231,5 +268,19 @@
         }
       });
     });
+
+    //handle overlay
+    const allInternalImages = document.querySelectorAll('[data-internal-overlay]');
+    allExternalImages.forEach((internalImg)=>{
+      internalImg.addEventListener('click', () => {
+        const internalOverlay = document.getElementById('overlay-internal');
+        if (internalOverlay){
+          if(internalOverlay.classList.contains('hidden')){
+           internalOverlay.classList.add('flex');
+           internalOverlay.classList.remove('hidden');
+        }
+        }
+      })
+    })
   });
 </script>
