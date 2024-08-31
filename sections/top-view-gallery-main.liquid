@@ -310,30 +310,35 @@
       img.addEventListener('click', handleExternalImageClick);
     });
 
-    // Handle internal and external overlay
     function showOverlay(overlay, src, variantImg) {
-      overlay.classList.remove('hidden');
-      overlay.classList.add('flex');
-      variantImg.setAttribute('src', src);
-      
-      const mainImgOverlay = document.querySelector('.overlay-content img');
-      const overlyInternalContent = document.querySelector('.overlay-internal-content');
+  overlay.classList.remove('hidden');
+  overlay.classList.add('flex');
+  variantImg.setAttribute('src', src);
 
-if (mainImgOverlay) {
-  overlyInternalContent.addEventListener('click', function (event) {
-    const clickedImage = event.target;
+  // Seleziona l'immagine principale nell'overlay
+  const mainImgOverlay = document.querySelector('.overlay-content img');
 
-    if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
-      const newImageSrc = clickedImage.getAttribute('src');
-      if (newImageSrc) {
-        mainImgContainer.src = newImageSrc;
-      }
-    }
-  });
+  // Assicurati che l'immagine principale esista
+  if (mainImgOverlay) {
+
+    // Seleziona tutte le immagini scrollabili nell'overlay
+    const overlayScrollableImages = document.querySelectorAll('.magnetic-images');
+
+    // Aggiungi un listener di clic a ciascuna immagine scrollabile
+    overlayScrollableImages.forEach((img) => {
+      img.addEventListener('click', (e) => {
+        const clickedImageSrc = e.currentTarget.src; // Usa src direttamente
+
+        // Aggiorna l'immagine principale solo se è diversa
+        if (mainImgOverlay.src !== clickedImageSrc) {
+          mainImgOverlay.src = clickedImageSrc;
+        }
+      });
+    });
+  }
 }
 
       
-    }
 
     function hideOverlay(overlay, variantImg) {
       overlay.classList.add('hidden');
