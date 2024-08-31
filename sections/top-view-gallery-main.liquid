@@ -187,7 +187,6 @@
 
 
 <!-- JavaScript to handle video play/pause and main image change -->
-<!-- JavaScript to handle video play/pause and main image change -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Video control setup
@@ -373,5 +372,23 @@
     if (closeExtOverlayButton) {
       closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt, variantOverlayExtImg));
     }
+
+    // Handle click on images inside the overlay
+    const overlayExtContainer = document.querySelector('#overlay-external .overlay-content'); // Adjust the selector based on your overlay structure
+
+    if (overlayExtContainer) {
+      overlayExtContainer.addEventListener('click', function (event) {
+        const clickedImage = event.target;
+
+        if (clickedImage && clickedImage.classList.contains('overlay-scroll-image')) {
+          const newImageSrc = clickedImage.getAttribute('data-image-src');
+          if (newImageSrc) {
+            mainImg.setAttribute('src', newImageSrc); // Update main image with new image
+          }
+        }
+      });
+    }
+
   });
 </script>
+
