@@ -61,42 +61,43 @@
       </div>
     </div>
 
-     <!-- Overlay External -->
-     <div id="overlay-external"
-     class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-     <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-       <div
-         class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-         <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-ext-variant-img">
-         <div
-           class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
-           id="close-external-overlay">
-           {% render 'back-arrow-icon' %}
-           <p class="body-14-medium ml-2">Back</p>
-         </div>
-       </div>
-       <div
-         class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-         {% for external_image in external_images %}
-         {% assign external_img = external_gallery[external_image] %}
-         <div
-         class="container-scroll-image w-[208px] rounded-xl h-[128px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-         <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-cover  rounded-xl" alt="">
-       </div>
-         {% endfor %}
-       </div>
-       <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
-         <div class="cta-delear">
-           <p class="body-14-medium">Locate dealer</p>
-           {% render 'cta-icon' %}
-         </div>
-         <div class="cta-brochure">
-           <p class="body-14-medium">Download brochure</p>
-           {% render 'download-icon' %}
-         </div>
-       </div>
-     </div>
-   </div>
+    <!-- Overlay External -->
+    <div id="overlay-external"
+      class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+      <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
+        <div
+          class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
+          <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-ext-variant-img">
+          <div
+            class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
+            id="close-external-overlay">
+            {% render 'back-arrow-icon' %}
+            <p class="body-14-medium ml-2">Back</p>
+          </div>
+        </div>
+        <div
+          class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+          {% for external_image in external_images %}
+          {% assign external_img = external_gallery[external_image] %}
+          <div
+            class="container-scroll-image w-[208px] rounded-xl h-[128px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+            <img src="{{ external_img | img_url: 'master'}}"
+              class="w-full h-full object-cover  rounded-xl magnetic-images" alt="">
+          </div>
+          {% endfor %}
+        </div>
+        <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
+          <div class="cta-delear">
+            <p class="body-14-medium">Locate dealer</p>
+            {% render 'cta-icon' %}
+          </div>
+          <div class="cta-brochure">
+            <p class="body-14-medium">Download brochure</p>
+            {% render 'download-icon' %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!--internal gallery section-->
@@ -143,9 +144,10 @@
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
           <div
-          class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-          <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-cover rounded-xl" alt="">
-        </div>
+            class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+            <img src="{{ internal_img | img_url: 'master'}}"
+              class="w-full h-full object-cover rounded-xl magnetic-images" alt="">
+          </div>
           {% endfor %}
         </div>
         <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
@@ -186,7 +188,6 @@
 </div>
 
 
-<!-- JavaScript to handle video play/pause and main image change -->
 <!-- JavaScript to handle video play/pause and main image change -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -274,7 +275,8 @@
       });
     }
 
-    // Handle external images and video container
+
+    // Main image change in the external tab
     const videoContainer = document.querySelector('.video');
     const videoSettings = document.querySelector('.video-settings');
     const parentVideo = document.querySelector('.video-container');
@@ -315,6 +317,24 @@
       overlay.classList.remove('hidden');
       overlay.classList.add('flex');
       variantImg.setAttribute('src', src);
+
+      const mainImgOverlay = document.querySelector('.overlay-content img');
+      const overlyInternalContent = document.querySelector('.overlay-internal-content');
+
+      if (mainImgOverlay) {
+        overlyInternalContent.addEventListener('click', function (event) {
+          const clickedImage = event.target;
+
+          if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
+            const newImageSrc = clickedImage.getAttribute('data-image-src');
+            if (newImageSrc) {
+              mainImgOverlay.src = newImageSrc;
+            }
+          }
+        });
+      }
+
+
     }
 
     function hideOverlay(overlay, variantImg) {
@@ -373,6 +393,6 @@
     if (closeExtOverlayButton) {
       closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt, variantOverlayExtImg));
     }
-    
+
   });
 </script>
