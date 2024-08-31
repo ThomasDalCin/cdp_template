@@ -270,39 +270,35 @@
       });
     });
 
-  // Seleziona gli elementi necessari
-const firstInternalImg = document.getElementById('first-internal-img');
-const variantOverlayImg = document.getElementById('overlay-int-variant-img');
-const closeIntOverlayButton = document.getElementById('close-internal-overlay');
-const overlayInt = document.getElementById('overlay-internal');
+    //handle overlay
+    const firstInternalImg = document.getElementById('first-internal-img');
+    const variantOverlayImg = document.getElementById('overlay-int-variant-img');
+    const closeIntOverlayButton = document.getElementById('close-internal-overlay');
+    const overlayInt = document.getElementById('overlay-internal');
 
-// Funzione per mostrare l'overlay
-function showOverlay(overlay, src) {
-  overlay.classList.remove('hidden');
-  overlay.classList.add('flex');
-  variantOverlayImg.setAttribute('src', src);
-}
+    function showOverlay(overlay, src) {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      variantOverlayImg.setAttribute('src', src)
+    }
 
-// Funzione per nascondere l'overlay
-function hideOverlay(overlay) {
-  overlay.classList.add('hidden');
-  overlay.classList.remove('flex');
-}
+    function hideOverlay(overlay) {
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      variantOverlayImg.setAttribute('src', "");
+    }
 
-// Aggiungi un gestore di eventi per l'immagine interna
-firstInternalImg.addEventListener('click', (e) => {
-  const firstInternalImgSrc = e.currentTarget.getAttribute('src');
-  const isoverlayOpen = overlayInt.classList.contains('flex');
-  if (isoverlayOpen) {
-    hideOverlay(overlayInt);
-  } else {
-    showOverlay(overlayInt, firstInternalImgSrc);
-  }
-});
+    firstInternalImg.addEventListener('click', (e) => {
+      const firstInternalImgSrc = e.currentTarget.getAttribute('src');
+      const isoverlayOpen = overlayInt.classList.contains('flex');
+      if (isoverlayOpen) {
+        hideOverlay(overlayInt);
+      } else {
+        showOverlay(overlayInt, firstInternalImgSrc);
+      }
+    });
 
-// Aggiungi un gestore di eventi per il pulsante di chiusura dell'overlay
-closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
-
+    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
 
   });
 </script>
