@@ -1,19 +1,17 @@
 <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 mt-[56px]">
 
-  <!-- Tab section -->
+  <!--tab section-->
   <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
       id="external-tab">
       <p class="body-14">External</p>
-      <div
-        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
       </div>
     </div>
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
       id="internal-tab">
       <p class="body-14">Internal</p>
-      <div
-        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
       </div>
     </div>
   </div>
@@ -21,7 +19,7 @@
   {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
   {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
 
-  <!-- External gallery section -->
+  <!--external gallery section-->
   <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
     id="external-content" data-attribute="external-gallery">
     <div class="video-container w-full h-auto relative">
@@ -60,41 +58,41 @@
       </div>
     </div>
 
-    <!-- Overlay External -->
-    <div id="overlay-external"
-      class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-      <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-        <div class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-          <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-ext-variant-img">
-          <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
-            id="close-external-overlay">
-            {% render 'back-arrow-icon' %}
-            <p class="body-14-medium ml-2">Back</p>
-          </div>
-        </div>
-        <div class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-          {% for external_image in external_images %}
-          {% assign external_img = external_gallery[external_image] %}
-          <div class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-            <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-contain" alt="">
-          </div>
-          {% endfor %}
-        </div>
-        <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
-          <div class="cta-delear">
-            <p class="body-14-medium">Locate dealer</p>
-            {% render 'cta-icon' %}
-          </div>
-          <div class="cta-brochure">
-            <p class="body-14-medium">Download brochure</p>
-            {% render 'download-icon' %}
-          </div>
-        </div>
-      </div>
-    </div>
+     <!-- Overlay External -->
+     <div id="overlay-external"
+     class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+     <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
+       <div class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
+         <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-ext-variant-img">
+         <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
+           id="close-external-overlay">
+           {% render 'back-arrow-icon' %}
+           <p class="body-14-medium ml-2">Back</p>
+         </div>
+       </div>
+       <div class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+         {% for external_image in external_images %}
+         {% assign external_img = external_gallery[external_image] %}
+         <div class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+         <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
+       </div>
+         {% endfor %}
+       </div>
+       <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
+         <div class="cta-delear">
+           <p class="body-14-medium">Locate dealer</p>
+           {% render 'cta-icon' %}
+         </div>
+         <div class="cta-brochure">
+           <p class="body-14-medium">Download brochure</p>
+           {% render 'download-icon' %}
+         </div>
+       </div>
+     </div>
+   </div>
   </div>
 
-  <!-- Internal gallery section -->
+  <!--internal gallery section-->
   <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
     id="internal-content" data-attribute="internal-gallery">
     <div class="main-img-container w-full h-auto relative">
@@ -135,8 +133,8 @@
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
           <div class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-            <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
-          </div>
+          <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
+        </div>
           {% endfor %}
         </div>
         <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
@@ -155,69 +153,81 @@
     {% endif %}
   </div>
 
-  <!-- In-out tab section -->
-  <div class="container-tab-in-out fixed left-1/2 bottom-[30px] w-full h-auto flex flex-row items-center justify-center p-4 gap-4 -translate-x-1/2 z-30">
-    <button class="btn-internal-gallery bg-black w-[170px] h-[48px] text-white" id="inTabButton">Internal</button>
-    <button class="btn-external-gallery bg-white w-[170px] h-[48px] text-black" id="outTabButton">External</button>
+  <!-- Fallback message for internal gallery -->
+  {% unless internal_gallery %}
+  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    id="internal-content" data-attribute="internal-gallery">
+    <div class="w-full h-auto flex items-center justify-center">
+      <p class="body-14">No internal gallery available.</p>
+    </div>
   </div>
+  {% endunless %}
 </div>
 
+<!-- JavaScript for interactivity -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const overlayInt = document.getElementById("overlay-internal");
-    const overlayExt = document.getElementById("overlay-external");
-    const variantOverlayImg = document.getElementById("overlay-int-variant-img");
-    const variantOverlayExtImg = document.getElementById("overlay-ext-variant-img");
-    const firstInternalImg = document.getElementById("first-internal-img");
-    const closeIntOverlayButton = document.getElementById("close-internal-overlay");
-    const closeExtOverlayButton = document.getElementById("close-external-overlay");
+  // Variables for video and image handling
+  const videoContainer = document.querySelector('.video-container');
+  const video = document.querySelector('video');
+  const playButton = document.getElementById('playButton');
+  const tabContent = document.querySelectorAll('.tab-content');
+  const tabRects = document.querySelectorAll('.tab-rect');
+  const tabSections = document.querySelectorAll('.container-gallery');
+  const overlayExternal = document.getElementById('overlay-external');
+  const overlayInternal = document.getElementById('overlay-internal');
+  const closeOverlayExt = document.getElementById('close-external-overlay');
+  const closeOverlayInt = document.getElementById('close-internal-overlay');
+  const imagesExternal = document.querySelectorAll('[data-external-src]');
+  const imagesInternal = document.querySelectorAll('[data-image-src]');
+  const overlayExtVariantImg = document.getElementById('overlay-ext-variant-img');
+  const overlayIntVariantImg = document.getElementById('overlay-int-variant-img');
+  const firstInternalImg = document.getElementById('first-internal-img');
 
-    function showOverlay(overlay, src, isExternal = false) {
-      overlay.classList.remove('hidden');
-      overlay.classList.add('flex');
-      if (isExternal) {
-        variantOverlayExtImg.setAttribute('src', src);  // Use variantOverlayExtImg for external images
-      } else {
-        variantOverlayImg.setAttribute('src', src);
-      }
-    }
-
-    function hideOverlay(overlay, isExternal = false) {
-      overlay.classList.add('hidden');
-      overlay.classList.remove('flex');
-      if (isExternal) {
-        variantOverlayExtImg.setAttribute('src', ""); // Clear src for external images
-      } else {
-        variantOverlayImg.setAttribute('src', "");
-      }
-    }
-
-    firstInternalImg.addEventListener('click', (e) => {
-      const firstInternalImgSrc = e.currentTarget.getAttribute('src');
-      const isOverlayOpen = overlayInt.classList.contains('flex');
-      if (isOverlayOpen) {
-        hideOverlay(overlayInt);
-      } else {
-        showOverlay(overlayInt, firstInternalImgSrc);
-      }
+  // Tab functionality
+  tabContent.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      tabRects.forEach(rect => rect.classList.add('hidden'));
+      tabRects[index].classList.remove('hidden');
+      tabSections.forEach(section => section.classList.add('hidden'));
+      tabSections[index].classList.remove('hidden');
     });
+  });
 
-    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
+  // Play video functionality
+  videoContainer.addEventListener('click', () => {
+    video.play();
+    video.setAttribute('controls', 'controls');
+    playButton.style.display = 'none';
+  });
 
-    const externalImages = document.querySelectorAll('[data-external-src]');
-
-    externalImages.forEach(img => {
-      img.addEventListener('click', (e) => {
-        const firstExternalImgSrc = e.currentTarget.getAttribute('data-external-src');
-        const isExternalOverlayOpen = overlayExt.classList.contains('flex');
-        if (isExternalOverlayOpen) {
-          hideOverlay(overlayExt, true); // Pass true for external
-        } else {
-          showOverlay(overlayExt, firstExternalImgSrc, true); // Pass true for external
-        }
-      });
+  // External overlay functionality
+  imagesExternal.forEach(image => {
+    image.addEventListener('click', () => {
+      overlayExtVariantImg.src = image.dataset.externalSrc;
+      overlayExternal.classList.remove('hidden');
     });
+  });
 
-    closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt, true));
+  closeOverlayExt.addEventListener('click', () => {
+    overlayExternal.classList.add('hidden');
+  });
+
+  // Internal overlay functionality
+  imagesInternal.forEach(image => {
+    image.addEventListener('click', () => {
+      overlayIntVariantImg.src = image.dataset.imageSrc;
+      overlayInternal.classList.remove('hidden');
+    });
+  });
+
+  closeOverlayInt.addEventListener('click', () => {
+    overlayInternal.classList.add('hidden');
+  });
+
+  // Update internal main image on scroll image click
+  imagesInternal.forEach(image => {
+    image.addEventListener('click', () => {
+      firstInternalImg.src = image.dataset.imageSrc;
+    });
   });
 </script>
