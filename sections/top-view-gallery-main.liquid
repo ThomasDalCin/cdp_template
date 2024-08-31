@@ -314,28 +314,27 @@
 
     // Handle internal and external overlay
     function showOverlay(overlay, src, variantImg) {
-      overlay.classList.remove('hidden');
-      overlay.classList.add('flex');
-      variantImg.setAttribute('src', src);
+  overlay.classList.remove('hidden');
+  overlay.classList.add('flex');
+  variantImg.setAttribute('src', src);
 
-      const mainImgOverlay = document.querySelector('.overlay-content img');
-      const overlyInternalContent = document.querySelector('.overlay-internal-content');
+  const mainImgOverlay = document.querySelector('.overlay-content img');
+  const overlyInternalContent = document.querySelector('.overlay-internal-content');
 
-      if (mainImgOverlay) {
-        overlyInternalContent.addEventListener('click', function (event) {
-          const clickedImage = event.target;
+  if (mainImgOverlay) {
+    overlyInternalContent.addEventListener('click', function (event) {
+      const clickedImage = event.target;
 
-          if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
-            const newImageSrc = clickedImage.getAttribute('data-image-src');
-            if (newImageSrc) {
-              mainImgOverlay.src = newImageSrc;
-            }
-          }
-        });
+      if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
+        const newImageSrc = clickedImage.getAttribute('data-image-src');
+        if (newImageSrc) {
+          mainImgOverlay.src = newImageSrc;
+        }
       }
+    });
+  }
+}
 
-
-    }
 
     function hideOverlay(overlay, variantImg) {
       overlay.classList.add('hidden');
