@@ -78,7 +78,6 @@
         {% for internal_image in internal_images %}
         {% assign internal_img = internal_gallery[internal_image] %}
         <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-          <!-- Add the data-image-src attribute -->
           <img src="{{ internal_img | img_url: 'master' }}"
             class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
             data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
@@ -104,10 +103,13 @@
         </div>
         <div
           class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+          {% for internal_image in internal_images %}
+          {% assign internal_img = internal_gallery[internal_image] %}
           <div
-            class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-            <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
-          </div>
+          class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+          <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
+        </div>
+          {% endfor %}
         </div>
         <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
           <div class="cta-delear">
@@ -270,7 +272,7 @@
       });
     });
 
-    //handle overlay
+    //handle internal overlay
     const firstInternalImg = document.getElementById('first-internal-img');
     const variantOverlayImg = document.getElementById('overlay-int-variant-img');
     const closeIntOverlayButton = document.getElementById('close-internal-overlay');
