@@ -271,12 +271,18 @@
 
     //handle overlay
     const firstInternalImg = document.getElementById('first-internal-img');
+    const closeIntOverlayButton = document.getElementById('close-internal-overlay');
     firstInternalImg.addEventListener('click', () => {
       const overlayInternal = document.getElementById('overlay-internal');
+      const overlayIntOpen = overlayInternal.classList.contains('flex');
       if(overlayInternal){
-        if(overlayInternal.classList.contains('hidden')){
-          overlayInternal.classList.add('flex');
-          overlayInternal.classList.remove('hidden');
+        overlayInternal.classList.remove('hidden');
+        overlayInternal.classList.add('flex');
+        if(overlayIntOpen){
+          closeIntOverlayButton.addEventListener('click', () => {
+            overlayInternal.classList.remove('flex');
+            overlayInternal.classList.add('hidden');
+          })
         }
       }
     })
