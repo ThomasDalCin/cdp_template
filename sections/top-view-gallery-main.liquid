@@ -288,28 +288,49 @@
       mainImg.classList.add(className);
     });
 
-    mainImg.setAttribute('id', 'first-external-img')
-
-    allExternalImages.forEach((img, index) => {
-      img.addEventListener('click', (e) => {
-        let currentSrc = e.currentTarget.getAttribute('data-external-src');
-
-        if (index === 0) {
-          if (!document.body.contains(videoContainer)) {
-            parentVideo.innerHTML = '';
-            parentVideo.appendChild(videoContainer);
-            parentVideo.appendChild(videoSettings);
-          }
+        // Function to handle the click event on dynamically set first external image
+        function handleFirstExternalImgClick(e) {
+        const firstExternalImgSrc = e.currentTarget.getAttribute('src');
+        const isExternalOverlayOpen = overlayExt.classList.contains('flex');
+        if (isExternalOverlayOpen) {
+            hideOverlay(overlayExt);
         } else {
-          if (document.body.contains(videoContainer)) {
-            videoContainer.remove();
-            videoSettings.remove();
-          }
-          parentVideo.appendChild(mainImg);
-          mainImg.setAttribute('src', currentSrc);
+            showOverlay(overlayExt, firstExternalImgSrc);
         }
-      });
+    }
+
+
+
+
+       // Functionality to change the main image in the external tab
+       allExternalImages.forEach((img, index) => {
+        img.addEventListener('click', (e) => {
+            let currentSrc = e.currentTarget.getAttribute('data-external-src');
+
+            if (index === 0) {
+                if (!document.body.contains(videoContainer)) {
+                    parentVideo.innerHTML = '';
+                    parentVideo.appendChild(videoContainer);
+                    parentVideo.appendChild(videoSettings);
+                }
+            } else {
+                if (document.body.contains(videoContainer)) {
+                    videoContainer.remove();
+                    videoSettings.remove();
+                }
+                parentVideo.appendChild(mainImg);
+                mainImg.setAttribute('src', currentSrc);
+                mainImg.setAttribute('id', 'first-external-img');
+                
+                // Update the reference to the newly created first external image
+                const newFirstExternalImg = document.getElementById('first-external-img');
+                
+                // Assign the event listener to the new first external image
+                newFirstExternalImg.addEventListener('click', handleFirstExternalImgClick);
+            }
+        });
     });
+
 
     //handle internal overlay
     const firstInternalImg = document.getElementById('first-internal-img');
@@ -343,15 +364,6 @@
       }
     });
 
-    firstExternalImg.addEventListener('click', (e) => {
-      const firstExternalImgSrc = e.currentTarget.getAttribute('src');
-      const isExternalOverlayOpen = overlayExt.classList.contains('flex');
-      if (isExternalOverlayOpen) {
-        hideOverlay(overlayExt);
-      } else {
-        showOverlay(overlayExt, firstExternalImgSrc);
-      }
-    });
 
     closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
     closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt));
