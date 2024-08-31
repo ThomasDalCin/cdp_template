@@ -78,7 +78,7 @@
        <div
          class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
          {% for external_image in external_images %}
-         {% assign external_img = external_gallery[internal_image] %}
+         {% assign external_img = external_gallery[external_image] %}
          <div
          class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
          <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
