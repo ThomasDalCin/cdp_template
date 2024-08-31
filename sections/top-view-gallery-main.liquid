@@ -187,6 +187,7 @@
 
 
 <!-- JavaScript to handle video play/pause and main image change -->
+<!-- JavaScript to handle video play/pause and main image change -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Video control setup
@@ -344,7 +345,7 @@
     if (firstInternalImg) {
       firstInternalImg.addEventListener('click', (e) => {
         const firstInternalImgSrc = e.currentTarget.getAttribute('src');
-        const isOverlayOpen = overlayInt.classList.contains('flex'); 
+        const isOverlayOpen = overlayInt.classList.contains('flex');
         if (isOverlayOpen) {
           hideOverlay(overlayInt, variantOverlayImg);
         } else {
@@ -391,4 +392,3 @@
 
   });
 </script>
-
