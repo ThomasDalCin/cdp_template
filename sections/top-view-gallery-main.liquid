@@ -259,7 +259,7 @@
 
     showTab(externalTab, externalContent, externalRect);
 
-    // Main image change in the internal tab
+    //Main image change in the internal tab
     const mainImgContainer = document.querySelector('.main-img-container img');
 
     if (mainImgContainer) {
@@ -276,7 +276,7 @@
     }
 
 
-    // Main image change in the external tab
+    //Main image change in the external tab
     const videoContainer = document.querySelector('.video');
     const videoSettings = document.querySelector('.video-settings');
     const parentVideo = document.querySelector('.video-container');
@@ -311,7 +311,8 @@
     allExternalImages.forEach((img) => {
       img.addEventListener('click', handleExternalImageClick);
     });
-
+    
+    //settings overlay
     function showOverlay(overlay, src, variantImg) {
       overlay.classList.remove('hidden');
       overlay.classList.add('flex');
@@ -322,7 +323,6 @@
       const mainExtImgOverlay = document.getElementById('overlay-ext-variant-img');
       const allScrollableImages = document.querySelectorAll('.magnetic-images');
       if (mainIntImgOverlay) {
-        // Aggiungi un listener di clic a ciascuna immagine scrollabile
         allScrollableImages.forEach((img) => {
           img.addEventListener('click', (e) => {
             const clickedImageSrc = e.currentTarget.src;
@@ -335,18 +335,17 @@
 
       if (mainExtImgOverlay) {
 
-allScrollableImages.forEach((img) => {
-  img.addEventListener('click', (e) => {
-    const clickedImageSrc = e.currentTarget.src;
-    if (mainExtImgOverlay.src !== clickedImageSrc) {
-      mainExtImgOverlay.src = clickedImageSrc;
+        allScrollableImages.forEach((img) => {
+          img.addEventListener('click', (e) => {
+            const clickedImageSrc = e.currentTarget.src;
+            if (mainExtImgOverlay.src !== clickedImageSrc) {
+              mainExtImgOverlay.src = clickedImageSrc;
+            }
+          });
+        });
+      }
     }
-  });
-});
-}
-    }
-
-
+    
     function hideOverlay(overlay, variantImg) {
       overlay.classList.add('hidden');
       overlay.classList.remove('flex');
@@ -362,7 +361,7 @@ allScrollableImages.forEach((img) => {
     const overlayInt = document.getElementById('overlay-internal');
     const overlayExt = document.getElementById('overlay-external');
 
-    // Function to handle click on dynamically created mainImg
+    
     function handleMainImgClick() {
       const mainImgSrc = mainImg.getAttribute('src');
       if (mainImgSrc) {
