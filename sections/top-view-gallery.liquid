@@ -196,8 +196,13 @@
 
         const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
         insideImgsOverlay.forEach((img) => {
-            const mainOverlayImg = img.closest('main-galley-img');
-            console.log(mainOverlayImg)
+            img.addEventListener('click', () => {
+                const mainGalleryImg = this.closest('.main-galley-img');
+                if(mainGalleryImg){
+                    console.log(mainGalleryImg)
+                }
+            })
+
         })
 
     });
