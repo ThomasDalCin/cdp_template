@@ -318,8 +318,15 @@
 
   const mainIntImgOverlay = document.getElementById('overlay-int-variant-img');
   const allScrollableImages = document.querySelectorAll('.magnetic-images');
-  console.log(allScrollableImages)
-  console.log(mainIntImgOverlay.src);
+  if (mainIntImgOverlay) {
+    // Aggiungi un listener di clic a ciascuna immagine scrollabile
+    allScrollableImages.forEach((img) => {
+      img.addEventListener('click', (e) => {
+        const clickedImageSrc = e.currentTarget.src;
+        console.log(clickedImageSrc)
+      });
+    });
+  }
   
 
 }
