@@ -310,56 +310,49 @@
     });
 
     //handle internal overlay
-    // Cache elements
-const firstInternalImg = document.getElementById('first-internal-img');
-const firstExternalImg = document.getElementById('first-external-img');
-const variantOverlayImg = document.getElementById('overlay-int-variant-img');
-const variantOverlayExtImg = document.getElementById('overlay-ext-variant-img');
-const closeIntOverlayButton = document.getElementById('close-internal-overlay');
-const closeExtOverlayButton = document.getElementById('close-external-overlay');
-const overlayInt = document.getElementById('overlay-internal');
-const overlayExt = document.getElementById('overlay-external');
+    const firstInternalImg = document.getElementById('first-internal-img');
+    const firstExternalImg = document.getElementById('first-external-img');
+    const variantOverlayImg = document.getElementById('overlay-int-variant-img');
+    const variantOverlayExtImg = document.getElementById('overlay-ext-variant-img');
+    const closeIntOverlayButton = document.getElementById('close-internal-overlay');
+    const closeExtOverlayButton = document.getElementById('close-external-overlay');
+    const overlayInt = document.getElementById('overlay-internal');
+    const overlayExt = document.getElementById('overlay-external');
 
-// Show the overlay with the image source
-function showOverlay(overlay, overlayImgElement, src) {
-    overlay.classList.remove('hidden');
-    overlay.classList.add('flex');
-    overlayImgElement.setAttribute('src', src);
-}
-
-// Hide the overlay
-function hideOverlay(overlay, overlayImgElement) {
-    overlay.classList.add('hidden');
-    overlay.classList.remove('flex');
-    overlayImgElement.setAttribute('src', "");
-}
-
-// Toggle the internal image overlay
-firstInternalImg.addEventListener('click', (e) => {
-    const firstInternalImgSrc = e.currentTarget.getAttribute('src');
-    const isOverlayOpen = overlayInt.classList.contains('flex');
-    if (isOverlayOpen) {
-        hideOverlay(overlayInt, variantOverlayImg);
-    } else {
-        showOverlay(overlayInt, variantOverlayImg, firstInternalImgSrc);
+    function showOverlay(overlay, src) {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      variantOverlayImg.setAttribute('src', src)
     }
-});
 
-// Toggle the external image overlay
-firstExternalImg.addEventListener('click', (e) => {
-    const firstExternalImgSrc = e.currentTarget.getAttribute('src');
-    const isExternalOverlayOpen = overlayExt.classList.contains('flex');
-    if (isExternalOverlayOpen) {
-        hideOverlay(overlayExt, variantOverlayExtImg);
-    } else {
-        showOverlay(overlayExt, variantOverlayExtImg, firstExternalImgSrc);
+    function hideOverlay(overlay) {
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      variantOverlayImg.setAttribute('src', "");
     }
-});
 
-// Close overlay buttons
-closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt, variantOverlayImg));
-closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt, variantOverlayExtImg));
+    firstInternalImg.addEventListener('click', (e) => {
+      const firstInternalImgSrc = e.currentTarget.getAttribute('src');
+      const isoverlayOpen = overlayInt.classList.contains('flex');
+      if (isoverlayOpen) {
+        hideOverlay(overlayInt);
+      } else {
+        showOverlay(overlayInt, firstInternalImgSrc);
+      }
+    });
 
+    firstExternalImg.addEventListener('click', (e) => {
+      const firstExternalImgSrc = e.currentTarget.getAttribute('src');
+      const isExternalOverlayOpen = overlayExt.classList.contains('flex');
+      if (isExternalOverlayOpen) {
+        hideOverlay(overlayExt);
+      } else {
+        showOverlay(overlayExt, firstExternalImgSrc);
+      }
+    });
+
+    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
+    closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt));
 
   });
 </script> 
