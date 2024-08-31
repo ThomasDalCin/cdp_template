@@ -5,13 +5,15 @@
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
       id="external-tab">
       <p class="body-14">External</p>
-      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+      <div
+        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
       </div>
     </div>
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
       id="internal-tab">
       <p class="body-14">Internal</p>
-      <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+      <div
+        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
       </div>
     </div>
   </div>
@@ -24,7 +26,8 @@
     id="external-content" data-attribute="external-gallery">
     <div class="video-container w-full h-auto relative">
       {% if external_gallery %}
-      {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" | split: "," %}
+      {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" |
+      split: "," %}
       {% assign external_video = external_images[0] %}
       {% assign productVideo = external_gallery[external_video] %}
 
@@ -62,18 +65,22 @@
      <div id="overlay-external"
      class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
      <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-       <div class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
+       <div
+         class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
          <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-ext-variant-img">
-         <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
+         <div
+           class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
            id="close-external-overlay">
            {% render 'back-arrow-icon' %}
            <p class="body-14-medium ml-2">Back</p>
          </div>
        </div>
-       <div class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+       <div
+         class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
          {% for external_image in external_images %}
-         {% assign external_img = external_gallery[external_image] %}
-         <div class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+         {% assign external_img = external_gallery[internal_image] %}
+         <div
+         class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
          <img src="{{ external_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
        </div>
          {% endfor %}
@@ -121,18 +128,22 @@
     <div id="overlay-internal"
       class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
       <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-        <div class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
+        <div
+          class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
           <img class="w-full h-[565px] max-h-[600px] object-contain" alt="" id="overlay-int-variant-img">
-          <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
+          <div
+            class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
             id="close-internal-overlay">
             {% render 'back-arrow-icon' %}
             <p class="body-14-medium ml-2">Back</p>
           </div>
         </div>
-        <div class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+        <div
+          class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
-          <div class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+          <div
+          class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
           <img src="{{ internal_img | img_url: 'master'}}" class="w-full h-full object-contain" alt="">
         </div>
           {% endfor %}
@@ -153,81 +164,209 @@
     {% endif %}
   </div>
 
-  <!-- Fallback message for internal gallery -->
-  {% unless internal_gallery %}
-  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
-    id="internal-content" data-attribute="internal-gallery">
-    <div class="w-full h-auto flex items-center justify-center">
-      <p class="body-14">No internal gallery available.</p>
+  <!--in-out tab section-->
+  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7" id="tab-in-out">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+      id="inboard-tab">
+      <p class="body-14">Inboard</p>
+      <div
+        class="tab-in-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+      </div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+      id="outboard-tab">
+      <p class="body-14">Outboard</p>
+      <div
+        class="tab-out-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+      </div>
     </div>
   </div>
-  {% endunless %}
+
+</div>
 </div>
 
-<!-- JavaScript for interactivity -->
+
+<!-- JavaScript to handle video play/pause and main image change -->
 <script>
-  // Variables for video and image handling
-  const videoContainer = document.querySelector('.video-container');
-  const video = document.querySelector('video');
-  const playButton = document.getElementById('playButton');
-  const tabContent = document.querySelectorAll('.tab-content');
-  const tabRects = document.querySelectorAll('.tab-rect');
-  const tabSections = document.querySelectorAll('.container-gallery');
-  const overlayExternal = document.getElementById('overlay-external');
-  const overlayInternal = document.getElementById('overlay-internal');
-  const closeOverlayExt = document.getElementById('close-external-overlay');
-  const closeOverlayInt = document.getElementById('close-internal-overlay');
-  const imagesExternal = document.querySelectorAll('[data-external-src]');
-  const imagesInternal = document.querySelectorAll('[data-image-src]');
-  const overlayExtVariantImg = document.getElementById('overlay-ext-variant-img');
-  const overlayIntVariantImg = document.getElementById('overlay-int-variant-img');
-  const firstInternalImg = document.getElementById('first-internal-img');
+  document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('productVideo');
+    const playButton = document.getElementById('playButton');
 
-  // Tab functionality
-  tabContent.forEach((tab, index) => {
-    tab.addEventListener('click', () => {
-      tabRects.forEach(rect => rect.classList.add('hidden'));
-      tabRects[index].classList.remove('hidden');
-      tabSections.forEach(section => section.classList.add('hidden'));
-      tabSections[index].classList.remove('hidden');
+    if (video && playButton) {
+      playButton.style.display = 'flex';
+
+      playButton.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      video.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      video.addEventListener('play', function () {
+        playButton.style.display = 'none';
+      });
+
+      video.addEventListener('pause', function () {
+        playButton.style.display = 'flex';
+      });
+
+      video.addEventListener('ended', function () {
+        playButton.style.display = 'flex';
+      });
+    }
+
+    const externalTab = document.getElementById('external-tab');
+    const internalTab = document.getElementById('internal-tab');
+    const externalContent = document.getElementById('external-content');
+    const internalContent = document.getElementById('internal-content');
+    const externalRect = externalTab.querySelector('.tab-rect');
+    const internalRect = internalTab.querySelector('.tab-rect');
+
+    function showTab(tab, content, rect) {
+      // Hide all tabs and rectangles
+      externalContent.classList.add('hidden');
+      internalContent.classList.add('hidden');
+      externalRect.classList.add('hidden');
+      internalRect.classList.add('hidden');
+
+      // Show the selected tab content and rectangle
+      content.classList.remove('hidden');
+      rect.classList.remove('hidden');
+    }
+
+    externalTab.addEventListener('click', function () {
+      showTab(externalTab, externalContent, externalRect);
     });
-  });
 
-  // Play video functionality
-  videoContainer.addEventListener('click', () => {
-    video.play();
-    video.setAttribute('controls', 'controls');
-    playButton.style.display = 'none';
-  });
-
-  // External overlay functionality
-  imagesExternal.forEach(image => {
-    image.addEventListener('click', () => {
-      overlayExtVariantImg.src = image.dataset.externalSrc;
-      overlayExternal.classList.remove('hidden');
+    internalTab.addEventListener('click', function () {
+      showTab(internalTab, internalContent, internalRect);
     });
-  });
 
-  closeOverlayExt.addEventListener('click', () => {
-    overlayExternal.classList.add('hidden');
-  });
+    // Show the external tab by default
+    showTab(externalTab, externalContent, externalRect);
 
-  // Internal overlay functionality
-  imagesInternal.forEach(image => {
-    image.addEventListener('click', () => {
-      overlayIntVariantImg.src = image.dataset.imageSrc;
-      overlayInternal.classList.remove('hidden');
+    // Functionality to change the main image in the internal tab
+    const mainImgContainer = document.querySelector('.main-img-container img');
+
+    if (mainImgContainer) {
+      internalContent.addEventListener('click', function (event) {
+        const clickedImage = event.target;
+
+        if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
+          const newImageSrc = clickedImage.getAttribute('data-image-src');
+
+          if (newImageSrc) {
+            mainImgContainer.src = newImageSrc;
+          }
+        }
+      });
+    }
+
+    // Functionality to change the main image in the external tab
+    const videoContainer = document.querySelector('.video');
+    const videoSettings = document.querySelector('.video-settings');
+    const parentVideo = document.querySelector('.video-container');
+    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
+    const mainImg = document.createElement('img');
+    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
+
+    mainImg.setAttribute('src', '');
+    classesToAdd.forEach((className) => {
+      mainImg.classList.add(className);
     });
-  });
 
-  closeOverlayInt.addEventListener('click', () => {
-    overlayInternal.classList.add('hidden');
-  });
+        // Function to handle the click event on dynamically set first external image
+        function handleFirstExternalImgClick(e) {
+        const firstExternalImgSrc = e.currentTarget.getAttribute('src');
+        const isExternalOverlayOpen = overlayExt.classList.contains('flex');
+        if (isExternalOverlayOpen) {
+            hideOverlay(overlayExt);
+        } else {
+            showOverlay(overlayExt, firstExternalImgSrc);
+        }
+    }
 
-  // Update internal main image on scroll image click
-  imagesInternal.forEach(image => {
-    image.addEventListener('click', () => {
-      firstInternalImg.src = image.dataset.imageSrc;
+
+
+
+       // Functionality to change the main image in the external tab
+       allExternalImages.forEach((img, index) => {
+        img.addEventListener('click', (e) => {
+            let currentSrc = e.currentTarget.getAttribute('data-external-src');
+
+            if (index === 0) {
+                if (!document.body.contains(videoContainer)) {
+                    parentVideo.innerHTML = '';
+                    parentVideo.appendChild(videoContainer);
+                    parentVideo.appendChild(videoSettings);
+                }
+            } else {
+                if (document.body.contains(videoContainer)) {
+                    videoContainer.remove();
+                    videoSettings.remove();
+                }
+                parentVideo.appendChild(mainImg);
+                mainImg.setAttribute('src', currentSrc);
+                mainImg.setAttribute('id', 'first-external-img');
+                
+                // Update the reference to the newly created first external image
+                const newFirstExternalImg = document.getElementById('first-external-img');
+                
+                // Assign the event listener to the new first external image
+                newFirstExternalImg.addEventListener('click', handleFirstExternalImgClick);
+            }
+        });
     });
+
+
+    //handle internal overlay
+    const firstInternalImg = document.getElementById('first-internal-img');
+    const firstExternalImg = document.getElementById('first-external-img');
+    const variantOverlayImg = document.getElementById('overlay-int-variant-img');
+    const variantOverlayExtImg = document.getElementById('overlay-ext-variant-img');
+    const closeIntOverlayButton = document.getElementById('close-internal-overlay');
+    const closeExtOverlayButton = document.getElementById('close-external-overlay');
+    const overlayInt = document.getElementById('overlay-internal');
+    const overlayExt = document.getElementById('overlay-external');
+
+    function showOverlay(overlay, src) {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      variantOverlayImg.setAttribute('src', src)
+    }
+
+    function hideOverlay(overlay) {
+      overlay.classList.add('hidden');
+      overlay.classList.remove('flex');
+      variantOverlayImg.setAttribute('src', "");
+    }
+
+    firstInternalImg.addEventListener('click', (e) => {
+      const firstInternalImgSrc = e.currentTarget.getAttribute('src');
+      const isoverlayOpen = overlayInt.classList.contains('flex');
+      if (isoverlayOpen) {
+        hideOverlay(overlayInt);
+      } else {
+        showOverlay(overlayInt, firstInternalImgSrc);
+      }
+    });
+
+
+    closeIntOverlayButton.addEventListener('click', () => hideOverlay(overlayInt));
+    closeExtOverlayButton.addEventListener('click', () => hideOverlay(overlayExt));
+
   });
-</script>
+</script> 
