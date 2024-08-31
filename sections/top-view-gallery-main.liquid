@@ -70,7 +70,7 @@
       {% assign internal_images = "image_up_one,image_up_two,image_up_three,image_up_four,image_up_five" | split: "," %}
       {% assign first_image = internal_gallery[internal_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image">
+        alt="Fallback image" id="first-internal-img">
     </div>
 
     <div class="w-full h-auto">
@@ -270,17 +270,15 @@
     });
 
     //handle overlay
-    const allInternalImages = document.querySelectorAll('[data-internal-overlay]');
-    allExternalImages.forEach((internalImg)=>{
-      internalImg.addEventListener('click', () => {
-        const internalOverlay = document.getElementById('overlay-internal');
-        if (internalOverlay){
-          if(internalOverlay.classList.contains('hidden')){
-           internalOverlay.classList.add('flex');
-           internalOverlay.classList.remove('hidden');
+    const firstInternalImg = document.getElementById('first-internal-img');
+    firstInternalImg.addEventListener('click', () => {
+      const overlayInternal = document.getElementById('overlay-internal');
+      if(overlayInternal){
+        if(overlayInternal.classList.contains('hidden')){
+          overlayInternal.classList.add('flex');
+          overlayInternal.classList.remove('hidden');
         }
-        }
-      })
+      }
     })
   });
 </script>
