@@ -288,6 +288,8 @@
       mainImg.classList.add(className);
     });
 
+    mainImg.setAttribute('id', 'first-external-img')
+
     allExternalImages.forEach((img, index) => {
       img.addEventListener('click', (e) => {
         let currentSrc = e.currentTarget.getAttribute('data-external-src');
