@@ -318,20 +318,22 @@
   overlay.classList.add('flex');
   variantImg.setAttribute('src', src);
 
-  const mainImgOverlay = document.querySelector('.overlay-content img');
-  const overlyInternalContent = document.querySelector('.overlay-internal-content');
+  // Rimuovi tutti i listener esistenti prima di aggiungerne di nuovi
+  const overlyInternalContent = overlay.querySelector('.overlay-internal-content');
+  if (overlyInternalContent) {
+    overlyInternalContent.removeEventListener('click', handleImageClick);
+    overlyInternalContent.addEventListener('click', handleImageClick);
+  }
 
-  if (mainImgOverlay) {
-    overlyInternalContent.addEventListener('click', function (event) {
-      const clickedImage = event.target;
+  function handleImageClick(event) {
+    const clickedImage = event.target;
 
-      if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
-        const newImageSrc = clickedImage.getAttribute('data-image-src');
-        if (newImageSrc) {
-          mainImgOverlay.src = newImageSrc;
-        }
+    if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
+      const newImageSrc = clickedImage.getAttribute('data-image-src');
+      if (newImageSrc) {
+        variantImg.src = newImageSrc;
       }
-    });
+    }
   }
 }
 
