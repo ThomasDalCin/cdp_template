@@ -172,48 +172,53 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const galleryImages = document.querySelectorAll('[data-overlay]');
+    const galleryImages = document.querySelectorAll('[data-overlay]');
 
-        galleryImages.forEach(image => {
-            image.addEventListener('click', function () {
-                const overlayId = this.getAttribute('data-overlay');
-                const overlay = document.getElementById(overlayId);
-                if (overlay) {
-                    overlay.classList.remove('hidden');
-                }
-            });
+    galleryImages.forEach(image => {
+        image.addEventListener('click', function () {
+            const overlayId = this.getAttribute('data-overlay');
+            const overlay = document.getElementById(overlayId);
+            if (overlay) {
+                overlay.classList.remove('hidden');
+            }
         });
+    });
 
-        const closeButtons = document.querySelectorAll('.close-overlay');
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const overlay = this.closest('.overlay');
-                if (overlay) {
-                    overlay.classList.add('hidden');
-                }
-            });
+    const closeButtons = document.querySelectorAll('.close-overlay');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const overlay = this.closest('.overlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+            }
         });
+    });
 
-    
-        const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
-        insideImgsOverlay.forEach(img => {
-            img.addEventListener('click', (e) => {
-                const imgClicked = e.currentTarget;
-                // Trova il div più vicino con la classe 'overlay-main-img-content'
-                const mainGalleryDiv = imgClicked.closest('.overlay-main-img-content');
+    // Aggiunto il click handler per l'immagine dentro l'overlay
+    const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
+    insideImgsOverlay.forEach(img => {
+        img.addEventListener('click', (e) => {
+            const imgClicked = e.currentTarget;
+
+            // Trova il div 'overlay-main-img-content' più vicino
+            let mainGalleryDiv = imgClicked.closest('.overlay-content');
+            if (mainGalleryDiv) {
+                mainGalleryDiv = mainGalleryDiv.querySelector('.overlay-main-img-content');
                 if (mainGalleryDiv) {
-                    // Ora accedi all'immagine all'interno di quel div
-                    const mainGalleryImg = mainGalleryDiv.querySelector('img');
+                    const mainGalleryImg = mainGalleryDiv.querySelector('img.main-galley-img');
                     if (mainGalleryImg) {
-                        console.log('Immagine principale:', mainGalleryImg);
+                        console.log('Immagine principale:', mainGalleryImg.src);
                     } else {
-                        console.log('Nessuna immagine trovata all\'interno del div');
+                        console.log('Nessuna immagine principale trovata all\'interno del div');
                     }
                 } else {
                     console.log('Nessun div con la classe overlay-main-img-content trovato');
                 }
-            });
+            } else {
+                console.log('Nessun div con la classe overlay-content trovato');
+            }
         });
-
     });
+});
+
 </script>
