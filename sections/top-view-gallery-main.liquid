@@ -324,7 +324,7 @@ if (mainImgOverlay) {
     const clickedImage = event.target;
 
     if (clickedImage && clickedImage.classList.contains('magnetic-images')) {
-      const newImageSrc = clickedImage.getAttribute('data-image-src');
+      const newImageSrc = clickedImage.getAttribute('src');
       if (newImageSrc) {
         mainImgContainer.src = newImageSrc;
       }
