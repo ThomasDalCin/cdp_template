@@ -198,7 +198,7 @@
         insideImgsOverlay.forEach(img => {
             img.addEventListener('click', (e) => {
                 const imgClicked = e.currentTarget;
-                const mainGalleryImg = imgClicked.closest('main-galley-img');
+                const mainGalleryImg = imgClicked.closest('.main-galley-img');
                 if (mainGalleryImg) {
                     console.log(mainGalleryImg);
                 } else {
