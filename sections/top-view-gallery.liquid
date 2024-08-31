@@ -194,6 +194,12 @@
         });
     });
 
+    function setMainOverlayImg(mainImg, mainSrc, clickedSrc){
+        if(mainSrc != clickedSrc){
+            mainImg.setAttribute('src', clickedSrc)
+        }
+    }
+
     // Aggiunto il click handler per l'immagine dentro l'overlay
     const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
     insideImgsOverlay.forEach(img => {
@@ -207,7 +213,10 @@
                 if (mainGalleryDiv) {
                     const mainGalleryImg = mainGalleryDiv.querySelector('img.main-galley-img');
                     if (mainGalleryImg) {
+                        const mainSrc = mainGalleryImg.getAttribute('src');
+                        const clickedSrc = imgClicked.getAttribute('src');
                         console.log(mainGalleryImg);
+                        setMainOverlayImg(mainGalleryImg, mainSrc, clickedSrc);
                     } 
                 } 
             }
