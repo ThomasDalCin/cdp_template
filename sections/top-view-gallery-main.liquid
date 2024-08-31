@@ -315,27 +315,10 @@
   overlay.classList.add('flex');
   variantImg.setAttribute('src', src);
 
-  // Seleziona l'immagine principale nell'overlay
+
   const mainImgOverlay = document.querySelector('.overlay-content img');
+  console.log(mainImgOverlay)
 
-  // Assicurati che l'immagine principale esista
-  if (mainImgOverlay) {
-
-    // Seleziona tutte le immagini scrollabili nell'overlay
-    const overlayScrollableImages = document.querySelectorAll('.magnetic-images');
-
-    // Aggiungi un listener di clic a ciascuna immagine scrollabile
-    overlayScrollableImages.forEach((img) => {
-      img.addEventListener('click', (e) => {
-        const clickedImageSrc = e.currentTarget.src; // Usa src direttamente
-
-        // Aggiorna l'immagine principale solo se è diversa
-        if (mainImgOverlay.src !== clickedImageSrc) {
-          mainImgOverlay.src = clickedImageSrc;
-        }
-      });
-    });
-  }
 }
 
       
