@@ -194,16 +194,23 @@
             });
         });
 
+    
         const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
         insideImgsOverlay.forEach(img => {
             img.addEventListener('click', (e) => {
                 const imgClicked = e.currentTarget;
-                // Usa il punto per indicare che stai cercando un elemento con la classe 'main-galley-img'
-                const mainGalleryImg = imgClicked.closest('.main-galley-img');
-                if (mainGalleryImg) {
-                    console.log('Elemento trovato:', mainGalleryImg);
+                // Trova il div più vicino con la classe 'overlay-main-img-content'
+                const mainGalleryDiv = imgClicked.closest('.overlay-main-img-content');
+                if (mainGalleryDiv) {
+                    // Ora accedi all'immagine all'interno di quel div
+                    const mainGalleryImg = mainGalleryDiv.querySelector('img');
+                    if (mainGalleryImg) {
+                        console.log('Immagine principale:', mainGalleryImg);
+                    } else {
+                        console.log('Nessuna immagine trovata all\'interno del div');
+                    }
                 } else {
-                    console.log('Nessun elemento con la classe main-galley-img trovato');
+                    console.log('Nessun div con la classe overlay-main-img-content trovato');
                 }
             });
         });
