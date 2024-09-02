@@ -60,44 +60,6 @@
         {% endfor %}
       </div>
     </div>
-
-    <!-- Overlay External -->
-    <div id="overlay-external"
-      class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-      <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-        <div
-          class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-          <img class="h-full w-full object-cover object-center" alt="" id="overlay-ext-variant-img">
-          <div
-            class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
-            id="close-external-overlay">
-            {% render 'back-arrow-icon' %}
-            <p class="body-14-medium ml-2">Back</p>
-          </div>
-        </div>
-        <div
-          class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-          {% for external_image in external_images %}
-          {% assign external_img = external_gallery[external_image] %}
-          <div
-            class="container-scroll-image w-[208px] rounded-xl h-[128px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-            <img src="{{ external_img | img_url: 'master'}}"
-              class="w-full h-full object-cover  rounded-xl magnetic-images" alt="">
-          </div>
-          {% endfor %}
-        </div>
-        <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
-          <div class="cta-delear">
-            <p class="body-14-medium">Locate dealer</p>
-            {% render 'cta-icon' %}
-          </div>
-          <div class="cta-brochure">
-            <p class="body-14-medium">Download brochure</p>
-            {% render 'download-icon' %}
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!--internal gallery section-->
@@ -124,47 +86,33 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %}
+  </div>
 
-    <!-- Overlay Internal -->
-    <div id="overlay-internal"
-      class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-      <div class="overlay-internal-content w-full h-full flex flex-col justify-center">
-        <div
-          class="overlay-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-          <img class="h-full w-full object-cover object-center" alt="" id="overlay-int-variant-img">
-          <div
-            class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer"
-            id="close-internal-overlay">
-            {% render 'back-arrow-icon' %}
-            <p class="body-14-medium ml-2">Back</p>
+  <!--overlay swiper gallery-->
+  <div class="overlay-wrapper absolute z-40 inset-0 h-dvh bg-white hidden">
+    <div class="overlay-wrapper-content w-full h-full p-4 flex flex-col gap-y-6">
+      <div class="overlay-swiper-container w-full flex-1">
+        <div class="swiper mySwiper w-full h-full">
+          <div class="swiper-wrapper">
+            <!--render dynamically swiper slides here -->
           </div>
+          <div class="swiper-pagination mb-4 flex items-center justify-center"></div>
         </div>
-        <div
-          class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-          {% for internal_image in internal_images %}
-          {% assign internal_img = internal_gallery[internal_image] %}
-          <div
-            class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-            <img src="{{ internal_img | img_url: 'master'}}"
-              class="w-full h-full object-cover rounded-xl magnetic-images" alt="">
-          </div>
-          {% endfor %}
+      </div>
+      <div class="overlay-cta-container w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5">
+        <div class="cta-delear">
+          <p class="body-14-medium">Locate dealer</p>
+          {% render 'cta-icon' %}
         </div>
-        <div class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4">
-          <div class="cta-delear">
-            <p class="body-14-medium">Locate dealer</p>
-            {% render 'cta-icon' %}
-          </div>
-          <div class="cta-brochure">
-            <p class="body-14-medium">Download brochure</p>
-            {% render 'download-icon' %}
-          </div>
+        <div class="cta-brochure">
+          <p class="body-14-medium">Download brochure</p>
+          {% render 'download-icon' %}
         </div>
       </div>
     </div>
-
-    {% endif %}
   </div>
+
 
   <!--in-out tab section-->
   <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7" id="tab-in-out">
@@ -187,7 +135,11 @@
 </div>
 </div>
 
-
+<style>
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--secondary-text-color) !important;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -305,13 +257,81 @@
         }
         parentVideo.appendChild(mainImg);
         mainImg.setAttribute('src', currentSrc);
+        mainImg.setAttribute('id', 'first-external-img');
       }
     }
 
     allExternalImages.forEach((img) => {
       img.addEventListener('click', handleExternalImageClick);
     });
+
+
+    //handle overlay Swiper
+    const firstInternalImg = document.getElementById('first-internal-img');
+    const firstExternalImg = document.getElementById('first-external-img');
     
+    if(firstExternalImg){
+      firstExternalImg.addEventListener('click', (e) => {
+      const clieckImg = e.currentTarget;
+      const overlayWrapper = document.querySelector('.overlay-wrapper');
+      if (overlayWrapper.classList.contains('hidden')) {
+        overlayWrapper.classList.add('block');
+        overlayWrapper.classList.remove('hidden')
+      }
+      getAllImagesByClick(clieckImg)
+    })
+    }
     
+    firstInternalImg.addEventListener('click', (e) => {
+      const clieckImg = e.currentTarget;
+      const overlayWrapper = document.querySelector('.overlay-wrapper');
+      if (overlayWrapper.classList.contains('hidden')) {
+        overlayWrapper.classList.add('block');
+        overlayWrapper.classList.remove('hidden');
+        document.body.classList.add('no-scroll');
+      }
+      getAllImagesByClick(clieckImg)
+    })
+
+    function createSwiperEl(slideImages) {
+      const sliderWrapper = document.querySelector('.swiper-wrapper')
+      slideImages.forEach((slide) => {
+        const slideContent = document.createElement('div');
+        slideContent.setAttribute('class', 'swiper-slide');
+        const slideImg = document.createElement('img');
+        slideImg.setAttribute('src', slide)
+        const slideImgClasses = ['swiper-img', 'w-full', 'h-full', 'object-cover', 'object-center']
+        slideImgClasses.forEach((classEl) => slideImg.classList.add(classEl));
+        slideContent.appendChild(slideImg);
+        sliderWrapper.appendChild(slideContent);
+      })
+    }
+
+    function getAllImagesByClick(img) {
+      const clickedImgSrc = img.src;
+      const parentNodeClickedImg = img.closest('.container-gallery');
+      const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
+      const allGalleryImagesPaths = [clickedImgSrc];
+      allGalleryImages.forEach((image) => {
+        const imagePath = image.getAttribute('src');
+        allGalleryImagesPaths.push(imagePath);
+      });
+      createSwiperEl(allGalleryImagesPaths);
+    }
+    
+    //swiper slide settings
+    var swiper = new Swiper(".mySwiper", {
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    loop: true
+  });
+
   });
 </script>
+

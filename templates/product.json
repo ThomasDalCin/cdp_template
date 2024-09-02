@@ -16,10 +16,10 @@
             "type": "top-product-details",
             "settings": {}
         },
-        "product-view-gallery-main" : {
-            "type": "top-view-gallery-main",
+        "product-view-galley-main" : {
+            "type": "top-view-galley-main",
             "settings": {}
         }
     },
-    "order": ["product-view-gallery-main","product-top-details","product-top-view-galley","product-description", "product-features"]
+    "order": ["product-view-galley-main","product-top-details","product-top-view-galley","product-description", "product-features"]
 }

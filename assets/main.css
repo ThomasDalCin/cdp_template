@@ -909,6 +909,10 @@ body {
   z-index: 99999;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -947,6 +951,10 @@ body {
 
 .mt-\[77px\] {
   margin-top: 77px;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .box-border {
@@ -1254,6 +1262,14 @@ body {
   border-radius: 0.75rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1293,6 +1309,11 @@ body {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -1386,6 +1407,10 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
@@ -1516,12 +1541,20 @@ body {
     left: 1.5rem;
   }
 
-  .lg\:top-\[200px\] {
-    top: 200px;
+  .lg\:top-\[150px\] {
+    top: 150px;
+  }
+
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
   }
 
   .lg\:mb-\[70px\] {
     margin-bottom: 70px;
+  }
+
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .lg\:flex {
@@ -1530,6 +1563,22 @@ body {
 
   .lg\:inline-flex {
     display: inline-flex;
+  }
+
+  .lg\:h-\[105px\] {
+    height: 105px;
+  }
+
+  .lg\:h-\[370px\] {
+    height: 370px;
+  }
+
+  .lg\:h-\[400px\] {
+    height: 400px;
+  }
+
+  .lg\:h-\[40px\] {
+    height: 40px;
   }
 
   .lg\:h-auto {
@@ -1542,6 +1591,10 @@ body {
 
   .lg\:min-w-\[220px\] {
     min-width: 220px;
+  }
+
+  .lg\:flex-1 {
+    flex: 1 1 0%;
   }
 
   .lg\:flex-col {
@@ -1560,12 +1613,33 @@ body {
     row-gap: 1.5rem;
   }
 
+  .lg\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
   .lg\:rounded-full {
     border-radius: 9999px;
   }
 
+  .lg\:object-contain {
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
   .lg\:p-4 {
     padding: 1rem;
+  }
+
+  .lg\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .lg\:text-\[24px\] {
+    font-size: 24px;
+  }
+
+  .lg\:text-\[40px\] {
+    font-size: 40px;
   }
 
   .lg\:text-\[60px\] {
@@ -1574,6 +1648,14 @@ body {
 
   .lg\:text-\[96px\] {
     font-size: 96px;
+  }
+
+  .lg\:leading-\[24px\] {
+    line-height: 24px;
+  }
+
+  .lg\:leading-\[40px\] {
+    line-height: 40px;
   }
 
   .lg\:leading-\[60px\] {
