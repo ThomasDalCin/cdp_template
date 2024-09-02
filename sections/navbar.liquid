@@ -237,9 +237,9 @@
     closeIcon.classList.add('flex');
     closeIcon.classList.remove('hidden');
     
-    // Cambia il colore della "x" a bianco
-    closeIcon.classList.add('text-white');  // Aggiungi questa riga
-    closeIcon.classList.remove('text-black');  // Rimuovi eventuali classi di colore nero
+   
+    closeIcon.classList.add('text-white'); 
+    closeIcon.classList.remove('text-black');  
 
     document.body.classList.add('no-scroll');
     updateNavbarStyle();
@@ -252,9 +252,9 @@
     closeIcon.classList.add('hidden');
     closeIcon.classList.remove('flex');
     
-    // Ripristina il colore della "x" al nero (o qualsiasi colore sia lo stile predefinito)
-    closeIcon.classList.remove('text-white');  // Rimuovi la classe del colore bianco
-    closeIcon.classList.add('text-black');  // Aggiungi questa riga
+    
+    closeIcon.classList.remove('text-white');  
+    closeIcon.classList.add('text-black');  
 
     document.body.classList.remove('no-scroll');
     updateNavbarStyle();
