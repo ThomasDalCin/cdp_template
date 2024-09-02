@@ -117,7 +117,6 @@
 
 
 
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Navbar elements
@@ -159,17 +158,17 @@
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
       const hasScrolled = window.scrollY > 0;
+      const currentPage = window.location.pathname;
+      const isNotHomepage = currentPage.length > 1;
 
-      // if the yatch menu or main menu are open
-      if (isMenuYatchVisible || isMenuMainVisible) {
-        navbar.classList.add('toAccent');
-        navbar.classList.remove('toBlack');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
-      } else {
-        // If the menu is not open but is scrolled
-        if (hasScrolled) {
+ 
+        if (isMenuYatchVisible || isMenuMainVisible) {
+          navbar.classList.add('toAccent');
+          navbar.classList.remove('toBlack');
+          menuIcon.classList.remove('toBlack');
+          menuChip.classList.remove('toBlack');
+          logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
+        } else if (hasScrolled || isNotHomepage) {
           navbar.classList.add('toBlack');
           menuIcon.classList.add('toBlack');
           menuChip.classList.add('toBlack');
@@ -180,8 +179,10 @@
           menuChip.classList.remove('toBlack');
           logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
         }
-      }
+      
     }
+
+
     //handle scroll event and add style to the Navbar
     window.addEventListener('scroll', updateNavbarStyle);
 
@@ -222,33 +223,44 @@
     updateNavbarStyle();
 
     menuIcon.addEventListener('click', () => {
-      // Check if the Yatch menu is visible, if yes do nothing
-      if (menuYatch.classList.contains('flex')) return;
+  // Check if the Yatch menu is visible, if yes do nothing
+  if (menuYatch.classList.contains('flex')) return;
 
-      const isMenuMainHidden = mainMenu.classList.contains('hidden');
+  const isMenuMainHidden = mainMenu.classList.contains('hidden');
 
-      if (isMenuMainHidden) {
-        // Show the menu
-        mainMenu.classList.remove('hidden');
-        mainMenu.classList.add('flex');
-        openIcon.classList.add('hidden');
-        openIcon.classList.remove('flex');
-        closeIcon.classList.add('flex');
-        closeIcon.classList.remove('hidden');
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-      } else {
-        // Hide the menu
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      }
-    });
+  if (isMenuMainHidden) {
+    // Show the menu
+    mainMenu.classList.remove('hidden');
+    mainMenu.classList.add('flex');
+    openIcon.classList.add('hidden');
+    openIcon.classList.remove('flex');
+    closeIcon.classList.add('flex');
+    closeIcon.classList.remove('hidden');
+    
+    // Cambia il colore della "x" a bianco
+    closeIcon.classList.add('text-white');  // Aggiungi questa riga
+    closeIcon.classList.remove('text-black');  // Rimuovi eventuali classi di colore nero
+
+    document.body.classList.add('no-scroll');
+    updateNavbarStyle();
+  } else {
+    // Hide the menu
+    mainMenu.classList.remove('flex');
+    mainMenu.classList.add('hidden');
+    openIcon.classList.add('flex');
+    openIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    closeIcon.classList.remove('flex');
+    
+    // Ripristina il colore della "x" al nero (o qualsiasi colore sia lo stile predefinito)
+    closeIcon.classList.remove('text-white');  // Rimuovi la classe del colore bianco
+    closeIcon.classList.add('text-black');  // Aggiungi questa riga
+
+    document.body.classList.remove('no-scroll');
+    updateNavbarStyle();
+  }
+});
+
 
     // Show the second-level menu when a link with javascript:void(0); is clicked
     document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
