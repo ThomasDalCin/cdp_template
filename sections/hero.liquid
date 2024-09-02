@@ -10,23 +10,23 @@
           <img src="{{ image_url }}" alt="Slide {{ forloop.index }}"
             class="swiper-img w-full h-full object-cover block">
           <div
-            class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10">
+            class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10 lg:inline-flex lg:w-auto lg:h-auto lg:bottom-6 lg:left-6">
             {% case forloop.index0 %}
             {% when 0 %}
-            <h2 class="big-header-1 text-white">GT75</h2>
-            <div class="hero-cta">
+            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">GT75</h2>
+            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
               <p>Discover it</p>
               {% render "cta-icon" %}
             </div>
             {% when 1 %}
-            <h2 class="big-header-1 text-white">E60</h2>
-            <div class="hero-cta">
+            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">E60</h2>
+            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
               <p>Discover it</p>
               {% render "cta-icon" %}
             </div>
             {% when 2 %}
-            <h2 class="big-header-1 text-white">Details.</h2>
-            <div class="hero-cta">
+            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">Details.</h2>
+            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
               <p>Watch the full experience</p>
               {% render "cta-icon" %}
             </div>
@@ -36,9 +36,9 @@
         {% endif %}
         {% endfor %}
       </div>
-      <div class="container-swiper-pagination absolute left-4 top-[120px] z-10">
-        <div class="swiper-pagination mb-8 flex items-center justify-start"></div>
-        <h3 class="header-3" style="color: var(--secondary-text-color)">Shaped by the sea.</h3>
+      <div class="container-swiper-pagination absolute left-4 top-[120px] z-10 lg:left-6 lg:top-[200px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+        <div class="swiper-pagination mb-8 flex items-center justify-start lg:mb-[70px]"></div>
+        <h3 class="header-3 text-[var(--secondary-text-color)] lg:text-[60px] lg:leading-[60px] lg:text-black" >Shaped by the sea.</h3>
       </div>
     </div>
   </div>
@@ -61,8 +61,16 @@
 
 <!-- Swiper Custom Style -->
 <style>
+
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: var(--secondary-text-color) !important;
+  }
+
+  @media screen and (min-width: 1024){
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--primary-text-color) !important;
+  }
+
   }
 </style>
 
