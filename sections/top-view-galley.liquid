@@ -1,33 +1,33 @@
-<div class="top-view-container w-full h-auto px-4 mb-10 flex flex-col gap-y-6 mt-10">
-    <div class="top-view-container-heading w-full h-auto flex items-center justify-start">
+<div class="top-view-horizontal-scroll w-full h-auto px-4 mb-10 flex flex-col gap-y-6 mt-10">
+    <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start">
         <h2 class="header-2">The shape of power</h2>
     </div>
     <div
-        class="top-view-magnetic-scroll w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto p-4 flex-shrink-0">
+        class="horizontal-magnetic-scroll-container w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto p-4 flex-shrink-0">
         {% assign galleryUp = product.metafields.custom.gallery_up.value %}
         {% assign galleryDown = product.metafields.custom.gallery_down.value %}
         {% assign interiorGallery = product.metafields.custom.interior_gallery.value %}
 
-        <!-- Gallery Up -->
+        <!-- Galley Up -->
         {% if galleryUp %}
         {% assign gallery_up_images = 'gallery_up_one,gallery_up_two,gallery_up_three,gallery_up_four' | split: ',' %}
         {% assign first_gallery_up_image = gallery_up_images[0] %}
         {% assign imageUpItem = galleryUp[first_gallery_up_image] %}
         {% if imageUpItem %}
-        <div class="container-gallery-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
-            style="background-image: url('{{ imageUpItem | img_url: 'master' }}');" data-overlay="overlay-gallery-up">
+        <div class="top-view-scroll-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
+            style="background-image: url('{{ imageUpItem | img_url: 'master' }}');" data-overlay="overlay-galley-up">
         </div>
         {% endif %}
         {% endif %}
 
-        <!-- Overlay Gallery Up -->
-        <div id="overlay-gallery-up"
-            class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-            <div class="overlay-content w-full h-full flex flex-col justify-center">
+        <!-- Overlay Galley Up -->
+        <div id="overlay-galley-up"
+            class="overlay-galley-up-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
                     <img src="{{ imageUpItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="">
+                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="{{ imageUpItem.alt }}">
                     <div
                         class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
                         {% render 'back-arrow-icon' %}
@@ -35,12 +35,12 @@
                     </div>
                 </div>
                 <div
-                    class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
                     {% for overlayItems in gallery_up_images %}
                     {% assign overlayScrollImage = galleryUp[overlayItems] %}
                     {% if overlayScrollImage %}
                     <div
-                        class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
                         <img src="{{ overlayScrollImage | img_url: 'master'}}" class="w-full h-full object-contain overlay-galley-img"
                             alt="">
                     </div>
@@ -67,7 +67,7 @@
         {% assign first_gallery_down_image = gallery_down_images[0] %}
         {% assign imageDownItem = galleryDown[first_gallery_down_image] %}
         {% if imageDownItem %}
-        <div class="container-gallery-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
+        <div class="top-view-scroll-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
             style="background-image: url('{{ imageDownItem | img_url: 'master' }}');"
             data-overlay="overlay-gallery-down">
         </div>
@@ -75,13 +75,13 @@
         {% endif %}
 
         <!-- Overlay Gallery Down -->
-        <div id="overlay-gallery-down"
-            class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-            <div class="overlay-content w-full h-full flex flex-col justify-center">
+        <div id="overlay-galley-down"
+            class="overlay-galley-down-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
                     <img src="{{ imageDownItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="">
+                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="{{ imageDownItem.alt }}">
                     <div
                         class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
                         {% render 'back-arrow-icon' %}
@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 <div
-                    class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
                     {% for overlayItems in gallery_down_images %}
                     {% assign overlayDownScrollImage = galleryDown[overlayItems] %}
                     {% if overlayDownScrollImage %}
                     <div
-                        class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
                         <img src="{{ overlayDownScrollImage | img_url: 'master'}}" class="w-full h-full object-contain overlay-galley-img"
-                            alt="">
+                            alt="{{ overlayDownScrollImage.alt }}">
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -121,21 +121,21 @@
         {% assign first_gallery_interior_image = gallery_interiors[0] %}
         {% assign imageInteriorItem = interiorGallery[first_gallery_interior_image] %}
         {% if imageInteriorItem %}
-        <div class="container-gallery-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
+        <div class="top-view-scroll-img w-[186px] h-[439px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0"
             style="background-image: url('{{ imageInteriorItem | img_url: 'master' }}');"
-            data-overlay="overlay-gallery-interior">
+            data-overlay="overlay-galley-interior">
         </div>
         {% endif %}
         {% endif %}
 
         <!-- Overlay Interior Gallery -->
-        <div id="overlay-gallery-interior"
-            class="overlay fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
-            <div class="overlay-content w-full h-full flex flex-col justify-center">
+        <div id="overlay-galley-interior"
+            class="overlay-galley-interior-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
                     <img src="{{ imageInteriorItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="">
+                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img" alt="{{ imageInteriorItem.alt }}">
                     <div
                         class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
                         {% render 'back-arrow-icon' %}
@@ -143,12 +143,12 @@
                     </div>
                 </div>
                 <div
-                    class="overlay-images-scroll flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
+                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
                     {% for overlayItems in gallery_interiors %}
                     {% assign overlayInteriorScrollImage = interiorGallery[overlayItems] %}
                     {% if overlayInteriorScrollImage %}
                     <div
-                        class="container-scroll-image w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
+                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
                         <img src="{{ overlayInteriorScrollImage | img_url: 'master'}}"
                             class="w-full h-full object-contain  overlay-galley-img" alt="">
                     </div>
@@ -207,7 +207,7 @@
             const imgClicked = e.currentTarget;
 
             // Trova il div 'overlay-main-img-content' più vicino
-            let mainGalleryDiv = imgClicked.closest('.overlay-content');
+            let mainGalleryDiv = imgClicked.closest('.overlay-galley-content');
             if (mainGalleryDiv) {
                 mainGalleryDiv = mainGalleryDiv.querySelector('.overlay-main-img-content');
                 if (mainGalleryDiv) {
