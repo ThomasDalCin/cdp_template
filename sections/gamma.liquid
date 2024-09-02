@@ -18,7 +18,7 @@
           <div class="tab-image">
             <img
               src="{{ collection.image | img_url: 'master' }}"
-              alt="{{ collection.title }}"
+              alt="{{ collection.image.alt }}"
               class="w-full max-w-md h-auto object-cover rounded-lg">
           </div>
           <div class="tab-description">
@@ -62,20 +62,15 @@
     document.addEventListener('DOMContentLoaded', () => {
         
         const chips = document.querySelectorAll('.chips-block');
-        
         const tabPanes = document.querySelectorAll('.tab-pane');
-        
         const badges = document.querySelectorAll('.badge-product');
-        
         const pImages = document.querySelectorAll('.pImage');
-       
         const magneticScroll = document.querySelector('.magnetic-scroll');
   
-       
+        //handle click on chips & tab to show
         chips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const target = chip.getAttribute('data-target');
-  
                 tabPanes.forEach(pane => {
                     if (pane.id === target) {
                         pane.classList.remove('hidden');
@@ -96,12 +91,10 @@
             chips[0].classList.add('active');
         }
   
-        
+        //handle magnetic scroll on click for each mobels badges
         badges.forEach((badge) => {
             badge.addEventListener('click', () => {
                 const target = badge.getAttribute('data-target');
-  
-                
                 pImages.forEach((image) => {
                     if (image.id === target) {
                         let targetImage = image;
