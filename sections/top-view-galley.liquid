@@ -22,7 +22,7 @@
 
         <!-- Overlay Galley Up -->
         <div id="overlay-galley-up"
-            class="overlay-galley-up-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            class="overlay-galley-container  fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
             <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
@@ -76,7 +76,7 @@
 
         <!-- Overlay Gallery Down -->
         <div id="overlay-galley-down"
-            class="overlay-galley-down-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            class="overlay-galley-container  fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
             <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
@@ -130,7 +130,7 @@
 
         <!-- Overlay Interior Gallery -->
         <div id="overlay-galley-interior"
-            class="overlay-galley-interior-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
+            class="overlay-galley-container fixed inset-0 z-40 w-full h-dvh bg-[var(--secondary-text-color)] overflow-y-scroll hidden">
             <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
                 <div
                     class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
@@ -188,7 +188,7 @@
     const closeButtons = document.querySelectorAll('.close-overlay');
     closeButtons.forEach(button => {
         button.addEventListener('click', function () {
-            const overlay = this.closest('.overlay-galley-content');
+            const overlay = this.closest('.overlay-galley-container ');
             if (overlay) {
                 overlay.classList.add('hidden');
             }
