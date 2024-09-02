@@ -171,6 +171,7 @@
 </div>
 
 <script>
+    //handle overlay 
     document.addEventListener('DOMContentLoaded', function () {
     const galleryImages = document.querySelectorAll('[data-overlay]');
 
@@ -187,7 +188,7 @@
     const closeButtons = document.querySelectorAll('.close-overlay');
     closeButtons.forEach(button => {
         button.addEventListener('click', function () {
-            const overlay = this.closest('.overlay');
+            const overlay = this.closest('.overlay-galley-content');
             if (overlay) {
                 overlay.classList.add('hidden');
             }
@@ -200,13 +201,11 @@
         }
     }
 
-    // Aggiunto il click handler per l'immagine dentro l'overlay
+    //handle images inside overlay
     const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
     insideImgsOverlay.forEach(img => {
         img.addEventListener('click', (e) => {
             const imgClicked = e.currentTarget;
-
-            // Trova il div 'overlay-main-img-content' più vicino
             let mainGalleryDiv = imgClicked.closest('.overlay-galley-content');
             if (mainGalleryDiv) {
                 mainGalleryDiv = mainGalleryDiv.querySelector('.overlay-main-img-content');
@@ -215,7 +214,6 @@
                     if (mainGalleryImg) {
                         const mainSrc = mainGalleryImg.getAttribute('src');
                         const clickedSrc = imgClicked.getAttribute('src');
-                        console.log(mainGalleryImg);
                         setMainOverlayImg(mainGalleryImg, mainSrc, clickedSrc);
                     } 
                 } 
