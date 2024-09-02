@@ -23,7 +23,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Ottieni gli elementi
+        //get elements
         const loadingWrap = document.querySelector('.loading-wrapper');
         const loadingBarContainer = document.querySelector('.loading-bar-container');
         const progressBar = document.querySelector('.loading-progress-bar');
@@ -32,8 +32,6 @@
             loadingBarContainer.classList.add('translate-y-0');
             loadingBarContainer.addEventListener('transitionend', () => {
                 progressBar.classList.add('w-full');
-
-
                 progressBar.addEventListener('transitionend', () => {
                     setTimeout(() => {
                         loadingWrap.classList.add('opacity-0');
