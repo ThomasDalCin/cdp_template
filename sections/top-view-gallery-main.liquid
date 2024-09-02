@@ -324,9 +324,12 @@
       const allScrollableImages = document.querySelectorAll('.magnetic-images');
       if (mainIntImgOverlay) {
         allScrollableImages.forEach((img) => {
-          //get thumbnails images first
-          const imagesPath = [img.src];
-          console.log(imagesPath)
+          //hide thumbnail img
+          let imgSrc = img.src;
+          if(imgSrc.includes('thumbnail')){
+             img.closest('.container-scroll-image').style.display = 'none'
+          }
+
           img.addEventListener('click', (e) => {
             const clickedImageSrc = e.currentTarget.src;
             if (mainIntImgOverlay.src !== clickedImageSrc) {
