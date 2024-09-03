@@ -1,5 +1,4 @@
 <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 mt-[77px]">
-
   <!--tab section-->
   <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
@@ -20,14 +19,15 @@
 
   {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
   {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+  {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
 
   <!--external gallery section-->
   <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
     id="external-content" data-attribute="external-gallery">
     <div class="video-container w-full h-auto relative">
       {% if external_gallery %}
-      {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" |
-      split: "," %}
+      {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" | split:
+      "," %}
       {% assign external_video = external_images[0] %}
       {% assign productVideo = external_gallery[external_video] %}
 
@@ -71,6 +71,7 @@
       {% assign first_image = internal_gallery[internal_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
         alt="Fallback image" id="first-internal-img">
+      {% endif %}
     </div>
 
     <div class="w-full h-auto">
@@ -86,7 +87,34 @@
         {% endfor %}
       </div>
     </div>
-    {% endif %}
+  </div>
+
+  <!--internal gallery down section-->
+  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    id="internal-down-content" data-attribute="internal-down-gallery">
+    <div class="main-img-container w-full h-auto relative">
+      {% if internal_gallery_down %}
+      {% assign internal_down_images = "image_down_one,image_down_two,image_down_three,image_down_four,image_down_five"
+      | split: "," %}
+      {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
+      <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
+        alt="Fallback image" id="first-internal-img">
+      {% endif %}
+    </div>
+
+    <div class="w-full h-auto">
+      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+        {% for internal_down_image in internal_down_images %}
+        {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
+        <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+          <img src="{{ internal_down_img | img_url: 'master' }}"
+            class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+            data-image-src="{{ internal_down_img | img_url: 'master' }}" alt=""
+            data-internal-overlay="overlay-internal-down-gallery">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 
   <!--overlay swiper gallery-->
@@ -113,7 +141,6 @@
     </div>
   </div>
 
-
   <!--in-out tab section-->
   <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7" id="tab-in-out">
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
@@ -132,8 +159,26 @@
     </div>
   </div>
 
+  <!--galley tab section-->
+  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7 hidden" id="galley-settings">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+      id="internal-up-tab">
+      <p class="body-14">Galley-Up</p>
+      <div
+        class="tab-internal-up-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+      </div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+      id="internal-down-tab">
+      <p class="body-14">Galley-Down</p>
+      <div
+        class="tab-internal-down-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+
 
 <style>
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -143,184 +188,260 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Video control setup
-    const video = document.getElementById('productVideo');
-    const playButton = document.getElementById('playButton');
+  // Video control setup
+  const video = document.getElementById('productVideo');
+  const playButton = document.getElementById('playButton');
 
-    if (video && playButton) {
-      playButton.style.display = 'flex';
+  if (video && playButton) {
+    playButton.style.display = 'flex';
 
-      playButton.addEventListener('click', function () {
-        if (video.paused) {
-          video.play();
-          playButton.style.display = 'none';
-        } else {
-          video.pause();
-          playButton.style.display = 'flex';
-        }
-      });
-
-      video.addEventListener('click', function () {
-        if (video.paused) {
-          video.play();
-          playButton.style.display = 'none';
-        } else {
-          video.pause();
-          playButton.style.display = 'flex';
-        }
-      });
-
-      video.addEventListener('play', function () {
+    playButton.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
         playButton.style.display = 'none';
-      });
-
-      video.addEventListener('pause', function () {
-        playButton.style.display = 'flex';
-      });
-
-      video.addEventListener('ended', function () {
-        playButton.style.display = 'flex';
-      });
-    }
-
-    // Tab management setup
-    const externalTab = document.getElementById('external-tab');
-    const internalTab = document.getElementById('internal-tab');
-    const externalContent = document.getElementById('external-content');
-    const internalContent = document.getElementById('internal-content');
-    const externalRect = externalTab.querySelector('.tab-rect');
-    const internalRect = internalTab.querySelector('.tab-rect');
-
-    function showTab(tab, content, rect) {
-      externalContent.classList.add('hidden');
-      internalContent.classList.add('hidden');
-      externalRect.classList.add('hidden');
-      internalRect.classList.add('hidden');
-
-      content.classList.remove('hidden');
-      rect.classList.remove('hidden');
-    }
-
-    externalTab.addEventListener('click', function () {
-      showTab(externalTab, externalContent, externalRect);
-    });
-
-    internalTab.addEventListener('click', function () {
-      showTab(internalTab, internalContent, internalRect);
-    });
-
-    showTab(externalTab, externalContent, externalRect);
-
-    //Main image change in the internal tab
-    const mainImgContainer = document.querySelector('.main-img-container img');
-
-    if (mainImgContainer) {
-      internalContent.addEventListener('click', function (event) {
-        const clickedImage = event.target;
-
-        if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
-          const newImageSrc = clickedImage.getAttribute('data-image-src');
-          if (newImageSrc) {
-            mainImgContainer.src = newImageSrc;
-          }
-        }
-      });
-    }
-
-
-    //Main image change in the external tab
-    const videoContainer = document.querySelector('.video');
-    const videoSettings = document.querySelector('.video-settings');
-    const parentVideo = document.querySelector('.video-container');
-    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
-    const mainImg = document.createElement('img');
-    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
-
-    mainImg.setAttribute('src', '');
-    classesToAdd.forEach((className) => mainImg.classList.add(className));
-
-    function handleExternalImageClick(e) {
-      let currentSrc = e.currentTarget.getAttribute('data-external-src');
-
-      if (!currentSrc) return;
-
-      if (allExternalImages.indexOf(e.currentTarget) === 0) {
-        if (!document.body.contains(videoContainer)) {
-          parentVideo.innerHTML = '';
-          parentVideo.appendChild(videoContainer);
-          parentVideo.appendChild(videoSettings);
-        }
       } else {
-        if (document.body.contains(videoContainer)) {
-          videoContainer.remove();
-          videoSettings.remove();
+        video.pause();
+        playButton.style.display = 'flex';
+      }
+    });
+
+    video.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+        playButton.style.display = 'none';
+      } else {
+        video.pause();
+        playButton.style.display = 'flex';
+      }
+    });
+
+    video.addEventListener('play', function () {
+      playButton.style.display = 'none';
+    });
+
+    video.addEventListener('pause', function () {
+      playButton.style.display = 'flex';
+    });
+
+    video.addEventListener('ended', function () {
+      playButton.style.display = 'flex';
+    });
+  }
+
+  // Gestione delle tab
+  const externalTab = document.getElementById('external-tab');
+  const internalTab = document.getElementById('internal-tab');
+  const internalDownTab = document.getElementById('internal-down-tab');
+  const internalUpTab = document.getElementById('internal-up-tab');
+  const externalContent = document.getElementById('external-content');
+  const internalContent = document.getElementById('internal-content');
+  const internalDownContent = document.getElementById('internal-down-content');
+  const internalUpContent = document.getElementById('internal-up-content');
+  const externalRect = externalTab.querySelector('.tab-rect');
+  const internalRect = internalTab.querySelector('.tab-rect');
+  const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
+  const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+  const galleySettings = document.getElementById('galley-settings');
+  const tabInOut = document.getElementById('tab-in-out');
+
+  // Imposta la visibilità iniziale
+  externalContent.classList.remove('hidden');
+  internalContent.classList.add('hidden');
+  internalDownContent.classList.add('hidden');
+  internalUpContent.classList.add('hidden');
+  externalRect.classList.remove('hidden');
+  internalRect.classList.add('hidden');
+  internalDownRect.classList.add('hidden');
+  internalUpRect.classList.add('hidden');
+  galleySettings.classList.add('hidden');
+  tabInOut.classList.add('hidden');
+
+  function showTab(tab, content, rect) {
+    // Nascondi tutti i contenuti e rettangoli
+    externalContent.classList.add('hidden');
+    internalContent.classList.add('hidden');
+    internalDownContent.classList.add('hidden');
+    internalUpContent.classList.add('hidden');
+    externalRect.classList.add('hidden');
+    internalRect.classList.add('hidden');
+    internalDownRect.classList.add('hidden');
+    internalUpRect.classList.add('hidden');
+
+    // Mostra il contenuto e il rettangolo selezionato
+    content.classList.remove('hidden');
+    rect.classList.remove('hidden');
+
+    // Logica aggiuntiva per specifiche aree di contenuto
+    if (content === internalContent) {
+      galleySettings.classList.remove('hidden');
+      galleySettings.classList.add('flex');
+      tabInOut.classList.add('hidden');
+    } else if (content === externalContent) {
+      tabInOut.classList.add('flex');
+      tabInOut.classList.remove('hidden');
+      galleySettings.classList.add('hidden');
+    }
+  }
+
+  function showInternalSubTab(tab) {
+    internalDownContent.classList.add('hidden');
+    internalUpContent.classList.add('hidden');
+
+    if (tab === internalDownTab) {
+      internalDownContent.classList.remove('hidden');
+      internalDownRect.classList.remove('hidden');
+    } else if (tab === internalUpTab) {
+      internalUpContent.classList.remove('hidden');
+      internalUpRect.classList.remove('hidden');
+    }
+  }
+
+  function setupImageListeners() {
+    // Rimuovi gli event listener da tutti i contenitori
+    document.querySelectorAll('.container-gallery').forEach(container => {
+      container.removeEventListener('click', updateMainImage);
+    });
+
+    // Aggiungi event listener solo al contenitore visibile
+    const activeContainer = document.querySelector('.container-gallery:not(.hidden)');
+    if (activeContainer) {
+      activeContainer.addEventListener('click', updateMainImage);
+    }
+  }
+
+  function updateMainImage(event) {
+    const clickedImage = event.target;
+    if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
+      const newImageSrc = clickedImage.getAttribute('data-image-src');
+      if (newImageSrc) {
+        const mainImgContainer = document.querySelector('.main-img-container img');
+        if (mainImgContainer) {
+          mainImgContainer.src = newImageSrc;
         }
-        parentVideo.appendChild(mainImg);
-        mainImg.setAttribute('src', currentSrc);
-        mainImg.setAttribute('id', 'first-external-img');
       }
     }
+  }
 
-    allExternalImages.forEach((img) => {
-      img.addEventListener('click', handleExternalImageClick);
-    });
+  function handleExternalImageClick(e) {
+  const currentSrc = e.currentTarget.getAttribute('data-external-src');
+
+  // Verifica se currentSrc è definito e non è vuoto
+  if (!currentSrc || currentSrc.trim() === '') {
+    console.error('L\'immagine non ha una sorgente definita.');
+    return;
+  }
+
+  const videoContainer = document.querySelector('.video');
+  const videoSettings = document.querySelector('.video-settings');
+  const parentVideo = document.querySelector('.video-container');
+  const mainImg = document.querySelector('#first-external-img');
+
+  if (e.currentTarget === document.querySelector(".container-magnetic-scroll img")) {
+    if (!document.body.contains(videoContainer)) {
+      parentVideo.innerHTML = '';
+      parentVideo.appendChild(videoContainer);
+      parentVideo.appendChild(videoSettings);
+    }
+  } else {
+    if (document.body.contains(videoContainer)) {
+      videoContainer.remove();
+      videoSettings.remove();
+    }
+    if (mainImg) {
+      mainImg.src = currentSrc;
+      mainImg.id = 'first-external-img';
+      parentVideo.appendChild(mainImg);
+    } else {
+      // Crea l'immagine se non esiste
+      const newMainImg = document.createElement('img');
+      newMainImg.src = currentSrc;
+      newMainImg.id = 'first-external-img';
+      newMainImg.classList.add('w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center');
+      parentVideo.appendChild(newMainImg);
+    }
+  }
+}
 
 
-    //handle overlay Swiper
-    const firstInternalImg = document.getElementById('first-internal-img');
-    const firstExternalImg = document.getElementById('first-external-img');
-    
-    if(firstExternalImg){
-      firstExternalImg.addEventListener('click', (e) => {
-      const clieckImg = e.currentTarget;
+  // Imposta gli eventi di click sulle tab principali
+  externalTab.addEventListener('click', function () {
+    showTab(externalTab, externalContent, externalRect);
+  });
+
+  internalTab.addEventListener('click', function () {
+    showTab(internalTab, internalContent, internalRect);
+    showInternalSubTab(internalDownTab); // Imposta la visibilità di default su 'Galley-Down'
+  });
+
+  internalDownTab.addEventListener('click', function () {
+    showInternalSubTab(internalDownTab);
+  });
+
+  internalUpTab.addEventListener('click', function () {
+    showInternalSubTab(internalUpTab);
+  });
+
+  // Aggiungi gli eventi di click per le immagini scrollabili
+  document.querySelectorAll('.container-magnetic-scroll img').forEach(img => {
+    img.addEventListener('click', handleExternalImageClick);
+  });
+
+  // Gestione dell'overlay Swiper
+  const firstInternalImg = document.getElementById('first-internal-img');
+  const firstExternalImg = document.getElementById('first-external-img');
+
+  if (firstExternalImg) {
+    firstExternalImg.addEventListener('click', (e) => {
+      const clickedImg = e.currentTarget;
       const overlayWrapper = document.querySelector('.overlay-wrapper');
       if (overlayWrapper.classList.contains('hidden')) {
         overlayWrapper.classList.add('block');
-        overlayWrapper.classList.remove('hidden')
+        overlayWrapper.classList.remove('hidden');
       }
-      getAllImagesByClick(clieckImg)
-    })
-    }
-    
+      getAllImagesByClick(clickedImg);
+    });
+  }
+
+  if (firstInternalImg) {
     firstInternalImg.addEventListener('click', (e) => {
-      const clieckImg = e.currentTarget;
+      const clickedImg = e.currentTarget;
       const overlayWrapper = document.querySelector('.overlay-wrapper');
       if (overlayWrapper.classList.contains('hidden')) {
         overlayWrapper.classList.add('block');
         overlayWrapper.classList.remove('hidden');
         document.body.classList.add('no-scroll');
       }
-      getAllImagesByClick(clieckImg)
-    })
+      getAllImagesByClick(clickedImg);
+    });
+  }
 
-    function createSwiperEl(slideImages) {
-      const sliderWrapper = document.querySelector('.swiper-wrapper')
-      slideImages.forEach((slide) => {
-        const slideContent = document.createElement('div');
-        slideContent.setAttribute('class', 'swiper-slide');
-        const slideImg = document.createElement('img');
-        slideImg.setAttribute('src', slide)
-        const slideImgClasses = ['swiper-img', 'w-full', 'h-full', 'object-cover', 'object-center']
-        slideImgClasses.forEach((classEl) => slideImg.classList.add(classEl));
-        slideContent.appendChild(slideImg);
-        sliderWrapper.appendChild(slideContent);
-      })
-    }
+  function createSwiperEl(slideImages) {
+    const sliderWrapper = document.querySelector('.swiper-wrapper');
+    slideImages.forEach((slide) => {
+      const slideContent = document.createElement('div');
+      slideContent.setAttribute('class', 'swiper-slide');
+      const slideImg = document.createElement('img');
+      slideImg.setAttribute('src', slide);
+      slideImg.classList.add('swiper-img', 'w-full', 'h-full', 'object-cover', 'object-center');
+      slideContent.appendChild(slideImg);
+      sliderWrapper.appendChild(slideContent);
+    });
+  }
 
-    function getAllImagesByClick(img) {
-      const clickedImgSrc = img.src;
-      const parentNodeClickedImg = img.closest('.container-gallery');
-      const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
-      const allGalleryImagesPaths = [clickedImgSrc];
-      allGalleryImages.forEach((image) => {
-        const imagePath = image.getAttribute('src');
-        allGalleryImagesPaths.push(imagePath);
-      });
-      createSwiperEl(allGalleryImagesPaths);
-    }
-    
-    //swiper slide settings
-    var swiper = new Swiper(".mySwiper", {
+  function getAllImagesByClick(img) {
+    const clickedImgSrc = img.src;
+    const parentNodeClickedImg = img.closest('.container-gallery');
+    const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
+    const allGalleryImagesPaths = [clickedImgSrc];
+    allGalleryImages.forEach((image) => {
+      const imagePath = image.getAttribute('data-image-src');
+      allGalleryImagesPaths.push(imagePath);
+    });
+    createSwiperEl(allGalleryImagesPaths);
+  }
+
+  // Configurazione dello swiper
+  new Swiper(".mySwiper", {
     effect: 'fade',
     fadeEffect: {
       crossFade: true
@@ -331,7 +452,6 @@
     },
     loop: true
   });
+});
 
-  });
 </script>
-
