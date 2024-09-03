@@ -188,192 +188,226 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-  // Video control setup
-  const video = document.getElementById('productVideo');
-  const playButton = document.getElementById('playButton');
+    // Video control setup
+    const video = document.getElementById('productVideo');
+    const playButton = document.getElementById('playButton');
 
-  if (video && playButton) {
-    playButton.style.display = 'flex';
-
-    playButton.addEventListener('click', function () {
-      if (video.paused) {
-        video.play();
-        playButton.style.display = 'none';
-      } else {
-        video.pause();
-        playButton.style.display = 'flex';
-      }
-    });
-
-    video.addEventListener('click', function () {
-      if (video.paused) {
-        video.play();
-        playButton.style.display = 'none';
-      } else {
-        video.pause();
-        playButton.style.display = 'flex';
-      }
-    });
-
-    video.addEventListener('play', function () {
-      playButton.style.display = 'none';
-    });
-
-    video.addEventListener('pause', function () {
+    if (video && playButton) {
       playButton.style.display = 'flex';
+
+      playButton.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      video.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      video.addEventListener('play', function () {
+        playButton.style.display = 'none';
+      });
+
+      video.addEventListener('pause', function () {
+        playButton.style.display = 'flex';
+      });
+
+      video.addEventListener('ended', function () {
+        playButton.style.display = 'flex';
+      });
+    }
+
+    //Handle tab settings
+    const externalTab = document.getElementById('external-tab');
+    const internalTab = document.getElementById('internal-tab');
+    const internalDownTab = document.getElementById('internal-down-tab');
+    const internalUpTab = document.getElementById('internal-up-tab');
+    const externalContent = document.getElementById('external-content');
+    const internalContent = document.getElementById('internal-content');
+    const internalDownContent = document.getElementById('internal-down-content');
+    const externalRect = externalTab.querySelector('.tab-rect');
+    const internalRect = internalTab.querySelector('.tab-rect');
+    const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
+    const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+
+    function showTab(tab, content, rect) {
+      externalContent.classList.add('hidden');
+      internalContent.classList.add('hidden');
+      internalDownContent.classList.add('hidden');
+      externalRect.classList.add('hidden');
+      internalRect.classList.add('hidden');
+      internalDownRect.classList.add('hidden');
+      internalUpRect.classList.add('hidden');
+
+
+      content.classList.remove('hidden');
+      rect.classList.remove('hidden');
+
+      if (content.getAttribute('id') === 'internal-content') {
+        document.getElementById('galley-settings').classList.remove('hidden');
+        document.getElementById('galley-settings').classList.add('flex');
+
+        document.getElementById('tab-in-out').classList.add('hidden');
+      } else if (content.getAttribute('id') === 'external-content') {
+        document.getElementById('tab-in-out').classList.add('flex');
+        document.getElementById('tab-in-out').classList.remove('hidden');
+
+        document.getElementById('galley-settings').classList.add('hidden');
+      }
+    }
+
+    externalTab.addEventListener('click', function () {
+      showTab(externalTab, externalContent, externalRect);
     });
 
-    video.addEventListener('ended', function () {
-      playButton.style.display = 'flex';
+    internalTab.addEventListener('click', function () {
+      showTab(internalTab, internalContent, internalRect);
     });
-  }
 
-  // Elementi delle tab
-  const externalTab = document.getElementById('external-tab');
-  const internalTab = document.getElementById('internal-tab');
-  const internalDownTab = document.getElementById('internal-down-tab');
-  const internalUpTab = document.getElementById('internal-up-tab');
-  const externalContent = document.getElementById('external-content');
-  const internalContent = document.getElementById('internal-content');
-  const internalDownContent = document.getElementById('internal-down-content');
-  const externalRect = externalTab.querySelector('.tab-rect');
-  const internalRect = internalTab.querySelector('.tab-rect');
-  const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
-  const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
-  const galleySettings = document.getElementById('galley-settings');
-  const tabInOut = document.getElementById('tab-in-out');
+    internalDownTab.addEventListener('click', function () {
+      showTab(internalDownTab, internalDownContent, internalDownRect);
+    })
 
-  // Imposta la visibilità iniziale
-  externalContent.classList.remove('hidden');
-  internalContent.classList.add('hidden');
-  internalDownContent.classList.add('hidden');
-  internalUpRect.classList.remove('hidden'); // Galley-Up visibile per default
-  externalRect.classList.remove('hidden');
-  galleySettings.classList.add('hidden');
-  tabInOut.classList.add('hidden');
+    internalUpTab.addEventListener('click', function () {
+      showTab(internalTab, internalContent, internalUpRect);
+    })
 
-  // Funzione per mostrare la tab
-  function showTab(tab, content, rect) {
-    externalContent.classList.add('hidden');
-    internalContent.classList.add('hidden');
-    internalDownContent.classList.add('hidden');
-    externalRect.classList.add('hidden');
-    internalRect.classList.add('hidden');
-    internalDownRect.classList.add('hidden');
-    internalUpRect.classList.add('hidden');
-
-    content.classList.remove('hidden');
-    rect.classList.remove('hidden');
-
-    if (content === internalContent) {
-      galleySettings.classList.remove('hidden');
-      galleySettings.classList.add('flex');
-      tabInOut.classList.add('hidden');
-    } else if (content === externalContent) {
-      tabInOut.classList.add('flex');
-      tabInOut.classList.remove('hidden');
-      galleySettings.classList.add('hidden');
-    }
-  }
-
-  // Funzione per mostrare le sotto-tab interne
-  function showInternalSubTab(tab) {
-    internalDownContent.classList.add('hidden');
-
-    if (tab === internalDownTab) {
-      internalDownContent.classList.remove('hidden');
-      internalDownRect.classList.remove('hidden');
-    }
-  }
-
-  // Gestione click delle tab principali
-  externalTab.addEventListener('click', function () {
     showTab(externalTab, externalContent, externalRect);
-  });
 
-  internalTab.addEventListener('click', function () {
-    showTab(internalTab, internalContent, internalRect);
-  });
+    //Main image change in the internal tab
+    const mainImgContainer = document.querySelector('.main-img-container img');
 
-  internalDownTab.addEventListener('click', function () {
-    showInternalSubTab(internalDownTab);
-  });
+    if (mainImgContainer) {
+      internalContent.addEventListener('click', function (event) {
+        const clickedImage = event.target;
 
-  internalUpTab.addEventListener('click', function () {
-    showTab(internalTab, internalContent, internalRect);
-  });
+        if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
+          const newImageSrc = clickedImage.getAttribute('data-image-src');
+          if (newImageSrc) {
+            mainImgContainer.src = newImageSrc;
+          }
+        }
+      });
 
-  // Configura gli eventi click per le immagini scrollabili
-  document.querySelectorAll('.container-magnetic-scroll img').forEach(img => {
-    img.addEventListener('click', handleExternalImageClick);
-  });
+      
 
-  // Gestione dello swiper overlay
-  const firstInternalImg = document.getElementById('first-internal-img');
-  const firstExternalImg = document.getElementById('first-external-img');
+    }
 
-  if (firstExternalImg) {
-    firstExternalImg.addEventListener('click', (e) => {
-      const clickedImg = e.currentTarget;
-      const overlayWrapper = document.querySelector('.overlay-wrapper');
-      if (overlayWrapper.classList.contains('hidden')) {
-        overlayWrapper.classList.add('block');
-        overlayWrapper.classList.remove('hidden');
+
+    //Main image change in the external tab
+    const videoContainer = document.querySelector('.video');
+    const videoSettings = document.querySelector('.video-settings');
+    const parentVideo = document.querySelector('.video-container');
+    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
+    const mainImg = document.createElement('img');
+    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
+
+    mainImg.setAttribute('src', '');
+    classesToAdd.forEach((className) => mainImg.classList.add(className));
+
+    function handleExternalImageClick(e) {
+      let currentSrc = e.currentTarget.getAttribute('data-external-src');
+
+      if (!currentSrc) return;
+
+      if (allExternalImages.indexOf(e.currentTarget) === 0) {
+        if (!document.body.contains(videoContainer)) {
+          parentVideo.innerHTML = '';
+          parentVideo.appendChild(videoContainer);
+          parentVideo.appendChild(videoSettings);
+        }
+      } else {
+        if (document.body.contains(videoContainer)) {
+          videoContainer.remove();
+          videoSettings.remove();
+        }
+        parentVideo.appendChild(mainImg);
+        mainImg.setAttribute('src', currentSrc);
+        mainImg.setAttribute('id', 'first-external-img');
       }
-      getAllImagesByClick(clickedImg);
-    });
-  }
+    }
 
-  if (firstInternalImg) {
+    allExternalImages.forEach((img) => {
+      img.addEventListener('click', handleExternalImageClick);
+    });
+
+
+    //handle overlay Swiper
+    const firstInternalImg = document.getElementById('first-internal-img');
+    const firstExternalImg = document.getElementById('first-external-img');
+
+    if (firstExternalImg) {
+      firstExternalImg.addEventListener('click', (e) => {
+        const clieckImg = e.currentTarget;
+        const overlayWrapper = document.querySelector('.overlay-wrapper');
+        if (overlayWrapper.classList.contains('hidden')) {
+          overlayWrapper.classList.add('block');
+          overlayWrapper.classList.remove('hidden')
+        }
+        getAllImagesByClick(clieckImg)
+      })
+    }
+
     firstInternalImg.addEventListener('click', (e) => {
-      const clickedImg = e.currentTarget;
+      const clieckImg = e.currentTarget;
       const overlayWrapper = document.querySelector('.overlay-wrapper');
       if (overlayWrapper.classList.contains('hidden')) {
         overlayWrapper.classList.add('block');
         overlayWrapper.classList.remove('hidden');
         document.body.classList.add('no-scroll');
       }
-      getAllImagesByClick(clickedImg);
-    });
-  }
+      getAllImagesByClick(clieckImg)
+    })
 
-  function createSwiperEl(slideImages) {
-    const sliderWrapper = document.querySelector('.swiper-wrapper');
-    slideImages.forEach((slide) => {
-      const slideContent = document.createElement('div');
-      slideContent.setAttribute('class', 'swiper-slide');
-      const slideImg = document.createElement('img');
-      slideImg.setAttribute('src', slide);
-      slideImg.classList.add('swiper-img', 'w-full', 'h-full', 'object-cover', 'object-center');
-      slideContent.appendChild(slideImg);
-      sliderWrapper.appendChild(slideContent);
-    });
-  }
+    function createSwiperEl(slideImages) {
+      const sliderWrapper = document.querySelector('.swiper-wrapper')
+      slideImages.forEach((slide) => {
+        const slideContent = document.createElement('div');
+        slideContent.setAttribute('class', 'swiper-slide');
+        const slideImg = document.createElement('img');
+        slideImg.setAttribute('src', slide)
+        const slideImgClasses = ['swiper-img', 'w-full', 'h-full', 'object-cover', 'object-center']
+        slideImgClasses.forEach((classEl) => slideImg.classList.add(classEl));
+        slideContent.appendChild(slideImg);
+        sliderWrapper.appendChild(slideContent);
+      })
+    }
 
-  function getAllImagesByClick(img) {
-    const clickedImgSrc = img.src;
-    const parentNodeClickedImg = img.closest('.container-gallery');
-    const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
-    const allGalleryImagesPaths = [clickedImgSrc];
-    allGalleryImages.forEach((image) => {
-      const imagePath = image.getAttribute('data-image-src');
-      allGalleryImagesPaths.push(imagePath);
-    });
-    createSwiperEl(allGalleryImagesPaths);
-  }
+    function getAllImagesByClick(img) {
+      const clickedImgSrc = img.src;
+      const parentNodeClickedImg = img.closest('.container-gallery');
+      const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
+      const allGalleryImagesPaths = [clickedImgSrc];
+      allGalleryImages.forEach((image) => {
+        const imagePath = image.getAttribute('src');
+        allGalleryImagesPaths.push(imagePath);
+      });
+      createSwiperEl(allGalleryImagesPaths);
+    }
 
-  // Configurazione dello swiper
-  new Swiper(".mySwiper", {
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
-    loop: true
+    //swiper slide settings
+    var swiper = new Swiper(".mySwiper", {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      loop: true
+    });
+
   });
-});
-
 </script>
