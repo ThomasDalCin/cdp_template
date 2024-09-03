@@ -42,7 +42,6 @@
       {% assign external_images = external_images | append: "," | append: val[1] %}
       {% endif %}
       {% endfor %}
-
       {% assign external_images = external_images | split: "," %}
       {% assign external_video_key = 'boat_video' %}
       {% assign external_video = external_gallery[external_video_key] %}
