@@ -228,7 +228,7 @@
     });
   }
 
-  // Gestione delle tab
+  // Elementi delle tab
   const externalTab = document.getElementById('external-tab');
   const internalTab = document.getElementById('internal-tab');
   const internalDownTab = document.getElementById('internal-down-tab');
@@ -236,7 +236,6 @@
   const externalContent = document.getElementById('external-content');
   const internalContent = document.getElementById('internal-content');
   const internalDownContent = document.getElementById('internal-down-content');
-  const internalUpContent = document.getElementById('internal-up-content');
   const externalRect = externalTab.querySelector('.tab-rect');
   const internalRect = internalTab.querySelector('.tab-rect');
   const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
@@ -248,30 +247,24 @@
   externalContent.classList.remove('hidden');
   internalContent.classList.add('hidden');
   internalDownContent.classList.add('hidden');
-  internalUpContent.classList.add('hidden');
+  internalUpRect.classList.remove('hidden'); // Galley-Up visibile per default
   externalRect.classList.remove('hidden');
-  internalRect.classList.add('hidden');
-  internalDownRect.classList.add('hidden');
-  internalUpRect.classList.add('hidden');
   galleySettings.classList.add('hidden');
   tabInOut.classList.add('hidden');
 
+  // Funzione per mostrare la tab
   function showTab(tab, content, rect) {
-    // Nascondi tutti i contenuti e rettangoli
     externalContent.classList.add('hidden');
     internalContent.classList.add('hidden');
     internalDownContent.classList.add('hidden');
-    internalUpContent.classList.add('hidden');
     externalRect.classList.add('hidden');
     internalRect.classList.add('hidden');
     internalDownRect.classList.add('hidden');
     internalUpRect.classList.add('hidden');
 
-    // Mostra il contenuto e il rettangolo selezionato
     content.classList.remove('hidden');
     rect.classList.remove('hidden');
 
-    // Logica aggiuntiva per specifiche aree di contenuto
     if (content === internalContent) {
       galleySettings.classList.remove('hidden');
       galleySettings.classList.add('flex');
@@ -283,94 +276,23 @@
     }
   }
 
+  // Funzione per mostrare le sotto-tab interne
   function showInternalSubTab(tab) {
     internalDownContent.classList.add('hidden');
-    internalUpContent.classList.add('hidden');
 
     if (tab === internalDownTab) {
       internalDownContent.classList.remove('hidden');
       internalDownRect.classList.remove('hidden');
-    } else if (tab === internalUpTab) {
-      internalUpContent.classList.remove('hidden');
-      internalUpRect.classList.remove('hidden');
     }
   }
 
-  function setupImageListeners() {
-    // Rimuovi gli event listener da tutti i contenitori
-    document.querySelectorAll('.container-gallery').forEach(container => {
-      container.removeEventListener('click', updateMainImage);
-    });
-
-    // Aggiungi event listener solo al contenitore visibile
-    const activeContainer = document.querySelector('.container-gallery:not(.hidden)');
-    if (activeContainer) {
-      activeContainer.addEventListener('click', updateMainImage);
-    }
-  }
-
-  function updateMainImage(event) {
-    const clickedImage = event.target;
-    if (clickedImage && clickedImage.classList.contains('gallery-main-scroll-image')) {
-      const newImageSrc = clickedImage.getAttribute('data-image-src');
-      if (newImageSrc) {
-        const mainImgContainer = document.querySelector('.main-img-container img');
-        if (mainImgContainer) {
-          mainImgContainer.src = newImageSrc;
-        }
-      }
-    }
-  }
-
-  function handleExternalImageClick(e) {
-  const currentSrc = e.currentTarget.getAttribute('data-external-src');
-
-  // Verifica se currentSrc è definito e non è vuoto
-  if (!currentSrc || currentSrc.trim() === '') {
-    console.error('L\'immagine non ha una sorgente definita.');
-    return;
-  }
-
-  const videoContainer = document.querySelector('.video');
-  const videoSettings = document.querySelector('.video-settings');
-  const parentVideo = document.querySelector('.video-container');
-  const mainImg = document.querySelector('#first-external-img');
-
-  if (e.currentTarget === document.querySelector(".container-magnetic-scroll img")) {
-    if (!document.body.contains(videoContainer)) {
-      parentVideo.innerHTML = '';
-      parentVideo.appendChild(videoContainer);
-      parentVideo.appendChild(videoSettings);
-    }
-  } else {
-    if (document.body.contains(videoContainer)) {
-      videoContainer.remove();
-      videoSettings.remove();
-    }
-    if (mainImg) {
-      mainImg.src = currentSrc;
-      mainImg.id = 'first-external-img';
-      parentVideo.appendChild(mainImg);
-    } else {
-      // Crea l'immagine se non esiste
-      const newMainImg = document.createElement('img');
-      newMainImg.src = currentSrc;
-      newMainImg.id = 'first-external-img';
-      newMainImg.classList.add('w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center');
-      parentVideo.appendChild(newMainImg);
-    }
-  }
-}
-
-
-  // Imposta gli eventi di click sulle tab principali
+  // Gestione click delle tab principali
   externalTab.addEventListener('click', function () {
     showTab(externalTab, externalContent, externalRect);
   });
 
   internalTab.addEventListener('click', function () {
     showTab(internalTab, internalContent, internalRect);
-    showInternalSubTab(internalDownTab); // Imposta la visibilità di default su 'Galley-Down'
   });
 
   internalDownTab.addEventListener('click', function () {
@@ -378,15 +300,15 @@
   });
 
   internalUpTab.addEventListener('click', function () {
-    showInternalSubTab(internalUpTab);
+    showTab(internalTab, internalContent, internalRect);
   });
 
-  // Aggiungi gli eventi di click per le immagini scrollabili
+  // Configura gli eventi click per le immagini scrollabili
   document.querySelectorAll('.container-magnetic-scroll img').forEach(img => {
     img.addEventListener('click', handleExternalImageClick);
   });
 
-  // Gestione dell'overlay Swiper
+  // Gestione dello swiper overlay
   const firstInternalImg = document.getElementById('first-internal-img');
   const firstExternalImg = document.getElementById('first-external-img');
 
