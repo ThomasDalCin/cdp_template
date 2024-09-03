@@ -18,8 +18,15 @@
   </div>
 
   {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
+  {% assign external_gallery_split = product.metafields.custom.external_images_boat.value | json | replace:'{', '' |
+  replace:'}', ''| split: "," %}
   {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+  {% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace:'{', '' |
+  replace:'}', ''| split: "," %}
   {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
+  {% assign internal_gallery_down_split = product.metafields.custom.internal_boat_down.value | json | replace:'{', '' |
+  replace:'}', ''| split: "," %}
+
 
 
   <!--external gallery section-->
@@ -27,25 +34,29 @@
     id="external-content" data-attribute="external-gallery">
     <div class="video-container w-full h-auto relative">
       {% if external_gallery %}
-      {% assign external_images = "boat_video,boat_image_one,boat_image_two,boat_image_three,boat_image_four" | split:
-      "," %}
-      {% assign external_video = external_images[0] %}
-      {% assign productVideo = external_gallery[external_video] %}
+      {% for el in external_gallery_split %}
+      {% assign val = el | split: '"' %}
+      {% if forloop.first %}
+      {% assign external_images = val[1] %}
+      {% else %}
+      {% assign external_images = external_images | append: "," | append: val[1] %}
+      {% endif %}
+      {% endfor %}
 
-      {% if productVideo %}
+      {% assign external_images = external_images | split: "," %}
+      {% assign external_video_key = 'boat_video' %}
+      {% assign external_video = external_gallery[external_video_key] %}
+
+      {% if external_video %}
       <video id="productVideo" class="video w-full h-[220px] rounded-lg" preload="metadata" muted
-        poster="{{ productVideo | img_url: 'master' }}">
-        <source src="{{ productVideo | file_url }}" type="video/mp4">
+        poster="{{ external_video | img_url: 'master' }}">
+        <source src="{{ external_video | file_url }}" type="video/mp4">
       </video>
       <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
         <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z" />
         </svg>
       </div>
-      {% else %}
-      {% assign first_image = external_gallery[external_images[1]] %}
-      <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover"
-        alt="Fallback image">
       {% endif %}
       {% endif %}
     </div>
@@ -68,7 +79,15 @@
     id="internal-content" data-attribute="internal-gallery">
     <div class="main-img-container w-full h-auto relative">
       {% if internal_gallery %}
-      {% assign internal_images = "image_up_one,image_up_two,image_up_three,image_up_four,image_up_five" | split: "," %}
+      {% for el in internal_gallery_split %}
+      {% assign val = el | split: '"' %}
+      {% if forloop.first %}
+      {% assign updated_values = val[1] %}
+      {% else %}
+      {% assign updated_values = updated_values | append: "," | append: val[1] %}
+      {% endif %}
+      {% endfor %}
+      {% assign internal_images = updated_values | split: "," %}
       {% assign first_image = internal_gallery[internal_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
         alt="Fallback image" id="first-internal-img">
@@ -95,8 +114,15 @@
     id="internal-down-content" data-attribute="internal-down-gallery">
     <div class="main-img-container w-full h-auto relative">
       {% if internal_gallery_down %}
-      {% assign internal_down_images = "image_down_one,image_down_two,image_down_three,image_down_four,image_down_five"
-      | split: "," %}
+      {% for el in internal_gallery_down_split %}
+      {% assign val = el | split: '"' %}
+      {% if forloop.first %}
+      {% assign updated_values = val[1] %}
+      {% else %}
+      {% assign updated_values = updated_values | append: "," | append: val[1] %}
+      {% endif %}
+      {% endfor %}
+      {% assign internal_down_images = updated_values | split: "," %}
       {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
         alt="Fallback image" id="first-internal-img">
@@ -124,7 +150,15 @@
     id="internal-up-content" data-attribute="internal-gallery">
     <div class="main-img-container w-full h-auto relative">
       {% if internal_gallery %}
-      {% assign internal_images = "image_up_one,image_up_two,image_up_three,image_up_four,image_up_five" | split: "," %}
+      {% for el in internal_gallery_split %}
+      {% assign val = el | split: '"' %}
+      {% if forloop.first %}
+      {% assign updated_values = val[1] %}
+      {% else %}
+      {% assign updated_values = updated_values | append: "," | append: val[1] %}
+      {% endif %}
+      {% endfor %}
+      {% assign internal_images = updated_values | split: "," %}
       {% assign first_image = internal_gallery[internal_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
         alt="Fallback image" id="first-internal-img">
