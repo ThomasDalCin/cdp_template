@@ -21,9 +21,6 @@
   {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
   {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
 
-  {% for item in product.metafields.custom.external_images_boat.value %}
-    <p>{{ item }}</p>
-  {% endfor %}
 
   <!--external gallery section-->
   <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
@@ -121,7 +118,7 @@
     </div>
   </div>
 
-  
+
   <!--internal gallery up section-->
   <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
     id="internal-up-content" data-attribute="internal-gallery">
@@ -148,7 +145,7 @@
       </div>
     </div>
   </div>
-  
+
   <!--overlay swiper gallery-->
   <div class="overlay-wrapper absolute z-40 inset-0 h-dvh bg-white hidden">
     <div class="overlay-wrapper-content w-full h-full p-4 flex flex-col gap-y-6">
@@ -262,104 +259,101 @@
 
     //Handle tab settings
     const externalTab = document.getElementById('external-tab');
-const internalTab = document.getElementById('internal-tab');
-const internalDownTab = document.getElementById('internal-down-tab');
-const internalUpTab = document.getElementById('internal-up-tab');
-const externalContent = document.getElementById('external-content');
-const internalContent = document.getElementById('internal-content');
-const internalDownContent = document.getElementById('internal-down-content');
-const internalUpContent = document.getElementById('internal-up-content');
-const externalRect = externalTab.querySelector('.tab-rect');
-const internalRect = internalTab.querySelector('.tab-rect');
-const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
-const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+    const internalTab = document.getElementById('internal-tab');
+    const internalDownTab = document.getElementById('internal-down-tab');
+    const internalUpTab = document.getElementById('internal-up-tab');
+    const externalContent = document.getElementById('external-content');
+    const internalContent = document.getElementById('internal-content');
+    const internalDownContent = document.getElementById('internal-down-content');
+    const internalUpContent = document.getElementById('internal-up-content');
+    const externalRect = externalTab.querySelector('.tab-rect');
+    const internalRect = internalTab.querySelector('.tab-rect');
+    const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
+    const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
 
-// Function to handle tab display and rect visibility
-function showTab(tab, content, rect) {
-  // Hide all content and rectangles
-  externalContent.classList.add('hidden');
-  internalContent.classList.add('hidden');
-  internalDownContent.classList.add('hidden');
-  internalUpContent.classList.add('hidden');
-  externalRect.classList.add('hidden');
-  internalRect.classList.add('hidden');
-  internalDownRect.classList.add('hidden');
-  internalUpRect.classList.add('hidden');
+    // Function to handle tab display and rect visibility
+    function showTab(tab, content, rect) {
+      externalContent.classList.add('hidden');
+      internalContent.classList.add('hidden');
+      internalDownContent.classList.add('hidden');
+      internalUpContent.classList.add('hidden');
+      externalRect.classList.add('hidden');
+      internalRect.classList.add('hidden');
+      internalDownRect.classList.add('hidden');
+      internalUpRect.classList.add('hidden');
 
-  // Show the selected content
-  content.classList.remove('hidden');
 
-  // Handle visibility of the rects based on the tab selected
-  if (tab === externalTab) {
-    externalRect.classList.remove('hidden');
-  } else if (tab === internalTab) {
-    internalRect.classList.remove('hidden'); // Always show internalRect when in internal tab
-    rect.classList.remove('hidden'); // Show the specific internal rect (internalUpRect or internalDownRect)
-  } else if (tab === internalDownTab || tab === internalUpTab) {
-    if (tab === internalTab) {
-      internalRect.classList.remove('hidden'); // Always show internalRect when in internal tab
-    }
-    rect.classList.remove('hidden'); // Show the specific internal rect (internalUpRect or internalDownRect)
-  }
-  
-  // Handle visibility of in-out tab section and galley-settings
-  if (content.getAttribute('id') === 'internal-content') {
-    document.getElementById('galley-settings').classList.remove('hidden');
-    document.getElementById('galley-settings').classList.add('flex');
-    document.getElementById('tab-in-out').classList.add('hidden');
-  } else if (content.getAttribute('id') === 'external-content') {
-    document.getElementById('tab-in-out').classList.add('flex');
-    document.getElementById('tab-in-out').classList.remove('hidden');
-    document.getElementById('galley-settings').classList.add('hidden');
-  } else {
-    document.getElementById('tab-in-out').classList.remove('flex');
-    document.getElementById('tab-in-out').classList.add('hidden');
-  }
-}
+      content.classList.remove('hidden');
 
-// Event listeners for tab clicks
-externalTab.addEventListener('click', function () {
-  showTab(externalTab, externalContent, externalRect);
-});
 
-internalTab.addEventListener('click', function () {
-  showTab(internalTab, internalContent, internalRect); // Show internalRect when internalTab is clicked
-});
-
-internalDownTab.addEventListener('click', function () {
-  showTab(internalDownTab, internalDownContent, internalDownRect);
-});
-
-internalUpTab.addEventListener('click', function () {
-  showTab(internalUpTab, internalUpContent, internalUpRect);
-});
-
-// Initial tab display
-showTab(externalTab, externalContent, externalRect);
-
-// Function to setup image click handler
-function setupImageClickHandler(container) {
-  const images = container.querySelectorAll('.gallery-main-scroll-image');
-  images.forEach(image => {
-    image.addEventListener('click', function () {
-      const newImageSrc = image.getAttribute('data-image-src');
-      if (newImageSrc) {
-        // Find the closest main-img-container within the same content container
-        const mainImgContainer = container.querySelector('.main-img-container img');
-        if (mainImgContainer) {
-          mainImgContainer.src = newImageSrc;
+      if (tab === externalTab) {
+        externalRect.classList.remove('hidden');
+      } else if (tab === internalTab) {
+        internalRect.classList.remove('hidden');
+        rect.classList.remove('hidden');
+      } else if (tab === internalDownTab || tab === internalUpTab) {
+        if (tab === internalTab) {
+          internalRect.classList.remove('hidden');
         }
+        rect.classList.remove('hidden');
       }
-    });
-  });
-}
 
-// Setup image click handlers for all relevant content
-setupImageClickHandler(internalContent);
-setupImageClickHandler(internalDownContent);
-setupImageClickHandler(internalUpContent); // Added for internal-up-content
-setupImageClickHandler(externalContent); // If needed for external tab images
-     
+      if (content.getAttribute('id') === 'internal-content') {
+        document.getElementById('galley-settings').classList.remove('hidden');
+        document.getElementById('galley-settings').classList.add('flex');
+        document.getElementById('tab-in-out').classList.add('hidden');
+      } else if (content.getAttribute('id') === 'external-content') {
+        document.getElementById('tab-in-out').classList.add('flex');
+        document.getElementById('tab-in-out').classList.remove('hidden');
+        document.getElementById('galley-settings').classList.add('hidden');
+      } else {
+        document.getElementById('tab-in-out').classList.remove('flex');
+        document.getElementById('tab-in-out').classList.add('hidden');
+      }
+    }
+
+    // Event listeners for tab clicks
+    externalTab.addEventListener('click', function () {
+      showTab(externalTab, externalContent, externalRect);
+    });
+
+    internalTab.addEventListener('click', function () {
+      showTab(internalTab, internalContent, internalRect);
+    });
+
+    internalDownTab.addEventListener('click', function () {
+      showTab(internalDownTab, internalDownContent, internalDownRect);
+    });
+
+    internalUpTab.addEventListener('click', function () {
+      showTab(internalUpTab, internalUpContent, internalUpRect);
+    });
+
+    // Initial tab display
+    showTab(externalTab, externalContent, externalRect);
+
+    // Function to setup image click handler
+    function setupImageClickHandler(container) {
+      const images = container.querySelectorAll('.gallery-main-scroll-image');
+      images.forEach(image => {
+        image.addEventListener('click', function () {
+          const newImageSrc = image.getAttribute('data-image-src');
+          if (newImageSrc) {
+            const mainImgContainer = container.querySelector('.main-img-container img');
+            if (mainImgContainer) {
+              mainImgContainer.src = newImageSrc;
+            }
+          }
+        });
+      });
+    }
+
+    // Setup image click handlers
+    setupImageClickHandler(internalContent);
+    setupImageClickHandler(internalDownContent);
+    setupImageClickHandler(internalUpContent);
+    setupImageClickHandler(externalContent);
+
 
 
 
