@@ -1,12 +1,12 @@
 <div
   class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out lg:p-6">
-  <div class="navbar-container flex items-center justify-between flex-row relative pb-2 ">
+  <div class="navbar-container flex items-center justify-between flex-row relative pb-2">
     <div class="menu-yachts-label transition-colors duration-300 ease-in-out">
       <p class="body-small chip-text">Yachts</p>
     </div>
     <div
       class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <div class="pardo-logo w-auto h-auto ">
+      <div class="pardo-logo w-auto h-auto">
         <a href="/" id="pardo-logo" class="w-auto h-auto">
           <div class="w-auto h-auto">
             {% render 'pardo-logo-one' %}
@@ -23,17 +23,15 @@
       </div>
     </div>
   </div>
+
   <!-- Secon level Menu Container -->
   <div
     class="second-level-menu-container w-full h-screen flex flex-col bg-[var(--primary-background-color)] absolute left-0 right-0 p-4 z-30 hidden">
-    <!-- Back Navigation Container -->
     <div class="back-nav-container flex items-center justify-start py-4">
       {% render 'back-arrow-icon' %}
     </div>
 
-    <!-- Filter Chips Container -->
     <div class="chips-horizontal-container w-full flex gap-x-2 overflow-auto py-4">
-      <!-- Chips will be dynamically added here -->
       {% for collection in collections %}
       <div class="chips-label flex items-center space-x-2">
         <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
@@ -46,18 +44,18 @@
       </div>
     </div>
 
-    <!-- Second Level Menu Items -->
     <div
       class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)]">
-      <!-- Second level menu items will be dynamically added here -->
       {% for collection in collections %}
       {% for product in collection.products %}
       {% assign productMainImg = product.images[0] %}
       <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
         <li class="container-product-main-image w-full h-auto list-none"
-          data-product-collection="{{ collection.title}}">
-          <a href="{{ product.url }}" class="w-full h-auto"> <img class="product-main-img w-full h-auto object-contain"
-              src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}"></a>
+          data-product-collection="{{ collection.title }}">
+          <a href="{{ product.url }}" class="w-full h-auto">
+            <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
+              alt="{{ product.title }}">
+          </a>
         </li>
         <p class="header-1-medium">{{ product.title | replace: "Pardo", "" }}</p>
       </div>
@@ -66,20 +64,16 @@
     </div>
   </div>
 
-
   <!-- Yatch Menu Container -->
   <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10 relative">
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-4 lg:gap-y-6">
-      <!-- Titles array -->
       {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
-
       {% for link in linklists.yatch.links %}
       {% assign matching_collection = collections[link.object.handle] %}
       {% assign product_count = 0 %}
       {% if matching_collection %}
       {% assign product_count = matching_collection.products_count %}
       {% endif %}
-      
       <li
         class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start gap-y-4 relative collection-menu-item"
         data-collection="{{ link.object.handle }}">
@@ -104,42 +98,29 @@
         </div>
         <div class="collection-info-container w-auto h-auto inline-flex flex-row gap-x-2 items-start justify-start">
           {% for product in matching_collection.products %}
-          <div class="badge-product border-white hover:text-black hover:bg-white cursor-pointer" data-target="{{ product.title }}">
+          <div class="badge-product border-white hover:text-black hover:bg-white cursor-pointer"
+            data-target="{{ product.title }}">
             {{ product.title | replace: 'Pardo', '' }}
           </div>
           {% endfor %}
         </div>
-        {% comment %}
-        {% if matching_collection %}
-        {% if matching_collection.description %}
-        <div
-          class="info-pop-up-container w-auto h-auto p-4 inline-flex items-center justify-center rounded-full bg-[var(--secondary-background-color)]">
-          <p class="caption">{{ matching_collection.description }}</p>
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endcomment %}
       </li>
       {% endfor %}
-    </div>
-    
-    <!--png boat desktop container-->
-    {% if matching_collection %}
-      <div class="boat-image-container w-auto h-auto absolute top-1/2 right-1/2 -translate-y-1/2 -translate-x-1/4">
-        {% for product in matching_collection.products %}
-          {% assign boatImage = product.metafields.custom.boat_menu_image %}
-          {% if boatImage %}
-            <p>{{ boatImage }}</p> <!-- Mostra l'immagine o l'URL dell'immagine -->
-          {% else %}
-            <p>No image available</p> <!-- Testo di fallback -->
-          {% endif %}
+      <div class="boat-image-container w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/4 -translate-y-1/2 z-30">
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
+        {% if boatImage %}
+        <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+          class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+        {% endif %}
+        {% endfor %}
         {% endfor %}
       </div>
-    {% endif %}    
+    </div>
   </div>
 
-
-  <!-- Main Menu Container -->
+  <!-- Min Menu Container -->
   <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
       {% for link in linklists.main-menu.links %}
@@ -153,7 +134,10 @@
       {% endfor %}
     </div>
   </div>
+
 </div>
+
+
 
 
 
@@ -381,6 +365,54 @@
         });
       });
     });
+
+    function checkDevice() {
+      const screenSize = window.innerWidth;
+      const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
+      const boatDesktopContainer = document.querySelector('.boat-image-container');
+      const badges = document.querySelectorAll('.badge-product');
+      const images = document.querySelectorAll('.boat-image-container img');
+
+      if (screenSize <= 625) {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'none';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'none';
+        }
+      } else {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'flex';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'block';
+        }
+
+        images.forEach(image => {
+          image.style.display = 'none';
+        });
+
+        badges.forEach(badge => {
+          badge.addEventListener('click', function () {
+            const target = badge.getAttribute('data-target');
+            images.forEach(image => {
+              image.style.display = 'none';
+            });
+            const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
+            if (selectedImage) {
+              selectedImage.style.display = 'block';
+            }
+          });
+        });
+      }
+    }
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+
+
+
+
 
   });
 </script>
