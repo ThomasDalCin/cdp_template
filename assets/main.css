@@ -973,6 +973,10 @@ body {
   display: inline-flex;
 }
 
+.contents {
+  display: contents;
+}
+
 .hidden {
   display: none;
 }

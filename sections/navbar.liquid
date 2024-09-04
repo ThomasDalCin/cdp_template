@@ -6,11 +6,11 @@
     </div>
     <div
       class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <div class="pardo-logo w-full h-full">
-        <a href="/">
-          <img id="pardo-logo" class="object-contain w-full h-full"
-            src="https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625"
-            alt="pardo-logo">
+      <div class="pardo-logo w-auto h-auto ">
+        <a href="/" id="pardo-logo" class="w-auto h-auto">
+        <div class="w-auto h-auto">
+          {% render 'pardo-logo-one' %}
+        </div>
         </a>
       </div>
     </div>
@@ -177,17 +177,20 @@
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
-        logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white')
       } else if (hasScrolled || isNotHomepage) {
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
         menuChip.classList.add('toBlack');
-        logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-black.png?v=1724339311';
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white')
       } else {
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
-        logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white')
       }
 
     }
