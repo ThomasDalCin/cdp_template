@@ -8,9 +8,9 @@
       class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div class="pardo-logo w-auto h-auto ">
         <a href="/" id="pardo-logo" class="w-auto h-auto">
-        <div class="w-auto h-auto">
-          {% render 'pardo-logo-one' %}
-        </div>
+          <div class="w-auto h-auto">
+            {% render 'pardo-logo-one' %}
+          </div>
         </a>
       </div>
     </div>
@@ -68,7 +68,7 @@
 
 
   <!-- Yatch Menu Container -->
-  <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
+  <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10 relative">
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-4 lg:gap-y-6">
       <!-- Titles array -->
       {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
@@ -79,8 +79,9 @@
       {% if matching_collection %}
       {% assign product_count = matching_collection.products_count %}
       {% endif %}
-
-      <li class="header-1-medium text-white list-none inline-flex items-center relative collection-menu-item"
+      
+      <li
+        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start gap-y-4 relative collection-menu-item"
         data-collection="{{ link.object.handle }}">
         <div class="relative inline-block">
           {% if allLinksTitle contains link.title %}
@@ -90,9 +91,8 @@
           {{ link.title | link_to: 'javascript:void(0);', class: "lg:text-[40px] lg:leading-[40px] " }}
           {% endif %}
           {% else %}
-            {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
+          {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
           {% endif %}
-
           {% if matching_collection %}
           {% if product_count.size > 0 %}
           <span
@@ -102,10 +102,42 @@
           {% endif %}
           {% endif %}
         </div>
+        <div class="collection-info-container w-auto h-auto inline-flex flex-row gap-x-2 items-start justify-start">
+          {% for product in matching_collection.products %}
+          <div class="badge-product border-white hover:text-black hover:bg-white cursor-pointer" data-target="{{ product.title }}">
+            {{ product.title | replace: 'Pardo', '' }}
+          </div>
+          {% endfor %}
+        </div>
+        {% comment %}
+        {% if matching_collection %}
+        {% if matching_collection.description %}
+        <div
+          class="info-pop-up-container w-auto h-auto p-4 inline-flex items-center justify-center rounded-full bg-[var(--secondary-background-color)]">
+          <p class="caption">{{ matching_collection.description }}</p>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endcomment %}
       </li>
       {% endfor %}
     </div>
+    
+    <!--png boat desktop container-->
+    {% if matching_collection %}
+      <div class="boat-image-container w-auto h-auto absolute top-1/2 right-1/2 -translate-y-1/2 -translate-x-1/4">
+        {% for product in matching_collection.products %}
+          {% assign boatImage = product.metafields.custom.boat_menu_image %}
+          {% if boatImage %}
+            <p>{{ boatImage }}</p> <!-- Mostra l'immagine o l'URL dell'immagine -->
+          {% else %}
+            <p>No image available</p> <!-- Testo di fallback -->
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}    
   </div>
+
 
   <!-- Main Menu Container -->
   <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
@@ -113,9 +145,9 @@
       {% for link in linklists.main-menu.links %}
       <li class="header-1-medium text-white list-none inline-flex items-center relative">
         {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
-          {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
-          {% else %}
-          {{ link.title | link_to: link.url, class: "lg:text-[40px] lg:leading-[40px] " }}
+        {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
+        {% else %}
+        {{ link.title | link_to: link.url, class: "lg:text-[40px] lg:leading-[40px] " }}
         {% endif %}
       </li>
       {% endfor %}
