@@ -16,7 +16,8 @@
       </div>
     </div>
   </div>
-
+  
+  <!--assign liquid variabls metaobjects -->
   {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
   {% assign external_gallery_split = product.metafields.custom.external_images_boat.value | json | replace:'{', '' |
   replace:'}', ''| split: "," %}
@@ -243,6 +244,7 @@
 
 
 <style>
+  /*swiper pagination bullet settings*/
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: var(--secondary-text-color) !important;
   }
@@ -306,6 +308,7 @@
 
     // Function to handle tab display and rect visibility
     function showTab(tab, content, rect) {
+      //hide contents for each tab
       externalContent.classList.add('hidden');
       internalContent.classList.add('hidden');
       internalDownContent.classList.add('hidden');
@@ -315,7 +318,7 @@
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
 
-
+      //display just the tab's content selected
       content.classList.remove('hidden');
 
 
@@ -323,11 +326,10 @@
         externalRect.classList.remove('hidden');
       } else if (tab === internalTab) {
         internalRect.classList.remove('hidden');
+        internalUpRect.classList.remove('hidden');
         rect.classList.remove('hidden');
       } else if (tab === internalDownTab || tab === internalUpTab) {
-        if (tab === internalTab) {
-          internalRect.classList.remove('hidden');
-        }
+        internalRect.classList.remove('hidden');
         rect.classList.remove('hidden');
       }
 
@@ -362,10 +364,10 @@
       showTab(internalUpTab, internalUpContent, internalUpRect);
     });
 
-    // Initial tab display
+    //Show tab default after page loading
     showTab(externalTab, externalContent, externalRect);
 
-    // Function to setup image click handler
+    //function to change the main image displayed with the image clicked
     function setupImageClickHandler(container) {
       const images = container.querySelectorAll('.gallery-main-scroll-image');
       images.forEach(image => {
@@ -381,15 +383,12 @@
       });
     }
 
-    // Setup image click handlers
+    //Inizialize click Handler
     setupImageClickHandler(internalContent);
     setupImageClickHandler(internalDownContent);
     setupImageClickHandler(internalUpContent);
     setupImageClickHandler(externalContent);
-
-
-
-
+    
     //Main image change in the external tab
     const videoContainer = document.querySelector('.video');
     const videoSettings = document.querySelector('.video-settings');
@@ -403,9 +402,8 @@
 
     function handleExternalImageClick(e) {
       let currentSrc = e.currentTarget.getAttribute('data-external-src');
-
       if (!currentSrc) return;
-
+      
       if (allExternalImages.indexOf(e.currentTarget) === 0) {
         if (!document.body.contains(videoContainer)) {
           parentVideo.innerHTML = '';
@@ -422,13 +420,13 @@
         mainImg.setAttribute('id', 'first-external-img');
       }
     }
-
+    
     allExternalImages.forEach((img) => {
       img.addEventListener('click', handleExternalImageClick);
     });
 
 
-    //handle overlay Swiper
+    //Handle overlay Swiper
     const firstInternalImg = document.getElementById('first-internal-img');
     const firstExternalImg = document.getElementById('first-external-img');
 
@@ -481,7 +479,7 @@
       createSwiperEl(allGalleryImagesPaths);
     }
 
-    //swiper slide settings
+    //Inizialize Swiper Slider
     var swiper = new Swiper(".mySwiper", {
       effect: 'fade',
       fadeEffect: {
