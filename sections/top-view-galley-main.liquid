@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  
+
   <!--assign liquid variabls metaobjects -->
   {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
   {% assign external_gallery_split = product.metafields.custom.external_images_boat.value | json | replace:'{', '' |
@@ -125,7 +125,7 @@
       {% assign internal_down_images = updated_values | split: "," %}
       {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image" id="first-internal-img">
+        alt="Fallback image" id="first-internal-down-img">
       {% endif %}
     </div>
 
@@ -161,7 +161,7 @@
       {% assign internal_images = updated_values | split: "," %}
       {% assign first_image = internal_gallery[internal_images[0]] %}
       <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image" id="first-internal-img">
+        alt="Fallback image" id="first-internal-up-img">
       {% endif %}
     </div>
 
@@ -381,76 +381,84 @@
           }
         });
       });
+
+      if (container === externalContent) {
+        const videoContainer = document.querySelector('.video');
+        const videoSettings = document.querySelector('.video-settings');
+        const parentVideo = document.querySelector('.video-container');
+        const allExternalImages = Array.from(container.querySelectorAll("img[data-external-src]"));
+        const mainImg = document.createElement('img');
+        const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
+
+        mainImg.setAttribute('src', '');
+        classesToAdd.forEach((className) => mainImg.classList.add(className));
+
+        function handleExternalImageClick(e) {
+          let currentSrc = e.currentTarget.getAttribute('data-external-src');
+          if (!currentSrc) return;
+
+          if (allExternalImages.indexOf(e.currentTarget) === 0) {
+            if (!document.body.contains(videoContainer)) {
+              parentVideo.innerHTML = '';
+              parentVideo.appendChild(videoContainer);
+              parentVideo.appendChild(videoSettings);
+            }
+          } else {
+            if (document.body.contains(videoContainer)) {
+              videoContainer.remove();
+              videoSettings.remove();
+            }
+            parentVideo.appendChild(mainImg);
+            mainImg.setAttribute('src', currentSrc);
+            mainImg.setAttribute('id', 'first-external-img');
+          }
+        }
+
+        allExternalImages.forEach((image, index) => {
+          if (image.src.includes('thumbnail')) {
+            const [thumbnail] = allExternalImages.splice(index, 1);
+            allExternalImages.unshift(thumbnail);
+          }
+        });
+
+        const externalImageContainer = container.querySelector('.flex.flex-row.items-center');
+        externalImageContainer.innerHTML = '';
+        allExternalImages.forEach((image) => {
+          const parentDiv = image.parentElement;
+          externalImageContainer.appendChild(parentDiv);
+        });
+
+        allExternalImages.forEach((img) => {
+          img.addEventListener('click', handleExternalImageClick);
+        });
+      }
     }
+
+
 
     //Inizialize click Handler
     setupImageClickHandler(internalContent);
     setupImageClickHandler(internalDownContent);
     setupImageClickHandler(internalUpContent);
     setupImageClickHandler(externalContent);
-    
-    //Main image change in the external tab
-    const videoContainer = document.querySelector('.video');
-    const videoSettings = document.querySelector('.video-settings');
-    const parentVideo = document.querySelector('.video-container');
-    const allExternalImages = Array.from(document.querySelectorAll("img[data-external-src]"));
-    const mainImg = document.createElement('img');
-    const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
-
-    mainImg.setAttribute('src', '');
-    classesToAdd.forEach((className) => mainImg.classList.add(className));
-
-    function handleExternalImageClick(e) {
-      let currentSrc = e.currentTarget.getAttribute('data-external-src');
-      if (!currentSrc) return;
-      
-      if (allExternalImages.indexOf(e.currentTarget) === 0) {
-        if (!document.body.contains(videoContainer)) {
-          parentVideo.innerHTML = '';
-          parentVideo.appendChild(videoContainer);
-          parentVideo.appendChild(videoSettings);
-        }
-      } else {
-        if (document.body.contains(videoContainer)) {
-          videoContainer.remove();
-          videoSettings.remove();
-        }
-        parentVideo.appendChild(mainImg);
-        mainImg.setAttribute('src', currentSrc);
-        mainImg.setAttribute('id', 'first-external-img');
-      }
-    }
-    
-    allExternalImages.forEach((img) => {
-      img.addEventListener('click', handleExternalImageClick);
-    });
-
 
     //Handle overlay Swiper
     const firstInternalImg = document.getElementById('first-internal-img');
-    const firstExternalImg = document.getElementById('first-external-img');
+    const firstInternalUpImg = document.getElementById('first-internal-up-img');
+    const firstInternalDownImg = document.getElementById('first-internal-down-img');
+    const firstContainerImages = [firstInternalImg, firstInternalUpImg, firstInternalDownImg];
 
-    if (firstExternalImg) {
-      firstExternalImg.addEventListener('click', (e) => {
+    firstContainerImages.forEach((image) => {
+      image.addEventListener('click', (e) => {
         const clieckImg = e.currentTarget;
         const overlayWrapper = document.querySelector('.overlay-wrapper');
         if (overlayWrapper.classList.contains('hidden')) {
           overlayWrapper.classList.add('block');
-          overlayWrapper.classList.remove('hidden')
+          overlayWrapper.classList.remove('hidden');
+          document.body.classList.add('no-scroll');
         }
         getAllImagesByClick(clieckImg)
       })
-    }
-
-    firstInternalImg.addEventListener('click', (e) => {
-      const clieckImg = e.currentTarget;
-      const overlayWrapper = document.querySelector('.overlay-wrapper');
-      if (overlayWrapper.classList.contains('hidden')) {
-        overlayWrapper.classList.add('block');
-        overlayWrapper.classList.remove('hidden');
-        document.body.classList.add('no-scroll');
-      }
-      getAllImagesByClick(clieckImg)
     })
 
     function createSwiperEl(slideImages) {
@@ -471,7 +479,7 @@
       const clickedImgSrc = img.src;
       const parentNodeClickedImg = img.closest('.container-gallery');
       const allGalleryImages = parentNodeClickedImg.querySelectorAll('.gallery-main-scroll-image');
-      const allGalleryImagesPaths = [clickedImgSrc];
+      const allGalleryImagesPaths = [];
       allGalleryImages.forEach((image) => {
         const imagePath = image.getAttribute('src');
         allGalleryImagesPaths.push(imagePath);
