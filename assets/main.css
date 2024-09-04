@@ -1033,6 +1033,10 @@ body {
   height: 100vh;
 }
 
+.h-\[32px\] {
+  height: 32px;
+}
+
 .max-h-\[220px\] {
   max-height: 220px;
 }
@@ -1091,6 +1095,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[250px\] {
+  width: 250px;
 }
 
 .max-w-md {
