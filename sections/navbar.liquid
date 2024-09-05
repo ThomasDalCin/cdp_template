@@ -112,8 +112,10 @@
         {% for product in collection.products %}
         {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
         {% if boatImage %}
-        <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
-          class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+          <a href="{{ product.url }}">
+            <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+            class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+          </a>
         {% endif %}
         {% endfor %}
         {% endfor %}
@@ -198,8 +200,8 @@
         logo.classList.add('text-white');
 
         const boatImages = document.querySelectorAll('.boat-image');
-          boatImages.forEach(boatImage => {
-              boatImage.style.display = 'none';
+        boatImages.forEach(boatImage => {
+          boatImage.style.display = 'none';
         });
 
       } else if (hasScrolled || isNotHomepage) {
@@ -296,10 +298,10 @@
         updateNavbarStyle();
       }
     });
-    
 
-   // Handle second menu
-   function handleSecondMenuLevel() {
+
+    // Handle second menu
+    function handleSecondMenuLevel() {
       const screenSize = window.innerWidth;
       let lastBadge;
 
@@ -315,7 +317,7 @@
             logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-black.png?v=1724339311';
           });
         }
-        else {        
+        else {
 
           link.addEventListener('mouseover', (e) => {
             e.currentTarget.classList.add('text-shadow');
@@ -333,9 +335,11 @@
             const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
             const boatImages = document.querySelectorAll('.boat-image');
 
+
             boatImages.forEach(boatImage => {
               boatImage.style.display = 'none';
             });
+
 
             badgesProduct.forEach(badge => {
               badge.classList.remove('text-black', 'bg-white');
@@ -343,7 +347,7 @@
 
             let lastBadge;
             if (badgesProduct.length === 1) {
-              lastBadge = badgesProduct[0]; 
+              lastBadge = badgesProduct[0];
             } else {
               lastBadge = badgesProduct[badgesProduct.length - 1];
             }
@@ -372,20 +376,34 @@
               }
             });
 
+            const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
+            allCollectionMenuItems.forEach(item => {
+              if (item !== collectionMenuItem) {
+                const otherCollectionInfoContainer = item.querySelector('.collection-info-container');
+                if (otherCollectionInfoContainer) {
+                  otherCollectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
+                  otherCollectionInfoContainer.classList.add('overflow-hidden', 'h-0');
+                }
+              }
+            });
+
+
             collectionInfoContainer.classList.remove('overflow-hidden', 'h-0');
             collectionInfoContainer.classList.add('overflow-auto', 'h-auto');
 
             function handleOutsideClick(event) {
-              if (!collectionMenuItem.contains(event.target)) {
+              const clickedOutside = Array.from(allCollectionMenuItems).every(item => !item.contains(event.target));
+
+              if (clickedOutside) {
                 collectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
                 collectionInfoContainer.classList.add('overflow-hidden', 'h-0');
+
                 boatImages.forEach((boatImage) => {
                   const badgeActive = collectionInfoContainer.querySelector('.bg-white').getAttribute('data-target');
-                  if(boatImage.getAttribute('data-image') === badgeActive){
-                    boatImage.style.display = 'none'
+                  if (boatImage.getAttribute('data-image') === badgeActive) {
+                    boatImage.style.display = 'none';
                   }
-
-                })
+                });
 
                 document.removeEventListener('click', handleOutsideClick);
               }
@@ -396,13 +414,14 @@
             }, 0);
           });
 
+
         }
       });
     }
-    
+
     window.addEventListener('resize', handleSecondMenuLevel);
     handleSecondMenuLevel();
-    
+
     // Hide the second-level menu and show the main menu when the back arrow is clicked
     document.querySelector('.back-nav-container').addEventListener('click', () => {
       secondMenu.classList.add('hidden');
@@ -510,5 +529,5 @@
     checkDevice();
     window.addEventListener('resize', checkDevice);
 
- });
+  });
 </script>
