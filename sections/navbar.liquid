@@ -195,7 +195,13 @@
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
-        logo.classList.add('text-white')
+        logo.classList.add('text-white');
+
+        const boatImages = document.querySelectorAll('.boat-image');
+          boatImages.forEach(boatImage => {
+              boatImage.style.display = 'none';
+        });
+
       } else if (hasScrolled || isNotHomepage) {
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
@@ -292,8 +298,8 @@
     });
     
 
-    //handle second menu
-    function handleSecondMenuLevel() {
+   // Handle second menu
+   function handleSecondMenuLevel() {
       const screenSize = window.innerWidth;
       let lastBadge;
 
@@ -309,7 +315,8 @@
             logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-black.png?v=1724339311';
           });
         }
-        else {
+        else {        
+
           link.addEventListener('mouseover', (e) => {
             e.currentTarget.classList.add('text-shadow');
           });
@@ -372,6 +379,14 @@
               if (!collectionMenuItem.contains(event.target)) {
                 collectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
                 collectionInfoContainer.classList.add('overflow-hidden', 'h-0');
+                boatImages.forEach((boatImage) => {
+                  const badgeActive = collectionInfoContainer.querySelector('.bg-white').getAttribute('data-target');
+                  if(boatImage.getAttribute('data-image') === badgeActive){
+                    boatImage.style.display = 'none'
+                  }
+
+                })
+
                 document.removeEventListener('click', handleOutsideClick);
               }
             }
@@ -384,8 +399,7 @@
         }
       });
     }
-
-
+    
     window.addEventListener('resize', handleSecondMenuLevel);
     handleSecondMenuLevel();
     
@@ -496,8 +510,5 @@
     checkDevice();
     window.addEventListener('resize', checkDevice);
 
-
-
-
-  });
+ });
 </script>
