@@ -1,0 +1,13 @@
+{
+    "sections": {
+        "tab-blog-section" : {
+            "type": "blog-tab",
+            "settings": {}
+        },
+        "blog-chips": {
+            "type": "blog-chips",
+            "settings": {}
+        }
+    },
+    "order": ["tab-blog-section", "blog-chips"]
+}
