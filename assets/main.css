@@ -786,6 +786,22 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.cta-blog {
+  display: flex;
+  min-width: 100px;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 9999px;
+  border-width: 1px;
+  background-color: var(--accent-dark-color);
+  padding: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .cta-brochure {
   display: flex;
   align-items: center;
@@ -953,8 +969,16 @@ body {
   margin-top: 1.75rem;
 }
 
+.mt-\[100px\] {
+  margin-top: 100px;
+}
+
 .mt-\[77px\] {
   margin-top: 77px;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .box-border {
@@ -1099,6 +1123,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.min-w-\[100px\] {
+  min-width: 100px;
 }
 
 .max-w-md {

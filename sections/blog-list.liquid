@@ -1,0 +1,57 @@
+<!-- Blog row list container -->
+<div class="blogs-list-container w-full h-auto flex flex-col gap-y-10 p-4">
+    {% if blogs['news'] %}
+    {% assign newsArticles = blogs['news'].articles %}
+
+    {% assign first_article = newsArticles[0] %}
+    {% assign remaining_articles = newsArticles | slice: 1, newsArticles.size %}
+
+    <!-- First row: only one article -->
+    <div class="blog-list-row width-view mt-6 mb-6">
+        {% if first_article %}
+        <div class="blog-item width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center">
+            <div class="blog-item-image w-full h-auto">
+                <img src="{{ first_article.image |  img_url: 'master' }}" class="w-full h-auto object-cover rounded-xl" alt="article image">
+            </div>
+            <div class="blog-item-date w-full h-auto flex flex-row justify-between">
+                <p class="body-12">{{ first_article.published_at }}</p>
+            </div>
+            <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
+                <h3 class="body-14-medium">{{ first_article.title }}</h3>
+                <p class="body-12">{{ first_article.content }}</p>
+            </div>
+            <div class="blog-item-cta w-full h-auto flex items-center justify-start">
+                <div class="cta-blog">
+                    <a href="{{ first_article.url }}">
+                        <p class="body-14-medium">Leggi di più</p>
+                    </a>
+                  </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Second row: next three articles -->
+    <div class="blog-list-row horizonal-view">
+        {% assign second_row_articles = remaining_articles | slice: 0, 3 %}
+        {% for article in second_row_articles %}
+        <div class="blog-item">
+            <h3>{{ article.title }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Third row: remaining articles -->
+    <div class="blog-list-row height-view">
+        {% assign third_row_articles = remaining_articles | slice: 3 %}
+        {% for article in third_row_articles %}
+        <div class="blog-item">
+            <h3>{{ article.title }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <p>No articles found in the 'news' blog.</p>
+    {% endif %}
+</div>

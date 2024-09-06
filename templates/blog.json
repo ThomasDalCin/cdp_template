@@ -1,13 +1,13 @@
 {
     "sections": {
-        "tab-blog-section" : {
+        "blog-tab": {
             "type": "blog-tab",
             "settings": {}
         },
-        "blog-chips": {
-            "type": "blog-chips",
+        "blog-list": {
+            "type": "blog-list",
             "settings": {}
         }
     },
-    "order": ["tab-blog-section", "blog-chips"]
+    "order": [ "blog-tab", "blog-list"]
 }
