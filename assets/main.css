@@ -1182,6 +1182,10 @@ body {
   min-height: 565px;
 }
 
+.min-h-\[189px\] {
+  min-height: 189px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -1230,6 +1234,10 @@ body {
   width: 100%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1240,6 +1248,10 @@ body {
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-\[164px\] {
+  max-width: 164px;
 }
 
 .flex-1 {
@@ -1306,6 +1318,10 @@ body {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-start {
