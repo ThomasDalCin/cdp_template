@@ -1,5 +1,15 @@
 {
   "sections": {
+    "falconeriXpardo": {
+      "type": "falconeriXpardo",
+      "settings": {
+        "section_heading": "Falconeri X Pardo Yachts",
+        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "image_one": "shopify:\/\/shop_images\/Rectangle_597.png",
+        "image_two": "shopify:\/\/shop_images\/Rectangle_598.png",
+        "image_three": "shopify:\/\/shop_images\/Rectangle_599_1.png"
+      }
+    },
     "special-collab": {
       "type": "special-collab",
       "blocks": {
@@ -30,6 +40,7 @@
     }
   },
   "order": [
+    "falconeriXpardo",
     "special-collab"
   ]
 }

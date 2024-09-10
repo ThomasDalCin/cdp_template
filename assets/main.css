@@ -1046,6 +1046,10 @@ body {
   margin-top: 77px;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1184,6 +1188,10 @@ body {
 
 .min-h-\[189px\] {
   min-height: 189px;
+}
+
+.min-h-\[120px\] {
+  min-height: 120px;
 }
 
 .w-0 {
@@ -1389,6 +1397,10 @@ body {
 
 .gap-y-6 {
   row-gap: 1.5rem;
+}
+
+.gap-y-0 {
+  row-gap: 0px;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
