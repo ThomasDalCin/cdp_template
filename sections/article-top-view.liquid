@@ -1,0 +1,15 @@
+<div class="article-top-view w-full h-auto p-4 flex flex-col gap-y-4">
+    <div class="article-top-view-image w-full h-auto min-h-[565px] relative">
+        <img class="top-view-image-article w-full h-full object-cover aspect-auto" src="{{ article.image }}"
+            alt="article-image">
+        <div
+            class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
+            {% render 'back-arrow-icon' %}
+            <p class="body-14-medium ml-2">Back</p>
+        </div>
+    </div>
+    <div class="article-top-view-content w-full h-auto flex flex-col gap-y-2 items-start justify-center">
+        <p class="body-16-medium">{{ article.title }}</p>
+        <p class="body-12">{{ article.content }}</p>
+    </div>
+</div>
