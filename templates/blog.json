@@ -7,7 +7,11 @@
         "blog-list": {
             "type": "blog-list",
             "settings": {}
+        },
+        "blog-events": {
+            "type": "blog-events",
+            "settings": {}
         }
     },
-    "order": [ "blog-tab", "blog-list"]
+    "order": [ "blog-tab", "blog-list", "blog-events"]
 }

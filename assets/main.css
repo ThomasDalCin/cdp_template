@@ -806,6 +806,23 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.cta-appointment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  background-color: var(--accent-dark-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .cta-blog {
   display: flex;
   min-width: 100px;
@@ -1151,6 +1168,10 @@ body {
 
 .min-h-\[220px\] {
   min-height: 220px;
+}
+
+.min-h-\[224px\] {
+  min-height: 224px;
 }
 
 .min-h-\[250px\] {

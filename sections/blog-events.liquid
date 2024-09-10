@@ -1,0 +1,32 @@
+<!-- events articles layout -->
+{% if blogs['events'] %}
+{% assign eventsArticles = blogs['events'].articles %}
+{% if eventsArticles.size > 0 %}
+{% for eventArticle in eventsArticles %}
+<div class="blog-events-container w-full h-auto p-4 flex-col gap-y-2 items-start justify-center hidden">
+    <div
+        class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6">
+        <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
+            <p class="body-16-medium">{{ eventArticle.title }}</p>
+            <p class="body-14">{{ eventArticle.published_at }}</p>
+        </div>
+        <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
+            <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">Show on Google Maps</p>
+                {% render 'cta-icon' %}
+            </div>
+            <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">Aggiungi al Calendario</p>
+                {% render 'calednar-icon' %}
+            </div>
+        </div>
+        <div class="events-cta">
+            <div class="cta-appointment">
+                <p class="body-14">Prenota appuntamento</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endif %}
