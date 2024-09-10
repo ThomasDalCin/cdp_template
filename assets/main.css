@@ -1013,6 +1013,10 @@ body {
   margin-top: 77px;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
