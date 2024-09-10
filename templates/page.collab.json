@@ -1,0 +1,9 @@
+{
+    "sections": {
+        "special-collab": {
+            "type": "special-collab",
+            "settings": {}
+        }
+    },
+    "order": ["special-collab"]
+}
