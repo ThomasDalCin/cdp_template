@@ -36,7 +36,9 @@
     {% if tag != '' %}
     <div class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %}"
         data-tag="{{ tag }}">
-        <div class="chips-text text-nowrap body-14">{{ tag }}</div>
+        <div class="chips-text text-nowrap body-14 flex flex-row gap-x-2">
+            <p class="body-14">{{ tag }}</p>
+        </div>
     </div>
     {% endif %}
     {% endfor %}
