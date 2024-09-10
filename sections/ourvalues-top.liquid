@@ -1,4 +1,4 @@
-<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4">
+<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mt-[100px] mb-10">
   <h2 class="header-2">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content }}</p>
   <div class="our-values-top-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
@@ -6,9 +6,9 @@
       {% if block.type == "scroll-image" %}
         <div class="container-scroll-image w-auto h-auto">
           <img
-            src="{{ block.settings.scroll_image | img_url: "master" }}"
+            src="{{ block.settings.scroll_image | img_url: 'master' }}"
             alt="our value image"
-            class="w-[343px] h-[210px] object-cover object-center rounded-md">
+            class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
         </div>
       {% endif %}
     {% endfor %}
@@ -16,53 +16,65 @@
 </div>
 
 {% schema %}
-  {
-    "name": "our-values",
-    "settings": [
-      {
-        "type": "text",
-        "id": "section_heading",
-        "default": "A different Story",
-        "label": "Section Heading"
-      }, {
-        "type": "text",
-        "id": "section_content",
-        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "label": "Section heading"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "scroll-image-block",
-        "type": "scroll-image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "scroll_image",
-            "label": "Scroll Image"
+{
+  "name": "our-values",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "default": "A different Story",
+      "label": "Section Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "section_content",
+      "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+      "label": "Section Content"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "scroll-image-block",
+      "type": "scroll-image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "scroll_image",
+          "label": "Scroll Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Our Values Top",
+      "category": "Custom",
+      "settings": {
+        "section_heading": "A Different Story",
+        "section_content": "We believe in craftsmanship, sustainability, and the finest materials for our products."
+      },
+      "blocks": [
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
           }
-        ]
-      }
-    ],
-    "max_blocks": 4,
-    "presets": [
-      {
-        "name": "collab-section",
-        "category": "Custom",
-        "settings": {
-          "section_heading": "A different Story",
-          "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-         },
-        
-         "blocks": [
-          {
-            "type": "scroll-image",
-            "settings": {
-              "scroll_image": "shopify:\/\/shop_images\/Rectangle_600_1.png",
-            }
+        },
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

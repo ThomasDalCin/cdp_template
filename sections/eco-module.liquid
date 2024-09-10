@@ -1,0 +1,78 @@
+<div class="eco-container w-full h-auto flex flex-col items-start justify-center p-4" style="background: linear-gradient(180deg, #6F6060 0%, rgba(146, 143, 143, 0.00) 100%);">
+  <div class="eco-container-primary w-full h-auto flex flex-col gap-y-10">
+    <h2 class="header-2 text-white">{{ section.settings.section_heading }}</h2>
+    <div class="container-image-w-hotspot w-auto h-auto mb-10">
+      <img
+        class="w-auto h-auto min-w-[343px] min-h-[172px] object-contain"
+        src="{{ section.settings.section_etic_code_boat_image |  img_url: 'master' }}"
+        alt="boat image w hotspot">
+    </div>
+  </div>
+  <div class="eco-container-secondary w-full h-auto shadow-custom rounded-xl flex flex-col gap-y-4 items-start justify-center p-4 bg-white">
+    <p class="body-14">{{ section.settings.section_etic_code }}</p>
+    <p class="body-16 italic">{{ section.settings.section_etic_code_cit }}</p>
+    <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_etic_code_content }}</p>
+    <div class="eco-content-cta">
+      <div class="cta-eco">
+        <p class="body-14">{{ section.settings.section_etic_code_download}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "our-values",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "Design dall’anima ecosostenibile",
+        "label": "Section Heading"
+      },
+      {
+        "type": "text",
+        "id": "section_etic_code",
+        "default": "Codice etico",
+        "label": "Section Etic Code"
+      },
+      {
+        "type": "text",
+        "id": "section_etic_code_cit",
+        "default": "Progettare il lusso con un approccio ecologico",
+        "label": "Section Etic Code Cit"
+      },
+      {
+        "type": "image_picker",
+        "id": "section_etic_code_boat_image",
+        "label": "Section boat image w hostpost"
+      },
+      {
+        "type": "text",
+        "id": "section_etic_code_content",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "label": "Section Etic Code Content"
+      }, {
+        "type": "text",
+        "id": "section_etic_code_download",
+        "default": "Scarica il codice etico",
+        "label": "Section Etic Code Download"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "eco-module",
+        "category": "custom",
+        "settings": {
+          "section_heading": "Design dall’anima ecosostenibile",
+          "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
+          "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis",
+          "section_etic_code_download": "Scarica il codice etico",
+          "section_etic_code_boat_image": "shopify:\/\/shop_images\/66_2.png"
+        }
+      }
+    ]
+  }
+{% endschema %}

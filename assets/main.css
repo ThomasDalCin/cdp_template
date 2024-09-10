@@ -878,6 +878,24 @@ body {
   padding-bottom: 0.75rem;
 }
 
+.cta-eco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 9999px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  background-color: transparent;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .cta-back {
   display: flex;
   align-items: center;
@@ -1094,6 +1112,10 @@ body {
   height: 1px;
 }
 
+.h-\[210px\] {
+  height: 210px;
+}
+
 .h-\[220px\] {
   height: 220px;
 }
@@ -1134,10 +1156,6 @@ body {
   height: 100vh;
 }
 
-.h-\[210px\] {
-  height: 210px;
-}
-
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1168,6 +1186,10 @@ body {
 
 .min-h-\[160px\] {
   min-height: 160px;
+}
+
+.min-h-\[172px\] {
+  min-height: 172px;
 }
 
 .min-h-\[189px\] {
@@ -1234,6 +1256,10 @@ body {
   width: 240px;
 }
 
+.w-\[313px\] {
+  width: 313px;
+}
+
 .w-\[93px\] {
   width: 93px;
 }
@@ -1246,16 +1272,20 @@ body {
   width: 100%;
 }
 
-.w-\[343px\] {
-  width: 343px;
-}
-
 .min-w-\[200px\] {
   min-width: 200px;
 }
 
 .min-w-\[250px\] {
   min-width: 250px;
+}
+
+.min-w-\[313px\] {
+  min-width: 313px;
+}
+
+.min-w-\[343px\] {
+  min-width: 343px;
 }
 
 .max-w-\[164px\] {
@@ -1451,20 +1481,16 @@ body {
   border-radius: 0.5rem;
 }
 
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
 .rounded-sm {
   border-radius: 0.125rem;
 }
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.rounded-md {
-  border-radius: 0.375rem;
 }
 
 .rounded-tl-xl {
@@ -1605,6 +1631,10 @@ body {
   font-style: italic;
 }
 
+.text-\[var\(--hover-accent-color\)\] {
+  color: var(--hover-accent-color);
+}
+
 .text-\[var\(--hover-color\)\] {
   color: var(--hover-color);
 }
@@ -1621,10 +1651,6 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[var\(--hover-accent-color\)\] {
-  color: var(--hover-accent-color);
 }
 
 .underline {
