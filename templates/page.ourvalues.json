@@ -1,9 +1,9 @@
 {
     "sections": {
-        "special-collab": {
-            "type": "special-collab",
+        "our-values": {
+            "type": "our-values",
             "settings": {}
         }
     },
-    "order": ["special-collab"]
+    "order": ["our-values"]
 }
