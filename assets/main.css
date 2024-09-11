@@ -1352,6 +1352,10 @@ body {
   min-width: 343px;
 }
 
+.min-w-\[439px\] {
+  min-width: 439px;
+}
+
 .max-w-\[164px\] {
   max-width: 164px;
 }
@@ -1709,6 +1713,10 @@ body {
   padding-top: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-\[20px\] {
   font-size: 20px;
 }
@@ -1973,6 +1981,10 @@ body {
     display: inline-flex;
   }
 
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:h-\[105px\] {
     height: 105px;
   }
@@ -2001,8 +2013,16 @@ body {
     height: 90px;
   }
 
+  .lg\:h-\[942px\] {
+    height: 942px;
+  }
+
   .lg\:w-auto {
     width: auto;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2047,6 +2067,18 @@ body {
 
   .lg\:rounded-full {
     border-radius: 9999px;
+  }
+
+  .lg\:bg-contain {
+    background-size: contain;
+  }
+
+  .lg\:bg-cover {
+    background-size: cover;
+  }
+
+  .lg\:bg-clip-content {
+    background-clip: content-box;
   }
 
   .lg\:object-contain {
