@@ -4,18 +4,18 @@
         {% assign collab_image_url = section.settings[collab_image] |  img_url: 'master' %}
         {% if collab_image_url %}
           {% if collab_image[0] %}
-            <div class="collab-container lg:flex-1  lg:h-[400px]">
+            <div class="collab-container px-10 lg:px-[100px] lg:flex-1 lg:h-[400px]">
               <img
                 src="{{ collab_image_url }}"
-                class="w-full h-full object-contain lg:h-[40px] lg:object-contain"
+                class="w-full h-full object-contain lg:h-[30px] lg:object-contain"
                 alt="Collab {{ forloop.index }}"
               >
             </div>
             {% else %}
-            <div class="collab-container lg:flex-1 lg:h-[370px]">
+            <div class="collab-container lg:flex-1 px-10 lg:h-[400px] lg:px-[100px]">
               <img
                 src="{{ collab_image_url }}"
-                class="w-full h-full object-contain lg:h-[105px] lg:object-contain"
+                class="w-full h-full object-contain lg:h-[90px] lg:object-contain"
                 alt="Collab {{ forloop.index }}"
               >
             </div>
