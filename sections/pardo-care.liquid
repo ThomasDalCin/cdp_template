@@ -1,0 +1,92 @@
+<div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 p-4 mt-[100px]">
+  <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center">
+    <h2 class="header-2">{{ section.settings.section_heading }}</h2>
+    <p class="body-12">{{ section.settings.section_sub_heading }}</p>
+  </div>
+  <div class="pardo-care-container-film-strip w-full h-auto">
+    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
+      {% for block in section.blocks %}
+        {% if block.type == 'scroll-image-card' %}
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2">
+            <img
+              src="{{ block.settings.card_image |  img_url: 'master' }}"
+              alt="pardo care image"
+              class="card-image w-[320px] h-[320px] min-w-[320px] object-cover object-center rounded-md">
+            <p class="body-14-medium">{{ block.settings.card_title }}</p>
+            <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "pardo-care-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "Premium care services",
+        "label": "Section Heading"
+      }, {
+        "type": "text",
+        "id": "section_sub_heading",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "label": "Section Subheading"
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "default": "Contattaci",
+        "label": "Cta Text"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "scroll-image-card",
+        "type": "scroll-image-card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card_image",
+            "label": "Card Image"
+          }, {
+            "type": "text",
+            "id": "card_title",
+            "default": "Al vostro fianco, dall'inizio",
+            "label": "Card title"
+          }, {
+            "type": "textarea",
+            "id": "card_text",
+            "default": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni.",
+            "label": "Card Text"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 4,
+    "presets": [
+      {
+        "name": "scroll-image-card",
+        "category": "custom",
+        "settings": {
+          "section_heading": "Premium care services",
+          "section_sub_heading": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+          "cta_text": "Contattaci"
+        },
+        "blocks": [
+          {
+            "type": "scroll-image-card",
+            "settings": {
+              "card_image": "shopify:\/\/shop_images\/image_7.png",
+              "card_title": "Al vostro fianco, dall'inizio",
+              "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

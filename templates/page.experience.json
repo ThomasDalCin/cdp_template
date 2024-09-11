@@ -1,9 +1,46 @@
 {
-    "sections": {
-        "special-collab": {
-            "type": "special-collab",
-            "settings": {}
+  "sections": {
+    "pardo-care": {
+      "type": "pardo-care",
+      "blocks": {
+        "scroll_image_card_RxQKMd": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
+        },
+        "scroll_image_card_GUWRHk": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
+        },
+        "scroll_image_card_THmJbf": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
         }
-    },
-    "order": ["special-collab"]
+      },
+      "block_order": [
+        "scroll_image_card_RxQKMd",
+        "scroll_image_card_GUWRHk",
+        "scroll_image_card_THmJbf"
+      ],
+      "settings": {
+        "section_heading": "Premium care services",
+        "section_sub_heading": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "cta_text": "Contattaci"
+      }
+    }
+  },
+  "order": [
+    "pardo-care"
+  ]
 }

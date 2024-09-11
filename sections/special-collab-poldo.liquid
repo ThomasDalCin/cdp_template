@@ -1,0 +1,55 @@
+<div class="special-collab-poldo-container w-full h-auto flex flex-col gap-y-4 p-4 mb-10">
+  <div class="poldo-container-image w-full h-auto relative">
+    <img src="{{ section.settings.section_image |  img_url: 'master' }}" alt="collab image" class="w-full h-auto mi-h-[160px] object-cover object-center rounded-lg">
+    <img src="{{ section.settings.section_overlay_image |  img_url: 'master' }}" alt="loghi banner" class="absolute w-auto h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover object-center">
+  </div>
+  <div class="poldo-container-heading">
+    <p class="body-14-medium">{{ section.settings.section_title }}</p>
+  </div>
+  <div class="poldo-container-cta">
+    <div class="cta-accent">
+      <a href="">{{ section.settings.section_cta_text }}</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "special-collab-poldo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "section_image",
+        "label": "Section Collab Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "section_overlay_image",
+        "label": "Section Collab Overlay Image"
+      }, 
+       {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Collab Text",
+        "default": "Special Collaboration | Pold x Pardo Yatchs"
+      }, {
+        "type": "text",
+        "id": "section_cta_text",
+        "label": "Section Collab Cta Text",
+        "default": "Scopri di più"
+      }
+    ],
+    "presets": [
+      {
+        "name": "special-collab-poldo",
+        "category": "costum",
+        "settings": {
+          "section_title": "Special Collaboration | Pold x Pardo Yatchs",
+          "section_cta_text": "Scopri di più",
+          "section_image": "shopify:\/\/shop_images\/image_13.png",
+          "section_overlay_image": "shopify:\/\/shop_images\/Loghi_Banner-HP_Poldo-x-Pardo_Desktop-1_1.png"
+        }
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,100 @@
+<div class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10">
+  <div class="innovation-container-primary w-full h-auto flex flex-col gap-y-4 rounded-lg shadow-custom p-4">
+    <p class="body-14">{{ section.settings.section_heading }}</p>
+    <p class="body-16 italic">{{ section.settings.section_heading_secondary }}</p>
+    <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content }}</p>
+  </div>
+  <div class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
+    {% for block in section.blocks %}
+      {% if block.type == "scroll-image" %}
+        <div class="container-scroll-image w-auto h-auto">
+          <img
+            src="{{ block.settings.scroll_image | img_url: 'master' }}"
+            alt="our value image"
+            class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="innvation-content-cta w-full h-auto flex items-start justify-center">
+    <div class="cta-primrary">
+      <p class="body-14">{{ section.settings.section_content_cta}}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "innovation-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "Innovazione e tecnologia",
+        "label": "Section Heading"
+      }, {
+        "type": "text",
+        "id": "section_heading_secondary",
+        "default": "Controllo qualità",
+        "label": "Section Heading Secondary"
+      }, {
+        "type": "textarea",
+        "id": "section_content",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "label": "Section Text Content"
+      },
+      {
+        "type": "text",
+        "id": "section_content_cta",
+        "default": "Tienimi Informato",
+        "label": "Section Text Content Cta"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "scroll-image-block",
+        "type": "scroll-image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "scroll_image",
+            "label": "Scroll Image"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 4,
+    "presets": [
+    {
+      "name": "innovation-section",
+      "category": "custom",
+      "settings": {
+        "section_heading": "Innovazione e tecnologia",
+        "section_heading_secondary": "Controllo qualità",
+        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "section_content_cta": "Tienimi Informato"
+      },
+      "blocks": [
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
+        },
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
+        },
+        {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
