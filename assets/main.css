@@ -914,7 +914,7 @@ body {
   padding-bottom: 0.75rem;
 }
 
-.cta-primrary {
+.cta-primary {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1080,6 +1080,10 @@ body {
   margin-left: 0.5rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -1168,6 +1172,10 @@ body {
   height: 2px;
 }
 
+.h-\[320px\] {
+  height: 320px;
+}
+
 .h-\[439px\] {
   height: 439px;
 }
@@ -1192,18 +1200,6 @@ body {
   height: 100vh;
 }
 
-.h-\[343px\] {
-  height: 343px;
-}
-
-.h-\[270px\] {
-  height: 270px;
-}
-
-.h-\[320px\] {
-  height: 320px;
-}
-
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1220,16 +1216,16 @@ body {
   max-height: 250px;
 }
 
+.max-h-\[423px\] {
+  max-height: 423px;
+}
+
 .max-h-\[600px\] {
   max-height: 600px;
 }
 
 .max-h-\[calc\(100vh-250px\)\] {
   max-height: calc(100vh - 250px);
-}
-
-.max-h-\[423px\] {
-  max-height: 423px;
 }
 
 .min-h-\[120px\] {
@@ -1266,10 +1262,6 @@ body {
 
 .min-h-\[565px\] {
   min-height: 565px;
-}
-
-.min-h-\[423px\] {
-  min-height: 423px;
 }
 
 .w-0 {
@@ -1316,6 +1308,10 @@ body {
   width: 313px;
 }
 
+.w-\[320px\] {
+  width: 320px;
+}
+
 .w-\[93px\] {
   width: 93px;
 }
@@ -1326,22 +1322,6 @@ body {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[343px\] {
-  width: 343px;
-}
-
-.w-\[220px\] {
-  width: 220px;
-}
-
-.w-\[270px\] {
-  width: 270px;
-}
-
-.w-\[320px\] {
-  width: 320px;
 }
 
 .min-w-\[200px\] {
@@ -1356,20 +1336,12 @@ body {
   min-width: 313px;
 }
 
-.min-w-\[343px\] {
-  min-width: 343px;
-}
-
-.min-w-\[220px\] {
-  min-width: 220px;
-}
-
-.min-w-\[270px\] {
-  min-width: 270px;
-}
-
 .min-w-\[320px\] {
   min-width: 320px;
+}
+
+.min-w-\[343px\] {
+  min-width: 343px;
 }
 
 .max-w-\[164px\] {
@@ -1719,6 +1691,10 @@ body {
   font-style: italic;
 }
 
+.text-\[var\(--accent-hover-color\)\] {
+  color: var(--accent-hover-color);
+}
+
 .text-\[var\(--hover-accent-color\)\] {
   color: var(--hover-accent-color);
 }
@@ -1739,10 +1715,6 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[var\(--accent-hover-color\)\] {
-  color: var(--accent-hover-color);
 }
 
 .underline {
