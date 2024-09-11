@@ -66,26 +66,28 @@
 
   <!-- Yatch Menu Container -->
   <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10 relative">
-    <div class="main-manu-container w-full h-auto flex flex-col gap-y-4 lg:gap-y-6">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-4 lg:gap-y-5">
       {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
+
       {% for link in linklists.yatch.links %}
       {% assign matching_collection = collections[link.object.handle] %}
       {% assign product_count = 0 %}
       {% if matching_collection %}
       {% assign product_count = matching_collection.products_count %}
       {% endif %}
+      {% unless link.title == 'Pardo approved' or link.title == 'Pardo experience' %}
       <li
-        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start gap-y-4 relative collection-menu-item"
+        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item"
         data-collection="{{ link.object.handle }}">
         <div class="relative inline-block">
           {% if allLinksTitle contains link.title %}
           {% if link.title == 'View all ranges' %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "lg:text-[24px] lg:leading-[24px]" }}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] leading-[20px] lg:text-[24px]
+          lg:leading-[24px]" }}
           {% else %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "lg:text-[40px] lg:leading-[40px]" }}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] lg:text-[40px]
+          lg:leading-[40px]" }}
           {% endif %}
-          {% else %}
-          {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
           {% endif %}
           {% if matching_collection %}
           {% if product_count.size > 0 %}
@@ -97,25 +99,37 @@
           {% endif %}
         </div>
         <div
-          class="collection-info-container w-auto  inline-flex flex-row gap-x-2 items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+          class="collection-info-container w-auto inline-flex flex-row gap-x-2 items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
           {% for product in matching_collection.products %}
-          <div class="badge-product border-white  cursor-pointer" data-target="{{ product.title }}">
+          <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
             {{ product.title | replace: 'Pardo', '' }}
           </div>
           {% endfor %}
         </div>
       </li>
+      {% endunless %}
       {% endfor %}
-      <!--boat image container on desktop -->
+
+
+      <div class="container-secondary-link w-full h-auto flex flex-col gap-y-1 lg:gap-y-2 mt-10">
+        {% for link in linklists.yatch.links %}
+        {% unless allLinksTitle contains link.title %}
+        {{ link.title | link_to: link.url, class: "text-white text-[20px] leading-[20px] lg:text-[20px]
+        lg:leading-[20px] underline" }}
+        {% endunless %}
+        {% endfor %}
+      </div>
+
+      <!-- boat image container on desktop -->
       <div class="boat-image-container w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/4 -translate-y-1/2 z-30">
         {% for collection in collections %}
         {% for product in collection.products %}
         {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
         {% if boatImage %}
-          <a href="{{ product.url }}">
-            <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+        <a href="{{ product.url }}">
+          <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
             class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
-          </a>
+        </a>
         {% endif %}
         {% endfor %}
         {% endfor %}
@@ -123,20 +137,29 @@
     </div>
   </div>
 
-  <!-- Min Menu Container -->
+
+  <!-- Mainn Menu Container -->
   <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
       {% for link in linklists.main-menu.links %}
+      {% unless link.title == 'Press room' or link.title == 'Pardo experience' %}
       <li class="header-1-medium text-white list-none inline-flex items-center relative">
-        {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
-        {{ link.title | link_to: link.url, class: "lg:text-[24px] lg:leading-[24px] underline" }}
-        {% else %}
-        {{ link.title | link_to: link.url, class: "lg:text-[40px] lg:leading-[40px]" }}
-        {% endif %}
+        {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px] lg:leading-[40px]" }}
       </li>
+      {% endunless %}
       {% endfor %}
+
+      <div class="grouped-links-container w-full h-auto flex flex-col gap-y-1 lg:gap-y-2 mt-10">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
+
+        {{ link.title | link_to: link.url, class: " text-white lg:text-[20px] lg:leading-[20px] underline" }}
+        {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
+
 
 </div>
 
