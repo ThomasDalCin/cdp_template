@@ -38,9 +38,47 @@
         "section_sub_heading": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
         "cta_text": "Contattaci"
       }
+    },
+    "pardo-care-service": {
+      "type": "pardo-care-service",
+      "blocks": {
+        "scroll_image_card_8ynm7Q": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_13_1.png",
+            "card_title": "Barca pronta per ogni uscita",
+            "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
+          }
+        },
+        "scroll_image_card_HWtNYw": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_13_1.png",
+            "card_title": "Barca pronta per ogni uscita",
+            "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
+          }
+        },
+        "scroll_image_card_FAh86V": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_13_1.png",
+            "card_title": "Barca pronta per ogni uscita",
+            "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
+          }
+        }
+      },
+      "block_order": [
+        "scroll_image_card_8ynm7Q",
+        "scroll_image_card_HWtNYw",
+        "scroll_image_card_FAh86V"
+      ],
+      "settings": {
+        "section_heading": "Premium care services"
+      }
     }
   },
   "order": [
-    "pardo-care"
+    "pardo-care",
+    "pardo-care-service"
   ]
 }
