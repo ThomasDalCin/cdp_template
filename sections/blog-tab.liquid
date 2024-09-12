@@ -1,5 +1,6 @@
 <!-- Tab filter blog section -->
-<div class="tab-blog-filter-section w-full h-auto flex flex-row items-center justify-start mt-[100px] mb-6 lg:justify-end">
+<div
+    class="tab-blog-filter-section w-full h-auto flex flex-row items-center justify-start mt-[100px] mb-6 lg:justify-end">
     <div class="tab-blog-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
         id="events-tab">
         <p class="body-14">Events</p>
@@ -34,7 +35,7 @@
     <!-- Dynamic Tags -->
     {% for tag in tags_array %}
     {% if tag != '' %}
-    <div class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %} lg:flex-none"
+    <div class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %} cursor-pointer lg:flex-none"
         data-tag="{{ tag }}">
         <div class="chips-text text-nowrap body-14 flex flex-row gap-x-2">
             <p class="body-14">{{ tag }}</p>

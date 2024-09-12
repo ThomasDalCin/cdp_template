@@ -1,13 +1,13 @@
-<div class="special-collab-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10">
+<div class="special-collab-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10 lg:gap-y-6">
     <div class="collab-container-heading">
-        <p class="body-16-medium">{{ section.settings.collab_heading }}</p>
+        <p class="body-16-medium lg:header-2">{{ section.settings.collab_heading }}</p>
     </div>
-    <div class="collab-container-cards w-full h-auto flex flex-row gap-x-2 flex-wrap items-start justify-between">
+    <div class="collab-container-cards w-full h-auto flex flex-row gap-x-2 flex-wrap items-start justify-between lg:justify-center lg:flex-row lg:gap-x-4">
         {% for block in section.blocks %}
         {% if block.type == "collab-card" %}
-        <div class="collab-card w-1/2 max-w-[164px] flex flex-col gap-y-2 items-start justify-center">
+        <div class="collab-card w-1/2 max-w-[164px] flex flex-col gap-y-2 items-start justify-center lg:max-w-[calc(50%-1rem)] lg:w-1/2 ">
             <img src="{{ block.settings.collab_card_image |  img_url: 'master' }}" alt="card image"
-                class="w-full h-auto min-h-[189px] object-cover rounded-lg">
+                class="w-full h-auto min-h-[189px] object-cover rounded-lg lg:h-[540px] lg:min-h-[440px]">
             <p class="body-12 text-[var(--hover-color)]">{{ block.settings.collab_card_title }}</p>
             <p class="body-12">{{ block.settings.collab_card_content }}</p>
         </div>

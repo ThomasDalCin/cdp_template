@@ -70,12 +70,33 @@
           "settings": {
             "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
           }
+        },
+        "scroll_image_iKQmQL": {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
+        },
+        "scroll_image_gfHpkW": {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
+        },
+        "scroll_image_Yybpfe": {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+          }
         }
       },
       "block_order": [
         "scroll_image_dxT44V",
         "scroll_image_7akWAB",
-        "scroll_image_H3t3Yr"
+        "scroll_image_H3t3Yr",
+        "scroll_image_iKQmQL",
+        "scroll_image_gfHpkW",
+        "scroll_image_Yybpfe"
       ],
       "settings": {
         "section_heading": "Innovazione e tecnologia",
