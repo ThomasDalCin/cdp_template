@@ -1,11 +1,17 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_image_1": "shopify:\/\/shop_images\/PardoYatch-Home-Hero-01.png",
-        "swiper_image_2": "shopify:\/\/shop_images\/PardoYatch-Home-Walkaround.jpg",
-        "swiper_image_3": "shopify:\/\/shop_images\/PardoYatch-Home-Hero-01.png"
       }
     },
     "gamma-section": {
