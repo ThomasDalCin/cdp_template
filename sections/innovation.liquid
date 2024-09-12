@@ -19,6 +19,7 @@
   <div class="relative w-full h-auto">
     <div class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
       {% for block in section.blocks %}
+        
         {% if block.type == "scroll-image" %}
           <div class="container-scroll-image w-auto h-auto">
             <img src="{{ block.settings.scroll_image | img_url: 'master' }}" alt="our value image"
