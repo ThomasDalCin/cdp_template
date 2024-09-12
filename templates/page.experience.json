@@ -26,12 +26,39 @@
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
+        },
+        "scroll_image_card_VQbiMt": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
+        },
+        "scroll_image_card_yGXNpG": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
+        },
+        "scroll_image_card_kY6EBc": {
+          "type": "scroll-image-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/image_7.png",
+            "card_title": "Al vostro fianco, dall'inizio",
+            "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
+          }
         }
       },
       "block_order": [
         "scroll_image_card_RxQKMd",
         "scroll_image_card_GUWRHk",
-        "scroll_image_card_THmJbf"
+        "scroll_image_card_THmJbf",
+        "scroll_image_card_VQbiMt",
+        "scroll_image_card_yGXNpG",
+        "scroll_image_card_kY6EBc"
       ],
       "settings": {
         "section_heading": "Premium care services",
@@ -73,7 +100,7 @@
         "scroll_image_card_FAh86V"
       ],
       "settings": {
-        "section_heading": "Premium care services"
+        "section_heading": "When you choose us, we choose you."
       }
     }
   },

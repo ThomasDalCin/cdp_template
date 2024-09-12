@@ -3,14 +3,14 @@
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
   </div>
   <div class="pardo-care-service-container-film-strip w-full h-auto">
-    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto pb-3 pr-3">
+    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto pb-3 pr-3 lg:overflow-hidden">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 rounded-lg shadow-custom">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 rounded-lg shadow-custom lg:flex-1">
             <img
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="pardo care image"
-              class="card-image w-[320px] h-[160px] min-w-[320px] object-cover object-center rounded-t-lg">
+              class="card-image w-[320px] h-[160px] min-w-[320px] object-cover object-center rounded-t-lg lg:w-full">
             <div class="container-filmstrip-card-text w-full h-auto flex flex-col gap-y-3 items-start justify-center p-4">
               <p class="body-14-medium">{{ block.settings.card_title }}</p>
               <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>
