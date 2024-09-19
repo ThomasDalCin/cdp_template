@@ -18,24 +18,27 @@
   <!--google font jakarta links-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
   <!-- Header hook for plugins -->
   {{ 'main.css' | asset_url | stylesheet_tag }}
 </head>
 
 
 <body>
-{% comment %}
-      {% section 'page-loading' %}
-{% endcomment %}
- 
+  {% comment %}
+  {% section 'page-loading' %}
+  {% endcomment %}
+
 
   {% section 'navbar' %}
 
   <main role="main">
     {{ content_for_layout }}
   </main>
-  
+
+  {% section 'footer' %}
+
 </body>
 
 </html>

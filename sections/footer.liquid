@@ -1,0 +1,100 @@
+<div class="footer w-full h-auto px-4 py-10 flex flex-col items-start justify-center">
+  <div class="footer-container w-full h-auto flex flex-col items-start justify-center">
+    <div class="newsletter-form w-full h-auto">
+      <!-- form section headings -->
+      {% if section.settings.section_title != blank %}
+        <label for="Email">{{ section.settings.section_title | escape }}</label>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading | escape }}</p>
+      {% endif %}
+      <!-- form block -->
+      {% form 'customer'
+        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center" %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p>{{ section.settings.thankyou_message }}</p>
+        {% else %}
+          <!-- checkbox one -->
+          <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
+            <input
+              type="checkbox"
+              id="owner"
+              name="contact[owner]">
+            <label for="owner">{{ section.settings.checkbox_1_label }}</label>
+          </div>
+          <!-- checkbox two -->
+          <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
+            <input
+              type="checkbox"
+              id="owner"
+              name="contact[owner]">
+            <label for="owner">{{ section.settings.checkbox_1_label }}</label>
+          </div>
+
+          <input
+            type="hidden"
+            name="contact[tags]"
+            value="newsletter">
+          <input
+            type="email"
+            name="contact[email]"
+            id="Email"
+            value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+            placeholder="{{ section.settings.placeholder_text }}">
+
+            <button type="submit" name="commit" id="Subscribe">{{ section.settings.button_text }}</button>
+      </button>
+
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Stay Updated"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Get relevant news from the Pardo world sent to your email."
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      },
+      {
+        "type": "text",
+        "id": "checkbox_1_label",
+        "label": "Label Checkbox 1",
+        "default": "Pardo owner"
+      }, {
+        "type": "text",
+        "id": "checkbox_2_label",
+        "label": "Label Checkbox 2",
+        "default": "Visitor"
+      }, {
+        "type": "text",
+        "id": "placeholder_text",
+        "label": "Placeholder",
+        "default": "Type your email"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Come on board"
+      }
+
+    ]
+  }
+{% endschema %}
