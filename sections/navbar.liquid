@@ -38,14 +38,14 @@
         <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
         {% render 'arrow-down' %}
       </div>
+      {% endunless %}
       {% endfor %}
       <div class="chips-label flex items-center space-x-2">
         <div class="chips-text text-nowrap body-14" id="collection-chips-title">View All</div>
         {% render 'arrow-down' %}
       </div>
-      {% endunless %}
     </div>
-
+    
     <div
       class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)]">
       {% for collection in collections %}
