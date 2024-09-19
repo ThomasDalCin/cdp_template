@@ -1969,6 +1969,11 @@ body {
   }
 }
 
+.checked\:bg-blue-500:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:w-1\/2 {
     width: 50%;
