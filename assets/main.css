@@ -1525,6 +1525,10 @@ body {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.self-auto {
+  align-self: auto;
+}
+
 .overflow-auto {
   overflow: auto;
 }

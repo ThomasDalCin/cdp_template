@@ -45,7 +45,7 @@
             id="Email"
             value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
             placeholder="{{ section.settings.placeholder_text }}">
-          <div class="cta-primary">
+          <div class="cta-primary self-auto">
             <button type="submit" name="commit" id="Subscribe">{{ section.settings.button_text }}</button>
             {% render 'cta-icon' %}
           </div>
