@@ -1646,6 +1646,10 @@ body {
   background-color: var(--footer-color);
 }
 
+.bg-\[var\(--background-color\)\] {
+  background-color: var(--background-color);
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -1713,6 +1717,11 @@ body {
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .pb-2 {
