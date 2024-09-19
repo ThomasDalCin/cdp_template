@@ -95,7 +95,7 @@
       <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
         <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu | upcase }}</p>
         <div class="social-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
-          {% for block in settings.blocks %}
+          {% for block in section.blocks %}
             {% if block.type == "social-channel" %}
               <div class="social-link-container w-full h-auto">
                 <li class="social-link flex flex-row gap-x-3">
