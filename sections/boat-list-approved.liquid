@@ -11,16 +11,15 @@
         <div class="product-item-details flex flex-col gap-y-4 p-4">
             <p class="body-14">{{ product.title }}</p>
             <p class="body-12">{{ product.description }}</p>
-            <div class="product-info-container w-full h-auto flex flex-row items-start justify-between">
+            <div class="product-info-container w-full h-auto flex flex-row items-start justify-between p-4 bg-[var(--primary-background-color)] rounded-lg">
                 <p class="caption font-semibold">Year: {{ product.metafields.custom.year.value }}</p>
                 <p class="caption font-semibold">Series: {{ product.metafields.custom.series.value }}</p>
             </div>
             <div class="blog-item-cta w-full h-auto flex items-center justify-start">
                 <div class="cta-download flex items-center gap-x-2">
                     <a href="{{ product.url }}">
-                        <p class="body-14-medium">Dettagli</p>
+                        <p class="body-14-medium">Vedi dettagli</p>
                     </a>
-                    {% render 'download-icon' %}
                 </div>
             </div>
         </div>
