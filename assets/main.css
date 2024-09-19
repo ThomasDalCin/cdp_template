@@ -1278,6 +1278,10 @@ body {
   min-height: 565px;
 }
 
+.min-h-\[220px\] {
+  min-height: 220px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -1596,6 +1600,11 @@ body {
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+}
+
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
 }
 
 .rounded-tl-xl {
