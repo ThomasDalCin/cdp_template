@@ -1,4 +1,12 @@
-
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "logo_width": 90,
@@ -112,25 +120,90 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "sections": {
+      "navbar": {
+        "type": "navbar",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "social_channel_FJyxbP": {
+            "type": "social-channel",
+            "settings": {
+              "social_icon": "shopify:\/\/shop_images\/Group_1274.png",
+              "social_name": "Instagram",
+              "social_url": "https:\/\/www.instagram.com\/"
+            }
+          },
+          "social_channel_yzeeUK": {
+            "type": "social-channel",
+            "settings": {
+              "social_icon": "shopify:\/\/shop_images\/Linkedin.png",
+              "social_name": "Linkedln",
+              "social_url": ""
+            }
+          },
+          "social_channel_C4eCF8": {
+            "type": "social-channel",
+            "settings": {
+              "social_icon": "shopify:\/\/shop_images\/Facebook.png",
+              "social_name": "Facebook",
+              "social_url": "https:\/\/www.instagram.com\/"
+            }
+          },
+          "social_channel_CdrF9U": {
+            "type": "social-channel",
+            "settings": {
+              "social_icon": "shopify:\/\/shop_images\/Youtube.png",
+              "social_name": "You tube",
+              "social_url": "https:\/\/www.instagram.com\/"
+            }
+          }
+        },
+        "block_order": [
+          "social_channel_FJyxbP",
+          "social_channel_yzeeUK",
+          "social_channel_C4eCF8",
+          "social_channel_CdrF9U"
+        ],
+        "settings": {
+          "section_title": "Stay Updated",
+          "subheading": "Get relevant news from the Pardo world sent to your email.",
+          "thankyou_message": "Thank you you are on board now!",
+          "checkbox_1_label": "Pardo owner",
+          "checkbox_2_label": "Visitor",
+          "placeholder_text": "Email",
+          "button_text": "Come on board",
+          "footer_models_menu": "Models",
+          "footer_discover_menu": "Discover",
+          "footer_socials_menu": "Socials"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#FFFFFF",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
-          "button_label": "#FFFFFF",
+          "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#F3F3F3",
+          "background": "#f3f3f3",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
-          "button_label": "#F3F3F3",
+          "button_label": "#f3f3f3",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
@@ -139,10 +212,10 @@
         "settings": {
           "background": "#242833",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#FFFFFF",
+          "text": "#ffffff",
+          "button": "#ffffff",
           "button_label": "#000000",
-          "secondary_button_label": "#FFFFFF",
+          "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
       },
@@ -150,21 +223,21 @@
         "settings": {
           "background": "#121212",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#FFFFFF",
+          "text": "#ffffff",
+          "button": "#ffffff",
           "button_label": "#121212",
-          "secondary_button_label": "#FFFFFF",
+          "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#334FB4",
+          "background": "#334fb4",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#FFFFFF",
-          "button_label": "#334FB4",
-          "secondary_button_label": "#FFFFFF",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
       }
