@@ -1604,6 +1604,10 @@ body {
   border-width: 2px;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .border-\[var\(--secondary-background-color\)\] {
   border-color: var(--secondary-background-color);
 }
