@@ -98,9 +98,9 @@
           {% for block in section.blocks %}
             {% if block.type == "social-channel" %}
               <div class="social-link-container w-full h-auto">
-                <li class="social-link flex flex-row gap-x-3">
+                <li class="social-link flex flex-row gap-x-3 items-center justify-start">
                   <img src="{{ block.settings.social_icon |  img_url: 'master' }}" alt="social image"  class="social-image w-5 h-5 object-cover">
-                  <a href="{{ block.settings.social_url }}">{{ block.settings.social_name }}</a>
+                  <a class="body-16 text-white" href="{{ block.settings.social_url }}">{{ block.settings.social_name }}</a>
                 </li>
               </div>
             {% endif %}
