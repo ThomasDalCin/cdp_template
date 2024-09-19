@@ -8,7 +8,7 @@
     <div class="card-product-item-press-room w-full h-auto flex flex-col gap-y-4 shadow-custom rounded-lg">
         <img src="{{ product.featured_image | img_url: 'master' }}"
             class="w-full h-auto max-h-[220px] object-cover rounded-t-lg" alt="product image">
-        <div class="product-item-details flex flex-col gap-y-4">
+        <div class="product-item-details flex flex-col gap-y-4 p-4">
             <p class="body-14">{{ product.title }}</p>
             <p class="body-12">{{ product.description }}</p>
             <div class="product-info-container w-full h-auto flex flex-row items-start justify-between">
