@@ -1,0 +1,8 @@
+{
+    "sections": {
+        "boat-list-approved" : {
+            "type": "boat-list-approved",
+            "settings": {}
+        }
+    }
+}
