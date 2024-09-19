@@ -1824,6 +1824,10 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-\[var\(--inactive-color\)\] {
+  color: var(--inactive-color);
+}
+
 .underline {
   text-decoration-line: underline;
 }

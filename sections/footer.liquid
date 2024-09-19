@@ -55,7 +55,7 @@
     </div>
     <div class="footer-menu w-full h-auto flex flex-row items-center justify-between">
         <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start">
-        <p class="body-16-medium text-white">{{ section.settings.footer_models_menu }}</p>
+        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_models_menu |  upcase }}</p>
         <div class="gamma-product-container flex flex-col gap-y-3">
             {% for collection in collections %}
                 {% for product in collection.products %}
@@ -70,15 +70,15 @@
         </div>
         <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start">
             <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
-                <p class="body-16-medium">{{ section.settings.footer_discover_menu }}</p>
+                <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_discover_menu |  upcase }}</p>
                 <div class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
                     {% for link in linklists.discover.links %}
-                       <li class="list-none text-white"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                       <li class="list-none "><a class="text-white" href="{{ link.url }}">{{ link.title }}</a></li>
                     {% endfor %}
                 </div>
             </div>
             <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
-                <p class="body-16-medium text-white">{{ section.settings.footer_socials_menu }}</p>
+                <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu |  upcase }}</p>
             </div>
         </div>
     </div>
