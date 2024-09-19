@@ -113,6 +113,9 @@
     <a href="">{{ section.settings.cta_delear_text }}</a>
     {% render 'cta-icon' %}
   </div>
+  <div class="right-reserved-container w-full h-auto flex items-start justify-center">
+    <p class="caption text-white">{{ section.settings.right_reserved }}</p>
+  </div>
 
 </div>
 
@@ -196,6 +199,12 @@
         "id": "cta_delear_text",
         "label": "Cta Delear",
         "default": "Locate the nearest delear"
+      },
+      {
+        "type": "text",
+        "id": "right_reserved",
+        "label": "Right Reserved",
+        "default": "©2024 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved"
       }
     ],
     "blocks": [

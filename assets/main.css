@@ -520,6 +520,12 @@ body {
   line-height: var(--body-small-height);
 }
 
+.caption {
+  font-weight: 400;
+  font-size: var(--caption);
+  line-height: var(--caption-height);
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
