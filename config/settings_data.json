@@ -133,15 +133,15 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify:\/\/shop_images\/Group_1274.png",
-              "social_name": "",
-              "social_url": ""
+              "social_name": "Instagram",
+              "social_url": "https:\/\/www.instagram.com\/"
             }
           },
           "social_channel_yzeeUK": {
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify:\/\/shop_images\/Linkedin.png",
-              "social_name": "",
+              "social_name": "Linkedln",
               "social_url": ""
             }
           },
@@ -149,16 +149,16 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify:\/\/shop_images\/Facebook.png",
-              "social_name": "",
-              "social_url": ""
+              "social_name": "Facebook",
+              "social_url": "https:\/\/www.instagram.com\/"
             }
           },
           "social_channel_CdrF9U": {
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify:\/\/shop_images\/Youtube.png",
-              "social_name": "",
-              "social_url": ""
+              "social_name": "You tube",
+              "social_url": "https:\/\/www.instagram.com\/"
             }
           }
         },
