@@ -11,9 +11,7 @@
         {% endif %}
       </div>
       <!-- form block -->
-      {% form 'customer'
-        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center
-                    gap-y-6" %}
+      {% form 'customer', class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
         {{ form.errors | default_errors }}
         {% if form.posted_successfully? %}
           <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
@@ -84,8 +82,7 @@
     </div>
     <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start">
       <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
-        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_discover_menu | upcase
-}}</p>
+        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_discover_menu | upcase }}</p>
         <div class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
           {% for link in linklists.discover.links %}
             <li class="list-none ">
@@ -95,12 +92,29 @@
         </div>
       </div>
       <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
-        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu | upcase
-}}</p>
+        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu | upcase }}</p>
       </div>
     </div>
   </div>
-</div></div>{% schema %}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
+        const userTag = document.getElementById('user-tag');
+
+        radioButtons.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                if (this.checked) {
+                    userTag.value = `newsletter,${this.value}`;
+                }
+            });
+        });
+    });
+</script>
+
+
+{% schema %}
 {
   "name": "footer",
   "settings": [
@@ -159,17 +173,6 @@
       "default": "Socials"
     }
   ]
-}{% endschema %}<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
-        const userTag = document.getElementById('user-tag');
+}
+{% endschema %}
 
-        radioButtons.forEach(function (radio) {
-            radio.addEventListener('change', function () {
-                if (this.checked) {
-                    userTag.value = `newsletter,${this.value}`;
-                }
-            });
-        });
-    });
-</script>
