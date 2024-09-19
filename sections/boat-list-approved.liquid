@@ -1,5 +1,5 @@
 <!-- Layout for Press Room  -->
-<div id="pressroom-layout" class="blogs-list-container press-room w-full h-auto flex flex-col gap-y-3">
+<div id="pressroom-layout" class="blogs-list-container press-room w-full h-auto flex flex-col gap-y-3 mt-[100px] p-4">
     <!-- Press Room articles loop -->
     {% for collection in collections %}
     {% if collection.title == 'Pardo approved' %}
@@ -7,7 +7,7 @@
     {% for product in pardoApproved %}
     <div class="card-product-item-press-room w-full h-auto flex flex-col gap-y-4 p-4 shadow-custom rounded-lg">
         <img src="{{ product.featured_image | img_url: 'master' }}"
-            class="w-full h-auto min-h-[220px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px] rounded-t-lg"
+            class="w-full h-auto min-h-[220px] object-cover rounded-t-lg"
             alt="product image">
         <div class="product-item-details flex flex-col gap-y-4">
             <p class="body-14">{{ product.title }}</p>
