@@ -2,34 +2,36 @@
   <div class="footer-container w-full h-auto flex flex-col items-start justify-center">
     <div class="newsletter-form w-full h-auto">
       <!-- form section headings -->
-      {% if section.settings.section_title != blank %}
-        <label for="Email">{{ section.settings.section_title | escape }}</label>
-      {% endif %}
-      {% if section.settings.subheading != blank %}
-        <p>{{ section.settings.subheading | escape }}</p>
-      {% endif %}
+       <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-6">
+        {% if section.settings.section_title != blank %}
+            <label for="Email" class="text-[30px] leading-[30px] font-semibold text-white">{{ section.settings.section_title | escape }}</label>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+            <p class="body-16">{{ section.settings.subheading | escape }}</p>
+          {% endif %}
+       </div>
       <!-- form block -->
       {% form 'customer'
-        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center" %}
+        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
         {{ form.errors | default_errors }}
         {% if form.posted_successfully? %}
-          <p>{{ section.settings.thankyou_message }}</p>
+          <p class="body-16">{{ section.settings.thankyou_message }}</p>
         {% else %}
           <!-- checkbox one -->
           <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
-            <input
-              type="checkbox"
+            <input class="w-5 h-5 border border-black"
+              type="radio"
               id="owner"
               name="contact[owner]">
-            <label for="owner">{{ section.settings.checkbox_1_label }}</label>
+            <label for="owner" class="body-16">{{ section.settings.checkbox_1_label }}</label>
           </div>
           <!-- checkbox two -->
           <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
-            <input
-              type="checkbox"
-              id="owner"
-              name="contact[owner]">
-            <label for="owner">{{ section.settings.checkbox_1_label }}</label>
+            <input class="w-5 h-5 border border-black"
+              type="radio"
+              id="visitor"
+              name="contact[visitor]">
+            <label for="visitor" class="body-16">{{ section.settings.checkbox_2_label }}</label>
           </div>
 
           <input
@@ -45,8 +47,7 @@
 
             <button type="submit" name="commit" id="Subscribe">{{ section.settings.button_text }}</button>
       </button>
-
-        {% endif %}
+      {% endif %}
       {% endform %}
     </div>
   </div>
