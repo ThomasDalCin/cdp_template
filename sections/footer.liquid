@@ -7,7 +7,7 @@
             <label for="Email" class="text-[30px] leading-[30px] font-semibold text-white">{{ section.settings.section_title | escape }}</label>
           {% endif %}
           {% if section.settings.subheading != blank %}
-            <p class="body-16">{{ section.settings.subheading | escape }}</p>
+            <p class="body-16 text-white">{{ section.settings.subheading | escape }}</p>
           {% endif %}
        </div>
       <!-- form block -->
@@ -15,7 +15,7 @@
         , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
         {{ form.errors | default_errors }}
         {% if form.posted_successfully? %}
-          <p class="body-16">{{ section.settings.thankyou_message }}</p>
+          <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
         {% else %}
           <!-- checkbox one -->
           <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
@@ -23,7 +23,7 @@
               type="radio"
               id="owner"
               name="contact[owner]">
-            <label for="owner" class="body-16">{{ section.settings.checkbox_1_label }}</label>
+            <label for="owner" class="body-16  text-white">{{ section.settings.checkbox_1_label }}</label>
           </div>
           <!-- checkbox two -->
           <div class="checkbox-contaier w-full h-auto flex flex-row gap-x-2 items-start justify-center">
@@ -31,7 +31,7 @@
               type="radio"
               id="visitor"
               name="contact[visitor]">
-            <label for="visitor" class="body-16">{{ section.settings.checkbox_2_label }}</label>
+            <label for="visitor" class="body-16  text-white">{{ section.settings.checkbox_2_label }}</label>
           </div>
 
           <input
