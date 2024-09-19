@@ -11,7 +11,8 @@
         {% endif %}
       </div>
       <!-- form block -->
-      {% form 'customer', class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
+      {% form 'customer'
+        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
         {{ form.errors | default_errors }}
         {% if form.posted_successfully? %}
           <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
@@ -93,6 +94,18 @@
       </div>
       <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
         <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu | upcase }}</p>
+        <div class="social-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
+          {% for block in settings.blocks %}
+            {% if block.type == "social-channel" %}
+              <div class="social-link-container w-full h-auto">
+                <li class="social-link flex flex-row gap-x-3">
+                  <img src="{{ block.settings.social_icon |  img_url: 'master' }}" alt="social image"  class="social-image w-5 h-5 object-cover">
+                  <a href="{{ block.settings.social_url }}">{{ block.settings.social_name }}</a>
+                </li>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -103,7 +116,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
         const userTag = document.getElementById('user-tag');
-
+  
         radioButtons.forEach(function (radio) {
             radio.addEventListener('change', function () {
                 if (this.checked) {
@@ -116,64 +129,85 @@
 
 
 {% schema %}
-{
-  "name": "footer",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Heading",
-      "default": "Stay Updated"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Get relevant news from the Pardo world sent to your email."
-    },
-    {
-      "type": "text",
-      "id": "thankyou_message",
-      "label": "Thank you message",
-      "default": "Thank you you are on board now!"
-    },
-    {
-      "type": "text",
-      "id": "checkbox_1_label",
-      "label": "Label Checkbox 1",
-      "default": "Pardo owner"
-    }, {
-      "type": "text",
-      "id": "checkbox_2_label",
-      "label": "Label Checkbox 2",
-      "default": "Visitor"
-    }, {
-      "type": "text",
-      "id": "placeholder_text",
-      "label": "Placeholder",
-      "default": "Email"
-    }, {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Come on board"
-    }, {
-      "type": "text",
-      "id": "footer_models_menu",
-      "label": "Models footer menu",
-      "default": "Models"
-    }, {
-      "type": "text",
-      "id": "footer_discover_menu",
-      "label": "Discover footer menu",
-      "default": "Discover"
-    }, {
-      "type": "text",
-      "id": "footer_socials_menu",
-      "label": "Socials footer menu",
-      "default": "Socials"
-    }
-  ]
-}
+  {
+    "name": "footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Stay Updated"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Get relevant news from the Pardo world sent to your email."
+      },
+      {
+        "type": "text",
+        "id": "thankyou_message",
+        "label": "Thank you message",
+        "default": "Thank you you are on board now!"
+      },
+      {
+        "type": "text",
+        "id": "checkbox_1_label",
+        "label": "Label Checkbox 1",
+        "default": "Pardo owner"
+      }, {
+        "type": "text",
+        "id": "checkbox_2_label",
+        "label": "Label Checkbox 2",
+        "default": "Visitor"
+      }, {
+        "type": "text",
+        "id": "placeholder_text",
+        "label": "Placeholder",
+        "default": "Email"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Come on board"
+      }, {
+        "type": "text",
+        "id": "footer_models_menu",
+        "label": "Models footer menu",
+        "default": "Models"
+      }, {
+        "type": "text",
+        "id": "footer_discover_menu",
+        "label": "Discover footer menu",
+        "default": "Discover"
+      }, {
+        "type": "text",
+        "id": "footer_socials_menu",
+        "label": "Socials footer menu",
+        "default": "Socials"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "social-channel",
+        "type": "social-channel",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "social_icon",
+            "label": "Social Icon"
+          }, {
+            "type": "text",
+            "id": "social_name",
+            "label": "Social name"
+          },
+          {
+            "type": "url",
+            "id": "social_url",
+            "label": "Social Url"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
-
