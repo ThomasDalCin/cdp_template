@@ -55,7 +55,7 @@
     </div>
     <div class="footer-menu w-full h-auto flex flex-row items-center justify-between">
         <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-center">
-        <p class="body-16-medium">{{ section.settings.footer_primary_menu }}</p>
+        <p class="body-16-medium">{{ section.settings.footer_models_menu }}</p>
         <div class="gamma-product-container flex flex-col gap-y-3">
             {% for collection in collections %}
                 {% for product in collection.products %}
@@ -69,7 +69,17 @@
         </div>
         </div>
         <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-center">
-            <p class="body-16-medium">{{ section.settings.footer_primary_menu }}</p>
+            <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
+                <p class="body-16-medium">{{ section.settings.footer_discover_menu }}</p>
+                <div class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
+                    {% for link in linklists.discover.links %}
+                       <li class="list-none text-white"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
+                <p class="body-16-medium">{{ section.settings.footer_socials_menu }}</p>
+            </div>
         </div>
     </div>
   </div>
@@ -116,6 +126,24 @@
         "id": "button_text",
         "label": "Button text",
         "default": "Come on board"
+      },
+      {
+        "type": "text",
+        "id": "footer_models_menu",
+        "label": "Models footer menu",
+        "default": "Models"
+      },
+      {
+        "type": "text",
+        "id": "footer_discover_menu",
+        "label": "Discover footer menu",
+        "default": "Discover"
+      },
+      {
+        "type": "text",
+        "id": "footer_socials_menu",
+        "label": "Socials footer menu",
+        "default": "Socials"
       }
 
     ]
