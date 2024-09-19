@@ -1,8 +1,13 @@
 {
     "sections": {
-        "boat-list-approved" : {
+        "boat-list-approved": {
             "type": "boat-list-approved",
             "settings": {}
         }
-    }
+    },
+    "order": [
+        "falconeriXpardo",
+        "special-collab",
+        "special-collab-poldo"
+    ]
 }
