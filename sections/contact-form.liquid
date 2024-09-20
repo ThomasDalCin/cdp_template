@@ -1,0 +1,69 @@
+<!--contact form-->
+<div class="contact-form-container w-full h-auto flex flex-col items-start justify-center gap-y p-4">
+    <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-3">
+        <p class="body-16">{{ section.settings.form_heading }}</p>
+        <p class="body-12">{{ section.settings.alert_form_message }}</p>
+    </div>
+    <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
+        {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+        <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+        {% else %}
+        <!-- Name -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="text" name="contact[first_name]" id="first_name"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci il tuo nome" required>
+        </div>
+        <!-- Last Name -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="text" name="contact[last_name]" id="last_name"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci il tuo cognome" required>
+        </div>
+        <!-- Email -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="email" name="contact[email]" id="email"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci la tua email" required>
+        </div>
+        <!-- Phone -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="tel" name="contact[phone]" id="phone"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci il tuo telefono" required>
+        </div>
+        <!-- Models -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <select name="contact[product_option]" id="product_option"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
+                <option value="" disabled selected>Seleziona un prodotto</option>
+                {% for collection in collections %}
+                {% for product in collection.products %}
+                <option value="{{ product.title }}">{{ product.title }}</option>
+                {% endfor %}
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Port -->
+        <div class="form-group w-full">
+            <input type="text" name="contact[port]" id="port"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci il porto di riferimento" required>
+        </div>
+        <!-- Boat -->
+        <div class="form-group w-full">
+            <input type="text" name="contact[boat_registration]" id="boat_registration"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                placeholder="Inserisci il registro di barca" required>
+        </div>
+        <!-- Messagge -->
+        <div class="form-group w-full">
+            <textarea name="contact[message]" id="message"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" rows="5"
+                placeholder="Inserisci il tuo messaggio" required></textarea>
+        </div>
+        {% endform %}
+    </div>
+</div>
