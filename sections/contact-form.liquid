@@ -4,63 +4,37 @@
     <p class="body-16">{{ section.settings.form_heading }}</p>
     <p class="body-12">{{ section.settings.alert_form_message }}</p>
   </div>
+
   <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-    {% form 'contact'
-      , class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+    {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
       {{ form.errors | default_errors }}
       {% if form.posted_successfully? %}
         <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
       {% else %}
-        <!-- Name -->
+        <!-- First Name -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-          <input
-            type="text"
-            name="contact[first_name]"
-            id="first_name"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_name }}"
-            required>
+          <input type="text" name="contact[first_name]" id="first_name" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_name }}" required>
         </div>
+
         <!-- Last Name -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-          <input
-            type="text"
-            name="contact[last_name]"
-            id="last_name"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_lastname }}"
-            required>
+          <input type="text" name="contact[last_name]" id="last_name" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_lastname }}" required>
         </div>
+
         <!-- Email -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-          <input
-            type="email"
-            name="contact[email]"
-            id="email"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_email }}"
-            required>
+          <input type="email" name="contact[email]" id="email" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_email }}" required>
         </div>
+
         <!-- Phone -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-          <input
-            type="tel"
-            name="contact[phone]"
-            id="phone"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_phone }}"
-            required>
+          <input type="tel" name="contact[phone]" id="phone" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_phone }}" required>
         </div>
-        <!-- Models -->
+
+        <!-- Product Option -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-          <select
-            name="contact[product_option]"
-            id="product_option"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
-            <option
-              value=""
-              disabled
-              selected>{{ section.settings.form_models }}</option>
+          <select name="contact[product_option]" id="product_option" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
+            <option value="" disabled selected>{{ section.settings.form_models }}</option>
             {% for collection in collections %}
               {% for product in collection.products %}
                 <option value="{{ product.title }}">{{ product.title }}</option>
@@ -68,54 +42,39 @@
             {% endfor %}
           </select>
         </div>
+
         <!-- Port -->
         <div class="form-group w-full">
-          <input
-            type="text"
-            name="contact[port]"
-            id="port"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_port }}"
-            required>
+          <input type="text" name="contact[port]" id="port" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_port }}" required>
         </div>
-        <!-- Boat -->
+
+        <!-- Boat Registration -->
         <div class="form-group w-full">
-          <input
-            type="text"
-            name="contact[boat_registration]"
-            id="boat_registration"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            placeholder="{{ section.settings.form_boat }}"
-            required>
+          <input type="text" name="contact[boat_registration]" id="boat_registration" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_boat }}" required>
         </div>
-        <!-- Messagge -->
+
+        <!-- Message -->
         <div class="form-group w-full">
-          <textarea
-            name="contact[message]"
-            id="message"
-            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-            rows="5"
-            pplaceholder="{{ section.settings.form_message }}"
-            required></textarea>
+          <textarea name="contact[message]" id="message" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" rows="5" placeholder="{{ section.settings.form_message }}" required></textarea>
         </div>
+
+        <!-- Primary Info -->
         <p class="body-12-medium">{{ section.settings.form_info_primary }}</p>
+
+        <!-- Privacy Policy -->
         <div class="form-group w-full flex flex-row gap-x-3 items-center justify-start">
-          <input
-            type="checkbox"
-            id="privacy_policy"
-            name="contact[privacy]"
-            class="w-4 h-4 border-gray-300 rounded"
-            required>
+          <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded" required>
           <label for="privacy_policy" class="ml-2 text-sm text-gray-700">
             Privacy Policy
           </label>
         </div>
+
+        <!-- Secondary Info -->
         <p class="caption text-[#7A7A7A]">{{ section.settings.form_info_secondary }}</p>
+
+        <!-- Submit Button -->
         <div class="cta-accent">
-          <button
-            type="submit"
-            name="commit"
-            id="Subscribe">{{ section.settings.form_cta }}</button>
+          <button type="submit" name="commit" id="Subscribe">{{ section.settings.form_cta }}</button>
           {% render 'cta-icon' %}
         </div>
       {% endif %}
@@ -124,89 +83,93 @@
 </div>
 
 {% schema %}
-  {
-    "name": "contact-form",
-    "settings": [
-      {
-        "type": "text",
-        "id": "form_heading ",
-        "label": "Form Heading",
-        "default": "Chiedi a noi, saremo lieti di assisterti"
-      },
-      {
-        "type": "text",
-        "id": "alert_form_message",
-        "label": "Alert message",
-        "default": "Campi obbligatori*"
-      },
-      {
-        "type": "text",
-        "id": "thankyou_message",
-        "label": "Thank you message",
-        "default": "Thank you"
-      },
-      {
-        "type": "text",
-        "id": "thankyou_message",
-        "label": "Thank you message",
-        "default": "Thank you"
-      }, {
-        "type": "text",
-        "id": "form_name",
-        "label": "Form name",
-        "default": "Name*"
-      }, {
-        "type": "text",
-        "id": "form_lastname",
-        "label": "Last name",
-        "default": "Last Name*"
-      }, {
-        "type": "text",
-        "id": "form_email",
-        "label": "Email",
-        "default": "Email*"
-      }, {
-        "type": "text",
-        "id": "form_phone",
-        "label": "Phone",
-        "default": "Phone*"
-      }, {
-        "type": "text",
-        "id": "form_models",
-        "label": "Models",
-        "default": "Models"
-      }, {
-        "type": "text",
-        "id": "form_port",
-        "label": "Port",
-        "default": "Port"
-      }, {
-        "type": "text",
-        "id": "form_boat",
-        "label": "Boat",
-        "default": "Boat"
-      }, {
-        "type": "textarea",
-        "id": "form_message",
-        "label": "Message",
-        "default": "Message"
-      }, {
-        "type": "textarea",
-        "id": "form_info_primary",
-        "label": "Primay info",
-        "default": "Tienimi informato, così posso ricevere: Informazioni su prodotti e servizi di mio interesse. Comunicazioni personalizzate fornite con il metodo più adatto a me. Opportunità uniche per dire la mia e contribuire a plasmare il futuro di Pardo Yachts."
-      }, {
-        "type": "textarea",
-        "id": "form_info_secondary",
-        "label": "Secondary info",
-        "default": "Desidero ricevere comunicazioni di marketing su prodotti, servizi ed eventi offerti da CANTIERE DEL PARDO S.p.A. Comprendo che queste comunicazioni potrebbero essere personalizzate in base ai miei interessi, preferenze e utilizzo di prodotti e servizi, inclusi inviti a fornire feedback sull’esperienza del cliente."
-      }, {
-        "type": "text",
-        "id": "form_cat",
-        "label": "Cta Text",
-        "default": "Send"
-      }
-
-    ]
-  }
+{
+  "name": "contact-form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form Heading",
+      "default": "Chiedi a noi, saremo lieti di assisterti"
+    },
+    {
+      "type": "text",
+      "id": "alert_form_message",
+      "label": "Alert Message",
+      "default": "Campi obbligatori*"
+    },
+    {
+      "type": "text",
+      "id": "thankyou_message",
+      "label": "Thank You Message",
+      "default": "Thank you"
+    },
+    {
+      "type": "text",
+      "id": "form_name",
+      "label": "Form Name",
+      "default": "Name*"
+    },
+    {
+      "type": "text",
+      "id": "form_lastname",
+      "label": "Last Name",
+      "default": "Last Name*"
+    },
+    {
+      "type": "text",
+      "id": "form_email",
+      "label": "Email",
+      "default": "Email*"
+    },
+    {
+      "type": "text",
+      "id": "form_phone",
+      "label": "Phone",
+      "default": "Phone*"
+    },
+    {
+      "type": "text",
+      "id": "form_models",
+      "label": "Models",
+      "default": "Models"
+    },
+    {
+      "type": "text",
+      "id": "form_port",
+      "label": "Port",
+      "default": "Port"
+    },
+    {
+      "type": "text",
+      "id": "form_boat",
+      "label": "Boat",
+      "default": "Boat"
+    },
+    {
+      "type": "textarea",
+      "id": "form_message",
+      "label": "Message",
+      "default": "Message"
+    },
+    {
+      "type": "textarea",
+      "id": "form_info_primary",
+      "label": "Primary Info",
+      "default": "Tienimi informato, così posso ricevere: Informazioni su prodotti e servizi di mio interesse. Comunicazioni personalizzate fornite con il metodo più adatto a me. Opportunità uniche per dire la mia e contribuire a plasmare il futuro di Pardo Yachts."
+    },
+    {
+      "type": "textarea",
+      "id": "form_info_secondary",
+      "label": "Secondary Info",
+      "default": "Desidero ricevere comunicazioni di marketing su prodotti, servizi ed eventi offerti da CANTIERE DEL PARDO S.p.A. Comprendo che queste comunicazioni potrebbero essere personalizzate in base ai miei interessi, preferenze e utilizzo di prodotti e servizi, inclusi inviti a fornire feedback sull’esperienza del cliente."
+    },
+    {
+      "type": "text",
+      "id": "form_cta",
+      "label": "CTA Text",
+      "default": "Send"
+    }
+  ]
+}
 {% endschema %}
