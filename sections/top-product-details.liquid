@@ -53,7 +53,7 @@
                 {% assign external_video = external_gallery[external_video_key] %}
 
                 {% if external_video %}
-                <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[505px]" preload="metadata" muted
+                <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover" preload="metadata" muted
                     poster="{{ external_video | img_url: 'master' }}">
                     <source src="{{ external_video | file_url }}" type="video/mp4">
                 </video>
