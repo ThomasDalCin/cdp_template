@@ -1370,6 +1370,10 @@ body {
   width: 250px;
 }
 
+.w-\[220px\] {
+  width: 220px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
