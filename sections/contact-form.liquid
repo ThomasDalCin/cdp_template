@@ -12,7 +12,7 @@
         <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
       {% else %}
         <!-- Form Content -->
-        <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-6">
+        <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
           <!-- First Name -->
           <div class="form-group w-full h-auto flex flex-col items-start justify-center">
             <input type="text" name="contact[first_name]" id="first_name" value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_name }}" required>
