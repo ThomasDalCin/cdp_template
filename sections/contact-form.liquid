@@ -1,16 +1,17 @@
 <!-- contact form -->
 <div class="contact-form-container w-full h-auto flex flex-col items-start justify-center gap-y-6 p-4 mt-[100px] mb-10">
-  <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-3">
-    <p class="body-16-medium">{{ section.settings.form_heading }}</p>
-    <p class="body-12">{{ section.settings.alert_form_message }}</p>
-  </div>
+  {% if form.posted_successfully? %}
+    <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+  {% else %}
+    <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-3">
+      <p class="body-16-medium">{{ section.settings.form_heading }}</p>
+      <p class="body-12">{{ section.settings.alert_form_message }}</p>
+    </div>
 
-  <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-    {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
-      {{ form.errors | default_errors }}
-      {% if form.posted_successfully? %}
-        <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
-      {% else %}
+    <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+        {{ form.errors | default_errors }}
+        
         <!-- Form Content -->
         <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
           <!-- First Name -->
@@ -80,10 +81,11 @@
             {% render 'cta-icon' %}
           </div>
         </div>
-      {% endif %}
-    {% endform %}
-  </div>
+      {% endform %}
+    </div>
+  {% endif %}
 </div>
+
 
 
 
