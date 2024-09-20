@@ -49,7 +49,7 @@
     }
   },
   "order": [
-    "contact",
-    "location"
+    "location",
+    "contact"
   ]
 }
