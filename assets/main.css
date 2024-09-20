@@ -1226,6 +1226,10 @@ body {
   height: 100vh;
 }
 
+.h-\[505px\] {
+  height: 505px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
