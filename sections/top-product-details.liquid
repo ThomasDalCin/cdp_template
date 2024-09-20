@@ -50,7 +50,7 @@
             {% assign external_video = external_gallery[external_video_key] %}
       
             {% if external_video %}
-            <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[705px]" preload="metadata" muted
+            <video id="productVideo" class="video w-full h-[220px] rounded-lg" preload="metadata" muted
               poster="{{ external_video | img_url: 'master' }}">
               <source src="{{ external_video | file_url }}" type="video/mp4">
             </video>
@@ -286,6 +286,8 @@
     // Video control setup
     const video = document.getElementById('productVideo');
     const playButton = document.getElementById('playButton');
+    //get screen size
+    const screenSize = window.innerWidth;
 
     if (video && playButton) {
       playButton.style.display = 'flex';
@@ -422,7 +424,19 @@
         const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
 
         mainImg.setAttribute('src', '');
-        classesToAdd.forEach((className) => mainImg.classList.add(className));
+        function addClassesImage(){
+            if(screenSize >= 1024 ){
+            classesToAdd.push('h-[705px] !important');
+            classesToAdd.forEach((className) => mainImg.classList.add(className));
+            else {
+                classesToAdd.forEach((className) => mainImg.classList.add(className));   
+            }
+        }
+        }
+        addClassesImage()
+
+
+        window.addEventListener('resize', addClassesImage )
 
         function handleExternalImageClick(e) {
           let currentSrc = e.currentTarget.getAttribute('data-external-src');
