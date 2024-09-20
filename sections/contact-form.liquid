@@ -16,7 +16,7 @@
                             {% render 'cta-icon' %}
                         </li>
                     </div>
-                    <div class="card-loc-email-container w-[220px] h-auto flex items-center justify-start">
+                    <div class="card-loc-email-container w-full h-auto flex items-center justify-start">
                         <p class="body-12">{{ block.settings.card_loc_default_email }}</p>
                     </div>
                     <div class="card-loc-phonedetails-container w-full h-auto flex items-center justify-start">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             {% elsif block.type == "card-location-additional" %}
-                <div class="card-loc-item flex-shrink-0 w-full lg:w-1/2 min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 shadow-custom">
+                <div class="card-loc-item flex-shrink-0 w-[220px]  lg:w-1/2 min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 shadow-custom">
                     <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
                         <p class="body-16 font-semibold">{{ block.settings.card_loc_additional_heading }}</p>
                     </div>
