@@ -2264,6 +2264,10 @@ body {
     width: calc(50% - 0.5rem);
   }
 
+  .lg\:w-\[calc\(50\%_-_1rem\)\] {
+    width: calc(50% - 1rem);
+  }
+
   .lg\:min-w-\[220px\] {
     min-width: 220px;
   }
