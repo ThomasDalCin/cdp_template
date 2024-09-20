@@ -65,6 +65,19 @@
                 class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" rows="5"
                 placeholder="Inserisci il tuo messaggio" required></textarea>
         </div>
+        <p class="body-12-medium">{{ section.settings.info_text_primary }}</p>
+        <div class="form-group w-full flex flex-row gap-x-3 items-center justify-start">
+            <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded"
+                required>
+            <label for="privacy_policy" class="ml-2 text-sm text-gray-700">
+                Privacy Policy
+            </label>
+        </div>
+        <p class="caption text-[#7A7A7A]">{{ section.settings.info_text_secondary }}</p>
+        <div class="cta-accent">
+            <button type="submit" name="commit" id="Subscribe">{{ section.settings.button_text }}</button>
+            {% render 'cta-icon' %}
+        </div>
         {% endif %}
         {% endform %}
     </div>
