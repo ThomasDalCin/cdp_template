@@ -63,7 +63,7 @@
 
         <!-- Privacy Policy -->
         <div class="form-group w-full flex flex-row gap-x-3 items-center justify-start">
-          <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded" required {% if form.privacy %}checked{% endif %}>
+          <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded" required>
           <label for="privacy_policy" class="ml-2 text-sm text-gray-700">
             Privacy Policy
           </label>
@@ -74,13 +74,28 @@
 
         <!-- Submit Button -->
         <div class="cta-accent">
-          <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+          <button type="submit" id="Subscribe" disabled>{{ section.settings.form_cta }}</button>
           {% render 'cta-icon' %}
         </div>
       {% endif %}
     {% endform %}
   </div>
 </div>
+
+<script>
+  const privacyCheckbox = document.getElementById('privacy_policy');
+  const submitButton = document.getElementById('Subscribe');
+
+  function toggleSubmitButton() {
+    submitButton.disabled = !privacyCheckbox.checked;
+  }
+
+
+  privacyCheckbox.addEventListener('change', toggleSubmitButton);
+  
+  toggleSubmitButton();
+</script>
+
 
 
 {% schema %}
