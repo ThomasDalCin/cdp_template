@@ -1286,6 +1286,10 @@ body {
   min-height: 320px;
 }
 
+.min-h-\[310px\] {
+  min-height: 310px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -1360,6 +1364,10 @@ body {
 
 .w-\[212px\] {
   width: 212px;
+}
+
+.w-\[250px\] {
+  width: 250px;
 }
 
 .min-w-\[200px\] {
