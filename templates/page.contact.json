@@ -3,9 +3,13 @@
         "contact": {
             "type": "contact-form",
             "settings": {}
+        },
+        "location": {
+            "type": "contact-locations"
         }
     },
     "order": [
-        "contact"
+        "contact",
+        "location"
     ]
 }
