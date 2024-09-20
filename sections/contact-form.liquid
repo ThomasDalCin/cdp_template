@@ -1,93 +1,134 @@
-<!-- contact form -->
-<div class="contact-form-container w-full h-auto flex flex-col items-start justify-center gap-y-6 p-4 mb-10">
-  {% if form.posted_successfully? %}
-    <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
-  {% else %}
-    <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-3">
-      <p class="body-16-medium">{{ section.settings.form_heading }}</p>
-      <p class="body-12">{{ section.settings.alert_form_message }}</p>
+<div class="contact-card-container w-full flex flex-col md:flex-row gap-4 p-4">
+    <div class="card-loc-container w-full h-auto flex flex-row items-center justify-start overflow-x-auto gap-4">
+        {% for block in section.blocks %}
+            {% if block.type == "card-location-default" %}
+                <div class="card-loc-item flex-shrink-0 w-[250px] min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 shadow-custom">
+                    <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
+                        <p class="body-16 font-semibold">{{ block.settings.card_loc_default_heading }}</p>
+                    </div>
+                    <div class="card-loc-address-container w-full h-auto flex items-center justify-start">
+                        <p class="body-12">{{ block.settings.card_loc_default_address }}</p>
+                    </div>
+                    <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
+                        <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
+                            <a class="underline" href="/">Show on Google Maps</a>
+                            {% render 'cta-icon' %}
+                        </li>
+                    </div>
+                    <div class="card-loc-email-container w-full h-auto flex items-center justify-start">
+                        <p class="body-12">{{ block.settings.card_loc_default_email }}</p>
+                    </div>
+                    <div class="card-loc-phonedetails-container w-full h-auto flex items-center justify-start">
+                        <p class="body-12">{{ block.settings.card_loc_default_phone }}</p>
+                    </div>
+                </div>
+            {% elsif block.type == "card-location-additional" %}
+                <div class="card-loc-item flex-shrink-0 w-[250px] min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 shadow-custom">
+                    <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
+                        <p class="body-16 font-semibold">{{ block.settings.card_loc_additional_heading }}</p>
+                    </div>
+                    <div class="card-loc-content-container w-full h-auto flex items-center justify-start">
+                        <p class="body-12">{{ block.settings.card_loc_additional_content }}</p>
+                    </div>
+                    <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
+                        <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
+                            <a class="underline" href="/">Locate a dealer</a>
+                            {% render 'cta-icon' %}
+                        </li>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 
-    <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-      {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
-        {{ form.errors | default_errors }}
-        
-        <!-- Form Content -->
-        <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
-          <!-- First Name -->
-          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="text" name="contact[first_name]" id="first_name" value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_name }}" required>
-          </div>
+    <!-- Contact Form -->
+    <div class="contact-form-container w-full h-auto flex flex-col items-start justify-center gap-y-6 p-4 mb-10">
+        {% if form.posted_successfully? %}
+            <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+        {% else %}
+            <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-3">
+                <p class="body-16-medium">{{ section.settings.form_heading }}</p>
+                <p class="body-12">{{ section.settings.alert_form_message }}</p>
+            </div>
 
-          <!-- Last Name -->
-          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="text" name="contact[last_name]" id="last_name" value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_lastname }}" required>
-          </div>
+            <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
+                {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+                    {{ form.errors | default_errors }}
+                    
+                    <!-- Form Content -->
+                    <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
+                        <!-- First Name -->
+                        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                            <input type="text" name="contact[first_name]" id="first_name" value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_name }}" required>
+                        </div>
 
-          <!-- Email -->
-          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="email" name="contact[email]" id="email" value="{% if form.email != blank %}{{ form.email }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_email }}" required>
-          </div>
+                        <!-- Last Name -->
+                        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                            <input type="text" name="contact[last_name]" id="last_name" value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_lastname }}" required>
+                        </div>
 
-          <!-- Phone -->
-          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="tel" name="contact[phone]" id="phone" value="{% if form.phone != blank %}{{ form.phone }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_phone }}">
-          </div>
+                        <!-- Email -->
+                        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                            <input type="email" name="contact[email]" id="email" value="{% if form.email != blank %}{{ form.email }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_email }}" required>
+                        </div>
 
-          <!-- Product Option -->
-          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <select name="contact[product_option]" id="product_option" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
-              <option value="" disabled {% if form.product_option == blank %}selected{% endif %}>{{ section.settings.form_models }}</option>
-              {% for collection in collections %}
-                {% for product in collection.products %}
-                  <option value="{{ product.title }}" {% if form.product_option == product.title %}selected{% endif %}>{{ product.title }}</option>
-                {% endfor %}
-              {% endfor %}
-            </select>
-          </div>
+                        <!-- Phone -->
+                        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                            <input type="tel" name="contact[phone]" id="phone" value="{% if form.phone != blank %}{{ form.phone }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_phone }}">
+                        </div>
 
-          <!-- Port -->
-          <div class="form-group w-full">
-            <input type="text" name="contact[port]" id="port" value="{% if form.port != blank %}{{ form.port }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_port }}">
-          </div>
+                        <!-- Product Option -->
+                        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                            <select name="contact[product_option]" id="product_option" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
+                                <option value="" disabled {% if form.product_option == blank %}selected{% endif %}>{{ section.settings.form_models }}</option>
+                                {% for collection in collections %}
+                                    {% for product in collection.products %}
+                                        <option value="{{ product.title }}" {% if form.product_option == product.title %}selected{% endif %}>{{ product.title }}</option>
+                                    {% endfor %}
+                                {% endfor %}
+                            </select>
+                        </div>
 
-          <!-- Boat Registration -->
-          <div class="form-group w-full">
-            <input type="text" name="contact[boat_registration]" id="boat_registration" value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_boat }}">
-          </div>
+                        <!-- Port -->
+                        <div class="form-group w-full">
+                            <input type="text" name="contact[port]" id="port" value="{% if form.port != blank %}{{ form.port }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_port }}">
+                        </div>
 
-          <!-- Message -->
-          <div class="form-group w-full">
-            <textarea name="contact[message]" id="message" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_message }}">{% if form.message != blank %}{{ form.message }}{% endif %}</textarea>
-          </div>
+                        <!-- Boat Registration -->
+                        <div class="form-group w-full">
+                            <input type="text" name="contact[boat_registration]" id="boat_registration" value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_boat }}">
+                        </div>
 
-          <!-- Primary Info -->
-          <p class="body-12">{{ section.settings.form_info_primary }}</p>
+                        <!-- Message -->
+                        <div class="form-group w-full">
+                            <textarea name="contact[message]" id="message" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]" placeholder="{{ section.settings.form_message }}">{% if form.message != blank %}{{ form.message }}{% endif %}</textarea>
+                        </div>
 
-          <!-- Privacy Policy -->
-          <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
-            <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded" required>
-            <label for="privacy_policy" class="text-sm text-gray-700">
-              Privacy Policy*
-            </label>
-          </div>
+                        <!-- Primary Info -->
+                        <p class="body-12">{{ section.settings.form_info_primary }}</p>
 
-          <!-- Secondary Info -->
-          <p class="caption text-[#7A7A7A]">{{ section.settings.form_info_secondary }}</p>
+                        <!-- Privacy Policy -->
+                        <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
+                            <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded" required>
+                            <label for="privacy_policy" class="text-sm text-gray-700">
+                                Privacy Policy*
+                            </label>
+                        </div>
 
-          <!-- Submit Button -->
-          <div class="cta-accent">
-            <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
-            {% render 'cta-icon' %}
-          </div>
-        </div>
-      {% endform %}
+                        <!-- Secondary Info -->
+                        <p class="caption text-[#7A7A7A]">{{ section.settings.form_info_secondary }}</p>
+
+                        <!-- Submit Button -->
+                        <div class="cta-accent">
+                            <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+                            {% render 'cta-icon' %}
+                        </div>
+                    </div>
+                {% endform %}
+            </div>
+        {% endif %}
     </div>
-  {% endif %}
 </div>
-
-
-
 
 {% schema %}
 {
@@ -177,6 +218,76 @@
       "label": "CTA Text",
       "default": "Send"
     }
-  ]
+  ],
+  "blocks": [
+        {
+            "name": "card-location-default",
+            "type": "card-location-default",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "card_loc_default_heading",
+                    "label": "Card Heading",
+                    "default": "Headquarters"
+                },
+                {
+                    "type": "text",
+                    "id": "card_loc_default_address",
+                    "label": "Card Address",
+                    "default": "Indirizzo: Via F.II Lumière, 34 47122 Forlì (FC)"
+                },
+                {
+                    "type": "text",
+                    "id": "card_loc_default_email",
+                    "label": "Card Email",
+                    "default": "Email: info@pardoyachts.com"
+                },
+                {
+                    "type": "text",
+                    "id": "card_loc_default_phone",
+                    "label": "Card Phone",
+                    "default": "Telefono: +39 0543 782404"
+                }
+            ]
+        },
+        {
+            "name": "card-location-additional",
+            "type": "card-location-additional",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "card_loc_additional_heading",
+                    "label": "Card Heading",
+                    "default": "Bespoke da sempre"
+                },
+                {
+                    "type": "textarea",
+                    "id": "card_loc_additional_content",
+                    "label": "Card Content",
+                    "default": "Un team appassionato, esperto ed estremamente competente può assisterti nel tuo viaggio nell’acquisto di Pardo Yachts; condividendo le tue preferenze creeremo la soluzione più adatta a te."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Default Location Card",
+            "category": "Card",
+            "blocks": [
+                {
+                    "type": "card-location-default"
+                }
+            ]
+        },
+        {
+            "name": "Additional Location Card",
+            "category": "Card",
+            "blocks": [
+                {
+                    "type": "card-location-additional"
+                }
+            ]
+        }
+    ]
 }
 {% endschema %}
