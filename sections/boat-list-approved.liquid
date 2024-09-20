@@ -1,12 +1,12 @@
 <!-- Layout for Press Room -->
 <div id="pressroom-layout" class="blogs-list-container press-room w-full h-auto flex flex-col gap-y-4 mt-[100px] p-4 mb-10">
     <!-- Press Room articles loop -->
-    <div class="flex flex-wrap gap-4">
+    <div class="flex flex-wrap -mx-2">
         {% for collection in collections %}
             {% if collection.title == 'Pardo approved' %}
                 {% assign pardoApproved = collection.products %}
                 {% for product in pardoApproved %}
-                    <div class="card-product-item-press-room w-full lg:w-1/2 h-auto flex flex-col gap-y-4 shadow-custom rounded-lg">
+                    <div class="card-product-item-press-room w-full md:w-1/2 lg:w-1/2 px-2 mb-4 flex flex-col gap-y-4 shadow-custom rounded-lg">
                         <img src="{{ product.featured_image | img_url: 'master' }}"
                             class="w-full h-auto max-h-[220px] object-cover rounded-t-lg" alt="product image">
                         <div class="product-item-details flex flex-col gap-y-4 p-4">
