@@ -1,7 +1,7 @@
 <!-- Layout for Press Room -->
 <div id="pressroom-layout" class="blogs-list-container press-room w-full h-auto flex flex-col gap-y-4 mt-[100px] p-4 mb-10">
     <!-- Press Room articles loop -->
-    <div class="flex flex-wrap -mx-2">
+    <div class="flex flex-wrap gap-x-2">
         {% for collection in collections %}
             {% if collection.title == 'Pardo approved' %}
                 {% assign pardoApproved = collection.products %}
