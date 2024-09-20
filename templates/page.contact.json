@@ -1,8 +1,38 @@
-
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "contact": {
       "type": "contact-form",
+      "blocks": {
+        "card_location_default_wzbGbi": {
+          "type": "card-location-default",
+          "settings": {
+            "card_loc_default_heading": "Headquarters",
+            "card_loc_default_address": "Indirizzo: Via F.II Lumière, 34 47122 Forlì (FC)",
+            "card_loc_default_email": "Email: info@pardoyachts.com",
+            "card_loc_default_phone": "Telefono: +39 0543 782404"
+          }
+        },
+        "card_location_additional_FEq3PE": {
+          "type": "card-location-additional",
+          "settings": {
+            "card_loc_additional_heading": "Bespoke da sempre",
+            "card_loc_additional_content": "Un team appassionato, esperto ed estremamente competente può assisterti nel tuo viaggio nell’acquisto di Pardo Yachts; condividendo le tue preferenze creeremo la soluzione più adatta a te."
+          }
+        }
+      },
+      "block_order": [
+        "card_location_default_wzbGbi",
+        "card_location_additional_FEq3PE"
+      ],
       "settings": {
         "form_heading": "Chiedi a noi, saremo lieti di assisterti",
         "alert_form_message": "Campi obbligatori*",
