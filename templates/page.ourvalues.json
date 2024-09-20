@@ -123,6 +123,7 @@
         "scroll_image_Yybpfe": {
           "type": "scroll-image",
           "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-01.jpg"
           }
         },
         "scroll_image_JTKphN": {
