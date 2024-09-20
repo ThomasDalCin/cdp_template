@@ -414,63 +414,56 @@
       });
 
       if (container === externalContent) {
-  const videoContainer = document.querySelector('.video');
-  const videoSettings = document.querySelector('.video-settings');
-  const parentVideo = document.querySelector('.video-container');
-  const allExternalImages = Array.from(container.querySelectorAll("img[data-external-src]"));
-  const mainImg = document.createElement('img');
-  
-  const classesToAdd = ['w-full', 'rounded-lg', 'object-cover', 'object-center'];
+        const videoContainer = document.querySelector('.video');
+        const videoSettings = document.querySelector('.video-settings');
+        const parentVideo = document.querySelector('.video-container');
+        const allExternalImages = Array.from(container.querySelectorAll("img[data-external-src]"));
+        const mainImg = document.createElement('img');
+        const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
 
-  if (window.innerWidth > 1024) {
-    classesToAdd.push('h-[705px]');
-  } else {
-    classesToAdd.push('h-[220px]');
-  }
+        mainImg.setAttribute('src', '');
+        classesToAdd.forEach((className) => mainImg.classList.add(className));
 
-  mainImg.setAttribute('src', '');
-  classesToAdd.forEach((className) => mainImg.classList.add(className));
+        function handleExternalImageClick(e) {
+          let currentSrc = e.currentTarget.getAttribute('data-external-src');
+          if (!currentSrc) return;
 
-  function handleExternalImageClick(e) {
-    let currentSrc = e.currentTarget.getAttribute('data-external-src');
-    if (!currentSrc) return;
+          if (allExternalImages.indexOf(e.currentTarget) === 0) {
+            if (!document.body.contains(videoContainer)) {
+              parentVideo.innerHTML = '';
+              parentVideo.appendChild(videoContainer);
+              parentVideo.appendChild(videoSettings);
+            }
+          } else {
+            if (document.body.contains(videoContainer)) {
+              videoContainer.remove();
+              videoSettings.remove();
+            }
+            parentVideo.appendChild(mainImg);
+            mainImg.setAttribute('src', currentSrc);
+            mainImg.setAttribute('id', 'first-external-img');
+          }
+        }
 
-    if (allExternalImages.indexOf(e.currentTarget) === 0) {
-      if (!document.body.contains(videoContainer)) {
-        parentVideo.innerHTML = '';
-        parentVideo.appendChild(videoContainer);
-        parentVideo.appendChild(videoSettings);
+        allExternalImages.forEach((image, index) => {
+          if (image.src.includes('thumbnail')) {
+            const [thumbnail] = allExternalImages.splice(index, 1);
+            allExternalImages.unshift(thumbnail);
+          }
+        });
+
+        const externalImageContainer = container.querySelector('.flex.flex-row.items-center');
+        externalImageContainer.innerHTML = '';
+        allExternalImages.forEach((image) => {
+          const parentDiv = image.parentElement;
+          externalImageContainer.appendChild(parentDiv);
+        });
+
+        allExternalImages.forEach((img) => {
+          img.addEventListener('click', handleExternalImageClick);
+        });
       }
-    } else {
-      if (document.body.contains(videoContainer)) {
-        videoContainer.remove();
-        videoSettings.remove();
-      }
-      parentVideo.appendChild(mainImg);
-      mainImg.setAttribute('src', currentSrc);
-      mainImg.setAttribute('id', 'first-external-img');
     }
-  }
-
-  allExternalImages.forEach((image, index) => {
-    if (image.src.includes('thumbnail')) {
-      const [thumbnail] = allExternalImages.splice(index, 1);
-      allExternalImages.unshift(thumbnail);
-    }
-  });
-
-  const externalImageContainer = container.querySelector('.flex.flex-row.items-center');
-  externalImageContainer.innerHTML = '';
-  allExternalImages.forEach((image) => {
-    const parentDiv = image.parentElement;
-    externalImageContainer.appendChild(parentDiv);
-  });
-
-  allExternalImages.forEach((img) => {
-    img.addEventListener('click', handleExternalImageClick);
-  });
-}
-
 
 
 
