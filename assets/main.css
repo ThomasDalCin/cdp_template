@@ -1354,6 +1354,10 @@ body {
   width: 1rem;
 }
 
+.w-\[212px\] {
+  width: 212px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1694,6 +1698,11 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#F7F7F7\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
