@@ -1,15 +1,63 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-    "sections": {
-        "contact": {
-            "type": "contact-form",
-            "settings": {}
-        },
-        "location": {
-            "type": "contact-locations"
-        }
+  "sections": {
+    "contact": {
+      "type": "contact-form",
+      "settings": {
+        "form_heading": "Chiedi a noi, saremo lieti di assisterti",
+        "alert_form_message": "Campi obbligatori*",
+        "thankyou_message": "Thank you",
+        "form_name": "Name*",
+        "form_lastname": "Last Name*",
+        "form_email": "Email*",
+        "form_phone": "Phone*",
+        "form_models": "Models",
+        "form_port": "Port",
+        "form_boat": "Boat",
+        "form_message": "Message",
+        "form_info_primary": "Tienimi informato, così posso ricevere: Informazioni su prodotti e servizi di mio interesse. Comunicazioni personalizzate fornite con il metodo più adatto a me. Opportunità uniche per dire la mia e contribuire a plasmare il futuro di Pardo Yachts.",
+        "form_info_secondary": "Desidero ricevere comunicazioni di marketing su prodotti, servizi ed eventi offerti da CANTIERE DEL PARDO S.p.A. Comprendo che queste comunicazioni potrebbero essere personalizzate in base ai miei interessi, preferenze e utilizzo di prodotti e servizi, inclusi inviti a fornire feedback sull’esperienza del cliente.",
+        "form_cta": "Send"
+      }
     },
-    "order": [
-        "contact",
-        "location"
-    ]
+    "location": {
+      "type": "contact-locations",
+      "blocks": {
+        "card_location_default_xDDkLF": {
+          "type": "card-location-default",
+          "settings": {
+            "card_loc_default_heading": "Headquarters",
+            "card_loc_default_address": "Indirizzo: Via F.II Lumière, 34 47122 Forlì (FC)",
+            "card_loc_default_email": "Email: info@pardoyachts.com",
+            "card_loc_default_phone": "Telefono: +39 0543 782404"
+          }
+        },
+        "card_location_additional_hfRHiY": {
+          "type": "card-location-additional",
+          "settings": {
+            "card_loc_additional_heading": "Bespoke da sempre",
+            "card_loc_additional_content": "Un team appassionato, esperto ed estremamente competente può assisterti nel tuo viaggio nell’acquisto di Pardo Yachts; condividendo le tue preferenze creeremo la soluzione più adatta a te."
+          }
+        }
+      },
+      "block_order": [
+        "card_location_default_xDDkLF",
+        "card_location_additional_hfRHiY"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "contact",
+    "location"
+  ]
 }
