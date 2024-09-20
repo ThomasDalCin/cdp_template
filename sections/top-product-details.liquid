@@ -37,32 +37,31 @@
           id="external-content" data-attribute="external-gallery">
           <div class="video-container w-full h-auto relative">
             {% if external_gallery %}
-              {% for el in external_gallery_split %}
-                {% assign val = el | split: '"' %}
-                {% if forloop.first %}
-                  {% assign external_images = val[1] %}
-                {% else %}
-                  {% assign external_images = external_images | append: "," | append: val[1] %}
-                {% endif %}
-              {% endfor %}
-              {% assign external_images = external_images | split: "," %}
-              {% assign external_video_key = 'boat_video' %}
-              {% assign external_video = external_gallery[external_video_key] %}
-          
-              {% if external_video %}
-                <video id="productVideo" class="video w-full h-[220px] lg:h-full rounded-lg" preload="metadata" muted
-                  poster="{{ external_video | img_url: 'master' }}">
-                  <source src="{{ external_video | file_url }}" type="video/mp4">
-                </video>
-                <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
-                  <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              {% endif %}
+            {% for el in external_gallery_split %}
+            {% assign val = el | split: '"' %}
+            {% if forloop.first %}
+            {% assign external_images = val[1] %}
+            {% else %}
+            {% assign external_images = external_images | append: "," | append: val[1] %}
+            {% endif %}
+            {% endfor %}
+            {% assign external_images = external_images | split: "," %}
+            {% assign external_video_key = 'boat_video' %}
+            {% assign external_video = external_gallery[external_video_key] %}
+      
+            {% if external_video %}
+            <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[705px]" preload="metadata" muted
+              poster="{{ external_video | img_url: 'master' }}">
+              <source src="{{ external_video | file_url }}" type="video/mp4">
+            </video>
+            <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
+              <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            {% endif %}
             {% endif %}
           </div>
-          
       
           <div class="w-full max-h-[220px] h-auto">
             <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
@@ -279,7 +278,7 @@
     background-color: var(--secondary-text-color) !important;
   }
 
-
+  
 </style>
 
 <script>
@@ -415,56 +414,63 @@
       });
 
       if (container === externalContent) {
-        const videoContainer = document.querySelector('.video');
-        const videoSettings = document.querySelector('.video-settings');
-        const parentVideo = document.querySelector('.video-container');
-        const allExternalImages = Array.from(container.querySelectorAll("img[data-external-src]"));
-        const mainImg = document.createElement('img');
-        const classesToAdd = ['w-full', 'h-[220px]', 'rounded-lg', 'object-cover', 'object-center'];
+  const videoContainer = document.querySelector('.video');
+  const videoSettings = document.querySelector('.video-settings');
+  const parentVideo = document.querySelector('.video-container');
+  const allExternalImages = Array.from(container.querySelectorAll("img[data-external-src]"));
+  const mainImg = document.createElement('img');
+  
+  const classesToAdd = ['w-full', 'rounded-lg', 'object-cover', 'object-center'];
 
-        mainImg.setAttribute('src', '');
-        classesToAdd.forEach((className) => mainImg.classList.add(className));
+  if (window.innerWidth > 1024) {
+    classesToAdd.push('h-[705px]');
+  } else {
+    classesToAdd.push('h-[220px]');
+  }
 
-        function handleExternalImageClick(e) {
-          let currentSrc = e.currentTarget.getAttribute('data-external-src');
-          if (!currentSrc) return;
+  mainImg.setAttribute('src', '');
+  classesToAdd.forEach((className) => mainImg.classList.add(className));
 
-          if (allExternalImages.indexOf(e.currentTarget) === 0) {
-            if (!document.body.contains(videoContainer)) {
-              parentVideo.innerHTML = '';
-              parentVideo.appendChild(videoContainer);
-              parentVideo.appendChild(videoSettings);
-            }
-          } else {
-            if (document.body.contains(videoContainer)) {
-              videoContainer.remove();
-              videoSettings.remove();
-            }
-            parentVideo.appendChild(mainImg);
-            mainImg.setAttribute('src', currentSrc);
-            mainImg.setAttribute('id', 'first-external-img');
-          }
-        }
+  function handleExternalImageClick(e) {
+    let currentSrc = e.currentTarget.getAttribute('data-external-src');
+    if (!currentSrc) return;
 
-        allExternalImages.forEach((image, index) => {
-          if (image.src.includes('thumbnail')) {
-            const [thumbnail] = allExternalImages.splice(index, 1);
-            allExternalImages.unshift(thumbnail);
-          }
-        });
-
-        const externalImageContainer = container.querySelector('.flex.flex-row.items-center');
-        externalImageContainer.innerHTML = '';
-        allExternalImages.forEach((image) => {
-          const parentDiv = image.parentElement;
-          externalImageContainer.appendChild(parentDiv);
-        });
-
-        allExternalImages.forEach((img) => {
-          img.addEventListener('click', handleExternalImageClick);
-        });
+    if (allExternalImages.indexOf(e.currentTarget) === 0) {
+      if (!document.body.contains(videoContainer)) {
+        parentVideo.innerHTML = '';
+        parentVideo.appendChild(videoContainer);
+        parentVideo.appendChild(videoSettings);
       }
+    } else {
+      if (document.body.contains(videoContainer)) {
+        videoContainer.remove();
+        videoSettings.remove();
+      }
+      parentVideo.appendChild(mainImg);
+      mainImg.setAttribute('src', currentSrc);
+      mainImg.setAttribute('id', 'first-external-img');
     }
+  }
+
+  allExternalImages.forEach((image, index) => {
+    if (image.src.includes('thumbnail')) {
+      const [thumbnail] = allExternalImages.splice(index, 1);
+      allExternalImages.unshift(thumbnail);
+    }
+  });
+
+  const externalImageContainer = container.querySelector('.flex.flex-row.items-center');
+  externalImageContainer.innerHTML = '';
+  allExternalImages.forEach((image) => {
+    const parentDiv = image.parentElement;
+    externalImageContainer.appendChild(parentDiv);
+  });
+
+  allExternalImages.forEach((img) => {
+    img.addEventListener('click', handleExternalImageClick);
+  });
+}
+
 
 
 
