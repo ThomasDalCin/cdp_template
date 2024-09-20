@@ -5,5 +5,7 @@
             "settings": {}
         }
     },
-    "order": ["contact"]
+    "order": [
+        "contact"
+    ]
 }
