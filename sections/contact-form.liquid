@@ -74,28 +74,13 @@
 
         <!-- Submit Button -->
         <div class="cta-accent">
-          <button type="submit" id="Subscribe" disabled>{{ section.settings.form_cta }}</button>
+          <button type="submit">{{ section.settings.form_cta }}</button>
           {% render 'cta-icon' %}
         </div>
       {% endif %}
     {% endform %}
   </div>
 </div>
-
-<script>
-  const privacyCheckbox = document.getElementById('privacy_policy');
-  const submitButton = document.getElementById('Subscribe');
-
-  function toggleSubmitButton() {
-    submitButton.disabled = !privacyCheckbox.checked;
-  }
-
-
-  privacyCheckbox.addEventListener('change', toggleSubmitButton);
-  
-  toggleSubmitButton();
-</script>
-
 
 
 {% schema %}
