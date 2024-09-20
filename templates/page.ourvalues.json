@@ -42,6 +42,18 @@
           "settings": {
             "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Gallery-03.jpg"
           }
+        },
+        "scroll_image_t6Thye": {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-02.jpg"
+          }
+        },
+        "scroll_image_qaDXXC": {
+          "type": "scroll-image",
+          "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-06.jpg"
+          }
         }
       },
       "block_order": [
@@ -49,7 +61,9 @@
         "scroll_image_4FrnVm",
         "scroll_image_xktceD",
         "scroll_image_m8PkyN",
-        "scroll_image_gV4fri"
+        "scroll_image_gV4fri",
+        "scroll_image_t6Thye",
+        "scroll_image_qaDXXC"
       ],
       "settings": {
         "section_heading": "A different Story",
@@ -91,6 +105,7 @@
         "scroll_image_iKQmQL": {
           "type": "scroll-image",
           "settings": {
+            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-04.jpg"
           }
         },
         "scroll_image_i6dFiF": {
