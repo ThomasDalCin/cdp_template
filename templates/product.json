@@ -15,11 +15,7 @@
         "product-top-details" : {
             "type": "top-product-details",
             "settings": {}
-        },
-        "product-view-galley-main" : {
-            "type": "top-view-galley-main",
-            "settings": {}
         }
     },
-    "order": ["product-view-galley-main","product-top-details","product-top-view-galley","product-description", "product-features"]
+    "order": ["product-top-details","product-top-view-galley","product-description", "product-features"]
 }
