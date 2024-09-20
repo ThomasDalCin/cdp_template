@@ -1,21 +1,39 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-    "sections": {
-        "product-features": {
-            "type": "product-features",
-            "settings": {}
-        },
-        "product-description": {
-            "type": "product-description",
-            "settings": {}
-        },
-        "product-top-view-galley": {
-            "type": "top-view-galley",
-            "settings": {}
-        },
-        "product-top-details" : {
-            "type": "top-product-details",
-            "settings": {}
-        }
+  "sections": {
+    "product-features": {
+      "type": "product-features",
+      "settings": {
+      }
     },
-    "order": ["product-top-details","product-top-view-galley","product-description", "product-features"]
+    "product-description": {
+      "type": "product-description",
+      "settings": {
+      }
+    },
+    "product-top-view-galley": {
+      "type": "top-view-galley",
+      "settings": {
+      }
+    },
+    "product-top-details": {
+      "type": "top-product-details",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "product-top-details",
+    "product-top-view-galley",
+    "product-description",
+    "product-features"
+  ]
 }
