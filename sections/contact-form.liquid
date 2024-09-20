@@ -1,5 +1,6 @@
-<div class="contact-card-container w-full flex flex-col lg:flex-row-reverse gap-4 p-4 mt-[100px]">
-    <div class="card-loc-container w-full h-auto flex flex-row items-center justify-start overflow-x-auto gap-4 p-4 mb-10 lg:items-start lg:justify-center">
+<div class="contact-card-container w-full flex flex-col lg:flex-row gap-4 p-4 mt-[100px]">
+    <!-- Card Location Container -->
+    <div class="card-loc-container w-full lg:w-1/2 h-auto flex flex-row items-center justify-start overflow-x-auto gap-4 p-4 mb-10 lg:items-start lg:justify-center">
         {% for block in section.blocks %}
             {% if block.type == "card-location-default" %}
                 <div class="card-loc-item flex-shrink-0 w-[250px] min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 shadow-custom">
@@ -42,7 +43,7 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="contact-form-container w-full h-auto flex flex-col items-start justify-center gap-y-6 p-4 mb-10">
+    <div class="contact-form-container w-full lg:w-1/2 h-auto flex flex-col items-start justify-center gap-y-6 p-4 mb-10">
         {% if form.posted_successfully? %}
             <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
         {% else %}
@@ -129,6 +130,7 @@
         {% endif %}
     </div>
 </div>
+
 
 {% schema %}
 {
