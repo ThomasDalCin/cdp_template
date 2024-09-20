@@ -1,274 +1,276 @@
-<div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 mt-[77px]">
-  <!--tab section-->
-  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="external-tab">
-      <p class="body-14">External</p>
-      <div
-        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="internal-tab">
-      <p class="body-14">Internal</p>
-      <div
-        class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-  </div>
-
-  <!--assign liquid variabls metaobjects -->
-  {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
-  {% assign external_gallery_split = product.metafields.custom.external_images_boat.value | json | replace:'{', '' |
-  replace:'}', ''| split: "," %}
-  {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
-  {% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace:'{', '' |
-  replace:'}', ''| split: "," %}
-  {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
-  {% assign internal_gallery_down_split = product.metafields.custom.internal_boat_down.value | json | replace:'{', '' |
-  replace:'}', ''| split: "," %}
-
-
-
-  <!--external gallery section-->
-  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
-    id="external-content" data-attribute="external-gallery">
-    <div class="video-container w-full h-auto relative">
-      {% if external_gallery %}
-      {% for el in external_gallery_split %}
-      {% assign val = el | split: '"' %}
-      {% if forloop.first %}
-      {% assign external_images = val[1] %}
-      {% else %}
-      {% assign external_images = external_images | append: "," | append: val[1] %}
-      {% endif %}
-      {% endfor %}
-      {% assign external_images = external_images | split: "," %}
-      {% assign external_video_key = 'boat_video' %}
-      {% assign external_video = external_gallery[external_video_key] %}
-
-      {% if external_video %}
-      <video id="productVideo" class="video w-full h-[220px] rounded-lg" preload="metadata" muted
-        poster="{{ external_video | img_url: 'master' }}">
-        <source src="{{ external_video | file_url }}" type="video/mp4">
-      </video>
-      <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
-        <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </div>
-      {% endif %}
-      {% endif %}
-    </div>
-
-    <div class="w-full max-h-[220px] h-auto">
-      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-        {% for external_image in external_images %}
-        {% assign external_img = external_gallery[external_image] %}
-        <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-          <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg" alt=""
-            data-external-src="{{ external_img | img_url: 'master' }}">
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-  <!--internal gallery section-->
-  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
-    id="internal-content" data-attribute="internal-gallery">
-    <div class="main-img-container w-full h-auto relative">
-      {% if internal_gallery %}
-      {% for el in internal_gallery_split %}
-      {% assign val = el | split: '"' %}
-      {% if forloop.first %}
-      {% assign updated_values = val[1] %}
-      {% else %}
-      {% assign updated_values = updated_values | append: "," | append: val[1] %}
-      {% endif %}
-      {% endfor %}
-      {% assign internal_images = updated_values | split: "," %}
-      {% assign first_image = internal_gallery[internal_images[0]] %}
-      <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image" id="first-internal-img">
-      {% endif %}
-    </div>
-
-    <div class="w-full h-auto">
-      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-        {% for internal_image in internal_images %}
-        {% assign internal_img = internal_gallery[internal_image] %}
-        <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-          <img src="{{ internal_img | img_url: 'master' }}"
-            class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
-            data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
-            data-internal-overlay="overlay-internal-gallery">
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-  <!--internal gallery down section-->
-  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
-    id="internal-down-content" data-attribute="internal-down-gallery">
-    <div class="main-img-container w-full h-auto relative">
-      {% if internal_gallery_down %}
-      {% for el in internal_gallery_down_split %}
-      {% assign val = el | split: '"' %}
-      {% if forloop.first %}
-      {% assign updated_values = val[1] %}
-      {% else %}
-      {% assign updated_values = updated_values | append: "," | append: val[1] %}
-      {% endif %}
-      {% endfor %}
-      {% assign internal_down_images = updated_values | split: "," %}
-      {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
-      <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image" id="first-internal-down-img">
-      {% endif %}
-    </div>
-
-    <div class="w-full h-auto">
-      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-        {% for internal_down_image in internal_down_images %}
-        {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
-        <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-          <img src="{{ internal_down_img | img_url: 'master' }}"
-            class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
-            data-image-src="{{ internal_down_img | img_url: 'master' }}" alt=""
-            data-internal-overlay="overlay-internal-down-gallery">
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-
-  <!--internal gallery up section-->
-  <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
-    id="internal-up-content" data-attribute="internal-gallery">
-    <div class="main-img-container w-full h-auto relative">
-      {% if internal_gallery %}
-      {% for el in internal_gallery_split %}
-      {% assign val = el | split: '"' %}
-      {% if forloop.first %}
-      {% assign updated_values = val[1] %}
-      {% else %}
-      {% assign updated_values = updated_values | append: "," | append: val[1] %}
-      {% endif %}
-      {% endfor %}
-      {% assign internal_images = updated_values | split: "," %}
-      {% assign first_image = internal_gallery[internal_images[0]] %}
-      <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
-        alt="Fallback image" id="first-internal-up-img">
-      {% endif %}
-    </div>
-
-    <div class="w-full h-auto">
-      <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
-        {% for internal_image in internal_images %}
-        {% assign internal_img = internal_gallery[internal_image] %}
-        <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
-          <img src="{{ internal_img | img_url: 'master' }}"
-            class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
-            data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
-            data-internal-overlay="overlay-internal-gallery">
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-  <!--overlay swiper gallery-->
-  <div class="overlay-wrapper absolute z-40 inset-0 h-dvh bg-white hidden">
-    <div class="overlay-wrapper-content w-full h-full p-4 flex flex-col gap-y-6">
-      <div class="overlay-swiper-container w-full flex-1">
-        <div class="swiper mySwiper w-full h-full">
-          <div class="swiper-wrapper">
-            <!--render dynamically swiper slides here -->
-          </div>
-          <div class="swiper-pagination mb-4 flex items-center justify-center"></div>
-        </div>
-      </div>
-      <div class="overlay-cta-container w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5">
-        <div class="cta-delear">
-          <p class="body-14-medium">Locate dealer</p>
-          {% render 'cta-icon' %}
-        </div>
-        <div class="cta-brochure">
-          <p class="body-14-medium">Download brochure</p>
-          {% render 'download-icon' %}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--in-out tab section-->
-  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7" id="tab-in-out">
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="inboard-tab">
-      <p class="body-14">Inboard</p>
-      <div
-        class="tab-in-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="outboard-tab">
-      <p class="body-14">Outboard</p>
-      <div
-        class="tab-out-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-  </div>
-
-  <!--galley tab section-->
-  <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7 hidden" id="galley-settings">
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="internal-up-tab">
-      <p class="body-14">Galley-Up</p>
-      <div
-        class="tab-internal-up-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
-      id="internal-down-tab">
-      <p class="body-14">Galley-Down</p>
-      <div
-        class="tab-internal-down-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!--top product details component-->
-<div class="product-details-component w-full h-auto p-4 flex flex-col gap-y-2 mb-[40px]">
-    <div class="product-detaiils-component-main w-full h-auto flex flex-col gap-y-2 items-start justify-start">
-        <p class="body-16-medium">{{ product.title }}</p>
-        <p class="body-12">{{ product.description }}</p>
-    </div>
-    <div class="product-details-magnetic-scroll w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
-        {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' |  split: ',' %}
-        {% for productMetafieldsValue in productMetafieldsValues %}
-            {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-            <div class="product-details-badge flex w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0">
-                <p class="body-14">{{ metafieldCustom }}</p>
-                <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue |  replace: '_', ' ' |  upcase  }}</p>
+<!--product image w tab -->
+<div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
+    <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 mt-[77px]">
+        <!--tab section-->
+        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7">
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="external-tab">
+            <p class="body-14">External</p>
+            <div
+              class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
             </div>
-        {% endfor %}
-    </div>
-    <div class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5">
-        <div class="cta-delear">
-            <p class="body-14-medium">Locate dealer</p>
-            {% render 'cta-icon' %}
+          </div>
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="internal-tab">
+            <p class="body-14">Internal</p>
+            <div
+              class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+            </div>
+          </div>
         </div>
-        <div class="cta-brochure">
-            <p class="body-14-medium">Download brochure</p>
-            {% render 'download-icon' %}
+      
+        <!--assign liquid variabls metaobjects -->
+        {% assign external_gallery = product.metafields.custom.external_images_boat.value %}
+        {% assign external_gallery_split = product.metafields.custom.external_images_boat.value | json | replace:'{', '' |
+        replace:'}', ''| split: "," %}
+        {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+        {% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace:'{', '' |
+        replace:'}', ''| split: "," %}
+        {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
+        {% assign internal_gallery_down_split = product.metafields.custom.internal_boat_down.value | json | replace:'{', '' |
+        replace:'}', ''| split: "," %}
+      
+      
+      
+        <!--external gallery section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+          id="external-content" data-attribute="external-gallery">
+          <div class="video-container w-full h-auto relative">
+            {% if external_gallery %}
+            {% for el in external_gallery_split %}
+            {% assign val = el | split: '"' %}
+            {% if forloop.first %}
+            {% assign external_images = val[1] %}
+            {% else %}
+            {% assign external_images = external_images | append: "," | append: val[1] %}
+            {% endif %}
+            {% endfor %}
+            {% assign external_images = external_images | split: "," %}
+            {% assign external_video_key = 'boat_video' %}
+            {% assign external_video = external_gallery[external_video_key] %}
+      
+            {% if external_video %}
+            <video id="productVideo" class="video w-full h-[220px] rounded-lg" preload="metadata" muted
+              poster="{{ external_video | img_url: 'master' }}">
+              <source src="{{ external_video | file_url }}" type="video/mp4">
+            </video>
+            <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
+              <svg class="w-12 h-12 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            {% endif %}
+            {% endif %}
+          </div>
+      
+          <div class="w-full max-h-[220px] h-auto">
+            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+              {% for external_image in external_images %}
+              {% assign external_img = external_gallery[external_image] %}
+              <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg" alt=""
+                  data-external-src="{{ external_img | img_url: 'master' }}">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
-    </div>
+      
+        <!--internal gallery section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+          id="internal-content" data-attribute="internal-gallery">
+          <div class="main-img-container w-full h-auto relative">
+            {% if internal_gallery %}
+            {% for el in internal_gallery_split %}
+            {% assign val = el | split: '"' %}
+            {% if forloop.first %}
+            {% assign updated_values = val[1] %}
+            {% else %}
+            {% assign updated_values = updated_values | append: "," | append: val[1] %}
+            {% endif %}
+            {% endfor %}
+            {% assign internal_images = updated_values | split: "," %}
+            {% assign first_image = internal_gallery[internal_images[0]] %}
+            <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
+              alt="Fallback image" id="first-internal-img">
+            {% endif %}
+          </div>
+      
+          <div class="w-full h-auto">
+            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+              {% for internal_image in internal_images %}
+              {% assign internal_img = internal_gallery[internal_image] %}
+              <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                <img src="{{ internal_img | img_url: 'master' }}"
+                  class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+                  data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
+                  data-internal-overlay="overlay-internal-gallery">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      
+        <!--internal gallery down section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+          id="internal-down-content" data-attribute="internal-down-gallery">
+          <div class="main-img-container w-full h-auto relative">
+            {% if internal_gallery_down %}
+            {% for el in internal_gallery_down_split %}
+            {% assign val = el | split: '"' %}
+            {% if forloop.first %}
+            {% assign updated_values = val[1] %}
+            {% else %}
+            {% assign updated_values = updated_values | append: "," | append: val[1] %}
+            {% endif %}
+            {% endfor %}
+            {% assign internal_down_images = updated_values | split: "," %}
+            {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
+            <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
+              alt="Fallback image" id="first-internal-down-img">
+            {% endif %}
+          </div>
+      
+          <div class="w-full h-auto">
+            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+              {% for internal_down_image in internal_down_images %}
+              {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
+              <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                <img src="{{ internal_down_img | img_url: 'master' }}"
+                  class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+                  data-image-src="{{ internal_down_img | img_url: 'master' }}" alt=""
+                  data-internal-overlay="overlay-internal-down-gallery">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      
+      
+        <!--internal gallery up section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+          id="internal-up-content" data-attribute="internal-gallery">
+          <div class="main-img-container w-full h-auto relative">
+            {% if internal_gallery %}
+            {% for el in internal_gallery_split %}
+            {% assign val = el | split: '"' %}
+            {% if forloop.first %}
+            {% assign updated_values = val[1] %}
+            {% else %}
+            {% assign updated_values = updated_values | append: "," | append: val[1] %}
+            {% endif %}
+            {% endfor %}
+            {% assign internal_images = updated_values | split: "," %}
+            {% assign first_image = internal_gallery[internal_images[0]] %}
+            <img src="{{ first_image | img_url: 'master' }}" class="w-full h-[220px] rounded-lg object-cover object-center"
+              alt="Fallback image" id="first-internal-up-img">
+            {% endif %}
+          </div>
+      
+          <div class="w-full h-auto">
+            <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+              {% for internal_image in internal_images %}
+              {% assign internal_img = internal_gallery[internal_image] %}
+              <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                <img src="{{ internal_img | img_url: 'master' }}"
+                  class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+                  data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
+                  data-internal-overlay="overlay-internal-gallery">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      
+        <!--overlay swiper gallery-->
+        <div class="overlay-wrapper absolute z-40 inset-0 h-dvh bg-white hidden">
+          <div class="overlay-wrapper-content w-full h-full p-4 flex flex-col gap-y-6">
+            <div class="overlay-swiper-container w-full flex-1">
+              <div class="swiper mySwiper w-full h-full">
+                <div class="swiper-wrapper">
+                  <!--render dynamically swiper slides here -->
+                </div>
+                <div class="swiper-pagination mb-4 flex items-center justify-center"></div>
+              </div>
+            </div>
+            <div class="overlay-cta-container w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5">
+              <div class="cta-delear">
+                <p class="body-14-medium">Locate dealer</p>
+                {% render 'cta-icon' %}
+              </div>
+              <div class="cta-brochure">
+                <p class="body-14-medium">Download brochure</p>
+                {% render 'download-icon' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!--in-out tab section-->
+        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7" id="tab-in-out">
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="inboard-tab">
+            <p class="body-14">Inboard</p>
+            <div
+              class="tab-in-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+            </div>
+          </div>
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="outboard-tab">
+            <p class="body-14">Outboard</p>
+            <div
+              class="tab-out-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+            </div>
+          </div>
+        </div>
+      
+        <!--galley tab section-->
+        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7 hidden" id="galley-settings">
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="internal-up-tab">
+            <p class="body-14">Galley-Up</p>
+            <div
+              class="tab-internal-up-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+            </div>
+          </div>
+          <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer"
+            id="internal-down-tab">
+            <p class="body-14">Galley-Down</p>
+            <div
+              class="tab-internal-down-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--top product details component-->
+      <div class="product-details-component w-full h-auto p-4 flex flex-col gap-y-2 mb-[40px]">
+          <div class="product-detaiils-component-main w-full h-auto flex flex-col gap-y-2 items-start justify-start">
+              <p class="body-16-medium">{{ product.title }}</p>
+              <p class="body-12">{{ product.description }}</p>
+          </div>
+          <div class="product-details-magnetic-scroll w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
+              {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' |  split: ',' %}
+              {% for productMetafieldsValue in productMetafieldsValues %}
+                  {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
+                  <div class="product-details-badge flex w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0">
+                      <p class="body-14">{{ metafieldCustom }}</p>
+                      <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue |  replace: '_', ' ' |  upcase  }}</p>
+                  </div>
+              {% endfor %}
+          </div>
+          <div class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5">
+              <div class="cta-delear">
+                  <p class="body-14-medium">Locate dealer</p>
+                  {% render 'cta-icon' %}
+              </div>
+              <div class="cta-brochure">
+                  <p class="body-14-medium">Download brochure</p>
+                  {% render 'download-icon' %}
+              </div>
+          </div>
+      </div>
 </div>
+
 
 <style>
   /*swiper pagination bullet settings*/
