@@ -1,4 +1,3 @@
-<!--articles list home page -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center mb-10 relative">
     <!-- loop on each available article -->
     <div
@@ -20,7 +19,7 @@
         {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
         <div
-            class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[370px] lg:h-[384px]">
+            class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:h-[384px]">
             <img src="{{ article.image |  img_url: 'master' }}" alt="{{ article.title }}"
                 class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
             <a href="{{ article.url }}">
@@ -34,6 +33,7 @@
         {% endfor %}
     </div>
 </div>
+
 
 <style>
   .carousel-arrow.disabled {
