@@ -1,14 +1,16 @@
 {% assign sorted_collections = collections | sort: 'published_at' %}
-{% assign sorted_collections = sorted_collections | where: 'title', 'Pardo approved', false %}
+
 
 
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
   <div class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 lg:p-6 ">
     <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2">
       {% for collection in sorted_collections %}
-        <div class="chips-block cursor-pointer p-2 px-4 rounded-lg" data-target="{{ collection.title }}">
-          <p class="body-12">{{ collection.title }}</p>
-        </div>
+        {% if collection.title != 'Pardo approved' %}
+          <div class="chips-block cursor-pointer p-2 px-4 rounded-lg" data-target="{{ collection.title }}">
+            <p class="body-12">{{ collection.title }}</p>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
     <div class="tab-container w-full h-auto flex flex-col gap-y-6">
