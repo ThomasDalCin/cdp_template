@@ -1,86 +1,144 @@
 <!-- events articles layout -->
-<div
-    class="blog-events-container w-full h-auto flex flex-col items-start justify-center lg:flex-wrap lg:flex-row lg:mb-10">
-    {% if blogs['events'] %}
+<div class="blog-events-container w-full h-auto flex flex-col items-start justify-center lg:flex-wrap lg:flex-row lg:mb-10">
+  {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
-    {% for eventArticle in eventsArticles %}
-    <div class="blog-events-container w-full h-auto p-4 flex-col gap-y-2 items-start justify-center hidden lg:w-1/3">
-        <div
-            class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6">
+      {% for eventArticle in eventsArticles %}
+        <div class="blog-events-container w-full h-auto p-4 flex-col gap-y-2 items-start justify-center hidden lg:w-1/3">
+          <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6">
             <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
-                <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
-                <p class="article-content body-14">{{ eventArticle.published_at }}</p>
+              <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
+              <p class="article-content body-14">{{ eventArticle.published_at }}</p>
             </div>
             <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-                <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                    <p class="body-14 underline">Show on Google Maps</p>
-                    {% render 'cta-icon' %}
-                </div>
-                <div
-                    class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                    <p class="body-14 underline">Aggiungi al Calendario</p>
-                    {% render 'calednar-icon' %}
-                </div>
+              <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">Show on Google Maps</p>
+                {% render 'cta-icon' %}
+              </div>
+              <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">Aggiungi al Calendario</p>
+                {% render 'calednar-icon' %}
+              </div>
             </div>
             <div class="events-cta">
-                <div class="cta-appointment book-appointment">
-                    <p class="body-14">Prenota appuntamento</p>
-                </div>
+              <div class="cta-appointment book-appointment">
+                <p class="body-14">Prenota appuntamento</p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    {% endfor %}
+      {% endfor %}
     {% endif %}
-    {% endif %}
+  {% endif %}
 </div>
-<!--book appointment -->
-<div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6 p-4 rounded-lg shadow-custom relative">
+<!-- book appointment -->
+{% if form.posted_successfully? %}
+{% else %}
+  <div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6 p-4 rounded-lg shadow-custom relative">
     <div class="icon-content absolute right-[16px] top-[16px]">
-        {% render 'x-icon' %}
+      {% render 'x-icon' %}
     </div>
     <div class="form-appointement-headers w-full h-auto flex flex-col items-start justify-center">
-        <p class="body-14 events-name"></p>
+      <p class="body-14 events-name"></p>
     </div>
     <div class="form-appointment-content  w-full h-auto flex flex-col  items-start justify-center">
-        {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
+      {% form 'contact'
+        , class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
+        {{ form.errors | default_errors }}
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="text" name="contact[first_name]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-                value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                placeholder="{{ section.settings.form_first_name }}">
+          <input
+            type="text"
+            name="contact[first_name]"
+            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+            value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
+            placeholder="{{ section.settings.form_first_name }}">
         </div>
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="text" name="contact[last_name]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-                value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                placeholder="{{ section.settings.form_last_name }}">
+          <input
+            type="text"
+            name="contact[last_name]"
+            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+            value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
+            placeholder="{{ section.settings.form_last_name }}">
         </div>
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <input type="email" name="contact[email]" value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-                placeholder="{{ section.settings.form_email }}" required>
+          <input
+            type="email"
+            name="contact[email]"
+            value="{% if form.email != blank %}{{ form.email }}{% endif %}"
+            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+            placeholder="{{ section.settings.form_email }}"
+            required>
         </div>
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-            <textarea name="contact[message]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
-                placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
+          <textarea
+            name="contact[message]"
+            class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+            placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
         </div>
         <!-- Privacy Policy -->
         <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
-            <input type="checkbox" id="privacy_policy" name="contact[privacy]" class="w-4 h-4 border-gray-300 rounded"
-                required>
-            <label for="privacy_policy" class="text-sm text-gray-700">
-                Privacy Policy*
-            </label>
+          <input
+            type="checkbox"
+            id="privacy_policy"
+            name="contact[privacy]"
+            class="w-4 h-4 border-gray-300 rounded"
+            required>
+          <label for="privacy_policy" class="text-sm text-gray-700">
+            Privacy Policy*
+          </label>
         </div>
         <!-- Secondary Info -->
         <p class="caption text-[#7A7A7A]">{{ section.settings.form_privacy }}</p>
         <!-- Submit Button -->
         <div class="cta-accent">
-            <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
-            {% render 'cta-icon' %}
+          <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+          {% render 'cta-icon' %}
         </div>
-        {% endform %}
+      {% endform %}
     </div>
-</div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "contact-form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "form_first_name",
+        "label": "Form Name",
+        "default": "Name"
+      },
+      {
+        "type": "text",
+        "id": "form_lastname",
+        "label": "Last Name",
+        "default": "Last Name"
+      },
+      {
+        "type": "text",
+        "id": "form_email",
+        "label": "Email",
+        "default": "Email*"
+      },
+      {
+        "type": "text",
+        "id": "form_content",
+        "label": "Message",
+        "default": "Message"
+      }, {
+        "type": "textarea",
+        "id": "form_privacy",
+        "label": "Secondary Info",
+        "default": "Desidero ricevere comunicazioni di marketing su prodotti, servizi ed eventi offerti da CANTIERE DEL PARDO S.p.A. Comprendo che queste comunicazioni potrebbero essere personalizzate in base ai miei interessi, preferenze e utilizzo di prodotti e servizi, inclusi inviti a fornire feedback sull’esperienza del cliente."
+      }, {
+        "type": "text",
+        "id": "form_cta",
+        "label": "CTA Text",
+        "default": "Send"
+      }
+    ]
+  }
+{% endschema %}
