@@ -11,7 +11,11 @@
         "blog-events": {
             "type": "blog-events",
             "settings": {}
+        },
+        "book-your-appointment": {
+            "type": "book-your-appointment",
+            "settings": {}
         }
     },
-    "order": [ "blog-tab", "blog-list", "blog-events"]
+    "order": [ "blog-tab", "blog-list", "blog-events", "book-your-appointment"]
 }
