@@ -50,7 +50,7 @@
         <!-- Form Content -->
         <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
           {% form 'contact'
-            , class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
+            , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
 
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
@@ -95,7 +95,7 @@
             </div>
 
             <!-- Privacy Policy -->
-            <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
+            <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start mt-6">
               <input
                 type="checkbox"
                 id="privacy_policy"
