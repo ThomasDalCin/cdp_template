@@ -20,11 +20,16 @@
         "collab_image_1": "shopify:\/\/shop_images\/PardoYatch-Home-Collaborations-FalconerixPardo.png",
         "collab_image_2": "shopify:\/\/shop_images\/PardoYatch-Home-Collaborations-PoldoxPardo.png"
       }
+    },
+    "articles-list": {
+      "type": "articles-list",
+      "settings": {}
     }
   },
   "order": [
     "hero-section",
     "gamma-section",
-    "collab-section"
+    "collab-section",
+    "articles-list"
   ]
 }
