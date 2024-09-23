@@ -2508,6 +2508,16 @@ body {
     padding-right: 100px;
   }
 
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .lg\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
