@@ -19,7 +19,7 @@
         {% assign allBlogs = "News, Events" | split: "," %}
         {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
-        <div class="card-article w-[400px] min-w-[370px] h-auto min-h-[320px] flex flex-col gap-y-4 shadow-custom rounded-lg">
+        <div class="card-article w-[400px] min-w-[370px] min-h-[320px] flex flex-col gap-y-4 shadow-custom rounded-lg">
             <img src="{{ article.image |  img_url: 'master' }}" alt="{{ article.title }}"
                 class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
             <div class="card-article-content w-full h-auto flex flex-col items-start justify-start">
