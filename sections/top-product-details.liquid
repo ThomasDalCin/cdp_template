@@ -3,8 +3,7 @@
     <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 lg:w-2/3">
         <!--tab section-->
 
-        <div
-            class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-0 lg:right-0 z-20">
+        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-0 lg:right-0 z-20">
             <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
                 id="external-tab">
                 <p class="body-14">External</p>
@@ -54,8 +53,8 @@
                 {% assign external_video = external_gallery[external_video_key] %}
 
                 {% if external_video %}
-                <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover"
-                    preload="metadata" muted poster="{{ external_video | img_url: 'master' }}">
+                <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover" preload="metadata" muted
+                    poster="{{ external_video | img_url: 'master' }}">
                     <source src="{{ external_video | file_url }}" type="video/mp4">
                 </video>
                 <div id="playButton"
@@ -69,7 +68,7 @@
                 {% endif %}
             </div>
 
-            <div class="w-full max-h-[220px] h-auto relative">
+            <div class="w-full max-h-[220px] h-auto">
                 <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
                     {% for external_image in external_images %}
                     {% assign external_img = external_gallery[external_image] %}
@@ -78,14 +77,6 @@
                             alt="" data-external-src="{{ external_img | img_url: 'master' }}">
                     </div>
                     {% endfor %}
-                </div>
-                <!-- arrows box -->
-                <div
-                    class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
-                    <button id="nextArrow"
-                        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-                        {% render 'arrow-right-icon' %}
-                    </button>
                 </div>
             </div>
         </div>
@@ -224,8 +215,7 @@
         </div>
 
         <!--in-out tab section-->
-        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7 lg:absolute lg:justify-end lg:w-auto lg:bottom-0 lg:right-0 z-20"
-            id="tab-in-out">
+        <div class="tab-section w-full h-auto flex flex-row items-center justify-start mt-7 mb-7 lg:absolute lg:justify-end lg:w-auto lg:bottom-0 lg:right-0 z-20" id="tab-in-out">
             <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer  lg:flex-none lg:w-[170px]"
                 id="inboard-tab">
                 <p class="body-14">Inboard</p>
@@ -574,37 +564,6 @@
             },
             loop: true
         });
-
-        const scrollContainer = document.querySelector('.flex.overflow-x-auto'); // Seleziona il contenitore delle immagini
-        const nextArrow = document.getElementById('nextArrow');
-
-        if (scrollContainer && nextArrow) {
-            const images = Array.from(scrollContainer.querySelectorAll('.container-magnetic-scroll'));
-
-            if (images.length > 0) {
-                const scrollAmount = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
-
-                // Funzione per far scrollare il contenitore
-                function scrollContainerBy(amount) {
-                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                    let newScrollLeft = scrollContainer.scrollLeft + amount;
-
-                    if (newScrollLeft > maxScrollLeft) {
-                        newScrollLeft = maxScrollLeft;
-                    }
-
-                    scrollContainer.scrollTo({
-                        left: newScrollLeft,
-                        behavior: 'smooth'
-                    });
-                }
-
-                // Event listener per il click della freccia destra
-                nextArrow.addEventListener('click', function () {
-                    scrollContainerBy(scrollAmount);
-                });
-            }
-        }
 
     });
 </script>
