@@ -1821,6 +1821,10 @@ p, span{
   padding-right: 0.75rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-\[20px\] {
   font-size: 20px;
 }
@@ -2323,6 +2327,10 @@ p, span{
 
   .lg\:flex-none {
     flex: none;
+  }
+
+  .lg\:flex-grow {
+    flex-grow: 1;
   }
 
   .lg\:grid-cols-2 {
