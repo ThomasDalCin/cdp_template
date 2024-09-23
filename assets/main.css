@@ -458,6 +458,11 @@ body {
   letter-spacing: -0.4px;
 }
 
+p, span{
+  font-size: var(--body-12);
+  line-height: var(--body-12-height);
+}
+
 /* Custom text classes */
 
 .big-header-1 {
@@ -1110,10 +1115,6 @@ body {
   margin-top: 100px;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -1202,6 +1203,10 @@ body {
   height: 320px;
 }
 
+.h-\[386px\] {
+  height: 386px;
+}
+
 .h-\[439px\] {
   height: 439px;
 }
@@ -1228,10 +1233,6 @@ body {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[386px\] {
-  height: 386px;
 }
 
 .max-h-\[160px\] {
@@ -1294,16 +1295,12 @@ body {
   min-height: 310px;
 }
 
-.min-h-\[565px\] {
-  min-height: 565px;
-}
-
-.min-h-\[320px\] {
-  min-height: 320px;
-}
-
 .min-h-\[386px\] {
   min-height: 386px;
+}
+
+.min-h-\[565px\] {
+  min-height: 565px;
 }
 
 .w-0 {
@@ -1350,6 +1347,10 @@ body {
   width: 186px;
 }
 
+.w-\[200px\] {
+  width: 200px;
+}
+
 .w-\[208px\] {
   width: 208px;
 }
@@ -1382,14 +1383,6 @@ body {
   width: 100%;
 }
 
-.w-\[400px\] {
-  width: 400px;
-}
-
-.w-\[200px\] {
-  width: 200px;
-}
-
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1408,14 +1401,6 @@ body {
 
 .min-w-\[343px\] {
   min-width: 343px;
-}
-
-.min-w-\[400px\] {
-  min-width: 400px;
-}
-
-.min-w-\[370px\] {
-  min-width: 370px;
 }
 
 .max-w-\[164px\] {
@@ -2096,6 +2081,10 @@ body {
     bottom: 1.5rem;
   }
 
+  .lg\:bottom-\[32px\] {
+    bottom: 32px;
+  }
+
   .lg\:left-6 {
     left: 1.5rem;
   }
@@ -2118,14 +2107,6 @@ body {
 
   .lg\:top-\[16px\] {
     top: 16px;
-  }
-
-  .lg\:bottom-\[16px\] {
-    bottom: 16px;
-  }
-
-  .lg\:bottom-\[32px\] {
-    bottom: 32px;
   }
 
   .lg\:z-10 {
@@ -2174,6 +2155,10 @@ body {
 
   .lg\:h-\[210px\] {
     height: 210px;
+  }
+
+  .lg\:h-\[226px\] {
+    height: 226px;
   }
 
   .lg\:h-\[243px\] {
@@ -2228,14 +2213,6 @@ body {
     height: auto;
   }
 
-  .lg\:h-\[226px\] {
-    height: 226px;
-  }
-
-  .lg\:h-\[384px\] {
-    height: 384px;
-  }
-
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
@@ -2288,6 +2265,10 @@ body {
     width: calc(100% - 32px);
   }
 
+  .lg\:w-\[calc\(33\.3\%_-_1rem\)\] {
+    width: calc(33.3% - 1rem);
+  }
+
   .lg\:w-\[calc\(50\%_-_1rem\)\] {
     width: calc(50% - 1rem);
   }
@@ -2298,14 +2279,6 @@ body {
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(33\.3\%_-_1rem\)\] {
-    width: calc(33.3% - 1rem);
-  }
-
-  .lg\:w-\[370px\] {
-    width: 370px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2320,12 +2293,12 @@ body {
     min-width: 323px;
   }
 
-  .lg\:min-w-\[calc\(50\%-0\.75rem\)\] {
-    min-width: calc(50% - 0.75rem);
-  }
-
   .lg\:min-w-\[400px\] {
     min-width: 400px;
+  }
+
+  .lg\:min-w-\[calc\(50\%-0\.75rem\)\] {
+    min-width: calc(50% - 0.75rem);
   }
 
   .lg\:max-w-\[297px\] {
@@ -2427,19 +2400,6 @@ body {
     row-gap: 1.5rem;
   }
 
-  .lg\:gap-x-6 {
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
-  }
-
-  .lg\:self-auto {
-    align-self: auto;
-  }
-
-  .lg\:overflow-auto {
-    overflow: auto;
-  }
-
   .lg\:overflow-hidden {
     overflow: hidden;
   }
@@ -2472,17 +2432,13 @@ body {
     border-bottom-width: 1px;
   }
 
-  .lg\:bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
   .lg\:bg-transparent {
     background-color: transparent;
   }
 
-  .lg\:bg-none {
-    background-image: none;
+  .lg\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .lg\:bg-cover {
@@ -2492,6 +2448,10 @@ body {
   .lg\:object-contain {
     -o-object-fit: contain;
        object-fit: contain;
+  }
+
+  .lg\:p-0 {
+    padding: 0px;
   }
 
   .lg\:p-1 {
@@ -2506,8 +2466,14 @@ body {
     padding: 1.5rem;
   }
 
-  .lg\:p-0 {
-    padding: 0px;
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .lg\:px-6 {
@@ -2520,19 +2486,9 @@ body {
     padding-right: 100px;
   }
 
-  .lg\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  .lg\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .lg\:pb-10 {
