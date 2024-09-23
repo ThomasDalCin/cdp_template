@@ -1,5 +1,5 @@
-<div class="footer w-full h-auto px-4 py-10 flex flex-col items-start justify-center bg-[var(--footer-color)] gap-y-10 lg:flex-row">
-  <div class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6">
+<div class="footer w-full h-auto px-4 py-10 flex flex-col items-start justify-center bg-[var(--footer-color)] gap-y-10 lg:flex-row lg:flex-wrap lg:gap-x-4">
+  <div class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:w-[calc(50%_-_1rem)]">
     <div class="newsletter-form w-full h-auto flex flex-col items-start justify-center gap-y-6">
       <!-- form section headings -->
       <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-6">
@@ -66,7 +66,7 @@
       {% endform %}
     </div>
   </div>
-  <div class="footer-menu w-full h-auto flex flex-row items-start justify-between">
+  <div class="footer-menu w-full h-auto flex flex-row items-start justify-between  lg:w-[calc(50%_-_1rem)]">
     <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start">
       <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_models_menu | upcase }}</p>
       <div class="gamma-product-container flex flex-col gap-y-3">
