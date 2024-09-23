@@ -1290,6 +1290,10 @@ body {
   min-height: 565px;
 }
 
+.min-h-\[320px\] {
+  min-height: 320px;
+}
+
 .w-0 {
   width: 0px;
 }
