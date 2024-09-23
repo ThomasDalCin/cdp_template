@@ -1,2 +1,9 @@
 <!--articles list home page -->
-
+<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center">
+    <!-- loop on each available article -->
+     {% for blog in blogs %}
+        {% for article in blog.articles %}
+            <p>{{ article.title }}</p>
+        {% endfor %}
+     {% endfor %}
+</div>
