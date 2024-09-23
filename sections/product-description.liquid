@@ -1,12 +1,12 @@
 <!--product description drowpdown componente -->
 <div class="dropdown-container w-full h-auto flex flex-col gap-y-10 px-4  mb-[40px]">
-    <div class="dropdown-content w-full h-auto flex flex-col p-4 rounded-xl bg-[var(--primary-background-color)]">
+    <div class="dropdown-content w-full h-auto flex flex-col p-4 rounded-xl bg-[var(--primary-background-color)] lg:bg-none">
         <div class="dropdown-container-top w-full h-auto flex flex-row justify-between items-center">
             <p class="body-16-medium">Description</p>
-            <div class="dropdown-container-icon w-auto h-auto" id="plus-icon">
+            <div class="dropdown-container-icon w-auto h-auto lg:hidden" id="plus-icon">
                 {% render 'plus-icon' %}
             </div>
-            <div class="dropdown-container-icon w-auto h-auto hidden" id="minus-icon">
+            <div class="dropdown-container-icon w-auto h-auto hidden lg:hidden" id="minus-icon">
                 {% render 'minus-icon' %}
             </div>
         </div>
@@ -15,6 +15,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
 /*component dropwdown style settings*/
