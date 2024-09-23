@@ -35,16 +35,17 @@
   {% if form.posted_successfully? %}
   {% else %}
     <div class="w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 translate-y-[1000px] transition-all duration-200 ease-in-out">
-      <div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6 relative">
+      <div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6">
 
-        <!-- Close Icon -->
-        <div class="icon-content absolute right-[16px] top-[16px]">
-          {% render 'x-icon' %}
-        </div>
 
         <!-- Form Header -->
-        <div class="form-appointement-headers w-full h-auto flex flex-col items-start justify-center">
+        <div class="form-appointement-headers w-full h-auto flex flex-col items-start justify-center relative">
           <p class="body-14 events-name"></p>
+
+          <!-- Close Icon -->
+          <div class="icon-content absolute right-[16px] top-[16px]">
+            {% render 'x-icon' %}
+          </div>
         </div>
 
         <!-- Form Content -->
@@ -128,11 +129,11 @@
     document.addEventListener("DOMContentLoaded", function() {
   // Seleziona tutti i pulsanti "Prenota appuntamento"
   const appointmentButtons = document.querySelectorAll('.book-appointment');
-
+  
   // Seleziona il div del form e l'elemento dove inserire il titolo dell'evento
   const formContainer = document.querySelector('.w-full.h-auto.absolute.bottom-0'); // Div del form
   const eventNameElement = formContainer.querySelector('.events-name'); // Elemento <p> dove verrà inserito il titolo
-
+  
   // Aggiungi un evento di click a ogni pulsante "Prenota appuntamento"
   appointmentButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -141,23 +142,22 @@
       
       // Popola il titolo dell'evento nel form
       eventNameElement.textContent = articleTitle;
-
+  
       // Mostra il form rimuovendo la classe translate-y-[1000px]
       formContainer.classList.remove('translate-y-[1000px]');
-
+  
       // Aggiungi eventualmente una transizione o modifica la durata
       formContainer.classList.add('translate-y-0'); // Per assicurarsi che il div si mostri completamente
     });
   });
-
+  
   // Chiudi il form quando si clicca sull'icona di chiusura
   const closeIcon = formContainer.querySelector('.icon-content');
   closeIcon.addEventListener('click', function() {
     // Nasconde nuovamente il form aggiungendo la classe translate-y-[1000px]
     formContainer.classList.add('translate-y-[1000px]');
   });
-});
-
+  });
 </script>
 
 {% schema %}
