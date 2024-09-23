@@ -10,7 +10,7 @@
                 {% render 'minus-icon' %}
             </div>
         </div>
-        <div class="dropdown-container-text transition-all duration-200 ease-linear close-dropDown lg:openOnDesktop">
+        <div class="dropdown-container-text transition-all duration-200 ease-linear close-dropDown">
             <p class="body-12">{{ product.description }}</p>
         </div>
     </div>
@@ -26,9 +26,11 @@
     padding-bottom: 8px;
 }
 
-.openOnDesktop {
-    height: auto;
-    overflow: auto;
+@media (min-width: 1024px) {
+    .dropdown-container-text {
+        height: auto;
+        overflow: auto;
+    }
 }
 
 .close-dropDown {
