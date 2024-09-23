@@ -133,7 +133,7 @@
                 {% assign internal_down_images = updated_values | split: "," %}
                 {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
                 <img src="{{ first_image | img_url: 'master' }}"
-                    class="w-full h-[220px] rounded-lg object-cover object-center" alt="Fallback image"
+                    class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]" alt="Fallback image"
                     id="first-internal-down-img">
                 {% endif %}
             </div>
@@ -170,7 +170,7 @@
                 {% assign internal_images = updated_values | split: "," %}
                 {% assign first_image = internal_gallery[internal_images[0]] %}
                 <img src="{{ first_image | img_url: 'master' }}"
-                    class="w-full h-[220px] rounded-lg object-cover object-center" alt="Fallback image"
+                    class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]" alt="Fallback image"
                     id="first-internal-up-img">
                 {% endif %}
             </div>
