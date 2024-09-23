@@ -2421,6 +2421,10 @@ body {
     padding: 1.5rem;
   }
 
+  .lg\:p-0 {
+    padding: 0px;
+  }
+
   .lg\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
