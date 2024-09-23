@@ -2427,6 +2427,10 @@ body {
     row-gap: 1.5rem;
   }
 
+  .lg\:self-auto {
+    align-self: auto;
+  }
+
   .lg\:overflow-hidden {
     overflow: hidden;
   }
