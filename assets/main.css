@@ -2224,6 +2224,10 @@ body {
     height: 226px;
   }
 
+  .lg\:h-\[384px\] {
+    height: 384px;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
@@ -2290,6 +2294,10 @@ body {
 
   .lg\:w-\[calc\(33\.3\%_-_1rem\)\] {
     width: calc(33.3% - 1rem);
+  }
+
+  .lg\:w-\[370px\] {
+    width: 370px;
   }
 
   .lg\:min-w-\[220px\] {

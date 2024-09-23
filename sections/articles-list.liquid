@@ -20,7 +20,7 @@
         {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
         <div
-            class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg">
+            class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[370px] lg:h-[384px]">
             <img src="{{ article.image |  img_url: 'master' }}" alt="{{ article.title }}"
                 class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
             <a href="{{ article.url }}">
@@ -62,10 +62,9 @@
         const currentScrollLeft = scrollContainer.scrollLeft;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-        // Disabilita il bottone di sinistra se siamo all'inizio
         prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
 
-        // Disabilita il bottone di destra se siamo alla fine
+        
         nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
 
@@ -98,7 +97,6 @@
           scrollContainerBy(scrollAmount);
         });
 
-        // Inizializza gli stati delle frecce
         updateArrows();
         scrollContainer.addEventListener('scroll', updateArrows);
       }
