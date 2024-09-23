@@ -1366,6 +1366,10 @@ body {
   width: 100%;
 }
 
+.w-\[400px\] {
+  width: 400px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -2086,6 +2090,10 @@ body {
 
   .lg\:top-\[16px\] {
     top: 16px;
+  }
+
+  .lg\:bottom-\[16px\] {
+    bottom: 16px;
   }
 
   .lg\:z-10 {

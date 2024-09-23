@@ -1,10 +1,33 @@
 <!--articles list home page -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center">
     <!-- loop on each available article -->
-     {% assign allBlogs = "News, Events" |  split: "," %}
-     {% for handle in allBlogs %}
+    <div
+        class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start relative">
+        <!-- arrows box -->
+        <div
+            class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[16px]">
+            <button id="prevArrow"
+                class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+                {% render 'arrow-left-icon' %}
+            </button>
+            <button id="nextArrow"
+                class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+                {% render 'arrow-right-icon' %}
+            </button>
+        </div>
+
+        {% assign allBlogs = "News, Events" | split: "," %}
+        {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
-            <p>{{ article.title }}</p>
+        <div class="card-article w-[400px] h-auto flex flex-col gap-y-4 shadow-custom rounded-lg">
+            <img src="{{ article.image |  img_url: 'master' }}" alt="{{ article.title }}"
+                class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+            <div class="card-article-content w-full h-auto flex flex-col items-start justify-start">
+                <p class="body-14">{{ article.title }}</p>
+                <p class="bdy-12">{{ article.description }}</p>
+            </div>
+        </div>
         {% endfor %}
-     {% endfor %}
+        {% endfor %}
+    </div>
 </div>
