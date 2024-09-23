@@ -2436,6 +2436,10 @@ body {
     align-self: auto;
   }
 
+  .lg\:overflow-auto {
+    overflow: auto;
+  }
+
   .lg\:overflow-hidden {
     overflow: hidden;
   }
