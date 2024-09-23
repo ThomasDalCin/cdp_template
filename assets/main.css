@@ -2184,6 +2184,10 @@ body {
     height: auto;
   }
 
+  .lg\:h-\[226px\] {
+    height: 226px;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
