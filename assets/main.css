@@ -1390,6 +1390,10 @@ body {
   min-width: 343px;
 }
 
+.min-w-\[400px\] {
+  min-width: 400px;
+}
+
 .max-w-\[164px\] {
   max-width: 164px;
 }
