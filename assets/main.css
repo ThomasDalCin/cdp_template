@@ -2120,6 +2120,10 @@ body {
     bottom: 16px;
   }
 
+  .lg\:bottom-\[32px\] {
+    bottom: 32px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
