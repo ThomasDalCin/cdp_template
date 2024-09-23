@@ -72,7 +72,7 @@
                 <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
                     {% for external_image in external_images %}
                     {% assign external_img = external_gallery[external_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
                         <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg"
                             alt="" data-external-src="{{ external_img | img_url: 'master' }}">
                     </div>
@@ -106,7 +106,7 @@
                 <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
                     {% for internal_image in internal_images %}
                     {% assign internal_img = internal_gallery[internal_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
                         <img src="{{ internal_img | img_url: 'master' }}"
                             class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
                             data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
@@ -142,7 +142,7 @@
                 <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
                     {% for internal_down_image in internal_down_images %}
                     {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
                         <img src="{{ internal_down_img | img_url: 'master' }}"
                             class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
                             data-image-src="{{ internal_down_img | img_url: 'master' }}" alt=""
@@ -179,7 +179,7 @@
                 <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
                     {% for internal_image in internal_images %}
                     {% assign internal_img = internal_gallery[internal_image] %}
-                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0">
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
                         <img src="{{ internal_img | img_url: 'master' }}"
                             class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
                             data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
