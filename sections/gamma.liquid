@@ -3,7 +3,7 @@
 
 
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
-  <div class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 lg:p-0 lg:shadow-none lg:rounded-none lg:flex-row lg:flex-wrap lg:gap-x-4">
+  <div class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 lg:p-0 lg:shadow-none lg:rounded-none">
     <!--chips section -->
     <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2 lg:hidden">
       {% for collection in sorted_collections %}
@@ -15,7 +15,7 @@
       {% endfor %}
     </div>
     <!-- tab collection container -->
-    <div class="tab-container w-full h-auto flex flex-col gap-y-6">
+    <div class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-4">
       {% for collection in sorted_collections %}
         {% if collection.title != 'Pardo approved' %}
           <div class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden lg:flex lg:shadow-custom lg:rounded-xl lg:p-6 lg:w-[calc(33,3% - 1rem)]" id="{{ collection.title }}">
