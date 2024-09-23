@@ -2316,6 +2316,10 @@ body {
     min-width: calc(50% - 0.75rem);
   }
 
+  .lg\:min-w-\[400px\] {
+    min-width: 400px;
+  }
+
   .lg\:max-w-\[297px\] {
     max-width: 297px;
   }
