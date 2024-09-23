@@ -1394,6 +1394,10 @@ body {
   min-width: 400px;
 }
 
+.min-w-\[370px\] {
+  min-width: 370px;
+}
+
 .max-w-\[164px\] {
   max-width: 164px;
 }
