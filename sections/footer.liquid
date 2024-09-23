@@ -109,14 +109,15 @@
       </div>
     </div>
   </div>
-  <div class="cta-primary border-none self-auto bg-white">
-    <a href="">{{ section.settings.cta_delear_text }}</a>
-    {% render 'cta-icon' %}
+  <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center">
+    <div class="cta-primary border-none self-auto bg-white">
+      <a href="">{{ section.settings.cta_delear_text }}</a>
+      {% render 'cta-icon' %}
+    </div>
+    <div class="right-reserved-container w-full h-auto flex items-start justify-center">
+      <p class="caption text-white">{{ section.settings.right_reserved }}</p>
+    </div>
   </div>
-  <div class="right-reserved-container w-full h-auto flex items-start justify-center">
-    <p class="caption text-white">{{ section.settings.right_reserved }}</p>
-  </div>
-
 </div>
 
 
