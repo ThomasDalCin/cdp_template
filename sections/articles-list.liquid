@@ -34,3 +34,74 @@
         {% endfor %}
     </div>
 </div>
+
+<style>
+  .carousel-arrow.disabled {
+  opacity: 0.5;
+  pointer-events: none; 
+}
+
+.carousel-arrow:not(.disabled) {
+  opacity: 1;
+  pointer-events: auto; 
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const prevArrow = document.getElementById('prevArrow');
+  const nextArrow = document.getElementById('nextArrow');
+  const scrollContainer = document.querySelector('.articles-list-container');
+  const images = Array.from(scrollContainer.querySelectorAll('card-article'));
+
+  if (images.length > 1) {
+    const firstImage = images[0];
+    const secondImage = images[1];
+
+    const firstImageLeft = firstImage.offsetLeft;
+    const secondImageLeft = secondImage.offsetLeft;
+    const scrollAmount = secondImageLeft - firstImageLeft;
+
+    function updateArrows() {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+    }
+
+    function scrollContainerBy(amount) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      let newScrollLeft = currentScrollLeft + amount;
+
+      if (newScrollLeft < 0) {
+        newScrollLeft = 0;
+      } else if (newScrollLeft > maxScrollLeft) {
+        newScrollLeft = maxScrollLeft;
+      }
+
+      scrollContainer.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+
+      setTimeout(updateArrows, 300);
+    }
+
+    if (prevArrow && nextArrow && scrollContainer) {
+      prevArrow.addEventListener('click', function() {
+        scrollContainerBy(-scrollAmount);
+      });
+
+      nextArrow.addEventListener('click', function() {
+        scrollContainerBy(scrollAmount);
+      });
+
+      updateArrows();
+      scrollContainer.addEventListener('scroll', updateArrows);
+    }
+  }
+});
+</script>
