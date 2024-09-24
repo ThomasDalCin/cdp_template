@@ -2217,6 +2217,10 @@ p, span{
     z-index: 10;
   }
 
+  .lg\:z-50 {
+    z-index: 50;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2395,6 +2399,10 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[640px\] {
+    width: 640px;
   }
 
   .lg\:min-w-\[220px\] {
