@@ -1035,6 +1035,10 @@ p, span{
   left: 16px;
 }
 
+.top-\[16px\] {
+  top: 16px;
+}
+
 .z-0 {
   z-index: 0;
 }
