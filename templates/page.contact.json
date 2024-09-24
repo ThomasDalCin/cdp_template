@@ -1,6 +1,9 @@
-
 {
   "sections": {
+    "page-title": {
+      "type": "page-title",
+      "settings": {}
+    },
     "contact": {
       "type": "contact-form",
       "blocks": {
@@ -44,6 +47,7 @@
     }
   },
   "order": [
+    "page-title",
     "contact"
   ]
 }

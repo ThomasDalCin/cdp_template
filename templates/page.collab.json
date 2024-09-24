@@ -1,5 +1,9 @@
 {
   "sections": {
+    "page-title": {
+      "type": "page-title",
+      "settings": {}
+    },
     "falconeriXpardo": {
       "type": "falconeriXpardo",
       "settings": {
@@ -49,6 +53,7 @@
     }
   },
   "order": [
+    "page-title",
     "falconeriXpardo",
     "special-collab",
     "special-collab-poldo"

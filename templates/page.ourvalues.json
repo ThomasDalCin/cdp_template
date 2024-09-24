@@ -1,6 +1,9 @@
-
 {
   "sections": {
+    "page-title": {
+      "type": "page-title",
+      "settings": {}
+    },
     "our-values": {
       "type": "ourvalues-top",
       "blocks": {
@@ -144,6 +147,7 @@
     }
   },
   "order": [
+    "page-title",
     "our-values",
     "eco-module",
     "innovation"
