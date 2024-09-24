@@ -1,4 +1,7 @@
 <!--page title -->
-<div class="page-title-container w-full h-auto flex items-center justify-center p-4 mt-[70px] mb-10">
+<div class="page-title-container w-full h-auto flex items-center justify-center p-4 mt-[70px] mb-10 relative">
+    <div class="container-back-arrow absolute left-[16px] top-0 w-auto h-auto">
+        {% render 'back-arrow' %}
+    </div>
     <h1 class="body-14-medium">{{ page.title }}</h1>
 </div>
