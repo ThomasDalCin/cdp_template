@@ -1067,6 +1067,11 @@ p, span{
   z-index: 99999;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1429,6 +1434,10 @@ p, span{
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-\[640px\] {
+  max-width: 640px;
 }
 
 .flex-1 {
@@ -2152,6 +2161,10 @@ p, span{
 }
 
 @media (min-width: 1024px) {
+  .lg\:fixed {
+    position: fixed;
+  }
+
   .lg\:absolute {
     position: absolute;
   }
@@ -2194,6 +2207,10 @@ p, span{
 
   .lg\:top-\[16px\] {
     top: 16px;
+  }
+
+  .lg\:left-0 {
+    left: 0px;
   }
 
   .lg\:z-10 {
@@ -2302,6 +2319,10 @@ p, span{
 
   .lg\:h-auto {
     height: auto;
+  }
+
+  .lg\:h-full {
+    height: 100%;
   }
 
   .lg\:max-h-\[480px\] {
