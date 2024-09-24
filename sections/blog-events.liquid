@@ -137,14 +137,14 @@
       button.addEventListener('click', function() {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
         eventNameElement.textContent = articleTitle;
-        formContainer.classList.remove('translate-y-[1000px]');
+        formContainer.classList.remove('translate-y-[5000px]');
         formContainer.classList.add('translate-y-0');
       });
     });
     
     const closeIcon = formContainer.querySelector('.icon-content');
     closeIcon.addEventListener('click', function() {
-      formContainer.classList.add('translate-y-[1000px]');
+      formContainer.classList.add('translate-y-[5000px]');
     });
   });
 </script>
