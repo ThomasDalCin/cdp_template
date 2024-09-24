@@ -6,6 +6,7 @@
     
         <!-- Iterazione degli articoli -->
         {% for article in newsArticles %}
+            {% if article.tags contains 'News' %}
             {% assign index = forloop.index0 %} <!-- indice 0-based -->
             
             <!-- Primo articolo -->
@@ -105,7 +106,8 @@
             </div>
             {% endif %}
             {% endif %}
-    
+            {% endif %}
+        {% endif %}
         {% endfor %}
         {% endif %}
         {% endif %}
