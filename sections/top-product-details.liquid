@@ -506,7 +506,8 @@
         setupImageClickHandler(internalDownContent);
         setupImageClickHandler(internalUpContent);
         setupImageClickHandler(externalContent);
-
+        
+        {% comment  %} 
         //Handle overlay Swiper
         const firstInternalImg = document.getElementById('first-internal-img');
         const firstInternalUpImg = document.getElementById('first-internal-up-img');
@@ -565,5 +566,7 @@
             loop: true
         });
 
+        {% endcomment %}
+        
     });
 </script>
