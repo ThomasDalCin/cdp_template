@@ -1,29 +1,35 @@
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center mb-10 relative">
-    <!-- Loop through each available article -->
-    <div class="articles-list-container w-full h-auto flex flex-row gap-x-4 overflow-x-auto items-center justify-start p-4">
-        <!-- Arrows box -->
-        <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
-            <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-black hover:bg-gray-800">
+    <!-- loop on each available article -->
+    <div
+        class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start  p-4">
+        <!-- arrows box -->
+        <div
+            class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
+            <button id="prevArrow"
+                class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
                 {% render 'arrow-left-icon' %}
             </button>
-            <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-black hover:bg-gray-800">
+            <button id="nextArrow"
+                class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
                 {% render 'arrow-right-icon' %}
             </button>
         </div>
 
         {% assign allBlogs = "News, Events" | split: "," %}
         {% for handle in allBlogs %}
-            {% for article in blogs[handle].articles %}
-                <div class="card-article w-[200px] min-w-[200px] h-[386px] flex flex-col gap-y-4 shadow-lg rounded-lg">
-                    <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" class="card-article-image w-full h-[160px] object-cover rounded-t-lg">
-                    <a href="{{ article.url }}">
-                        <div class="card-article-content w-full h-auto flex flex-col gap-y-3 p-4">
-                            <p class="text-lg font-semibold">{{ article.title }}</p>
-                            <p class="text-sm text-gray-600">{{ article.content | truncate: 50 }}</p>
-                        </div>
-                    </a>
+        {% for article in blogs[handle].articles %}
+        <div
+            class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px]">
+            <img src="{{ article.image |  img_url: 'master' }}" alt="{{ article.title }}"
+                class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+            <a href="{{ article.url }}">
+                <div class="card-article-content w-full h-auto flex flex-col gap-y-3 items-start justify-start p-4">
+                    <p class="body-14">{{ article.title }}</p>
+                    <p class="bdy-12">{{ article.content | truncate: 50 }}</p>
                 </div>
-            {% endfor %}
+            </a>
+        </div>
+        {% endfor %}
         {% endfor %}
     </div>
 </div>
