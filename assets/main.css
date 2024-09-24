@@ -2333,6 +2333,10 @@ p, span{
     max-height: 480px;
   }
 
+  .lg\:max-h-\[600px\] {
+    max-height: 600px;
+  }
+
   .lg\:min-h-\[440px\] {
     min-height: 440px;
   }
