@@ -1,0 +1,28 @@
+{
+    "sections": {
+      "product-features": {
+        "type": "product-features",
+        "settings": {
+        }
+      },
+      "product-description": {
+        "type": "product-description",
+        "settings": {
+        }
+      },
+      "product-top-view-galley": {
+        "type": "top-view-galley",
+        "settings": {
+        }
+      },
+      "product-top-details": {
+        "type": "top-product-details",
+        "settings": {
+        }
+      }
+    },
+    "order": [
+      "product-top-details"
+    ]
+  }
+  
