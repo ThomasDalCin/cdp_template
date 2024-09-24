@@ -2178,6 +2178,10 @@ p, span{
     margin-top: 3.5rem;
   }
 
+  .lg\:mt-\[90px\] {
+    margin-top: 90px;
+  }
+
   .lg\:flex {
     display: flex;
   }
