@@ -229,8 +229,7 @@
           boatImage.style.display = 'none';
         });
 
-      } else if (hasScrolled) {
-        navbar.classList.add('toBlack');
+      } else if (hasScrolled || isNotHomepage) {
         menuIcon.classList.add('toBlack');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
