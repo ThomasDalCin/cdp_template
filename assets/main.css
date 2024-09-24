@@ -1115,6 +1115,10 @@ p, span{
   margin-top: 100px;
 }
 
+.mt-\[70px\] {
+  margin-top: 70px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
