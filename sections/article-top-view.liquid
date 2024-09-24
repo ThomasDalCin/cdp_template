@@ -1,11 +1,13 @@
 <div class="article-top-view w-full h-auto flex flex-col gap-y-4">
     <div class="article-top-view-image w-full h-auto relative">
-        <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto" src="{{ article.image |  img_url: 'master'}}"
-            alt="article-image">
+        <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto"
+            src="{{ article.image |  img_url: 'master'}}" alt="article-image">
         <div
             class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
             {% render 'back-arrow-icon' %}
-            <p class="body-14-medium ml-2">Back</p>
+            <a href="javascript:history.back()">
+                <p class="body-14-medium ml-2">Back</p>
+            </a>
         </div>
     </div>
     <div class="article-top-view-content w-full h-auto flex flex-col gap-y-2 items-start justify-center p-4 mb-10">
