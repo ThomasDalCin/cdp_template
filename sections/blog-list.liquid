@@ -39,7 +39,7 @@
 
         <!-- Second row: next three articles for 'News' -->
         <div class="blog-list-row horizontal-view lg:mb-10">
-            {% assign second_row_articles = newsArticles | slice: 1, 3 %}
+            {% assign second_row_articles = newsArticles | slice: 1, 6 %}
             <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-4 p-3">
                 {% for article in second_row_articles %}
                 {% if article.tags contains 'News' %}
@@ -68,7 +68,7 @@
 
         <!-- Third row: remaining articles for 'News' -->
         <div class="blog-list-row horizontal-view lg:mb-10">
-            {% assign third_row_articles = newsArticles | slice: 3, newsArticles.size %}
+            {% assign third_row_articles = newsArticles | slice: 6, newsArticles.size %}
             <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-4 p-3">
                 {% for article in third_row_articles %}
                 {% if article.tags contains 'News' %}
