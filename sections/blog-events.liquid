@@ -39,7 +39,7 @@
     </div>
   {% else %}
     <!-- Form container -->
-    <div class="form-container w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 transform translate-y-full transition-transform duration-300 ease-in-out">
+    <div class="form-container w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 transform translate-y-full transition-transform duration-300 ease-in-out hidden">
       <div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6">
 
         <!-- Form Header -->
@@ -140,6 +140,7 @@
       button.addEventListener('click', function() {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
         eventNameElement.textContent = articleTitle;
+        formContainer.classList.remove('hidden');
         formContainer.classList.remove('translate-y-full'); // Modifica Tailwind
         formContainer.classList.add('translate-y-0'); 
       });
@@ -148,11 +149,17 @@
     // Chiudi il form quando si clicca sull'icona di chiusura
     closeIcon.addEventListener('click', function() {
       formContainer.classList.add('translate-y-full'); // Nascondi il form con Tailwind
+      setTimeout(() => {
+        formContainer.classList.add('hidden'); // Nascondi completamente dopo la transizione
+      }, 300); // Aspetta la durata della transizione
     });
 
     // Quando il form è stato inviato con successo, nascondi il form e mostra il pop-up di conferma
     {% if form.posted_successfully? %}
       formContainer.classList.add('translate-y-full'); // Nascondi il form
+      setTimeout(() => {
+        formContainer.classList.add('hidden'); // Nascondi completamente dopo la transizione
+      }, 300); // Aspetta la durata della transizione
       confirmPopup.classList.remove('hidden'); // Mostra il pop-up
 
       // Dopo 3 secondi, nascondi il pop-up di conferma
