@@ -209,41 +209,42 @@
     document.head.appendChild(styleElement);
 
     function updateNavbarStyle() {
-      const isMenuYatchVisible = menuYatch.classList.contains('flex');
-      const isMenuMainVisible = mainMenu.classList.contains('flex');
-      const hasScrolled = window.scrollY > 0;
-      const currentPage = window.location.pathname;
-      const isNotHomepage = currentPage.length > 1;
+  const isMenuYatchVisible = menuYatch.classList.contains('flex');
+  const isMenuMainVisible = mainMenu.classList.contains('flex');
+  const hasScrolled = window.scrollY > 0;
+  const currentPage = window.location.pathname;
+  
+  // Modifica: controlla se è esattamente la homepage
+  const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
 
+  if (isMenuYatchVisible || isMenuMainVisible) {
+    navbar.classList.add('toAccent');
+    navbar.classList.remove('toBlack');
+    menuIcon.classList.remove('toBlack');
+    menuChip.classList.remove('toBlack');
+    logo.classList.remove('toBlack');
+    logo.classList.add('text-white');
 
-      if (isMenuYatchVisible || isMenuMainVisible) {
-        navbar.classList.add('toAccent');
-        navbar.classList.remove('toBlack');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.classList.remove('toBlack');
-        logo.classList.add('text-white');
+    const boatImages = document.querySelectorAll('.boat-image');
+    boatImages.forEach(boatImage => {
+      boatImage.style.display = 'none';
+    });
 
-        const boatImages = document.querySelectorAll('.boat-image');
-        boatImages.forEach(boatImage => {
-          boatImage.style.display = 'none';
-        });
+  } else if (hasScrolled || isNotHomepage) {
+    navbar.classList.add('toBlack');
+    menuIcon.classList.add('toBlack');
+    menuChip.classList.add('toBlack');
+    logo.classList.add('toBlack');
+    logo.classList.remove('text-white');
+  } else {
+    navbar.classList.remove('toBlack', 'toAccent');
+    menuIcon.classList.remove('toBlack');
+    menuChip.classList.remove('toBlack');
+    logo.classList.remove('toBlack');
+    logo.classList.add('text-white');
+  }
+}
 
-      } else if (hasScrolled || isNotHomepage) {
-        navbar.classList.add('toBlack');
-        menuIcon.classList.add('toBlack');
-        menuChip.classList.add('toBlack');
-        logo.classList.add('toBlack');
-        logo.classList.remove('text-white')
-      } else {
-        navbar.classList.remove('toBlack', 'toAccent');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.classList.remove('toBlack');
-        logo.classList.add('text-white')
-      }
-
-    }
 
 
     //handle scroll event and add style to the Navbar
