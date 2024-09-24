@@ -132,37 +132,35 @@
     const appointmentButtons = document.querySelectorAll('.book-appointment');
     const formContainer = document.querySelector('.form-container');
     const eventNameElement = formContainer.querySelector('.events-name');
-    const confirmPopup = document.querySelector('.confirm-pop-up'); // Pop-up conferma
+    const confirmPopup = document.querySelector('.confirm-pop-up'); 
     const closeIcon = formContainer.querySelector('.icon-content');
 
-    // Mostra il form quando si clicca su 'Prenota appuntamento'
     appointmentButtons.forEach(button => {
       button.addEventListener('click', function() {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
         eventNameElement.textContent = articleTitle;
         formContainer.classList.remove('hidden');
-        formContainer.classList.remove('translate-y-full'); // Modifica Tailwind
+        formContainer.classList.remove('translate-y-full'); 
         formContainer.classList.add('translate-y-0'); 
       });
     });
 
-    // Chiudi il form quando si clicca sull'icona di chiusura
     closeIcon.addEventListener('click', function() {
-      formContainer.classList.add('translate-y-full'); // Nascondi il form con Tailwind
+      formContainer.classList.add('translate-y-full');
       setTimeout(() => {
-        formContainer.classList.add('hidden'); // Nascondi completamente dopo la transizione
-      }, 300); // Aspetta la durata della transizione
+        formContainer.classList.add('hidden');
+      }, 300); 
     });
 
-    // Quando il form è stato inviato con successo, nascondi il form e mostra il pop-up di conferma
+   
     {% if form.posted_successfully? %}
-      formContainer.classList.add('translate-y-full'); // Nascondi il form
+      formContainer.classList.add('translate-y-full');
       setTimeout(() => {
-        formContainer.classList.add('hidden'); // Nascondi completamente dopo la transizione
-      }, 300); // Aspetta la durata della transizione
-      confirmPopup.classList.remove('hidden'); // Mostra il pop-up
+        formContainer.classList.add('hidden');
+      }, 300); 
+      confirmPopup.classList.remove('hidden'); 
 
-      // Dopo 3 secondi, nascondi il pop-up di conferma
+    
       setTimeout(() => {
         confirmPopup.classList.add('hidden');
       }, 3000);
