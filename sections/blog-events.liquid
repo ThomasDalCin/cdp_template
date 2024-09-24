@@ -1,4 +1,3 @@
-<!-- events articles layout -->
 <div class="blog-events-container w-full h-auto flex flex-col items-start justify-center lg:flex-wrap lg:flex-row lg:mb-10 relative overflow-hidden">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
@@ -17,7 +16,7 @@
               </div>
               <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
                 <p class="body-14 underline">Aggiungi al Calendario</p>
-                {% render 'calednar-icon' %}
+                {% render 'calendar-icon' %}
               </div>
             </div>
             <div class="events-cta">
@@ -33,13 +32,18 @@
 
   <!-- Book appointment -->
   {% if form.posted_successfully? %}
+    <!-- Confirm pop-up -->
+    <div class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black">
+      {% render 'check-icon' %}
+      <p class="body-12">{{ section.settings.confirm_message }}</p>
+    </div>
   {% else %}
-    <div class="w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 translate-y-[1000px] transition-all duration-200 ease-in-out">
+    <!-- Form container -->
+    <div class="form-container w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 translate-y-[1000px] transition-all duration-200 ease-in-out">
       <div class="wrapper-form-appointment w-full h-3/4 flex flex-col gap-y-6">
 
-
         <!-- Form Header -->
-        <div class="form-appointement-headers w-full h-auto flex flex-col items-center justify-center relative">
+        <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
           <p class="body-14-medium events-name"></p>
 
           <!-- Close Icon -->
@@ -50,8 +54,7 @@
 
         <!-- Form Content -->
         <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
-          {% form 'contact'
-            , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
+          {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
 
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
@@ -119,31 +122,30 @@
 
           {% endform %}
         </div>
-
       </div>
     </div>
   {% endif %}
 </div>
 
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  const appointmentButtons = document.querySelectorAll('.book-appointment');
-  const formContainer = document.querySelector('.w-full.h-auto.absolute.bottom-0');
-  const eventNameElement = formContainer.querySelector('.events-name');
-  appointmentButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
-      eventNameElement.textContent = articleTitle;
-      formContainer.classList.remove('translate-y-[1000px]');
-      formContainer.classList.add('translate-y-0');
+    const appointmentButtons = document.querySelectorAll('.book-appointment');
+    const formContainer = document.querySelector('.form-container');
+    const eventNameElement = formContainer.querySelector('.events-name');
+    appointmentButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
+        eventNameElement.textContent = articleTitle;
+        formContainer.classList.remove('translate-y-[1000px]');
+        formContainer.classList.add('translate-y-0');
+      });
     });
-  });
-  
-  
-  const closeIcon = formContainer.querySelector('.icon-content');
-  closeIcon.addEventListener('click', function() {
-    formContainer.classList.add('translate-y-[1000px]');
-  });
+    
+    const closeIcon = formContainer.querySelector('.icon-content');
+    closeIcon.addEventListener('click', function() {
+      formContainer.classList.add('translate-y-[1000px]');
+    });
   });
 </script>
 
@@ -151,6 +153,12 @@
   {
     "name": "contact-form",
     "settings": [
+      {
+        "type": "text",
+        "id": "confirm_message",
+        "label": "Confirm form message",
+        "default": "Request sent"
+      },
       {
         "type": "text",
         "id": "form_first_name",
@@ -188,3 +196,5 @@
     ]
   }
 {% endschema %}
+
+
