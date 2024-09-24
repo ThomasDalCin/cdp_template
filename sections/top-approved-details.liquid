@@ -1,0 +1,109 @@
+<!--product image w tab -->
+<div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:flex-row mt-[100px] lg:relative mb-10">
+    <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 lg:w-2/3">
+        <!--tab section-->
+
+        <div
+            class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-0 lg:right-0 z-20">
+            <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
+                id="external-tab">
+                <p class="body-14">External</p>
+                <div
+                    class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+                </div>
+            </div>
+            <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
+                id="internal-tab">
+                <p class="body-14">Internal</p>
+                <div
+                    class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+                </div>
+            </div>
+        </div>
+
+        <!--assign liquid variabls metaobjects -->
+        {% assign external_gallery = product.metafields.custom.external_images_approved_boat.value %}
+        {% assign external_gallery_split = product.metafields.custom.external_images_approved_boat.value | json | replace:'{', ''
+        |
+        replace:'}', ''| split: "," %}
+        {% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+        {% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace:'{', '' |
+        replace:'}', ''| split: "," %}
+        {% assign internal_gallery_down = product.metafields.custom.internal_boat_down.value %}
+        {% assign internal_gallery_down_split = product.metafields.custom.internal_boat_down.value | json | replace:'{',
+        '' |
+        replace:'}', ''| split: "," %}
+
+
+
+        <!--external gallery section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+            id="external-content" data-attribute="external-gallery">
+            <div class="main-img-container w-full h-auto relative">
+                {% if external_gallery %}
+                {% for el in external_gallery_split %}
+                {% assign val = el | split: '"' %}
+                {% if forloop.first %}
+                {% assign updated_values = val[1] %}
+                {% else %}
+                {% assign updated_values = updated_values | append: "," | append: val[1] %}
+                {% endif %}
+                {% endfor %}
+                {% assign external_images = updated_values | split: "," %}
+                {% assign first_image = external_gallery[external_images[0]] %}
+                <img src="{{ first_image | img_url: 'master' }}"
+                    class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]" alt="Fallback image"
+                    id="first-internal-img">
+                {% endif %}
+            </div>
+
+            <div class="w-full max-h-[220px] h-auto">
+                <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+                    {% for external_image in external_images %}
+                    {% assign external_img = external_gallery[external_image] %}
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
+                        <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg"
+                            alt="" data-external-src="{{ external_img | img_url: 'master' }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!--internal gallery section-->
+        <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+            id="internal-content" data-attribute="internal-gallery">
+            <div class="main-img-container w-full h-auto relative">
+                {% if internal_gallery %}
+                {% for el in internal_gallery_split %}
+                {% assign val = el | split: '"' %}
+                {% if forloop.first %}
+                {% assign updated_values = val[1] %}
+                {% else %}
+                {% assign updated_values = updated_values | append: "," | append: val[1] %}
+                {% endif %}
+                {% endfor %}
+                {% assign internal_images = updated_values | split: "," %}
+                {% assign first_image = internal_gallery[internal_images[0]] %}
+                <img src="{{ first_image | img_url: 'master' }}"
+                    class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]" alt="Fallback image"
+                    id="first-internal-img">
+                {% endif %}
+            </div>
+
+            <div class="w-full h-auto">
+                <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+                    {% for internal_image in internal_images %}
+                    {% assign internal_img = internal_gallery[internal_image] %}
+                    <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
+                        <img src="{{ internal_img | img_url: 'master' }}"
+                            class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+                            data-image-src="{{ internal_img | img_url: 'master' }}" alt=""
+                            data-internal-overlay="overlay-internal-gallery">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
