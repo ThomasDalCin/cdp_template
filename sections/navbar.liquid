@@ -33,19 +33,19 @@
 
     <div class="chips-horizontal-container w-full flex gap-x-2 overflow-auto py-4">
       {% for collection in collections %}
-        {% unless collection.title == 'Pardo approved' %}
-          <div class="chips-label flex items-center space-x-2">
-            <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
-            {% render 'arrow-down' %}
-          </div>
-        {% endunless %}
+      {% unless collection.title == 'Pardo approved' %}
+      <div class="chips-label flex items-center space-x-2">
+        <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
+        {% render 'arrow-down' %}
+      </div>
+      {% endunless %}
       {% endfor %}
       <div class="chips-label flex items-center space-x-2">
         <div class="chips-text text-nowrap body-14" id="collection-chips-title">View All</div>
         {% render 'arrow-down' %}
       </div>
-    </div>    
-    
+    </div>
+
     <div
       class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)]">
       {% for collection in collections %}
@@ -209,41 +209,41 @@
     document.head.appendChild(styleElement);
 
     function updateNavbarStyle() {
-  const isMenuYatchVisible = menuYatch.classList.contains('flex');
-  const isMenuMainVisible = mainMenu.classList.contains('flex');
-  const hasScrolled = window.scrollY > 0;
-  const currentPage = window.location.pathname;
-  
-  // Modifica: controlla se è esattamente la homepage
-  const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
+      const isMenuYatchVisible = menuYatch.classList.contains('flex');
+      const isMenuMainVisible = mainMenu.classList.contains('flex');
+      const hasScrolled = window.scrollY > 0;
+      const currentPage = window.location.pathname;
 
-  if (isMenuYatchVisible || isMenuMainVisible) {
-    navbar.classList.add('toAccent');
-    navbar.classList.remove('toBlack');
-    menuIcon.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
+      // Modifica: controlla se è esattamente la homepage
+      const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
 
-    const boatImages = document.querySelectorAll('.boat-image');
-    boatImages.forEach(boatImage => {
-      boatImage.style.display = 'none';
-    });
+      if (isMenuYatchVisible || isMenuMainVisible) {
+        navbar.classList.add('toAccent');
+        navbar.classList.remove('toBlack');
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
 
-  } else if (hasScrolled || isNotHomepage) {
-    navbar.classList.add('toBlack');
-    menuIcon.classList.add('toBlack');
-    menuChip.classList.add('toBlack');
-    logo.classList.add('toBlack');
-    logo.classList.remove('text-white');
-  } else {
-    navbar.classList.remove('toBlack', 'toAccent');
-    menuIcon.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
-  }
-}
+        const boatImages = document.querySelectorAll('.boat-image');
+        boatImages.forEach(boatImage => {
+          boatImage.style.display = 'none';
+        });
+
+      } else if (hasScrolled || isNotHomepage) {
+        navbar.classList.add('toBlack');
+        menuIcon.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white');
+      } else {
+        navbar.classList.remove('toBlack', 'toAccent');
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
+      }
+    }
 
 
 
