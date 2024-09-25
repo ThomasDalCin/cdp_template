@@ -10,8 +10,7 @@
         }
     },
     "order": [
-     "top-approved-details",
-     "product-approved-features"
+        "top-approved-details",
+        "product-approved-features"
     ]
-  }
-  
+}
