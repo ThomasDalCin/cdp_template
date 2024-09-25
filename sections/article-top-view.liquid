@@ -1,3 +1,4 @@
+<!--article section content -->
 <div class="article-top-view w-full h-auto flex flex-col gap-y-4">
     <div class="article-top-view-image w-full h-auto relative">
         <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto"
@@ -6,7 +7,7 @@
             class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
             {% render 'back-arrow-icon' %}
             <a href="javascript:history.back()">
-                <p class="body-14-medium ml-2">Back</p>
+                <p class="body-14-medium ml-2">{{ section.settings.article_cta }}</p>
             </a>
         </div>
     </div>
@@ -15,3 +16,17 @@
         <p class="body-12">{{ article.content }}</p>
     </div>
 </div>
+
+{% schema %}
+{
+    "name": "article-content",
+    "settings": [
+        {
+            "type": "text",
+            "id": "article_cta",
+            "default": "Back",
+            "label": "Article Cta"
+        }
+        ]
+}
+{% endschema %}
