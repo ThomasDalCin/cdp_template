@@ -4,41 +4,42 @@
       <div class="swiper-wrapper">
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
         {% for swiper_image in swiper_images %}
-        {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
-        {% if image_url %}
-        <div class="swiper-slide relative">
-          <img src="{{ image_url }}" alt="Slide {{ forloop.index }}"
-            class="swiper-img w-full h-full object-cover block">
-          <div
-            class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10 lg:inline-flex lg:w-auto lg:h-auto lg:bottom-6 lg:left-6">
-            {% case forloop.index0 %}
-            {% when 0 %}
-            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">GT75</h2>
-            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
-              <p>Discover it</p>
-              {% render "cta-icon" %}
+          {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
+          {% if image_url %}
+            <div class="swiper-slide relative">
+              <img
+                src="{{ image_url }}"
+                alt="{{ swiper_image.alt }}"
+                class="swiper-img w-full h-full object-cover block">
+              <div class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10 lg:inline-flex lg:w-auto lg:h-auto lg:bottom-6 lg:left-6">
+                {% case forloop.index0 %}
+                  {% when 0 %}
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">GT75</h2>
+                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
+                      <p>{{ section.settings.slide_text_one }}</p>
+                      {% render "cta-icon" %}
+                    </div>
+                  {% when 1 %}
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">E60</h2>
+                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
+                      <p>{{ section.settings.slide_text_two }}</p>
+                      {% render "cta-icon" %}
+                    </div>
+                  {% when 2 %}
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">Details.</h2>
+                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
+                      <p>{{ section.settings.slide_text_three }}</p>
+                      {% render "cta-icon" %}
+                    </div>
+                {% endcase %}
+              </div>
             </div>
-            {% when 1 %}
-            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">E60</h2>
-            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
-              <p>Discover it</p>
-              {% render "cta-icon" %}
-            </div>
-            {% when 2 %}
-            <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">Details.</h2>
-            <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
-              <p>Watch the full experience</p>
-              {% render "cta-icon" %}
-            </div>
-            {% endcase %}
-          </div>
-        </div>
-        {% endif %}
+          {% endif %}
         {% endfor %}
       </div>
       <div class="container-swiper-pagination absolute left-4 top-[120px] z-10 lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
         <div class="swiper-pagination mb-8 flex items-center justify-start lg:mb-[70px]"></div>
-        <h3 class="header-3 text-[var(--secondary-text-color)] lg:text-[60px] lg:leading-[60px] lg:text-black" >Shaped by the sea.</h3>
+        <h1 class="header-3 text-[var(--secondary-text-color)] lg:text-[60px] lg:leading-[60px] lg:text-black">{{ section.settings.hero_heading }}</h1>
       </div>
     </div>
   </div>
@@ -57,7 +58,6 @@
     },
     loop: true
   });
-
 </script>
 
 <!-- Swiper Custom Style -->
@@ -74,27 +74,50 @@
 </style>
 
 
-
 {% schema %}
-{
-"name": "hero-section",
-"settings": [
-{
-"type": "image_picker",
-"id": "swiper_image_1",
-"label": "Swiper Image 1",
-"info": "Choose the Swiper Image"
-}, {
-"type": "image_picker",
-"id": "swiper_image_2",
-"label": "Swiper Image 2",
-"info": "Choose the Swiper Image"
-}, {
-"type": "image_picker",
-"id": "swiper_image_3",
-"label": "Swiper Image 3",
-"info": "Choose the Swiper Image"
-}
-]
-}
+  {
+    "name": "hero-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_heading",
+        "label": "Shaped by the sea",
+        "info": "Hero heading"
+      },
+      {
+        "type": "text",
+        "id": "slide_text_one",
+        "label": "Slide text one",
+        "info": "Discover it"
+      },
+      {
+        "type": "text",
+        "id": "slide_text_two",
+        "label": "Slide text two",
+        "info": "Discover it"
+      },
+      {
+        "type": "text",
+        "id": "slide_text_three",
+        "label": "Slide text three",
+        "info": "Watch the full experience"
+      },
+       {
+        "type": "image_picker",
+        "id": "swiper_image_1",
+        "label": "Swiper Image 1",
+        "info": "Choose the Swiper Image"
+      }, {
+        "type": "image_picker",
+        "id": "swiper_image_2",
+        "label": "Swiper Image 2",
+        "info": "Choose the Swiper Image"
+      }, {
+        "type": "image_picker",
+        "id": "swiper_image_3",
+        "label": "Swiper Image 3",
+        "info": "Choose the Swiper Image"
+      }
+    ]
+  }
 {% endschema %}
