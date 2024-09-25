@@ -8,6 +8,7 @@
             <!--assign variables -->
             {% assign basicsFeatures = product.metafields.custom.basics_approved %}
             {% if basicsFeatures %}
+                <p></p>
                 {% assign basics_value = "location,price,year,make,model,series,length,fuel_type,hull_material" |  split: "," %}
                 {% for basics_value in basicsFeatures %}
                     {% assign basic_field = basicsFeatures[basics_value] %}
