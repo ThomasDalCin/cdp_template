@@ -1,7 +1,6 @@
+<!--gamma section home page-->
+<!--assign variables -->
 {% assign sorted_collections = collections | sort: 'published_at' %}
-
-
-
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
   <div class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 lg:p-0 lg:shadow-none lg:rounded-none">
     <!--chips section -->
@@ -50,7 +49,7 @@
                         <img
                           class="w-full h-full object-contain pImage"
                           src="{{ model_image | img_url: 'master' }}"
-                          alt="{{ product.title }}"
+                          alt="{{ model_image.alt }}"
                           id="{{ product.title }}">
                         <p class="header-3">{{ product.title | replace: 'Pardo', '' }}</p>
                       </div>
