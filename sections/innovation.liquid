@@ -1,3 +1,4 @@
+<!-- innovation section -->
 <div class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10 lg:items-center lg:gap-y-6 relative">
 
   <div class="innovation-container-primary w-full h-auto flex flex-col gap-y-4 rounded-lg shadow-custom p-4 lg:w-auto lg:px-6 lg:pt-6 lg:pb-10 lg:mb-10">
@@ -19,10 +20,12 @@
   <div class="relative w-full h-auto">
     <div class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
       {% for block in section.blocks %}
-        
+
         {% if block.type == "scroll-image" %}
           <div class="container-scroll-image w-auto h-auto">
-            <img src="{{ block.settings.scroll_image | img_url: 'master' }}" alt="our value image"
+            <img
+              src="{{ block.settings.scroll_image | img_url: 'master' }}"
+              alt="{{ block.settings.scroll_image.alt }}"
               class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
           </div>
         {% endif %}
@@ -40,14 +43,14 @@
 
 <style>
   .carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none; 
-}
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto; 
-}
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
 
 <script>
@@ -56,133 +59,128 @@
   const nextArrow = document.getElementById('nextArrow');
   const scrollContainer = document.querySelector('.innovation-container-scrolling');
   const images = Array.from(scrollContainer.querySelectorAll('img'));
-
+  
   if (images.length > 1) {
     const firstImage = images[0];
     const secondImage = images[1];
-
+  
     const firstImageLeft = firstImage.offsetLeft;
     const secondImageLeft = secondImage.offsetLeft;
     const scrollAmount = secondImageLeft - firstImageLeft;
-
+  
     function updateArrows() {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
+  
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
     }
-
+  
     function scrollContainerBy(amount) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
+  
       let newScrollLeft = currentScrollLeft + amount;
-
+  
       if (newScrollLeft < 0) {
         newScrollLeft = 0;
       } else if (newScrollLeft > maxScrollLeft) {
         newScrollLeft = maxScrollLeft;
       }
-
+  
       scrollContainer.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth'
       });
-
+  
       setTimeout(updateArrows, 300);
     }
-
+  
     if (prevArrow && nextArrow && scrollContainer) {
       prevArrow.addEventListener('click', function() {
         scrollContainerBy(-scrollAmount);
       });
-
+  
       nextArrow.addEventListener('click', function() {
         scrollContainerBy(scrollAmount);
       });
-
+  
       updateArrows();
       scrollContainer.addEventListener('scroll', updateArrows);
     }
   }
-});
+  });
 </script>
 
 
-
-
 {% schema %}
-{
-"name": "innovation-section",
-"settings": [
-{
-"type": "text",
-"id": "section_heading",
-"default": "Innovazione e tecnologia",
-"label": "Section Heading"
-}, {
-"type": "text",
-"id": "section_heading_secondary",
-"default": "Controllo qualità",
-"label": "Section Heading Secondary"
-}, {
-"type": "textarea",
-"id": "section_content",
-"default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-"label": "Section Text Content"
-},
-{
-"type": "text",
-"id": "section_content_cta",
-"default": "Tienimi Informato",
-"label": "Section Text Content Cta"
-}
-],
-"blocks": [
-{
-"name": "scroll-image-block",
-"type": "scroll-image",
-"settings": [
-{
-"type": "image_picker",
-"id": "scroll_image",
-"label": "Scroll Image"
-}
-]
-}
-],
-"presets": [
-{
-"name": "innovation-section",
-"category": "custom",
-"settings": {
-"section_heading": "Innovazione e tecnologia",
-"section_heading_secondary": "Controllo qualità",
-"section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-"section_content_cta": "Tienimi Informato"
-},
-"blocks": [
-{
-"type": "scroll-image",
-"settings": {
-"scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
-}
-},
-{
-"type": "scroll-image",
-"settings": {
-"scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
-}
-},
-{
-"type": "scroll-image",
-"settings": {
-"scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
-}
-}
-]
-}
-]
-}
+  {
+    "name": "innovation-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "Innovazione e tecnologia",
+        "label": "Section Heading"
+      }, {
+        "type": "text",
+        "id": "section_heading_secondary",
+        "default": "Controllo qualità",
+        "label": "Section Heading Secondary"
+      }, {
+        "type": "textarea",
+        "id": "section_content",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "label": "Section Text Content"
+      }, {
+        "type": "text",
+        "id": "section_content_cta",
+        "default": "Tienimi Informato",
+        "label": "Section Text Content Cta"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "scroll-image-block",
+        "type": "scroll-image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "scroll_image",
+            "label": "Scroll Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "innovation-section",
+        "category": "custom",
+        "settings": {
+          "section_heading": "Innovazione e tecnologia",
+          "section_heading_secondary": "Controllo qualità",
+          "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+          "section_content_cta": "Tienimi Informato"
+        },
+        "blocks": [
+          {
+            "type": "scroll-image",
+            "settings": {
+              "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+            }
+          }, {
+            "type": "scroll-image",
+            "settings": {
+              "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+            }
+          }, {
+            "type": "scroll-image",
+            "settings": {
+              "scroll_image": "shopify:\/\/shop_images\/image_18_1.png"
+            }
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
