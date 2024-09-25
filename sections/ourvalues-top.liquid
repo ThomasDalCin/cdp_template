@@ -1,3 +1,4 @@
+<!--our values top page section-->
 <div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4  mb-10 relative">
   <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
@@ -19,7 +20,7 @@
         {% if block.type == "scroll-image" %}
           <img
             src="{{ block.settings.scroll_image | img_url: 'master' }}"
-            alt="our value image"
+            alt="{{ block.settings.scroll_image.alt }}"
             class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
         {% endif %}
         
