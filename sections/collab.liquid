@@ -9,7 +9,7 @@
               <img
                 src="{{ collab_image_url }}"
                 class="w-full h-full object-contain lg:h-[30px] lg:object-contain"
-                alt="Collab {{ forloop.index }}"
+                alt="{{ collab_image.alt }}"
               >
             </div>
             {% else %}
@@ -17,7 +17,7 @@
               <img
                 src="{{ collab_image_url }}"
                 class="w-full h-full object-contain lg:h-[90px] lg:object-contain"
-                alt="Collab {{ forloop.index }}"
+                alt="{{ collab_image.alt }}"
               >
             </div>
           {% endif %}
