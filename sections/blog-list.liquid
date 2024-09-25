@@ -182,13 +182,10 @@
         chips.forEach(chip => {
             chip.addEventListener('click', function () {
                 const tag = chip.getAttribute('data-tag');
-
-                // Nascondi tutti i layout
                 newsLayout.classList.add('hidden');
                 pressRoomLayout.classList.add('hidden');
                 awardsLayout.classList.add('hidden');
 
-                // Mostra il layout corretto in base al tag selezionato
                 if (tag === 'News') {
                     newsLayout.classList.remove('hidden');
                 } else if (tag === 'Press room') {
@@ -197,20 +194,17 @@
                     awardsLayout.classList.remove('hidden');
                 }
 
-                // Rimuovi la classe 'active' da tutte le chips
                 chips.forEach(chip => chip.classList.remove('chips-blog-active'));
-
-                // Aggiungi la classe 'active' alla chips cliccata
                 chip.classList.add('chips-blog-active');
             });
         });
 
-        // Imposta la chips 'News' come attiva di default e mostra il layout 'news-layout'
         const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
         if (defaultChip) {
             defaultChip.classList.add('chips-blog-active');
             newsLayout.classList.remove('hidden');
         }
+        
     });
 </script>
 
