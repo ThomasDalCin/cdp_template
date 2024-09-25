@@ -1,4 +1,33 @@
 <!--product approved features -->
 <div class="product-features-wrapper w-full h-auto flex flex-col items-start justify-center">
-    
+    <div class="product-features-wrapper-content w-full h-auto flex flex-col items-start justify-center gap-y-4">
+        <div class="product-features-wrapper-content-heading w-full h-auto flex items-start justify-center">
+            <h2 class="body-14-medium">{{ product.title }}</h2>
+        </div>
+        <div class="product-features-wrapper-content-features w-full h-auto flex items-start justify-center gap-y-2">
+            <!--assign variables -->
+            {% assign basicsFeatures = product.metafields.custom.basics_approved %}
+            {% if basicsFeatures %}
+                {% assign basics_value = "location,price,year,make,model,series,length,fuel_type,hull_material" |  split: "," %}
+                {% for basics_value in basicsFeatures %}
+                    {% assign basic_field = basicsFeatures[basics_value] %}
+                        {% if basic_field %}
+                            {% for item in items_basics %}
+                              <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+                                <span class="font-bold">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                                <span>{{ item }}</span>
+                              </li>
+                            {% endfor %}
+                          {% else %}
+                            <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+                              <span class="font-bold">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                              <span>No data available</span>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 </div>
