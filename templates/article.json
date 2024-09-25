@@ -3,14 +3,9 @@
         "article-top-view": {
             "type": "article-top-view",
             "settings": {}
-        },
-        "article-content": {
-            "type": "article-content",
-            "settings": {}
         }
     },
     "order": [
-        "article-top-view",
-        "article-content"
+        "article-top-view"
     ]
 }
