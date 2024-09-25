@@ -3,10 +3,15 @@
         "top-approved-details": {
             "type": "top-approved-details",
             "settings": {}
+        },
+        "product-approved-features": {
+            "type": "product-approved-features",
+            "settings": {}
         }
     },
     "order": [
-     "top-approved-details"
+     "top-approved-details",
+     "product-approved-features"
     ]
   }
   
