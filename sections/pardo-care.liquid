@@ -1,3 +1,4 @@
+<!--pardo care -->
 <div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 p-4 relative mb-10">
   <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center">
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
@@ -22,7 +23,7 @@
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2">
             <img
               src="{{ block.settings.card_image |  img_url: 'master' }}"
-              alt="pardo care image"
+              alt="{{ block.settings.card_image.alt }}"
               class="card-image w-[320px] h-[320px] min-w-[320px] object-cover object-center rounded-md lg:w-[343px] lg:h-[343px]">
             <p class="body-14-medium">{{ block.settings.card_title }}</p>
             <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>

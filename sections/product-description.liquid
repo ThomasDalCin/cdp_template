@@ -2,7 +2,7 @@
 <div class="dropdown-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px] lg:px-0 lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)]">
     <div class="dropdown-content w-full h-auto flex flex-col p-4 rounded-xl bg-[var(--primary-background-color)] lg:bg-transparent lg:flex-row ">
         <div class="dropdown-container-top w-full h-auto flex flex-row justify-between items-center lg:w-auto lg:min-w-[323px]">
-            <h3 class="body-14-medium">Description</h3>
+            <h3 class="body-14-medium">{{ section.settings.description_text }}</h3>
             <div class="dropdown-container-icon w-auto h-auto lg:hidden" id="plus-icon">
                 {% render 'plus-icon' %}
             </div>
@@ -68,3 +68,17 @@ icons.forEach((icon)=>{
     icon.addEventListener('click', toggleDropdown)
 })
 </script>
+
+{% schema %}
+{
+    "name": "product-description",
+    "settings": [
+        {
+            "type": "text",
+            "id": "description_text",
+            "default": "Description",
+            "label": "Description"
+        }
+        ]
+}
+{% endschema %}
