@@ -2150,6 +2150,10 @@ p, span{
     top: 16px;
   }
 
+  .lg\:top-\[-32px\] {
+    top: -32px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -2270,12 +2274,28 @@ p, span{
     height: 100%;
   }
 
+  .lg\:h-\[252px\] {
+    height: 252px;
+  }
+
+  .lg\:h-\[878px\] {
+    height: 878px;
+  }
+
+  .lg\:h-\[160pxpx\] {
+    height: 160pxpx;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
 
   .lg\:max-h-\[600px\] {
     max-height: 600px;
+  }
+
+  .lg\:max-h-none {
+    max-height: none;
   }
 
   .lg\:min-h-\[440px\] {
@@ -2348,6 +2368,10 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[252px\] {
+    width: 252px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2473,6 +2497,16 @@ p, span{
     row-gap: 1.5rem;
   }
 
+  .lg\:gap-y-3 {
+    row-gap: 0.75rem;
+  }
+
+  .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0px * var(--tw-space-x-reverse));
+    margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+  }
+
   .lg\:overflow-hidden {
     overflow: hidden;
   }
@@ -2499,6 +2533,10 @@ p, span{
 
   .lg\:rounded-xl {
     border-radius: 0.75rem;
+  }
+
+  .lg\:rounded {
+    border-radius: 0.25rem;
   }
 
   .lg\:border-b-\[1px\] {
