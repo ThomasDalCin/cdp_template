@@ -1,3 +1,4 @@
+<!--falconer x paldo collab section -->
 <div class="falconeri-container w-full h-auto flex flex-col items-start justify-center gap-y-4 p-4 mb-10 lg:gap-y-6">
   <div class="falconeri container-heading">
     <p class="body-16-medium lg:header-2">{{ section.settings.section_heading }}</p>
@@ -11,7 +12,7 @@
           <img
             class="w-full h-auto min-h-[120px] object-cover object-center lg:h-[549px]"
             src="{{ image | img_url: 'master' }}"
-            alt="falconeri x pardo image">
+            alt="{{ image.alt }}">
         </div>
       {% endif %}
     {% endfor %}
