@@ -1,3 +1,4 @@
+<!-- blog events section -->
 <div class="blog-events-container w-full h-auto flex flex-col items-start justify-center lg:flex-wrap lg:flex-row lg:mb-10 relative overflow-hidden">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
@@ -10,18 +11,22 @@
               <p class="article-content body-14">{{ eventArticle.published_at }}</p>
             </div>
             <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-              <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">Show on Google Maps</p>
-                {% render 'cta-icon' %}
-              </div>
-              <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">Aggiungi al Calendario</p>
-                {% render 'calendar-icon' %}
-              </div>
+              <a href="{{ section.settings.redirect_google_url }}">
+                <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                  <p class="body-14 underline">{{ section.settings.redirect_google }}</p>
+                  {% render 'cta-icon' %}
+                </div>
+              </a>
+              <a href="{{ section.settings.redirect_calendar }}">
+                <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                  <p class="body-14 underline">{{ section.settings.redirect_calendar }}</p>
+                  {% render 'calendar-icon' %}
+                </div>
+              </a>
             </div>
             <div class="events-cta">
               <div class="cta-appointment book-appointment">
-                <p class="body-14">Prenota appuntamento</p>
+                <p class="body-14">{{ section.settings.cta_appointment }}</p>
               </div>
             </div>
           </div>
@@ -41,7 +46,7 @@
     <!-- Form container -->
     <div class="form-container w-full h-auto absolute bottom-0 left-0 right-0 p-4 rounded-lg shadow-custom bg-white z-30 transform translate-y-full transition-transform duration-300 ease-in-out hidden lg:flex lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
       <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:bg-white lg:w-[640px] lg:max-h-[600px] lg:rounded-lg lg:p-4">
-        
+
         <!-- Form Header -->
         <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
           <p class="body-14-medium events-name"></p>
@@ -54,7 +59,8 @@
 
         <!-- Form Content -->
         <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
-          {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
+          {% form 'contact'
+            , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
 
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
@@ -134,7 +140,7 @@
     const eventNameElement = formContainer.querySelector('.events-name');
     const confirmPopup = document.querySelector('.confirm-pop-up'); 
     const closeIcon = formContainer.querySelector('.icon-content');
-
+  
     appointmentButtons.forEach(button => {
       button.addEventListener('click', function() {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
@@ -144,21 +150,21 @@
         formContainer.classList.add('translate-y-0'); 
       });
     });
-
+  
     closeIcon.addEventListener('click', function() {
       formContainer.classList.add('translate-y-full');
       setTimeout(() => {
         formContainer.classList.add('hidden');
       }, 300); 
     });
-
+  
     {% if form.posted_successfully? %}
       formContainer.classList.add('translate-y-full');
       setTimeout(() => {
         formContainer.classList.add('hidden');
       }, 300); 
       confirmPopup.classList.remove('hidden'); 
-
+  
       setTimeout(() => {
         confirmPopup.classList.add('hidden');
       }, 3000);
@@ -167,37 +173,54 @@
 </script>
 
 
-
-
 {% schema %}
   {
     "name": "contact-form",
     "settings": [
       {
         "type": "text",
+        "id": "redirect_google",
+        "label": "Google Maps",
+        "default": "Show on Google maps"
+      },
+      {
+        "type": "url",
+        "id": "redirect_google_url",
+        "label": "Google Maps Url",
+        "default": "Google Maps Url"
+      },
+      {
+        "type": "text",
+        "id": "redirect_calendar",
+        "label": "Google Calendar",
+        "default": "Open Google Calendar"
+      },
+      {
+        "type": "url",
+        "id": "redirect_google_calendar",
+        "label": "Google Calendar Url",
+        "default": "Google Calendar Url"
+      }, {
+        "type": "text",
         "id": "confirm_message",
         "label": "Confirm form message",
         "default": "Request sent"
-      },
-      {
+      }, {
         "type": "text",
         "id": "form_first_name",
         "label": "Form Name",
         "default": "Name"
-      },
-      {
+      }, {
         "type": "text",
         "id": "form_last_name",
         "label": "Last Name",
         "default": "Last Name"
-      },
-      {
+      }, {
         "type": "text",
         "id": "form_email",
         "label": "Email",
         "default": "Email*"
-      },
-      {
+      }, {
         "type": "text",
         "id": "form_content",
         "label": "Message",
@@ -206,7 +229,7 @@
         "type": "textarea",
         "id": "form_privacy",
         "label": "Secondary Info",
-        "default": "Desidero ricevere comunicazioni di marketing su prodotti, servizi ed eventi offerti da CANTIERE DEL PARDO S.p.A. Comprendo che queste comunicazioni potrebbero essere personalizzate in base ai miei interessi, preferenze e utilizzo di prodotti e servizi, inclusi inviti a fornire feedback sull’esperienza del cliente."
+        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience."
       }, {
         "type": "text",
         "id": "form_cta",
@@ -216,5 +239,3 @@
     ]
   }
 {% endschema %}
-
-
