@@ -1,7 +1,7 @@
 <!--product approved features -->
 <div class="product-features-wrapper w-full h-auto flex flex-col items-start justify-center mb-10">
-    <div class="product-features-wrapper-content w-full h-auto flex flex-col items-start justify-center gap-y-2">
-        <div class="product-features-wrapper-content-heading w-full h-auto flex items-center justify-start p-4">
+    <div class="product-features-wrapper-content w-full h-auto flex flex-col items-start justify-center gap-y-6 p-4">
+        <div class="product-features-wrapper-content-heading w-full h-auto flex items-center justify-start">
             <h2 class="body-16-medium">{{ product.title }}</h2>
         </div>
         <div class="product-features-wrapper-content-features w-full h-auto flex items-start justify-center gap-y-2">
@@ -9,7 +9,7 @@
             {% assign productBasics = product.metafields.custom.basics_approved.value %}
             {% if productBasics %}
               {% assign basicFields = "location,year,price,make,model,series,length,fuel_type,hull_material" | split: "," %}
-              <div class="features-container-list w-full h-auto p-4 lg:flex-1">
+              <div class="features-container-list w-full h-auto lg:flex-1">
                 <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
                   {% for basicField in basicFields %}
                     {% assign items_basics = productBasics[basicField] %}
@@ -31,6 +31,52 @@
               </div>
             {% endif %}
         </div>
+        <div class="product-consulent-wrapper w-full h-auto flex flex-col items-start justify-center gap-y-3">
+          <p class="body-16-medium">{{ section.settings.consulent_name }}</p>
+          <a href="tel:{{ section.settings.consulent_phone }}">
+            <p class="body-12">{{ section.settings.consulent_phone }}</p>
+          </a>
+        </div>
+        <div class="product-features-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5 lg:flex-row lg:gap-x-3">
+          <div class="cta-delear lg:flex-1 lg:px-4 lg:py-2">
+            <p class="body-14-medium">{{ section.settings.cta_details}}</p>
+            {% render 'cta-icon' %}
+          </div>
+          <div class="cta-brochure lg:flex-1 lg:px-4 lg:py-2">
+            <p class="body-14-medium">{{ section.settings.cta_preowned }}</p>
+          </div>
+        </div>
     </div>
 </div>
 
+
+{% schema %}
+{
+  "name": "product-approved-features",
+  "settings": [
+    {
+        "type": "text",
+        "id": "consulent_name",
+        "default": "Stefano Rossi",
+        "label": "Consulent Name"
+      }, 
+      {
+        "type": "text",
+        "id": "consulent_phone",
+        "default": "+393489690290",
+        "label": "Consulent Phone"
+      }, 
+    {
+        "type": "text",
+        "id": "cta_details",
+        "default": "See details",
+        "label": "Details Cta Text"
+      }, {
+        "type": "text",
+        "id": "cta_preowned",
+        "default": "See all pre-owned",
+        "label": "Pre-Owned Cta Text"
+      }
+    ]
+}
+{% endschema %}
