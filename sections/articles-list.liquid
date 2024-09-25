@@ -1,5 +1,5 @@
+<!--full article view section-->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center mb-10 relative">
-    <!-- loop on each available article -->
     <div class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
         <!-- arrows box -->
         <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
@@ -10,14 +10,15 @@
                 {% render 'arrow-right-icon' %}
             </button>
         </div>
-
+        <!--assign liquid variables -->
         {% assign allBlogs = "News, Events" | split: "," %}
-        {% assign article_count = 0 %}  <!-- Initialize counter -->
+        {% assign article_count = 0 %}
         {% for handle in allBlogs %}
             {% for article in blogs[handle].articles %}
-                {% if article_count < 10 %}  <!-- Check if less than 10 articles have been rendered -->
+              <!-- Check if less than 10 articles have been rendered -->
+                {% if article_count < 10 %}
                     <div class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px]">
-                        <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+                        <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
                         <a href="{{ article.url }}">
                             <div class="card-article-content w-full h-auto flex flex-col gap-y-3 items-start justify-start p-4">
                                 <p class="body-14">{{ article.title }}</p>
@@ -33,8 +34,6 @@
         {% endfor %}
     </div>
 </div>
-
-
 
 <style>
   .carousel-arrow.disabled {
@@ -53,26 +52,22 @@
     const prevArrow = document.getElementById('prevArrow');
     const nextArrow = document.getElementById('nextArrow');
     const scrollContainer = document.querySelector('.articles-list-container');
-    const images = Array.from(scrollContainer.querySelectorAll('.card-article')); // Selezione corretta
+    const images = Array.from(scrollContainer.querySelectorAll('.card-article'));
 
     if (images.length > 0) {
-      // Usa la larghezza del primo elemento per calcolare lo scroll
+      //handle scroll Amount
       const scrollAmount = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
 
       function updateArrows() {
         const currentScrollLeft = scrollContainer.scrollLeft;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
         prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-
-        
         nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
 
       function scrollContainerBy(amount) {
         const currentScrollLeft = scrollContainer.scrollLeft;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
         let newScrollLeft = currentScrollLeft + amount;
 
         if (newScrollLeft < 0) {
