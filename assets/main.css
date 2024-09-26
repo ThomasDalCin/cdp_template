@@ -1944,6 +1944,10 @@ p, span{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2142,16 +2146,16 @@ p, span{
     top: 0px;
   }
 
+  .lg\:top-\[-32px\] {
+    top: -32px;
+  }
+
   .lg\:top-\[150px\] {
     top: 150px;
   }
 
   .lg\:top-\[16px\] {
     top: 16px;
-  }
-
-  .lg\:top-\[-32px\] {
-    top: -32px;
   }
 
   .lg\:z-10 {
@@ -2210,6 +2214,10 @@ p, span{
     display: none;
   }
 
+  .lg\:h-\[160pxpx\] {
+    height: 160pxpx;
+  }
+
   .lg\:h-\[210px\] {
     height: 210px;
   }
@@ -2254,6 +2262,10 @@ p, span{
     height: 670px;
   }
 
+  .lg\:h-\[878px\] {
+    height: 878px;
+  }
+
   .lg\:h-\[90px\] {
     height: 90px;
   }
@@ -2272,18 +2284,6 @@ p, span{
 
   .lg\:h-full {
     height: 100%;
-  }
-
-  .lg\:h-\[252px\] {
-    height: 252px;
-  }
-
-  .lg\:h-\[878px\] {
-    height: 878px;
-  }
-
-  .lg\:h-\[160pxpx\] {
-    height: 160pxpx;
   }
 
   .lg\:max-h-\[480px\] {
@@ -2324,6 +2324,10 @@ p, span{
 
   .lg\:w-\[170px\] {
     width: 170px;
+  }
+
+  .lg\:w-\[252px\] {
+    width: 252px;
   }
 
   .lg\:w-\[313px\] {
@@ -2368,10 +2372,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[252px\] {
-    width: 252px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2485,6 +2485,10 @@ p, span{
     row-gap: 0.5rem;
   }
 
+  .lg\:gap-y-3 {
+    row-gap: 0.75rem;
+  }
+
   .lg\:gap-y-4 {
     row-gap: 1rem;
   }
@@ -2495,10 +2499,6 @@ p, span{
 
   .lg\:gap-y-6 {
     row-gap: 1.5rem;
-  }
-
-  .lg\:gap-y-3 {
-    row-gap: 0.75rem;
   }
 
   .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
@@ -2513,6 +2513,10 @@ p, span{
 
   .lg\:overflow-x-hidden {
     overflow-x: hidden;
+  }
+
+  .lg\:rounded {
+    border-radius: 0.25rem;
   }
 
   .lg\:rounded-full {
@@ -2533,10 +2537,6 @@ p, span{
 
   .lg\:rounded-xl {
     border-radius: 0.75rem;
-  }
-
-  .lg\:rounded {
-    border-radius: 0.25rem;
   }
 
   .lg\:border-b-\[1px\] {
