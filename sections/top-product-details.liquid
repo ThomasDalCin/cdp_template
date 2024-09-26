@@ -212,9 +212,9 @@
     </div>
 
     <!-- overlay swiper gallery -->
-    <div class="overlay-wrapper absolute z-40 inset-0 h-dvh bg-white hidden">
+    <div class="overlay-wrapper fixed z-40 inset-0 h-dvh bg-white hidden lg:h-auto lg:overflow-y-scroll">
       <div class="overlay-wrapper-content w-full h-full flex flex-col">
-        <div class="overlay-swiper-container w-full flex-1">
+        <div class="overlay-swiper-container w-full flex-1 lg:h-[617px]">
           <div class="swiper mySwiper w-full h-full">
             <div class="swiper-wrapper">
               <!-- render dynamically swiper slides here -->
@@ -229,13 +229,15 @@
               <p class="body-14-medium underline">{{ section.settings.back_text }}</p>
             </a>
           </div>
-          <div class="cta-delear">
-            <p class="body-14-medium">{{ section.settings.cta_delear }}</p>
-            {% render 'cta-icon' %}
-          </div>
-          <div class="cta-brochure">
-            <p class="body-14-medium">{{ section.settings.cta_brochure }}</p>
-            {% render 'download-icon' %}
+          <div class="w-full h-auto flex flex-col gap-y-3 lg:flex-row lg:gap-x-2">
+            <div class="cta-delear">
+              <p class="body-14-medium">{{ section.settings.cta_delear }}</p>
+              {% render 'cta-icon' %}
+            </div>
+            <div class="cta-brochure">
+              <p class="body-14-medium">{{ section.settings.cta_brochure }}</p>
+              {% render 'download-icon' %}
+            </div>
           </div>
         </div>
       </div>

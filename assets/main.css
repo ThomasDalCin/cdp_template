@@ -2290,6 +2290,14 @@ p, span{
     height: 100%;
   }
 
+  .lg\:h-\[717px\] {
+    height: 717px;
+  }
+
+  .lg\:h-\[617px\] {
+    height: 617px;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
@@ -2517,6 +2525,10 @@ p, span{
 
   .lg\:overflow-x-hidden {
     overflow-x: hidden;
+  }
+
+  .lg\:overflow-y-scroll {
+    overflow-y: scroll;
   }
 
   .lg\:rounded {
