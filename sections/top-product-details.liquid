@@ -517,11 +517,15 @@
     function handleOverlaySlider(mainContainer) {
     const allImages = mainContainer.nextElementSibling.querySelectorAll('.container-magnetic-scroll img');
   
-    let mainElement;
-    if (mainContainer.classList.contains('video-container')) {
-        mainElement = mainContainer.querySelector('video');
-    } else {
-        mainElement = mainContainer.firstChild.nextElementSibling;
+    let mainElement = mainContainer.querySelector('video');
+    if (mainElement) {
+        return; // Non fare nulla se è un video
+    }
+  
+    mainElement = mainContainer.firstChild.nextElementSibling;
+  
+    if (mainElement.tagName !== 'IMG') {
+        return; // Se non è un'immagine, non fare nulla
     }
   
     const allImagesToAdd = [mainElement, ...allImages];
@@ -563,34 +567,7 @@
         const swiperSlideContainer = document.createElement('div');
         swiperSlideContainer.classList.add('swiper-slide');
   
-        if (slideImg.tagName === 'VIDEO') {
-            const videoElement = document.createElement('video');
-            videoElement.setAttribute('src', slideImg.querySelector('source') ? slideImg.querySelector('source').getAttribute('src') : '');
-            videoElement.classList.add('object-cover');
-            videoElement.style.width = '100%';
-            videoElement.style.height = '100%';
-            videoElement.setAttribute('controls', 'false');
-            
-            const playButton = document.createElement('div');
-            playButton.classList.add('play-button');
-            playButton.innerHTML = '▶';
-            playButton.style.position = 'absolute';
-            playButton.style.top = '50%';
-            playButton.style.left = '50%';
-            playButton.style.transform = 'translate(-50%, -50%)';
-            playButton.style.fontSize = '50px';
-            playButton.style.color = 'white';
-            playButton.style.cursor = 'pointer';
-  
-            playButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                videoElement.play();
-                playButton.style.display = 'none';
-            });
-  
-            swiperSlideContainer.appendChild(videoElement);
-            swiperSlideContainer.appendChild(playButton);
-        } else if (slideImg.tagName === 'IMG') {
+        if (slideImg.tagName === 'IMG') {
             const swiperSlide = document.createElement('img');
             swiperSlide.setAttribute('src', slideImg.currentSrc);
             slideClasses.forEach((className) => {
