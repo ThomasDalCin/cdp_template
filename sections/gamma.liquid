@@ -28,7 +28,7 @@
           <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.image.alt }}"
             class="w-full max-w-md h-auto object-cover rounded-lg lg:h-[226px]">
         </div>
-        <div class="tab-description">
+        <div class="tab-description lg:h-[100px]">
           <p class="body-12">{{ collection.description }}</p>
         </div>
         {% if collection.products.size > 0 %}

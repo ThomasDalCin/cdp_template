@@ -2331,6 +2331,10 @@ p, span{
     height: 100%;
   }
 
+  .lg\:h-\[100px\] {
+    height: 100px;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
