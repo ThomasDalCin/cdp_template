@@ -31,8 +31,8 @@
       </a>
       <div
         class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
-        {% assign article_date = article.metafields.custom.when.value %}
-        {% assign article_location = article.metafields.custom.location.value %}
+        {% assign article_date = article.metafields.custom.article_date.value %}
+        {% assign article_location = article.metafields.custom.article_location.value %}
         <p class="caption">{{ article_location }}</p>
         <p class="caption">{{ article_date }}</p>
       </div>
