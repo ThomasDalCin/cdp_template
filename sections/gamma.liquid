@@ -36,7 +36,7 @@
           <p class="body-small">Models</p>
           <div class="badge-container flex flex-row items-center justify-start gap-x-2">
             {% for product in collection.products %}
-            <div class="badge-product" data-target="{{ product.title }}">
+            <div class="badge-product cursor-pointer" data-target="{{ product.title }}">
               {{ product.title | replace: 'Pardo', '' }}
             </div>
             {% endfor %}
