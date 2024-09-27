@@ -1031,6 +1031,10 @@ p, span{
   top: 50%;
 }
 
+.top-2 {
+  top: 0.5rem;
+}
+
 .top-\[120px\] {
   top: 120px;
 }
@@ -1864,6 +1868,10 @@ p, span{
   font-weight: 700;
 }
 
+.font-light {
+  font-weight: 300;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -2262,6 +2270,10 @@ p, span{
     height: 549px;
   }
 
+  .lg\:h-\[617px\] {
+    height: 617px;
+  }
+
   .lg\:h-\[670px\] {
     height: 670px;
   }
@@ -2288,14 +2300,6 @@ p, span{
 
   .lg\:h-full {
     height: 100%;
-  }
-
-  .lg\:h-\[717px\] {
-    height: 717px;
-  }
-
-  .lg\:h-\[617px\] {
-    height: 617px;
   }
 
   .lg\:max-h-\[480px\] {

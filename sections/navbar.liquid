@@ -85,7 +85,7 @@
         <div class="relative inline-block">
           {% if allLinksTitle contains link.title %}
           {% if link.title == 'View all ranges' %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] leading-[20px] lg:text-[24px]
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] font-light leading-[20px] lg:text-[24px]
           lg:leading-[24px]" }}
           {% else %}
           {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] lg:text-[40px]
@@ -95,7 +95,7 @@
           {% if matching_collection %}
           {% if product_count.size > 0 %}
           <span
-            class="product-count absolute top-0 -right-2 text-white body-16 px-2 py-1 transform translate-x-1/2 -translate-y-1/2">
+            class="product-count absolute top-2 -right-2 text-white body-16 px-2 py-1 transform translate-x-1/2 -translate-y-1/2">
             {{ product_count }}
           </span>
           {% endif %}
@@ -114,10 +114,10 @@
       {% endfor %}
 
 
-      <div class="container-secondary-link w-full h-auto flex flex-col gap-y-1 lg:gap-y-2 mt-10">
+      <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2 mt-10">
         {% for link in linklists.yatch.links %}
         {% unless allLinksTitle contains link.title %}
-        {{ link.title | link_to: link.url, class: "text-white text-[20px] leading-[20px] lg:text-[20px]
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[20px] leading-[20px] lg:text-[20px]
         lg:leading-[20px] underline" }}
         {% endunless %}
         {% endfor %}
@@ -167,7 +167,7 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
 
-        {{ link.title | link_to: link.url, class: " text-white lg:text-[20px] lg:leading-[20px] underline" }}
+        {{ link.title | link_to: link.url, class: " text-white font-light lg:text-[20px] lg:leading-[20px] underline" }}
         {% endif %}
         {% endfor %}
       </div>
@@ -265,12 +265,22 @@
       }
     }
 
-
-
     //handle scroll event and add style to the Navbar
     window.addEventListener('scroll', updateNavbarStyle);
 
-    menuChip.addEventListener('click', () => {
+
+    menuChip.addEventListener('click', (e) => {
+      const targetEl = navbar;
+      const handleClickOutside = (event) => {
+        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
+          menuYatch.classList.remove('flex');
+          menuYatch.classList.add('hidden');
+          targetEl.classList.remove('toAccent');
+          document.body.classList.remove('no-scroll');
+          chipText.innerHTML = 'Yatch';
+        }
+      };
+
       // Check if the main menu is visible, if yes do nothing
       if (mainMenu.classList.contains('flex')) return;
 
@@ -284,6 +294,7 @@
         chipText.innerHTML = 'Close';
         document.body.classList.add('no-scroll');
         updateNavbarStyle();
+        document.addEventListener('click', handleClickOutside);
       } else if (isSecondMenuOpen) {
         chipText.innerHTML = 'Yachts';
         secondMenu.classList.add('hidden');
@@ -304,16 +315,32 @@
       }
     });
 
+
     updateNavbarStyle();
 
-    menuIcon.addEventListener('click', () => {
-      // Check if the Yatch menu is visible, if yes do nothing
+    menuIcon.addEventListener('click', (e) => {
+      const targetEl = navbar;
+      const handleClickOutside = (event) => {
+        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+          // Nascondi il menu e aggiorna le icone
+          mainMenu.classList.remove('flex');
+          mainMenu.classList.add('hidden');
+          targetEl.classList.remove('toAccent');
+          closeIcon.classList.remove('flex');
+          closeIcon.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          openIcon.classList.add('flex');
+          document.body.classList.remove('no-scroll');
+          document.removeEventListener('click', handleClickOutside);
+        }
+      };
+
+      // Check if the Yacht menu is visible, if yes, do nothing
       if (menuYatch.classList.contains('flex')) return;
 
       const isMenuMainHidden = mainMenu.classList.contains('hidden');
 
       if (isMenuMainHidden) {
-        // Show the menu
         mainMenu.classList.remove('hidden');
         mainMenu.classList.add('flex');
         openIcon.classList.add('hidden');
@@ -321,14 +348,14 @@
         closeIcon.classList.add('flex');
         closeIcon.classList.remove('hidden');
 
-
         closeIcon.classList.add('text-white');
         closeIcon.classList.remove('text-black');
 
         document.body.classList.add('no-scroll');
         updateNavbarStyle();
+
+        document.addEventListener('click', handleClickOutside);
       } else {
-        // Hide the menu
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
         openIcon.classList.add('flex');
@@ -336,14 +363,17 @@
         closeIcon.classList.add('hidden');
         closeIcon.classList.remove('flex');
 
-
         closeIcon.classList.remove('text-white');
         closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
+
+
+        document.removeEventListener('click', handleClickOutside);
       }
     });
+
 
 
     // Handle second menu
