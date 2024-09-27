@@ -72,13 +72,15 @@
       <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_models_menu | upcase }}</p>
       <div class="gamma-product-container flex flex-col gap-y-3">
         {% for collection in collections %}
-          {% for product in collection.products %}
-            {% if product %}
-              <li class="product-list-item body-16 w-full h-auto list-none">
-                <a class="text-white" href="{{ product.url }}">{{ product.title | replace: "Pardo", "" }}</a>
-              </li>
-            {% endif %}
-          {% endfor %}
+          {% unless collection.title == 'Pardo approved' %}
+            {% for product in collection.products %}
+              {% if product %}
+                <li class="product-list-item body-16 w-full h-auto list-none">
+                  <a class="text-white" href="{{ product.url }}">{{ product.title | replace: "Pardo", "" }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endunless %}
         {% endfor %}
       </div>
     </div>
