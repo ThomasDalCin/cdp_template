@@ -1,32 +1,24 @@
 <!-- Blog Tab Section -->
-<div
-    class="tab-blog-filter-section w-full h-auto flex flex-row items-center justify-start mt-[100px] mb-6 lg:justify-end">
-    <div class="tab-blog-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
-        id="events-tab">
-        <p class="body-14 font-medium">{{ section.settings.events_tab }}</p>
-        <div
-            class="tab-events-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out hidden">
-        </div>
-    </div>
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer active lg:flex-none lg:w-[170px]"
-        id="news-tab">
-        <p class="body-14 font-medium">{{ section.settings.news_tab }}</p>
-        <div
-            class="tab-news-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out hidden">
-        </div>
-    </div>
+<div class="tab-blog-filter-section w-full h-auto flex flex-row items-center justify-start mt-[100px] mb-6 lg:justify-end">
+  <div class="tab-blog-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="events-tab">
+    <p class="body-14">{{ section.settings.events_tab }}</p>
+    <div class="tab-events-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out hidden"></div>
+  </div>
+  <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer active lg:flex-none lg:w-[170px]" id="news-tab">
+    <p class="body-14">{{ section.settings.news_tab }}</p>
+    <div class="tab-news-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out hidden"></div>
+  </div>
 </div>
 
-<div class="chips-horizontal-container w-full flex items-center justify-center gap-x-2 overflow-auto p-4 lg:justify-start"
-    id="blog-chips">
-    {% if blogs['news'] %}
+<div class="chips-horizontal-container w-full flex items-center justify-center gap-x-2 overflow-auto p-4 lg:justify-start" id="blog-chips">
+  {% if blogs['news'] %}
     {% assign all_tags = '' %}
     {% for article in blogs['news'].articles %}
-    {% for tag in article.tags %}
-    {% unless all_tags contains tag %}
-    {% assign all_tags = all_tags | append: tag | append: ',' %}
-    {% endunless %}
-    {% endfor %}
+      {% for tag in article.tags %}
+        {% unless all_tags contains tag %}
+          {% assign all_tags = all_tags | append: tag | append: ',' %}
+        {% endunless %}
+      {% endfor %}
     {% endfor %}
     {% assign tags_array = all_tags | split: ',' %}
     {% assign tags_array = tags_array | sort %}
@@ -34,20 +26,18 @@
 
     <!-- Dynamic Tags -->
     {% for tag in tags_array %}
-    {% if tag != '' %}
-    <div class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %} cursor-pointer lg:flex-none"
-        data-tag="{{ tag }}">
-        <div class="chips-text text-nowrap body-14 flex flex-row gap-x-2">
+      {% if tag != '' %}
+        <div class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %} cursor-pointer lg:flex-none" data-tag="{{ tag }}">
+          <div class="chips-text text-nowrap body-14 flex flex-row gap-x-2">
             <p class="body-14">{{ tag }}</p>
+          </div>
         </div>
-    </div>
-    {% endif %}
+      {% endif %}
     {% endfor %}
-    {% else %}
+  {% else %}
     <p>No articles found in the 'news' blog.</p>
-    {% endif %}
+  {% endif %}
 </div>
-
 
 
 <script>
@@ -59,58 +49,58 @@
         const newsContent = document.querySelector('.blog-news-container');
         const newsRect = document.querySelector('.tab-news-rect');
         const eventsRect = document.querySelector('.tab-events-rect');
-
+  
         const eventsTabText = eventsTab.firstElementChild;
-        const newsTabText = eventsTab.firstElementChild;
-
+        const newsTabText = newsTab.firstElementChild;
+  
         newsRect.classList.add('flex');
-        newsTabText.classList.remove('font-medium');
-        newsTabText.classList.add('font-light');
+        newsTabText.classList.add('font-medium');
+        eventsTabText.classList.add('font-light');
         newsRect.classList.remove('hidden');
-
+  
         eventsTab.addEventListener('click', function () {
             blogChips.classList.add('hidden');
             eventsRect.classList.add('flex');
             eventsRect.classList.remove('hidden');
             newsRect.classList.remove('flex');
             newsRect.classList.add('hidden');
-
+  
             eventsTabText.classList.add('font-medium');
             eventsTabText.classList.remove('font-light');
-
+  
             newsTabText.classList.remove('font-medium');
             newsTabText.classList.add('font-light');
-
-
-
+  
+  
+  
             eventsContent.forEach((event) => {
                 event.classList.add('flex');
                 event.classList.remove('hidden');
             })
-
+  
             newsContent.classList.add('hidden');
             newsContent.classList.remove('flex');
         });
-
+  
         newsTab.addEventListener('click', function () {
             blogChips.classList.remove('hidden');
             eventsRect.classList.add('hidden');
             newsRect.classList.remove('hidden');
-
-
-
-            
+  
+  
+  
+  
             eventsTabText.classList.remove('font-medium');
             eventsTabText.classList.add('font-light');
-
+  
             newsTabText.classList.add('font-medium');
             newsTabText.classList.remove('font-light');
-
+  
             eventsContent.forEach((event) => {
                 event.classList.remove('flex');
                 event.classList.add('hidden');
             })
-
+  
             newsContent.classList.remove('hidden');
             newsContent.classList.add('flex');
         });
@@ -118,21 +108,20 @@
 </script>
 
 {% schema %}
-{
+  {
     "name": "blog-tab",
     "settings": [
-        {
-            "type": "text",
-            "id": "news_tab",
-            "default": "News",
-            "label": "News Tab"
-        },
-        {
-            "type": "text",
-            "id": "events_tab",
-            "default": "Events",
-            "label": "Events Tab"
-        }
-        ]
-}
+      {
+        "type": "text",
+        "id": "news_tab",
+        "default": "News",
+        "label": "News Tab"
+      }, {
+        "type": "text",
+        "id": "events_tab",
+        "default": "Events",
+        "label": "Events Tab"
+      }
+    ]
+  }
 {% endschema %}
