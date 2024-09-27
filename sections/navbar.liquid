@@ -25,47 +25,57 @@
     </div>
   </div>
 
-  <!-- Secon level Menu Container -->
-  <div
-    class="second-level-menu-container w-full h-screen flex flex-col bg-[var(--primary-background-color)] absolute left-0 right-0 p-4 z-30 hidden">
-    <div class="back-nav-container flex items-center justify-start py-4">
-      {% render 'back-arrow-icon' %}
-    </div>
-
-    <div class="chips-horizontal-container w-full flex gap-x-2 overflow-auto py-4">
-      {% for collection in collections %}
-      {% unless collection.title == 'Pardo approved' %}
-      <div class="chips-label flex items-center space-x-2">
-        <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
-        {% render 'arrow-down-icon' %}
-      </div>
-      {% endunless %}
-      {% endfor %}
-      <div class="chips-label flex items-center space-x-2">
-        <div class="chips-text text-nowrap body-14" id="collection-chips-title">View All</div>
-        {% render 'arrow-down-icon' %}
-      </div>
-    </div>
-
+  <!-- Second level Menu Container -->
+  <div class="w-full h-auto relative">
     <div
-      class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)]">
-      {% for collection in collections %}
-      {% for product in collection.products %}
-      {% assign productMainImg = product.images[0] %}
-      <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
-        <li class="container-product-main-image w-full h-auto list-none"
-          data-product-collection="{{ collection.title }}">
-          <a href="{{ product.url }}" class="w-full h-auto">
-            <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
-              alt="{{ product.title }}">
-          </a>
-        </li>
-        <p class="header-1-medium">{{ product.title | replace: "Pardo", "" }}</p>
+      class="second-level-menu-container w-full h-screen flex flex-col bg-[var(--primary-background-color)] fixed left-0 right-0 p-4 z-30 hidden">
+
+      <div class="back-nav-container flex items-center justify-start py-4">
+        {% render 'back-arrow-icon' %}
       </div>
-      {% endfor %}
-      {% endfor %}
+
+      <div class="chips-horizontal-container w-full flex gap-x-2 overflow-auto py-4">
+        {% assign collectionSorted = collections | sort : 'title' | reverse %}
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+        <div class="chips-label flex items-center space-x-2">
+          <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
+          {% render 'arrow-down-icon' %}
+        </div>
+        {% endunless %}
+        {% endfor %}
+      </div>
+
+      <div
+        class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)] pb-[80px]">
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign productMainImg = product.images[0] %}
+        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
+          <li class="container-product-main-image w-full h-auto list-none"
+            data-product-collection="{{ collection.title }}">
+            <a href="{{ product.url }}" class="w-full h-auto">
+              <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
+                alt="{{ product.title }}">
+            </a>
+          </li>
+          <p class="header-1-medium">{{ product.title | replace: "Pardo", "" }}</p>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- Fixed "View all ranges" label at the bottom -->
+      <div class="w-full h-auto fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
+        <div class="w-full h-auto flex flex-row justify-between">
+          <div class="chips-text text-nowrap body-14" id="collection-chips-title">View all ranges</div>
+          {% render 'cta-icon' %}
+        </div>
+      </div>
+
     </div>
   </div>
+
 
   <!-- Yatch Menu Container -->
   <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10 relative">
@@ -152,7 +162,7 @@
   </div>
 
 
-  <!-- Mainn Menu Container -->
+  <!-- Main Menu Container -->
   <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
       {% for link in linklists.main-menu.links %}
@@ -184,11 +194,6 @@
 
 
 </div>
-
-
-
-
-
 
 
 <script>
@@ -540,12 +545,16 @@
             const chipClicked = e.currentTarget;
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active')
+              el.nextElementSibling.classList.remove('-rotate-45')
             })
-            chipClicked.parentElement.classList.add('chips-label-active');
+            if (chipCol.innerHTML != "View all ranges") {
+              chipClicked.parentElement.classList.add('chips-label-active');
+              chipClicked.nextElementSibling.classList.add('-rotate-45');
+            }
             productCols.forEach((product) => {
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
-              } else if (chipClicked.innerText === 'View All') {
+              } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') != 'Pardo approved')) {
                 product.parentElement.classList.remove('hidden');
               } else {
                 product.parentElement.classList.add('hidden');
@@ -556,6 +565,7 @@
           //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
+            chipCol.nextElementSibling.classList.add('-rotate-45')
             productCols.forEach((product) => {
               const productCollection = product.getAttribute('data-product-collection');
               if (chipCol.innerText.trim() === productCollection) {
