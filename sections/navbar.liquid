@@ -46,6 +46,17 @@
         {% endfor %}
       </div>
 
+      <div class="collection-description w-full h-auto flex items-start justify-center">
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+        <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden"
+          data-collection-description="{{ collection.title }}">
+          <p class="body-12">{{ collection.description }}</p>
+        </div>
+        {% endunless %}
+        {% endfor %}
+      </div>
+
       <div
         class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)] pb-[80px]">
         {% for collection in collections %}
@@ -403,7 +414,7 @@
             navbar.classList.add('toBlack');
             menuIcon.classList.add('toBlack');
             menuChip.classList.add('toBlack');
-            logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-black.png?v=1724339311';
+            logo.classList.add('toBlack')
           });
         }
         else {
@@ -518,13 +529,14 @@
       navbar.classList.remove('toBlack');
       menuIcon.classList.remove('toBlack');
       menuChip.classList.remove('toBlack');
-      logo.src = 'https://cdn.shopify.com/s/files/1/0841/6572/2445/files/pardo-logo-white.png?v=1724337625';
+      logo.classList.remove('toBlack');
     });
 
 
     //handle product items displayed on second level menu
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
+    const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
 
     //set click event for each link inside the second menu
@@ -536,6 +548,17 @@
         productCols.forEach((product) => {
           product.parentElement.classList.add('hidden');
         });
+
+        allCollectionDescription.forEach((item) => {
+          if (linkTarget == (item.getAttribute('data-collection-description'))) {
+            item.classList.add('block');
+            item.classList.remove('hidden')
+          } else {
+            item.classList.add('hidden');
+            item.classList.remove('block')
+          }
+        })
+
         //get foreach chips element his parent and prevent active class
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
@@ -546,7 +569,18 @@
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active')
               el.nextElementSibling.classList.remove('-rotate-45')
-            })
+            });
+
+            allCollectionDescription.forEach((el) => {
+              if (chipCol.innerHTML == (el.getAttribute('data-collection-description'))) {
+                el.classList.add('block');
+                el.classList.remove('hidden');
+              } else {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+              }
+            });
+
             if (chipCol.innerHTML != "View all ranges") {
               chipClicked.parentElement.classList.add('chips-label-active');
               chipClicked.nextElementSibling.classList.add('-rotate-45');
