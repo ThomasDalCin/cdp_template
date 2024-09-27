@@ -276,6 +276,10 @@
           menuYatch.classList.remove('flex');
           menuYatch.classList.add('hidden');
           targetEl.classList.remove('toAccent');
+          targetEl.classList.add('toBlack');
+          menuIcon.classList.add('toBlack');
+          menuChip.classList.add('toBlack');
+          logo.classList.add('toBlack');
           document.body.classList.remove('no-scroll');
           chipText.innerHTML = 'Yatch';
         }
@@ -330,6 +334,10 @@
           closeIcon.classList.add('hidden');
           openIcon.classList.remove('hidden');
           openIcon.classList.add('flex');
+          targetEl.classList.add('toBlack');
+          menuIcon.classList.add('toBlack');
+          menuChip.classList.add('toBlack');
+          logo.classList.add('toBlack');
           document.body.classList.remove('no-scroll');
           document.removeEventListener('click', handleClickOutside);
         }
