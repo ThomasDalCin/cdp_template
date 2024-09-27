@@ -1,4 +1,3 @@
-<!--blog articles news layout -->
 <div class="blog-news-container w-full h-auto flex flex-col">
     <div id="news-layout" class="blogs-list-container w-full h-auto flex flex-col gap-y-10 p-4">
         {% if blogs['news'] %}
@@ -61,7 +60,6 @@
                     </div>
                 </div>
             </div>
-    
             {% if index == 3 %}
                 </div>
             </div>
@@ -97,7 +95,6 @@
                     </div>
                 </div>
             </div>
-    
             {% if forloop.last %}
                 </div>
             </div>
@@ -110,7 +107,6 @@
         {% endif %}
     </div>
     
-
     <!-- Layout for Press Room (Hidden by default) -->
     <div id="pressroom-layout" class="blogs-list-container press-room hidden w-full h-auto flex flex-col gap-y-3">
         <!-- Press Room articles loop -->
@@ -141,7 +137,6 @@
                 </div>
             </div>
         </div>
-
         {% endif %}
         {% endfor %}
     </div>
@@ -169,7 +164,6 @@
         {% endif %}
         {% endfor %}
     </div>
-
 </div>
 
 <script>

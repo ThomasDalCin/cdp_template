@@ -1893,6 +1893,10 @@ p, span{
   font-weight: 600;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
