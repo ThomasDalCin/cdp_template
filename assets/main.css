@@ -1699,6 +1699,10 @@ p, span{
   border-width: 2px;
 }
 
+.border-\[1\.5px\] {
+  border-width: 1.5px;
+}
+
 .border-none {
   border-style: none;
 }
@@ -1969,6 +1973,18 @@ p, span{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline-1 {
+  outline-width: 1px;
+}
+
+.outline-\[0\.5px\] {
+  outline-width: 0.5px;
+}
+
+.outline-white {
+  outline-color: #fff;
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -2111,6 +2127,11 @@ p, span{
 .checked\:bg-blue-500:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.checked\:bg-white:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:border:hover {
