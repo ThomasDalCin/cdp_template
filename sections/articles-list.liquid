@@ -17,32 +17,32 @@
     {% assign allBlogs = "News, Events" | split: "," %}
     {% assign article_count = 0 %}
     {% for handle in allBlogs %}
-    {% for article in blogs[handle].articles %}
-    <!-- Check if less than 10 articles have been rendered -->
-    {% if article_count < 10 %} <div
-      class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px] relative">
-      <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}"
-        class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
-      <a href="{{ article.url }}">
-        <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
-          <p class="body-14-medium">{{ article.title |  capitalize }}</p>
-          <p class="body-12">{{ article.content | truncate: 50 |  capitalize }}</p>
-        </div>
-      </a>
-      <div
-        class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
-        {% assign article_date = article.metafields.custom.article_date.value %}
-        {% assign article_location = article.metafields.custom.article_location.value %}
-        <p class="caption">{{ article_location }}</p>
-        <p class="caption">{{ article_date }}</p>
-      </div>
-  </div>
-  {% assign article_count = article_count | plus: 1 %}
-  {% else %}
-  {% break %}
-  {% endif %}
-  {% endfor %}
-  {% endfor %}
+      {% for article in blogs[handle].articles %}
+        <!-- Check if less than 10 articles have been rendered -->
+        {% if article_count < 10 %}
+          <div class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px] relative">
+            <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+            <a href="{{ article.url }}">
+              <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+                <p class="body-14-medium">{{ article.title | capitalize }}</p>
+                <p class="body-12">{{ article.content | truncate: 50 | capitalize }}</p>
+              </div>
+            </a>
+            {% if handle == 'Events' %}
+              <div class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
+                {% assign article_date = article.metafields.custom.article_date.value %}
+                {% assign article_location = article.metafields.custom.article_location.value %}
+                <p class="caption">{{ article_location }}</p>
+                <p class="caption">{{ article_date }}</p>
+              </div>
+            {% endif %}
+          </div>
+          {% assign article_count = article_count | plus: 1 %}
+        {% else %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}    
 </div>
 </div>
 
