@@ -1,54 +1,65 @@
 <!--full article view section-->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center mb-10 relative">
-    <div class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
-        <!-- arrows box -->
-        <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
-            <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-                {% render 'arrow-left-icon' %}
-            </button>
-            <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-                {% render 'arrow-right-icon' %}
-            </button>
-        </div>
-        <!--assign liquid variables -->
-        {% assign allBlogs = "News, Events" | split: "," %}
-        {% assign article_count = 0 %}
-        {% for handle in allBlogs %}
-            {% for article in blogs[handle].articles %}
-              <!-- Check if less than 10 articles have been rendered -->
-                {% if article_count < 10 %}
-                    <div class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px]">
-                        <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
-                        <a href="{{ article.url }}">
-                            <div class="card-article-content w-full h-auto flex flex-col gap-y-3 items-start justify-start p-4">
-                                <p class="body-14">{{ article.title }}</p>
-                                <p class="bdy-12">{{ article.content | truncate: 50 }}</p>
-                            </div>
-                        </a>
-                    </div>
-                    {% assign article_count = article_count | plus: 1 %} 
-                {% else %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+  <div
+    class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
+    <!-- arrows box -->
+    <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
+      <button id="prevArrow"
+        class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+        {% render 'arrow-left-icon' %}
+      </button>
+      <button id="nextArrow"
+        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+        {% render 'arrow-right-icon' %}
+      </button>
     </div>
+    <!--assign liquid variables -->
+    {% assign allBlogs = "News, Events" | split: "," %}
+    {% assign article_count = 0 %}
+    {% for handle in allBlogs %}
+    {% for article in blogs[handle].articles %}
+    <!-- Check if less than 10 articles have been rendered -->
+    {% if article_count < 10 %} <div
+      class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px] relative">
+      <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}"
+        class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+      <a href="{{ article.url }}">
+        <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+          <p class="body-14-medium">{{ article.title |  capitalize }}</p>
+          <p class="body-12">{{ article.content | truncate: 50 }}</p>
+        </div>
+      </a>
+      <div
+        class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
+        {% assign article_date = article.metafields.custom.when.value %}
+        {% assign article_location = article.metafields.custom.location.value %}
+        <p class="caption">{{ article_location }}</p>
+        <p class="caption">{{ article_date }}</p>
+      </div>
+  </div>
+  {% assign article_count = article_count | plus: 1 %}
+  {% else %}
+  {% break %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</div>
 </div>
 
 <style>
   .carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none; 
-}
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto; 
-}
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const prevArrow = document.getElementById('prevArrow');
     const nextArrow = document.getElementById('nextArrow');
     const scrollContainer = document.querySelector('.articles-list-container');
@@ -85,11 +96,11 @@
       }
 
       if (prevArrow && nextArrow && scrollContainer) {
-        prevArrow.addEventListener('click', function() {
+        prevArrow.addEventListener('click', function () {
           scrollContainerBy(-scrollAmount);
         });
 
-        nextArrow.addEventListener('click', function() {
+        nextArrow.addEventListener('click', function () {
           scrollContainerBy(scrollAmount);
         });
 
@@ -99,4 +110,3 @@
     }
   });
 </script>
-
