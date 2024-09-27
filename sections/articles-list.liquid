@@ -26,7 +26,7 @@
       <a href="{{ article.url }}">
         <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
           <p class="body-14-medium">{{ article.title |  capitalize }}</p>
-          <p class="body-12">{{ article.content | truncate: 50 }}</p>
+          <p class="body-12">{{ article.content | truncate: 50 |  capitalize }}</p>
         </div>
       </a>
       <div
