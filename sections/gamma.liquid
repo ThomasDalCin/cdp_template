@@ -41,7 +41,7 @@
             </div>
             {% endfor %}
           </div>
-          <div class="magnetic-scroll w-full h-auto flex flex-row overflow-x-auto space-x-2 px-[51px]">
+          <div class="magnetic-scroll w-full h-auto flex flex-row overflow-x-auto space-x-2 px-10">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
@@ -142,7 +142,7 @@
         activeImages.forEach((image) => {
           if (image.id === target) {
             let targetImage = image;
-            const paddingLeft = 51; // Padding left to account for
+            const paddingLeft = 40; // Padding left to account for
             const containerWidth = activeMagneticScroll.offsetWidth; // Width of the scroll container
             const imageWidth = targetImage.offsetWidth; // Width of the target image
 
