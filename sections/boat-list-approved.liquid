@@ -24,9 +24,9 @@
                   <p class="body-12">{{ product.description }}</p>
                 </div>
               </div>
-              <div class="product-info-container w-full h-auto flex flex-row items-start justify-between p-4 bg-[var(--primary-background-color)] rounded-lg lg:justify-start">
-                <p>&bull; <span class="caption">Year: {{ product.metafields.custom.year.value }}</span></p>
-                <p>&bull; <span class="caption">Series: {{ product.metafields.custom.series.value }}</span></p>
+              <div class="product-info-container w-full h-auto flex flex-row items-start justify-between p-4 bg-[var(--primary-background-color)] rounded-lg lg:justify-start lg:flex-row gap-x-4">
+                <p class="lg:w-[147px]">&bull; <span class="caption">Year: {{ product.metafields.custom.year.value }}</span></p>
+                <p class="lg:w-[147px]">&bull; <span class="caption">Series: {{ product.metafields.custom.series.value }}</span></p>
               </div>              
               <div class="blog-item-cta w-full h-auto flex items-center justify-start">
                 <div class="cta-download flex items-center gap-x-2">
