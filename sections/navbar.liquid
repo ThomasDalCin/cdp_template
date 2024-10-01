@@ -213,6 +213,7 @@
 
     // Modifica: controlla se è esattamente la homepage
     const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
+    const isNewsArticle = currentPage.startsWith('/blogs/news/');
     // Navbar elements
     const navbar = document.querySelector('.navbar');
     const menuIcon = document.querySelector('.menu-icon');
@@ -284,6 +285,11 @@
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
+      } else if (isNewsArticle){
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white')
       } else {
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.add('toBlack');
