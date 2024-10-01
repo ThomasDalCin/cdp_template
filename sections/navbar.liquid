@@ -249,60 +249,59 @@
   `;
     document.head.appendChild(styleElement);
 
-    function updateNavbarStyle() {
+    document.addEventListener('DOMContentLoaded', () => {
+  const currentPage = window.location.pathname;
+
+  // Controlla se è esattamente la homepage
+  const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
+  const isNewsArticle = currentPage.startsWith('/blogs/news/');
+
+  function updateNavbarStyle() {
     const isMenuYatchVisible = menuYatch.classList.contains('flex');
     const isMenuMainVisible = mainMenu.classList.contains('flex');
     const hasScrolled = window.scrollY > 0;
 
     // Rimuove e aggiunge le classi in base alla logica definita
     if (isMenuYatchVisible || isMenuMainVisible) {
-      setNavbarStyles('accent');
+      setNavbarStyles('toAccent', true);
       hideBoatImages();
     } else if (hasScrolled && !isNotHomepage) {
-      setNavbarStyles('black');
+      setNavbarStyles('toBlack', true);
     } else if (hasScrolled) {
-      setNavbarStyles('black');
+      setNavbarStyles('toBlack', true);
     } else if (!isNotHomepage && !hasScrolled) {
-      setNavbarStyles('white');
+      setNavbarStyles('default', false);
     } else if (isNewsArticle && !hasScrolled) {
-      setNavbarStyles('transparent');
+      setNavbarStyles('transparent', false);
     } else {
-      setNavbarStyles('transparent');
+      setNavbarStyles('transparent', false);
     }
   }
 
-  function setNavbarStyles(style) {
-    switch (style) {
-      case 'accent':
-        navbar.classList.add('toAccent');
-        navbar.classList.remove('toBlack');
-        logo.classList.remove('toBlack');
-        logo.classList.add('text-white');
-        break;
-
-      case 'black':
-        navbar.classList.add('toBlack');
-        navbar.classList.remove('toAccent');
-        menuIcon.classList.add('toBlack');
-        menuChip.classList.add('toBlack');
-        logo.classList.add('toBlack');
-        logo.classList.remove('text-white');
-        break;
-
-      case 'white':
-        navbar.classList.remove('toBlack', 'toAccent');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.classList.remove('toBlack');
-        logo.classList.add('text-white');
-        break;
-
-      case 'transparent':
-        navbar.classList.remove('toBlack', 'toAccent');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.classList.remove('toBlack');
-        break;
+  function setNavbarStyles(style, isScrolling) {
+    if (style === 'toAccent') {
+      navbar.classList.add('toAccent');
+      navbar.classList.remove('toBlack');
+      logo.classList.remove('toBlack');
+      logo.classList.add('text-white');
+    } else if (style === 'toBlack') {
+      navbar.classList.add('toBlack');
+      navbar.classList.remove('toAccent');
+      menuIcon.classList.add('toBlack');
+      menuChip.classList.add('toBlack');
+      logo.classList.add('toBlack');
+      logo.classList.remove('text-white');
+    } else if (style === 'default') {
+      navbar.classList.remove('toBlack', 'toAccent');
+      menuIcon.classList.remove('toBlack');
+      menuChip.classList.remove('toBlack');
+      logo.classList.remove('toBlack');
+      logo.classList.add('text-white');
+    } else if (style === 'transparent') {
+      navbar.classList.remove('toBlack', 'toAccent');
+      menuIcon.classList.remove('toBlack');
+      menuChip.classList.remove('toBlack');
+      logo.classList.remove('toBlack');
     }
   }
 
@@ -316,16 +315,15 @@
   // Gestisci l'evento di scroll
   window.addEventListener('scroll', updateNavbarStyle);
 
-  // Menu Chip Click Handler
+  // Gestione del click del menu Yatch
   menuChip.addEventListener('click', handleMenuYatchToggle);
 
-  // Icon Click Handler
+  // Gestione del click sull'icona del menu
   menuIcon.addEventListener('click', handleMainMenuToggle);
 
   function handleMenuYatchToggle() {
     const isMenuYatchHidden = menuYatch.classList.contains('hidden');
 
-    // Mostra o nascondi il menu
     if (isMenuYatchHidden) {
       menuYatch.classList.remove('hidden');
       menuYatch.classList.add('flex');
@@ -389,6 +387,7 @@
   // Inizializza lo stile della navbar
   updateNavbarStyle();
 });
+
 
     // Handle second menu
     function handleSecondMenuLevel() {
