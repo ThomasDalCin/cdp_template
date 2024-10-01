@@ -3,13 +3,13 @@
   <div class="article-top-view-image w-full h-auto relative">
     <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto"
       src="{{ article.image |  img_url: 'master'}}" alt="{{ article.image.alt }}">
-    <div
+    <a href="javascript:history.back()">
+      <div
       class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
       {% render 'back-arrow-icon' %}
-      <a href="javascript:history.back()">
-        <p class="body-14-medium ml-2">{{ section.settings.article_cta }}</p>
-      </a>
+      <p class="body-14-medium ml-2">{{ section.settings.article_cta }}</p>
     </div>
+    </a>
   </div>
   <div class="article-top-view-content w-full h-auto flex flex-col gap-y-2 items-start justify-center p-4 mb-10 lg:px-20">
     <p class="body-16-medium">{{ article.title |  capitalize }}</p>
