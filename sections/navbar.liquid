@@ -38,7 +38,7 @@
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
-        <div class="chips-label flex items-center space-x-2 min-[40px]:">
+        <div class="chips-label flex items-center space-x-2 min-h-[40px]:">
           <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
           {% render 'arrow-down-icon' %}
         </div>
