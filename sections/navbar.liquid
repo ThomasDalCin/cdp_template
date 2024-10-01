@@ -252,10 +252,10 @@
     document.head.appendChild(styleElement);
 
     //handle scroll event and add style to the Navbar
-    window.addEventListener('scroll', updateNavbarStyle);
-    updateNavbarStyle();
+    /*window.addEventListener('scroll', updateNavbarStyle);
+    updateNavbarStyle();*/
 
-    /*function updateNavbarStyle(nav, menu) {
+    function updateNavbarStyle(nav, menu) {
       const isOpen = menu.classList.contains('flex');
 
       if(isOpen){
@@ -290,9 +290,9 @@
         nextElement = nextElement.nextElementSibling;
       }
       return null; 
-    }*/
+    }
 
-    
+    /*
     function updateNavbarStyle() {
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
@@ -341,7 +341,7 @@
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
       }
-    }
+    }*/
 
 
     //handle second menu layut base on device size
@@ -513,7 +513,7 @@
       }
     }
 
-    
+    /*
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -586,10 +586,10 @@
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
       }
-    });
+    });*/
 
 
-    
+     /*
      menuIcon.addEventListener('click', (e) => {
        const targetEl = navbar;
        const handleClickOutside = (event) => {
@@ -666,7 +666,7 @@
  
          document.removeEventListener('click', handleClickOutside);
        }
-     });
+     });*/
 
 
 
