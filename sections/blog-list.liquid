@@ -174,7 +174,7 @@
         const awardsLayout = document.getElementById('awards-layout');
         const chipText = document.querySelectorAll('chip-text');
         chipText.forEach((el)=> {
-           const icon = el.firstElementChild('chip-text-content').nextElementSibling;
+           const icon = el.firstElementChild.nextElementSibling;
            console.log(icon)
            icon.classList.add('-rotate-45');
         })
