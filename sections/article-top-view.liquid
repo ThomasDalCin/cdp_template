@@ -1,11 +1,10 @@
 <!-- article section content -->
 <div class="article-top-view w-full h-auto flex flex-col gap-y-4">
   <div class="article-top-view-image w-full h-auto relative">
-    <img
-      class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto"
-      src="{{ article.image |  img_url: 'master'}}"
-      alt="{{ article.image.alt }}">
-    <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
+    <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto"
+      src="{{ article.image |  img_url: 'master'}}" alt="{{ article.image.alt }}">
+    <div
+      class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
       {% render 'back-arrow-icon' %}
       <a href="javascript:history.back()">
         <p class="body-14-medium ml-2">{{ section.settings.article_cta }}</p>
@@ -19,17 +18,17 @@
 </div>
 
 {% schema %}
-  {
-    "name": "article-content",
-    "settings": [
-      {
-        "type": "text",
-        "id": "article_cta",
-        "default": "Back",
-        "label": "Article Cta"
-      }
-    ]
-  }
+{
+"name": "article-content",
+"settings": [
+{
+"type": "text",
+"id": "article_cta",
+"default": "Back",
+"label": "Article Cta"
+}
+]
+}
 {% endschema %}
 
 <script>
@@ -42,7 +41,6 @@
       if (scrollY > 0) {
         navbar.classList.add('toBlack');
       } else {
-        // Rimuovi la classe quando scrollY è 0
         navbar.classList.remove('toBlack');
       }
     }
@@ -51,12 +49,10 @@
       changeNav();
     });
 
-    // Forza la rimozione della classe con un intervallo
     setInterval(() => {
       if (window.scrollY === 0) {
         navbar.classList.remove('toBlack');
       }
-    }, 50); // Ogni 100ms rimuovi la classe se scrollY è 0
+    }, 50);
   });
 </script>
-
