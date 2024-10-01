@@ -209,6 +209,10 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname;
+
+    // Modifica: controlla se è esattamente la homepage
+    const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
     // Navbar elements
     const navbar = document.querySelector('.navbar');
     const menuIcon = document.querySelector('.menu-icon');
@@ -248,10 +252,6 @@
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
       const hasScrolled = window.scrollY > 0;
-      const currentPage = window.location.pathname;
-
-      // Modifica: controlla se è esattamente la homepage
-      const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
 
       if (isMenuYatchVisible || isMenuMainVisible) {
         navbar.classList.add('toAccent');
@@ -272,13 +272,13 @@
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
-      } else if(hasScrolled){
+      } else if (hasScrolled) {
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
-      } else if(!isNotHomepage && !hasScrolled){
+      } else if (!isNotHomepage && !hasScrolled) {
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
