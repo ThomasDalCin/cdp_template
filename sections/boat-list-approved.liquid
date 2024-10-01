@@ -25,8 +25,8 @@
                 </div>
               </div>
               <div class="product-info-container w-full h-auto flex flex-row items-start justify-between p-4 bg-[var(--primary-background-color)] rounded-lg">
-                <p class="caption font-semibold">{{ &bull; |  concat: "" |  concat: product.metafields.custom.year.value  }}</p>
-                <p class="caption font-semibold">&bull; Series: {{ product.metafields.custom.series.value }}</p>
+                <p class="caption font-semibold">{{ '&bull;' | concat: " " | concat: product.metafields.custom.year.value }}</p>
+                <p class="caption font-semibold">{{ '&bull;' | concat: " " | concat: product.metafields.custom.series.value }}</p>
               </div>
               <div class="blog-item-cta w-full h-auto flex items-center justify-start">
                 <div class="cta-download flex items-center gap-x-2">
