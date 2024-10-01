@@ -244,55 +244,69 @@
   `;
     document.head.appendChild(styleElement);
 
-   // Assicurati che il documento sia caricato
-document.addEventListener('DOMContentLoaded', () => {
-  // Inizializza la navbar come trasparente
+    document.addEventListener('DOMContentLoaded', () => {
+  // Inizializza la navbar
   const navbar = document.querySelector('.navbar');
   navbar.classList.remove('toBlack'); // Assicurati che toBlack non sia presente
+  navbar.classList.add('transparent'); // Aggiungi classe per sfondo trasparente
 
-  // Chiama la funzione per impostare lo stile iniziale
-  updateNavbarStyle();
-
+  // Funzione per aggiornare lo stile della navbar
   function updateNavbarStyle() {
     const isMenuYatchVisible = menuYatch.classList.contains('flex');
     const isMenuMainVisible = mainMenu.classList.contains('flex');
     const hasScrolled = window.scrollY > 0;
     const currentPage = window.location.pathname;
 
-    // Controllo per la homepage
-    const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
+    // Controlla se sei sulla homepage
+    const isHomepage = currentPage === '/';
 
-    if (isMenuYatchVisible || isMenuMainVisible) {
-      navbar.classList.add('toAccent');
+    // Modifica i colori della navbar in base alla homepage
+    if (isHomepage) {
+      // Homepage: elementi bianchi
       navbar.classList.remove('toBlack');
       menuIcon.classList.remove('toBlack');
       menuChip.classList.remove('toBlack');
       logo.classList.remove('toBlack');
       logo.classList.add('text-white');
-
-      const boatImages = document.querySelectorAll('.boat-image');
-      boatImages.forEach(boatImage => {
-        boatImage.style.display = 'none';
-      });
-
-    } else if (hasScrolled || isNotHomepage) {
-      navbar.classList.add('toBlack'); // Navbar diventa nera quando si scorre
-      menuIcon.classList.add('toBlack');
-      menuChip.classList.add('toBlack');
-      logo.classList.add('toBlack');
-      logo.classList.remove('text-white');
     } else {
-      navbar.classList.remove('toBlack', 'toAccent');
-      menuIcon.classList.remove('toBlack');
-      menuChip.classList.remove('toBlack');
-      logo.classList.remove('toBlack');
-      logo.classList.add('text-white');
+      // Non homepage: elementi neri
+      if (isMenuYatchVisible || isMenuMainVisible) {
+        navbar.classList.add('toAccent');
+        navbar.classList.remove('toBlack');
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
+
+        const boatImages = document.querySelectorAll('.boat-image');
+        boatImages.forEach(boatImage => {
+          boatImage.style.display = 'none';
+        });
+      } else if (hasScrolled) {
+        // Navbar diventa nera quando si scorre
+        navbar.classList.add('toBlack');
+        menuIcon.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white');
+      } else {
+        // Imposta lo stato iniziale senza scorrimento
+        navbar.classList.remove('toBlack', 'toAccent');
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
+      }
     }
   }
 
   // Gestisci l'evento di scroll
   window.addEventListener('scroll', updateNavbarStyle);
 
+  // Inizializza lo stile della navbar al caricamento
+  updateNavbarStyle();
+
+  // Logica per il menu chip
   menuChip.addEventListener('click', (e) => {
     const targetEl = navbar;
     const handleClickOutside = (event) => {
@@ -305,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         document.body.classList.remove('no-scroll');
-        chipText.innerHTML = 'Yatch';
+        chipText.innerHTML = 'Yacht';
       }
     };
 
