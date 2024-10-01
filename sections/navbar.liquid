@@ -205,7 +205,13 @@
 
 
 </div>
+<style>
+  .transparent {
+  background-color: rgba(255, 255, 255, 0); /* Modifica il colore e l'opacità a tuo piacimento */
+  transition: background-color 0.3s ease; /* Per una transizione fluida */
+}
 
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -243,62 +249,69 @@
     }
   `;
     document.head.appendChild(styleElement);
-    function updateNavbarStyle() {
-  const isMenuYatchVisible = menuYatch.classList.contains('flex');
-  const isMenuMainVisible = mainMenu.classList.contains('flex');
-  const hasScrolled = window.scrollY > 0;
-  const currentPage = window.location.pathname;
+    document.addEventListener('DOMContentLoaded', () => {
+  // Inizialmente rimuovi toBlack e applica altre classi necessarie
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.remove('toBlack');
+  navbar.classList.add('transparent'); // Aggiungi una classe 'transparent' se necessario
 
-  // Controllo per la homepage esatta
-  const isNotHomepage = currentPage !== '/';
+  function updateNavbarStyle() {
+    const isMenuYatchVisible = menuYatch.classList.contains('flex');
+    const isMenuMainVisible = mainMenu.classList.contains('flex');
+    const hasScrolled = window.scrollY > 0;
+    const currentPage = window.location.pathname;
 
-  // Controllo se il path contiene '/blogs/news/'
-  const isNewsArticle = currentPage.startsWith('/blogs/news/');
+    // Controllo per la homepage esatta
+    const isNotHomepage = currentPage !== '/';
 
-  if (isMenuYatchVisible || isMenuMainVisible) {
-    // Navbar in modalità 'accent' se il menu è visibile
-    navbar.classList.add('toAccent');
-    navbar.classList.remove('toBlack');
-    menuIcon.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
+    // Controllo se il path contiene '/blogs/news/'
+    const isNewsArticle = currentPage.startsWith('/blogs/news/');
 
-    const boatImages = document.querySelectorAll('.boat-image');
-    boatImages.forEach(boatImage => {
-      boatImage.style.display = 'none';
-    });
+    if (isMenuYatchVisible || isMenuMainVisible) {
+      // Navbar in modalità 'accent' se il menu è visibile
+      navbar.classList.add('toAccent');
+      navbar.classList.remove('toBlack');
+      menuIcon.classList.remove('toBlack');
+      menuChip.classList.remove('toBlack');
+      logo.classList.remove('toBlack');
+      logo.classList.add('text-white');
 
-  } else if (hasScrolled || isNotHomepage) {
-    // Se hai scrollato o non sei nella homepage, la navbar diventa nera
-    navbar.classList.add('toBlack');
-    menuIcon.classList.add('toBlack');
-    menuChip.classList.add('toBlack');
-    logo.classList.add('toBlack');
-    logo.classList.remove('text-white');
-  } else if (isNewsArticle) {
-    // Se sei in una pagina news (es. '/blogs/news/nome-articolo'), navbar trasparente all'inizio
-    navbar.classList.remove('toBlack');
-    logo.classList.add('text-white');
+      const boatImages = document.querySelectorAll('.boat-image');
+      boatImages.forEach(boatImage => {
+        boatImage.style.display = 'none';
+      });
 
-    // Cambia navbar allo scroll
-    if (hasScrolled) {
+    } else if (hasScrolled || isNotHomepage) {
+      // Se hai scrollato o non sei nella homepage, la navbar diventa nera
       navbar.classList.add('toBlack');
+      menuIcon.classList.add('toBlack');
+      menuChip.classList.add('toBlack');
+      logo.classList.add('toBlack');
       logo.classList.remove('text-white');
+    } else if (isNewsArticle) {
+      // Se sei in una pagina news (es. '/blogs/news/nome-articolo'), navbar trasparente all'inizio
+      navbar.classList.remove('toBlack');
+      logo.classList.add('text-white');
+
+      // Cambia navbar allo scroll
+      if (hasScrolled) {
+        navbar.classList.add('toBlack');
+        logo.classList.remove('text-white');
+      }
+
+    } else {
+      // Rimuovi tutte le classi quando sei nella posizione iniziale senza scorrimento
+      navbar.classList.remove('toBlack', 'toAccent');
+      menuIcon.classList.remove('toBlack');
+      menuChip.classList.remove('toBlack');
+      logo.classList.remove('toBlack');
+      logo.classList.add('text-white');
     }
-
-  } else {
-    // Rimuovi tutte le classi quando sei nella posizione iniziale senza scorrimento
-    navbar.classList.remove('toBlack', 'toAccent');
-    menuIcon.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
   }
-}
 
-// Aggiungi l'evento di scroll per aggiornare la navbar
-window.addEventListener('scroll', updateNavbarStyle);
+  // Aggiungi l'evento di scroll per aggiornare la navbar
+  window.addEventListener('scroll', updateNavbarStyle);
+});
 
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
