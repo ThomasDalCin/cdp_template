@@ -1,0 +1,208 @@
+<!-- navbar section -->
+<!---->
+<div
+  class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out lg:p-6">
+  <div class="navbar-container flex items-center justify-between flex-row relative pb-3">
+    <div class="menu-yachts-label transition-colors duration-100 ease-linear cursor-pointer">
+      <p class="body-small chip-text">Yachts</p>
+    </div>
+    <div
+      class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div class="pardo-logo w-auto h-auto">
+        <a href="/" id="pardo-logo" class="w-auto h-auto">
+          <div class="w-auto h-auto">
+            {% render 'pardo-logo-one' %}
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="menu-icon w-auto h-auto text-white transition-colors duration-300 ease-in-out">
+      <div class="container-open-icon cursor-pointer">
+        {% render 'menu-icon' %}
+      </div>
+      <div class="container-close-icon hidden">
+        {% render 'x-icon' %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Second level Menu Container -->
+  <div class="w-full h-auto relative">
+    <div
+      class="second-level-menu-container w-full h-screen flex flex-col bg-[var(--primary-background-color)] fixed left-0 right-0 p-4 z-30 hidden">
+
+      <div class="back-nav-container flex items-center justify-start py-4">
+        {% render 'back-arrow-icon' %}
+      </div>
+
+      <div class="chips-horizontal-container w-full flex gap-x-2 overflow-auto py-4">
+        {% assign collectionSorted = collections | sort : 'title' | reverse %}
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+        <div class="chips-label flex items-center space-x-2 min-h-[40px]">
+          <div class="chips-text text-nowrap body-14" id="collection-chips-title">{{ collection.title }}</div>
+          {% render 'arrow-down-icon' %}
+        </div>
+        {% endunless %}
+        {% endfor %}
+      </div>
+
+      <div class="collection-description w-full h-auto flex items-start justify-center">
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+        <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden"
+          data-collection-description="{{ collection.title }}">
+          <p class="body-12">{{ collection.description }}</p>
+        </div>
+        {% endunless %}
+        {% endfor %}
+      </div>
+
+      <div
+        class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 py-4 overflow-y-auto max-h-[calc(100vh-250px)] pb-[80px]">
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign productMainImg = product.images[0] %}
+        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
+          <li class="container-product-main-image w-full h-auto list-none"
+            data-product-collection="{{ collection.title }}">
+            <a href="{{ product.url }}" class="w-full h-auto">
+              <img class="product-main-img w-full h-auto object-contain" src="{{ productMainImg | img_url: 'master' }}"
+                alt="{{ product.title }}">
+            </a>
+          </li>
+          <p class="header-1-medium">{{ product.title | replace: "Pardo", "" }}</p>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- Fixed "View all ranges" label at the bottom -->
+      <div class="w-full h-auto fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
+        <div class="w-full h-auto flex flex-row justify-between">
+          <div class="chips-text text-nowrap body-14" id="collection-chips-title">View all ranges</div>
+          {% render 'cta-icon' %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Yatch Menu Container -->
+  <div class="yatch-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10 relative">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-4 lg:gap-y-5">
+      {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
+
+      {% for link in linklists.yatch.links %}
+      {% assign matching_collection = collections[link.object.handle] %}
+      {% assign product_count = 0 %}
+      {% if matching_collection %}
+      {% assign product_count = matching_collection.products_count %}
+      {% endif %}
+      {% unless link.title == 'Pardo approved' or link.title == 'Pardo experience' %}
+      <li
+        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item"
+        data-collection="{{ link.object.handle }}">
+        <div class="relative inline-block">
+          {% if allLinksTitle contains link.title %}
+          {% if link.title == 'View all ranges' %}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] font-light leading-[20px] lg:text-[24px]
+          lg:leading-[24px]" }}
+          {% else %}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] lg:text-[40px]
+          lg:leading-[40px]" }}
+          {% endif %}
+          {% endif %}
+          {% if matching_collection %}
+          {% if product_count.size > 0 %}
+          <span
+            class="product-count absolute top-2 -right-2 text-white body-16 px-2 py-1 transform translate-x-1/2 -translate-y-1/2">
+            {{ product_count }}
+          </span>
+          {% endif %}
+          {% endif %}
+        </div>
+        <div
+          class="collection-info-container w-auto inline-flex flex-row gap-x-2 items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+          {% for product in matching_collection.products %}
+          <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
+            {{ product.title | replace: 'Pardo', '' }}
+          </div>
+          {% endfor %}
+        </div>
+      </li>
+      {% endunless %}
+      {% endfor %}
+
+
+      <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2 mt-10">
+        {% for link in linklists.yatch.links %}
+        {% unless allLinksTitle contains link.title %}
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[20px] leading-[20px] lg:text-[20px]
+        lg:leading-[20px] underline" }}
+        {% endunless %}
+        {% endfor %}
+      </div>
+
+
+      <div class="w-full h-auto flex items-center justify-end">
+        <a href="/pages/locate-delear">
+          <div class="cta-primary bg-white border-none lg:flex-1 lg:px-4 lg:py-2">
+            <p class="body-14-medium">Locate Delear</p>
+            {% render 'cta-icon' %}
+          </div>
+        </a>
+      </div>
+
+
+      <!-- boat image container on desktop -->
+      <div class="boat-image-container w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/4 -translate-y-1/2 z-30">
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
+        {% if boatImage %}
+        <a href="{{ product.url }}">
+          <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+            class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+        </a>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main Menu Container -->
+  <div class="main-menu-container w-full h-auto flex-col gap-y-10 mt-6 hidden lg:mt-10 lg:mb-10">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
+      {% for link in linklists.main-menu.links %}
+      {% unless link.title == 'Press room' or link.title == 'Pardo experience' %}
+      <li class="header-1-medium text-white list-none inline-flex items-center relative">
+        {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px] lg:leading-[40px]" }}
+      </li>
+      {% endunless %}
+      {% endfor %}
+
+      <div class="grouped-links-container w-full h-auto flex flex-col gap-y-1 lg:gap-y-2 mt-10">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
+
+        {{ link.title | link_to: link.url, class: " text-white font-light lg:text-[20px] lg:leading-[20px] underline" }}
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="w-full h-auto flex items-center justify-end">
+        <a href="/pages/locate-delear">
+          <div class="cta-primary bg-white border-none lg:flex-1 lg:px-4 lg:py-2">
+            <p class="body-14-medium">Locate Delear</p>
+            {% render 'cta-icon' %}
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
