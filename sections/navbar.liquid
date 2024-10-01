@@ -642,7 +642,7 @@
 
             if (chipCol.innerHTML != "View all ranges") {
               chipClicked.parentElement.classList.add('chips-label-active');
-              chipClicked.nextElementSibling.classList.add('-rotate-45');
+              chipClicked.nextElementSibling.classList.remove('-rotate-45');
             }
             productCols.forEach((product) => {
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
@@ -658,7 +658,7 @@
           //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
             parentElement.classList.add('chips-label-active');
-            chipCol.nextElementSibling.classList.add('-rotate-45')
+            chipCol.nextElementSibling.classList.remove('-rotate-45')
             productCols.forEach((product) => {
               const productCollection = product.getAttribute('data-product-collection');
               if (chipCol.innerText.trim() === productCollection) {
