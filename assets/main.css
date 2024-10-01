@@ -2681,6 +2681,10 @@ p, span{
     padding: 1.5rem;
   }
 
+  .lg\:p-10 {
+    padding: 2.5rem;
+  }
+
   .lg\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
