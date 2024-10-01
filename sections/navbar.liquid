@@ -266,7 +266,13 @@
           boatImage.style.display = 'none';
         });
 
-      } else if (hasScrolled && isNotHomepage) {
+      } else if (hasScrolled && !isNotHomepage) {
+        navbar.classList.add('toBlack');
+        menuIcon.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white');
+      } else if(hasScrolled){
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
         menuChip.classList.add('toBlack');
