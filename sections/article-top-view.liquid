@@ -41,7 +41,7 @@
       let scrollY = window.scrollY;
       if(scrollY > 0){
         navbar.classList.add('toBlack');
-      } else {
+      } else if( scrollY === 0) {
         navbar.classList.remove('toBlack');
       }
     }
