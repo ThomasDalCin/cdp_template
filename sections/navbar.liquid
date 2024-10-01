@@ -286,7 +286,7 @@
     function handleMenuType(menuType, targetClass, isOpen) {
       // Cambia il testo in base allo stato del menu
       if (targetClass === 'menu-yachts-label') {
-        menuType.firstElementChild.innerText = isOpen ? 'Close' : 'Yacht';
+        menuType.firstElementChild.innerText = isOpen ? 'Yatch' : 'Close';
       } else if (targetClass === 'menu-icon') {
         const childrens = menuType.children;
         console.log(childrens);
