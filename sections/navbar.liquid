@@ -343,8 +343,6 @@
         menuYatch.classList.add('flex');
         chipText.innerHTML = 'Close';
         document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-        document.addEventListener('click', handleClickOutside);
       } else if (isSecondMenuOpen) {
         chipText.innerHTML = 'Yachts';
         secondMenu.classList.add('hidden');
@@ -354,7 +352,6 @@
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
       } else if (!isMenuYatchHidden && isNewsArticle) {
         navbar.classList.remove('toAccent');
         chipText.innerHTML = 'Yachts';
@@ -365,14 +362,12 @@
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
       } else {
         // Hide the menu
         menuYatch.classList.remove('flex');
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
       }
     });
 
