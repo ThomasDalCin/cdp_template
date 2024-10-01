@@ -278,6 +278,10 @@
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
+      } else if(!isNotHomepage){
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
       } else {
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.add('toBlack');
