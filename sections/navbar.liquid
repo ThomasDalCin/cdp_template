@@ -255,22 +255,31 @@
     /*window.addEventListener('scroll', updateNavbarStyle);
     updateNavbarStyle();*/
 
-    function updateNavbarStyle(menu) {
-      console.log(menu);
+    function updateNavbarStyle(nav, menu) {
+      const isOpen = menu.classList.contains('flex');
+      if(isOpen){
+         menu.classList.remove('flex');
+         menu.classList.add('hidden');
+         nav.classList.add('toAccent');
+      } else {
+        menu.classList.add('flex');
+        menu.classList.remove('hidden');
+        nav.classList.remove('toAccent');
+      }
     }
 
     menuChip.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'yatch-menu-container');
-      updateNavbarStyle(menuContainer);
+      updateNavbarStyle(navbar, menuContainer);
     })
 
     menuIcon.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'main-menu-container');
-      updateNavbarStyle(menuContainer);
+      updateNavbarStyle(navbar, menuContainer);
     })
 
     function handleNextElement(container, targetEl) {
