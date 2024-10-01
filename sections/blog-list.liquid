@@ -171,19 +171,11 @@
         const newsLayout = document.getElementById('news-layout');
         const pressRoomLayout = document.getElementById('pressroom-layout');
         const awardsLayout = document.getElementById('awards-layout');
-        const chipText = document.querySelectorAll('.chip-text'); // Assicurati di usare il selettore corretto
-
-        chipText.forEach((el) => {
-            const icon = el.firstElementChild ? el.firstElementChild.nextElementSibling : null; // Verifica che firstElementChild esista
-
-            if (icon) { // Controlla se icon non è null
-                console.log(icon);
-                icon.classList.add('-rotate-45');
-            }
-        });
 
 
         chips.forEach(chip => {
+            const chipIcon = chip.closest('svg');
+            console.log(chipIcon)
             chip.addEventListener('click', function () {
                 const tag = chip.getAttribute('data-tag');
                 newsLayout.classList.add('hidden');
