@@ -258,6 +258,7 @@
     function updateNavbarStyle(nav, menu, handleMenuType) {
       const isOpen = menu.classList.contains('flex');
 
+      // Cambia lo stato del menu
       if (isOpen) {
         menu.classList.remove('flex');
         menu.classList.add('hidden');
@@ -265,23 +266,30 @@
         menu.classList.add('flex');
         menu.classList.remove('hidden');
       }
-      
-      handleMenuType(handleMenuType, isOpen)
+
+      // Passa il valore isOpen a handleMenuType
+      handleMenuType(menu, isOpen);
     }
 
     menuChip.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'yatch-menu-container');
-      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0], navState)});
-    })
 
-    function handleMenuType(menuType, targetClass, navState) {
+      if (menuContainer) {
+        updateNavbarStyle(navbar, menuContainer, (menu, isOpen) => handleMenuType(menuType, menuType.classList[0], isOpen));
+      } else {
+        console.error('Yatch menu container not found!');
+      }
+    });
+
+    function handleMenuType(menuType, targetClass, isOpen) {
+      // Cambia il testo in base allo stato del menu
       if (targetClass === 'menu-yachts-label') {
-        menuType.firstElementChild.innerText = navState ? 'Yatch' : 'Close';
+        menuType.firstElementChild.innerText = isOpen ? 'Close' : 'Yacht';
       } else if (targetClass === 'menu-icon') {
         const childrens = menuType.children;
-        console.log(childrens)
+        console.log(childrens);
       }
     }
 
@@ -289,8 +297,13 @@
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'main-menu-container');
-      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0], navState)});
-    })
+
+      if (menuContainer) {
+        updateNavbarStyle(navbar, menuContainer, (menu, isOpen) => handleMenuType(menuType, menuType.classList[0], isOpen));
+      } else {
+        console.error('Main menu container not found!');
+      }
+    });
 
     function handleNextElement(container, targetEl) {
       let nextElement = container.nextElementSibling;
@@ -302,6 +315,7 @@
       }
       return null;
     }
+
 
     /*
     function updateNavbarStyle() {
