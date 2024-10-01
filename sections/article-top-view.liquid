@@ -35,19 +35,19 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
-    navbar.classList.remove('.toBlack');
-    //scroll from top value
-    let scrollY = window.scrollY;
-    //change nav color function
+    navbar.classList.remove('toBlack');
+
     function changeNav(){
+      let scrollY = window.scrollY;
       if(scrollY > 0){
-        navbar.classList.add('.toBlack');
+        navbar.classList.add('toBlack');
       } else {
-        navbar.classList.remove('.toBlack');
+        navbar.classList.remove('toBlack');
       }
     }
+
     document.addEventListener('scroll', () => {
-      changeNav()
-    })
-  })
+      changeNav();
+    });
+  });
 </script>
