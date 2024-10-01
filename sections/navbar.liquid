@@ -300,26 +300,26 @@
       const targetEl = navbar;
       const handleClickOutside = (event) => {
         if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
-          if(isNotHomepage){
-          menuYatch.classList.remove('flex');
-          menuYatch.classList.add('hidden');
-          targetEl.classList.remove('toAccent');
-          targetEl.classList.add('toBlack');
-          menuIcon.classList.add('toBlack');
-          menuChip.classList.add('toBlack');
-          logo.classList.add('toBlack');
-          document.body.classList.remove('no-scroll');
-          chipText.innerHTML = 'Yatch';
+          if (isNotHomepage) {
+            menuYatch.classList.remove('flex');
+            menuYatch.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.add('toBlack');
+            menuIcon.classList.add('toBlack');
+            menuChip.classList.add('toBlack');
+            logo.classList.add('toBlack');
+            document.body.classList.remove('no-scroll');
+            chipText.innerHTML = 'Yatch';
           } else {
-          menuYatch.classList.remove('flex');
-          menuYatch.classList.add('hidden');
-          targetEl.classList.remove('toAccent');
-          targetEl.classList.remove('toBlack');
-          menuIcon.classList.remove('toBlack');
-          menuChip.classList.remove('toBlack');
-          logo.classList.add('text-white');
-          document.body.classList.remove('no-scroll');
-          chipText.innerHTML = 'Yatch';
+            menuYatch.classList.remove('flex');
+            menuYatch.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.remove('toBlack');
+            menuIcon.classList.remove('toBlack');
+            menuChip.classList.remove('toBlack');
+            logo.classList.add('text-white');
+            document.body.classList.remove('no-scroll');
+            chipText.innerHTML = 'Yatch';
           }
         }
       };
@@ -365,37 +365,37 @@
       const targetEl = navbar;
       const handleClickOutside = (event) => {
         if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-          if(isNotHomepage){
-          // Nascondi il menu e aggiorna le icone
-          mainMenu.classList.remove('flex');
-          mainMenu.classList.add('hidden');
-          targetEl.classList.remove('toAccent');
-          closeIcon.classList.remove('flex');
-          closeIcon.classList.add('hidden');
-          openIcon.classList.remove('hidden');
-          openIcon.classList.add('flex');
-          targetEl.classList.add('toBlack');
-          menuIcon.classList.add('toBlack');
-          menuChip.classList.add('toBlack');
-          logo.classList.add('toBlack');
-          document.body.classList.remove('no-scroll');
-          document.removeEventListener('click', handleClickOutside);
+          if (isNotHomepage) {
+            // Nascondi il menu e aggiorna le icone
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            closeIcon.classList.remove('flex');
+            closeIcon.classList.add('hidden');
+            openIcon.classList.remove('hidden');
+            openIcon.classList.add('flex');
+            targetEl.classList.add('toBlack');
+            menuIcon.classList.add('toBlack');
+            menuChip.classList.add('toBlack');
+            logo.classList.add('toBlack');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
           } else {
-          // Nascondi il menu e aggiorna le icone
-          navbar.classList.remove('toBlack');
-          mainMenu.classList.remove('flex');
-          mainMenu.classList.add('hidden');
-          targetEl.classList.remove('toAccent');
-          closeIcon.classList.remove('flex');
-          closeIcon.classList.add('hidden');
-          openIcon.classList.remove('hidden');
-          openIcon.classList.add('flex');
-          targetEl.classList.remove('toBlack');
-          menuIcon.classList.remove('toBlack');
-          menuChip.classList.remove('toBlack');
-          logo.classList.add('text-white');
-          document.body.classList.remove('no-scroll');
-          document.removeEventListener('click', handleClickOutside);
+            // Nascondi il menu e aggiorna le icone
+            navbar.classList.remove('toBlack');
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            closeIcon.classList.remove('flex');
+            closeIcon.classList.add('hidden');
+            openIcon.classList.remove('hidden');
+            openIcon.classList.add('flex');
+            targetEl.classList.remove('toBlack');
+            menuIcon.classList.remove('toBlack');
+            menuChip.classList.remove('toBlack');
+            logo.classList.add('text-white');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
           }
         }
       };
