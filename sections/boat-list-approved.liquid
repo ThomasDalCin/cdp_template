@@ -13,7 +13,7 @@
               alt="product image">
             <div class="product-item-details flex flex-col gap-y-4 p-4">
               {% assign productFlag = product.metafields.custom.country.value %}
-              {% assign productCountry = product.metafields.custom.state_country.value %}
+              {% assign productCountry = product.metafields.custom.approved_location.value %}
               <div class="product-item-main-top w-full h-auto flex flex-row items-center justify-start gap-x-2">
                 <img src="{{ productFlag |  img_url: 'master' }}" alt="{{ productFlag.alt }}" class="w-5 h-4 object-cover object-center">
                 <p class="caption">{{ productCountry }}</p>
