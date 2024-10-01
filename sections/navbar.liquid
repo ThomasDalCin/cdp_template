@@ -285,7 +285,7 @@
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
-      } else if (isNewsArticle && !hasScrolled) {
+      } else if (isNewsArticle && !hasScrolled){
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
@@ -343,6 +343,8 @@
         menuYatch.classList.add('flex');
         chipText.innerHTML = 'Close';
         document.body.classList.add('no-scroll');
+        updateNavbarStyle();
+        document.addEventListener('click', handleClickOutside);
       } else if (isSecondMenuOpen) {
         chipText.innerHTML = 'Yachts';
         secondMenu.classList.add('hidden');
@@ -352,7 +354,8 @@
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
-      } else if (!isMenuYatchHidden && isNewsArticle) {
+        updateNavbarStyle();
+      } else if( !isMenuYatchHidden && isNewsArticle){
         navbar.classList.remove('toAccent');
         chipText.innerHTML = 'Yachts';
         secondMenu.classList.add('hidden');
@@ -368,6 +371,7 @@
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
       }
     });
 
@@ -430,9 +434,10 @@
         closeIcon.classList.remove('text-black');
 
         document.body.classList.add('no-scroll');
+        updateNavbarStyle();
 
         document.addEventListener('click', handleClickOutside);
-      } else if (!isMenuMainHidden && isNewsArticle) {
+      } else if(!isMenuMainHidden && isNewsArticle){
         navbar.classList.remove('toAccent');
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
@@ -445,6 +450,9 @@
         closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
+
+
+        document.removeEventListener('click', handleClickOutside);
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
@@ -457,6 +465,10 @@
         closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
+
+
+        document.removeEventListener('click', handleClickOutside);
       }
     });
 
