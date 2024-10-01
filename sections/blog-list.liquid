@@ -172,6 +172,11 @@
         const newsLayout = document.getElementById('news-layout');
         const pressRoomLayout = document.getElementById('pressroom-layout');
         const awardsLayout = document.getElementById('awards-layout');
+        const chipText = document.querySelectorAll('chip-text');
+        chipText.forEach((el)=> {
+           const icon = el.firstElementChild('chip-text-content').nextElementSibling;
+           icon.classList.add('-rotate-45');
+        })
 
         chips.forEach(chip => {
             chip.addEventListener('click', function () {
@@ -190,6 +195,7 @@
 
                 chips.forEach(chip => chip.classList.remove('chips-blog-active'));
                 chip.classList.add('chips-blog-active');
+
             });
         });
 
