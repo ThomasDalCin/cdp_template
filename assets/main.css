@@ -815,6 +815,8 @@ p, span{
   padding-bottom: 0.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-delear {
@@ -833,6 +835,8 @@ p, span{
   padding-bottom: 0.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-appointment {
@@ -850,6 +854,8 @@ p, span{
   padding-bottom: 0.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-blog {
@@ -869,6 +875,8 @@ p, span{
   padding-bottom: 0.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-brochure {
@@ -887,6 +895,8 @@ p, span{
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-download {
@@ -905,6 +915,8 @@ p, span{
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-eco {
@@ -923,6 +935,8 @@ p, span{
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-primary {
@@ -941,6 +955,8 @@ p, span{
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .cta-back {
@@ -957,6 +973,8 @@ p, span{
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .text-shadow {
@@ -2158,12 +2176,6 @@ p, span{
   }
 }
 
-@media (min-width: 768px) {
-  .md\:w-1\/2 {
-    width: 50%;
-  }
-}
-
 @media (min-width: 1024px) {
   .lg\:fixed {
     position: fixed;
@@ -2227,15 +2239,6 @@ p, span{
 
   .lg\:z-50 {
     z-index: 50;
-  }
-
-  .lg\:m-10 {
-    margin: 2.5rem;
-  }
-
-  .lg\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
   }
 
   .lg\:mb-0 {
@@ -2402,6 +2405,10 @@ p, span{
     width: 1335px;
   }
 
+  .lg\:w-\[147px\] {
+    width: 147px;
+  }
+
   .lg\:w-\[170px\] {
     width: 170px;
   }
@@ -2438,8 +2445,8 @@ p, span{
     width: calc(33.3% - 1rem);
   }
 
-  .lg\:w-\[calc\(50\%_-_1rem\)\] {
-    width: calc(50% - 1rem);
+  .lg\:w-\[calc\(50\%_-2\.5rem\)\] {
+    width: calc(50% - 2.5rem);
   }
 
   .lg\:w-\[calc\(66\.7\%_-_1rem\)\] {
@@ -2452,22 +2459,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(50\%_-\[40px\]\)\] {
-    width: calc(50% - [40px]);
-  }
-
-  .lg\:w-\[calc\(60\%_-\[40px\]\)\] {
-    width: calc(60% - [40px]);
-  }
-
-  .lg\:w-\[calc\(50\%_-2\.5rem\)\] {
-    width: calc(50% - 2.5rem);
-  }
-
-  .lg\:w-\[147px\] {
-    width: 147px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2677,16 +2668,16 @@ p, span{
     padding: 0.25rem;
   }
 
+  .lg\:p-10 {
+    padding: 2.5rem;
+  }
+
   .lg\:p-4 {
     padding: 1rem;
   }
 
   .lg\:p-6 {
     padding: 1.5rem;
-  }
-
-  .lg\:p-10 {
-    padding: 2.5rem;
   }
 
   .lg\:px-0 {
