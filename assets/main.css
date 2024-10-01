@@ -2229,6 +2229,10 @@ p, span{
     z-index: 50;
   }
 
+  .lg\:m-10 {
+    margin: 2.5rem;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
