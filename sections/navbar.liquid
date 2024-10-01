@@ -254,34 +254,34 @@
     //handle scroll event and add style to the Navbar
     /*window.addEventListener('scroll', updateNavbarStyle);
     updateNavbarStyle();*/
-    function updateNavbarStyle(nav, menu) {
+
+    function updateNavbarStyle(nav, menu, handleMenuType) {
       const isOpen = menu.classList.contains('flex');
-      menu.classList.toggle('flex', !isOpen);
-      menu.classList.toggle('hidden', isOpen);
+
+      if (isOpen) {
+        menu.classList.remove('flex');
+        menu.classList.add('hidden');
+      } else {
+        menu.classList.add('flex');
+        menu.classList.remove('hidden');
+      }
+
+
     }
 
     menuChip.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'yatch-menu-container');
-
-      if (menuContainer) {
-        updateNavbarStyle(navbar, menuContainer);
-        handleMenuType(menuType, menuType.classList[0]); // Chiamata diretta, senza wrapper
-      } else {
-        console.error('Yatch menu container not found!');
-      }
-    });
+      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0])});
+    })
 
     function handleMenuType(menuType, targetClass) {
       if (targetClass === 'menu-yachts-label') {
-        const firstChild = menuType.firstElementChild;
-        if (firstChild) {
-          firstChild.innerText = 'Close';
-        }
+        menuType.firstElementChild.innerText = 'Close'
       } else if (targetClass === 'menu-icon') {
-        const children = menuType.children;
-        console.log(children);
+        const childrens = menuType.children;
+        console.log(childrens)
       }
     }
 
@@ -289,14 +289,8 @@
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'main-menu-container');
-
-      if (menuContainer) {
-        updateNavbarStyle(navbar, menuContainer);
-        handleMenuType(menuType, menuType.classList[0]); // Chiamata diretta, senza wrapper
-      } else {
-        console.error('Main menu container not found!');
-      }
-    });
+      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0])});
+    })
 
     function handleNextElement(container, targetEl) {
       let nextElement = container.nextElementSibling;
