@@ -355,6 +355,17 @@
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
+      } else if( !isMenuYatchHidden && isNewsArticle){
+        navbar.classList.remove('toAccent');
+        chipText.innerHTML = 'Yachts';
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Yachts';
+        document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
       } else {
         // Hide the menu
         menuYatch.classList.remove('flex');
