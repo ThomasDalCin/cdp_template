@@ -250,231 +250,145 @@
     document.head.appendChild(styleElement);
 
     function updateNavbarStyle() {
-      const isMenuYatchVisible = menuYatch.classList.contains('flex');
-      const isMenuMainVisible = mainMenu.classList.contains('flex');
-      const hasScrolled = window.scrollY > 0;
+    const isMenuYatchVisible = menuYatch.classList.contains('flex');
+    const isMenuMainVisible = mainMenu.classList.contains('flex');
+    const hasScrolled = window.scrollY > 0;
 
-      if (isMenuYatchVisible || isMenuMainVisible) {
+    // Rimuove e aggiunge le classi in base alla logica definita
+    if (isMenuYatchVisible || isMenuMainVisible) {
+      setNavbarStyles('accent');
+      hideBoatImages();
+    } else if (hasScrolled && !isNotHomepage) {
+      setNavbarStyles('black');
+    } else if (hasScrolled) {
+      setNavbarStyles('black');
+    } else if (!isNotHomepage && !hasScrolled) {
+      setNavbarStyles('white');
+    } else if (isNewsArticle && !hasScrolled) {
+      setNavbarStyles('transparent');
+    } else {
+      setNavbarStyles('transparent');
+    }
+  }
+
+  function setNavbarStyles(style) {
+    switch (style) {
+      case 'accent':
         navbar.classList.add('toAccent');
         navbar.classList.remove('toBlack');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
+        break;
 
-        const boatImages = document.querySelectorAll('.boat-image');
-        boatImages.forEach(boatImage => {
-          boatImage.style.display = 'none';
-        });
-
-      } else if (hasScrolled && !isNotHomepage) {
+      case 'black':
         navbar.classList.add('toBlack');
+        navbar.classList.remove('toAccent');
         menuIcon.classList.add('toBlack');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
-      } else if (hasScrolled) {
-        navbar.classList.add('toBlack');
-        menuIcon.classList.add('toBlack');
-        menuChip.classList.add('toBlack');
-        logo.classList.add('toBlack');
-        logo.classList.remove('text-white');
-      } else if (!isNotHomepage && !hasScrolled) {
+        break;
+
+      case 'white':
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
-      } else if (isNewsArticle && !hasScrolled){
-        navbar.classList.remove('toBlack');
+        break;
+
+      case 'transparent':
+        navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
-        logo.classList.add('text-white')
-      } else {
-        navbar.classList.remove('toBlack', 'toAccent');
-        menuIcon.classList.add('toBlack');
-        menuChip.classList.add('toBlack');
-        logo.classList.add('toBlack');
-      }
+        break;
+    }
+  }
+
+  function hideBoatImages() {
+    const boatImages = document.querySelectorAll('.boat-image');
+    boatImages.forEach(boatImage => {
+      boatImage.style.display = 'none';
+    });
+  }
+
+  // Gestisci l'evento di scroll
+  window.addEventListener('scroll', updateNavbarStyle);
+
+  // Menu Chip Click Handler
+  menuChip.addEventListener('click', handleMenuYatchToggle);
+
+  // Icon Click Handler
+  menuIcon.addEventListener('click', handleMainMenuToggle);
+
+  function handleMenuYatchToggle() {
+    const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+
+    // Mostra o nascondi il menu
+    if (isMenuYatchHidden) {
+      menuYatch.classList.remove('hidden');
+      menuYatch.classList.add('flex');
+      chipText.innerHTML = 'Close';
+      document.body.classList.add('no-scroll');
+      updateNavbarStyle();
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      closeMenuYatch();
+    }
+  }
+
+  function handleMainMenuToggle() {
+    const isMenuMainHidden = mainMenu.classList.contains('hidden');
+
+    if (isMenuMainHidden) {
+      mainMenu.classList.remove('hidden');
+      mainMenu.classList.add('flex');
+      openIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      document.body.classList.add('no-scroll');
+      updateNavbarStyle();
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      closeMainMenu();
+    }
+  }
+
+  function closeMenuYatch() {
+    menuYatch.classList.remove('flex');
+    menuYatch.classList.add('hidden');
+    if (isNotHomepage) {
+      navbar.classList.add('toBlack');
+    } else {
+      navbar.classList.remove('toAccent', 'toBlack');
+      logo.classList.add('text-white');
+    }
+    updateNavbarStyle();
+    document.body.classList.remove('no-scroll');
+  }
+
+  function closeMainMenu() {
+    mainMenu.classList.remove('flex');
+    mainMenu.classList.add('hidden');
+    openIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    document.body.classList.remove('no-scroll');
+    updateNavbarStyle();
+  }
+
+  function handleClickOutside(event) {
+    if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
+      closeMenuYatch();
     }
 
-    //handle scroll event and add style to the Navbar
-    window.addEventListener('scroll', updateNavbarStyle);
+    if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+      closeMainMenu();
+    }
+  }
 
-
-    menuChip.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-          } else {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-          }
-        }
-      };
-
-      // Check if the main menu is visible, if yes do nothing
-      if (mainMenu.classList.contains('flex')) return;
-
-      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
-      const isSecondMenuOpen = secondMenu.classList.contains('flex');
-
-      if (isMenuYatchHidden) {
-        // Show the menu
-        menuYatch.classList.remove('hidden');
-        menuYatch.classList.add('flex');
-        chipText.innerHTML = 'Close';
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-        document.addEventListener('click', handleClickOutside);
-      } else if (isSecondMenuOpen) {
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      } else if( !isMenuYatchHidden && isNewsArticle){
-        navbar.classList.remove('toAccent');
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      } else {
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      }
-    });
-
-
-    updateNavbarStyle();
-
-    menuIcon.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            // Nascondi il menu e aggiorna le icone
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          } else {
-            // Nascondi il menu e aggiorna le icone
-            navbar.classList.remove('toBlack');
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          }
-        }
-      };
-
-      // Check if the Yacht menu is visible, if yes, do nothing
-      if (menuYatch.classList.contains('flex')) return;
-
-      const isMenuMainHidden = mainMenu.classList.contains('hidden');
-
-      if (isMenuMainHidden) {
-        mainMenu.classList.remove('hidden');
-        mainMenu.classList.add('flex');
-        openIcon.classList.add('hidden');
-        openIcon.classList.remove('flex');
-        closeIcon.classList.add('flex');
-        closeIcon.classList.remove('hidden');
-
-        closeIcon.classList.add('text-white');
-        closeIcon.classList.remove('text-black');
-
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-
-        document.addEventListener('click', handleClickOutside);
-      } else if(!isMenuMainHidden && isNewsArticle){
-        navbar.classList.remove('toAccent');
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
-
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
-      } else {
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
-
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
-      }
-    });
-
-
+  // Inizializza lo stile della navbar
+  updateNavbarStyle();
+});
 
     // Handle second menu
     function handleSecondMenuLevel() {
