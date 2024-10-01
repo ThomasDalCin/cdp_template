@@ -365,6 +365,7 @@
         menuYatch.classList.add('hidden');
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
       } else {
         // Hide the menu
         menuYatch.classList.remove('flex');
@@ -437,22 +438,6 @@
         updateNavbarStyle();
 
         document.addEventListener('click', handleClickOutside);
-      } else if(!isMenuMainHidden && isNewsArticle){
-        navbar.classList.remove('toAccent');
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
-
-        document.body.classList.remove('no-scroll');
-
-
-        document.removeEventListener('click', handleClickOutside);
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
