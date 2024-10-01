@@ -1347,12 +1347,12 @@ p, span{
   min-height: 386px;
 }
 
-.min-h-\[565px\] {
-  min-height: 565px;
-}
-
 .min-h-\[40px\] {
   min-height: 40px;
+}
+
+.min-h-\[565px\] {
+  min-height: 565px;
 }
 
 .w-0 {
@@ -2689,6 +2689,11 @@ p, span{
     padding-right: 0px;
   }
 
+  .lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
   .lg\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -2707,11 +2712,6 @@ p, span{
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  .lg\:px-20 {
-    padding-left: 5rem;
-    padding-right: 5rem;
   }
 
   .lg\:pb-10 {

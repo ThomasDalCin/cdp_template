@@ -285,7 +285,7 @@
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
-      } else if (isNewsArticle && !hasScrolled){
+      } else if (isNewsArticle && !hasScrolled) {
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
@@ -355,7 +355,7 @@
         chipText.innerHTML = 'Yachts';
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
-      } else if( !isMenuYatchHidden && isNewsArticle){
+      } else if (!isMenuYatchHidden && isNewsArticle) {
         navbar.classList.remove('toAccent');
         chipText.innerHTML = 'Yachts';
         secondMenu.classList.add('hidden');
@@ -625,10 +625,16 @@
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
+
             allChipsCollection.forEach((el) => {
-              el.parentElement.classList.remove('chips-label-active')
-              el.nextElementSibling.classList.remove('-rotate-45')
+              el.parentElement.classList.remove('chips-label-active');
+              el.nextElementSibling.classList.add('-rotate-45');
             });
+
+            if (chipClicked) {
+              chipClicked.nextElementSibling.classList.remove('-rotate-45');
+              chipClicked.parentElement.classList.add('chips-label-active');
+            }
 
             allCollectionDescription.forEach((el) => {
               if (chipCol.innerHTML == (el.getAttribute('data-collection-description'))) {
@@ -640,10 +646,6 @@
               }
             });
 
-            if (chipCol.innerHTML != "View all ranges") {
-              chipClicked.parentElement.classList.add('chips-label-active');
-              chipClicked.nextElementSibling.classList.remove('-rotate-45');
-            }
             productCols.forEach((product) => {
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
@@ -657,8 +659,11 @@
 
           //check if the content of each chip is equal to the link clicked and show the products items
           if (chipCol.innerText.trim() === linkTarget) {
+            allChipsCollection.forEach((chipCol) => {
+              chipCol.nextElementSibling.classList.add('-rotate-45')
+            })
             parentElement.classList.add('chips-label-active');
-            chipCol.nextElementSibling.classList.remove('-rotate-45')
+            chipCol.nextElementSibling.classList.remove('-rotate-45');
             productCols.forEach((product) => {
               const productCollection = product.getAttribute('data-product-collection');
               if (chipCol.innerText.trim() === productCollection) {
