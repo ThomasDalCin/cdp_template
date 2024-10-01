@@ -37,11 +37,12 @@
     const navbar = document.querySelector('.navbar');
     navbar.classList.remove('toBlack');
 
-    function changeNav(){
+    function changeNav() {
       let scrollY = window.scrollY;
-      if(scrollY > 0){
+      if (scrollY > 0) {
         navbar.classList.add('toBlack');
-      } else if( scrollY === 0) {
+      } else {
+        // Rimuovi la classe quando scrollY è 0
         navbar.classList.remove('toBlack');
       }
     }
@@ -51,3 +52,4 @@
     });
   });
 </script>
+
