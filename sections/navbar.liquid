@@ -257,14 +257,13 @@
 
     function updateNavbarStyle(nav, menu) {
       const isOpen = menu.classList.contains('flex');
+
       if(isOpen){
          menu.classList.remove('flex');
          menu.classList.add('hidden');
-         nav.classList.add('toAccent');
       } else {
         menu.classList.add('flex');
         menu.classList.remove('hidden');
-        nav.classList.remove('toAccent');
       }
     }
 
