@@ -265,20 +265,20 @@
         menu.classList.add('flex');
         menu.classList.remove('hidden');
       }
-
-
+      
+      handleMenuType(handleMenuType, isOpen)
     }
 
     menuChip.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'yatch-menu-container');
-      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0])});
+      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0], navState)});
     })
 
-    function handleMenuType(menuType, targetClass) {
+    function handleMenuType(menuType, targetClass, navState) {
       if (targetClass === 'menu-yachts-label') {
-        menuType.firstElementChild.innerText = 'Close'
+        menuType.firstElementChild.innerText = navState ? 'Yatch' : 'Close';
       } else if (targetClass === 'menu-icon') {
         const childrens = menuType.children;
         console.log(childrens)
@@ -289,7 +289,7 @@
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
       const menuContainer = handleNextElement(navContainer, 'main-menu-container');
-      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0])});
+      updateNavbarStyle(navbar, menuContainer, () => {handleMenuType(menuType, menuType.classList[0], navState)});
     })
 
     function handleNextElement(container, targetEl) {
