@@ -46,6 +46,8 @@
         navbar.classList.remove('.toBlack');
       }
     }
-    document.addEventListener('scroll', changeNav)
+    document.addEventListener('scroll', () => {
+      changeNav()
+    })
   })
 </script>
