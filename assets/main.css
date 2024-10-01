@@ -2705,6 +2705,11 @@ p, span{
     padding-bottom: 0.5rem;
   }
 
+  .lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
