@@ -12,8 +12,16 @@
               class="w-full h-auto max-h-[220px] object-cover rounded-t-lg"
               alt="product image">
             <div class="product-item-details flex flex-col gap-y-4 p-4">
-              <p class="body-14">{{ product.title }}</p>
-              <p class="body-12">{{ product.description }}</p>
+              {% assign productFlag = product.metafields.custom.country.value %}
+              {% assign productCountry = product.metafields.custom.state_country.value %}
+              <div class="product-item-main-top w-full h-auto flex flex-row items-center justify-start gap-x-2">
+                <img src="{{ productFlag |  img_url: 'master' }}" alt="{{ productFlag.alt }}" class="w-5 h-4 object-cover object-center">
+                <p class="caption">{{ productCountry }}</p>
+              </div>
+              <div class="product-item-main-details w-full h-auto flex flex-col items-start justify-center gap-y-1">
+                <p class="body-14">{{ product.title }}</p>
+                <p class="body-12">{{ product.description }}</p>
+              </div>
               <div class="product-info-container w-full h-auto flex flex-row items-start justify-between p-4 bg-[var(--primary-background-color)] rounded-lg">
                 <p class="caption font-semibold">&bull; Year: {{ product.metafields.custom.year.value }}</p>
                 <p class="caption font-semibold">&bull; Series: {{ product.metafields.custom.series.value }}</p>
