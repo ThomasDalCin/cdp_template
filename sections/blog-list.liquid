@@ -100,7 +100,6 @@
     {% endif %}
     {% endif %}
     {% endif %}
-    {% endif %}
     {% endfor %}
     {% endif %}
     {% endif %}
@@ -173,14 +172,15 @@
         const awardsLayout = document.getElementById('awards-layout');
 
 
+        let activeChip = null;
+
         chips.forEach(chip => {
-            const chipIcon = chip.closest('svg');
-            console.log(chipIcon)
             chip.addEventListener('click', function () {
                 const tag = chip.getAttribute('data-tag');
                 newsLayout.classList.add('hidden');
                 pressRoomLayout.classList.add('hidden');
                 awardsLayout.classList.add('hidden');
+
 
                 if (tag === 'News') {
                     newsLayout.classList.remove('hidden');
@@ -190,11 +190,31 @@
                     awardsLayout.classList.remove('hidden');
                 }
 
-                chips.forEach(chip => chip.classList.remove('chips-blog-active'));
+
+                if (activeChip) {
+                    const previousIcon = activeChip.querySelector('.chips-text svg');
+                    if (previousIcon) {
+                        previousIcon.classList.add('-rotate-45');
+                    }
+                }
+
+
+                chips.forEach(chip => {
+                    chip.classList.remove('chips-blog-active');
+                });
+
                 chip.classList.add('chips-blog-active');
 
+
+                const currentIcon = chip.querySelector('.chips-text svg');
+                if (currentIcon) {
+                    currentIcon.classList.remove('-rotate-45');
+                }
+
+                activeChip = chip;
             });
         });
+
 
         const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
         if (defaultChip) {
