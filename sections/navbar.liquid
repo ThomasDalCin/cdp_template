@@ -255,6 +255,36 @@
     window.addEventListener('scroll', updateNavbarStyle);
     updateNavbarStyle();
 
+    function updateNavbarStyle(menu) {
+      console.log(menu);
+    }
+
+    menuChip.addEventListener('click', (e) => {
+      const menuType = e.currentTarget;
+      const navContainer = menuType.parentElement;
+      const menuContainer = handleNextElement(navContainer);
+      updateNavbarStyle(menuContainer);
+    })
+
+    menuIcon.addEventListener('click', (e) => {
+      const menuType = e.currentTarget;
+      const navContainer = menuType.parentElement;
+      const menuContainer = handleNextElement(navContainer);
+      updateNavbarStyle(menuContainer);
+    })
+
+    function handleNextElement(container) {
+      let nextElement = container.nextElementSibling;
+      while (nextElement) {
+        if (nextElement.classList.contains('yatch-menu-container') || nextElement.classList.contains('main-menu-container')) {
+          return nextElement;
+        }
+        nextElement = nextElement.nextElementSibling;
+      }
+      return null; 
+    }
+
+    /*
     function updateNavbarStyle() {
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
@@ -303,7 +333,7 @@
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
       }
-    }
+    }*/
 
 
     //handle second menu layut base on device size
@@ -475,7 +505,7 @@
       }
     }
 
-
+    /*
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -548,87 +578,87 @@
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
       }
-    });
+    });*/
 
 
-
-    menuIcon.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            // Nascondi il menu e aggiorna le icone
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          } else {
-            // Nascondi il menu e aggiorna le icone
-            navbar.classList.remove('toBlack');
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          }
-        }
-      };
-
-      // Check if the Yacht menu is visible, if yes, do nothing
-      if (menuYatch.classList.contains('flex')) return;
-
-      const isMenuMainHidden = mainMenu.classList.contains('hidden');
-
-      if (isMenuMainHidden) {
-        mainMenu.classList.remove('hidden');
-        mainMenu.classList.add('flex');
-        openIcon.classList.add('hidden');
-        openIcon.classList.remove('flex');
-        closeIcon.classList.add('flex');
-        closeIcon.classList.remove('hidden');
-
-        closeIcon.classList.add('text-white');
-        closeIcon.classList.remove('text-black');
-
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-
-        document.addEventListener('click', handleClickOutside);
-      } else {
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-        navbar.classList.remove('toAccent');
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
-
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
-      }
-    });
+    /*
+     menuIcon.addEventListener('click', (e) => {
+       const targetEl = navbar;
+       const handleClickOutside = (event) => {
+         if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+           if (isNotHomepage) {
+             // Nascondi il menu e aggiorna le icone
+             mainMenu.classList.remove('flex');
+             mainMenu.classList.add('hidden');
+             targetEl.classList.remove('toAccent');
+             closeIcon.classList.remove('flex');
+             closeIcon.classList.add('hidden');
+             openIcon.classList.remove('hidden');
+             openIcon.classList.add('flex');
+             targetEl.classList.add('toBlack');
+             menuIcon.classList.add('toBlack');
+             menuChip.classList.add('toBlack');
+             logo.classList.add('toBlack');
+             document.body.classList.remove('no-scroll');
+             document.removeEventListener('click', handleClickOutside);
+           } else {
+             // Nascondi il menu e aggiorna le icone
+             navbar.classList.remove('toBlack');
+             mainMenu.classList.remove('flex');
+             mainMenu.classList.add('hidden');
+             targetEl.classList.remove('toAccent');
+             closeIcon.classList.remove('flex');
+             closeIcon.classList.add('hidden');
+             openIcon.classList.remove('hidden');
+             openIcon.classList.add('flex');
+             targetEl.classList.remove('toBlack');
+             menuIcon.classList.remove('toBlack');
+             menuChip.classList.remove('toBlack');
+             logo.classList.add('text-white');
+             document.body.classList.remove('no-scroll');
+             document.removeEventListener('click', handleClickOutside);
+           }
+         }
+       };
+ 
+       // Check if the Yacht menu is visible, if yes, do nothing
+       if (menuYatch.classList.contains('flex')) return;
+ 
+       const isMenuMainHidden = mainMenu.classList.contains('hidden');
+ 
+       if (isMenuMainHidden) {
+         mainMenu.classList.remove('hidden');
+         mainMenu.classList.add('flex');
+         openIcon.classList.add('hidden');
+         openIcon.classList.remove('flex');
+         closeIcon.classList.add('flex');
+         closeIcon.classList.remove('hidden');
+ 
+         closeIcon.classList.add('text-white');
+         closeIcon.classList.remove('text-black');
+ 
+         document.body.classList.add('no-scroll');
+         updateNavbarStyle();
+ 
+         document.addEventListener('click', handleClickOutside);
+       } else {
+         mainMenu.classList.remove('flex');
+         mainMenu.classList.add('hidden');
+         openIcon.classList.add('flex');
+         openIcon.classList.remove('hidden');
+         closeIcon.classList.add('hidden');
+         closeIcon.classList.remove('flex');
+         navbar.classList.remove('toAccent');
+         closeIcon.classList.remove('text-white');
+         closeIcon.classList.add('text-black');
+ 
+         document.body.classList.remove('no-scroll');
+         updateNavbarStyle();
+ 
+ 
+         document.removeEventListener('click', handleClickOutside);
+       }
+     });*/
 
 
 
