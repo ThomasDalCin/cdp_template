@@ -46,10 +46,6 @@
         navbar.classList.remove('.toBlack');
       }
     }
-
-    document.addEventListener('scroll', (e) => {
-       const scrollY = e.currentTarget.scrollY;
-       console.log(scrollY)
-    })
+    document.addEventListener('scroll', changeNav)
   })
 </script>
