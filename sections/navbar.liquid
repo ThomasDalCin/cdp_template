@@ -435,7 +435,6 @@
         closeIcon.classList.remove('text-black');
 
         document.body.classList.add('no-scroll');
-        updateNavbarStyle();
 
         document.addEventListener('click', handleClickOutside);
       } else if (!isMenuMainHidden && isNewsArticle) {
@@ -451,10 +450,6 @@
         closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
@@ -467,10 +462,6 @@
         closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
       }
     });
 
