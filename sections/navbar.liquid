@@ -262,21 +262,21 @@
     menuChip.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
-      const menuContainer = handleNextElement(navContainer, targetClass);
+      const menuContainer = handleNextElement(navContainer, 'yatch-menu-container');
       updateNavbarStyle(menuContainer);
     })
 
     menuIcon.addEventListener('click', (e) => {
       const menuType = e.currentTarget;
       const navContainer = menuType.parentElement;
-      const menuContainer = handleNextElement(navContainer, targetClass);
+      const menuContainer = handleNextElement(navContainer, 'main-menu-container');
       updateNavbarStyle(menuContainer);
     })
 
-    function handleNextElement(container, targetClass) {
+    function handleNextElement(container, targetEl) {
       let nextElement = container.nextElementSibling;
       while (nextElement) {
-        if (nextElement.classList.contains(targetClass)) {
+        if (nextElement.classList.contains(targetEl)) {
           return nextElement;
         }
         nextElement = nextElement.nextElementSibling;
