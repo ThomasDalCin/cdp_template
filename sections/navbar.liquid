@@ -2,7 +2,7 @@
 <div
   class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out lg:p-6">
   <div class="navbar-container flex items-center justify-between flex-row relative pb-3">
-    <div class="menu-yachts-label transition-colors duration-100 ease-linear">
+    <div class="menu-yachts-label transition-colors duration-100 ease-linear cursor-pointer">
       <p class="body-small chip-text">Yachts</p>
     </div>
     <div
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="menu-icon w-auto h-auto text-white transition-colors duration-300 ease-in-out">
-      <div class="container-open-icon">
+      <div class="container-open-icon cursor-pointer">
         {% render 'menu-icon' %}
       </div>
       <div class="container-close-icon hidden">
@@ -209,10 +209,10 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    //get current page and others
+    const hadScrolled = window.scrollY;
     const currentPage = window.location.pathname;
-
-    // Modifica: controlla se è esattamente la homepage
-    const isNotHomepage = currentPage !== '/'; // Se non è esattamente la homepage
+    const isNotHomepage = currentPage !== '/';
     const isNewsArticle = currentPage.startsWith('/blogs/news/');
     // Navbar elements
     const navbar = document.querySelector('.navbar');
@@ -225,12 +225,12 @@
     const secondMenu = document.querySelector('.second-level-menu-container');
     const navDynamicHeight = navbar.offsetHeight;
     secondMenu.style.top = `${navDynamicHeight}px`;
-    // Chip label
+    // Chips label
     const chipText = document.querySelector('.chip-text');
     // Menu icons
     const openIcon = document.querySelector('.container-open-icon');
     const closeIcon = document.querySelector('.container-close-icon');
-    // Crea un elemento <style> e aggiungilo al <head>
+    //Style element
     const styleElement = document.createElement('style');
     styleElement.innerHTML = `
     .toBlack {
@@ -246,8 +246,13 @@
     .no-scroll {
       overflow: hidden;
     }
-  `;
+    `;
+    //append style element to the document
     document.head.appendChild(styleElement);
+
+    //handle scroll event and add style to the Navbar
+    window.addEventListener('scroll', updateNavbarStyle);
+    updateNavbarStyle();
 
     function updateNavbarStyle() {
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
@@ -299,165 +304,10 @@
       }
     }
 
-    //handle scroll event and add style to the Navbar
-    window.addEventListener('scroll', updateNavbarStyle);
 
-
-    menuChip.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-          } else {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-          }
-        }
-      };
-
-      // Check if the main menu is visible, if yes do nothing
-      if (mainMenu.classList.contains('flex')) return;
-
-      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
-      const isSecondMenuOpen = secondMenu.classList.contains('flex');
-
-      if (isMenuYatchHidden) {
-        // Show the menu
-        menuYatch.classList.remove('hidden');
-        menuYatch.classList.add('flex');
-        chipText.innerHTML = 'Close';
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-        document.addEventListener('click', handleClickOutside);
-      } else if (isSecondMenuOpen) {
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      } else if (!isMenuYatchHidden && isNewsArticle) {
-        navbar.classList.remove('toAccent');
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      } else {
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-      }
-    });
-
-
-    updateNavbarStyle();
-
-    menuIcon.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            // Nascondi il menu e aggiorna le icone
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          } else {
-            // Nascondi il menu e aggiorna le icone
-            navbar.classList.remove('toBlack');
-            mainMenu.classList.remove('flex');
-            mainMenu.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            document.removeEventListener('click', handleClickOutside);
-          }
-        }
-      };
-
-      // Check if the Yacht menu is visible, if yes, do nothing
-      if (menuYatch.classList.contains('flex')) return;
-
-      const isMenuMainHidden = mainMenu.classList.contains('hidden');
-
-      if (isMenuMainHidden) {
-        mainMenu.classList.remove('hidden');
-        mainMenu.classList.add('flex');
-        openIcon.classList.add('hidden');
-        openIcon.classList.remove('flex');
-        closeIcon.classList.add('flex');
-        closeIcon.classList.remove('hidden');
-
-        closeIcon.classList.add('text-white');
-        closeIcon.classList.remove('text-black');
-
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-
-        document.addEventListener('click', handleClickOutside);
-      } else {
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
-
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
-
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
-
-
-        document.removeEventListener('click', handleClickOutside);
-      }
-    });
-
-
+    //handle second menu layut base on device size
+    window.addEventListener('resize', handleSecondMenuLevel);
+    handleSecondMenuLevel();
 
     // Handle second menu
     function handleSecondMenuLevel() {
@@ -578,8 +428,209 @@
       });
     }
 
-    window.addEventListener('resize', handleSecondMenuLevel);
-    handleSecondMenuLevel();
+    //check device on resize event
+    window.addEventListener('resize', checkDevice);
+    checkDevice();
+
+    //check screenSize to show the boat image container and link info pop-up
+    function checkDevice() {
+      const screenSize = window.innerWidth;
+      const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
+      const boatDesktopContainer = document.querySelector('.boat-image-container');
+      const badges = document.querySelectorAll('.badge-product');
+      const images = document.querySelectorAll('.boat-image-container img');
+
+      if (screenSize <= 625) {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'none';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'none';
+        }
+      } else {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'flex';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'block';
+        }
+
+        images.forEach(image => {
+          image.style.display = 'none';
+        });
+
+        badges.forEach(badge => {
+          badge.addEventListener('click', function () {
+            const target = badge.getAttribute('data-target');
+            images.forEach(image => {
+              image.style.display = 'none';
+            });
+            const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
+            if (selectedImage) {
+              selectedImage.style.display = 'block';
+            }
+          });
+        });
+      }
+    }
+
+
+    menuChip.addEventListener('click', (e) => {
+      const targetEl = navbar;
+      const handleClickOutside = (event) => {
+        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
+          if (isNotHomepage) {
+            menuYatch.classList.remove('flex');
+            menuYatch.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.add('toBlack');
+            menuIcon.classList.add('toBlack');
+            menuChip.classList.add('toBlack');
+            logo.classList.add('toBlack');
+            document.body.classList.remove('no-scroll');
+            chipText.innerHTML = 'Yatch';
+          } else {
+            menuYatch.classList.remove('flex');
+            menuYatch.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.remove('toBlack');
+            menuIcon.classList.remove('toBlack');
+            menuChip.classList.remove('toBlack');
+            logo.classList.add('text-white');
+            document.body.classList.remove('no-scroll');
+            chipText.innerHTML = 'Yatch';
+          }
+        }
+      };
+
+      // Check if the main menu is visible, if yes do nothing
+      if (mainMenu.classList.contains('flex')) return;
+
+      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+      const isSecondMenuOpen = secondMenu.classList.contains('flex');
+
+      if (isMenuYatchHidden) {
+        // Show the menu
+        menuYatch.classList.remove('hidden');
+        menuYatch.classList.add('flex');
+        chipText.innerHTML = 'Close';
+        document.body.classList.add('no-scroll');
+        updateNavbarStyle();
+        document.addEventListener('click', handleClickOutside);
+      } else if (isSecondMenuOpen) {
+        chipText.innerHTML = 'Yachts';
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Yachts';
+        document.body.classList.remove('no-scroll');
+        navbar.classList.remove('toAccent');
+        updateNavbarStyle();
+      } else if (!isMenuYatchHidden && isNewsArticle) {
+        navbar.classList.remove('toAccent');
+        chipText.innerHTML = 'Yachts';
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Yachts';
+        document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
+      } else {
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Yachts';
+        document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
+      }
+    });
+
+
+
+    menuIcon.addEventListener('click', (e) => {
+      const targetEl = navbar;
+      const handleClickOutside = (event) => {
+        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+          if (isNotHomepage) {
+            // Nascondi il menu e aggiorna le icone
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            closeIcon.classList.remove('flex');
+            closeIcon.classList.add('hidden');
+            openIcon.classList.remove('hidden');
+            openIcon.classList.add('flex');
+            targetEl.classList.add('toBlack');
+            menuIcon.classList.add('toBlack');
+            menuChip.classList.add('toBlack');
+            logo.classList.add('toBlack');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
+          } else {
+            // Nascondi il menu e aggiorna le icone
+            navbar.classList.remove('toBlack');
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            closeIcon.classList.remove('flex');
+            closeIcon.classList.add('hidden');
+            openIcon.classList.remove('hidden');
+            openIcon.classList.add('flex');
+            targetEl.classList.remove('toBlack');
+            menuIcon.classList.remove('toBlack');
+            menuChip.classList.remove('toBlack');
+            logo.classList.add('text-white');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
+          }
+        }
+      };
+
+      // Check if the Yacht menu is visible, if yes, do nothing
+      if (menuYatch.classList.contains('flex')) return;
+
+      const isMenuMainHidden = mainMenu.classList.contains('hidden');
+
+      if (isMenuMainHidden) {
+        mainMenu.classList.remove('hidden');
+        mainMenu.classList.add('flex');
+        openIcon.classList.add('hidden');
+        openIcon.classList.remove('flex');
+        closeIcon.classList.add('flex');
+        closeIcon.classList.remove('hidden');
+
+        closeIcon.classList.add('text-white');
+        closeIcon.classList.remove('text-black');
+
+        document.body.classList.add('no-scroll');
+        updateNavbarStyle();
+
+        document.addEventListener('click', handleClickOutside);
+      } else {
+        mainMenu.classList.remove('flex');
+        mainMenu.classList.add('hidden');
+        openIcon.classList.add('flex');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        closeIcon.classList.remove('flex');
+        navbar.classList.remove('toAccent');
+        closeIcon.classList.remove('text-white');
+        closeIcon.classList.add('text-black');
+
+        document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
+
+
+        document.removeEventListener('click', handleClickOutside);
+      }
+    });
+
+
+
 
     // Hide the second-level menu and show the main menu when the back arrow is clicked
     document.querySelector('.back-nav-container').addEventListener('click', () => {
@@ -674,52 +725,6 @@
         });
       });
     });
-
-
-    //check screenSize to show the boat image container and link info pop-up
-    function checkDevice() {
-      const screenSize = window.innerWidth;
-      const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
-      const boatDesktopContainer = document.querySelector('.boat-image-container');
-      const badges = document.querySelectorAll('.badge-product');
-      const images = document.querySelectorAll('.boat-image-container img');
-
-      if (screenSize <= 625) {
-        collectionDesktopInfo.forEach((div) => {
-          div.style.display = 'none';
-        });
-        if (boatDesktopContainer) {
-          boatDesktopContainer.style.display = 'none';
-        }
-      } else {
-        collectionDesktopInfo.forEach((div) => {
-          div.style.display = 'flex';
-        });
-        if (boatDesktopContainer) {
-          boatDesktopContainer.style.display = 'block';
-        }
-
-        images.forEach(image => {
-          image.style.display = 'none';
-        });
-
-        badges.forEach(badge => {
-          badge.addEventListener('click', function () {
-            const target = badge.getAttribute('data-target');
-            images.forEach(image => {
-              image.style.display = 'none';
-            });
-            const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
-            if (selectedImage) {
-              selectedImage.style.display = 'block';
-            }
-          });
-        });
-      }
-    }
-
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
 
   });
 </script>
