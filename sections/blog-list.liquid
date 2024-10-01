@@ -1,228 +1,248 @@
 <div class="blog-news-container w-full h-auto flex flex-col">
-    <div id="news-layout" class="blogs-list-container w-full h-auto flex flex-col gap-y-10 p-4">
-        {% if blogs['news'] %}
-        {% assign newsArticles = blogs['news'].articles %}
-        {% if newsArticles.size > 0 %}
+  <div id="news-layout" class="blogs-list-container w-full h-auto flex flex-col gap-y-10 p-4">
+    {% if blogs.news %}
+      {% assign newsArticles = blogs.news.articles %}
+      {% if newsArticles.size > 0 %}
         <!-- loop on articles -->
         {% for article in newsArticles %}
-        {% if article.tags contains 'News' %}
-        {% assign index = forloop.index0 %}
-        <!-- First article here -->
-        {% if index == 0 %}
-        <div class="blog-list-row width-view lg:mb-10">
-            <div class="blog-item-width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:relative"
-                data-tags="{{ article.tags | join: ',' }}">
-                <div class="blog-item-image w-full h-auto">
-                    <img src="{{ article.image | img_url: 'master' }}"
-                        class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
-                        alt="{{ article.image.alt }}">
-                </div>
+          {% if article.tags contains 'News' %}
+            {% assign index = forloop.index0 %}
+            <!-- First article here -->
+            {% if index == 0 %}
+              <div class="blog-list-row width-view lg:mb-10">
                 <div
-                    class="blog-item-details w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:absolute lg:justify-start lg:right-[16px] lg:top-[16px] lg:w-[calc(100%-32px)] lg:h-[calc(100%-32px)] lg:max-w-[297px] lg:z-10 lg:bg-white lg:rounded-lg lg:p-4">
+                  class="blog-item-width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:relative"
+                  data-tags="{{ article.tags | join: ',' }}"
+                >
+                  <div class="blog-item-image w-full h-auto">
+                    <img
+                      src="{{ article.image | img_url: 'master' }}"
+                      class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
+                      alt="{{ article.image.alt }}"
+                    >
+                  </div>
+                  <div
+                    class="blog-item-details w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:absolute lg:justify-start lg:right-[16px] lg:top-[16px] lg:w-[calc(100%-32px)] lg:h-[calc(100%-32px)] lg:max-w-[297px] lg:z-10 lg:bg-white lg:rounded-lg lg:p-4"
+                  >
                     <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-                        <p class="body-12">{{ article.published_at | date: "%B %d, %Y" }}</p>
+                      <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
                     </div>
                     <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-                        <h3 class="body-14-medium">{{ article.title  |  capitalize}}</h3>
-                        <p class="body-12">{{ article.content | truncate: 300 }}</p>
+                      <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
+                      <p class="body-12">{{ article.content | truncate: 300 }}</p>
                     </div>
                     <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-                        <div class="cta-blog">
-                            <a href="{{ article.url }}">
-                                <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-                            </a>
-                        </div>
+                      <div class="cta-blog">
+                        <a href="{{ article.url }}">
+                          <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                        </a>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-        {% endif %}
-        <!-- Second row articles from one to three -->
-        {% if index >= 1 and index <= 3 %} {% if index==1 %} <div class="blog-list-row horizontal-view lg:mb-10">
-            <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1">
-                {% endif %}
-                <div class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] relative"
-                    data-tags="{{ article.tags | join: ',' }}">
-                    <div class="blog-item-image w-full h-auto">
-                        <img src="{{ article.image | img_url: 'master' }}"
-                            class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl"
-                            alt="{{ article.image.alt }}">
-                    </div>
-                    <div
-                        class="blog-item-info-container w-full h-auto p-3 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10">
-                        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-1">
-                            <h3 class="body-14-medium">{{ article.title |  capitalize }}</h3>
-                            <p class="body-12">{{ article.content | truncate: 100 }}</p>
-                        </div>
-                    </div>
-                    <div class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-4 bottom-4">
-                        <p class="body-12">{{ article.published_at | date: "%B %d, %Y" }}</p>
-                    </div>
+              </div>
+            {% endif %}
+            <!-- Second row articles from one to three -->
+            {% if index >= 1 and index <= 3 %}
+              {% if index == 1 %}
+                <div class="blog-list-row horizontal-view lg:mb-10">
+                  <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1">
+              {% endif %}
+              <div
+                class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] relative"
+                data-tags="{{ article.tags | join: ',' }}"
+              >
+                <div class="blog-item-image w-full h-auto">
+                  <img
+                    src="{{ article.image | img_url: 'master' }}"
+                    class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl"
+                    alt="{{ article.image.alt }}"
+                  >
                 </div>
-                {% if index == 3 %}
-            </div>
-    </div>
-    {% endif %}
-    {% endif %}
-
-    <!-- Missing articles on last row -->
-    {% if index >= 4 %}
-    {% if index == 4 %}
-    <div class="blog-list-row horizontal-view lg:mb-10">
-        <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1">
+                <div
+                  class="blog-item-info-container w-full h-auto p-3 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10"
+                >
+                  <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-1">
+                    <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
+                    <p class="body-12">{{ article.content | truncate: 100 }}</p>
+                  </div>
+                </div>
+                <div class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-4 bottom-4">
+                  <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
+                </div>
+              </div>
+              {% if index == 3 %}
+                </div>
+                </div>
+              {% endif %}
             {% endif %}
 
-            <div class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:w-[812px]"
-                data-tags="{{ article.tags | join: ',' }}">
+            <!-- Missing articles on last row -->
+            {% if index >= 4 %}
+              {% if index == 4 %}
+                <div class="blog-list-row horizontal-view lg:mb-10">
+                  <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1">
+              {% endif %}
+
+              <div
+                class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:w-[812px]"
+                data-tags="{{ article.tags | join: ',' }}"
+              >
                 <div class="blog-item-image w-full h-auto">
-                    <img src="{{ article.image | img_url: 'master' }}"
-                        class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg"
-                        alt="{{ article.image.alt }}">
+                  <img
+                    src="{{ article.image | img_url: 'master' }}"
+                    class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg"
+                    alt="{{ article.image.alt }}"
+                  >
                 </div>
                 <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-                    <p class="body-12">{{ article.published_at | date: "%B %d, %Y" }}</p>
+                  <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
                 </div>
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-                    <h3 class="body-14-medium">{{ article.title |  capitalize}}</h3>
+                  <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
                 </div>
                 <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-                    <div class="cta-blog">
-                        <a href="{{ article.url }}">
-                            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-                        </a>
-                    </div>
+                  <div class="cta-blog">
+                    <a href="{{ article.url }}">
+                      <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                    </a>
+                  </div>
                 </div>
-            </div>
-            {% if forloop.last %}
-        </div>
-    </div>
+              </div>
+              {% if forloop.last %}
+                </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     {% endif %}
-    {% endif %}
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-    {% endif %}
-</div>
+  </div>
 
-<!-- Layout for Press Room (Hidden by default) -->
-<div id="pressroom-layout" class="blogs-list-container press-room hidden w-full h-auto flex flex-col gap-y-3">
+  <!-- Layout for Press Room (Hidden by default) -->
+  <div id="pressroom-layout" class="blogs-list-container press-room hidden w-full h-auto flex flex-col gap-y-3">
     <!-- Press Room articles loop -->
-    {% for article in blogs['news'].articles %}
-    {% if article.tags contains 'Press room' %}
-    <div class="blog-item-press-room w-full h-auto flex flex-col gap-y-4 p-4 lg:relative lg:overflow-hidden">
-        <div class="blog-item-image w-full h-auto flex flex-col gap-y-4 relative lg:overflow-hidden">
-            <img src="{{ article.image | img_url: 'master' }}"
-                class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
-                alt="{{ article.image.alt }}">
+    {% for article in blogs.news.articles %}
+      {% if article.tags contains 'Press room' %}
+        <div class="blog-item-press-room w-full h-auto flex flex-col gap-y-4 p-4 lg:relative lg:overflow-hidden">
+          <div class="blog-item-image w-full h-auto flex flex-col gap-y-4 relative lg:overflow-hidden">
+            <img
+              src="{{ article.image | img_url: 'master' }}"
+              class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
+              alt="{{ article.image.alt }}"
+            >
             <div
-                class="blog-item-details flex flex-col gap-y-4 lg:absolute lg:top-[16px] lg:right-[16px] lg:w-[calc(100%-32px)] lg:h-[calc(100%-32px)] lg:max-w-[297px] lg:bg-white lg:rounded-lg lg:p-4 lg:shadow-lg">
-                <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-                    <p class="body-12">{{ article.published_at | date: "%B %d, %Y" }}</p>
+              class="blog-item-details flex flex-col gap-y-4 lg:absolute lg:top-[16px] lg:right-[16px] lg:w-[calc(100%-32px)] lg:h-[calc(100%-32px)] lg:max-w-[297px] lg:bg-white lg:rounded-lg lg:p-4 lg:shadow-lg"
+            >
+              <div class="blog-item-date w-full h-auto flex flex-row justify-between">
+                <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
+              </div>
+              <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
+                <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
+                <p class="body-12">{{ article.content | truncate: 100 }}</p>
+              </div>
+              <div class="blog-item-cta w-full h-auto flex items-center justify-start">
+                <div class="cta-download flex items-center gap-x-2">
+                  <a href="{{ article.url }}">
+                    <p class="body-14-medium">{{ section.settings.download_article_cta }}</p>
+                  </a>
+                  {% render 'download-icon' %}
                 </div>
-                <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-                    <h3 class="body-14-medium">{{ article.title |  capitalize }}</h3>
-                    <p class="body-12">{{ article.content | truncate: 100 }}</p>
-                </div>
-                <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-                    <div class="cta-download flex items-center gap-x-2">
-                        <a href="{{ article.url }}">
-                            <p class="body-14-medium">{{ section.settings.download_article_cta }}</p>
-                        </a>
-                        {% render 'download-icon' %}
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    {% endif %}
+      {% endif %}
     {% endfor %}
-</div>
+  </div>
 
-<!-- Layout for Awards (Hidden by default) -->
-<div id="awards-layout" class="blogs-list-container awards hidden w-full h-auto flex flex-col gap-y-3">
-    {% for article in blogs['news'].articles %}
-    {% if article.tags contains 'Awards' %}
-    <a href="{{ article.url }}">
-        <div class="blog-item-awards w-full h-auto flex flex-col gap-y-4 p-4">
+  <!-- Layout for Awards (Hidden by default) -->
+  <div id="awards-layout" class="blogs-list-container awards hidden w-full h-auto flex flex-col gap-y-3">
+    {% for article in blogs.news.articles %}
+      {% if article.tags contains 'Awards' %}
+        <a href="{{ article.url }}">
+          <div class="blog-item-awards w-full h-auto flex flex-col gap-y-4 p-4">
             <div class="blog-item-image w-full h-auto">
-                <img src="{{ article.image | img_url: 'master' }}"
-                    class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
-                    alt="{{ article.image.alt }}">
+              <img
+                src="{{ article.image | img_url: 'master' }}"
+                class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
+                alt="{{ article.image.alt }}"
+              >
             </div>
             <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-                <p class="body-12">{{ article.published_at | date: "%B %d, %Y" }}</p>
+              <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
             </div>
             <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-                <h3 class="body-14-medium">{{ article.title |  capitalize }}</h3>
-                <p class="body-12">{{ article.content | truncate: 100 }}</p>
+              <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
+              <p class="body-12">{{ article.content | truncate: 100 }}</p>
             </div>
-        </div>
-    </a>
-    {% endif %}
+          </div>
+        </a>
+      {% endif %}
     {% endfor %}
-</div>
+  </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const chips = document.querySelectorAll('.chips-label');
-        const newsLayout = document.getElementById('news-layout');
-        const pressRoomLayout = document.getElementById('pressroom-layout');
-        const awardsLayout = document.getElementById('awards-layout');
+  document.addEventListener('DOMContentLoaded', function () {
+      const chips = document.querySelectorAll('.chips-label');
+      const newsLayout = document.getElementById('news-layout');
+      const pressRoomLayout = document.getElementById('pressroom-layout');
+      const awardsLayout = document.getElementById('awards-layout');
 
 
-        let activeChip = null;
+      let activeChip = null;
 
-        chips.forEach(chip => {
-            chip.addEventListener('click', function () {
-                const tag = chip.getAttribute('data-tag');
-                newsLayout.classList.add('hidden');
-                pressRoomLayout.classList.add('hidden');
-                awardsLayout.classList.add('hidden');
-
-
-                if (tag === 'News') {
-                    newsLayout.classList.remove('hidden');
-                } else if (tag === 'Press room') {
-                    pressRoomLayout.classList.remove('hidden');
-                } else if (tag === 'Awards') {
-                    awardsLayout.classList.remove('hidden');
-                }
+      chips.forEach(chip => {
+          chip.addEventListener('click', function () {
+              const tag = chip.getAttribute('data-tag');
+              newsLayout.classList.add('hidden');
+              pressRoomLayout.classList.add('hidden');
+              awardsLayout.classList.add('hidden');
 
 
-                if (activeChip) {
-                    const previousIcon = activeChip.querySelector('.chips-text svg');
-                    if (previousIcon) {
-                        previousIcon.classList.add('-rotate-45');
-                    }
-                }
+              if (tag === 'News') {
+                  newsLayout.classList.remove('hidden');
+              } else if (tag === 'Press room') {
+                  pressRoomLayout.classList.remove('hidden');
+              } else if (tag === 'Awards') {
+                  awardsLayout.classList.remove('hidden');
+              }
 
 
-                chips.forEach(chip => {
-                    chip.classList.remove('chips-blog-active');
-                });
-
-                chip.classList.add('chips-blog-active');
-
-
-                const currentIcon = chip.querySelector('.chips-text svg');
-                if (currentIcon) {
-                    currentIcon.classList.remove('-rotate-45');
-                }
-
-                activeChip = chip;
-            });
-        });
+              if (activeChip) {
+                  const previousIcon = activeChip.querySelector('.chips-text svg');
+                  if (previousIcon) {
+                      previousIcon.classList.add('-rotate-45');
+                  }
+              }
 
 
-        const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
-        if (defaultChip) {
-            defaultChip.classList.add('chips-blog-active');
-            newsLayout.classList.remove('hidden');
-        }
+              chips.forEach(chip => {
+                  chip.classList.remove('chips-blog-active');
+              });
 
-    });
+              chip.classList.add('chips-blog-active');
+
+
+              const currentIcon = chip.querySelector('.chips-text svg');
+              if (currentIcon) {
+                  currentIcon.classList.remove('-rotate-45');
+              }
+
+              activeChip = chip;
+          });
+      });
+
+
+      const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
+      if (defaultChip) {
+          defaultChip.classList.add('chips-blog-active');
+          newsLayout.classList.remove('hidden');
+      }
+
+  });
 </script>
 
 {% schema %}
