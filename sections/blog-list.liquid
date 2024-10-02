@@ -46,7 +46,7 @@
 
     <!-- Seconda riga con la prima metà degli articoli rimanenti -->
     <div class="blog-list-row horizontal-view lg:mb-10">
-      <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4">
+      <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4" id="second-row">
         {% for i in (1..halfSize) %}
         <div
           class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] relative"
@@ -70,11 +70,21 @@
         </div>
         {% endfor %}
       </div>
+
+      <!-- Arrows Box -->
+      <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:top-[16px]" id="second-row-arrows">
+        <button id="prevArrowSecond" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-left-icon' %}
+        </button>
+        <button id="nextArrowSecond" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+        </button>
+      </div>
     </div>
     
     <!-- Terza riga con la seconda metà degli articoli rimanenti -->
     <div class="blog-list-row horizontal-view lg:mb-10">
-      <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4">
+      <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4" id="third-row">
         {% assign startIndex = halfSize | plus: 1 %}
         {% for i in (startIndex..remainingArticles) %}
         <div
@@ -100,12 +110,21 @@
         </div>
         {% endfor %}
       </div>
+
+      <!-- Arrows Box -->
+      <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:top-[16px]" id="third-row-arrows">
+        <button id="prevArrowThird" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-left-icon' %}
+        </button>
+        <button id="nextArrowThird" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+        </button>
+      </div>
     </div>
 
     {% endif %}
     {% endif %}
 </div>
-
 
 
 
@@ -224,6 +243,49 @@
     if (defaultChip) {
       defaultChip.classList.add('chips-blog-active');
       newsLayout.classList.remove('hidden');
+    }
+
+      // Funzione per ottenere la larghezza della card dell'articolo
+      function getItemWidth(scrollContainer) {
+      const firstItem = scrollContainer.querySelector(".blog-item"); // Seleziona il primo elemento della lista
+      return firstItem ? firstItem.offsetWidth : 0; // Restituisce la larghezza della card
+    }
+
+    // Funzione per gestire la navigazione avanti e indietro
+    function setupCarouselArrows(scrollContainer, prevArrow, nextArrow) {
+      const itemWidth = getItemWidth(scrollContainer); // Otteniamo la larghezza della card
+
+      prevArrow.addEventListener("click", function () {
+        scrollContainer.scrollBy({
+          left: -itemWidth, // Scorri verso sinistra di una larghezza della card
+          behavior: "smooth"
+        });
+      });
+
+      nextArrow.addEventListener("click", function () {
+        scrollContainer.scrollBy({
+          left: itemWidth, // Scorri verso destra di una larghezza della card
+          behavior: "smooth"
+        });
+      });
+    }
+
+    // Selezioniamo i caroselli e le frecce
+    const secondRow = document.getElementById("second-row");
+    const prevArrowSecond = document.getElementById("prevArrowSecond");
+    const nextArrowSecond = document.getElementById("nextArrowSecond");
+
+    const thirdRow = document.getElementById("third-row");
+    const prevArrowThird = document.getElementById("prevArrowThird");
+    const nextArrowThird = document.getElementById("nextArrowThird");
+
+    // Inizializziamo i caroselli
+    if (secondRow && prevArrowSecond && nextArrowSecond) {
+      setupCarouselArrows(secondRow, prevArrowSecond, nextArrowSecond);
+    }
+
+    if (thirdRow && prevArrowThird && nextArrowThird) {
+      setupCarouselArrows(thirdRow, prevArrowThird, nextArrowThird);
     }
 
   });
