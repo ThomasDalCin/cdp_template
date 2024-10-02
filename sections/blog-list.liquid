@@ -41,7 +41,8 @@
     
     {% if totalArticles > 1 %}
     <!-- Calcolo della metà degli articoli rimanenti -->
-    {% assign halfSize = totalArticles | minus: 1 | divided_by: 2 %}
+    {% assign remainingArticles = totalArticles | minus: 1 %}
+    {% assign halfSize = remainingArticles | divided_by: 2 %}
 
     <!-- Seconda riga con la prima metà degli articoli rimanenti -->
     <div class="blog-list-row horizontal-view lg:mb-10">
@@ -74,7 +75,8 @@
     <!-- Terza riga con la seconda metà degli articoli rimanenti -->
     <div class="blog-list-row horizontal-view lg:mb-10">
       <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4">
-        {% for i in (halfSize | plus: 1)..(totalArticles | minus: 1) %}
+        {% assign startIndex = halfSize | plus: 1 %}
+        {% for i in (startIndex..remainingArticles) %}
         <div
           class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:w-[812px]"
           data-tags="{{ newsArticles[i].tags | join: ',' }}">
@@ -103,6 +105,7 @@
     {% endif %}
     {% endif %}
 </div>
+
 
 
 
