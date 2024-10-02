@@ -48,11 +48,11 @@
     <div class="blog-list-row horizontal-view">
       <!-- Arrows Box -->
       <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6" id="third-row-arrows">
-        <button id="prevArrowThird"
+        <button id="prevArrowSecond"
           class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
           {% render 'arrow-left-icon' %}
         </button>
-        <button id="nextArrowThird"
+        <button id="nextArrowSecond"
           class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
           {% render 'arrow-right-icon' %}
         </button>
@@ -250,45 +250,51 @@
       newsLayout.classList.remove('hidden');
     }
 
-    const prevArrow = document.getElementById("prevArrowThird");
-    const nextArrow = document.getElementById("nextArrowThird");
-    const carousel = document.getElementById("third-row");
-    const cards = carousel.querySelectorAll(".blog-item-horizontal-view");
-    const gap = 16; // Gap tra le card di 16px
-    const cardWidth = cards[0].offsetWidth + gap; // Larghezza della card + gap
+    const getCarouselAndArrows = (carouselId, prevArrowId, nextArrowId) => {
+      const carousel = document.getElementById(carouselId);
+      const prevArrow = document.getElementById(prevArrowId);
+      const nextArrow = document.getElementById(nextArrowId);
+      const cards = carousel.querySelectorAll(".blog-item-horizontal-view");
+      const gap = 16; // Gap tra le card di 16px
+      const cardWidth = cards[0].offsetWidth + gap; // Larghezza della card + gap
+      let currentPosition = 0;
 
-    let currentPosition = 0;
+      // Funzione per spostare il carosello
+      function moveCarousel(direction) {
+        const maxPosition = (cards.length * cardWidth) - carousel.offsetWidth;
 
-    // Funzione per spostare il carosello
-    function moveCarousel(direction) {
-      const maxPosition = (cards.length * cardWidth) - carousel.offsetWidth;
-
-      // Modifica la posizione attuale
-      if (direction === "next") {
-        currentPosition += cardWidth;
-        if (currentPosition > maxPosition) {
-          currentPosition = maxPosition; // Limita il movimento a destra
+        if (direction === "next") {
+          currentPosition += cardWidth;
+          if (currentPosition > maxPosition) {
+            currentPosition = maxPosition; // Limita il movimento a destra
+          }
+        } else if (direction === "prev") {
+          currentPosition -= cardWidth;
+          if (currentPosition < 0) {
+            currentPosition = 0; // Limita il movimento a sinistra
+          }
         }
-      } else if (direction === "prev") {
-        currentPosition -= cardWidth;
-        if (currentPosition < 0) {
-          currentPosition = 0; // Limita il movimento a sinistra
-        }
+
+        // Spostamento fluido del carosello
+        carousel.style.transition = "transform 0.5s ease"; // Aggiungi una transizione fluida
+        carousel.style.transform = `translateX(-${currentPosition}px)`;
       }
 
-      // Applica la trasformazione per il carosello
-      carousel.style.transform = `translateX(-${currentPosition}px)`;
-    }
+      // Gestisci il click sulle frecce
+      prevArrow.addEventListener("click", function() {
+        moveCarousel("prev");
+      });
 
-    // Evento al click sulla freccia sinistra (indietro)
-    prevArrow.addEventListener("click", function() {
-      moveCarousel("prev");
-    });
+      nextArrow.addEventListener("click", function() {
+        moveCarousel("next");
+      });
+    };
 
-    // Evento al click sulla freccia destra (avanti)
-    nextArrow.addEventListener("click", function() {
-      moveCarousel("next");
-    });
+    // Inizializza il carosello della seconda riga
+    getCarouselAndArrows("second-row", "prevArrowSecond", "nextArrowSecond");
+
+    // Inizializza il carosello della terza riga
+    getCarouselAndArrows("third-row", "prevArrowThird", "nextArrowThird");
   });
 </script>
 
