@@ -2409,6 +2409,10 @@ p, span{
     min-height: 480px;
   }
 
+  .lg\:min-h-\[398px\] {
+    min-height: 398px;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }

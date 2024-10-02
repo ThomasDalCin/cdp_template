@@ -107,7 +107,7 @@
       data-tags="{{ newsArticles[i].tags | join: ',' }}">
       <div class="blog-item-image w-full h-auto">
         <img src="{{ newsArticles[i].image | img_url: 'master' }}"
-          class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg"
+          class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg lg:min-h-[398px]"
           alt="{{ newsArticles[i].image.alt }}">
       </div>
       <div class="blog-item-date w-full h-auto flex flex-row justify-between">
