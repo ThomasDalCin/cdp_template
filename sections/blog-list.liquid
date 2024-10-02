@@ -250,7 +250,45 @@
       newsLayout.classList.remove('hidden');
     }
 
+    const prevArrow = document.getElementById("prevArrowThird");
+    const nextArrow = document.getElementById("nextArrowThird");
+    const carousel = document.getElementById("third-row");
+    const cards = carousel.querySelectorAll(".blog-item-horizontal-view");
+    const gap = 16; // Gap tra le card di 16px
+    const cardWidth = cards[0].offsetWidth + gap; // Larghezza della card + gap
 
+    let currentPosition = 0;
+
+    // Funzione per spostare il carosello
+    function moveCarousel(direction) {
+      const maxPosition = (cards.length * cardWidth) - carousel.offsetWidth;
+
+      // Modifica la posizione attuale
+      if (direction === "next") {
+        currentPosition += cardWidth;
+        if (currentPosition > maxPosition) {
+          currentPosition = maxPosition; // Limita il movimento a destra
+        }
+      } else if (direction === "prev") {
+        currentPosition -= cardWidth;
+        if (currentPosition < 0) {
+          currentPosition = 0; // Limita il movimento a sinistra
+        }
+      }
+
+      // Applica la trasformazione per il carosello
+      carousel.style.transform = `translateX(-${currentPosition}px)`;
+    }
+
+    // Evento al click sulla freccia sinistra (indietro)
+    prevArrow.addEventListener("click", function() {
+      moveCarousel("prev");
+    });
+
+    // Evento al click sulla freccia destra (avanti)
+    nextArrow.addEventListener("click", function() {
+      moveCarousel("next");
+    });
   });
 </script>
 
