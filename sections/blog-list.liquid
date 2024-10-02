@@ -192,6 +192,18 @@
 </div>
 </div>
 
+<style>
+  .carousel-arrow.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.carousel-arrow:not(.disabled) {
+  opacity: 1;
+  pointer-events: auto; 
+}
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const chips = document.querySelectorAll('.chips-label');
@@ -292,7 +304,7 @@
             behavior: 'smooth',
         });
 
-        setTimeout(updateArrows, 300); // 300ms per il smooth scrolling
+        setTimeout(updateArrows, 300);
     }
 
     // Event listeners per le frecce
@@ -314,7 +326,7 @@
         });
     }
 
-    // Aggiorna lo stato delle frecce al caricamento e al scroll
+    
     updateArrows();
     secondRow.addEventListener('scroll', updateArrows);
     thirdRow.addEventListener('scroll', updateArrows);
