@@ -3,7 +3,8 @@
     {% if blogs.news %}
       {% assign newsArticles = blogs.news.articles %}
       {% if newsArticles.size > 0 %}
-        <!-- Primo articolo sulla prima riga -->
+        
+        <!-- Prima riga: primo articolo occupa tutta la larghezza -->
         {% assign firstArticle = newsArticles[0] %}
         <div class="blog-list-row width-view lg:mb-10">
           <div class="blog-item-width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:relative"
@@ -35,12 +36,15 @@
           </div>
         </div>
   
-        <!-- Seconda e terza riga con layout omogeneo per i restanti articoli -->
-        {% assign remainingArticles = newsArticles | slice: 1, 999 %}
+        <!-- Prepariamo gli articoli rimanenti -->
+        {% assign remainingArticles = newsArticles | slice: 1 %}
+        {% assign halfSize = remainingArticles.size | divided_by: 2 %}
+  
+        <!-- Seconda riga: metà degli articoli rimanenti -->
+        {% assign secondRowArticles = remainingArticles | slice: 0, halfSize %}
         <div class="blog-list-row horizontal-view lg:mb-10">
           <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4">
-  
-            {% for article in remainingArticles %}
+            {% for article in secondRowArticles %}
             <div
               class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] relative"
               data-tags="{{ article.tags | join: ',' }}">
@@ -56,16 +60,44 @@
                   <p class="body-12">{{ article.content | truncate: 100 }}</p>
                 </div>
               </div>
-              <div
-                class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-2 bottom-4 lg:left-6 lg:bottom-6">
+              <div class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-2 bottom-4 lg:left-6 lg:bottom-6">
                 <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
               </div>
             </div>
             {% endfor %}
-  
           </div>
         </div>
   
+        <!-- Terza riga: seconda metà degli articoli rimanenti -->
+        {% assign thirdRowArticles = remainingArticles | slice: halfSize %}
+        <div class="blog-list-row horizontal-view lg:mb-10">
+          <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4">
+            {% for article in thirdRowArticles %}
+            <div
+              class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:w-[812px]"
+              data-tags="{{ article.tags | join: ',' }}">
+              <div class="blog-item-image w-full h-auto">
+                <img src="{{ article.image | img_url: 'master' }}"
+                  class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg" alt="{{ article.image.alt }}">
+              </div>
+              <div class="blog-item-date w-full h-auto flex flex-row justify-between">
+                <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
+              </div>
+              <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
+                <h3 class="body-14-medium">{{ article.title | capitalize }}</h3>
+              </div>
+              <div class="blog-item-cta w-full h-auto flex items-center justify-start">
+                <div class="cta-blog">
+                  <a href="{{ article.url }}">
+                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        
       {% endif %}
     {% endif %}
   </div>
