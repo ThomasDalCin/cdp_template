@@ -2245,6 +2245,10 @@ p, span{
     top: 16px;
   }
 
+  .lg\:right-6 {
+    right: 1.5rem;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
