@@ -249,52 +249,76 @@
       defaultChip.classList.add('chips-blog-active');
       newsLayout.classList.remove('hidden');
     }
+    
+    const prevArrowSecond = document.getElementById('prevArrowSecond');
+    const nextArrowSecond = document.getElementById('nextArrowSecond');
+    const prevArrowThird = document.getElementById('prevArrowThird');
+    const nextArrowThird = document.getElementById('nextArrowThird');
 
-    const getCarouselAndArrows = (carouselId, prevArrowId, nextArrowId) => {
-      const carousel = document.getElementById(carouselId);
-      const prevArrow = document.getElementById(prevArrowId);
-      const nextArrow = document.getElementById(nextArrowId);
-      const cards = carousel.querySelectorAll(".blog-item-horizontal-view");
-      const gap = 16; // Gap tra le card di 16px
-      const cardWidth = cards[0].offsetWidth + gap; // Larghezza della card + gap
-      let currentPosition = 0;
+    const secondRow = document.getElementById('second-row');
+    const thirdRow = document.getElementById('third-row');
 
-      // Funzione per spostare il carosello
-      function moveCarousel(direction) {
-        const maxPosition = (cards.length * cardWidth) - carousel.offsetWidth;
+    const articlesInSecondRow = Array.from(secondRow.querySelectorAll('.blog-item'));
+    const articlesInThirdRow = Array.from(thirdRow.querySelectorAll('.blog-item-horizontal-view'));
 
-        if (direction === "next") {
-          currentPosition += cardWidth;
-          if (currentPosition > maxPosition) {
-            currentPosition = maxPosition; // Limita il movimento a destra
-          }
-        } else if (direction === "prev") {
-          currentPosition -= cardWidth;
-          if (currentPosition < 0) {
-            currentPosition = 0; // Limita il movimento a sinistra
-          }
+    // Calcolare la larghezza di scorrimento
+    const scrollAmountSecond = articlesInSecondRow[0] ? articlesInSecondRow[0].offsetWidth + 16 : 0; // 16px è il gap tra gli articoli
+    const scrollAmountThird = articlesInThirdRow[0] ? articlesInThirdRow[0].offsetWidth + 16 : 0;
+
+    // Funzione per aggiornare lo stato delle frecce
+    function updateArrows() {
+        const maxScrollLeftSecond = secondRow.scrollWidth - secondRow.clientWidth;
+        const maxScrollLeftThird = thirdRow.scrollWidth - thirdRow.clientWidth;
+
+        prevArrowSecond.classList.toggle('disabled', secondRow.scrollLeft === 0);
+        nextArrowSecond.classList.toggle('disabled', secondRow.scrollLeft >= maxScrollLeftSecond);
+
+        prevArrowThird.classList.toggle('disabled', thirdRow.scrollLeft === 0);
+        nextArrowThird.classList.toggle('disabled', thirdRow.scrollLeft >= maxScrollLeftThird);
+    }
+
+    // Funzione per scorrere i contenitori
+    function scrollRowBy(amount, row) {
+        let newScrollLeft = row.scrollLeft + amount;
+
+        if (newScrollLeft < 0) {
+            newScrollLeft = 0;
+        } else if (newScrollLeft > row.scrollWidth - row.clientWidth) {
+            newScrollLeft = row.scrollWidth - row.clientWidth;
         }
 
-        // Spostamento fluido del carosello
-        carousel.style.transition = "transform 0.5s ease"; // Aggiungi una transizione fluida
-        carousel.style.transform = `translateX(-${currentPosition}px)`;
-      }
+        row.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth',
+        });
 
-      // Gestisci il click sulle frecce
-      prevArrow.addEventListener("click", function() {
-        moveCarousel("prev");
-      });
+        setTimeout(updateArrows, 300); // 300ms per il smooth scrolling
+    }
 
-      nextArrow.addEventListener("click", function() {
-        moveCarousel("next");
-      });
-    };
+    // Event listeners per le frecce
+    if (prevArrowSecond && nextArrowSecond) {
+        prevArrowSecond.addEventListener('click', function() {
+            scrollRowBy(-scrollAmountSecond, secondRow);
+        });
+        nextArrowSecond.addEventListener('click', function() {
+            scrollRowBy(scrollAmountSecond, secondRow);
+        });
+    }
 
-    // Inizializza il carosello della seconda riga
-    getCarouselAndArrows("second-row", "prevArrowSecond", "nextArrowSecond");
+    if (prevArrowThird && nextArrowThird) {
+        prevArrowThird.addEventListener('click', function() {
+            scrollRowBy(-scrollAmountThird, thirdRow);
+        });
+        nextArrowThird.addEventListener('click', function() {
+            scrollRowBy(scrollAmountThird, thirdRow);
+        });
+    }
 
-    // Inizializza il carosello della terza riga
-    getCarouselAndArrows("third-row", "prevArrowThird", "nextArrowThird");
+    // Aggiorna lo stato delle frecce al caricamento e al scroll
+    updateArrows();
+    secondRow.addEventListener('scroll', updateArrows);
+    thirdRow.addEventListener('scroll', updateArrows);
+
   });
 </script>
 
