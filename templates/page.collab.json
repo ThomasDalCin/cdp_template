@@ -1,17 +1,27 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "page-title": {
       "type": "page-title",
-      "settings": {}
+      "settings": {
+      }
     },
     "falconeriXpardo": {
       "type": "falconeriXpardo",
       "settings": {
         "section_heading": "Falconeri X Pardo Yachts",
         "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "image_one": "shopify:\/\/shop_images\/Rectangle_597.png",
-        "image_two": "shopify:\/\/shop_images\/Rectangle_598.png",
-        "image_three": "shopify:\/\/shop_images\/Rectangle_599_1.png"
+        "image_one": "shopify://shop_images/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
+        "image_two": "shopify://shop_images/fpardo-falconeri_gallery-02_desktop-1440x810.jpg",
+        "image_three": "shopify://shop_images/fpardo-falconeri_gallery-01_desktop-1440x810.jpg"
       }
     },
     "special-collab": {
@@ -20,7 +30,7 @@
         "collab_card_tRwDkG": {
           "type": "collab-card",
           "settings": {
-            "collab_card_image": "shopify:\/\/shop_images\/Rectangle_600_1.png",
+            "collab_card_image": "shopify://shop_images/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
             "collab_card_title": "Down Vest Jacket",
             "collab_card_content": "Reversible sleeveless down jacket in technical fabric and ultralight cashmere."
           }
@@ -28,7 +38,7 @@
         "collab_card_rDUxxD": {
           "type": "collab-card",
           "settings": {
-            "collab_card_image": "shopify:\/\/shop_images\/Rectangle_600_1.png",
+            "collab_card_image": "shopify://shop_images/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
             "collab_card_title": "Down Vest Jacket",
             "collab_card_content": "Reversible sleeveless down jacket in technical fabric and ultralight cashmere."
           }
@@ -45,8 +55,8 @@
     "special-collab-poldo": {
       "type": "special-collab-poldo",
       "settings": {
-        "section_image": "shopify:\/\/shop_images\/image_13.png",
-        "section_overlay_image": "shopify:\/\/shop_images\/Loghi_Banner-HP_Poldo-x-Pardo_Desktop-1_1.png",
+        "section_image": "shopify://shop_images/Pardo_Poldo-x-Pardo_slider-01_desktop-1440x810.jpg",
+        "section_overlay_image": "shopify://shop_images/Loghi_Banner-HP_Poldo-x-Pardo_Desktop-1_1_1.png",
         "section_title": "Special Collaboration | Pold x Pardo Yatchs",
         "section_cta_text": "Scopri di più"
       }
