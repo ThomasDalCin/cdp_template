@@ -4,7 +4,7 @@
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
       {% for eventArticle in eventsArticles %}
-        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-1/3">
+        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[33.3%_2.5rem]">
           <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 transition-all duration-150 lg:hover:border lg:hover:border-black cursor-pointer">
             <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
               <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
