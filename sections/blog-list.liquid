@@ -62,7 +62,7 @@
       id="second-row">
       {% for i in (1..halfSize) %}
       <div
-        class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] relative"
+        class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:min-w-[400px] relative"
         data-tags="{{ newsArticles[i].tags | join: ',' }}">
         <div class="blog-item-image w-full h-auto">
           <img src="{{ newsArticles[i].image | img_url: 'master' }}"
@@ -103,7 +103,7 @@
     {% assign startIndex = halfSize | plus: 1 %}
     {% for i in (startIndex..remainingArticles) %}
     <div
-      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:w-[812px]"
+      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px]"
       data-tags="{{ newsArticles[i].tags | join: ',' }}">
       <div class="blog-item-image w-full h-auto">
         <img src="{{ newsArticles[i].image | img_url: 'master' }}"
