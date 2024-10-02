@@ -273,11 +273,11 @@
     const articlesInSecondRow = Array.from(secondRow.querySelectorAll('.blog-item'));
     const articlesInThirdRow = Array.from(thirdRow.querySelectorAll('.blog-item-horizontal-view'));
 
-    // Calcolare la larghezza di scorrimento
-    const scrollAmountSecond = articlesInSecondRow[0] ? articlesInSecondRow[0].offsetWidth + 16 : 0; // 16px è il gap tra gli articoli
+    
+    const scrollAmountSecond = articlesInSecondRow[0] ? articlesInSecondRow[0].offsetWidth + 16 : 0;
     const scrollAmountThird = articlesInThirdRow[0] ? articlesInThirdRow[0].offsetWidth + 16 : 0;
 
-    // Funzione per aggiornare lo stato delle frecce
+    
     function updateArrows() {
         const maxScrollLeftSecond = secondRow.scrollWidth - secondRow.clientWidth;
         const maxScrollLeftThird = thirdRow.scrollWidth - thirdRow.clientWidth;
@@ -289,7 +289,7 @@
         nextArrowThird.classList.toggle('disabled', thirdRow.scrollLeft >= maxScrollLeftThird);
     }
 
-    // Funzione per scorrere i contenitori
+
     function scrollRowBy(amount, row) {
         let newScrollLeft = row.scrollLeft + amount;
 
@@ -306,8 +306,7 @@
 
         setTimeout(updateArrows, 300);
     }
-
-    // Event listeners per le frecce
+    
     if (prevArrowSecond && nextArrowSecond) {
         prevArrowSecond.addEventListener('click', function() {
             scrollRowBy(-scrollAmountSecond, secondRow);
