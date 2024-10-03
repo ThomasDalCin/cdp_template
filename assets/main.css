@@ -1158,6 +1158,10 @@ p, span{
   margin-top: 70px;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
