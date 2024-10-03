@@ -741,16 +741,16 @@
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
-            
+
             const getchipFixed = () => {
+  if (chipClicked && chipClicked.closest('.chip-fixed')) {
+    return chipClicked.closest('.chip-fixed');
+  }
+  return null; 
+}
 
-              if(chipClicked.closest('.chip-fixed')){
-               return chipFixed;
 
-            }
-            }
-
-            const chipFixed = getchipFixed();
+const chipFixed = getchipFixed();
 
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
