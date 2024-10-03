@@ -1925,6 +1925,10 @@ p, span{
   line-height: 1.25rem;
 }
 
+.text-\[16px\] {
+  font-size: 16px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1959,6 +1963,10 @@ p, span{
 
 .leading-\[32px\] {
   line-height: 32px;
+}
+
+.leading-\[16px\] {
+  line-height: 16px;
 }
 
 .text-\[\#7A7A7A\] {
@@ -2792,6 +2800,10 @@ p, span{
     font-size: 96px;
   }
 
+  .lg\:text-\[16px\] {
+    font-size: 16px;
+  }
+
   .lg\:leading-\[20px\] {
     line-height: 20px;
   }
@@ -2810,6 +2822,10 @@ p, span{
 
   .lg\:leading-\[96px\] {
     line-height: 96px;
+  }
+
+  .lg\:leading-\[16px\] {
+    line-height: 16px;
   }
 
   .lg\:text-black {

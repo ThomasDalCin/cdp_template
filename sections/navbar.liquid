@@ -139,8 +139,8 @@
       <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2 mt-10">
         {% for link in linklists.yatch.links %}
         {% unless allLinksTitle contains link.title %}
-        {{ link.title | link_to: link.url, class: "text-white font-light text-[20px] leading-[20px] lg:text-[20px]
-        lg:leading-[20px] underline" }}
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[16px] lg:text-[16px]
+        lg:leading-[16px] underline" }}
         {% endunless %}
         {% endfor %}
       </div>
@@ -189,7 +189,7 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
 
-        {{ link.title | link_to: link.url, class: " text-white font-light lg:text-[20px] lg:leading-[20px] underline" }}
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[16px] lg:text-[16px] lg:leading-[16px] underline" }}
         {% endif %}
         {% endfor %}
       </div>
