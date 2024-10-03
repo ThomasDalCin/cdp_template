@@ -1,4 +1,4 @@
-<div class="hero-wrapper w-full min-h-lvh overflow-y-hidden relative mb-[40px]">
+<div class="hero-wrapper w-full overflow-y-hidden relative mb-[40px]">
   <div class="wrapper-slider w-full h-full absolute overflow-y-hidden left-0 top-0 right-0 z-0">
     <div class="swiper mySwiper w-full h-full relative overflow-y-hidden">
       <div class="swiper-wrapper overflow-y-hidden">
@@ -53,6 +53,15 @@
 
 <!-- Initialize Swiper -->
 <script>
+    const heroWrapper = document.querySelector('.hero-wrapper');
+
+// Inizialmente usa vh
+heroWrapper.style.height = `${window.innerHeight}px`;
+
+// Al primo scroll, cambia a dvh
+window.addEventListener('scroll', () => {
+  heroWrapper.style.height = '100dvh';
+}, { once: true });
   var swiper = new Swiper(".mySwiper", {
     effect: 'fade',
     fadeEffect: {
