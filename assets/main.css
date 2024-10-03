@@ -1771,6 +1771,10 @@ p, span{
   border-width: 1.5px;
 }
 
+.border-\[0\.5px\] {
+  border-width: 0.5px;
+}
+
 .border-none {
   border-style: none;
 }
