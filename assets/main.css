@@ -2247,6 +2247,20 @@ p, span{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.focus\:border-\[0\.5px\]:focus {
+  border-width: 0.5px;
+}
+
+.focus\:border-white:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 @media (min-width: 640px) {
   .sm\:w-1\/2 {
     width: 50%;
