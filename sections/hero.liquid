@@ -46,22 +46,24 @@
 </div>
 
 <style>
-  .swiper-slide{
-    touch-action: pan-y;
-  }
+.hero-wrapper {
+  height: 100dvh; /* Imposta l'altezza iniziale a dvh */
+  transition: height 0.3s ease-in-out; /* Transizione fluida quando l'altezza cambia */
+}
+
 </style>
 
 <!-- Initialize Swiper -->
 <script>
-    const heroWrapper = document.querySelector('.hero-wrapper');
+  const heroWrapper = document.querySelector('.hero-wrapper');
 
-// Inizialmente usa vh
-heroWrapper.style.height = `${window.innerHeight}px`;
+// Inizialmente usa dvh
+heroWrapper.style.height = '100dvh';
 
-// Al primo scroll, cambia a dvh
+// Al primo scroll, cambia a lvh
 window.addEventListener('scroll', () => {
-  heroWrapper.style.height = '100dvh';
-}, { once: true });
+  heroWrapper.style.height = '100lvh';
+}, { once: true }); // Esegui solo una volta durante il primo scroll
   var swiper = new Swiper(".mySwiper", {
     effect: 'fade',
     fadeEffect: {
