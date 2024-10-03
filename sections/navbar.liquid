@@ -750,6 +750,8 @@
             if (chipClicked && chipClicked.innerHTML != "View all ranges") {
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
+            } else {
+              chipClicked.closest('.fixed').classList.add('fixed');
             }
 
             allCollectionDescription.forEach((el) => {
