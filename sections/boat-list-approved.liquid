@@ -6,7 +6,7 @@
       {% if collection.title == 'Pardo approved' %}
         {% assign pardoApproved = collection.products %}
         {% for product in pardoApproved %}
-          <div class="card-product-item-press-room w-full lg:w-[calc(50%_-2.5rem)] flex flex-col gap-y-4 shadow-custom rounded-lg">
+          <div class="card-product-item-press-room w-full lg:w-[calc(50%_-1.25rem)] flex flex-col gap-y-4 shadow-custom rounded-lg lg:gap-y-6">
             <img
               src="{{ product.featured_image | img_url: 'master' }}"
               class="w-full h-auto max-h-[220px] object-cover rounded-t-lg"
@@ -15,10 +15,12 @@
               {% assign productFlag = product.metafields.custom.country.value %}
               {% assign productCountry = product.metafields.custom.approved_location.value %}
               <div class="product-item-main w-full h-auto flex flex-col gap-y-2 items-start justify-center">
-                <div class="product-item-main-primary w-full h-auto flex flex-row items-center justify-start gap-x-2">
-                  <img src="{{ productFlag |  img_url: 'master' }}" alt="{{ productFlag.alt }}" class="w-5 h-4 object-cover object-center">
-                  <p class="caption">{{ productCountry }}</p>
-                </div>
+                {% if productFlag and productCountry %}
+                  <div class="product-item-main-primary w-full h-auto flex flex-row items-center justify-start gap-x-2">
+                    <img src="{{ productFlag |  img_url: 'master' }}" alt="{{ productFlag.alt }}" class="w-5 h-4 object-cover object-center">
+                    <p class="caption">{{ productCountry }}</p>
+                  </div>
+                {% endif %}
                 <div class="product-item-main-secondary w-full h-auto flex flex-col items-start justify-center gap-y-1">
                   <p class="body-14">{{ product.title }}</p>
                   <p class="body-12">{{ product.description }}</p>
