@@ -189,7 +189,8 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title == 'Press room' or link.title == 'Pardo experience' %}
 
-        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[16px] lg:text-[16px] lg:leading-[16px] underline" }}
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[16px] lg:text-[16px]
+        lg:leading-[16px] underline" }}
         {% endif %}
         {% endfor %}
       </div>
@@ -318,7 +319,7 @@
     }*/
 
 
-    
+
     function updateNavbarStyle() {
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
@@ -539,7 +540,7 @@
       }
     }
 
-    
+
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -615,7 +616,7 @@
     });
 
 
-    
+
     menuIcon.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -654,12 +655,12 @@
           }
         }
       };
- 
+
       // Check if the Yacht menu is visible, if yes, do nothing
       if (menuYatch.classList.contains('flex')) return;
- 
+
       const isMenuMainHidden = mainMenu.classList.contains('hidden');
- 
+
       if (isMenuMainHidden) {
         mainMenu.classList.remove('hidden');
         mainMenu.classList.add('flex');
@@ -667,13 +668,13 @@
         openIcon.classList.remove('flex');
         closeIcon.classList.add('flex');
         closeIcon.classList.remove('hidden');
- 
+
         closeIcon.classList.add('text-white');
         closeIcon.classList.remove('text-black');
- 
+
         document.body.classList.add('no-scroll');
         updateNavbarStyle();
- 
+
         document.addEventListener('click', handleClickOutside);
       } else {
         mainMenu.classList.remove('flex');
@@ -685,11 +686,11 @@
         navbar.classList.remove('toAccent');
         closeIcon.classList.remove('text-white');
         closeIcon.classList.add('text-black');
- 
+
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
- 
- 
+
+
         document.removeEventListener('click', handleClickOutside);
       }
     });
@@ -713,6 +714,7 @@
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
+    const chipFixed = document.querySelector('chip-fixed');
 
     //set click event for each link inside the second menu
     allSecondLinksMenu.forEach((link) => {
@@ -742,16 +744,6 @@
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
 
-            const getchipFixed = () => {
-  if (chipClicked && chipClicked.closest('.chip-fixed')) {
-    return chipClicked.closest('.chip-fixed');
-  }
-  return null; 
-}
-
-
-const chipFixed = getchipFixed();
-
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
               el.nextElementSibling.classList.add('-rotate-45');
@@ -761,7 +753,7 @@ const chipFixed = getchipFixed();
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
               chipFixed.classList.remove('hidden')
-            } 
+            }
 
             allCollectionDescription.forEach((el) => {
               if (chipCol.innerHTML == (el.getAttribute('data-collection-description'))) {
