@@ -2752,6 +2752,10 @@ p, span{
     padding-top: 1.5rem;
   }
 
+  .lg\:pb-6 {
+    padding-bottom: 1.5rem;
+  }
+
   .lg\:text-center {
     text-align: center;
   }

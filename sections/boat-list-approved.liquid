@@ -11,7 +11,7 @@
               src="{{ product.featured_image | img_url: 'master' }}"
               class="w-full h-auto max-h-[220px] object-cover rounded-t-lg"
               alt="product image">
-            <div class="product-item-details flex flex-col gap-y-4 p-4 lg:gap-y-6 lg:px-6 lg:py-0">
+            <div class="product-item-details flex flex-col gap-y-4 p-4 lg:gap-y-6 lg:px-6 lg:pb-6">
               {% assign productFlag = product.metafields.custom.country.value %}
               {% assign productCountry = product.metafields.custom.approved_location.value %}
               <div class="product-item-main w-full h-auto flex flex-col gap-y-2 items-start justify-center">
