@@ -1916,6 +1916,10 @@ p, span{
   padding-bottom: 80px;
 }
 
+.pb-52 {
+  padding-bottom: 13rem;
+}
+
 .text-center {
   text-align: center;
 }
