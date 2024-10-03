@@ -2230,6 +2230,10 @@ p, span{
   }
 }
 
+.last\:mr-6:last-child {
+  margin-right: 1.5rem;
+}
+
 .last-of-type\:mr-6:last-of-type {
   margin-right: 1.5rem;
 }
