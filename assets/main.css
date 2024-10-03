@@ -1320,6 +1320,10 @@ p, span{
   height: 40px;
 }
 
+.h-lvh {
+  height: 100lvh;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
