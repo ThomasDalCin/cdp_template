@@ -738,7 +738,7 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
-          const chipFixed = chipCol.closest('.fixed');
+          const chipFixed = chipCol.innerHTML === "View all ranges";
           console.log(chipFixed)
 
           chipCol.addEventListener('click', (e) => {
