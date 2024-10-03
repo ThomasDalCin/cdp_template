@@ -738,7 +738,8 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
-          const chipClickedFixed = chipCol.closest('.fixed');
+          const chipFixed = chipCol.closest('.fixed');
+          console.log(chipFixed)
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
@@ -751,7 +752,6 @@
             if (chipClicked && chipClicked.innerHTML != "View all ranges") {
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
-              chipClickedFixed.classList.remove('hidden');
             } 
 
             allCollectionDescription.forEach((el) => {
@@ -768,7 +768,6 @@
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
               } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') != 'Pardo approved')) {
-                chipClickedFixed.classList.add('hidden');
                 product.parentElement.classList.remove('hidden');
               } else {
                 product.parentElement.classList.add('hidden');
