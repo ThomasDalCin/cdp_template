@@ -26,7 +26,7 @@
               <p class="body-12">{{ newsArticles[0].content | truncate: 300 }}</p>
             </div>
             <div class="blog-item-cta w-full h-auto flex items-center justify-start lg:absolute lg:bottom-0">
-              <div class="cta-blog lg:w-full">
+              <div class="cta-blog outline-none lg:w-full">
                 <a href="{{ newsArticles[0].url }}">
                   <p class="body-14-medium">{{ section.settings.article_cta }}</p>
                 </a>
@@ -117,7 +117,7 @@
         <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
       </div>
       <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-        <div class="cta-blog">
+        <div class="cta-blog outline-none">
           <a href="{{ newsArticles[i].url }}">
             <p class="body-14-medium">{{ section.settings.article_cta }}</p>
           </a>
@@ -153,7 +153,7 @@
           <p class="body-12">{{ article.content | truncate: 100 }}</p>
         </div>
         <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-          <div class="cta-download flex items-center gap-x-2">
+          <div class="cta-download outline-none flex items-center gap-x-2">
             <a href="{{ article.url }}">
               <p class="body-14-medium">{{ section.settings.download_article_cta }}</p>
             </a>
