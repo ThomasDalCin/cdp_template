@@ -1183,6 +1183,10 @@ p, span{
   margin-right: 1.5rem;
 }
 
+.mr-8 {
+  margin-right: 2rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
