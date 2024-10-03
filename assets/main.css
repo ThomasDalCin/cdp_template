@@ -1175,6 +1175,14 @@ p, span{
   margin-bottom: 3rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
