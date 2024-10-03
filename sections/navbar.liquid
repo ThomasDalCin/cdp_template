@@ -751,7 +751,7 @@
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
             } else {
-              chipClicked.closest('.fixed').classList.add('fixed');
+              chipClicked.closest('.fixed').classList.remove('hidden');
             }
 
             allCollectionDescription.forEach((el) => {
