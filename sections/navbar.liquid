@@ -766,7 +766,7 @@
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
               } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') != 'Pardo approved')) {
-                chipClicked.closest('fixed').classList.add('hidden');
+                chipClicked.closest('.fixed').classList.add('hidden');
                 product.parentElement.classList.remove('hidden');
               } else {
                 product.parentElement.classList.add('hidden');
