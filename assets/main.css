@@ -1323,6 +1323,10 @@ p, span{
   max-height: calc(100vh - 250px);
 }
 
+.max-h-\[50vh\] {
+  max-height: 50vh;
+}
+
 .min-h-\[120px\] {
   min-height: 120px;
 }
