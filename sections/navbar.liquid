@@ -78,7 +78,7 @@
       </div>
 
       <!-- Fixed "View all ranges" label at the bottom -->
-      <div class="w-full h-auto fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
+      <div class="w-full h-auto chip-fixed fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
         <div class="w-full h-auto flex flex-row justify-between">
           <div class="chips-text text-nowrap body-14" id="collection-chips-title">View all ranges</div>
           {% render 'cta-icon' %}
@@ -741,8 +741,16 @@
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
-            const chipFixed = chipCol.innerHTML('View all ranges');
-            console.log(chipFixed)
+            
+            const getchipFixed = () => {
+
+              if(chipClicked.closest('.chip-fixed')){
+               return chipFixed;
+
+            }
+            }
+
+            const chipFixed = getchipFixed();
 
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
@@ -752,6 +760,7 @@
             if (chipClicked && chipClicked.innerHTML != "View all ranges") {
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
+              chipFixed.classList.remove('hidden')
             } 
 
             allCollectionDescription.forEach((el) => {
@@ -769,6 +778,7 @@
                 product.parentElement.classList.remove('hidden');
               } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') != 'Pardo approved')) {
                 product.parentElement.classList.remove('hidden');
+                chipFixed.classList.add('hidden');
               } else {
                 product.parentElement.classList.add('hidden');
               }
