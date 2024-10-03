@@ -2230,6 +2230,10 @@ p, span{
   }
 }
 
+.last-of-type\:mr-6:last-of-type {
+  margin-right: 1.5rem;
+}
+
 .checked\:bg-white:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
