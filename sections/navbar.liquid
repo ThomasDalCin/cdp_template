@@ -738,10 +738,10 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
+          const chipClickedFixed = chipCol.closest('.fixed');
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
-            const chipClickedFixed = chipClicked.closest('.fixed');
 
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
