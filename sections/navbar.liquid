@@ -179,7 +179,7 @@
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-6">
       {% for link in linklists.main-menu.links %}
       {% unless link.title == 'Press room' or link.title == 'Pardo experience' %}
-      <li class="header-1-medium text-white list-none inline-flex items-center relative">
+      <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
         {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px] lg:leading-[40px]" }}
       </li>
       {% endunless %}

@@ -2199,6 +2199,10 @@ p, span{
     font-size: var(--header-3);
     line-height: var(--header-3-height);
   }
+
+  .lg\:hover\:text-shadow:hover {
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.32);
+  }
 }
 
 .checked\:bg-white:checked {
