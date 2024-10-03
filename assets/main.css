@@ -2731,6 +2731,11 @@ p, span{
     padding-bottom: 0.5rem;
   }
 
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
