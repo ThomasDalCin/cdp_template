@@ -738,11 +738,11 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
-          const chipFixed = chipCol.innerHTML === "View all ranges";
-          console.log(chipFixed)
 
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
+            const chipFixed = chipCol.innerHTML('View all ranges');
+            console.log(chipFixed)
 
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
