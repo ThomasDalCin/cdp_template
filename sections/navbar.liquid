@@ -742,21 +742,15 @@
         })
 
         function handleDescriptionContent(item) {
-          const containerToClose = item.closest('.description-box-containe');
-          const isOpen = containerToClose.classList.contains('flex');
-          if (isOpen) {
-            containerToClose.classList.add('hidden');
-            containerToClose.classList.remove('flex');
-          } else {
-            containerToClose.classList.remove('hidden');
-            containerToClose.classList.add('flex');
-          }
+
         }
 
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
-            const descriptionItem = e.currentTarget;
-            handleDescriptionContent(descriptionItem);
+            const iconClicked = e.currentTarget;
+            const contentToClose = iconClicked.closest('description-box-containe');
+            console.log(contentToClose);
+            handleDescriptionContent(iconClicked);
           });
         });
 
