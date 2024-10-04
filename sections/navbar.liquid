@@ -742,7 +742,7 @@
         })
 
         function handleDescriptionContent(item) {
-          const isOpen = item.classList.contains('flex');
+          const isOpen = item.closest('.description-box-containe').classList.contains('flex');
           if (isOpen) {
             item.classList.add('hidden');
             item.classList.remove('flex');
