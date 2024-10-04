@@ -2236,6 +2236,10 @@ p, span{
   padding-right: 1rem;
 }
 
+.last-of-type\:pr-6:last-of-type {
+  padding-right: 1.5rem;
+}
+
 .checked\:bg-white:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));

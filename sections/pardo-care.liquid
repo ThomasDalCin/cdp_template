@@ -20,7 +20,7 @@
     <div class="container-film-strip w-full h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto  lg:overflow-hidden">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-4">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-6">
             <img
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"
