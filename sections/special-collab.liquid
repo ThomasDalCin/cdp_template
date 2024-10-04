@@ -3,7 +3,7 @@
   <div class="collab-container-heading">
     <p class="body-16-medium lg:header-2">{{ section.settings.collab_heading }}</p>
   </div>
-  <div class="collab-container-cards w-full h-auto flex flex-row flex-wrap items-start justify-center lg:justify-center lg:flex-row lg:gap-x-4">
+  <div class="collab-container-cards w-full h-auto flex flex-row gap-x-4 flex-wrap items-start justify-center lg:justify-center lg:flex-row lg:gap-x-4">
     {% for block in section.blocks %}
       {% if block.type == "collab-card" %}
         <div class="collab-card w-[calc(50%-1rem)] flex flex-col gap-y-2 items-start justify-center lg:max-w-[calc(50%-1rem)] lg:w-1/2 ">
