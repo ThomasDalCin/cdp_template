@@ -742,7 +742,7 @@
         })
 
         function handleDescriptionContent(item) {
-           if(item.classList.contains('flex')){
+           if(item.classList.contains('flex') || item.classList.contains('flex-row')){
               item.classList.remove('flex');
               item.classList.add('hidden');
            } 
