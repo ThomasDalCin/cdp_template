@@ -4,7 +4,7 @@
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
   </div>
   <div class="pardo-care-service-container-film-strip w-full h-auto">
-    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start gap-x-3 p-1 overflow-x-auto m-4 lg:overflow-hidden">
+    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start gap-x-3  overflow-x-auto m-4 lg:overflow-hidden">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 rounded-lg shadow-custom lg:flex-1 last-of-type:pr-8">
