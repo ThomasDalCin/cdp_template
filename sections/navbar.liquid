@@ -35,7 +35,8 @@
         {% render 'back-arrow-icon' %}
       </div>
 
-      <div class="chips-horizontal-container w-[calc(100%+2rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-4 -mx-4">
+      <div
+        class="chips-horizontal-container w-[calc(100%+2rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-4 -mx-4">
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
@@ -50,7 +51,8 @@
       <div class="collection-description w-full h-auto flex items-start justify-center">
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
-        <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row gap-x-3"
+        <div
+          class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row gap-x-3"
           data-collection-description="{{ collection.title }}">
           <p class="body-12">{{ collection.description }}</p>
           <div class="container-x-icon">
@@ -738,6 +740,24 @@
             item.classList.remove('block')
           }
         })
+
+        function handleDescriptionContent(item) {
+          const isOpen = item.classList.contains('flex');
+          if (isOpen) {
+            item.classList.add('hidden');
+            item.classList.remove('flex');
+          } else {
+            item.classList.remove('hidden');
+            item.classList.add('flex');
+          }
+        }
+
+        document.querySelectorAll('.container-x-icon').forEach((icon) => {
+          icon.addEventListener('click', (e) => {
+            const descriptionItem = e.currentTarget;
+            handleDescriptionContent(descriptionItem);
+          });
+        });
 
         //get foreach chips element his parent and prevent active class
         allChipsCollection.forEach((chipCol) => {
