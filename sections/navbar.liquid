@@ -742,13 +742,14 @@
         })
 
         function handleDescriptionContent(item) {
-          const isOpen = item.closest('.description-box-containe').classList.contains('flex');
+          const containerToClose = item.closest('.description-box-containe');
+          const isOpen = containerToClose.classList.contains('flex');
           if (isOpen) {
-            item.classList.add('hidden');
-            item.classList.remove('flex');
+            containerToClose.classList.add('hidden');
+            containerToClose.classList.remove('flex');
           } else {
-            item.classList.remove('hidden');
-            item.classList.add('flex');
+            containerToClose.classList.remove('hidden');
+            containerToClose.classList.add('flex');
           }
         }
 
