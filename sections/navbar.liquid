@@ -52,7 +52,7 @@
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
         <div
-          class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row gap-x-3"
+          class="description-box-container rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row gap-x-3"
           data-collection-description="{{ collection.title }}">
           <p class="body-12">{{ collection.description }}</p>
           <div class="container-x-icon">
@@ -748,7 +748,7 @@
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
-            const contentToClose = iconClicked.closest('.description-box-containe');
+            const contentToClose = iconClicked.closest('.description-box-container');
             console.log(contentToClose);
             handleDescriptionContent(iconClicked);
           });
