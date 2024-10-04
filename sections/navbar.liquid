@@ -50,7 +50,7 @@
       <div class="collection-description w-full h-auto flex items-start justify-center">
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
-        <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row"
+        <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex flex-row gap-x-3"
           data-collection-description="{{ collection.title }}">
           <p class="body-12">{{ collection.description }}</p>
           <div class="container-x-icon">
