@@ -2733,6 +2733,22 @@ p, span{
     border-radius: 0.75rem;
   }
 
+  .lg\:rounded-bl-\[10px\] {
+    border-bottom-left-radius: 10px;
+  }
+
+  .lg\:rounded-br-\[10px\] {
+    border-bottom-right-radius: 10px;
+  }
+
+  .lg\:rounded-tl-\[10px\] {
+    border-top-left-radius: 10px;
+  }
+
+  .lg\:rounded-tr-\[10px\] {
+    border-top-right-radius: 10px;
+  }
+
   .lg\:border-b-\[1px\] {
     border-bottom-width: 1px;
   }
