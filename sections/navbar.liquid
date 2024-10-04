@@ -777,11 +777,11 @@
 
             allCollectionDescription.forEach((el) => {
               if (chipCol.innerHTML == (el.getAttribute('data-collection-description'))) {
-                el.classList.add('block');
+                el.classList.add('flex');
                 el.classList.remove('hidden');
               } else {
                 el.classList.add('hidden');
-                el.classList.remove('block');
+                el.classList.remove('flex');
               }
             });
 
