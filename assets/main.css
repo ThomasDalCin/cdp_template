@@ -2856,6 +2856,11 @@ p, span{
     padding-bottom: 0.5rem;
   }
 
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
