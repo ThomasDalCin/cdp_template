@@ -52,10 +52,10 @@
         {% unless collection.title == 'Pardo approved' %}
         <div class="description-box-containe rounded-xl bg-[var(--secondary-background-color)] p-4 hidden flex-row gap-x-3"
           data-collection-description="{{ collection.title }}">
+          <p class="body-12">{{ collection.description }}</p>
           <div class="container-x-icon">
             {% render 'x-icon' %}
           </div>
-          <p class="body-12">{{ collection.description }}</p>
         </div>
         {% endunless %}
         {% endfor %}
