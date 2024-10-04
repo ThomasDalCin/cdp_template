@@ -1,4 +1,3 @@
-<!--pardo care -->
 <div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 relative mb-10 overflow-x-hidden">
   <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 lg:px-10">
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
@@ -15,9 +14,8 @@
     </button>
   </div>
 
-
   <div class="pardo-care-container-film-strip w-full h-auto mx-4 lg:mx-10">
-    <div class="container-film-strip w-full h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
+    <div id="filmstrip" class="container-film-strip w-full h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:overflow-x-scroll lg:scroll-smooth">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-8">

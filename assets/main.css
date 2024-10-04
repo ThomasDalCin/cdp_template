@@ -2718,8 +2718,16 @@ p, span{
     overflow-x: hidden;
   }
 
+  .lg\:overflow-x-scroll {
+    overflow-x: scroll;
+  }
+
   .lg\:overflow-y-scroll {
     overflow-y: scroll;
+  }
+
+  .lg\:scroll-smooth {
+    scroll-behavior: smooth;
   }
 
   .lg\:rounded {
