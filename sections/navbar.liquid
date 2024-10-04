@@ -742,15 +742,17 @@
         })
 
         function handleDescriptionContent(item) {
-
+           if(item.classList.contains('flex')){
+              item.classList.remove('flex');
+              item.classList.add('hidden');
+           } 
         }
 
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
             const contentToClose = iconClicked.closest('.description-box-container');
-            console.log(contentToClose);
-            handleDescriptionContent(iconClicked);
+            handleDescriptionContent(contentToClose);
           });
         });
 
