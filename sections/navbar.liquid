@@ -748,7 +748,7 @@
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
-            const contentToClose = iconClicked.closest('description-box-containe');
+            const contentToClose = iconClicked.closest('.description-box-containe');
             console.log(contentToClose);
             handleDescriptionContent(iconClicked);
           });
