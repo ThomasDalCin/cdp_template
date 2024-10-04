@@ -15,13 +15,13 @@
                 {% case forloop.index0 %}
                   {% when 0 %}
                     <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">GT75</h2>
-                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
+                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]  hover:bg-[var(--accent-color)] hover:text-white">
                       <p class="body-14-medium">{{ section.settings.slide_text_one }}</p>
                       {% render "cta-icon" %}
                     </div>
                   {% when 1 %}
                     <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">E60</h2>
-                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]">
+                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px] hover:bg-[var(--accent-color)] hover:text-white">
                       <p class="body-14-medium">{{ section.settings.slide_text_two }}</p>
                       {% render "cta-icon" %}
                     </div>
