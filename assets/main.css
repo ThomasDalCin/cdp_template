@@ -1093,22 +1093,22 @@ p, span{
   z-index: 99999;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .m-1 {
   margin: 0.25rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.m-4 {
+  margin: 1rem;
 }
 
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-10 {
@@ -1384,10 +1384,6 @@ p, span{
   width: 0px;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .w-10 {
   width: 2.5rem;
 }
@@ -1456,20 +1452,16 @@ p, span{
   width: 93px;
 }
 
+.w-\[calc\(50\%-\.5rem\)\] {
+  width: calc(50% - .5rem);
+}
+
 .w-auto {
   width: auto;
 }
 
 .w-full {
   width: 100%;
-}
-
-.w-\[calc\(50\%-1rem\)\] {
-  width: calc(50% - 1rem);
-}
-
-.w-\[calc\(50\%-\.5rem\)\] {
-  width: calc(50% - .5rem);
 }
 
 .min-w-\[200px\] {
@@ -1490,10 +1482,6 @@ p, span{
 
 .min-w-\[343px\] {
   min-width: 343px;
-}
-
-.max-w-\[164px\] {
-  max-width: 164px;
 }
 
 .flex-1 {
@@ -2037,6 +2025,10 @@ p, span{
   color: var(--hover-color);
 }
 
+.text-\[var\(--hover-gray\)\] {
+  color: var(--hover-gray);
+}
+
 .text-\[var\(--inactive-color\)\] {
   color: var(--inactive-color);
 }
@@ -2058,10 +2050,6 @@ p, span{
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[var\(--hover-gray\)\] {
-  color: var(--hover-gray);
 }
 
 .underline {
@@ -2241,18 +2229,6 @@ p, span{
   margin-right: 1.5rem;
 }
 
-.last-of-type\:mr-4:last-of-type {
-  margin-right: 1rem;
-}
-
-.last-of-type\:pr-4:last-of-type {
-  padding-right: 1rem;
-}
-
-.last-of-type\:pr-6:last-of-type {
-  padding-right: 1.5rem;
-}
-
 .last-of-type\:pr-8:last-of-type {
   padding-right: 2rem;
 }
@@ -2319,6 +2295,10 @@ p, span{
     right: 16px;
   }
 
+  .lg\:right-\[40px\] {
+    right: 40px;
+  }
+
   .lg\:top-0 {
     top: 0px;
   }
@@ -2333,14 +2313,6 @@ p, span{
 
   .lg\:top-\[16px\] {
     top: 16px;
-  }
-
-  .lg\:right-\[40px\] {
-    right: 40px;
-  }
-
-  .lg\:right-\[56px\] {
-    right: 56px;
   }
 
   .lg\:z-10 {
@@ -2770,6 +2742,10 @@ p, span{
     border-bottom-left-radius: 10px;
   }
 
+  .lg\:rounded-bl-none {
+    border-bottom-left-radius: 0px;
+  }
+
   .lg\:rounded-br-\[10px\] {
     border-bottom-right-radius: 10px;
   }
@@ -2780,18 +2756,6 @@ p, span{
 
   .lg\:rounded-tr-\[10px\] {
     border-top-right-radius: 10px;
-  }
-
-  .lg\:rounded-bl-\[0px\] {
-    border-bottom-left-radius: 0px;
-  }
-
-  .lg\:rounded-tr-\[0px\] {
-    border-top-right-radius: 0px;
-  }
-
-  .lg\:rounded-bl-none {
-    border-bottom-left-radius: 0px;
   }
 
   .lg\:rounded-tr-none {
@@ -2849,6 +2813,11 @@ p, span{
     padding-right: 0px;
   }
 
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .lg\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -2872,11 +2841,6 @@ p, span{
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  .lg\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
   }
 
   .lg\:pb-10 {
