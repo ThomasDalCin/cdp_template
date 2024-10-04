@@ -2871,6 +2871,10 @@ p, span{
     padding-top: 1.5rem;
   }
 
+  .lg\:pr-0 {
+    padding-right: 0px;
+  }
+
   .lg\:text-center {
     text-align: center;
   }
