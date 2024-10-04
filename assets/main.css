@@ -2596,6 +2596,10 @@ p, span{
     min-width: calc(50% - 0.75rem);
   }
 
+  .lg\:min-w-full {
+    min-width: 100%;
+  }
+
   .lg\:max-w-\[297px\] {
     max-width: 297px;
   }
