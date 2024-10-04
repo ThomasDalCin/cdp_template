@@ -10,7 +10,7 @@
       {% if image %}
         <div class="container-image w-full h-auto  flex flex-1">
           <img
-            class="w-full h-auto min-h-[120px] object-cover object-center lg:h-[549px] first-of-type:border-t-[10px] last-of-type:border-b-[10px]"
+            class="w-full h-auto min-h-[120px] object-cover object-center lg:h-[549px] first-of-type:rounded-t-[10px] last-of-type:rounded-b-[10px]"
             src="{{ image | img_url: 'master' }}"
             alt="{{ image.alt }}">
         </div>
