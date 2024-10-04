@@ -1,10 +1,10 @@
 <!--pardo care service section -->
-<div class="pardo-care-service-container w-full h-auto flex flex-col gap-y-8 mb-[40px] overflow-x-hidden">
-  <div class="pardo-care-service-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 lg:px-10">
+<div class="pardo-care-service-container w-full h-auto flex flex-col gap-y-8 mb-[40px] overflow-x-hidden lg:mx-10">
+  <div class="pardo-care-service-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4">
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
   </div>
   <div class="pardo-care-service-container-film-strip w-full h-auto">
-    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start pr-8 gap-x-3 overflow-x-auto m-4 lg:overflow-hidden lg:mx-10">
+    <div class="container-film-strip w-full h-auto flex flex-row items-center justify-start pr-8 gap-x-3 overflow-x-auto m-4 lg:overflow-hidden lg:m-0">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col m-1 gap-y-2 rounded-lg shadow-custom lg:flex-1">
