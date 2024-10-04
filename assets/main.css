@@ -2736,6 +2736,14 @@ p, span{
     border-top-right-radius: 10px;
   }
 
+  .lg\:rounded-bl-\[0px\] {
+    border-bottom-left-radius: 0px;
+  }
+
+  .lg\:rounded-tr-\[0px\] {
+    border-top-right-radius: 0px;
+  }
+
   .lg\:border-b-\[1px\] {
     border-bottom-width: 1px;
   }

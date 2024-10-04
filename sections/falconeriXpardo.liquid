@@ -11,10 +11,10 @@
           <img
             class="w-full h-auto min-h-[120px] object-cover object-center lg:h-[549px]
             {% if forloop.first %} 
-              rounded-t-[10px] lg:rounded-tl-[10px] lg:rounded-bl-[10px] lg:rounded-tr-0
+              rounded-t-[10px] lg:rounded-tl-[10px] lg:rounded-bl-[10px] lg:rounded-tr-[0px]
             {% endif %}
             {% if forloop.last %} 
-              rounded-b-[10px] lg:rounded-tr-[10px] lg:rounded-br-[10px] lg:rounded-bl-0
+              rounded-b-[10px] lg:rounded-tr-[10px] lg:rounded-br-[10px] lg:rounded-bl-[0px]
             {% endif %}"
             src="{{ image | img_url: 'master' }}"
             alt="{{ image.alt }}">
