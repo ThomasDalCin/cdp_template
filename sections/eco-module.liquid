@@ -1,8 +1,10 @@
 <!-- eco module section -->
 <div class="eco-container w-full h-auto flex flex-col items-start justify-center p-4 mb-10 lg:items-center lg:mb-0" style="background: linear-gradient(180deg, #6F6060 0%, rgba(146, 143, 143, 0.00) 100%);">
   <div class="eco-container-primary w-full h-auto flex flex-col gap-y-10 lg:pt-10 lg:items-center">
+    <!-- Section Heading -->
     <h2 class="header-2 text-white lg:big-header-1 lg:text-center">{{ section.settings.section_heading }}</h2>
     <div class="container-image-w-hotspot w-auto h-auto mb-10">
+      <!-- Section Image with Hotspot -->
       <img
         class="w-auto h-auto min-w-[343px] min-h-[172px] object-contain lg:h-[670px] lg:w-[1335px]"
         src="{{ section.settings.section_etic_code_boat_image |  img_url: 'master' }}"
@@ -11,15 +13,19 @@
   </div>
   <div class="box-containers w-full h-auto flex flex-row gap-x-4 items-center justify-start">
     <div class="eco-container-secondary w-full h-auto shadow-custom rounded-xl flex flex-col gap-y-4 items-start justify-center p-4 bg-white lg:w-auto lg:p-6">
+        <!-- Section Etic Code Content -->
         <p class="body-14">{{ section.settings.section_etic_code }}</p>
         <p class="body-16 italic">{{ section.settings.section_etic_code_cit }}</p>
         <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_etic_code_content }}</p>
         <div class="eco-content-cta w-full h-auto flex items-start justify-center">
+          <!-- CTA for Etic Code Download -->
           <div class="cta-eco w-full">
             <p class="body-14">{{ section.settings.section_etic_code_download }}</p>
           </div>
         </div>
       </div>
+
+      <!-- Innovation Container with Headings and Content -->
       <div
         class="innovation-container-primary w-full h-auto flex flex-col gap-y-4 rounded-lg shadow-custom p-4 lg:w-auto lg:px-6 lg:pt-6 lg:pb-10 lg:mb-10">
         <p class="body-14">{{ section.settings.section_heading }}</p>
@@ -29,11 +35,11 @@
   </div>
 
 </div>
+
 <!-- innovation section -->
 <div
   class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10 lg:items-center lg:gap-y-6 relative">
 
-  
   <!-- arrow box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 ">
     <button id="prevArrow"
@@ -46,11 +52,11 @@
     </button>
   </div>
 
+  <!-- Scrolling Images -->
   <div class="relative w-full h-auto">
     <div
       class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
       {% for block in section.blocks %}
-
       {% if block.type == "scroll-image" %}
       <div class="container-scroll-image w-auto h-auto">
         <img src="{{ block.settings.scroll_image | img_url: 'master' }}" alt="{{ block.settings.scroll_image.alt }}"
@@ -61,6 +67,7 @@
     </div>
   </div>
 
+  <!-- CTA Section -->
   <div class="innvation-content-cta w-full h-auto flex items-start justify-center">
     <div class="cta-primary">
       <p class="body-14">{{ section.settings.section_content_cta }}</p>
