@@ -63,7 +63,7 @@
       id="second-row">
       {% for i in (1..halfSize) %}
       <div
-        class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:min-w-[400px] relative last-of-type:pr-4 lg:last-of-type:pr-10"
+        class="blog-item horizontal-view min-w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:min-w-[400px] relative last-of-type:mr-4 lg:last-of-type:mr-10"
         data-tags="{{ newsArticles[i].tags | join: ',' }}">
         <div class="blog-item-image w-full h-auto">
           <img src="{{ newsArticles[i].image | img_url: 'master' }}"

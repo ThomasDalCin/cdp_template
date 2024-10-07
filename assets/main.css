@@ -2268,6 +2268,10 @@ p, span{
   margin-right: 2rem;
 }
 
+.last-of-type\:mr-4:last-of-type {
+  margin-right: 1rem;
+}
+
 .last-of-type\:pr-8:last-of-type {
   padding-right: 2rem;
 }
@@ -3023,6 +3027,10 @@ p, span{
 
   .lg\:last-of-type\:mr-0:last-of-type {
     margin-right: 0px;
+  }
+
+  .lg\:last-of-type\:mr-10:last-of-type {
+    margin-right: 2.5rem;
   }
 
   .lg\:last-of-type\:pr-0:last-of-type {
