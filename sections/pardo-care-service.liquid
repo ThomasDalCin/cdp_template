@@ -4,12 +4,11 @@
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
   </div>
   
-  <!-- Modificato per replicare il comportamento -->
   <div class="pardo-care-container-film-strip w-full h-auto">
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-8">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-8 lg:last-of-type:pr-0 shadow-custom">
             <img 
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"
