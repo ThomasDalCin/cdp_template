@@ -1,17 +1,17 @@
 <!--Article list home page -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative">
 
-      <!-- arrows box -->
-      <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
-        <button id="prevArrow"
-          class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-          {% render 'arrow-left-icon' %}
-        </button>
-        <button id="nextArrow"
-          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-          {% render 'arrow-right-icon' %}
-        </button>
-      </div>
+  <!-- arrows box -->
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
+    <button id="prevArrow"
+      class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+      {% render 'arrow-left-icon' %}
+    </button>
+    <button id="nextArrow"
+      class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+      {% render 'arrow-right-icon' %}
+    </button>
+  </div>
 
   <div
     class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
@@ -19,32 +19,34 @@
     {% assign allBlogs = "News, Events" | split: "," %}
     {% assign article_count = 0 %}
     {% for handle in allBlogs %}
-      {% for article in blogs[handle].articles %}
-        <!-- Check if less than 10 articles have been rendered -->
-        {% if article_count < 10 %}
-          <div class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px] relative">
-            <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
-            <a href="{{ article.url }}">
-              <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
-                <p class="body-14-medium">{{ article.title | capitalize }}</p>
-                <p class="body-12">{{ article.content | truncate: 50 | capitalize }}</p>
-              </div>
-            </a>
-            {% if handle == 'Events' %}
-              <div class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
-                {% assign article_date = article.metafields.custom.article_date.value %}
-                {% assign article_location = article.metafields.custom.article_location.value %}
-                <p class="caption">{{ article_location }}</p>
-                <p class="caption">{{ article_date }}</p>
-              </div>
-            {% endif %}
-          </div>
-          {% assign article_count = article_count | plus: 1 %}
-        {% else %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}    
+    {% for article in blogs[handle].articles %}
+    <!-- Check if less than 10 articles have been rendered -->
+    {% if article_count < 10 %} <div
+      class="card-article w-[200px] min-w-[200px] h-[386px] min-h-[386px] flex flex-col gap-y-4 shadow-custom rounded-lg lg:w-[400px] lg:min-w-[400px] relative">
+      <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}"
+        class="card-article-image w-full h-[160px] object-cover object-center rounded-t-lg">
+      <a href="{{ article.url }}">
+        <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+          <p class="body-14-medium">{{ article.title | capitalize }}</p>
+          <p class="body-12">{{ article.content | truncate: 50 | capitalize }}</p>
+        </div>
+      </a>
+      {% if handle == 'Events' %}
+      <div
+        class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
+        {% assign article_date = article.metafields.custom.article_date.value %}
+        {% assign article_location = article.metafields.custom.article_location.value %}
+        <p class="caption">{{ article_location }}</p>
+        <p class="caption">{{ article_date }}</p>
+      </div>
+      {% endif %}
+  </div>
+  {% assign article_count = article_count | plus: 1 %}
+  {% else %}
+  {% break %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
 </div>
 </div>
 
@@ -66,28 +68,32 @@
     const nextArrow = document.getElementById('nextArrow');
     const scrollContainer = document.querySelector('.articles-list-container');
     const images = Array.from(scrollContainer.querySelectorAll('.card-article'));
+    //get the exact width + border of the image inside scroll container
     const imageslenght = images.length;
-    const totalImageWidth =  images.map((image) => {
+    const totalImageWidth = images.map((image) => {
       const width = image.offsetWidth;
       const marginRight = parseInt(getComputedStyle(image).marginRight);
       return width + marginRight;
     }).reduce((acc, width) => acc + width, 0);
     const scrollAmout = totalImageWidth / imageslenght;
 
-    
+
     //check if there's images
     if (images.length > 0) {
-      //check the scrollable values
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
       //update the arrows layout during scroll
       function updateArrows() {
+        //check the scrollable values
+        const currentScrollLeft = scrollContainer.scrollLeft;
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
         prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
         nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
       //function to scroll the container with the scrollAmount value
       function scrollContainerBy(amount) {
         let newScrollLeft = currentScrollLeft + amount;
+        //check the scrollable values
+        const currentScrollLeft = scrollContainer.scrollLeft;
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
         if (newScrollLeft < 0) {
           newScrollLeft = 0;
@@ -102,10 +108,10 @@
 
         setTimeout(updateArrows, 300);
       }
-      
+
       //handle the scrollContainer by clicking on arrows
       if (prevArrow && nextArrow && scrollContainer) {
-          prevArrow.addEventListener('click', function () {
+        prevArrow.addEventListener('click', function () {
           scrollContainerBy(-scrollAmout);
         });
 
