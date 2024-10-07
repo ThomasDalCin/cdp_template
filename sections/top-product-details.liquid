@@ -356,12 +356,16 @@
     //Handle tab settings
     const externalTab = document.getElementById('external-tab');
     const externalTabText = externalTab.firstElementChild.classList.add('font-light');
+
     const internalTab = document.getElementById('internal-tab');
     const internalTabText = internalTab.firstElementChild.classList.add('font-light');
+
     const internalDownTab = document.getElementById('internal-down-tab');
     const internalDownText = internalDownTab.firstElementChild.classList.add('font-light');
+
     const internalUpTab = document.getElementById('internal-up-tab');
     const internalUpText = internalUpTab.firstElementChild.classList.add('font-light');
+
     const externalContent = document.getElementById('external-content');
     const internalContent = document.getElementById('internal-content');
     const internalDownContent = document.getElementById('internal-down-content');
@@ -372,7 +376,7 @@
     const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
   
     // Function to handle tab display and rect visibility
-    function showTab(tab, content, rect) {
+    function showTab(tab, tabText, content, rect) {
       //hide contents for each tab
       
       externalContent.classList.add('hidden');
@@ -383,6 +387,8 @@
       internalRect.classList.add('hidden');
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
+      tabText.classList.add('font-mediumn');
+      tabText.classList.remove('font-light');
   
       //display just the tab's content selected
       content.classList.remove('hidden');
@@ -415,23 +421,23 @@
   
     // Event listeners for tab clicks
     externalTab.addEventListener('click', function () {
-      showTab(externalTab, externalContent, externalRect);
+      showTab(externalTab, externalTabText, externalContent, externalRect);
     });
   
     internalTab.addEventListener('click', function () {
-      showTab(internalTab, internalContent, internalRect);
+      showTab(internalTab, internalTabText, internalContent, internalRect);
     });
   
     internalDownTab.addEventListener('click', function () {
-      showTab(internalDownTab, internalDownContent, internalDownRect);
+      showTab(internalDownTab, internalDownText, internalDownContent, internalDownRect);
     });
   
     internalUpTab.addEventListener('click', function () {
-      showTab(internalUpTab, internalUpContent, internalUpRect);
+      showTab(internalUpTab, internalUpText, internalUpContent, internalUpRect,);
     });
   
     //Show tab default after page loading
-    showTab(externalTab, externalContent, externalRect);
+    showTab(externalTab, externalTabText, externalContent, externalRect);
   
     // Function to change the main image displayed with the image clicked
     function setupImageClickHandler(container) {
