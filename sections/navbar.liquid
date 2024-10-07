@@ -1,7 +1,7 @@
 <!-- navbar section -->
 <!---->
 <div
-  class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-colors duration-300 ease-in-out lg:px-10 lg:py-6">
+  class="navbar w-full h-auto fixed z-50 left-0 top-0 right-0 bg-transparent px-4 py-4 transition-all duration-300 ease-in-out lg:px-10 lg:py-6">
   <div class="navbar-container flex items-center justify-between flex-row relative">
     <div class="menu-yachts-label transition-colors duration-100 ease-linear cursor-pointer">
       <p class="body-small chip-text">Yachts</p>
@@ -403,6 +403,7 @@
             menuIcon.classList.add('toBlack');
             menuChip.classList.add('toBlack');
             logo.classList.add('toBlack')
+
           });
         }
         else {
@@ -417,6 +418,8 @@
 
           link.addEventListener('click', (e) => {
             e.preventDefault();
+
+            navbar.style.backgroundColor = 'linear-gradient(90deg, #6F6262 14.5%, #A59E9E 100%);'
 
             const collectionMenuItem = e.currentTarget.closest('.collection-menu-item');
             const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
