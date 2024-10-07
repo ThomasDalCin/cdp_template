@@ -355,25 +355,29 @@
   
     //Handle tab settings
     const externalTab = document.getElementById('external-tab');
-    const externalTabText = externalTab.firstElementChild.classList.add('font-light');
+const externalTabText = externalTab.firstElementChild;  // Assegna l'elemento
+externalTabText.classList.add('font-light');            // Aggiungi la classe
 
-    const internalTab = document.getElementById('internal-tab');
-    const internalTabText = internalTab.firstElementChild.classList.add('font-light');
+const internalTab = document.getElementById('internal-tab');
+const internalTabText = internalTab.firstElementChild;  // Assegna l'elemento
+internalTabText.classList.add('font-light');            // Aggiungi la classe
 
-    const internalDownTab = document.getElementById('internal-down-tab');
-    const internalDownText = internalDownTab.firstElementChild.classList.add('font-light');
+const internalDownTab = document.getElementById('internal-down-tab');
+const internalDownText = internalDownTab.firstElementChild;  // Assegna l'elemento
+internalDownText.classList.add('font-light');                // Aggiungi la classe
 
-    const internalUpTab = document.getElementById('internal-up-tab');
-    const internalUpText = internalUpTab.firstElementChild.classList.add('font-light');
+const internalUpTab = document.getElementById('internal-up-tab');
+const internalUpText = internalUpTab.firstElementChild;  // Assegna l'elemento
+internalUpText.classList.add('font-light');              // Aggiungi la classe
 
-    const externalContent = document.getElementById('external-content');
-    const internalContent = document.getElementById('internal-content');
-    const internalDownContent = document.getElementById('internal-down-content');
-    const internalUpContent = document.getElementById('internal-up-content');
-    const externalRect = externalTab.querySelector('.tab-rect');
-    const internalRect = internalTab.querySelector('.tab-rect');
-    const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
-    const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+const externalContent = document.getElementById('external-content');
+const internalContent = document.getElementById('internal-content');
+const internalDownContent = document.getElementById('internal-down-content');
+const internalUpContent = document.getElementById('internal-up-content');
+const externalRect = externalTab.querySelector('.tab-rect');
+const internalRect = internalTab.querySelector('.tab-rect');
+const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
+const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
   
     // Function to handle tab display and rect visibility
     function showTab(tab, tabText, content, rect) {
