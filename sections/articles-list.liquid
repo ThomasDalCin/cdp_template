@@ -1,18 +1,18 @@
 <!--full article view section-->
-<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-4 items-start justify-center mb-10 relative">
+<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative">
+      <!-- arrows box -->
+      <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2">
+        <button id="prevArrow"
+          class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-left-icon' %}
+        </button>
+        <button id="nextArrow"
+          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+        </button>
+      </div>
   <div
     class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
-    <!-- arrows box -->
-    <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[16px] lg:bottom-[32px]">
-      <button id="prevArrow"
-        class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-        {% render 'arrow-left-icon' %}
-      </button>
-      <button id="nextArrow"
-        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-        {% render 'arrow-right-icon' %}
-      </button>
-    </div>
     <!--assign liquid variables -->
     {% assign allBlogs = "News, Events" | split: "," %}
     {% assign article_count = 0 %}
