@@ -8,7 +8,7 @@
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:mr-8 lg:last-of-type:mr-0 shadow-custom rounded-t-md">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:mr-8 lg:last-of-type:mr-0 shadow-custom rounded-md">
             <img 
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"
