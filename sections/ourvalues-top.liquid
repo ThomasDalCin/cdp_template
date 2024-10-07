@@ -13,23 +13,30 @@
     </button>
   </div>
 
-   <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
-    {% for block in section.blocks %}
-      <div class="container-scroll-image w-auto h-auto">
-        {% if block.type == "scroll-image" %}
-          <img
-            src="{{ block.settings.scroll_image | img_url: 'master' }}"
-            alt="{{ block.settings.scroll_image.alt }}"
-            class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
-        {% elsif block.type == "scroll-white-block" %}
-          <div class="scroll-white-block hidden lg:flex lg:w-[313px] lg:min-w-[313px] lg:h-[210px] lg:rounded-md lg:shadow-custom lg:flex-col lg:gap-y-4 lg:items-start lg:justify-center lg:bg-white lg:p-4">
-            <h2 class="header-2 lg:header-3">{{ block.settings.scroll_white_block_heading }}</h2>
-            <p class="body-12 text-[var(--hover-accent-color)]">{{ block.settings.scroll_white_block_content }}</p>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
+<div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+  {% assign first_image_hidden = false %}
+  {% for block in section.blocks %}
+    <div class="container-scroll-image w-auto h-auto">
+      {% if block.type == "scroll-white-block" %}
+        <!-- Nascondi il primo scroll image se esiste uno scroll white block -->
+        {% assign first_image_hidden = true %}
+      {% elsif block.type == "scroll-image" %}
+        <img
+          src="{{ block.settings.scroll_image | img_url: 'master' }}"
+          alt="{{ block.settings.scroll_image.alt }}"
+          class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md {% if forloop.first and first_image_hidden %}hidden{% endif %}">
+      {% endif %}
+      
+      {% if block.type == "scroll-white-block" %}
+        <div class="scroll-white-block hidden lg:flex lg:w-[313px] lg:min-w-[313px] lg:h-[210px] lg:rounded-md lg:shadow-custom lg:flex-col lg:gap-y-4 lg:items-start lg:justify-center lg:bg-white lg:p-4">
+          <h2 class="header-2 lg:header-3">{{ block.settings.scroll_white_block_heading }}</h2>
+          <p class="body-12 text-[var(--hover-accent-color)]">{{ block.settings.scroll_white_block_content }}</p>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
 </div>
 
 <script>
