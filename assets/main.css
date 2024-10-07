@@ -1180,6 +1180,10 @@ p, span{
   margin-top: 70px;
 }
 
+.-mt-4 {
+  margin-top: -1rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1475,6 +1479,10 @@ p, span{
 
 .w-full {
   width: 100%;
+}
+
+.w-\[cacl\(100\%\+2rem\)\] {
+  width: cacl(100%+2rem);
 }
 
 .min-w-\[200px\] {
@@ -2398,6 +2406,10 @@ p, span{
 
   .lg\:mt-\[90px\] {
     margin-top: 90px;
+  }
+
+  .lg\:-mt-10 {
+    margin-top: -2.5rem;
   }
 
   .lg\:flex {
