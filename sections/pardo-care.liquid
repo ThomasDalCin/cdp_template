@@ -1,5 +1,7 @@
-<div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 relative mb-10 overflow-x-hidden">
-  <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 lg:px-10">
+<!--pardo care container -->
+<div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 relative mb-10 overflow-x-hidden p-4 lg:px-10">
+
+  <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center ">
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
     <p class="body-12 lg:hidden">{{ section.settings.section_sub_heading }}</p>
   </div>
@@ -14,8 +16,8 @@
     </button>
   </div>
 
-  <div class="pardo-care-container-film-strip w-full h-auto mx-4 lg:mx-10">
-    <div id="filmstrip" class="container-film-strip w-full h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:overflow-x-scroll lg:scroll-smooth">
+  <div class="pardo-care-container-film-strip w-full h-auto">
+    <div id="filmstrip" class="container-film-strip w-full h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-8">
@@ -30,6 +32,7 @@
       {% endfor %}
     </div>
   </div>
+
   <a href="pages/contacts" class="p-4">
     <div class="pardo-care-content-cta w-full h-auto flex items-start justify-center lg:mt-0">
       <div class="cta-primary w-full lg:w-[343px]">
@@ -37,6 +40,7 @@
       </div>
     </div>
   </a>
+
 </div>
 
 <style>
