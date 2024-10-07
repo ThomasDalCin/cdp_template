@@ -72,7 +72,7 @@
       const marginRight = parseInt(getComputedStyle(image).marginRight);
       return width + marginRight;
     }).reduce((acc, width) => acc + width, 0);
-    const scrollAmoutTest = imageslenght / totalImageWidth;
+    const scrollAmoutTest = totalImageWidth / imageslenght;
     
     //check if there's images
     if (images.length > 0) {
