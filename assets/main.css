@@ -1698,6 +1698,10 @@ p, span{
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -1902,6 +1906,10 @@ p, span{
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-10 {
@@ -2743,6 +2751,10 @@ p, span{
 
   .lg\:overflow-hidden {
     overflow: hidden;
+  }
+
+  .lg\:overflow-visible {
+    overflow: visible;
   }
 
   .lg\:overflow-x-hidden {
