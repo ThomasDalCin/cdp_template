@@ -742,10 +742,10 @@
         })
 
         function handleDescriptionContent(item) {
-           if(item.classList.contains('flex') || item.classList.contains('flex-row')){
-              item.classList.remove('flex');
-              item.classList.add('hidden');
-           } 
+          if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
+            item.classList.remove('flex');
+            item.classList.add('hidden');
+          }
         }
 
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
@@ -815,39 +815,39 @@
       });
     });
 
-      // Seleziona tutti i link all'interno del menu
-  const links = document.querySelectorAll('.main-manu-container a');
+    // Seleziona tutti i link all'interno del menu
+    const links = document.querySelectorAll('.main-manu-container a');
 
-// Seleziona il secondo livello di menu
-const secondLevelMenuContainer = document.querySelector('.second-level-menu-container');
+    // Seleziona il secondo livello di menu
+    const secondLevelMenuContainer = document.querySelector('.second-level-menu-container');
 
-// Aggiungi un evento di click al link "View all ranges"
-links.forEach(link => {
-  if (link.textContent.trim() === 'View all ranges') {
-    link.addEventListener('click', function () {
-      // Mostra il secondo livello di menu
-      secondLevelMenuContainer.classList.remove('hidden');
-      
-      // Nascondi il menu di primo livello se necessario
-      const yatchMenuContainer = document.querySelector('.yatch-menu-container');
-      if (yatchMenuContainer) {
-        yatchMenuContainer.classList.add('hidden');
+    // Aggiungi un evento di click al link "View all ranges"
+    links.forEach(link => {
+      if (link.textContent.trim() === 'View all ranges') {
+        link.addEventListener('click', function () {
+          // Mostra il secondo livello di menu
+          secondLevelMenuContainer.classList.remove('hidden');
+
+          // Nascondi il menu di primo livello se necessario
+          const yatchMenuContainer = document.querySelector('.yatch-menu-container');
+          if (yatchMenuContainer) {
+            yatchMenuContainer.classList.add('hidden');
+          }
+        });
       }
     });
-  }
-});
 
-// Gestisci il click sul bottone "back" per chiudere il secondo livello di menu
-const backNavButton = document.querySelector('.back-nav-container');
-if (backNavButton) {
-  backNavButton.addEventListener('click', function () {
-    secondLevelMenuContainer.classList.add('hidden');
-    const yatchMenuContainer = document.querySelector('.yatch-menu-container');
-    if (yatchMenuContainer) {
-      yatchMenuContainer.classList.remove('hidden'); // Mostra di nuovo il primo livello
+    // Gestisci il click sul bottone "back" per chiudere il secondo livello di menu
+    const backNavButton = document.querySelector('.back-nav-container');
+    if (backNavButton) {
+      backNavButton.addEventListener('click', function () {
+        secondLevelMenuContainer.classList.add('hidden');
+        const yatchMenuContainer = document.querySelector('.yatch-menu-container');
+        if (yatchMenuContainer) {
+          yatchMenuContainer.classList.remove('hidden'); // Mostra di nuovo il primo livello
+        }
+      });
     }
-  });
-}
 
   });
 </script>
