@@ -1,236 +1,271 @@
 <!-- eco module section -->
-<div class="eco-container w-full h-auto flex flex-col items-start justify-center p-4 mb-10 lg:items-center lg:mb-0" style="background: linear-gradient(180deg, #6F6060 0%, rgba(146, 143, 143, 0.00) 100%);">
-  <div class="eco-container-primary w-full h-auto flex flex-col gap-y-10 lg:pt-10 lg:items-center">
-    <!-- Section Heading -->
-    <h2 class="header-2 text-white lg:big-header-1 lg:text-center">{{ section.settings.section_heading }}</h2>
-    <div class="container-image-w-hotspot w-auto h-auto mb-10">
-        <!-- Section Image with Hotspot -->
-      <img
-        class="w-auto h-auto min-w-[343px] min-h-[172px] object-contain lg:h-[670px] lg:w-[1335px]"
-        src="{{ section.settings.section_etic_code_boat_image |  img_url: 'master' }}"
-        alt="{{ section.settings.section_etic_code_boat_image.alt }}">
-    </div>
-  </div>
-  <div class="box-containers w-full h-auto flex flex-row gap-x-4 items-start justify-center lg:flex-col ">
-    <!-- Section Etic Code Content -->
-    <div class="eco-container-secondary w-full h-auto min-h-[230px] shadow-custom rounded-xl flex flex-col gap-y-4 items-start justify-center p-4 bg-white lg:w-auto lg:p-6">
-      <p class="body-14">{{ section.settings.section_etic_code }}</p>
-      <p class="body-16 italic">{{ section.settings.section_etic_code_cit }}</p>
-      <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_etic_code_content }}</p>
-      <div class="eco-content-cta w-full h-auto flex items-start justify-center">
-        <!-- CTA for Etic Code Download -->
-        <div class="cta-eco w-full">
-          <p class="body-14">{{ section.settings.section_etic_code_download }}</p>
+<div class="eco-container w-full h-auto flex flex-col items-start justify-center p-4 mb-10 lg:items-center lg:mb-0"
+    style="background: linear-gradient(180deg, #6F6060 0%, rgba(146, 143, 143, 0.00) 100%);">
+    <div class="eco-container-primary w-full h-auto flex flex-col gap-y-10 lg:pt-10 lg:items-center">
+        <!-- Section Heading -->
+        <h2 class="header-2 text-white lg:big-header-1 lg:text-center">{{ section.settings.section_heading }}</h2>
+        <div class="container-image-w-hotspot w-auto h-auto mb-10">
+            <!-- Section Image with Hotspot -->
+            <img class="w-auto h-auto min-w-[343px] min-h-[172px] object-contain lg:h-[670px] lg:w-[1335px]"
+                src="{{ section.settings.section_etic_code_boat_image |  img_url: 'master' }}"
+                alt="{{ section.settings.section_etic_code_boat_image.alt }}">
         </div>
-      </div>
     </div>
-  </div>
+    
+    <!-- Box Containers with Eco and Innovation Sections -->
+    <div class="box-containers w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:flex-col">
+        
+        <!-- Eco Container -->
+        <div
+            class="eco-container-secondary w-full h-auto min-h-[230px] shadow-custom rounded-xl flex flex-col gap-y-4 items-start justify-center p-4 bg-white lg:w-auto lg:p-6">
+            <p class="body-14">{{ section.settings.section_etic_code }}</p>
+            <p class="body-16 italic">{{ section.settings.section_etic_code_cit }}</p>
+            <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_etic_code_content }}</p>
+            <div class="eco-content-cta w-full h-auto flex items-start justify-center">
+                <!-- CTA for Etic Code Download -->
+                <div class="cta-eco w-full">
+                    <p class="body-14">{{ section.settings.section_etic_code_download }}</p>
+                </div>
+            </div>
+        </div>
 
-  <!-- Innovation Container with Headings and Content -->
-  <div class="innovation-container-primary w-full h-auto  min-h-[230px]  flex flex-col gap-y-4 rounded-lg shadow-custom p-4 bg-white lg:w-auto lg:px-6 lg:pt-6 lg:pb-6">
-    <p class="body-14">{{ section.settings.section_heading }}</p>
-    <p class="body-16 italic">{{ section.settings.section_heading_secondary }}</p>
-    <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content }}</p>
-  </div>
-</div></div><!-- innovation section -->
-<div class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10 lg:items-center lg:gap-y-6 relative">
+        <!-- Innovation Container -->
+        <div
+            class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col gap-y-4 rounded-lg shadow-custom p-4 bg-white lg:w-auto lg:px-6 lg:pt-6 lg:pb-6">
+            <p class="body-14">{{ section.settings.section_heading }}</p>
+            <p class="body-16 italic">{{ section.settings.section_heading_secondary }}</p>
+            <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content }}</p>
+        </div>
+        
+    </div>
 
-<!-- arrow box -->
-<div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 ">
-  <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-    {% render 'arrow-left-icon' %}
-  </button>
-  <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-    {% render 'arrow-right-icon' %}
-  </button>
 </div>
 
-<!-- Scrolling Images -->
-<div class="relative w-full h-auto">
-  <div class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
-    {% for block in section.blocks %}
-      {% if block.type == "scroll-image" %}
-        <div class="container-scroll-image w-auto h-auto">
-          <img
-            src="{{ block.settings.scroll_image | img_url: 'master' }}"
-            alt="{{ block.settings.scroll_image.alt }}"
-            class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
+<!-- innovation section -->
+<div
+    class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-10 lg:items-center lg:gap-y-6 relative">
+
+    <!-- arrow box -->
+    <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 ">
+        <button id="prevArrow"
+            class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+            {% render 'arrow-left-icon' %}
+        </button>
+        <button id="nextArrow"
+            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+            {% render 'arrow-right-icon' %}
+        </button>
+    </div>
+
+    <!-- Scrolling Images -->
+    <div class="relative w-full h-auto">
+        <div
+            class="innovation-container-scrolling w-full h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:overflow-hidden">
+            {% for block in section.blocks %}
+            {% if block.type == "scroll-image" %}
+            <div class="container-scroll-image w-auto h-auto">
+                <img src="{{ block.settings.scroll_image | img_url: 'master' }}"
+                    alt="{{ block.settings.scroll_image.alt }}"
+                    class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="innvation-content-cta w-full h-auto flex items-start justify-center">
+        <div class="cta-primary">
+            <p class="body-14">{{ section.settings.section_content_cta }}</p>
+        </div>
+    </div>
 </div>
 
-<!-- CTA Section -->
-<div class="innvation-content-cta w-full h-auto flex items-start justify-center">
-  <div class="cta-primary">
-    <p class="body-14">{{ section.settings.section_content_cta }}</p>
-  </div>
-</div></div><style>
-.carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto;
-}</style><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const prevArrow = document.getElementById('prevArrow');
-    const nextArrow = document.getElementById('nextArrow');
-    const scrollContainer = document.querySelector('.innovation-container-scrolling');
-    const images = Array.from(scrollContainer.querySelectorAll('img'));
 
-    if (images.length > 1) {
-      const firstImage = images[0];
-      const secondImage = images[1];
-
-      const firstImageLeft = firstImage.offsetLeft;
-      const secondImageLeft = secondImage.offsetLeft;
-      const scrollAmount = secondImageLeft - firstImageLeft;
-
-      function updateArrows() {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-        prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-        nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-      }
-
-      function scrollContainerBy(amount) {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-        let newScrollLeft = currentScrollLeft + amount;
-
-        if (newScrollLeft < 0) {
-          newScrollLeft = 0;
-        } else if (newScrollLeft > maxScrollLeft) {
-          newScrollLeft = maxScrollLeft;
-        }
-
-        scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth'
-        });
-
-        setTimeout(updateArrows, 300);
-      }
-
-      if (prevArrow && nextArrow && scrollContainer) {
-        prevArrow.addEventListener('click', function () {
-          scrollContainerBy(-scrollAmount);
-        });
-
-        nextArrow.addEventListener('click', function () {
-          scrollContainerBy(scrollAmount);
-        });
-
-        updateArrows();
-        scrollContainer.addEventListener('scroll', updateArrows);
-      }
+<style>
+    .carousel-arrow.disabled {
+        opacity: 0.5;
+        pointer-events: none;
     }
-  });
-</script>{% schema %}
+
+    .carousel-arrow:not(.disabled) {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const prevArrow = document.getElementById('prevArrow');
+        const nextArrow = document.getElementById('nextArrow');
+        const scrollContainer = document.querySelector('.innovation-container-scrolling');
+        const images = Array.from(scrollContainer.querySelectorAll('img'));
+
+        if (images.length > 1) {
+            const firstImage = images[0];
+            const secondImage = images[1];
+
+            const firstImageLeft = firstImage.offsetLeft;
+            const secondImageLeft = secondImage.offsetLeft;
+            const scrollAmount = secondImageLeft - firstImageLeft;
+
+            function updateArrows() {
+                const currentScrollLeft = scrollContainer.scrollLeft;
+                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+                nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+            }
+
+            function scrollContainerBy(amount) {
+                const currentScrollLeft = scrollContainer.scrollLeft;
+                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                let newScrollLeft = currentScrollLeft + amount;
+
+                if (newScrollLeft < 0) {
+                    newScrollLeft = 0;
+                } else if (newScrollLeft > maxScrollLeft) {
+                    newScrollLeft = maxScrollLeft;
+                }
+
+                scrollContainer.scrollTo({
+                    left: newScrollLeft,
+                    behavior: 'smooth'
+                });
+
+                setTimeout(updateArrows, 300);
+            }
+
+            if (prevArrow && nextArrow && scrollContainer) {
+                prevArrow.addEventListener('click', function () {
+                    scrollContainerBy(-scrollAmount);
+                });
+
+                nextArrow.addEventListener('click', function () {
+                    scrollContainerBy(scrollAmount);
+                });
+
+                updateArrows();
+                scrollContainer.addEventListener('scroll', updateArrows);
+            }
+        }
+    });
+</script>
+
+
+{% schema %}
 {
-  "name": "eco-innovation-module",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_heading",
-      "default": "Innovazione e tecnologia",
-      "label": "Section Heading"
-    },
-    {
-      "type": "text",
-      "id": "section_heading_secondary",
-      "default": "Controllo qualità",
-      "label": "Section Heading Secondary"
-    },
-    {
-      "type": "textarea",
-      "id": "section_content",
-      "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-      "label": "Section Text Content"
-    },
-    {
-      "type": "text",
-      "id": "section_content_cta",
-      "default": "Tienimi Informato",
-      "label": "Section Text Content Cta"
-    }, {
-      "type": "text",
-      "id": "section_etic_code",
-      "default": "Etic code",
-      "label": "Section Etic Code"
-    }, {
-      "type": "text",
-      "id": "section_etic_code_cit",
-      "default": "Designing luxury with an ecological approach",
-      "label": "Section Etic Code Cit"
-    }, {
-      "type": "image_picker",
-      "id": "section_etic_code_boat_image",
-      "label": "Section Boat Image with Hotspot"
-    }, {
-      "type": "text",
-      "id": "section_etic_code_content",
-      "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-      "label": "Section Etic Code Content"
-    }, {
-      "type": "text",
-      "id": "section_etic_code_download",
-      "default": "Download Etic Code",
-      "label": "Section Etic Code Download"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "scroll-image-block",
-      "type": "scroll-image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "scroll_image",
-          "label": "Scroll Image"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "eco-innovation-module",
-      "category": "custom",
-      "settings": {
-        "section_heading": "Innovazione e tecnologia",
-        "section_heading_secondary": "Controllo qualità",
-        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_content_cta": "Tienimi Informato",
-        "section_etic_code": "Etic code",
-        "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
-        "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_etic_code_download": "Scarica il codice etico",
-        "section_etic_code_boat_image": "shopify://shop_images/66_2.png"
-      },
-      "blocks": [
-        {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/image_18_1.png"
-          }
-        }, {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/image_18_1.png"
-          }
-        }, {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/image_18_1.png"
-          }
-        }
-      ]
-    }
-  ]
-}{% endschema %}
+"name": "eco-innovation-module",
+"settings": [
+{
+"type": "text",
+"id": "section_heading",
+"default": "Innovazione e tecnologia",
+"label": "Section Heading"
+},
+{
+"type": "text",
+"id": "section_heading_secondary",
+"default": "Controllo qualità",
+"label": "Section Heading Secondary"
+},
+{
+"type": "textarea",
+"id": "section_content",
+"default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet
+odio mattis.",
+"label": "Section Text Content"
+},
+{
+"type": "text",
+"id": "section_content_cta",
+"default": "Tienimi Informato",
+"label": "Section Text Content Cta"
+},
+{
+"type": "text",
+"id": "section_etic_code",
+"default": "Etic code",
+"label": "Section Etic Code"
+},
+{
+"type": "text",
+"id": "section_etic_code_cit",
+"default": "Designing luxury with an ecological approach",
+"label": "Section Etic Code Cit"
+},
+{
+"type": "image_picker",
+"id": "section_etic_code_boat_image",
+"label": "Section Boat Image with Hotspot"
+},
+{
+"type": "text",
+"id": "section_etic_code_content",
+"default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet
+odio mattis.",
+"label": "Section Etic Code Content"
+},
+{
+"type": "text",
+"id": "section_etic_code_download",
+"default": "Download Etic Code",
+"label": "Section Etic Code Download"
+}
+],
+"blocks": [
+{
+"name": "scroll-image-block",
+"type": "scroll-image",
+"settings": [
+{
+"type": "image_picker",
+"id": "scroll_image",
+"label": "Scroll Image"
+}
+]
+}
+],
+"presets": [
+{
+"name": "eco-innovation-module",
+"category": "custom",
+"settings": {
+"section_heading": "Innovazione e tecnologia",
+"section_heading_secondary": "Controllo qualità",
+"section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
+aliquet odio mattis.",
+"section_content_cta": "Tienimi Informato",
+"section_etic_code": "Etic code",
+"section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
+"section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit
+interdum, ac aliquet odio mattis.",
+"section_etic_code_download": "Scarica il codice etico",
+"section_etic_code_boat_image": "shopify://shop_images/66_2.png"
+},
+"blocks": [
+{
+"type": "scroll-image",
+"settings": {
+"scroll_image": "shopify://shop_images/image_18_1.png"
+}
+},
+{
+"type": "scroll-image",
+"settings": {
+"scroll_image": "shopify://shop_images/image_18_1.png"
+}
+},
+{
+"type": "scroll-image",
+"settings": {
+"scroll_image": "shopify://shop_images/image_18_1.png"
+}
+}
+]
+}
+]
+}
+{% endschema %}
