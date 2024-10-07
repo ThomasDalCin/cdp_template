@@ -714,32 +714,35 @@
     });
 
 
-    //handle product items displayed on second level menu
+
+    // Gestisci i click sugli elementi del menu secondario
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
     const chipFixed = document.querySelector('.chip-fixed');
 
-    //set click event for each link inside the second menu
+    // Imposta l'evento di click per ogni link all'interno del secondo menu
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
-        //remove number items foreach link
+        // Rimuovi il numero di articoli da ogni link
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-        //hide each product item
+
+        // Nascondi ciascun prodotto
         productCols.forEach((product) => {
           product.parentElement.classList.add('hidden');
         });
 
+        // Mostra la descrizione della collezione corretta
         allCollectionDescription.forEach((item) => {
-          if (linkTarget == (item.getAttribute('data-collection-description'))) {
+          if (linkTarget === item.getAttribute('data-collection-description')) {
             item.classList.add('block');
-            item.classList.remove('hidden')
+            item.classList.remove('hidden');
           } else {
             item.classList.add('hidden');
-            item.classList.remove('block')
+            item.classList.remove('block');
           }
-        })
+        });
 
         function handleDescriptionContent(item) {
           if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
@@ -748,6 +751,7 @@
           }
         }
 
+        // Gestisci il click sull'icona per chiudere la descrizione
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
@@ -756,7 +760,7 @@
           });
         });
 
-        //get foreach chips element his parent and prevent active class
+        // Rimuovi la classe attiva da ogni chip
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
@@ -769,14 +773,14 @@
               el.nextElementSibling.classList.add('-rotate-45');
             });
 
-            if (chipClicked && chipClicked.innerHTML != "View all ranges") {
+            if (chipClicked && chipClicked.innerHTML !== "View all ranges") {
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
-              chipFixed.classList.remove('hidden')
+              chipFixed.classList.remove('hidden');
             }
 
             allCollectionDescription.forEach((el) => {
-              if (chipCol.innerHTML == (el.getAttribute('data-collection-description'))) {
+              if (chipCol.innerHTML === el.getAttribute('data-collection-description')) {
                 el.classList.add('flex');
                 el.classList.remove('hidden');
               } else {
@@ -788,20 +792,20 @@
             productCols.forEach((product) => {
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
-              } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') != 'Pardo approved')) {
+              } else if (chipClicked.innerText === 'View all ranges' && (product.getAttribute('data-product-collection') !== 'Pardo approved')) {
                 product.parentElement.classList.remove('hidden');
                 chipFixed.classList.add('hidden');
               } else {
                 product.parentElement.classList.add('hidden');
               }
-            })
-          })
+            });
+          });
 
-          //check if the content of each chip is equal to the link clicked and show the products items
+          // Controlla se il contenuto di ogni chip è uguale al link cliccato e mostra gli articoli dei prodotti
           if (chipCol.innerText.trim() === linkTarget) {
             allChipsCollection.forEach((chipCol) => {
-              chipCol.nextElementSibling.classList.add('-rotate-45')
-            })
+              chipCol.nextElementSibling.classList.add('-rotate-45');
+            });
             parentElement.classList.add('chips-label-active');
             chipCol.nextElementSibling.classList.remove('-rotate-45');
             productCols.forEach((product) => {
@@ -813,41 +817,33 @@
           }
         });
       });
-    });
 
-    // Seleziona tutti i link all'interno del menu
-    const links = document.querySelectorAll('.main-manu-container a');
+      // Logica aggiuntiva per gestire il click su "View all ranges"
+      if (link.innerText.trim() === "View all ranges") {
+        link.addEventListener('click', (e) => {
+          // Mostra tutti i prodotti, eccetto quelli "Pardo approved"
+          productCols.forEach((product) => {
+            if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+              product.parentElement.classList.remove('hidden');
+            } else {
+              product.parentElement.classList.add('hidden');
+            }
+          });
 
-    // Seleziona il secondo livello di menu
-    const secondLevelMenuContainer = document.querySelector('.second-level-menu-container');
+          // Nascondi la parte fissa dei chips
+          chipFixed.classList.add('hidden');
 
-    // Aggiungi un evento di click al link "View all ranges"
-    links.forEach(link => {
-      if (link.textContent.trim() === 'View all ranges') {
-        link.addEventListener('click', function () {
-          // Mostra il secondo livello di menu
-          secondLevelMenuContainer.classList.remove('hidden');
-
-          // Nascondi il menu di primo livello se necessario
-          const yatchMenuContainer = document.querySelector('.yatch-menu-container');
-          if (yatchMenuContainer) {
-            yatchMenuContainer.classList.add('hidden');
-          }
+          // Assicurati di nascondere tutte le descrizioni delle collezioni
+          allCollectionDescription.forEach((el) => {
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+          });
         });
       }
     });
 
-    // Gestisci il click sul bottone "back" per chiudere il secondo livello di menu
-    const backNavButton = document.querySelector('.back-nav-container');
-    if (backNavButton) {
-      backNavButton.addEventListener('click', function () {
-        secondLevelMenuContainer.classList.add('hidden');
-        const yatchMenuContainer = document.querySelector('.yatch-menu-container');
-        if (yatchMenuContainer) {
-          yatchMenuContainer.classList.remove('hidden'); // Mostra di nuovo il primo livello
-        }
-      });
-    }
+
+
 
   });
 </script>
