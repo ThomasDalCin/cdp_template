@@ -68,6 +68,7 @@
     const images = Array.from(scrollContainer.querySelectorAll('.card-article'));
     const imageslenght = images.length;
     const totalImageWidth =  images.map((image) => { image.offsetWidth + parseInt(getComputedStyle(image).marginRight)});
+    console.log(totalImageWidth)
     const scrollAmoutTest = imageslenght / totalImageWidth;
     console.log(scrollAmoutTest)
     
