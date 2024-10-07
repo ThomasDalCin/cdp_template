@@ -90,10 +90,10 @@
       }
       //function to scroll the container with the scrollAmount value
       function scrollContainerBy(amount) {
-        let newScrollLeft = currentScrollLeft + amount;
-        //check the scrollable values
         const currentScrollLeft = scrollContainer.scrollLeft;
+        let newScrollLeft = currentScrollLeft + amount;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
 
         if (newScrollLeft < 0) {
           newScrollLeft = 0;
