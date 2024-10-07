@@ -261,6 +261,10 @@
     .no-scroll {
       overflow: hidden;
     }
+    .linear-gradient {
+    background: linear-gradient(90deg, #6F6262 14.5%, #A59E9E 100%);
+}
+
     `;
     //append style element to the document
     document.head.appendChild(styleElement);
@@ -419,7 +423,7 @@
           link.addEventListener('click', (e) => {
             e.preventDefault();
 
-            navbar.style.background = 'linear-gradient(90deg, #6F6262 14.5%, #A59E9E 100%);'
+            navbar.classList.add('linear-gradient');
 
             const collectionMenuItem = e.currentTarget.closest('.collection-menu-item');
             const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
