@@ -93,8 +93,7 @@
         const currentScrollLeft = scrollContainer.scrollLeft;
         let newScrollLeft = currentScrollLeft + amount;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-
+        
         if (newScrollLeft < 0) {
           newScrollLeft = 0;
         } else if (newScrollLeft > maxScrollLeft) {
