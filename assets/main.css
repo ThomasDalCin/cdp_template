@@ -2272,6 +2272,10 @@ p, span{
   padding-right: 2rem;
 }
 
+.last-of-type\:pr-4:last-of-type {
+  padding-right: 1rem;
+}
+
 .checked\:bg-white:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3023,6 +3027,10 @@ p, span{
 
   .lg\:last-of-type\:pr-0:last-of-type {
     padding-right: 0px;
+  }
+
+  .lg\:last-of-type\:pr-10:last-of-type {
+    padding-right: 2.5rem;
   }
 
   .lg\:hover\:border-black:hover {
