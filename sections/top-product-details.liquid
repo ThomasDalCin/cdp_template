@@ -355,7 +355,9 @@
   
     //Handle tab settings
     const externalTab = document.getElementById('external-tab');
+    const externalTabText = externalTab.firstElementChild.classList.add('font-light');
     const internalTab = document.getElementById('internal-tab');
+    const internalTabText = internalTab.firstElementChild.classList.add('font-light');
     const internalDownTab = document.getElementById('internal-down-tab');
     const internalUpTab = document.getElementById('internal-up-tab');
     const externalContent = document.getElementById('external-content');
@@ -370,6 +372,7 @@
     // Function to handle tab display and rect visibility
     function showTab(tab, content, rect) {
       //hide contents for each tab
+      
       externalContent.classList.add('hidden');
       internalContent.classList.add('hidden');
       internalDownContent.classList.add('hidden');
