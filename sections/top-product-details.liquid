@@ -392,8 +392,12 @@ const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
 
-      tabText.classList.add('font-medium');
-      tabText.classList.remove('font-light');
+      if(tabText.classList.contains('font-medium')){
+        tabText.classList.remove('font-medium')
+      } else {
+        tabText.classList.add('font-medium');
+      }
+    
   
       //display just the tab's content selected
       content.classList.remove('hidden');
