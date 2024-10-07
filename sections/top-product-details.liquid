@@ -392,20 +392,24 @@ const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
       
-        // Rimuovi la classe 'font-medium' da tutti i tab e aggiungi 'font-light'
-  externalTabText.classList.remove('font-medium');
-  internalTabText.classList.remove('font-medium');
-  internalDownText.classList.remove('font-medium');
-  internalUpText.classList.remove('font-medium');
-  
+ // Rimuovi la classe 'font-medium' solo dai tab esterni (escludendo "internal")
+ externalTabText.classList.remove('font-medium');
   externalTabText.classList.add('font-light');
-  internalTabText.classList.add('font-light');
-  internalDownText.classList.add('font-light');
-  internalUpText.classList.add('font-light');
+  
+  // Se il tab selezionato è "external", rimuovi 'font-medium' da "internal"
+  if (tab === externalTab) {
+    internalTabText.classList.remove('font-medium');
+    internalTabText.classList.add('font-light');
+  }
 
   // Aggiungi la classe 'font-medium' al tab selezionato e rimuovi 'font-light'
   tabText.classList.add('font-medium');
   tabText.classList.remove('font-light');
+
+  // Mantieni la classe 'font-medium' su "internal" quando passi da galley up/down
+  if (tab === internalUpTab || tab === internalDownTab || tab === internalTab) {
+    internalTabText.classList.add('font-medium'); // Mantieni "internal" evidenziato
+  }
   
       //display just the tab's content selected
       content.classList.remove('hidden');
