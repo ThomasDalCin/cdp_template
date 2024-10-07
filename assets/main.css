@@ -1093,10 +1093,6 @@ p, span{
   z-index: 99999;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
 .m-4 {
   margin: 1rem;
 }
@@ -1106,14 +1102,13 @@ p, span{
   margin-right: -1rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.-mt-4 {
+  margin-top: -1rem;
 }
 
 .mb-10 {
@@ -1178,10 +1173,6 @@ p, span{
 
 .mt-\[70px\] {
   margin-top: 70px;
-}
-
-.-mt-4 {
-  margin-top: -1rem;
 }
 
 .box-border {
@@ -1481,10 +1472,6 @@ p, span{
   width: 100%;
 }
 
-.w-\[cacl\(100\%\+2rem\)\] {
-  width: cacl(100%+2rem);
-}
-
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1718,10 +1705,6 @@ p, span{
   overflow-x: hidden;
 }
 
-.overflow-y-hidden {
-  overflow-y: hidden;
-}
-
 .overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -1909,10 +1892,6 @@ p, span{
   padding: 0px;
 }
 
-.p-1 {
-  padding: 0.25rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -1966,16 +1945,8 @@ p, span{
   padding-bottom: 1.5rem;
 }
 
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-
 .pb-52 {
   padding-bottom: 13rem;
-}
-
-.pr-8 {
-  padding-right: 2rem;
 }
 
 .text-center {
@@ -2260,6 +2231,10 @@ p, span{
   }
 }
 
+.last-of-type\:mr-4:last-of-type {
+  margin-right: 1rem;
+}
+
 .last-of-type\:mr-6:last-of-type {
   margin-right: 1.5rem;
 }
@@ -2268,16 +2243,12 @@ p, span{
   margin-right: 2rem;
 }
 
-.last-of-type\:mr-4:last-of-type {
-  margin-right: 1rem;
+.last-of-type\:pr-4:last-of-type {
+  padding-right: 1rem;
 }
 
 .last-of-type\:pr-8:last-of-type {
   padding-right: 2rem;
-}
-
-.last-of-type\:pr-4:last-of-type {
-  padding-right: 1rem;
 }
 
 .checked\:bg-white:checked {
@@ -2331,10 +2302,6 @@ p, span{
     bottom: 1.5rem;
   }
 
-  .lg\:bottom-\[32px\] {
-    bottom: 32px;
-  }
-
   .lg\:left-0 {
     left: 0px;
   }
@@ -2379,18 +2346,13 @@ p, span{
     z-index: 50;
   }
 
-  .lg\:m-0 {
-    margin: 0px;
-  }
-
   .lg\:-mx-10 {
     margin-left: -2.5rem;
     margin-right: -2.5rem;
   }
 
-  .lg\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+  .lg\:-mt-10 {
+    margin-top: -2.5rem;
   }
 
   .lg\:mb-0 {
@@ -2423,10 +2385,6 @@ p, span{
 
   .lg\:mt-\[90px\] {
     margin-top: 90px;
-  }
-
-  .lg\:-mt-10 {
-    margin-top: -2.5rem;
   }
 
   .lg\:flex {
@@ -2601,10 +2559,6 @@ p, span{
     width: calc(100% - 32px);
   }
 
-  .lg\:w-\[calc\(33\.3\%_-_0\.75rem\)\] {
-    width: calc(33.3% - 0.75rem);
-  }
-
   .lg\:w-\[calc\(33\.3\%_-_1\.65rem\)\] {
     width: calc(33.3% - 1.65rem);
   }
@@ -2639,6 +2593,10 @@ p, span{
 
   .lg\:min-w-\[323px\] {
     min-width: 323px;
+  }
+
+  .lg\:min-w-\[343px\] {
+    min-width: 343px;
   }
 
   .lg\:min-w-\[400px\] {
@@ -2791,16 +2749,8 @@ p, span{
     overflow-x: hidden;
   }
 
-  .lg\:overflow-x-scroll {
-    overflow-x: scroll;
-  }
-
   .lg\:overflow-y-scroll {
     overflow-y: scroll;
-  }
-
-  .lg\:scroll-smooth {
-    scroll-behavior: smooth;
   }
 
   .lg\:rounded {
@@ -2889,10 +2839,6 @@ p, span{
     padding: 2.5rem;
   }
 
-  .lg\:p-3 {
-    padding: 0.75rem;
-  }
-
   .lg\:p-4 {
     padding: 1rem;
   }
@@ -2934,6 +2880,11 @@ p, span{
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  .lg\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .lg\:pb-4 {
@@ -3031,10 +2982,6 @@ p, span{
 
   .lg\:last-of-type\:mr-10:last-of-type {
     margin-right: 2.5rem;
-  }
-
-  .lg\:last-of-type\:pr-0:last-of-type {
-    padding-right: 0px;
   }
 
   .lg\:last-of-type\:pr-10:last-of-type {

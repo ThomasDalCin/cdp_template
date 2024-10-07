@@ -1,5 +1,6 @@
-<!--full article view section-->
+<!--Article list home page -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative">
+
       <!-- arrows box -->
       <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
         <button id="prevArrow"
@@ -11,6 +12,7 @@
           {% render 'arrow-right-icon' %}
         </button>
       </div>
+
   <div
     class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4">
     <!--assign liquid variables -->
@@ -64,21 +66,25 @@
     const nextArrow = document.getElementById('nextArrow');
     const scrollContainer = document.querySelector('.articles-list-container');
     const images = Array.from(scrollContainer.querySelectorAll('.card-article'));
-
+    const imageslenght = images.length;
+    const totalImageWidth =  images.map((image) => { image.offsetWidth + parseInt(getComputedStyle(image).marginRight)});
+    const scrollAmoutTest = imageslenght / totalImageWidth;
+    console.log(scrollAmoutTest)
+    
+    //check if there's images
     if (images.length > 0) {
-      //handle scroll Amount
+      //check the size of the image + its marginRight
       const scrollAmount = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
-
+      //check the scrollable values
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      //update the arrows layout during scroll
       function updateArrows() {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
         prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
         nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
-
+      //function to scroll the container with the scrollAmount value
       function scrollContainerBy(amount) {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
         let newScrollLeft = currentScrollLeft + amount;
 
         if (newScrollLeft < 0) {
@@ -94,9 +100,10 @@
 
         setTimeout(updateArrows, 300);
       }
-
+      
+      //handle the scrollContainer by clicking on arrows
       if (prevArrow && nextArrow && scrollContainer) {
-        prevArrow.addEventListener('click', function () {
+          prevArrow.addEventListener('click', function () {
           scrollContainerBy(-scrollAmount);
         });
 
