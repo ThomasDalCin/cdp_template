@@ -1,5 +1,5 @@
 <!--our values top page section-->
-<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4  mb-10 relative">
+<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4  mb-10 relative overflow-x-hidden">
   <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
 
@@ -14,7 +14,7 @@
   </div>
 
   
-  <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1">
+  <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
     {% for block in section.blocks %}
       <div class="container-scroll-image w-auto h-auto">
         {% if block.type == "scroll-image" %}
