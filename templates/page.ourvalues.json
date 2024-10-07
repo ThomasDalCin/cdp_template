@@ -1,8 +1,18 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "page-title": {
       "type": "page-title",
-      "settings": {}
+      "settings": {
+      }
     },
     "our-values": {
       "type": "ourvalues-top",
@@ -17,37 +27,37 @@
         "scroll_image_4FrnVm": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Gallery-01.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-01.jpg"
           }
         },
         "scroll_image_xktceD": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Gallery-02.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-02.jpg"
           }
         },
         "scroll_image_m8PkyN": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Gallery-04.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-04.jpg"
           }
         },
         "scroll_image_gV4fri": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Gallery-03.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-03.jpg"
           }
         },
         "scroll_image_t6Thye": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-02.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-02.jpg"
           }
         },
         "scroll_image_qaDXXC": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-06.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-06.jpg"
           }
         }
       },
@@ -67,89 +77,61 @@
     },
     "eco-module": {
       "type": "eco-module",
-      "settings": {
-        "section_heading": "Design dall’anima ecosostenibile",
-        "section_etic_code": "Codice etico",
-        "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
-        "section_etic_code_boat_image": "shopify:\/\/shop_images\/PardoYatch-Menu-E72.png",
-        "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_etic_code_download": "Scarica il codice etico"
-      }
-    },
-    "innovation": {
-      "type": "innovation",
       "blocks": {
-        "scroll_image_dxT44V": {
+        "scroll_image_n7XxC3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-01.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-04.jpg"
           }
         },
-        "scroll_image_7akWAB": {
+        "scroll_image_qyVFT3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-05.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-02.jpg"
           }
         },
-        "scroll_image_H3t3Yr": {
+        "scroll_image_CyKbRF": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-04.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-01.jpg"
           }
         },
-        "scroll_image_iKQmQL": {
+        "scroll_image_nBnDy7": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-04.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-01.jpg"
           }
         },
-        "scroll_image_i6dFiF": {
+        "scroll_image_TEPwan": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-03.jpg"
-          }
-        },
-        "scroll_image_gfHpkW": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-06.jpg"
-          }
-        },
-        "scroll_image_Yybpfe": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-01.jpg"
-          }
-        },
-        "scroll_image_JTKphN": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/PardoYatch-Company-Slider-03.jpg"
+            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-06.jpg"
           }
         }
       },
       "block_order": [
-        "scroll_image_dxT44V",
-        "scroll_image_7akWAB",
-        "scroll_image_H3t3Yr",
-        "scroll_image_iKQmQL",
-        "scroll_image_i6dFiF",
-        "scroll_image_gfHpkW",
-        "scroll_image_Yybpfe",
-        "scroll_image_JTKphN"
+        "scroll_image_n7XxC3",
+        "scroll_image_qyVFT3",
+        "scroll_image_CyKbRF",
+        "scroll_image_nBnDy7",
+        "scroll_image_TEPwan"
       ],
       "settings": {
-        "section_heading": "Innovazione e tecnologia",
+        "section_heading": "Design dall’anima ecosostenibile",
         "section_heading_secondary": "Controllo qualità",
         "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_content_cta": "Tienimi Informato"
+        "section_content_cta": "Tienimi Informato",
+        "section_etic_code": "Codice etico",
+        "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
+        "section_etic_code_boat_image": "shopify://shop_images/PardoYatch-Menu-E72.png",
+        "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "section_etic_code_download": "Scarica il codice etico"
       }
     }
   },
   "order": [
     "page-title",
     "our-values",
-    "eco-module",
-    "innovation"
+    "eco-module"
   ]
 }
