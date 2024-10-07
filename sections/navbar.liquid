@@ -128,7 +128,8 @@
           {% endif %}
           {% endif %}
         </div>
-        <div
+        <div class="w-auto h-auto flex flex-col gap-y-6 items-start justify-center">
+          <div
           class="collection-info-container w-auto inline-flex flex-row gap-x-2 items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
           {% for product in matching_collection.products %}
           <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
@@ -136,13 +137,14 @@
               {{ product.title | replace: 'Pardo', '' }}
             </a>
           </div>
+          {% if matching_collection.description != "Pardo approved" %}
+            <div class="collection-container-description w-auto max-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)]">
+              <p class="body-12 text-black">{{ matching_collection.description }}</p>
+            </div>
+          {% endif %}
           {% endfor %}
         </div>
-        {% if matching_collection.description != "Pardo approved" %}
-          <div class="collection-container-description w-auto max-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)]">
-            <p class="body-12 text-black">{{ matching_collection.description }}</p>
-          </div>
-        {% endif %}
+        </div>
       </li>
       {% endunless %}
       {% endfor %}
