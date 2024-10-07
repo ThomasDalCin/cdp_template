@@ -1,5 +1,5 @@
 <!--our values top page section-->
-<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4  mb-10 relative overflow-x-hidden">
+<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 relative overflow-x-hidden">
   <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
 
@@ -13,7 +13,7 @@
     </button>
   </div>
 
-  <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+   <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-1 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
     {% for block in section.blocks %}
       <div class="container-scroll-image w-auto h-auto">
         {% if block.type == "scroll-image" %}
@@ -29,70 +29,67 @@
         {% endif %}
       </div>
     {% endfor %}
-  </div>
-  
+  </div>  
 </div>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  const prevArrowTop = document.getElementById('prevArrowTop');
-  const nextArrowTop = document.getElementById('nextArrowTop');
-  const scrollContainerTop = document.querySelector('.container-scroll-image');
-  const images = Array.from(scrollContainerTop.querySelectorAll('img'));
+    const prevArrowTop = document.getElementById('prevArrowTop');
+    const nextArrowTop = document.getElementById('nextArrowTop');
+    const scrollContainerTop = document.querySelector('.our-values-top-scrolling'); // Corretto il selettore qui
+    const images = Array.from(scrollContainerTop.querySelectorAll('img'));
 
-  if (images.length > 1) {
-    const firstImage = images[0];
-    const secondImage = images[1];
+    if (images.length > 1) {
+      const firstImage = images[0];
+      const secondImage = images[1];
 
-    const firstImageLeft = firstImage.offsetLeft;
-    const secondImageLeft = secondImage.offsetLeft;
-    const scrollAmount = secondImageLeft - firstImageLeft;
+      const firstImageLeft = firstImage.offsetLeft;
+      const secondImageLeft = secondImage.offsetLeft;
+      const scrollAmount = secondImageLeft - firstImageLeft;
 
-    function updateArrows() {
-      const currentScrollLeft = scrollContainerTop.scrollLeft;
-      const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainer.clientWidth;
+      function updateArrows() {
+        const currentScrollLeft = scrollContainerTop.scrollLeft;
+        const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
 
-      prevArrowTop.classList.toggle('disabled', currentScrollLeft === 0);
-      nextArrowTop.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-    }
-
-    function scrollContainerBy(amount) {
-      const currentScrollLeft = scrollContainerTop.scrollLeft;
-      const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainer.clientWidth;
-
-      let newScrollLeft = currentScrollLeft + amount;
-
-      if (newScrollLeft < 0) {
-        newScrollLeft = 0;
-      } else if (newScrollLeft > maxScrollLeft) {
-        newScrollLeft = maxScrollLeft;
+        prevArrowTop.classList.toggle('disabled', currentScrollLeft === 0);
+        nextArrowTop.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
 
-      scrollContainerTop.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth'
-      });
+      function scrollContainerBy(amount) {
+        const currentScrollLeft = scrollContainerTop.scrollLeft;
+        const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
 
-      setTimeout(updateArrows, 300);
+        let newScrollLeft = currentScrollLeft + amount;
+
+        if (newScrollLeft < 0) {
+          newScrollLeft = 0;
+        } else if (newScrollLeft > maxScrollLeft) {
+          newScrollLeft = maxScrollLeft;
+        }
+
+        scrollContainerTop.scrollTo({
+          left: newScrollLeft,
+          behavior: 'smooth'
+        });
+
+        setTimeout(updateArrows, 300);
+      }
+
+      if (prevArrowTop && nextArrowTop && scrollContainerTop) {
+        prevArrowTop.addEventListener('click', function() {
+          scrollContainerBy(-scrollAmount);
+        });
+
+        nextArrowTop.addEventListener('click', function() {
+          scrollContainerBy(scrollAmount);
+        });
+
+        updateArrows();
+        scrollContainerTop.addEventListener('scroll', updateArrows);
+      }
     }
-
-    if (prevArrowTop && nextArrowTop && scrollContainerTop) {
-      prevArrowTop.addEventListener('click', function() {
-        scrollContainerBy(-scrollAmount);
-      });
-
-      nextArrowTop.addEventListener('click', function() {
-        scrollContainerBy(scrollAmount);
-      });
-
-      updateArrows();
-      scrollContainerTop.addEventListener('scroll', updateArrows);
-    }
-  }
-});
+  });
 </script>
-
 
 {% schema %}
 {
