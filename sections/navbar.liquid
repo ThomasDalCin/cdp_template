@@ -138,6 +138,14 @@
           </div>
           {% endfor %}
         </div>
+        {% for collection in collections %}
+          {% if collection.title != 'Pardo approved' %}
+            <div class="collection-container-description w-auto h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)]">
+              <p class="body-12">{{ collection.description }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% endfor %}
       </li>
       {% endunless %}
       {% endfor %}
