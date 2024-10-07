@@ -1775,6 +1775,11 @@ p, span{
   border-top-right-radius: 0.5rem;
 }
 
+.rounded-t-md {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
 .rounded-tl-xl {
   border-top-left-radius: 0.75rem;
 }
@@ -2257,6 +2262,10 @@ p, span{
 
 .last-of-type\:mr-6:last-of-type {
   margin-right: 1.5rem;
+}
+
+.last-of-type\:mr-8:last-of-type {
+  margin-right: 2rem;
 }
 
 .last-of-type\:pr-8:last-of-type {
