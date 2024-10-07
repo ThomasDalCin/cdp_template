@@ -391,13 +391,21 @@ const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
       internalRect.classList.add('hidden');
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
+      
+        // Rimuovi la classe 'font-medium' da tutti i tab e aggiungi 'font-light'
+  externalTabText.classList.remove('font-medium');
+  internalTabText.classList.remove('font-medium');
+  internalDownText.classList.remove('font-medium');
+  internalUpText.classList.remove('font-medium');
+  
+  externalTabText.classList.add('font-light');
+  internalTabText.classList.add('font-light');
+  internalDownText.classList.add('font-light');
+  internalUpText.classList.add('font-light');
 
-      if(tabText.classList.contains('font-medium')){
-        tabText.classList.remove('font-medium')
-      } else {
-        tabText.classList.add('font-medium');
-      }
-    
+  // Aggiungi la classe 'font-medium' al tab selezionato e rimuovi 'font-light'
+  tabText.classList.add('font-medium');
+  tabText.classList.remove('font-light');
   
       //display just the tab's content selected
       content.classList.remove('hidden');
