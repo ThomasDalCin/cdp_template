@@ -302,6 +302,7 @@
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: var(--secondary-text-color) !important;
   }
+
   .object-cover {
     object-fit: cover;
     width: 100%;
@@ -355,34 +356,34 @@
   
     //Handle tab settings
     const externalTab = document.getElementById('external-tab');
-const externalTabText = externalTab.firstElementChild;  // Assegna l'elemento
-externalTabText.classList.add('font-light');            // Aggiungi la classe
-
-const internalTab = document.getElementById('internal-tab');
-const internalTabText = internalTab.firstElementChild;  // Assegna l'elemento
-internalTabText.classList.add('font-light');            // Aggiungi la classe
-
-const internalDownTab = document.getElementById('internal-down-tab');
-const internalDownText = internalDownTab.firstElementChild;  // Assegna l'elemento
-internalDownText.classList.add('font-light');                // Aggiungi la classe
-
-const internalUpTab = document.getElementById('internal-up-tab');
-const internalUpText = internalUpTab.firstElementChild;  // Assegna l'elemento
-internalUpText.classList.add('font-light');              // Aggiungi la classe
-
-const externalContent = document.getElementById('external-content');
-const internalContent = document.getElementById('internal-content');
-const internalDownContent = document.getElementById('internal-down-content');
-const internalUpContent = document.getElementById('internal-up-content');
-const externalRect = externalTab.querySelector('.tab-rect');
-const internalRect = internalTab.querySelector('.tab-rect');
-const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
-const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+    const externalTabText = externalTab.firstElementChild;  // Assegna l'elemento
+    externalTabText.classList.add('font-light');            // Aggiungi la classe
+  
+    const internalTab = document.getElementById('internal-tab');
+    const internalTabText = internalTab.firstElementChild;  // Assegna l'elemento
+    internalTabText.classList.add('font-light');            // Aggiungi la classe
+  
+    const internalDownTab = document.getElementById('internal-down-tab');
+    const internalDownText = internalDownTab.firstElementChild;  // Assegna l'elemento
+    internalDownText.classList.add('font-light');                // Aggiungi la classe
+  
+    const internalUpTab = document.getElementById('internal-up-tab');
+    const internalUpText = internalUpTab.firstElementChild;  // Assegna l'elemento
+    internalUpText.classList.add('font-light');              // Aggiungi la classe
+  
+    const externalContent = document.getElementById('external-content');
+    const internalContent = document.getElementById('internal-content');
+    const internalDownContent = document.getElementById('internal-down-content');
+    const internalUpContent = document.getElementById('internal-up-content');
+    const externalRect = externalTab.querySelector('.tab-rect');
+    const internalRect = internalTab.querySelector('.tab-rect');
+    const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
+    const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
   
     // Function to handle tab display and rect visibility
     function showTab(tab, tabText, content, rect) {
       //hide contents for each tab
-      
+  
       externalContent.classList.add('hidden');
       internalContent.classList.add('hidden');
       internalDownContent.classList.add('hidden');
@@ -391,25 +392,20 @@ const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
       internalRect.classList.add('hidden');
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
-      
- // Rimuovi la classe 'font-medium' solo dai tab esterni (escludendo "internal")
- externalTabText.classList.remove('font-medium');
-  externalTabText.classList.add('font-light');
   
-  // Se il tab selezionato è "external", rimuovi 'font-medium' da "internal"
-  if (tab === externalTab) {
-    internalTabText.classList.remove('font-medium');
-    internalTabText.classList.add('font-light');
-  }
-
-  // Aggiungi la classe 'font-medium' al tab selezionato e rimuovi 'font-light'
-  tabText.classList.add('font-medium');
-  tabText.classList.remove('font-light');
-
-  // Mantieni la classe 'font-medium' su "internal" quando passi da galley up/down
-  if (tab === internalUpTab || tab === internalDownTab || tab === internalTab) {
-    internalTabText.classList.add('font-medium'); // Mantieni "internal" evidenziato
-  }
+      externalTabText.classList.remove('font-medium');
+      externalTabText.classList.add('font-light');
+  
+      if (tab === externalTab) {
+        internalTabText.classList.remove('font-medium');
+        internalTabText.classList.add('font-light');
+      }
+      tabText.classList.add('font-medium');
+      tabText.classList.remove('font-light');
+  
+      if (tab === internalUpTab || tab === internalDownTab || tab === internalTab) {
+        internalTabText.classList.add('font-medium');
+      }
   
       //display just the tab's content selected
       content.classList.remove('hidden');
@@ -555,82 +551,82 @@ const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
     setupImageClickHandler(externalContent);
   
     function handleOverlaySlider(mainContainer) {
-    const allImages = mainContainer.nextElementSibling.querySelectorAll('.container-magnetic-scroll img');
+      const allImages = mainContainer.nextElementSibling.querySelectorAll('.container-magnetic-scroll img');
   
-    let mainElement = mainContainer.querySelector('video');
-    if (mainElement) {
+      let mainElement = mainContainer.querySelector('video');
+      if (mainElement) {
         return;
-    }
+      }
   
-    mainElement = mainContainer.firstChild.nextElementSibling;
+      mainElement = mainContainer.firstChild.nextElementSibling;
   
-    if (mainElement.tagName !== 'IMG') {
+      if (mainElement.tagName !== 'IMG') {
         return;
-    }
+      }
   
-    const allImagesToAdd = [mainElement, ...allImages];
+      const allImagesToAdd = [mainElement, ...allImages];
   
-    const uniqueImages = allImagesToAdd.filter((el, index, self) => {
+      const uniqueImages = allImagesToAdd.filter((el, index, self) => {
         const elSrc = el.currentSrc || el.getAttribute('src') || el.getAttribute('source');
         if (elSrc && elSrc.includes('thumbnail')) {
-            return false;
+          return false;
         }
         return self.findIndex(item => {
-            const itemSrc = item.currentSrc || item.getAttribute('src') || item.getAttribute('source');
-            return itemSrc === elSrc;
+          const itemSrc = item.currentSrc || item.getAttribute('src') || item.getAttribute('source');
+          return itemSrc === elSrc;
         }) === index;
-    });
+      });
   
-    createSwiper(uniqueImages);
-  }
+      createSwiper(uniqueImages);
+    }
   
-  const videoContainer = document.querySelector('.video-container');
-  const imgContainer = document.querySelector('.main-img-container');
-  const clickableElements = [videoContainer, imgContainer];
+    const videoContainer = document.querySelector('.video-container');
+    const imgContainer = document.querySelector('.main-img-container');
+    const clickableElements = [videoContainer, imgContainer];
   
-  clickableElements.forEach((el) => {
-    el.addEventListener('click', () => {
+    clickableElements.forEach((el) => {
+      el.addEventListener('click', () => {
         handleOverlaySlider(el);
+      });
     });
-  });
   
-  function createSwiper(swiperSlidesImages) {
-    const swiperWrap = document.querySelector('.swiper-wrapper');
-    swiperWrap.closest('.overlay-wrapper').classList.remove('hidden');
-    document.querySelector('.navbar').classList.remove('toBlack');
-    document.body.classList.add('no-scroll');
-    swiperWrap.innerHTML = '';
+    function createSwiper(swiperSlidesImages) {
+      const swiperWrap = document.querySelector('.swiper-wrapper');
+      swiperWrap.closest('.overlay-wrapper').classList.remove('hidden');
+      document.querySelector('.navbar').classList.remove('toBlack');
+      document.body.classList.add('no-scroll');
+      swiperWrap.innerHTML = '';
   
-    const slideClasses = ["swiper-img", "w-full", "h-full", "object-cover", "block"];
+      const slideClasses = ["swiper-img", "w-full", "h-full", "object-cover", "block"];
   
-    swiperSlidesImages.forEach((slideImg) => {
+      swiperSlidesImages.forEach((slideImg) => {
         const swiperSlideContainer = document.createElement('div');
         swiperSlideContainer.classList.add('swiper-slide');
   
         if (slideImg.tagName === 'IMG') {
-            const swiperSlide = document.createElement('img');
-            swiperSlide.setAttribute('src', slideImg.currentSrc);
-            slideClasses.forEach((className) => {
-                swiperSlide.classList.add(className);
-            });
-            swiperSlideContainer.appendChild(swiperSlide);
+          const swiperSlide = document.createElement('img');
+          swiperSlide.setAttribute('src', slideImg.currentSrc);
+          slideClasses.forEach((className) => {
+            swiperSlide.classList.add(className);
+          });
+          swiperSlideContainer.appendChild(swiperSlide);
         }
   
         swiperWrap.appendChild(swiperSlideContainer);
-    });
-  }
+      });
+    }
   
-  var swiper = new Swiper(".mySwiper", {
-    effect: 'fade',
-    fadeEffect: {
+    var swiper = new Swiper(".mySwiper", {
+      effect: 'fade',
+      fadeEffect: {
         crossFade: true
-    },
-    pagination: {
+      },
+      pagination: {
         el: ".swiper-pagination",
         clickable: true
-    },
-    loop: true
-  });
+      },
+      loop: true
+    });
   
   
   
