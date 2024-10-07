@@ -58,7 +58,7 @@
         </button>
       </div>
     </div>
-    <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4"
+    <div class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
       id="second-row">
       {% for i in (1..halfSize) %}
       <div
@@ -98,7 +98,7 @@
       </button>
     </div>
   </div>
-  <div class="blog-item-horizontal-scroll w-full h-auto overflow-x-auto flex flex-row gap-x-2 p-1 lg:gap-x-4"
+  <div class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
     id="third-row">
     {% assign startIndex = halfSize | plus: 1 %}
     {% for i in (startIndex..remainingArticles) %}
