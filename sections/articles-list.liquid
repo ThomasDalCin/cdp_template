@@ -72,15 +72,10 @@
       const marginRight = parseInt(getComputedStyle(image).marginRight);
       return width + marginRight;
     }).reduce((acc, width) => acc + width, 0);
-
-    console.log(totalImageWidth)
     const scrollAmoutTest = imageslenght / totalImageWidth;
-    console.log(scrollAmoutTest)
     
     //check if there's images
     if (images.length > 0) {
-      //check the size of the image + its marginRight
-      const scrollAmount = images[0].offsetWidth + parseInt(getComputedStyle(images[0]).marginRight);
       //check the scrollable values
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
@@ -110,11 +105,11 @@
       //handle the scrollContainer by clicking on arrows
       if (prevArrow && nextArrow && scrollContainer) {
           prevArrow.addEventListener('click', function () {
-          scrollContainerBy(-scrollAmount);
+          scrollContainerBy(-scrollAmoutTest);
         });
 
         nextArrow.addEventListener('click', function () {
-          scrollContainerBy(scrollAmount);
+          scrollContainerBy(scrollAmoutTest);
         });
 
         updateArrows();
