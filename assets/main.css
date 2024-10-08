@@ -2366,6 +2366,10 @@ p, span{
     top: 16px;
   }
 
+  .lg\:left-\[40px\] {
+    left: 40px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -2413,6 +2417,10 @@ p, span{
 
   .lg\:mt-\[90px\] {
     margin-top: 90px;
+  }
+
+  .lg\:mb-\[24px\] {
+    margin-bottom: 24px;
   }
 
   .lg\:flex {
@@ -2886,6 +2894,10 @@ p, span{
 
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-2 {
+    padding: 0.5rem;
   }
 
   .lg\:px-0 {
