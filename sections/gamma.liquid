@@ -65,8 +65,7 @@
 
 <style>
   .pImage {
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    /* Transizioni fluide */
+    transition: opacity 0.2s linear;
   }
 
   /* Classe per immagini non visibili */
@@ -204,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetProductImage) {
           // Calculate the position to scroll to
           const scrollContainer = imageScrollContainer;
-          const targetPosition = targetProductImage.offsetLeft;
+          const targetPosition = targetProductImage.offsetLeft ;
           
           // Scroll to the target position using scrollLeft
           scrollContainer.scrollLeft = targetPosition - 51;  // Adjust 51px to account for padding
