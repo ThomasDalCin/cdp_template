@@ -44,7 +44,7 @@
             {% endfor %}
           </div>
           <div
-            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] ">
+            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-full lg:p-0 lg:-ml-0">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
