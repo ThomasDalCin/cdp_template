@@ -1492,6 +1492,10 @@ p, span{
   width: 100%;
 }
 
+.w-\[calc\(100\%_-_2rem\)\] {
+  width: calc(100% - 2rem);
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -2655,6 +2659,10 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[calc\(100\%_-5rem\)\] {
+    width: calc(100% - 5rem);
   }
 
   .lg\:min-w-\[220px\] {
