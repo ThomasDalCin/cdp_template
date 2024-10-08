@@ -2457,6 +2457,10 @@ p, span{
     margin-top: 90px;
   }
 
+  .lg\:-mr-10 {
+    margin-right: -2.5rem;
+  }
+
   .lg\:flex {
     display: flex;
   }

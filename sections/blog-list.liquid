@@ -61,11 +61,11 @@
     </div>
 
     <div
-      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10"
+      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10 lg:-mr-10"
       id="second-row">
       {% for i in (1..halfSize) %}
       <div
-        class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl last-of-type:mr-8 lg:w-[400px] lg:last-of-type:mr-20  flex-shrink-0"
+        class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl flex-shrink-0 g:w-[400px]"
         data-tags="{{ newsArticles[i].tags | join: ',' }}">
         <div class="blog-item-image w-full h-auto">
           <img src="{{ newsArticles[i].image | img_url: 'master' }}"
