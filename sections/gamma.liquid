@@ -305,18 +305,15 @@
     function scrollContainerBy(amount, scrollContainer) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       let newScrollLeft = currentScrollLeft + amount;
-
-      // Calcola il massimo scroll possibile
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      // Limita lo scroll ai limiti del contenitore
+  
       if (newScrollLeft < 0) {
         newScrollLeft = 0;
       } else if (newScrollLeft > maxScrollLeft) {
         newScrollLeft = maxScrollLeft;
       }
 
-      // Effettua lo scroll con animazione smooth
       scrollContainer.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth'
