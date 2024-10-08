@@ -235,6 +235,7 @@
           const previousIcon = activeChip.querySelector('.chips-text svg');
           if (previousIcon) {
             previousIcon.classList.add('-rotate-45');
+            previousIcon.classList.add('-rotate-0');
           }
         }
 
@@ -247,6 +248,7 @@
         const currentIcon = chip.querySelector('.chips-text svg');
         if (currentIcon) {
           currentIcon.classList.remove('-rotate-45');
+          currentIcon.classList.remove('-rotate-0');
         }
 
         activeChip = chip;
