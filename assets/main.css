@@ -1484,6 +1484,10 @@ p, span{
   width: 100%;
 }
 
+.w-\[240px\] {
+  width: 240px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
