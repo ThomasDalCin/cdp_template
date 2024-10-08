@@ -222,6 +222,10 @@
         newsLayout.classList.add('hidden');
         pressRoomLayout.classList.add('hidden');
         awardsLayout.classList.add('hidden');
+        const allChips = chip.querySelector('.chips-text svg');
+        allChips.forEach((chip) => {
+          chip.classList.remove('-rotate-0');
+        })
 
         if (tag === 'News') {
           newsLayout.classList.remove('hidden');
