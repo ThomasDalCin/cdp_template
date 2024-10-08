@@ -95,34 +95,35 @@
       </div>
     </div>
     <div
-      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
-      id="third-row">
-      {% assign startIndex = halfSize | plus: 1 %}
-      {% for i in (startIndex..remainingArticles) %}
-      <div
-        class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-8 lg:last-of-type:pr-10"
-        data-tags="{{ newsArticles[i].tags | join: ',' }}">
-        <div class="blog-item-image w-full h-auto">
-          <img src="{{ newsArticles[i].image | img_url: 'master' }}"
-            class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg lg:min-h-[398px]"
-            alt="{{ newsArticles[i].image.alt }}">
-        </div>
-        <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-          <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
-        </div>
-        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-          <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
-        </div>
-        <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-          <div class="cta-blog outline-none">
-            <a href="{{ newsArticles[i].url }}">
-              <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-            </a>
-          </div>
+    class="blog-item-horizontal-scroll w-full p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-full lg:p-10 lg:-mt-10"
+    id="third-row">
+    {% assign startIndex = halfSize | plus: 1 %}
+    {% for i in (startIndex..remainingArticles) %}
+    <div
+      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-10 lg:last-of-type:pr-10"
+      data-tags="{{ newsArticles[i].tags | join: ',' }}">
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ newsArticles[i].image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg lg:min-h-[398px]"
+          alt="{{ newsArticles[i].image.alt }}">
+      </div>
+      <div class="blog-item-date w-full h-auto flex flex-row justify-between">
+        <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
+      </div>
+      <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
+        <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
+      </div>
+      <div class="blog-item-cta w-full h-auto flex items-center justify-start">
+        <div class="cta-blog outline-none">
+          <a href="{{ newsArticles[i].url }}">
+            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+          </a>
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
+  </div>
+  
   </div>
   {% endif %}
   {% endif %}

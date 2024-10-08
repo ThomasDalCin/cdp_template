@@ -1228,10 +1228,6 @@ p, span{
   height: 2.5rem;
 }
 
-.h-12 {
-  height: 3rem;
-}
-
 .h-3 {
   height: 0.75rem;
 }
@@ -1300,6 +1296,10 @@ p, span{
   height: 565px;
 }
 
+.h-\[60px\] {
+  height: 60px;
+}
+
 .h-auto {
   height: auto;
 }
@@ -1318,14 +1318,6 @@ p, span{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[60px\] {
-  height: 60px;
-}
-
-.h-\[48px\] {
-  height: 48px;
 }
 
 .max-h-\[160px\] {
@@ -1408,10 +1400,6 @@ p, span{
   width: 2.5rem;
 }
 
-.w-12 {
-  width: 3rem;
-}
-
 .w-3 {
   width: 0.75rem;
 }
@@ -1426,6 +1414,10 @@ p, span{
 
 .w-\[102px\] {
   width: 102px;
+}
+
+.w-\[104px\] {
+  width: 104px;
 }
 
 .w-\[127px\] {
@@ -1484,6 +1476,10 @@ p, span{
   width: calc(100% + 3.1875rem);
 }
 
+.w-\[calc\(100\%_\+_2rem\)\] {
+  width: calc(100% + 2rem);
+}
+
 .w-\[calc\(50\%-\.5rem\)\] {
   width: calc(50% - .5rem);
 }
@@ -1494,26 +1490,6 @@ p, span{
 
 .w-full {
   width: 100%;
-}
-
-.w-\[104px\] {
-  width: 104px;
-}
-
-.w-\[calc\(100\%_-_2rem\)\] {
-  width: calc(100% - 2rem);
-}
-
-.w-\[calc\(100\%_\+_2rem\)\] {
-  width: calc(100% + 2rem);
-}
-
-.w-\[48px\] {
-  width: 48px;
-}
-
-.w-\[calc\(100\%\+4\.1875rem\)\] {
-  width: calc(100% + 4.1875rem);
 }
 
 .min-w-\[200px\] {
@@ -1866,10 +1842,6 @@ p, span{
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-\[var\(--secondary-bakground-color\)\] {
-  border-color: var(--secondary-bakground-color);
-}
-
 .bg-\[\#F7F7F7\] {
   --tw-bg-opacity: 1;
   background-color: rgb(247 247 247 / var(--tw-bg-opacity));
@@ -1923,10 +1895,6 @@ p, span{
 
 .bg-center {
   background-position: center;
-}
-
-.fill-current {
-  fill: currentColor;
 }
 
 .object-contain {
@@ -2308,20 +2276,16 @@ p, span{
   margin-right: 1rem;
 }
 
-.last-of-type\:mr-6:last-of-type {
-  margin-right: 1.5rem;
-}
-
-.last-of-type\:mr-8:last-of-type {
-  margin-right: 2rem;
+.last-of-type\:pr-0:last-of-type {
+  padding-right: 0px;
 }
 
 .last-of-type\:pr-8:last-of-type {
   padding-right: 2rem;
 }
 
-.last-of-type\:pr-0:last-of-type {
-  padding-right: 0px;
+.last-of-type\:pr-10:last-of-type {
+  padding-right: 2.5rem;
 }
 
 .checked\:bg-white:checked {
@@ -2441,10 +2405,6 @@ p, span{
     margin-right: 0px;
   }
 
-  .lg\:-ml-\[141px\] {
-    margin-left: -141px;
-  }
-
   .lg\:-mt-10 {
     margin-top: -2.5rem;
   }
@@ -2483,10 +2443,6 @@ p, span{
 
   .lg\:mt-\[90px\] {
     margin-top: 90px;
-  }
-
-  .lg\:-ml-36 {
-    margin-left: -9rem;
   }
 
   .lg\:flex {
@@ -2661,12 +2617,12 @@ p, span{
     width: calc(100% + 5rem);
   }
 
-  .lg\:w-\[calc\(100\%-32px\)\] {
-    width: calc(100% - 32px);
+  .lg\:w-\[calc\(100\%\+8\.8125rem\)\] {
+    width: calc(100% + 8.8125rem);
   }
 
-  .lg\:w-\[calc\(100\%_\+_8\.8125rem\)\] {
-    width: calc(100% + 8.8125rem);
+  .lg\:w-\[calc\(100\%-32px\)\] {
+    width: calc(100% - 32px);
   }
 
   .lg\:w-\[calc\(33\.3\%_-2\.5rem\)\] {
@@ -2695,10 +2651,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(100\%\+8\.8125rem\)\] {
-    width: calc(100% + 8.8125rem);
   }
 
   .lg\:min-w-\[220px\] {
@@ -3026,8 +2978,8 @@ p, span{
     padding-bottom: 1.5rem;
   }
 
-  .lg\:pl-\[141px\] {
-    padding-left: 141px;
+  .lg\:pl-36 {
+    padding-left: 9rem;
   }
 
   .lg\:pt-10 {
@@ -3036,10 +2988,6 @@ p, span{
 
   .lg\:pt-6 {
     padding-top: 1.5rem;
-  }
-
-  .lg\:pl-36 {
-    padding-left: 9rem;
   }
 
   .lg\:text-center {
