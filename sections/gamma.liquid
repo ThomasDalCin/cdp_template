@@ -250,7 +250,6 @@
       }, {passive: false});
     }
 
-
     const prewArrows = document.querySelectorAll('.left-arrow');
     const nextArrows = document.querySelectorAll('.right-arrow');
 
@@ -293,12 +292,9 @@
       let closestImage = null;
       let minDiff = Infinity;
 
-      // Aggiungi la compensazione per il padding e il margin
-      const scrollLeftOffset = 141; // Padding-left + margin-left
-
-      // Trova l'immagine più vicina al centro, compensando il padding e il margin
+      // Trova l'immagine più vicina al centro
       totalItems.forEach((item) => {
-        const itemLeft = item.offsetLeft - scrollLeftOffset; // Compensazione del margin-left e padding-left
+        const itemLeft = item.offsetLeft;
         const itemRight = itemLeft + item.offsetWidth;
         const scrollCenter = scrollContainer.scrollLeft + visibleWidth / 2;
 
@@ -312,7 +308,7 @@
       // Se abbiamo trovato un'immagine, centra lo scroll su di essa
       if (closestImage) {
         const imageCenter = closestImage.offsetLeft + closestImage.offsetWidth / 2;
-        const newScrollLeft = imageCenter - visibleWidth / 2 + scrollLeftOffset; // Compensiamo di nuovo
+        const newScrollLeft = imageCenter - visibleWidth / 2;
         scrollContainer.scrollTo({
           left: newScrollLeft,
           behavior: 'smooth',
@@ -328,12 +324,9 @@
       let closestImage = null;
       let minDiff = Infinity;
 
-      // Aggiungi la compensazione per il padding e il margin
-      const scrollLeftOffset = 141; // Padding-left + margin-left
-
-      // Trova l'immagine più vicina al centro, compensando il padding e il margin
+      // Trova l'immagine più vicina al centro
       totalItems.forEach((item) => {
-        const itemLeft = item.offsetLeft - scrollLeftOffset; // Compensazione del margin-left e padding-left
+        const itemLeft = item.offsetLeft;
         const itemRight = itemLeft + item.offsetWidth;
         const scrollCenter = scrollContainer.scrollLeft + visibleWidth / 2;
 
@@ -347,7 +340,7 @@
       // Se abbiamo trovato un'immagine, centra lo scroll su di essa
       if (closestImage) {
         const imageCenter = closestImage.offsetLeft + closestImage.offsetWidth / 2;
-        const newScrollLeft = imageCenter - visibleWidth / 2 + scrollLeftOffset; // Compensiamo di nuovo
+        const newScrollLeft = imageCenter - visibleWidth / 2;
         scrollContainer.scrollTo({
           left: newScrollLeft,
           behavior: 'smooth',
