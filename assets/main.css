@@ -2687,6 +2687,10 @@ p, span{
     justify-content: center;
   }
 
+  .lg\:justify-space-between {
+    justify-content: space-between;
+  }
+
   .lg\:gap-10 {
     gap: 2.5rem;
   }
