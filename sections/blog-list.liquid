@@ -108,7 +108,7 @@
     {% assign startIndex = halfSize | plus: 1 %}
     {% for i in (startIndex..remainingArticles) %}
     <div
-      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-4 lg:last-of-type:pr-20 flex-shrink-0"
+      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-8 lg:last-of-type:pr-20 flex-shrink-0"
       data-tags="{{ newsArticles[i].tags | join: ',' }}">
       <div class="blog-item-image w-full h-auto">
         <img src="{{ newsArticles[i].image | img_url: 'master' }}"
