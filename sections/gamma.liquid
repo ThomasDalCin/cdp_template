@@ -309,7 +309,7 @@
       const desktopPadding = 51; // Padding sinistro fisso di 141px
 
       // Ritorna l'importo dello scroll tenendo conto del padding e margine
-      return (totalItemsWidth / totalItemsLength) - desktopPadding;
+      return (totalItemsWidth / totalItemsLength) + desktopPadding;
     }
 
     function scrollContainerBy(amount, scrollContainer) {
