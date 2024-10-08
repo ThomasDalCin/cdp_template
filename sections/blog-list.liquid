@@ -95,12 +95,12 @@
       </div>
     </div>
     <div
-    class="blog-item-horizontal-scroll w-full p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-full lg:p-10 lg:-mt-10"
+    class="blog-item-horizontal-scroll w-full p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-full"
     id="third-row">
     {% assign startIndex = halfSize | plus: 1 %}
     {% for i in (startIndex..remainingArticles) %}
     <div
-      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-10 lg:last-of-type:pr-10"
+      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-4 lg:last-of-type:pr-10"
       data-tags="{{ newsArticles[i].tags | join: ',' }}">
       <div class="blog-item-image w-full h-auto">
         <img src="{{ newsArticles[i].image | img_url: 'master' }}"
