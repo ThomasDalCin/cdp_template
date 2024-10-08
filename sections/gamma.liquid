@@ -104,7 +104,6 @@
     opacity: 1;
     pointer-events: auto;
   }
-
 </style>
 
 <script>
@@ -256,40 +255,66 @@
       }, {passive: false});
     }
 
-    //get all arrows
+    // Get all arrows
     const prewArrows = document.querySelectorAll('.left-arrow');
     const nextArrows = document.querySelectorAll('.right-arrow');
+
     prewArrows.forEach((arrow) => {
       arrow.addEventListener('click', () => {
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
-        console.log(magneticScroll)
-      })
-    })
+        const scrollAmount = HandleContainerToScroll(magneticScroll);
+        scrollContainerBy(-scrollAmount, magneticScroll); // Passiamo anche il contenitore
+      });
+    });
 
     nextArrows.forEach((arrow) => {
       arrow.addEventListener('click', () => {
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
-        console.log(magneticScroll)
-      })
-    })
+        const scrollAmount = HandleContainerToScroll(magneticScroll);
+        scrollContainerBy(scrollAmount, magneticScroll); // Passiamo anche il contenitore
+      });
+    });
 
-    /*function (scrollContainer){
-      //total item inside container to scroll
-      const totalItemes = scrollContainer.querySelectorAll('.image-scroll');
-      //get the exact dimension of the item
-      const totalItemsLenght = totalItemes.length;
-      const totalItemsWidth = totalItemes.map((image) => {
+    function HandleContainerToScroll(scrollContainer) {
+      // Total items inside container to scroll
+      const totalItems = scrollContainer.querySelectorAll('.image-scroll');
+
+      // Get the exact dimension of the items
+      const totalItemsLength = totalItems.length;
+
+      // Convert NodeList to Array before using map
+      const totalItemsWidth = Array.from(totalItems).map((image) => {
         const width = image.offsetWidth;
-        const marginRight = image.marginRight ? parseInt(getComputedStyle(image).marginRight) : "";
+        const marginRight = parseInt(getComputedStyle(image).marginRight) || 0;
         return width + marginRight;
       }).reduce((acc, width) => acc + width, 0);
-      const scrollAmount = totalItemsWidth / totalItemsLenght;
-    }*/
 
+      // Return the scroll amount (average width of one item)
+      return totalItemsWidth / totalItemsLength;
+    }
 
+    function scrollContainerBy(amount, scrollContainer) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      let newScrollLeft = currentScrollLeft + amount;
 
+      // Calcola il massimo scroll possibile
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      // Limita lo scroll ai limiti del contenitore
+      if (newScrollLeft < 0) {
+        newScrollLeft = 0;
+      } else if (newScrollLeft > maxScrollLeft) {
+        newScrollLeft = maxScrollLeft;
+      }
+
+      // Effettua lo scroll con animazione smooth
+      scrollContainer.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
 
   });
 </script>
