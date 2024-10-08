@@ -2571,6 +2571,10 @@ p, span{
     width: calc(33.3% - 1rem);
   }
 
+  .lg\:w-\[calc\(33\.3\%_-_2\.5rem\)\] {
+    width: calc(33.3% - 2.5rem);
+  }
+
   .lg\:w-\[calc\(50\%_-1\.25rem\)\] {
     width: calc(50% - 1.25rem);
   }
