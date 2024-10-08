@@ -284,20 +284,6 @@
       });
     });
 
-    // Funzione che aggiorna lo stato delle frecce
-    function updateArrows(scrollContainer) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      // Abilita/disabilita la freccia sinistra
-      const prevArrow = scrollContainer.closest('.tab-model').querySelector('.left-arrow');
-      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-
-      // Abilita/disabilita la freccia destra
-      const nextArrow = scrollContainer.closest('.tab-model').querySelector('.right-arrow');
-      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-    }
-
     function HandleContainerToScroll(scrollContainer) {
       // Total items inside container to scroll
       const totalItems = scrollContainer.querySelectorAll('.image-scroll');
