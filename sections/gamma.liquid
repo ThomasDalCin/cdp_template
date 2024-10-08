@@ -307,10 +307,9 @@
 
       // Qui gestiamo il padding sinistro fisso e il margine sinistro negativo
       const desktopPadding = 51; // Padding sinistro fisso di 141px
-      const desktopNegativeMargin = 51; // Margine sinistro negativo di 141px
 
       // Ritorna l'importo dello scroll tenendo conto del padding e margine
-      return (totalItemsWidth / totalItemsLength) - desktopPadding + desktopNegativeMargin;
+      return (totalItemsWidth / totalItemsLength) - desktopPadding;
     }
 
     function scrollContainerBy(amount, scrollContainer) {
