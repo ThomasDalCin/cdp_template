@@ -152,7 +152,7 @@
       <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2 mt-10">
         {% for link in linklists.yatch.links %}
         {% unless allLinksTitle contains link.title %}
-        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[16px] lg:text-[16px]
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px] lg:text-[16px]
         lg:leading-[16px] underline" }}
         {% endunless %}
         {% endfor %}
