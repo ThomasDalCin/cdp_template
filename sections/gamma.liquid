@@ -15,12 +15,7 @@
       {% endfor %}
     </div>
     <!-- tab collection container -->
-<<<<<<< HEAD
-    <div
-      class="tab-container w-full h-auto flex flex-col gap-y-6 p-4 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
-=======
     <div class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
->>>>>>> 9c2d1f6d067cfbff72e60b5ad3eba821bce4e622
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div
@@ -47,12 +42,7 @@
             </div>
             {% endfor %}
           </div>
-<<<<<<< HEAD
-          <div
-            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36">
-=======
           <div class="magnetic-scroll w-[calc(100%+4.1875rem)] h-auto overflow-x-hidden  scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px]">
->>>>>>> 9c2d1f6d067cfbff72e60b5ad3eba821bce4e622
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
@@ -64,11 +54,6 @@
             </div>
             {% endif %}
             {% endfor %}
-<<<<<<< HEAD
-            <!-- fake div -->
-            <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0"></div>
-=======
->>>>>>> 9c2d1f6d067cfbff72e60b5ad3eba821bce4e622
           </div>
 
           <!-- Arrows Box -->
