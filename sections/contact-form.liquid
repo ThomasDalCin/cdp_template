@@ -1,4 +1,4 @@
-<div class="contact-card-container w-full flex flex-col lg:flex-row-reverse gap-4 overflow-x-hidden lg:px-10">
+<div class="contact-card-container w-full flex flex-col lg:flex-row-reverse gap-4 overflow-x-hidden lg:px-10 lg:gap-x-10">
     <!-- Card Location Container -->
     <div class="card-loc-container w-full lg:w-1/2 h-auto flex flex-row z-10 m-4 lg:flex-wrap overflow-x-auto lg:overflow-x-hidden items-start justify-start gap-4 mb-10">
         {% for block in section.blocks %}
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="contact-form-container w-full lg:w-1/2 h-auto flex flex-col items-start justify-center p-4 gap-y-6  mb-10">
+    <div class="contact-form-container w-full lg:w-1/2 h-auto flex flex-col items-start justify-center p-4 gap-y-6  mb-10 lg:px-0">
         {% if form.posted_successfully? %}
             <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
         {% else %}
