@@ -44,7 +44,7 @@
             {% endfor %}
           </div>
           <div
-            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36">
+            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] ">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
@@ -214,12 +214,6 @@
       });
     }
 
-    const isDesktop = window.innerWidth > 1024;
-    if (isDesktop) {
-      badgeProducts.forEach((badge) => {
-        badge.removeEventListener('click');
-      })
-    }
 
     // Handle click for badge products
     badgeProducts.forEach(badge => {
