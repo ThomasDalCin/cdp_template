@@ -3,10 +3,10 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
   <!-- Basics Container -->
   {% assign productBasics = product.metafields.custom.basics.value %}
   {% if productBasics %}
-    {% assign basicFields = "year,make,model,series,length,fuel_type,hull_material" | split: "," %}
+    {% assign basicFields = "year,make,model,series,lenght,fuel_type,hull_material" | split: "," %}
     <div class="specifiactions-list-row w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-4">
       <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px]">
-        <h3 class="specification-heading body-14-medium">{{ section.settings.product_basics }}</h3>
+        <p class="specification-heading body-16 font-semibold">{{ section.settings.product_basics }}</p>
       </div>
       <div class="specification-container-list w-full h-auto lg:flex-1">
         <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
@@ -14,13 +14,13 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
             {% assign items_basics = productBasics[basicField] %}
             {% if items_basics %}
               {% for item in items_basics %}
-                <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-                  <span class="font-bold">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
-                  <span>{{ item }}</span>
+                <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px] border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+                  <span class="body-12-medium text-[var(--hover-gray)]">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                  <span class="font-12-medium  font-bold">{{ item }}</span>
                 </li>
               {% endfor %}
             {% else %}
-              <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+              <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
                 <span class="font-bold">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
                 <span>No data available</span>
               </li>
@@ -36,7 +36,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
   <div class="feature-settings-container w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-4">
     <!-- Features Heading -->
     <div class="features-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px]">
-      <p class="body-16-medium">{{ section.settings.product_features }}</p>
+      <p class="body-16 font-semibold">{{ section.settings.product_features }}</p>
     </div>
     <!-- First line container -->
     <div class="features-list-row w-full flex flex-row gap-4 px-2">
@@ -48,7 +48,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
           {% if items %}
             <div class="list-container w-full sm:w-1/2 p-2 box-border gap-y-2">
               <div class="container-list-heading mb-2">
-                <p class="font-semibold text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
+                <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
               <ul class="list-features">
                 {% for item in items.value %}
@@ -71,7 +71,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
           {% if items %}
             <div class="list-container w-full sm:w-1/2 p-2 box-border gap-y-2">
               <div class="container-list-heading mb-2">
-                <p class="font-semibold">{{ category | replace: '_', ' ' | capitalize }}</p>
+                <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
               <ul class="list-features">
                 {% for item in items.value %}
@@ -90,7 +90,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
   <!-- Specifications Container -->
   <div class="specifiactions-container w-full flex flex-col gap-4 lg:flex-row lg:pb-4">
     <div class="specifiactions-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px]">
-      <p class="body-16-medium">{{ section.settings.product_specifications }}</p>
+      <p class="body-16 font-semibold">{{ section.settings.product_specifications }}</p>
     </div>
     <div class="flex flex-col gap-y-6 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-6 lg:w-full">
 
@@ -99,16 +99,16 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% if productSpeedDistance %}
         {% assign speedFields = "engine_make,engine_model" | split: "," %}
         <div class="specifiactions-list-row flex flex-col gap-4 lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-4">
-          <p class="specification-heading font-semibold">Speed Distance</p>
+          <p class="specification-heading body-14-medium">Speed & Distance</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
               {% for speedField in speedFields %}
                 {% assign items_speeds = productSpeedDistance[speedField] %}
                 {% if items_speeds %}
                   {% for item in items_speeds %}
-                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border">
-                      <span class="body-12">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
-                      <span>{{ item }}</span>
+                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
+                      <span class="body-12-medium text-[var(--hover-gray)]">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
+                      <span class="body-12-medium  font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
@@ -126,16 +126,16 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% if productDimensions %}
         {% assign dimensionFields = "lenght_over_all,max_draft,beam" | split: "," %}
         <div class="specifiactions-list-row flex flex-col gap-4">
-          <h3 class="specification-heading font-bold">{{ section.settings.product_dimensions }}</h3>
+          <p class="specification-heading body-14-medium">{{ section.settings.product_dimensions }}</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
               {% for dimensionField in dimensionFields %}
                 {% assign items_dimensions = productDimensions[dimensionField] %}
                 {% if items_dimensions %}
                   {% for item in items_dimensions %}
-                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border">
-                      <span class="body-12">{{ dimensionField | replace: '_', ' ' | capitalize }}:</span>
-                      <span>{{ item }}</span>
+                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
+                      <span class="body-12-medium text-[var(--hover-gray)]">{{ dimensionField | replace: '_', ' ' | capitalize }}:</span>
+                      <span class="body-12-medium  font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
@@ -153,16 +153,16 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% if productWeights %}
         {% assign weightFields = "dry_weight" | split: "," %}
         <div class="specifiactions-list-row flex flex-col gap-4">
-          <h3 class="specification-heading font-bold">{{ section.settings.product_weights }}</h3>
+          <p class="specification-heading body-14-medium">{{ section.settings.product_weights }}</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
               {% for weightField in weightFields %}
                 {% assign items_weights = productWeights[weightField] %}
                 {% if items_weights %}
                   {% for item in items_weights %}
-                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border">
-                      <span class="body-12">{{ weightField | replace: '_', ' ' | capitalize }}:</span>
-                      <span>{{ item }}</span>
+                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px] border">
+                      <span class="body-12-medium text-[var(--hover-gray)]">{{ weightField | replace: '_', ' ' | capitalize }}:</span>
+                      <span class="body-12-medium  font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
@@ -180,16 +180,16 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% if productAccommodations %}
         {% assign accommodationFields = "cabins,bathrooms" | split: "," %}
         <div class="specifiactions-list-row flex flex-col gap-4">
-          <h3 class="specification-heading font-bold">{{ section.settings.product_accommodations }}</h3>
+          <p class="specification-heading body-14-medium">{{ section.settings.product_accommodations }}</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
               {% for accommodationField in accommodationFields %}
                 {% assign items_accommodations = productAccommodations[accommodationField] %}
                 {% if items_accommodations %}
                   {% for item in items_accommodations %}
-                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border">
-                      <span class="body-12">{{ accommodationField | replace: '_', ' ' | capitalize }}:</span>
-                      <span>{{ item }}</span>
+                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
+                      <span class="body-12-medium text-[var(--hover-gray)]">{{ accommodationField | replace: '_', ' ' | capitalize }}:</span>
+                      <span class="body-12-medium  font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
@@ -207,16 +207,16 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% if productTanks %}
         {% assign tankFields = "fresh_water_tank,fuel_tank,holding_tank" | split: "," %}
         <div class="specifiactions-list-row flex flex-col gap-4">
-          <h3 class="specification-heading font-bold">{{ section.settings.product_tanks }}</h3>
+          <p class="specification-heading body-14-medium">{{ section.settings.product_tanks }}</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
               {% for tankField in tankFields %}
                 {% assign items_tanks = productTanks[tankField] %}
                 {% if items_tanks %}
                   {% for item in items_tanks %}
-                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border">
-                      <span class="body-12">{{ tankField | replace: '_', ' ' | capitalize }}:</span>
-                      <span>{{ item }}</span>
+                    <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
+                      <span class="body-12-medium text-[var(--hover-gray)]">{{ tankField | replace: '_', ' ' | capitalize }}:</span>
+                      <span class="body-12-medium font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}

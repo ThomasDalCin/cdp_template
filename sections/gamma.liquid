@@ -16,14 +16,14 @@
     </div>
     <!-- tab collection container -->
     <div
-      class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
+      class="tab-container w-full h-auto flex flex-col gap-y-6 p-4 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div
-        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden lg:flex lg:shadow-custom lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-2.5rem)]"
+        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden cursor-pointer overflow-x-hidden transition-all duration-200 lg:flex lg:shadow-custom lg:hover:shadow-custom-hover lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-2.5rem)]"
         id="{{ collection.title }}">
         <div class="tab-title">
-          <h2 class="header-2">{{ collection.title }}</h2>
+          <h2 class="header-2 text-nowrap">{{ collection.title }}</h2>
         </div>
         <div class="tab-image">
           <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.image.alt }}"
@@ -32,18 +32,19 @@
         <div class="tab-description lg:h-[100px]">
           <p class="body-12">{{ collection.description }}</p>
         </div>
+
         {% if collection.products.size > 0 %}
-        <div class="tab-model flex flex-col gap-y-2">
+        <div class="tab-model relative flex flex-col gap-y-2">
           <p class="body-small">Models</p>
           <div class="badge-container flex flex-row items-center justify-start gap-x-2">
             {% for product in collection.products %}
-            <div class="badge-product cursor-pointer" data-target="{{ product.title }}">
+            <div class="badge-product" data-target="{{ product.title }}">
               {{ product.title | replace: 'Pardo', '' }}
             </div>
             {% endfor %}
           </div>
           <div
-            class="magnetic-scroll w-[calc(100%+4.1875rem)] h-auto overflow-x-hidden  scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px]">
+            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
@@ -55,8 +56,20 @@
             </div>
             {% endif %}
             {% endfor %}
-            <!--fake div -->
+            <!-- fake div -->
             <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0"></div>
+          </div>
+
+          <!-- Arrows Box -->
+          <div class="w-full h-auto hidden lg:absolute lg:bottom-[108px] lg:flex lg:justify-between lg:gap-x-6 lg:z-20">
+            <button
+              class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+              {% render 'arrow-left-icon' %}
+            </button>
+            <button
+              class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+              {% render 'arrow-right-icon' %}
+            </button>
           </div>
         </div>
         {% endif %}
@@ -81,6 +94,17 @@
   .opacity-100 {
     opacity: 1;
   }
+
+  .carousel-arrow.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
 </style>
 
 <script>
@@ -191,6 +215,13 @@
       });
     }
 
+    const isDesktop = window.innerWidth > 1024;
+    if (isDesktop) {
+      badgeProducts.forEach((badge) => {
+        badge.removeEventListener('click');
+      })
+    }
+
     // Handle click for badge products
     badgeProducts.forEach(badge => {
       badge.addEventListener('click', (e) => {
@@ -208,7 +239,7 @@
             //get scrollContainer and the distance between imageleftborder and scollcontainerleft border
             const scrollContainer = imageScrollContainer;
             const targetPosition = targetProductImage.offsetLeft;
-            const scrollToPosition = targetPosition -32; //add some space
+            const scrollToPosition = targetPosition - 16; //add some space
 
             //handle scroll
             scrollContainer.scrollLeft = scrollToPosition;
@@ -224,5 +255,14 @@
         e.preventDefault();
       }, {passive: false});
     }
+
+    //handle scroll on arrows
+    const prevArrow = document.querySelectorAll('left-arrow')
+    const nextArrow = document.querySelectorAll('right-arrow');
+    const scrollContainer = document.querySelectorAll('.magnetic-scroll');
+    const allImages = Array.from(scrollContainer.querySelectorAll('.image-scroll'));
+    
+
+
   });
 </script>
