@@ -254,8 +254,6 @@
         e.preventDefault();
       }, {passive: false});
     }
-
-    // Get all arrows
     const prewArrows = document.querySelectorAll('.left-arrow');
     const nextArrows = document.querySelectorAll('.right-arrow');
 
@@ -312,8 +310,12 @@
         return width + marginRight;
       }).reduce((acc, width) => acc + width, 0);
 
-      // Return the scroll amount (average width of one item)
-      return totalItemsWidth / totalItemsLength;
+      // Considera il padding sinistro e il margine sinistro negativo
+      const paddingLeft = parseInt(getComputedStyle(scrollContainer).paddingLeft) || 0;
+      const marginLeftNegative = Math.abs(parseInt(getComputedStyle(scrollContainer).marginLeft) || 0);
+
+      // Ritorna l'importo dello scroll (somma larghezze e padding)
+      return (totalItemsWidth / totalItemsLength) - paddingLeft + marginLeftNegative;
     }
 
     function scrollContainerBy(amount, scrollContainer) {
