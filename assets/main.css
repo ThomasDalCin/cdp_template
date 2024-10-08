@@ -1512,6 +1512,10 @@ p, span{
   width: 48px;
 }
 
+.w-\[calc\(100\%\+4\.1875rem\)\] {
+  width: calc(100% + 4.1875rem);
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -2316,6 +2320,10 @@ p, span{
   padding-right: 2rem;
 }
 
+.last-of-type\:pr-0:last-of-type {
+  padding-right: 0px;
+}
+
 .checked\:bg-white:checked {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2426,6 +2434,11 @@ p, span{
   .lg\:-mx-10 {
     margin-left: -2.5rem;
     margin-right: -2.5rem;
+  }
+
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .lg\:-ml-\[141px\] {
@@ -2594,6 +2607,10 @@ p, span{
 
   .lg\:min-h-\[480px\] {
     min-height: 480px;
+  }
+
+  .lg\:min-h-\[518px\] {
+    min-height: 518px;
   }
 
   .lg\:w-1\/2 {

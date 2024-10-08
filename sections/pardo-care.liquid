@@ -7,7 +7,7 @@
   </div>
 
   <!-- arrows box -->
-  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2 lg:absolute lg:right-[40px] lg:top-[16px]">
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:absolute lg:right-[40px] lg:top-[16px]">
     <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
       {% render 'arrow-left-icon' %}
     </button>
@@ -20,7 +20,7 @@
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-8">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 last-of-type:pr-0">
             <img
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"

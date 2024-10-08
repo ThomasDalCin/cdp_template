@@ -1,10 +1,10 @@
 <!--our values top page section-->
-<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 relative overflow-x-hidden">
+<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 relative overflow-x-hidden lg:px-10">
   <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
 
   <!-- arrow box -->
-  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-2">
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6">
     <button id="prevArrowTop" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
       {% render 'arrow-left-icon' %}
     </button>
