@@ -205,14 +205,12 @@
           const targetProductImage = activeTab.querySelector(`[data-image="${target}"]`);
 
           if (targetProductImage) {
-            // Calcola la posizione a cui scrollare
+            //get scrollContainer and the distance between imageleftborder and scollcontainerleft border
             const scrollContainer = imageScrollContainer;
             const targetPosition = targetProductImage.offsetLeft;
+            const scrollToPosition = targetPosition -32; //add some space
 
-            // Aggiungi 51px di offset per mantenere la distanza dal bordo sinistro del contenitore
-            const scrollToPosition = targetPosition -32;  // Lascia uno spazio di almeno 51px dal bordo
-
-            // Applica lo scroll
+            //handle scroll
             scrollContainer.scrollLeft = scrollToPosition;
           }
         }
