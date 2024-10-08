@@ -220,12 +220,12 @@
       chip.addEventListener('click', function () {
         const tag = chip.getAttribute('data-tag');
 
-        // Nascondi tutte le sezioni
+
         newsLayout.classList.add('hidden');
         pressRoomLayout.classList.add('hidden');
         awardsLayout.classList.add('hidden');
 
-        // Mostra la sezione corrispondente al tag selezionato
+
         if (tag === 'News') {
           newsLayout.classList.remove('hidden');
         } else if (tag === 'Press room') {
@@ -234,48 +234,46 @@
           awardsLayout.classList.remove('hidden');
         }
 
-        // Rimuovi l'icona attiva precedente
+
         if (activeChip) {
           const previousIcon = activeChip.querySelector('.chips-text svg');
           if (previousIcon) {
-            previousIcon.classList.remove('-rotate-0'); // Rimuovi rotate dalla chip precedente
-            previousIcon.classList.add('-rotate-45');  // Ripristina lo stato di rotazione di default
+            previousIcon.classList.remove('-rotate-0');
+            previousIcon.classList.add('-rotate-45');
           }
         }
 
-        // Rimuovi la classe attiva da tutte le chip
+
         chips.forEach(chip => {
           chip.classList.remove('chips-blog-active');
         });
 
-        // Aggiungi la classe attiva al chip corrente
         chip.classList.add('chips-blog-active');
 
-        // Aggiungi rotazione all'icona del chip corrente
+
         const currentIcon = chip.querySelector('.chips-text svg');
         if (currentIcon) {
-          currentIcon.classList.remove('-rotate-45'); // Rimuovi la rotazione di default
-          currentIcon.classList.add('-rotate-0');     // Applica la nuova rotazione
+          currentIcon.classList.remove('-rotate-45');
+          currentIcon.classList.add('-rotate-0');
         }
 
-        // Aggiorna il chip attivo
+
         activeChip = chip;
       });
     });
 
-    // Imposta la chip di default (News)
+
     const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
     if (defaultChip) {
       defaultChip.classList.add('chips-blog-active');
       newsLayout.classList.remove('hidden');
       const defaultIcon = defaultChip.querySelector('svg');
       if (defaultIcon) {
-        defaultIcon.classList.remove('-rotate-45'); // Rimuovi rotazione di default
-        defaultIcon.classList.add('-rotate-0');     // Applica la rotazione di default alla chip attiva
+        defaultIcon.classList.remove('-rotate-45');
+        defaultIcon.classList.add('-rotate-0');
       }
 
-      // Imposta il chip di default come chip attivo
-      activeChip = defaultChip;  // Qui settiamo la variabile activeChip
+      activeChip = defaultChip;
     }
 
 
