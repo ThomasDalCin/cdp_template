@@ -260,13 +260,17 @@
     const prewArrows = document.querySelectorAll('left-arrow');
     const nextArrows = document.querySelector('right-arrow');
     prewArrows.forEach((arrow) => {
-      const tabModel = arrow.closest('tab-model');
-      const magneticScroll = tabModel.querySelector('magnetic-scroll');
+      arrow.addEventListener('click', () => {
+        const tabModel = arrow.closest('tab-model');
+        const magneticScroll = tabModel.querySelector('magnetic-scroll');
+      })
     })
 
     nextArrows.forEach((arrow) => {
-      const tabModel = arrow.closest('tab-model');
-      const magneticScroll = tabModel.querySelector('magnetic-scroll');
+      arrow.addEventListener('click', () => {
+        const tabModel = arrow.closest('tab-model');
+        const magneticScroll = tabModel.querySelector('magnetic-scroll');
+      })
     })
 
     function (scrollContainer){
