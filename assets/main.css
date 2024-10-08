@@ -2571,7 +2571,7 @@ p, span{
     width: calc(33.3% - 1rem);
   }
 
-  .lg\:w-\[calc\(33\.3\%_-_2\.5rem\)\] {
+  .lg\:w-\[calc\(33\.3\%_-2\.5rem\)\] {
     width: calc(33.3% - 2.5rem);
   }
 
