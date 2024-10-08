@@ -258,7 +258,10 @@
       arrow.addEventListener('click', () => {
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
-        scrollToPreviousImage(magneticScroll);
+        const scrollAmount = HandleContainerToScroll(magneticScroll);
+        scrollContainerBy(-scrollAmount, magneticScroll);
+
+        // Aggiorna le frecce dopo il clic
         updateArrows(magneticScroll);
       });
     });
@@ -267,7 +270,10 @@
       arrow.addEventListener('click', () => {
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
-        scrollToNextImage(magneticScroll);
+        const scrollAmount = HandleContainerToScroll(magneticScroll);
+        scrollContainerBy(scrollAmount, magneticScroll);
+
+        // Aggiorna le frecce dopo il clic
         updateArrows(magneticScroll);
       });
     });
@@ -277,77 +283,56 @@
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
+      // Abilita/disabilita la freccia sinistra
       const prevArrow = scrollContainer.closest('.tab-model').querySelector('.left-arrow');
-      const nextArrow = scrollContainer.closest('.tab-model').querySelector('.right-arrow');
-
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+
+      // Abilita/disabilita la freccia destra
+      const nextArrow = scrollContainer.closest('.tab-model').querySelector('.right-arrow');
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
     }
 
-    // Scroll all'immagine precedente centrata
-    function scrollToPreviousImage(scrollContainer) {
+    function HandleContainerToScroll(scrollContainer) {
+      // Total items inside container to scroll
       const totalItems = scrollContainer.querySelectorAll('.image-scroll');
-      const visibleWidth = scrollContainer.clientWidth;
 
-      let closestImage = null;
-      let minDiff = Infinity;
+      // Get the exact dimension of the items
+      const totalItemsLength = totalItems.length;
 
-      // Trova l'immagine più vicina al centro
-      totalItems.forEach((item) => {
-        const itemLeft = item.offsetLeft;
-        const itemRight = itemLeft + item.offsetWidth;
-        const scrollCenter = scrollContainer.scrollLeft + visibleWidth / 2;
+      // Convert NodeList to Array before using map
+      const totalItemsWidth = Array.from(totalItems).map((image) => {
+        const width = image.offsetWidth;
+        const marginRight = parseInt(getComputedStyle(image).marginRight) || 0;
+        return width + marginRight;
+      }).reduce((acc, width) => acc + width, 0);
 
-        const diff = Math.abs(scrollCenter - (itemLeft + item.offsetWidth / 2));
-        if (diff < minDiff && itemLeft < scrollCenter) {
-          minDiff = diff;
-          closestImage = item;
-        }
-      });
+      // Qui gestiamo il padding sinistro fisso e il margine sinistro negativo
+      const desktopPadding = 141; // Padding sinistro fisso di 141px
 
-      // Se abbiamo trovato un'immagine, centra lo scroll su di essa
-      if (closestImage) {
-        const imageCenter = closestImage.offsetLeft + closestImage.offsetWidth / 2;
-        const newScrollLeft = imageCenter - visibleWidth / 2;
-        scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth',
-        });
-      }
+      // Ritorna l'importo dello scroll tenendo conto del padding e margine
+      return (totalItemsWidth / totalItemsLength) + desktopPadding;
     }
 
-    // Scroll all'immagine successiva centrata
-    function scrollToNextImage(scrollContainer) {
-      const totalItems = scrollContainer.querySelectorAll('.image-scroll');
-      const visibleWidth = scrollContainer.clientWidth;
+    function scrollContainerBy(amount, scrollContainer) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      let newScrollLeft = currentScrollLeft + amount;
 
-      let closestImage = null;
-      let minDiff = Infinity;
+      // Calcola il massimo scroll possibile
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      // Trova l'immagine più vicina al centro
-      totalItems.forEach((item) => {
-        const itemLeft = item.offsetLeft;
-        const itemRight = itemLeft + item.offsetWidth;
-        const scrollCenter = scrollContainer.scrollLeft + visibleWidth / 2;
-
-        const diff = Math.abs(scrollCenter - (itemLeft + item.offsetWidth / 2));
-        if (diff < minDiff && itemLeft > scrollCenter) {
-          minDiff = diff;
-          closestImage = item;
-        }
-      });
-
-      // Se abbiamo trovato un'immagine, centra lo scroll su di essa
-      if (closestImage) {
-        const imageCenter = closestImage.offsetLeft + closestImage.offsetWidth / 2;
-        const newScrollLeft = imageCenter - visibleWidth / 2;
-        scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth',
-        });
+      // Limita lo scroll ai limiti del contenitore
+      if (newScrollLeft < 0) {
+        newScrollLeft = 0;
+      } else if (newScrollLeft > maxScrollLeft) {
+        newScrollLeft = maxScrollLeft;
       }
-    }
 
+      // Effettua lo scroll con animazione smooth
+      scrollContainer.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
 
   });
 </script>
