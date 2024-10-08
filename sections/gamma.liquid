@@ -3,7 +3,7 @@
 {% assign sorted_collections = collections | sort: 'published_at' %}
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px] lg:px-6 lg:mb-[24px]">
   <div
-    class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 overflow-x-hidden lg:p-4 lg:shadow-none lg:rounded-none">
+    class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 overflow-x-hidden lg:p-2 lg:shadow-none lg:rounded-none">
     <!--chips section -->
     <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2 lg:hidden">
       {% for collection in sorted_collections %}
@@ -15,7 +15,8 @@
       {% endfor %}
     </div>
     <!-- tab collection container -->
-    <div class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
+    <div
+      class="tab-container w-full h-auto flex flex-col gap-y-6 p-4 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div
@@ -42,7 +43,8 @@
             </div>
             {% endfor %}
           </div>
-          <div class="magnetic-scroll w-[calc(100%+4.1875rem)] h-auto overflow-x-hidden  scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px]">
+          <div
+            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
@@ -54,6 +56,8 @@
             </div>
             {% endif %}
             {% endfor %}
+            <!-- fake div -->
+            <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0"></div>
           </div>
 
           <!-- Arrows Box -->
@@ -104,19 +108,18 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Get tab chips, tab panes, badge products, and the scroll container
-  const chips = document.querySelectorAll('.chips-block');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-  const badgeProducts = document.querySelectorAll('.badge-product');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get tab chips, tab panes, badge products, and the scroll container
+    const chips = document.querySelectorAll('.chips-block');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const badgeProducts = document.querySelectorAll('.badge-product');
 
-  // Initially, set opacity 0.6 for all images in non-active tabs
-  const images = document.querySelectorAll('.image-scroll .pImage');
-  images.forEach(image => {
-    image.classList.add('opacity-60');
-  });
+    // Initially, set opacity 0.6 for all images in non-active tabs
+    const images = document.querySelectorAll('.image-scroll .pImage');
+    images.forEach(image => {
+      image.classList.add('opacity-60');
+    });
 
-<<<<<<< HEAD
     // Initially, only set the first image in the first active tab to opacity 1
     const firstTabImages = tabPanes[0].querySelectorAll('.image-scroll .pImage');
     firstTabImages.forEach((image, index) => {
@@ -251,143 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
       magneticScroll.addEventListener('wheel', (e) => {
         e.preventDefault();
       }, {passive: false});
-=======
-  // Initially, only set the first image in the first active tab to opacity 1
-  const firstTabImages = tabPanes[0].querySelectorAll('.image-scroll .pImage');
-  firstTabImages.forEach((image, index) => {
-    if (index === 0) {
-      image.classList.add('opacity-100');
-      image.classList.remove('opacity-60');
->>>>>>> 9c2d1f6d067cfbff72e60b5ad3eba821bce4e622
     }
 
     //handle scroll on arrows
     const prevArrow = document.querySelectorAll('left-arrow')
     const nextArrow = document.querySelectorAll('right-arrow');
-    const scrollContainer = document.querySelectorAll('.magnetic-scroll');
-    const allImages = Array.from(scrollContainer.querySelectorAll('.image-scroll'));
-    
+    const scrollContainer = document.querySelectorAll('magnetic-scroll');
+    const allImages = Array.from(scrollContainer.querySelectorAll('image-scroll'))
 
 
   });
-
-  // Intersection Observer options
-  const observerOptions = {
-    root: null, // Use the viewport as root
-    rootMargin: '0px',
-    threshold: 0.5 // Trigger when 50% of the image is visible
-  };
-
-  // Create the Intersection Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const image = entry.target;
-      if (entry.isIntersecting) {
-        // If the image enters the viewport, set opacity to 1
-        image.classList.add('opacity-100');
-        image.classList.remove('opacity-60');
-      } else {
-        // If the image exits the viewport, set opacity to 0.6
-        image.classList.add('opacity-60');
-        image.classList.remove('opacity-100');
-      }
-    });
-  }, observerOptions);
-
-  // Observe each image
-  images.forEach(image => {
-    observer.observe(image);
-  });
-
-  // Handle click for tab chips
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const target = chip.getAttribute('data-target');
-      
-      // Show the selected tab
-      tabPanes.forEach(pane => {
-        if (pane.id === target) {
-          pane.classList.remove('hidden');
-          pane.classList.add('flex');
-        } else {
-          pane.classList.add('hidden');
-          pane.classList.remove('flex');
-        }
-      });
-
-      // Add active class to the active chip
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      
-      // Update opacity of images for the newly selected tab
-      updateImageOpacityForTab(target);
-    });
-  });
-
-  // Set first chip active after loading page
-  if (tabPanes.length > 0) {
-    tabPanes[0].classList.remove('hidden');
-    tabPanes[0].classList.add('flex');
-    chips[0].classList.add('active');
-    updateImageOpacityForTab(tabPanes[0].id);
-  }
-
-  // Update image opacity when the active tab changes
-  function updateImageOpacityForTab(activeTabId) {
-    tabPanes.forEach(tab => {
-      const imagesInTab = tab.querySelectorAll('.image-scroll .pImage');
-      if (tab.id === activeTabId) {
-        // Active tab: set the first image opacity to 1, others to 0.6
-        imagesInTab.forEach((image, index) => {
-          if (index === 0) {
-            image.classList.add('opacity-100');
-            image.classList.remove('opacity-60');
-          } else {
-            image.classList.add('opacity-60');
-            image.classList.remove('opacity-100');
-          }
-        });
-      } else {
-        // Inactive tabs: set images opacity to 0.6
-        imagesInTab.forEach(image => {
-          image.classList.add('opacity-60');
-          image.classList.remove('opacity-100');
-        });
-      }
-    });
-  }
-
-  // Handle click for badge products
-  badgeProducts.forEach(badge => {
-    badge.addEventListener('click', (e) => {
-      const target = e.currentTarget.getAttribute('data-target');
-      
-      // Find the active tab && scrollContainer under tab active
-      const activeTab = document.querySelector('.tab-pane.flex');
-      const imageScrollContainer = activeTab.querySelector('.tab-model .magnetic-scroll');
-      
-      if (activeTab && imageScrollContainer) {
-        // Check the right image based on the target
-        const targetProductImage = activeTab.querySelector(`[data-image="${target}"]`);
-        
-        if (targetProductImage) {
-          // Calculate the position to scroll to
-          const scrollContainer = imageScrollContainer;
-          const targetPosition = targetProductImage.offsetLeft ;
-          
-          // Scroll to the target position using scrollLeft
-          scrollContainer.scrollLeft = targetPosition - 51;  // Adjust 51px to account for padding
-        }
-      }
-    });
-  });
-
-  // Prevent manual scrolling (only allow click to scroll)
-  const magneticScroll = document.querySelector('.magnetic-scroll');
-  if (magneticScroll) {
-    magneticScroll.addEventListener('wheel', (e) => {
-      e.preventDefault();
-    }, { passive: false });
-  }
-});
 </script>
