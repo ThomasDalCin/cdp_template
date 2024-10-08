@@ -1,7 +1,7 @@
 <!--gamma section home page-->
 <!--assign variables -->
 {% assign sorted_collections = collections | sort: 'published_at' %}
-<div class="gamma-asset-container w-full h-auto px-4 mb-[40px]">
+<div class="gamma-asset-container w-full h-auto px-4 mb-[40px] lg:px-10">
   <div
     class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 overflow-x-hidden lg:p-0 lg:shadow-none lg:rounded-none">
     <!--chips section -->
@@ -15,11 +15,11 @@
       {% endfor %}
     </div>
     <!-- tab collection container -->
-    <div class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-4">
+    <div class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:justify-space-between">
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div
-        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden lg:flex lg:shadow-custom lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-_1rem)]"
+        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden lg:flex lg:shadow-custom lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-2.5rem)]"
         id="{{ collection.title }}">
         <div class="tab-title">
           <h2 class="header-2">{{ collection.title }}</h2>
