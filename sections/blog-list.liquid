@@ -60,25 +60,33 @@
       </div>
     </div>
 
-    <div class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10" id="second-row">
+    <div
+      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
+      id="second-row">
       {% for i in (1..halfSize) %}
-      <div class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] flex-shrink-0 relative last-of-type:mr-4 lg:last-of-type:mr-10" data-tags="{{ newsArticles[i].tags | join: ',' }}">
+      <div
+        class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] flex-shrink-0 relative last-of-type:mr-4 lg:last-of-type:mr-10"
+        data-tags="{{ newsArticles[i].tags | join: ',' }}">
         <div class="blog-item-image w-full h-auto">
-          <img src="{{ newsArticles[i].image | img_url: 'master' }}" class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl" alt="{{ newsArticles[i].image.alt }}">
+          <img src="{{ newsArticles[i].image | img_url: 'master' }}"
+            class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl"
+            alt="{{ newsArticles[i].image.alt }}">
         </div>
-        <div class="blog-item-info-container w-full h-auto p-2 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10 lg:p-6">
+        <div
+          class="blog-item-info-container w-full h-auto p-2 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10 lg:p-6">
           <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-1">
             <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
             <p class="body-12">{{ newsArticles[i].content | truncate: 100 }}</p>
           </div>
         </div>
-        <div class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-2 bottom-4 lg:left-6 lg:bottom-6">
+        <div
+          class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-2 bottom-4 lg:left-6 lg:bottom-6">
           <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
         </div>
       </div>
       {% endfor %}
     </div>
-    
+
 
     <!-- second half missing articles on third row -->
     <div class="blog-list-row horizontal-view">
@@ -95,7 +103,7 @@
       </div>
     </div>
     <div
-    class="blog-item-horizontal-scroll w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%_+_5rem)] lg:gap-x-4 lg:px-10 lg:-mx-10"
+    class="blog-item-horizontal-scroll w-[calc(100%+2rem)] px-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10"
     id="third-row">
     {% assign startIndex = halfSize | plus: 1 %}
     {% for i in (startIndex..remainingArticles) %}
@@ -124,6 +132,7 @@
     {% endfor %}
   </div>
   
+
   </div>
   {% endif %}
   {% endif %}
@@ -278,7 +287,7 @@
     const imagesWidthFirstContainer = getImagesWidth(articlesFirstContainer);
     const firstScrollAmount = imagesWidthFirstContainer / articlesFirstContainer.length;
     const imagesWidthSecondContainer = getImagesWidth(articlesSecondContainer);
-    const secondScrollAmount = imagesWidthSecondContainer / articlesSecondContainer.length; 
+    const secondScrollAmount = imagesWidthSecondContainer / articlesSecondContainer.length;
 
     // handle arrows layout during scroll
     function updateArrows() {
