@@ -256,11 +256,33 @@
       }, {passive: false});
     }
 
-    //handle scroll on arrows
-    const prevArrow = document.querySelectorAll('left-arrow')
-    const nextArrow = document.querySelectorAll('right-arrow');
-    const scrollContainer = document.querySelectorAll('magnetic-scroll');
-    const allImages = Array.from(scrollContainer.querySelectorAll('image-scroll'))
+    //get all arrows
+    const prewArrows = document.querySelectorAll('left-arrow');
+    const nextArrows = document.querySelector('right-arrow');
+    prewArrows.forEach((arrow) => {
+      const tabModel = arrow.closest('tab-model');
+      const magneticScroll = tabModel.querySelector('magnetic-scroll');
+    })
+
+    nextArrows.forEach((arrow) => {
+      const tabModel = arrow.closest('tab-model');
+      const magneticScroll = tabModel.querySelector('magnetic-scroll');
+    })
+
+    function (scrollContainer){
+      //total item inside container to scroll
+      const totalItemes = scrollContainer.querySelectorAll('.image-scroll');
+      //get the exact dimension of the item
+      const totalItemsLenght = totalItemes.length;
+      const totalItemsWidth = totalItemes.map((image) => {
+        const width = image.offsetWidth;
+        const marginRight = image.marginRight ? parseInt(getComputedStyle(image).marginRight) : "";
+        return width + marginRight;
+      }).reduce((acc, width) => acc + width, 0);
+      const scrollAmount = totalItemsWidth / totalItemsLenght;
+    }
+
+
 
 
   });
