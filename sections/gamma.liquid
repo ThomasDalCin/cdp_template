@@ -310,12 +310,12 @@
         return width + marginRight;
       }).reduce((acc, width) => acc + width, 0);
 
-      // Considera il padding sinistro e il margine sinistro negativo
-      const paddingLeft = parseInt(getComputedStyle(scrollContainer).paddingLeft) || 0;
-      const marginLeftNegative = Math.abs(parseInt(getComputedStyle(scrollContainer).marginLeft) || 0);
+      // Qui gestiamo il padding sinistro fisso e il margine sinistro negativo
+      const desktopPadding = 141; // Padding sinistro fisso di 141px
+      const desktopNegativeMargin = 141; // Margine sinistro negativo di 141px
 
-      // Ritorna l'importo dello scroll (somma larghezze e padding)
-      return (totalItemsWidth / totalItemsLength) - paddingLeft + marginLeftNegative;
+      // Ritorna l'importo dello scroll tenendo conto del padding e margine
+      return (totalItemsWidth / totalItemsLength) - desktopPadding + desktopNegativeMargin;
     }
 
     function scrollContainerBy(amount, scrollContainer) {
