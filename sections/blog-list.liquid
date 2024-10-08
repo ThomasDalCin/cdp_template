@@ -79,10 +79,6 @@
             <p class="body-12">{{ newsArticles[i].content | truncate: 100 }}</p>
           </div>
         </div>
-        <div
-          class="blog-item-date w-full h-auto flex flex-row justify-between absolute left-2 bottom-4 lg:left-6 lg:bottom-6">
-          <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
-        </div>
       </div>
       {% endfor %}
     </div>
