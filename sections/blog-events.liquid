@@ -1,4 +1,4 @@
-<!-- blog events section -->
+<!-- Articles with events tag -->
 <div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-2 p-4 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
@@ -35,7 +35,7 @@
     {% endif %}
   {% endif %}
 
-  <!-- Book appointment -->
+  <!-- Book appointment Form -->
   {% if form.posted_successfully? %}
     <!-- Confirm pop-up -->
     <div class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black bg-white hidden transition-opacity duration-300 ease-in-out">

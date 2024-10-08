@@ -1,3 +1,4 @@
+<!-- article with news, press room & awards tag -->
 <div class="blog-news-container w-full h-auto flex flex-col overflow-x-hidden">
   <div id="news-layout" class="blogs-list-container w-full h-auto flex flex-col gap-y-10">
     {% if blogs.news %}
@@ -6,7 +7,7 @@
 
     {% if totalArticles > 0 %}
 
-    <!-- Primo articolo sulla prima riga -->
+    <!-- Firt article on first row -->
     <div class="blog-list-row width-view p-4 lg:mb-10 lg:px-10">
       <div class="blog-item-width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:relative"
         data-tags="{{ newsArticles[0].tags | join: ',' }}">
@@ -40,11 +41,11 @@
     {% endif %}
 
     {% if totalArticles > 1 %}
-    <!-- Calcolo della metà degli articoli rimanenti -->
+    <!-- Check missing articles -->
     {% assign remainingArticles = totalArticles | minus: 1 %}
     {% assign halfSize = remainingArticles | divided_by: 2 %}
 
-    <!-- Seconda riga con la prima metà degli articoli rimanenti -->
+    <!--first half missing articles on second row -->
     <div class="blog-list-row horizontal-view">
       <!-- Arrows Box -->
       <div class="w-full h-auto hidden px-4 lg:px-10 lg:flex lg:justify-end lg:gap-x-6" id="third-row-arrows">
@@ -58,8 +59,9 @@
         </button>
       </div>
     </div>
-    
-    <div class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
+
+    <div
+      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
       id="second-row">
       {% for i in (1..halfSize) %}
       <div
@@ -85,48 +87,49 @@
       {% endfor %}
     </div>
 
-  <!-- Terza riga con la seconda metà degli articoli rimanenti -->
-  <div class="blog-list-row horizontal-view">
-    <!-- Arrows Box -->
-    <div class="w-full h-auto hidden px-4 lg:px-10 lg:flex lg:justify-end lg:gap-x-6" id="third-row-arrows">
-      <button id="prevArrowThird"
-        class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-        {% render 'arrow-left-icon' %}
-      </button>
-      <button id="nextArrowThird"
-        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-        {% render 'arrow-right-icon' %}
-      </button>
+    <!-- second half missing articles on third row -->
+    <div class="blog-list-row horizontal-view">
+      <!-- Arrows Box -->
+      <div class="w-full h-auto hidden px-4 lg:px-10 lg:flex lg:justify-end lg:gap-x-6" id="third-row-arrows">
+        <button id="prevArrowThird"
+          class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-left-icon' %}
+        </button>
+        <button id="nextArrowThird"
+          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
-    id="third-row">
-    {% assign startIndex = halfSize | plus: 1 %}
-    {% for i in (startIndex..remainingArticles) %}
     <div
-      class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-4 lg:last-of-type:pr-10"
-      data-tags="{{ newsArticles[i].tags | join: ',' }}">
-      <div class="blog-item-image w-full h-auto">
-        <img src="{{ newsArticles[i].image | img_url: 'master' }}"
-          class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg lg:min-h-[398px]"
-          alt="{{ newsArticles[i].image.alt }}">
-      </div>
-      <div class="blog-item-date w-full h-auto flex flex-row justify-between">
-        <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
-      </div>
-      <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
-        <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
-      </div>
-      <div class="blog-item-cta w-full h-auto flex items-center justify-start">
-        <div class="cta-blog outline-none">
-          <a href="{{ newsArticles[i].url }}">
-            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-          </a>
+      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 -mt-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:gap-x-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mt-10"
+      id="third-row">
+      {% assign startIndex = halfSize | plus: 1 %}
+      {% for i in (startIndex..remainingArticles) %}
+      <div
+        class="blog-item-horizontal-view min-w-[250px] h-auto flex flex-col gap-y-4 items-start justify-start rounded-lg lg:min-w-[812px] last-of-type:pr-8 lg:last-of-type:pr-10"
+        data-tags="{{ newsArticles[i].tags | join: ',' }}">
+        <div class="blog-item-image w-full h-auto">
+          <img src="{{ newsArticles[i].image | img_url: 'master' }}"
+            class="w-full h-auto min-h-[250px] max-h-[250px] object-cover rounded-lg lg:min-h-[398px]"
+            alt="{{ newsArticles[i].image.alt }}">
+        </div>
+        <div class="blog-item-date w-full h-auto flex flex-row justify-between">
+          <p class="body-12">{{ newsArticles[i].published_at | date: '%B %d, %Y' }}</p>
+        </div>
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-2">
+          <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
+        </div>
+        <div class="blog-item-cta w-full h-auto flex items-center justify-start">
+          <div class="cta-blog outline-none">
+            <a href="{{ newsArticles[i].url }}">
+              <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+            </a>
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
   </div>
   {% endif %}
   {% endif %}
@@ -195,14 +198,14 @@
 
 <style>
   .carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto; 
-}
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
 
 <script>
@@ -212,16 +215,13 @@
     const pressRoomLayout = document.getElementById('pressroom-layout');
     const awardsLayout = document.getElementById('awards-layout');
 
-
     let activeChip = null;
-
     chips.forEach(chip => {
       chip.addEventListener('click', function () {
         const tag = chip.getAttribute('data-tag');
         newsLayout.classList.add('hidden');
         pressRoomLayout.classList.add('hidden');
         awardsLayout.classList.add('hidden');
-
 
         if (tag === 'News') {
           newsLayout.classList.remove('hidden');
@@ -231,7 +231,6 @@
           awardsLayout.classList.remove('hidden');
         }
 
-
         if (activeChip) {
           const previousIcon = activeChip.querySelector('.chips-text svg');
           if (previousIcon) {
@@ -239,13 +238,11 @@
           }
         }
 
-
         chips.forEach(chip => {
           chip.classList.remove('chips-blog-active');
         });
 
         chip.classList.add('chips-blog-active');
-
 
         const currentIcon = chip.querySelector('.chips-text svg');
         if (currentIcon) {
@@ -256,81 +253,93 @@
       });
     });
 
-
     const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
     if (defaultChip) {
       defaultChip.classList.add('chips-blog-active');
       newsLayout.classList.remove('hidden');
     }
-    
-    const prevArrowSecond = document.getElementById('prevArrowSecond');
-    const nextArrowSecond = document.getElementById('nextArrowSecond');
-    const prevArrowThird = document.getElementById('prevArrowThird');
-    const nextArrowThird = document.getElementById('nextArrowThird');
 
-    const secondRow = document.getElementById('second-row');
-    const thirdRow = document.getElementById('third-row');
+   // handle scroll articles containers here
+const prevArrowSecond = document.getElementById('prevArrowSecond');
+const nextArrowSecond = document.getElementById('nextArrowSecond');
+const prevArrowThird = document.getElementById('prevArrowThird');
+const nextArrowThird = document.getElementById('nextArrowThird');
+const firstScrollContainer = document.getElementById('second-row');
+const secondScrollContainer = document.getElementById('third-row');
+const articlesFirstContainer = Array.from(firstScrollContainer.querySelectorAll('.blog-item-horizontal-view'));
+const articlesSecondContainer = Array.from(secondScrollContainer.querySelectorAll('.blog-item-horizontal-view'));
 
-    const articlesInSecondRow = Array.from(secondRow.querySelectorAll('.blog-item'));
-    const articlesInThirdRow = Array.from(thirdRow.querySelectorAll('.blog-item-horizontal-view'));
+// get exact width + border of the image inside scroll containers
+function getImagesWidth(allImages) {
+  const totalImagesWidth = allImages.map((image) => {
+    const width = image.offsetWidth;
+    const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // Fallback 
 
-    // Calcolare la larghezza di scorrimento
-    const scrollAmountSecond = articlesInSecondRow[0] ? articlesInSecondRow[0].offsetWidth + 16 : 0; // 16px è il gap tra gli articoli
-    const scrollAmountThird = articlesInThirdRow[0] ? articlesInThirdRow[0].offsetWidth + 16 : 0;
+    return width + marginRight;
+  }).reduce((acc, width) => acc + width, 0);
+  
+  return totalImagesWidth;
+}
 
-    // Funzione per aggiornare lo stato delle frecce
-    function updateArrows() {
-        const maxScrollLeftSecond = secondRow.scrollWidth - secondRow.clientWidth;
-        const maxScrollLeftThird = thirdRow.scrollWidth - thirdRow.clientWidth;
+const imagesWidthFirstContainer = getImagesWidth(articlesFirstContainer);
+const firstScrollAmount = imagesWidthFirstContainer / articlesFirstContainer.length;
+const imagesWidthSecondContainer = getImagesWidth(articlesSecondContainer);
+const secondScrollAmount = imagesWidthSecondContainer / articlesSecondContainer.length; // Corrected 'lenght' to 'length'
 
-        prevArrowSecond.classList.toggle('disabled', secondRow.scrollLeft === 0);
-        nextArrowSecond.classList.toggle('disabled', secondRow.scrollLeft >= maxScrollLeftSecond);
+// handle arrows layout during scroll
+function updateArrows() {
+  const maxScrollLeftFirst = firstScrollContainer.scrollWidth - firstScrollContainer.clientWidth;
+  const maxScrollLeftSecond = secondScrollContainer.scrollWidth - secondScrollContainer.clientWidth;
 
-        prevArrowThird.classList.toggle('disabled', thirdRow.scrollLeft === 0);
-        nextArrowThird.classList.toggle('disabled', thirdRow.scrollLeft >= maxScrollLeftThird);
-    }
+  prevArrowSecond.classList.toggle('disabled', firstScrollContainer.scrollLeft === 0);
+  nextArrowSecond.classList.toggle('disabled', firstScrollContainer.scrollLeft >= maxScrollLeftFirst);
 
-    // Funzione per scorrere i contenitori
-    function scrollRowBy(amount, row) {
-        let newScrollLeft = row.scrollLeft + amount;
+  prevArrowThird.classList.toggle('disabled', secondScrollContainer.scrollLeft === 0);
+  nextArrowThird.classList.toggle('disabled', secondScrollContainer.scrollLeft >= maxScrollLeftSecond);
+}
 
-        if (newScrollLeft < 0) {
-            newScrollLeft = 0;
-        } else if (newScrollLeft > row.scrollWidth - row.clientWidth) {
-            newScrollLeft = row.scrollWidth - row.clientWidth;
-        }
+// handle scroll
+function scrollRowBy(amount, row) {
+  const maxScrollLeft = row.scrollWidth - row.clientWidth;
+  let newScrollLeft = row.scrollLeft + amount;
 
-        row.scrollTo({
-            left: newScrollLeft,
-            behavior: 'smooth',
-        });
+  if (newScrollLeft < 0) {
+    newScrollLeft = 0;
+  } else if (newScrollLeft > maxScrollLeft) {
+    newScrollLeft = maxScrollLeft;
+  }
 
-        setTimeout(updateArrows, 300);
-    }
+  row.scrollTo({
+    left: newScrollLeft,
+    behavior: 'smooth',
+  });
 
-    // Event listeners per le frecce
-    if (prevArrowSecond && nextArrowSecond) {
-        prevArrowSecond.addEventListener('click', function() {
-            scrollRowBy(-scrollAmountSecond, secondRow);
-        });
-        nextArrowSecond.addEventListener('click', function() {
-            scrollRowBy(scrollAmountSecond, secondRow);
-        });
-    }
+  setTimeout(updateArrows, 300);
+}
 
-    if (prevArrowThird && nextArrowThird) {
-        prevArrowThird.addEventListener('click', function() {
-            scrollRowBy(-scrollAmountThird, thirdRow);
-        });
-        nextArrowThird.addEventListener('click', function() {
-            scrollRowBy(scrollAmountThird, thirdRow);
-        });
-    }
+// handle click for each arrow
+if (prevArrowSecond && nextArrowSecond) {
+  prevArrowSecond.addEventListener('click', function () {
+    scrollRowBy(-firstScrollAmount, firstScrollContainer);
+  });
+  nextArrowSecond.addEventListener('click', function () {
+    scrollRowBy(firstScrollAmount, firstScrollContainer);
+  });
+}
 
-    
-    updateArrows();
-    secondRow.addEventListener('scroll', updateArrows);
-    thirdRow.addEventListener('scroll', updateArrows);
+if (prevArrowThird && nextArrowThird) {
+  prevArrowThird.addEventListener('click', function () {
+    scrollRowBy(-secondScrollAmount, secondScrollContainer);
+  });
+  nextArrowThird.addEventListener('click', function () {
+    scrollRowBy(secondScrollAmount, secondScrollContainer);
+  });
+}
+
+updateArrows();
+firstScrollContainer.addEventListener('scroll', updateArrows);
+secondScrollContainer.addEventListener('scroll', updateArrows);
+
 
   });
 </script>
