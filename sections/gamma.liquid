@@ -257,8 +257,8 @@
     }
 
     //get all arrows
-    const prewArrows = document.querySelectorAll('left-arrow');
-    const nextArrows = document.querySelector('right-arrow');
+    const prewArrows = document.querySelectorAll('.left-arrow');
+    const nextArrows = document.querySelectorAll('.right-arrow');
     prewArrows.forEach((arrow) => {
       arrow.addEventListener('click', () => {
         const tabModel = arrow.closest('tab-model');
