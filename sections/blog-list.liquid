@@ -61,27 +61,28 @@
     </div>
 
     <div
-      class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10"
-      id="second-row">
-      {% for i in (1..halfSize) %}
+    class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10"
+    id="second-row">
+    {% for i in (1..halfSize) %}
+    <div
+      class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] last-of-type:mr-8 lg:last-of-type:mr-20 flex-shrink-0"
+      data-tags="{{ newsArticles[i].tags | join: ',' }}">
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ newsArticles[i].image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl"
+          alt="{{ newsArticles[i].image.alt }}">
+      </div>
       <div
-        class="blog-item-horizontal-view w-[200px] min-h-[386px] flex flex-col items-start justify-start shadow-custom rounded-xl lg:w-[400px] last-of-type:mr-8 lg:last-of-type:mr-20 flex-shrink-0"
-        data-tags="{{ newsArticles[i].tags | join: ',' }}">
-        <div class="blog-item-image w-full h-auto">
-          <img src="{{ newsArticles[i].image | img_url: 'master' }}"
-            class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-tl-xl rounded-tr-xl"
-            alt="{{ newsArticles[i].image.alt }}">
-        </div>
-        <div
-          class="blog-item-info-container w-full h-auto p-2 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10 lg:p-6">
-          <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-1">
-            <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
-            <p class="body-12">{{ newsArticles[i].content | truncate: 100 }}</p>
-          </div>
+        class="blog-item-info-container w-full h-auto p-2 flex flex-col gap-y-1 lg:flex-col-reverse lg:gap-y-10 lg:p-6">
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-1">
+          <h3 class="body-14-medium">{{ newsArticles[i].title | capitalize }}</h3>
+          <p class="body-12">{{ newsArticles[i].content | truncate: 100 }}</p>
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
+  </div>
+  
 
 
     <!-- second half missing articles on third row -->
