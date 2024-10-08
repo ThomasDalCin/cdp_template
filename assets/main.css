@@ -1107,6 +1107,11 @@ p, span{
   margin-right: auto;
 }
 
+.-mx-\[51px\] {
+  margin-left: -51px;
+  margin-right: -51px;
+}
+
 .-mt-4 {
   margin-top: -1rem;
 }
@@ -1173,6 +1178,14 @@ p, span{
 
 .mt-\[70px\] {
   margin-top: 70px;
+}
+
+.-mt-\[51px\] {
+  margin-top: -51px;
+}
+
+.-ml-\[51px\] {
+  margin-left: -51px;
 }
 
 .box-border {
@@ -1472,6 +1485,18 @@ p, span{
   width: 100%;
 }
 
+.w-\[calc\(100\%\+3\.1875rem\)\] {
+  width: calc(100% + 3.1875rem);
+}
+
+.w-\[calc\(100\%\+4\.1875rem\)\] {
+  width: calc(100% + 4.1875rem);
+}
+
+.w-\[260px\] {
+  width: 260px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1681,6 +1706,12 @@ p, span{
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .self-auto {
   align-self: auto;
 }
@@ -1707,6 +1738,10 @@ p, span{
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .truncate {
@@ -1900,6 +1935,10 @@ p, span{
   padding: 1rem;
 }
 
+.p-\[51px\] {
+  padding: 51px;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1945,8 +1984,22 @@ p, span{
   padding-bottom: 1.5rem;
 }
 
+.px-\[51px\] {
+  padding-left: 51px;
+  padding-right: 51px;
+}
+
+.py-\[51px\] {
+  padding-top: 51px;
+  padding-bottom: 51px;
+}
+
 .pb-52 {
   padding-bottom: 13rem;
+}
+
+.pl-\[51px\] {
+  padding-left: 51px;
 }
 
 .text-center {
@@ -2064,6 +2117,14 @@ p, span{
 
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-60 {
+  opacity: 0.6;
 }
 
 .shadow {
