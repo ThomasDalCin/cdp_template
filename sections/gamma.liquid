@@ -57,7 +57,7 @@
             {% endif %}
             {% endfor %}
             <!-- fake div -->
-            <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0 lg:hidden"></div>
+            <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0"></div>
           </div>
 
           <!-- Arrows Box -->
@@ -264,7 +264,10 @@
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
         const scrollAmount = HandleContainerToScroll(magneticScroll);
-        scrollContainerBy(-scrollAmount, magneticScroll); // Passiamo anche il contenitore
+        scrollContainerBy(-scrollAmount, magneticScroll);
+
+        // Call updateArrows with a delay of 300ms
+        setTimeout(() => updateArrows(magneticScroll), 300);
       });
     });
 
@@ -273,9 +276,26 @@
         const tabModel = arrow.closest('.tab-model');
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
         const scrollAmount = HandleContainerToScroll(magneticScroll);
-        scrollContainerBy(scrollAmount, magneticScroll); // Passiamo anche il contenitore
+        scrollContainerBy(scrollAmount, magneticScroll);
+
+        // Call updateArrows with a delay of 300ms
+        setTimeout(() => updateArrows(magneticScroll), 300);
       });
     });
+
+    // Funzione che aggiorna lo stato delle frecce
+    function updateArrows(scrollContainer) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      // Abilita/disabilita la freccia sinistra
+      const prevArrow = scrollContainer.closest('.tab-model').querySelector('.left-arrow');
+      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+
+      // Abilita/disabilita la freccia destra
+      const nextArrow = scrollContainer.closest('.tab-model').querySelector('.right-arrow');
+      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+    }
 
     function HandleContainerToScroll(scrollContainer) {
       // Total items inside container to scroll
@@ -314,7 +334,26 @@
         left: newScrollLeft,
         behavior: 'smooth'
       });
+
+      // Aggiorna lo stato delle frecce dopo lo scroll
+      setTimeout(() => updateArrows(scrollContainer), 300);
     }
+
+    // Esegui il controllo delle frecce all'inizio
+    document.addEventListener('DOMContentLoaded', () => {
+      prewArrows.forEach((arrow) => {
+        const tabModel = arrow.closest('.tab-model');
+        const magneticScroll = tabModel.querySelector('.magnetic-scroll');
+        updateArrows(magneticScroll); // Aggiorna lo stato delle frecce al caricamento
+      });
+
+      nextArrows.forEach((arrow) => {
+        const tabModel = arrow.closest('.tab-model');
+        const magneticScroll = tabModel.querySelector('.magnetic-scroll');
+        updateArrows(magneticScroll); // Aggiorna lo stato delle frecce al caricamento
+      });
+    });
+
 
   });
 </script>
