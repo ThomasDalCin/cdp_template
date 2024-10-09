@@ -781,14 +781,6 @@
             document.removeEventListener('click', handleClickOutside);
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
-
-            // Aggiungi "toBlack" se sei in homepage e hai scrollato
-            if (window.scrollY > 0) {
-              navbar.classList.add('toBlack');
-              menuIcon.classList.add('toBlack');
-              menuChip.classList.add('toBlack');
-              logo.classList.add('toBlack');
-            }
           }
         }
       };
@@ -836,7 +828,6 @@
         }
       }
     });
-
 
 
 
