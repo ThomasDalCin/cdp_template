@@ -2004,6 +2004,10 @@ p, span{
   padding-left: 51px;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .text-center {
   text-align: center;
 }

@@ -50,7 +50,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
               <div class="container-list-heading mb-2">
                 <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
-              <ul class="list-features">
+              <ul class="list-features pl-4">
                 {% for item in items.value %}
                   <li class="list-feature list-disc body-small">{{ item }}</li>
                 {% endfor %}
@@ -73,7 +73,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
               <div class="container-list-heading mb-2">
                 <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
-              <ul class="list-features">
+              <ul class="list-features pl-4">
                 {% for item in items.value %}
                   <li class="list-feature list-disc body-small">{{ item }}</li>
                 {% endfor %}
@@ -108,7 +108,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
                   {% for item in items_speeds %}
                     <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
                       <span class="body-12-medium text-[var(--hover-gray)]">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
-                      <span class="body-12-medium  font-bold break-words whitespace-normal">{{ item }}</span>
+                      <span class="body-12-medium  font-bold">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
