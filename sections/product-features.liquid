@@ -39,14 +39,14 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       <p class="body-16 font-semibold">{{ section.settings.product_features }}</p>
     </div>
     <!-- First line container -->
-    <div class="features-list-row w-full flex flex-row gap-4 px-2">
+    <div class="features-list-row w-full flex flex-row gap-4">
       {% assign productFeatures = product.metafields.custom.features.value %}
       {% if productFeatures %}
         {% assign categories = "electrical_equipment,inside_equipment" | split: "," %}
         {% for category in categories %}
           {% assign items = productFeatures[category] %}
           {% if items %}
-            <div class="list-container w-full sm:w-1/2 p-2 box-border gap-y-2">
+            <div class="list-container w-full sm:w-1/2  box-border gap-y-2">
               <div class="container-list-heading mb-2">
                 <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
@@ -63,13 +63,13 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% endif %}
     </div>
     <!-- Second line container -->
-    <div class="features-list-row w-full flex flex-row gap-4 px-2">
+    <div class="features-list-row w-full flex flex-row gap-4">
       {% if productFeatures %}
         {% assign categories = "electronics,outside_equipment" | split: "," %}
         {% for category in categories %}
           {% assign items = productFeatures[category] %}
           {% if items %}
-            <div class="list-container w-full sm:w-1/2 p-2 box-border gap-y-2">
+            <div class="list-container w-full sm:w-1/2 box-border gap-y-2">
               <div class="container-list-heading mb-2">
                 <p class="body-14-medium text-nowrap">{{ category | replace: '_', ' ' | capitalize }}</p>
               </div>
