@@ -1005,11 +1005,6 @@ p, span{
   inset: 0px;
 }
 
-.inset-x-0 {
-  left: 0px;
-  right: 0px;
-}
-
 .-right-2 {
   right: -0.5rem;
 }
@@ -1110,6 +1105,11 @@ p, span{
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .-ml-\[51px\] {
@@ -1507,6 +1507,10 @@ p, span{
 
 .min-w-\[343px\] {
   min-width: 343px;
+}
+
+.max-w-\[343px\] {
+  max-width: 343px;
 }
 
 .flex-1 {
@@ -2902,10 +2906,6 @@ p, span{
 
   .lg\:p-0 {
     padding: 0px;
-  }
-
-  .lg\:p-1 {
-    padding: 0.25rem;
   }
 
   .lg\:p-10 {
