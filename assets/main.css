@@ -2393,6 +2393,10 @@ p, span{
     top: 16px;
   }
 
+  .lg\:right-\[calc\(100\%_-_1024px\)\] {
+    right: calc(100% - 1024px);
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
