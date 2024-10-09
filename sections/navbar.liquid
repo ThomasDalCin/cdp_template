@@ -799,7 +799,7 @@ allSecondLinksMenu.forEach((link) => {
       }
     });
 
-    // Attivazione chips
+    // Attivazione chips (tranne "View all ranges")
     allChipsCollection.forEach((chipCol) => {
       const parentElement = chipCol.parentElement;
       parentElement.classList.remove('chips-label-active');
@@ -826,13 +826,48 @@ allChipsCollection.forEach((chipCol) => {
       el.nextElementSibling.classList.add('-rotate-45');
     });
 
-    // Attivazione chip selezionato
-    chipClicked.nextElementSibling.classList.remove('-rotate-45');
-    chipClicked.parentElement.classList.add('chips-label-active');
+    // Non attivare la classe "active" su "View all ranges"
+    if (chipClicked.innerText !== 'View all ranges') {
+      chipClicked.nextElementSibling.classList.remove('-rotate-45');
+      chipClicked.parentElement.classList.add('chips-label-active');
+    }
     
     toggleProducts(chipClicked);
   });
 });
+
+// Gestione speciale per "View all ranges" sull'intero contenitore
+const viewAllRangesContainer = document.querySelector('.chip-fixed');
+
+if (viewAllRangesContainer) {
+  viewAllRangesContainer.addEventListener('click', () => {
+    resetScroll();
+
+    // Mostra tutti i prodotti, tranne quelli "Pardo approved"
+    productCols.forEach((product) => {
+      if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+        product.parentElement.classList.remove('hidden');
+      } else {
+        product.parentElement.classList.add('hidden');
+      }
+    });
+
+    // Nascondi tutte le descrizioni
+    allCollectionDescription.forEach((el) => {
+      el.classList.add('hidden');
+      el.classList.remove('flex');
+    });
+
+    // Rimuovi attivazioni da tutte le chips
+    allChipsCollection.forEach((chip) => {
+      chip.parentElement.classList.remove('chips-label-active');
+      chip.nextElementSibling.classList.add('-rotate-45');
+    });
+
+    // Nascondi il chip fisso
+    chipFixed.classList.add('hidden');
+  });
+}
 
 
   });
