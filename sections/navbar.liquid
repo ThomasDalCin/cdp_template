@@ -676,6 +676,10 @@
             logo.classList.add('toBlack');
             document.body.classList.remove('no-scroll');
             chipText.innerHTML = 'Yatch';
+            const menuIconLines = document.querySelectorAll('.menu-icon .line');
+        menuIconLines.forEach(line => {
+          line.classList.remove('active-white');
+        });
           } else {
             menuYatch.classList.remove('flex');
             menuYatch.classList.add('hidden');
