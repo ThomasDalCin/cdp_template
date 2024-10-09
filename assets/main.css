@@ -2563,6 +2563,10 @@ p, span{
     height: 100%;
   }
 
+  .lg\:h-\[160px\] {
+    height: 160px;
+  }
+
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
