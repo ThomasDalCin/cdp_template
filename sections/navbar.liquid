@@ -17,10 +17,10 @@
       </div>
     </div>
     <div class="menu-icon-content w-auto h-auto text-white transition-colors duration-300 ease-in-out">
-      <svg class="menu-icon" viewBox="0 0 40 40">
-        <line class="line1" x1="10" y1="15" x2="30" y2="15" />
-        <line class="line2" x1="10" y1="25" x2="30" y2="25" />
-      </svg>
+      <div class="menu-icon">
+        <div class="line1"></div>
+        <div class="line2"></div>
+      </div>
     </div>
   </div>
 
@@ -239,29 +239,44 @@
 </div>
 
 <style>
-  .menu-icon{
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-  }
+  <style>
+    /* Stile base del contenitore */
+    .menu-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
 
-  .menu-icon line{
-    stroke: white;
-    stroke-width: 4;
-    transition: transform 0.4s ease;
-    transform-origin: center;
-  }
+    /* Stile delle linee */
+    .menu-icon div {
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      background-color: black;
+      transition: transform 0.4s ease;
+    }
 
-  .menu-icon .line1{
-    transform: rotate(45deg)
-    translate(5px,-5px);
-  }
-  
-  .menu-icon .line2{
-    transform: rotate(-45deg)
-    translate(5px,-5px);
-  }
+    /* Prima linea */
+    .menu-icon .line1 {
+      top: 12px;
+      left: 5px;
+    }
 
+    /* Seconda linea */
+    .menu-icon .line2 {
+      top: 24px;
+      left: 5px;
+    }
+
+    /* Stato attivo */
+    .menu-icon.active .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-icon.active .line2 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
 </style>
 
