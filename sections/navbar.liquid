@@ -743,20 +743,88 @@
 
 
     menuIcon.addEventListener('click', (e) => {
-  const targetEl = navbar;
-  const handleClickOutside = (event) => {
-    if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-      if (isNotHomepage) {
-        // Nascondi il menu e aggiorna le icone
+      const targetEl = navbar;
+      const handleClickOutside = (event) => {
+        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+          if (isNotHomepage) {
+            // Nascondi il menu e aggiorna le icone
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.add('toBlack');
+            menuIcon.classList.add('toBlack');
+            menuChip.classList.add('toBlack');
+            logo.classList.add('toBlack');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
+            // Rimuovi animazione "X"
+            menuIcon.classList.remove('active');
+
+            // Rimuovi active-white solo se navbar ha scrolled
+            if (window.scrollY > 0) {
+              document.querySelectorAll('.menu-icon .line').forEach(line => {
+                line.classList.remove('active-white');
+              });
+            }
+
+          } else {
+            // Nascondi il menu e aggiorna le icone
+            navbar.classList.remove('toBlack');
+            mainMenu.classList.remove('flex');
+            mainMenu.classList.add('hidden');
+            targetEl.classList.remove('toAccent');
+            targetEl.classList.remove('toBlack');
+            menuIcon.classList.remove('toBlack');
+            menuChip.classList.remove('toBlack');
+            logo.classList.add('text-white');
+            document.body.classList.remove('no-scroll');
+            document.removeEventListener('click', handleClickOutside);
+            // Rimuovi animazione "X"
+            menuIcon.classList.remove('active');
+
+            // Aggiungi "toBlack" se sei in homepage e hai scrollato
+            if (window.scrollY > 0) {
+              navbar.classList.add('toBlack');
+              menuIcon.classList.add('toBlack');
+              menuChip.classList.add('toBlack');
+              logo.classList.add('toBlack');
+            }
+          }
+        }
+      };
+
+      // Check if the Yacht menu is visible, if yes, do nothing
+      if (menuYatch.classList.contains('flex')) return;
+
+      const isMenuMainHidden = mainMenu.classList.contains('hidden');
+
+      if (isMenuMainHidden) {
+        mainMenu.classList.remove('hidden');
+        mainMenu.classList.add('flex');
+
+        document.body.classList.add('no-scroll');
+        updateNavbarStyle();
+
+        document.addEventListener('click', handleClickOutside);
+
+        // Aggiungi animazione "X" al menu icon
+        menuIcon.classList.add('active');
+
+        // Aggiungi active-white alle linee
+        document.querySelectorAll('.menu-icon .line').forEach(line => {
+          line.classList.add('active-white');
+        });
+
+      } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
-        targetEl.classList.remove('toAccent');
-        targetEl.classList.add('toBlack');
-        menuIcon.classList.add('toBlack');
-        menuChip.classList.add('toBlack');
-        logo.classList.add('toBlack');
+        navbar.classList.remove('toAccent');
+
         document.body.classList.remove('no-scroll');
+        updateNavbarStyle();
+
         document.removeEventListener('click', handleClickOutside);
+
         // Rimuovi animazione "X"
         menuIcon.classList.remove('active');
 
@@ -766,120 +834,8 @@
             line.classList.remove('active-white');
           });
         }
-
-      } else {
-        // Nascondi il menu e aggiorna le icone
-        targetEl.classList.remove('toBlack');
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        targetEl.classList.remove('toAccent');
-        menuIcon.classList.remove('toBlack');
-        menuChip.classList.remove('toBlack');
-        logo.classList.add('text-white');
-        document.body.classList.remove('no-scroll');
-        document.removeEventListener('click', handleClickOutside);
-        // Rimuovi animazione "X"
-        menuIcon.classList.remove('active');
-
-        // Aggiungi "toBlack" se sei in homepage e hai scrollato
-        if (window.scrollY > 0) {
-          targetEl.classList.add('toBlack');
-          menuIcon.classList.add('toBlack');
-          menuChip.classList.add('toBlack');
-          logo.classList.add('toBlack');
-        }
       }
-    }
-  };
-
-  // Check if the Yacht menu is visible, if yes, do nothing
-  if (menuYatch.classList.contains('flex')) return;
-
-  const isMenuMainHidden = mainMenu.classList.contains('hidden');
-
-  if (isMenuMainHidden) {
-    mainMenu.classList.remove('hidden');
-    mainMenu.classList.add('flex');
-
-    document.body.classList.add('no-scroll');
-    updateNavbarStyle();
-
-    document.addEventListener('click', handleClickOutside);
-
-    // Aggiungi animazione "X" al menu icon
-    menuIcon.classList.add('active');
-
-    // Aggiungi active-white alle linee
-    document.querySelectorAll('.menu-icon .line').forEach(line => {
-      line.classList.add('active-white');
     });
-
-  } else {
-    mainMenu.classList.remove('flex');
-    mainMenu.classList.add('hidden');
-    targetEl.classList.remove('toAccent');
-
-    document.body.classList.remove('no-scroll');
-    updateNavbarStyle();
-
-    document.removeEventListener('click', handleClickOutside);
-
-    // Rimuovi animazione "X"
-    menuIcon.classList.remove('active');
-
-    // Rimuovi active-white solo se navbar ha scrolled
-    if (window.scrollY > 0) {
-      document.querySelectorAll('.menu-icon .line').forEach(line => {
-        line.classList.remove('active-white');
-      });
-    }
-  }
-});
-
-
-  // Check if the Yacht menu is visible, if yes, do nothing
-  if (menuYatch.classList.contains('flex')) return;
-
-  const isMenuMainHidden = mainMenu.classList.contains('hidden');
-
-  if (isMenuMainHidden) {
-    mainMenu.classList.remove('hidden');
-    mainMenu.classList.add('flex');
-
-    document.body.classList.add('no-scroll');
-    updateNavbarStyle();
-
-    document.addEventListener('click', handleClickOutside);
-
-    // Aggiungi animazione "X" al menu icon
-    menuIcon.classList.add('active');
-
-    // Aggiungi active-white alle linee
-    document.querySelectorAll('.menu-icon .line').forEach(line => {
-      line.classList.add('active-white');
-    });
-
-  } else {
-    mainMenu.classList.remove('flex');
-    mainMenu.classList.add('hidden');
-    navbar.classList.remove('toAccent');
-
-    document.body.classList.remove('no-scroll');
-    updateNavbarStyle();
-
-    document.removeEventListener('click', handleClickOutside);
-
-    // Rimuovi animazione "X"
-    menuIcon.classList.remove('active');
-
-    // Rimuovi active-white solo se navbar ha scrolled
-    if (window.scrollY > 0) {
-      document.querySelectorAll('.menu-icon .line').forEach(line => {
-        line.classList.remove('active-white');
-      });
-    }
-  }
-});
 
 
 
