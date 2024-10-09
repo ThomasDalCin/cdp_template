@@ -666,10 +666,6 @@
       const handleClickOutside = (event) => {
 
         if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
-          const menuIconLines = document.querySelectorAll('.menu-icon .line');
-        menuIconLines.forEach(line => {
-          line.classList.remove('active-white');
-        });
           if (isNotHomepage) {
             menuYatch.classList.remove('flex');
             menuYatch.classList.add('hidden');
@@ -746,10 +742,6 @@
       const targetEl = navbar;
       const handleClickOutside = (event) => {
         if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
-          const menuIconLines = document.querySelectorAll('.menu-icon .line');
-        menuIconLines.forEach(line => {
-          line.classList.remove('active-white');
-        });
           if (isNotHomepage) {
             // Nascondi il menu e aggiorna le icone
             mainMenu.classList.remove('flex');
