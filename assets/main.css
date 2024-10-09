@@ -2405,6 +2405,10 @@ p, span{
     bottom: 160px;
   }
 
+  .lg\:left-\[600px\] {
+    left: 600px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
