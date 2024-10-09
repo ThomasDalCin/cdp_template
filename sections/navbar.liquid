@@ -239,37 +239,38 @@
 </div>
 
 <style>
-    /* Stile base del contenitore */
-    .menu-icon {
-      position: relative;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      row-gap: .3rem;
-    }
+/* Stile base del contenitore */
+.menu-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}
 
-    /* Stile delle linee */
-    .menu-icon div {
-      width: 24px;
-      height: 2px;
-      background-color: black;
-      transition: transform 0.4s ease;
-      transform-origin: center;
-      border-radius: 2px;
-    }
+/* Stile delle linee */
+.menu-icon div {
+  width: 24px;
+  height: 2px;
+  background-color: black;
+  transition: transform 0.4s ease;
+  transform-origin: center;
+  border-radius: 2px;
+  display: block; /* Assicura che ogni div si comporti come un blocco separato */
+}
 
-    /* Stato attivo */
-    .menu-icon.active .line1 {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
+/* Stato attivo */
+.menu-icon.active .line1 {
+  transform: rotate(45deg); /* Rimuoviamo il translate */
+}
 
-    .menu-icon.active .line2 {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+.menu-icon.active .line2 {
+  transform: rotate(-45deg); /* Rimuoviamo il translate */
+}
 
 </style>
 
