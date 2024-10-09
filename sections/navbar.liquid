@@ -750,8 +750,7 @@
       menuChip.classList.remove('toBlack');
       logo.classList.remove('toBlack');
     });
-
-
+    
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
 const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
 const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
@@ -761,8 +760,8 @@ const chipFixed = document.querySelector('.chip-fixed');
 // Funzione per mostrare e nascondere i prodotti
 function toggleProducts(chipClicked) {
   productCols.forEach((product) => {
-    if (chipClicked.innerText === product.getAttribute('data-product-collection') || 
-        (chipClicked.innerText === 'View all ranges' && product.getAttribute('data-product-collection') !== 'Pardo approved')) {
+    if (chipClicked.innerText === product.getAttribute('data-product-collection') ||
+      (chipClicked.innerText === 'View all ranges' && product.getAttribute('data-product-collection') !== 'Pardo approved')) {
       product.parentElement.classList.remove('hidden');
     } else {
       product.parentElement.classList.add('hidden');
@@ -775,7 +774,7 @@ function resetScroll() {
   document.querySelector('.second-level-menu-items').scrollTop = 0;
 }
 
-// Funzione per chiudere le descrizioni popup
+// Funzione per gestire la chiusura delle descrizioni
 function handleDescriptionContent(item) {
   if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
     item.classList.remove('flex');
@@ -783,8 +782,8 @@ function handleDescriptionContent(item) {
   }
 }
 
-// Aggiunge la logica per la chiusura delle descrizioni quando si clicca sulla `x` icon
-function addCloseDescriptionLogic() {
+// Aggiungi la logica per chiudere la descrizione tramite la `x`
+function addCloseIconListeners() {
   document.querySelectorAll('.container-x-icon').forEach((icon) => {
     icon.addEventListener('click', (e) => {
       const iconClicked = e.currentTarget;
@@ -798,7 +797,7 @@ function addCloseDescriptionLogic() {
 allSecondLinksMenu.forEach((link) => {
   link.addEventListener('click', (e) => {
     const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-    
+
     // Resetta lo scroll
     resetScroll();
 
@@ -807,7 +806,7 @@ allSecondLinksMenu.forEach((link) => {
       el.classList.add('hidden');
       el.classList.remove('flex');
     });
-    
+
     productCols.forEach((product) => {
       product.parentElement.classList.add('hidden');
     });
@@ -853,8 +852,8 @@ allSecondLinksMenu.forEach((link) => {
       }
     });
 
-    // Aggiunge la logica per chiudere la descrizione tramite la `x`
-    addCloseDescriptionLogic();
+    // Aggiungi il listener per chiudere la descrizione tramite la `x`
+    addCloseIconListeners();
   });
 });
 
@@ -863,7 +862,7 @@ allChipsCollection.forEach((chipCol) => {
   chipCol.addEventListener('click', (e) => {
     const chipClicked = e.currentTarget;
     resetScroll();
-    
+
     // Rimuovi attivazioni precedenti
     allChipsCollection.forEach((el) => {
       el.parentElement.classList.remove('chips-label-active');
@@ -876,11 +875,11 @@ allChipsCollection.forEach((chipCol) => {
       chipClicked.parentElement.classList.add('chips-label-active');
       chipFixed.classList.remove('hidden'); // Rendi nuovamente visibile "View all ranges"
     }
-    
+
     toggleProducts(chipClicked);
 
-    // Aggiunge la logica per chiudere la descrizione tramite la `x`
-    addCloseDescriptionLogic();
+    // Aggiungi il listener per chiudere la descrizione tramite la `x`
+    addCloseIconListeners();
   });
 });
 
@@ -917,9 +916,9 @@ if (viewAllRangesContainer) {
   });
 }
 
-// Aggiunge la logica per chiudere la descrizione tramite la `x` alla prima esecuzione
-addCloseDescriptionLogic();
+// Aggiungi i listener per chiudere la descrizione tramite la `x` alla prima esecuzione
+addCloseIconListeners();
 
 
-  });
+});
 </script>
