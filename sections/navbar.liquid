@@ -16,12 +16,10 @@
         </a>
       </div>
     </div>
-    <div class="menu-icon-content w-auto h-auto flex items-center justify-center text-white transition-colors duration-300 ease-in-out">
       <div class="menu-icon">
         <div class="line line1"></div>
         <div class="line line2"></div>
       </div>
-    </div>
   </div>
 
   <!-- Second level Menu Container -->
@@ -282,10 +280,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const menuIconMenu = document.querySelector('.menu-icon');
-    menuIconMenu.addEventListener('click', function() {
-    this.classList.toggle('active'); // Aggiunge/rimuove la classe 'active'
-    });
     //get current page and others
     const hadScrolled = window.scrollY;
     const currentPage = window.location.pathname;
@@ -293,7 +287,7 @@
     const isNewsArticle = currentPage.startsWith('/blogs/news/');
     // Navbar elements
     const navbar = document.querySelector('.navbar');
-    const menuIcon = document.querySelector('.menu-icon-content');
+    const menuIcon = document.querySelector('.menu-icon');
     const menuChip = document.querySelector('.menu-yachts-label');
     const logo = document.getElementById('pardo-logo');
     // Menu types
