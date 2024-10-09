@@ -677,11 +677,10 @@
             document.body.classList.remove('no-scroll');
             chipText.innerHTML = 'Yatch';
             const menuIconLines = document.querySelectorAll('.menu-icon .line');
-        menuIconLines.forEach(line => {
-          line.classList.remove('active-white');
-        });
+            menuIconLines.forEach(line => {
+              line.classList.remove('active-white');
+            });
           } else {
-            navbar.classList.add('toBlack');
             menuYatch.classList.remove('flex');
             menuYatch.classList.add('hidden');
             targetEl.classList.remove('toAccent');
