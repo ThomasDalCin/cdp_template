@@ -50,7 +50,7 @@
           {% if external_video %}
             <video
               id="productVideo"
-              class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover"
+              class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover lg:min-h-[505px]"
               preload="metadata"
               muted
               poster="{{ external_video | img_url: 'master' }}">
@@ -67,7 +67,7 @@
         <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for external_image in external_images %}
             {% assign external_img = external_gallery[external_image] %}
-            <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:flex-1  lg:h-[160px]">
+            <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:flex-1 lg:h-[160px]">
               <img
                 src="{{ external_img | img_url: 'master' }}"
                 class="w-full h-full object-cover rounded-lg"
@@ -98,7 +98,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-img">
         {% endif %}
@@ -140,7 +140,7 @@
           {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-down-img">
         {% endif %}
@@ -183,7 +183,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-up-img">
         {% endif %}
