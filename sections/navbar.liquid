@@ -130,6 +130,22 @@
         </div>
         <div
           class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+          {% if link.title == "View all ranges" %}
+            <div class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full my-4">
+              {% for collection in collections %}
+                {% if collection.title != 'Pardo approved' %}
+                  {% for product in collection.products %}
+                    <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+                      <a href="{{ product.url }}">
+                        {{ product.title | replace: 'Pardo', '' }}
+                      </a>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          
           <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
             {% for product in matching_collection.products %}
             <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
@@ -139,11 +155,10 @@
             </div>
             {% endfor %}
           </div>
-          {% if matching_collection.description != "Pardo approved" %}
-          <div
-            class="collection-container-description lg:w-[343px] lg:min-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)] text-black">
-            <p class="body-12">{{ matching_collection.description }}</p>
-          </div>
+          {% if matching_collection.description != "Pardo approved" and link.title != "View all ranges" %}
+            <div class="collection-container-description lg:w-[343px] lg:min-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)] text-black">
+              <p class="body-12">{{ matching_collection.description }}</p>
+            </div>
           {% endif %}
       </li>
       {% endunless %}
@@ -186,6 +201,7 @@
       </div>
     </div>
   </div>
+
 
 
   <!-- Main Menu Container -->
