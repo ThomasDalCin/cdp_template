@@ -757,6 +757,9 @@
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
     const chipFixed = document.querySelector('.chip-fixed');
 
+    // Stato delle descrizioni (chiusa o meno)
+    const descriptionState = {};
+
     // Funzione per mostrare e nascondere i prodotti
     function toggleProducts(chipClicked) {
       productCols.forEach((product) => {
@@ -779,6 +782,8 @@
       if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
         item.classList.remove('flex');
         item.classList.add('hidden');
+        // Memorizza lo stato della descrizione come "chiusa"
+        descriptionState[item.getAttribute('data-collection-description')] = true;
       }
     }
 
@@ -803,8 +808,10 @@
 
         // Nascondi i prodotti e le descrizioni
         allCollectionDescription.forEach((el) => {
-          el.classList.add('hidden');
-          el.classList.remove('flex');
+          if (!descriptionState[el.getAttribute('data-collection-description')]) {
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+          }
         });
 
         productCols.forEach((product) => {
@@ -833,7 +840,7 @@
 
         // Mostra la descrizione della collezione corrispondente
         allCollectionDescription.forEach((item) => {
-          if (linkTarget === item.getAttribute('data-collection-description')) {
+          if (linkTarget === item.getAttribute('data-collection-description') && !descriptionState[item.getAttribute('data-collection-description')]) {
             item.classList.remove('hidden');
             item.classList.add('flex');
           }
@@ -880,7 +887,7 @@
 
         // Mostra la descrizione della collezione per la chip selezionata
         allCollectionDescription.forEach((item) => {
-          if (chipClicked.innerText === item.getAttribute('data-collection-description')) {
+          if (chipClicked.innerText === item.getAttribute('data-collection-description') && !descriptionState[item.getAttribute('data-collection-description')]) {
             item.classList.remove('hidden');
             item.classList.add('flex');
           } else {
