@@ -791,7 +791,27 @@ allSecondLinksMenu.forEach((link) => {
       product.parentElement.classList.add('hidden');
     });
 
-    // Mostra la descrizione della collezione
+    // Se è "View all ranges", mostriamo tutti i prodotti ma **non** attiviamo la classe "chips-label-active"
+    if (linkTarget === "View all ranges") {
+      productCols.forEach((product) => {
+        if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+          product.parentElement.classList.remove('hidden');
+        }
+      });
+
+      // Nascondi il chip fisso
+      chipFixed.classList.add('hidden');
+
+      // Rimuovi l'attivazione da tutte le chips
+      allChipsCollection.forEach((chip) => {
+        chip.parentElement.classList.remove('chips-label-active');
+        chip.nextElementSibling.classList.add('-rotate-45');
+      });
+
+      return; // Esci dalla funzione qui, non continuare con l'attivazione delle chips
+    }
+
+    // Mostra la descrizione della collezione corrispondente
     allCollectionDescription.forEach((item) => {
       if (linkTarget === item.getAttribute('data-collection-description')) {
         item.classList.remove('hidden');
