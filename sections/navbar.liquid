@@ -878,6 +878,17 @@ allChipsCollection.forEach((chipCol) => {
 
     toggleProducts(chipClicked);
 
+    // Mostra la descrizione della collezione per la chip selezionata
+    allCollectionDescription.forEach((item) => {
+      if (chipClicked.innerText === item.getAttribute('data-collection-description')) {
+        item.classList.remove('hidden');
+        item.classList.add('flex');
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('flex');
+      }
+    });
+
     // Aggiungi il listener per chiudere la descrizione tramite la `x`
     addCloseIconListeners();
   });
