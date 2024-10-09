@@ -83,7 +83,7 @@
       </div>
 
       <!-- Fixed "View all ranges" label at the bottom -->
-      <div class="w-full h-auto chip-fixed fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50"  id="chip-container">
+      <div class="w-full h-auto chip-fixed fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
         <div class="w-full h-auto flex flex-row justify-between">
           <div class="chips-text text-nowrap body-14" id="collection-chips-title">View all ranges</div>
           {% render 'arrow-down-menu' %}
@@ -733,52 +733,26 @@
       logo.classList.remove('toBlack');
     });
 
+
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
     const chipFixed = document.querySelector('.chip-fixed');
-    const chipContainer = document.getElementById('chip-container');
 
-    // Aggiungi event listener al container di View all ranges
-    chipContainer.addEventListener('click', (e) => {
-      const chipClicked = document.getElementById('collection-chips-title'); // Trova l'elemento con il testo View all ranges
-
-      allChipsCollection.forEach((el) => {
-        el.parentElement.classList.remove('chips-label-active');
-        el.nextElementSibling.classList.add('-rotate-45');
-      });
-
-      // Mostra il contenitore di default "View all ranges"
-      if (chipClicked && chipClicked.innerHTML === "View all ranges") {
-        allCollectionDescription.forEach((el) => {
-          el.classList.add('hidden');
-          el.classList.remove('flex');
-        });
-
-        productCols.forEach((product) => {
-          if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
-            product.parentElement.classList.remove('hidden');
-          } else {
-            product.parentElement.classList.add('hidden');
-          }
-        });
-
-        chipFixed.classList.add('hidden'); // Nascondi il container fisso quando si clicca "View all ranges"
-      }
-    });
-
-    // Gestisci gli altri link del menu
+    // Gestione del clic sui link del menu
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-
+        allCollectionDescription.forEach((el) => {
+          el.classList.add('flex');
+        })
         // Nascondi tutti i prodotti
         productCols.forEach((product) => {
           product.parentElement.classList.add('hidden');
         });
 
-        // Mostra la descrizione corrispondente alla collezione selezionata
+        // Mostra la descrizione della collezione corrispondente
         allCollectionDescription.forEach((item) => {
           if (linkTarget === item.getAttribute('data-collection-description')) {
             item.classList.add('block');
@@ -789,7 +763,7 @@
           }
         });
 
-        // Gestisci il contenuto da chiudere al click sull'icona di chiusura
+        // Funzione per gestire la chiusura delle descrizioni
         function handleDescriptionContent(item) {
           if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
             item.classList.remove('flex');
@@ -797,7 +771,6 @@
           }
         }
 
-        // Gestione dell'icona di chiusura
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
@@ -806,7 +779,7 @@
           });
         });
 
-        // Gestisci click sulle chips di collezioni
+        // Gestione del clic sulle chips
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
@@ -814,17 +787,20 @@
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
 
+            // Rimuovi l'attivazione da tutte le chips
             allChipsCollection.forEach((el) => {
               el.parentElement.classList.remove('chips-label-active');
               el.nextElementSibling.classList.add('-rotate-45');
             });
 
+            // Gestisci il chip "View all ranges"
             if (chipClicked && chipClicked.innerHTML !== "View all ranges") {
               chipClicked.nextElementSibling.classList.remove('-rotate-45');
               chipClicked.parentElement.classList.add('chips-label-active');
               chipFixed.classList.remove('hidden');
             }
 
+            // Mostra o nascondi le descrizioni in base alla chip selezionata
             allCollectionDescription.forEach((el) => {
               if (chipCol.innerHTML === el.getAttribute('data-collection-description')) {
                 el.classList.add('flex');
@@ -835,6 +811,7 @@
               }
             });
 
+            // Mostra i prodotti associati alla chip selezionata
             productCols.forEach((product) => {
               if (chipClicked.innerText === product.getAttribute('data-product-collection')) {
                 product.parentElement.classList.remove('hidden');
@@ -847,7 +824,7 @@
             });
           });
 
-          // Attiva la collezione corrispondente al click del link
+          // Se il chip è già selezionato dal link
           if (chipCol.innerText.trim() === linkTarget) {
             allChipsCollection.forEach((chipCol) => {
               chipCol.nextElementSibling.classList.add('-rotate-45');
@@ -863,9 +840,59 @@
           }
         });
       });
+
+      // Gestione speciale per "View all ranges"
+      if (link.innerText.trim() === "View all ranges") {
+        link.addEventListener('click', (e) => {
+          // Mostra tutti i prodotti, tranne quelli "Pardo approved"
+          productCols.forEach((product) => {
+            if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+              product.parentElement.classList.remove('hidden');
+            } else {
+              product.parentElement.classList.add('hidden');
+            }
+          });
+
+          // Nascondi il chip fisso
+          chipFixed.classList.add('hidden');
+
+          // Chiudi tutte le descrizioni
+          allCollectionDescription.forEach((el) => {
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+          });
+        });
+
+        // **Aggiungiamo qui il listener per il clic sul contenitore intero "View all ranges"**
+        const viewAllRangesContainer = document.querySelector('.chip-fixed');
+
+        viewAllRangesContainer.addEventListener('click', () => {
+          // Mostra tutti i prodotti, tranne quelli "Pardo approved"
+          productCols.forEach((product) => {
+            if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+              product.parentElement.classList.remove('hidden');
+            } else {
+              product.parentElement.classList.add('hidden');
+            }
+          });
+
+          // Nascondi il chip fisso
+          chipFixed.classList.add('hidden');
+
+          // Chiudi tutte le descrizioni
+          allCollectionDescription.forEach((el) => {
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+          });
+
+          // Rimuovi l'attivazione da tutte le chips
+          allChipsCollection.forEach((chip) => {
+            chip.parentElement.classList.remove('chips-label-active');
+            chip.nextElementSibling.classList.add('-rotate-45');
+          });
+        });
+      }
     });
-
-
 
   });
 </script>
