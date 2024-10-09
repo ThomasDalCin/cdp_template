@@ -50,7 +50,7 @@
           {% if external_video %}
             <video
               id="productVideo"
-              class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover lg:min-h-[505px]"
+              class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover lg:min-h-[505px] lg:max-h-[505px]"
               preload="metadata"
               muted
               poster="{{ external_video | img_url: 'master' }}">

@@ -2579,6 +2579,10 @@ p, span{
     max-height: none;
   }
 
+  .lg\:max-h-\[505px\] {
+    max-height: 505px;
+  }
+
   .lg\:min-h-\[398px\] {
     min-height: 398px;
   }
