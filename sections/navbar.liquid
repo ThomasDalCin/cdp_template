@@ -664,12 +664,12 @@
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
-        const menuIconLines = document.querySelectorAll('.menu-icon .line');
+
+        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
+          const menuIconLines = document.querySelectorAll('.menu-icon .line');
         menuIconLines.forEach(line => {
           line.classList.remove('active-white');
         });
-
-        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
           if (isNotHomepage) {
             menuYatch.classList.remove('flex');
             menuYatch.classList.add('hidden');
@@ -745,11 +745,11 @@
     menuIcon.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
-        const menuIconLines = document.querySelectorAll('.menu-icon .line');
+        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
+          const menuIconLines = document.querySelectorAll('.menu-icon .line');
         menuIconLines.forEach(line => {
           line.classList.remove('active-white');
         });
-        if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
           if (isNotHomepage) {
             // Nascondi il menu e aggiorna le icone
             mainMenu.classList.remove('flex');
