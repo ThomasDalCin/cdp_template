@@ -743,7 +743,7 @@
     // Gestione del clic sui link del menu
     allSecondLinksMenu.forEach((link) => {
       document.querySelector('.second-level-menu-items').scrollTop = 0;
-      
+
       link.addEventListener('click', (e) => {
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
         allCollectionDescription.forEach((el) => {
@@ -870,6 +870,7 @@
         const viewAllRangesContainer = document.querySelector('.chip-fixed');
 
         viewAllRangesContainer.addEventListener('click', () => {
+          document.querySelector('.second-level-menu-items').scrollTop = 0;
           // Mostra tutti i prodotti, tranne quelli "Pardo approved"
           productCols.forEach((product) => {
             if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
