@@ -220,8 +220,10 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
                     </li>
                   {% endfor %}
                 {% else %}
-                  <li class="list-feature body-small">No data available for {{ tankField | replace: '_', ' ' | capitalize }}
-                  </li>
+                <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
+                  <span class="body-12-medium text-[var(--hover-gray)]">{{ tankField | replace: '_', ' ' | capitalize }}:</span>
+                  <span class="body-12-medium font-bold">/</span>
+                </li>
                 {% endif %}
               {% endfor %}
             </ul>
