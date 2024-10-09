@@ -740,13 +740,6 @@
       if (isMenuMainHidden) {
         mainMenu.classList.remove('hidden');
         mainMenu.classList.add('flex');
-        openIcon.classList.add('hidden');
-        openIcon.classList.remove('flex');
-        closeIcon.classList.add('flex');
-        closeIcon.classList.remove('hidden');
-
-        closeIcon.classList.add('text-white');
-        closeIcon.classList.remove('text-black');
 
         document.body.classList.add('no-scroll');
         updateNavbarStyle();
@@ -759,13 +752,7 @@
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
-        openIcon.classList.add('flex');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-        closeIcon.classList.remove('flex');
         navbar.classList.remove('toAccent');
-        closeIcon.classList.remove('text-white');
-        closeIcon.classList.add('text-black');
 
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
