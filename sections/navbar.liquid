@@ -283,9 +283,10 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    menuIcon.addEventListener('click', function() {
+    const menuIconMenu = document.querySelector('.menu-icon');
+    menuIconMenu.addEventListener('click', function() {
     this.classList.toggle('active'); // Aggiunge/rimuove la classe 'active'
-  });
+    });
     //get current page and others
     const hadScrolled = window.scrollY;
     const currentPage = window.location.pathname;
