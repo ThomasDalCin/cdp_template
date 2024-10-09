@@ -242,19 +242,21 @@
 /* Stile del contenitore */
 .menu-icon {
   position: relative;
-  width: 30px;  /* Larghezza del menu */
+  width: 24px;  /* Larghezza del menu */
   height: 24px; /* Altezza */
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  row-gap: .3rem;
 }
 
 /* Stile delle linee */
 .menu-icon .line {
   position: absolute;
-  width: 30px;
-  height: 2px;
+  width: 24px;
+  height: 1.5px;
   background-color: black;
   transition: transform 0.3s ease-in-out;
 }
