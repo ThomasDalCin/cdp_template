@@ -57,7 +57,7 @@
               <source src="{{ external_video | file_url }}" type="video/mp4">
             </video>
             <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
-            {% render 'play-icon' %}
+              {% render 'play-icon' %}
             </div>
           {% endif %}
         {% endif %}
@@ -98,17 +98,17 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-img">
         {% endif %}
       </div>
 
-      <div class="w-full h-auto">
-        <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 max-h-[220px] h-auto">
+        <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
             {% assign internal_img = internal_gallery[internal_image] %}
-            <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
+            <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:flex-1">
               <img
                 src="{{ internal_img | img_url: 'master' }}"
                 class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
@@ -140,17 +140,17 @@
           {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-down-img">
         {% endif %}
       </div>
 
-      <div class="w-full h-auto">
-        <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 max-h-[220px] h-auto">
+        <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_down_image in internal_down_images %}
             {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
-            <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
+            <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:flex-1">
               <img
                 src="{{ internal_down_img | img_url: 'master' }}"
                 class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
@@ -183,17 +183,17 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-up-img">
         {% endif %}
       </div>
 
-      <div class="w-full h-auto">
-        <div class="flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 max-h-[220px] h-auto">
+        <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
             {% assign internal_img = internal_gallery[internal_image] %}
-            <div class="container-magnetic-scroll w-[165px] h-[128px] flex-shrink-0 lg:flex-1">
+            <div class="container-magnetic-scroll w-[104px] h-[60px]  flex-shrink-0 lg:flex-1">
               <img
                 src="{{ internal_img | img_url: 'master' }}"
                 class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
@@ -349,7 +349,7 @@
       });
     }
   
-    //Handle tab settings
+    // Handle tab settings
     const externalTab = document.getElementById('external-tab');
     const externalTabText = externalTab.firstElementChild;  // Assegna l'elemento
     externalTabText.classList.add('font-light');            // Aggiungi la classe
@@ -374,11 +374,11 @@
     const internalRect = internalTab.querySelector('.tab-rect');
     const internalDownRect = internalDownTab.querySelector('.tab-internal-down-rect');
     const internalUpRect = internalUpTab.querySelector('.tab-internal-up-rect');
+    let internal = true;
   
     // Function to handle tab display and rect visibility
-    function showTab(tab, tabText, content, rect) {
-      //hide contents for each tab
-  
+    function showTab(tab, tabText, content, rect, internal) {
+      // Hide contents for each tab
       externalContent.classList.add('hidden');
       internalContent.classList.add('hidden');
       internalDownContent.classList.add('hidden');
@@ -388,23 +388,44 @@
       internalDownRect.classList.add('hidden');
       internalUpRect.classList.add('hidden');
   
+      // Reset text classes
       externalTabText.classList.remove('font-medium');
       externalTabText.classList.add('font-light');
   
-      if (tab === externalTab) {
-        internalTabText.classList.remove('font-medium');
-        internalTabText.classList.add('font-light');
+      internalTabText.classList.remove('font-medium');
+      internalTabText.classList.add('font-light');
+  
+      internalUpText.classList.remove('font-medium');
+      internalUpText.classList.add('font-light');
+  
+      internalDownText.classList.add('font-light');
+      internalDownText.classList.remove('font-medium');
+  
+      // Set internalTab font to medium when clicking on internalTab
+      if (tab === internalTab) {
+        internalTabText.classList.add('font-medium');
+        internalTabText.classList.remove('font-light');
+  
+        // Set internalUpTab to font-medium by default when internalTab is clicked
+        internalUpText.classList.add('font-medium');
+        internalUpText.classList.remove('font-light');
+  
+        // Set internalDownText to font-light when internalTab is clicked
+        internalDownText.classList.remove('font-medium');
+        internalDownText.classList.add('font-light');
       }
+  
+      // Handle internal tab selection (internalUp and internalDown)
+      if (tab === internalUpTab || tab === internalDownTab) {
+        internalTabText.classList.add('font-medium'); // Keep internalTab font-medium
+        internalTabText.classList.remove('font-light');
+      }
+  
       tabText.classList.add('font-medium');
       tabText.classList.remove('font-light');
   
-      if (tab === internalUpTab || tab === internalDownTab || tab === internalTab) {
-        internalTabText.classList.add('font-medium');
-      }
-  
-      //display just the tab's content selected
+      // Display just the tab's content selected
       content.classList.remove('hidden');
-  
   
       if (tab === externalTab) {
         externalRect.classList.remove('hidden');
@@ -417,6 +438,7 @@
         rect.classList.remove('hidden');
       }
   
+      // Specific content display logic
       if (content.getAttribute('id') === 'internal-content') {
         document.getElementById('galley-settings').classList.remove('hidden');
         document.getElementById('galley-settings').classList.add('flex');
@@ -429,6 +451,8 @@
         document.getElementById('tab-in-out').classList.remove('flex');
         document.getElementById('tab-in-out').classList.add('hidden');
       }
+  
+      internal = false;
     }
   
     // Event listeners for tab clicks
@@ -437,7 +461,7 @@
     });
   
     internalTab.addEventListener('click', function () {
-      showTab(internalTab, internalTabText, internalContent, internalRect);
+      showTab(internalTab, internalTabText, internalContent, internalRect, internal);
     });
   
     internalDownTab.addEventListener('click', function () {
@@ -445,11 +469,12 @@
     });
   
     internalUpTab.addEventListener('click', function () {
-      showTab(internalUpTab, internalUpText, internalUpContent, internalUpRect,);
+      showTab(internalUpTab, internalUpText, internalUpContent, internalUpRect);
     });
   
-    //Show tab default after page loading
+    // Show default tab after page loading
     showTab(externalTab, externalTabText, externalContent, externalRect);
+  
   
     // Function to change the main image displayed with the image clicked
     function setupImageClickHandler(container) {
@@ -484,6 +509,7 @@
             classesToAdd.push('h-[505px]');
           } else {
             classesToAdd.push('h-[220px]');
+            classesToAdd.push('max-h-[220px]');
           }
           // Clear existing classes and add new ones
           mainImg.className = ''; // Clear existing classes
