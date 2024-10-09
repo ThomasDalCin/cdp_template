@@ -1513,6 +1513,10 @@ p, span{
   min-width: 343px;
 }
 
+.min-w-\[127px\] {
+  min-width: 127px;
+}
+
 .max-w-\[343px\] {
   max-width: 343px;
 }
