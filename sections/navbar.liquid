@@ -128,21 +128,22 @@
           {% endif %}
           {% endif %}
         </div>
-          <div
+        <div
           class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
           <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
             {% for product in matching_collection.products %}
-              <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
-                <a href="{{ product.url }}">
-                  {{ product.title | replace: 'Pardo', '' }}
-                </a>
-              </div>
-              {% endfor %}
+            <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
+              <a href="{{ product.url }}">
+                {{ product.title | replace: 'Pardo', '' }}
+              </a>
+            </div>
+            {% endfor %}
           </div>
           {% if matching_collection.description != "Pardo approved" %}
-            <div class="collection-container-description lg:w-[343px] lg:min-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)] text-black">
-              <p class="body-12">{{ matching_collection.description }}</p>
-            </div>
+          <div
+            class="collection-container-description lg:w-[343px] lg:min-w-[343px] h-auto inline-flex items-start justify-center p-4 rounded-lg bg-[var(--secondary-background-color)] text-black">
+            <p class="body-12">{{ matching_collection.description }}</p>
+          </div>
           {% endif %}
       </li>
       {% endunless %}
@@ -152,7 +153,7 @@
       <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2 mt-10">
         {% for link in linklists.yatch.links %}
         {% unless allLinksTitle contains link.title %}
-        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px] lg:text-[16px] 
+        {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px] lg:text-[16px]
         lg:leading-[22px] underline" }}
         {% endunless %}
         {% endfor %}
@@ -732,22 +733,52 @@
       logo.classList.remove('toBlack');
     });
 
-
     const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
     const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
     const allCollectionDescription = Array.from(document.querySelectorAll('[data-collection-description]'));
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
     const chipFixed = document.querySelector('.chip-fixed');
+    const chipContainer = document.getElementById('chip-container');
 
+    // Aggiungi event listener al container di View all ranges
+    chipContainer.addEventListener('click', (e) => {
+      const chipClicked = document.getElementById('collection-chips-title'); // Trova l'elemento con il testo View all ranges
+
+      allChipsCollection.forEach((el) => {
+        el.parentElement.classList.remove('chips-label-active');
+        el.nextElementSibling.classList.add('-rotate-45');
+      });
+
+      // Mostra il contenitore di default "View all ranges"
+      if (chipClicked && chipClicked.innerHTML === "View all ranges") {
+        allCollectionDescription.forEach((el) => {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        });
+
+        productCols.forEach((product) => {
+          if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+            product.parentElement.classList.remove('hidden');
+          } else {
+            product.parentElement.classList.add('hidden');
+          }
+        });
+
+        chipFixed.classList.add('hidden'); // Nascondi il container fisso quando si clicca "View all ranges"
+      }
+    });
+
+    // Gestisci gli altri link del menu
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
 
-      
+        // Nascondi tutti i prodotti
         productCols.forEach((product) => {
           product.parentElement.classList.add('hidden');
         });
 
+        // Mostra la descrizione corrispondente alla collezione selezionata
         allCollectionDescription.forEach((item) => {
           if (linkTarget === item.getAttribute('data-collection-description')) {
             item.classList.add('block');
@@ -758,6 +789,7 @@
           }
         });
 
+        // Gestisci il contenuto da chiudere al click sull'icona di chiusura
         function handleDescriptionContent(item) {
           if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
             item.classList.remove('flex');
@@ -765,6 +797,7 @@
           }
         }
 
+        // Gestione dell'icona di chiusura
         document.querySelectorAll('.container-x-icon').forEach((icon) => {
           icon.addEventListener('click', (e) => {
             const iconClicked = e.currentTarget;
@@ -773,6 +806,7 @@
           });
         });
 
+        // Gestisci click sulle chips di collezioni
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
@@ -813,6 +847,7 @@
             });
           });
 
+          // Attiva la collezione corrispondente al click del link
           if (chipCol.innerText.trim() === linkTarget) {
             allChipsCollection.forEach((chipCol) => {
               chipCol.nextElementSibling.classList.add('-rotate-45');
@@ -828,28 +863,7 @@
           }
         });
       });
-
-      if (link.innerText.trim() === "View all ranges") {
-        link.addEventListener('click', (e) => {
-          productCols.forEach((product) => {
-            if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
-              product.parentElement.classList.remove('hidden');
-            } else {
-              product.parentElement.classList.add('hidden');
-            }
-          });
-
-          chipFixed.classList.add('hidden');
-
-        
-          allCollectionDescription.forEach((el) => {
-            el.classList.add('hidden');
-            el.classList.remove('flex');
-          });
-        });
-      }
     });
-
 
 
 
