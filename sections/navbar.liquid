@@ -130,6 +130,19 @@
         </div>
         <div
           class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+          {% if link.title == "View all ranges" %}
+            <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
+              {% for collection in collections %}
+                 {% if collection.title != 'Pardo approved' %}
+                  <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
+                    <a href="{{ product.url }}">
+                      {{ product.title | replace: 'Pardo', '' }}
+                    </a>
+                  </div>
+                 {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
           <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
             {% for product in matching_collection.products %}
             <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
