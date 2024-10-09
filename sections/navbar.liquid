@@ -783,7 +783,8 @@
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
-
+          
+          document.querySelector('.second-level-menu-items').scrollTop = 0;
           chipCol.addEventListener('click', (e) => {
             const chipClicked = e.currentTarget;
 
