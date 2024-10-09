@@ -94,23 +94,21 @@
         const nextArrow = document.getElementById('nextArrow');
         const scrollContainer = document.querySelector('.innovation-container-scrolling');
         const images = Array.from(scrollContainer.querySelectorAll('img'));
-  
+        //handle scroll container
         if (images.length > 1) {
             const firstImage = images[0];
             const secondImage = images[1];
-  
             const firstImageLeft = firstImage.offsetLeft;
             const secondImageLeft = secondImage.offsetLeft;
             const scrollAmount = secondImageLeft - firstImageLeft;
-  
+            //handle arrows
             function updateArrows() {
                 const currentScrollLeft = scrollContainer.scrollLeft;
                 const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-  
                 prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
                 nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
             }
-  
+            //handle scroll amount
             function scrollContainerBy(amount) {
                 const currentScrollLeft = scrollContainer.scrollLeft;
                 const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
@@ -130,7 +128,7 @@
   
                 setTimeout(updateArrows, 300);
             }
-  
+            //handle click on each arrow
             if (prevArrow && nextArrow && scrollContainer) {
                 prevArrow.addEventListener('click', function () {
                     scrollContainerBy(-scrollAmount);
@@ -148,6 +146,9 @@
 </script>
 
 
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
 {% schema %}
   {
     "name": "eco-innovation-module",

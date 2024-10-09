@@ -4,9 +4,7 @@
     {% if blogs.news %}
     {% assign newsArticles = blogs.news.articles %}
     {% assign totalArticles = newsArticles.size %}
-
     {% if totalArticles > 0 %}
-
     <!-- Firt article on first row -->
     <div class="blog-list-row width-view p-4 lg:mb-10 lg:px-10">
       <div class="blog-item-width-view w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:relative"
@@ -37,14 +35,11 @@
         </div>
       </div>
     </div>
-
     {% endif %}
-
     {% if totalArticles > 1 %}
     <!-- Check missing articles -->
     {% assign remainingArticles = totalArticles | minus: 1 %}
     {% assign halfSize = remainingArticles | divided_by: 2 %}
-
     <!--first half missing articles on second row -->
     <div class="blog-list-row horizontal-view">
       <!-- Arrows Box -->
@@ -59,7 +54,6 @@
         </button>
       </div>
     </div>
-
     <div
       class="blog-item-horizontal-scroll w-[calc(100%+2rem)] p-4 h-auto overflow-x-auto flex flex-row gap-x-2 lg:w-[calc(100%+5rem)] lg:gap-x-4 lg:px-10"
       id="second-row">
@@ -82,9 +76,6 @@
       </div>
       {% endfor %}
     </div>
-
-
-
     <!-- second half missing articles on third row -->
     <div class="blog-list-row horizontal-view">
       <!-- Arrows Box -->
@@ -128,15 +119,10 @@
       </div>
       {% endfor %}
     </div>
-
-
   </div>
   {% endif %}
   {% endif %}
 </div>
-
-
-
 <!-- Layout for Press Room (Hidden by default) -->
 <div id="pressroom-layout" class="blogs-list-container press-room hidden w-full h-auto flex flex-col gap-y-3">
   <!-- Press Room articles loop -->
@@ -170,7 +156,6 @@
   {% endif %}
   {% endfor %}
 </div>
-
 <!-- Layout for Awards (Hidden by default) -->
 <div id="awards-layout" class="blogs-list-container awards hidden w-full h-auto flex flex-col gap-y-3">
   {% for article in blogs.news.articles %}
@@ -210,22 +195,21 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    //get elements I need
     const chips = document.querySelectorAll('.chips-label');
     const newsLayout = document.getElementById('news-layout');
     const pressRoomLayout = document.getElementById('pressroom-layout');
     const awardsLayout = document.getElementById('awards-layout');
-
+    //set active chip
     let activeChip = null;
+    //handle click on each chip
     chips.forEach(chip => {
       chip.addEventListener('click', function () {
         const tag = chip.getAttribute('data-tag');
-
-
         newsLayout.classList.add('hidden');
         pressRoomLayout.classList.add('hidden');
         awardsLayout.classList.add('hidden');
-
-
+        //check tag value
         if (tag === 'News') {
           newsLayout.classList.remove('hidden');
         } else if (tag === 'Press room') {
@@ -233,8 +217,7 @@
         } else if (tag === 'Awards') {
           awardsLayout.classList.remove('hidden');
         }
-
-
+        
         if (activeChip) {
           const previousIcon = activeChip.querySelector('.chips-text svg');
           if (previousIcon) {
@@ -242,27 +225,24 @@
             previousIcon.classList.add('-rotate-45');
           }
         }
-
-
+        
         chips.forEach(chip => {
           chip.classList.remove('chips-blog-active');
         });
 
         chip.classList.add('chips-blog-active');
-
-
+        
         const currentIcon = chip.querySelector('.chips-text svg');
+
         if (currentIcon) {
           currentIcon.classList.remove('-rotate-45');
           currentIcon.classList.add('-rotate-0');
         }
-
-
-        activeChip = chip;
+      //set the chip clicked as active
+      activeChip = chip;
       });
     });
-
-
+    //handle default active chip
     const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
     if (defaultChip) {
       defaultChip.classList.add('chips-blog-active');
@@ -275,8 +255,7 @@
 
       activeChip = defaultChip;
     }
-
-
+    
     // handle scroll articles containers here
     const prevArrowSecond = document.getElementById('prevArrowSecond');
     const nextArrowSecond = document.getElementById('nextArrowSecond');
@@ -358,9 +337,12 @@
     firstScrollContainer.addEventListener('scroll', updateArrows);
     secondScrollContainer.addEventListener('scroll', updateArrows);
 
-
   });
 </script>
+
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
 
 {% schema %}
 {

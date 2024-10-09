@@ -130,7 +130,7 @@
         const internalContent = document.getElementById('internal-content');
         const mainImg = document.getElementById('main-img');
         const mainImgInternal = document.getElementById('main-img-internal');
-  
+        //handle tab to show 
         function showTab(tab, content, rect) {
             externalContent.classList.add('hidden');
             internalContent.classList.add('hidden');
@@ -140,7 +140,7 @@
             content.classList.remove('hidden');
             rect.classList.remove('hidden');
         }
-  
+        //handle click on tab
         externalTab.addEventListener('click', function () {
             showTab(externalTab, externalContent, externalRect);
         });
@@ -148,9 +148,9 @@
         internalTab.addEventListener('click', function () {
             showTab(internalTab, internalContent, internalRect);
         });
-  
+        //show tab as deafult
         showTab(externalTab, externalContent, externalRect);
-  
+        //handle click on image
         function setupImageClickHandler(container, mainImage) {
             const images = container.querySelectorAll('.gallery-main-scroll-image');
             images.forEach(image => {
@@ -168,6 +168,10 @@
     });
 </script>
 
+
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
 {% schema %}
   {
     "name": "approved-gallery",

@@ -2,7 +2,6 @@
 <div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 relative overflow-x-hidden lg:px-10">
   <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
   <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
-
   <!-- arrow box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6">
     <button id="prevArrowTop" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
@@ -12,8 +11,7 @@
       {% render 'arrow-right-icon' %}
     </button>
   </div>
-
-   <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-2 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+  <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:p-2 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
     {% for block in section.blocks %}
       <div class="container-scroll-image w-auto h-auto">
         {% if block.type == "scroll-image" %}
@@ -38,15 +36,14 @@
     const nextArrowTop = document.getElementById('nextArrowTop');
     const scrollContainerTop = document.querySelector('.our-values-top-scrolling'); // Corretto il selettore qui
     const images = Array.from(scrollContainerTop.querySelectorAll('img'));
-
+    //handle scroll
     if (images.length > 1) {
       const firstImage = images[0];
       const secondImage = images[1];
-
       const firstImageLeft = firstImage.offsetLeft;
       const secondImageLeft = secondImage.offsetLeft;
       const scrollAmount = secondImageLeft - firstImageLeft;
-
+      //handle arrows
       function updateArrows() {
         const currentScrollLeft = scrollContainerTop.scrollLeft;
         const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
@@ -54,11 +51,10 @@
         prevArrowTop.classList.toggle('disabled', currentScrollLeft === 0);
         nextArrowTop.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
       }
-
+      //handle scroll amount
       function scrollContainerBy(amount) {
         const currentScrollLeft = scrollContainerTop.scrollLeft;
         const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
-
         let newScrollLeft = currentScrollLeft + amount;
 
         if (newScrollLeft < 0) {
@@ -74,7 +70,7 @@
 
         setTimeout(updateArrows, 300);
       }
-
+      //handle click on each arrows
       if (prevArrowTop && nextArrowTop && scrollContainerTop) {
         prevArrowTop.addEventListener('click', function() {
           scrollContainerBy(-scrollAmount);
@@ -91,6 +87,9 @@
   });
 </script>
 
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
 {% schema %}
 {
   "name": "our-values",

@@ -94,7 +94,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
     </div>
     <div class="flex flex-col gap-y-6 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-6 lg:w-full">
 
-      <!-- Visualizzazione per Speed Distance -->
+      <!--Speed Distance -->
       {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
       {% if productSpeedDistance %}
         {% assign speedFields = "engine_make,engine_model" | split: "," %}
@@ -121,7 +121,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
         </div>
     {% endif %}
 
-      <!-- Visualizzazione per Dimensions -->
+      <!--Dimensions -->
       {% assign productDimensions = product.metafields.custom.dimensions.value %}
       {% if productDimensions %}
         {% assign dimensionFields = "lenght_over_all,max_draft,beam" | split: "," %}
@@ -148,7 +148,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
         </div>
     {% endif %}
 
-      <!-- Visualizzazione per Weights -->
+      <!--Weights -->
       {% assign productWeights = product.metafields.custom.weights.value %}
       {% if productWeights %}
         {% assign weightFields = "dry_weight" | split: "," %}
@@ -175,7 +175,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
         </div>
     {% endif %}
 
-      <!-- Visualizzazione per Accommodations -->
+      <!-- Accommodations -->
       {% assign productAccommodations = product.metafields.custom.accomodations.value %}
       {% if productAccommodations %}
         {% assign accommodationFields = "cabins,bathrooms" | split: "," %}
@@ -202,7 +202,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
         </div>
     {% endif %}
 
-      <!-- Visualizzazione per Tanks -->
+      <!--Tanks -->
       {% assign productTanks = product.metafields.custom.tanks.value %}
       {% if productTanks %}
         {% assign tankFields = "fresh_water_tank,fuel_tank,holding_tank" | split: "," %}
@@ -232,6 +232,10 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
   </div>
 </div>
 
+
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
 {% schema %}
   {
     "name": "product-details",

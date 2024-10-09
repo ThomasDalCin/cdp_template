@@ -1,6 +1,5 @@
 <!--Article list home page -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative">
-
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
     <button id="prevArrow"
@@ -12,7 +11,6 @@
       {% render 'arrow-right-icon' %}
     </button>
   </div>
-
   <div
     class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-10 lg:pb-4">
     <!--assign liquid variables -->
@@ -76,8 +74,7 @@
       return width + marginRight;
     }).reduce((acc, width) => acc + width, 0);
     const scrollAmout = totalImageWidth / imageslenght;
-
-
+    
     //check if there's images
     if (images.length > 0) {
       //update the arrows layout during scroll
