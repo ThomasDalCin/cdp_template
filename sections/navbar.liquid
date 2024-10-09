@@ -403,10 +403,9 @@
       const hasScrolled = window.scrollY > 0;
 
       if (isMenuYatchVisible || isMenuMainVisible) {
-        // Navbar menu visibile, applica lo stile
         navbar.classList.add('toAccent');
         navbar.classList.remove('toBlack');
-        menuIcon.classList.remove('toBlack', 'active-white'); // Rimuovi anche 'active-white'
+        menuIcon.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
@@ -417,50 +416,43 @@
         });
 
       } else if (hasScrolled && !isNotHomepage) {
-        // Scrolled, ma non su homepage
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
-        menuIcon.classList.remove('active-white'); // Rimuovi la classe active-white
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
         navbar.classList.remove('linear-gradient');
       } else if (hasScrolled) {
-        // Scrolled, non su homepage
         navbar.classList.add('toBlack');
         menuIcon.classList.add('toBlack');
-        menuIcon.classList.remove('active-white'); // Rimuovi anche qui
+        document.querySelectorAll('.line').forEach(line => {
+          line.classList.remove('active-white');
+        });
+
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
       } else if (!isNotHomepage && !hasScrolled) {
-        // Siamo sulla homepage, e non c'è scroll
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.remove('toBlack');
-        menuIcon.classList.add('active-white'); // Torna bianca se non c'è scroll
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
         navbar.classList.remove('linear-gradient');
       } else if (isNewsArticle && !hasScrolled) {
-        // Su articolo di notizie senza scroll
         navbar.classList.remove('toBlack');
         menuIcon.classList.remove('toBlack');
-        menuIcon.classList.add('active-white'); // Anche qui torna bianca
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
-        logo.classList.add('text-white');
+        logo.classList.add('text-white')
       } else {
-        // Default, non su homepage, scrolled o meno
         navbar.classList.remove('toBlack', 'toAccent');
         menuIcon.classList.add('toBlack');
-        menuIcon.classList.remove('active-white'); // Rimuovi active-white
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         navbar.classList.remove('linear-gradient');
       }
     }
-
 
 
     //handle second menu layut base on device size
