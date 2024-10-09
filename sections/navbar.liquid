@@ -16,13 +16,11 @@
         </a>
       </div>
     </div>
-    <div class="menu-icon w-auto h-auto text-white transition-colors duration-300 ease-in-out">
-      <div class="container-open-icon cursor-pointer">
-        {% render 'menu-icon' %}
-      </div>
-      <div class="container-close-icon hidden">
-        {% render 'x-icon' %}
-      </div>
+    <div class="menu-icon-content w-auto h-auto text-white transition-colors duration-300 ease-in-out">
+      <svg class="menu-icon" viewBox="0 0 40 40">
+        <line class="line1" x1="10" y1="15" x2="30" y2="15" />
+        <line class="line2" x1="10" y1="25" x2="30" y2="25" />
+      </svg>
     </div>
   </div>
 
@@ -240,9 +238,39 @@
 
 </div>
 
+<style>
+  .menu-icon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .menu-icon line{
+    stroke: white;
+    stroke-width: 4;
+    transition: transform 0.4s ease;
+    transform-origin: center;
+  }
+
+  .menu-icon .line1{
+    transform: rotate(45deg)
+    translate(5px,-5px);
+  }
+  
+  .menu-icon .line2{
+    transform: rotate(-45deg)
+    translate(5px,-5px);
+  }
+
+
+</style>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    menuIcon.addEventListener('click', function() {
+    this.classList.toggle('active'); // Aggiunge/rimuove la classe 'active'
+  });
     //get current page and others
     const hadScrolled = window.scrollY;
     const currentPage = window.location.pathname;
@@ -250,7 +278,7 @@
     const isNewsArticle = currentPage.startsWith('/blogs/news/');
     // Navbar elements
     const navbar = document.querySelector('.navbar');
-    const menuIcon = document.querySelector('.menu-icon');
+    const menuIcon = document.querySelector('.menu-icon-content');
     const menuChip = document.querySelector('.menu-yachts-label');
     const logo = document.getElementById('pardo-logo');
     // Menu types

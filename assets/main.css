@@ -2393,22 +2393,6 @@ p, span{
     top: 16px;
   }
 
-  .lg\:right-\[calc\(100\%_-_1024px\)\] {
-    right: calc(100% - 1024px);
-  }
-
-  .lg\:left-\[1024px\] {
-    left: 1024px;
-  }
-
-  .lg\:bottom-\[160px\] {
-    bottom: 160px;
-  }
-
-  .lg\:left-\[600px\] {
-    left: 600px;
-  }
-
   .lg\:z-10 {
     z-index: 10;
   }
@@ -2567,10 +2551,6 @@ p, span{
     height: 100%;
   }
 
-  .lg\:h-\[160px\] {
-    height: 160px;
-  }
-
   .lg\:max-h-\[480px\] {
     max-height: 480px;
   }
@@ -2581,10 +2561,6 @@ p, span{
 
   .lg\:max-h-none {
     max-height: none;
-  }
-
-  .lg\:max-h-\[505px\] {
-    max-height: 505px;
   }
 
   .lg\:min-h-\[398px\] {
@@ -2601,10 +2577,6 @@ p, span{
 
   .lg\:min-h-\[518px\] {
     min-height: 518px;
-  }
-
-  .lg\:min-h-\[505px\] {
-    min-height: 505px;
   }
 
   .lg\:w-1\/2 {
@@ -2697,14 +2669,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[1024px\] {
-    width: 1024px;
-  }
-
-  .lg\:w-\[600px\] {
-    width: 600px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2831,6 +2795,11 @@ p, span{
          column-gap: 1rem;
   }
 
+  .lg\:gap-x-5 {
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
+  }
+
   .lg\:gap-x-6 {
     -moz-column-gap: 1.5rem;
          column-gap: 1.5rem;
@@ -2862,11 +2831,6 @@ p, span{
 
   .lg\:gap-y-6 {
     row-gap: 1.5rem;
-  }
-
-  .lg\:gap-x-5 {
-    -moz-column-gap: 1.25rem;
-         column-gap: 1.25rem;
   }
 
   .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
