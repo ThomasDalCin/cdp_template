@@ -16,10 +16,10 @@
         </a>
       </div>
     </div>
-      <div class="menu-icon">
-        <div class="line line1"></div>
-        <div class="line line2"></div>
-      </div>
+    <div class="menu-icon">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+    </div>
   </div>
 
   <!-- Second level Menu Container -->
@@ -237,44 +237,47 @@
 </div>
 
 <style>
-/* Stile del contenitore */
-.menu-icon {
-  position: relative;
-  width: 24px;  /* Larghezza del menu */
-  height: 24px; /* Altezza */
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* Stile del contenitore */
+  .menu-icon {
+    position: relative;
+    width: 24px;
+    /* Larghezza del menu */
+    height: 24px;
+    /* Altezza */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* Stile delle linee */
-.menu-icon .line {
-  position: absolute;
-  width: 24px;
-  height: 1.5px;
-  background-color: black;
-  transition: transform 0.3s ease-in-out;
-}
+  /* Stile delle linee */
+  .menu-icon .line {
+    position: absolute;
+    width: 24px;
+    height: 1.5px;
+    background-color: black;
+    transition: transform 0.3s ease-in-out;
+  }
 
-/* Posizione iniziale delle linee */
-.menu-icon .line1 {
-  transform: translateY(-3px); /* Linea superiore */
-}
+  /* Posizione iniziale delle linee */
+  .menu-icon .line1 {
+    transform: translateY(-3px);
+    /* Linea superiore */
+  }
 
-.menu-icon .line2 {
-  transform: translateY(3px);  /* Linea inferiore */
-}
+  .menu-icon .line2 {
+    transform: translateY(3px);
+    /* Linea inferiore */
+  }
 
-/* Stato attivo */
-.menu-icon.active .line1 {
-  transform: rotate(45deg);
-}
+  /* Stato attivo */
+  .menu-icon.active .line1 {
+    transform: rotate(45deg);
+  }
 
-.menu-icon.active .line2 {
-  transform: rotate(-45deg);
-}
-
+  .menu-icon.active .line2 {
+    transform: rotate(-45deg);
+  }
 </style>
 
 
@@ -298,9 +301,6 @@
     secondMenu.style.top = `${navDynamicHeight}px`;
     // Chips label
     const chipText = document.querySelector('.chip-text');
-    // Menu icons
-    const openIcon = document.querySelector('.container-open-icon');
-    const closeIcon = document.querySelector('.container-close-icon');
     //Style element
     const styleElement = document.createElement('style');
     styleElement.innerHTML = `
@@ -706,32 +706,28 @@
             mainMenu.classList.remove('flex');
             mainMenu.classList.add('hidden');
             targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
             targetEl.classList.add('toBlack');
             menuIcon.classList.add('toBlack');
             menuChip.classList.add('toBlack');
             logo.classList.add('toBlack');
             document.body.classList.remove('no-scroll');
             document.removeEventListener('click', handleClickOutside);
+            // Rimuovi animazione "X"
+            menuIcon.classList.remove('active');
           } else {
             // Nascondi il menu e aggiorna le icone
             navbar.classList.remove('toBlack');
             mainMenu.classList.remove('flex');
             mainMenu.classList.add('hidden');
             targetEl.classList.remove('toAccent');
-            closeIcon.classList.remove('flex');
-            closeIcon.classList.add('hidden');
-            openIcon.classList.remove('hidden');
-            openIcon.classList.add('flex');
             targetEl.classList.remove('toBlack');
             menuIcon.classList.remove('toBlack');
             menuChip.classList.remove('toBlack');
             logo.classList.add('text-white');
             document.body.classList.remove('no-scroll');
             document.removeEventListener('click', handleClickOutside);
+            // Rimuovi animazione "X"
+            menuIcon.classList.remove('active');
           }
         }
       };
@@ -756,6 +752,10 @@
         updateNavbarStyle();
 
         document.addEventListener('click', handleClickOutside);
+
+        // Aggiungi animazione "X" al menu icon
+        menuIcon.classList.add('active');
+
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
@@ -770,11 +770,12 @@
         document.body.classList.remove('no-scroll');
         updateNavbarStyle();
 
-
         document.removeEventListener('click', handleClickOutside);
+
+        // Rimuovi animazione "X"
+        menuIcon.classList.remove('active');
       }
     });
-
 
 
 
