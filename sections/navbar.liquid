@@ -751,10 +751,12 @@
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
 
-            // Rimuovi active-white dalle linee
-            document.querySelectorAll('.menu-icon .line').forEach(line => {
-              line.classList.remove('active-white');
-            });
+            // Rimuovi active-white solo se navbar ha scrolled
+            if (window.scrollY > 0) {
+              document.querySelectorAll('.menu-icon .line').forEach(line => {
+                line.classList.remove('active-white');
+              });
+            }
 
           } else {
             // Nascondi il menu e aggiorna le icone
@@ -771,10 +773,12 @@
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
 
-            // Rimuovi active-white dalle linee
-            document.querySelectorAll('.menu-icon .line').forEach(line => {
-              line.classList.remove('active-white');
-            });
+            // Rimuovi active-white solo se navbar ha scrolled
+            if (window.scrollY > 0) {
+              document.querySelectorAll('.menu-icon .line').forEach(line => {
+                line.classList.remove('active-white');
+              });
+            }
           }
         }
       };
@@ -814,12 +818,15 @@
         // Rimuovi animazione "X"
         menuIcon.classList.remove('active');
 
-        // Rimuovi active-white dalle linee
-        document.querySelectorAll('.menu-icon .line').forEach(line => {
-          line.classList.remove('active-white');
-        });
+        // Rimuovi active-white solo se navbar ha scrolled
+        if (window.scrollY > 0) {
+          document.querySelectorAll('.menu-icon .line').forEach(line => {
+            line.classList.remove('active-white');
+          });
+        }
       }
     });
+
 
 
 
