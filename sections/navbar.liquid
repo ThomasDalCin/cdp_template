@@ -397,94 +397,90 @@
 
 
     function updateNavbarStyle() {
-  const isMenuYatchVisible = menuYatch.classList.contains('flex');
-  const isMenuMainVisible = mainMenu.classList.contains('flex');
-  const hasScrolled = window.scrollY > 0;
+      const isMenuYatchVisible = menuYatch.classList.contains('flex');
+      const isMenuMainVisible = mainMenu.classList.contains('flex');
+      const hasScrolled = window.scrollY > 0;
 
-  // Seleziona tutte le linee sotto menuIcon
-  const menuIconLines = document.querySelectorAll('.menu-icon .line');
+      // Seleziona tutte le linee sotto menuIcon
+      const menuIconLines = document.querySelectorAll('.menu-icon .line');
 
-  if (isMenuYatchVisible || isMenuMainVisible) {
-    // Navbar menu visibile, applica lo stile
-    navbar.classList.add('toAccent');
-    navbar.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
-    
-    // Rimuovi anche 'active-white' dalle linee
-    menuIconLines.forEach(line => {
-      line.classList.remove('active-white');
-    });
+      if (isMenuYatchVisible || isMenuMainVisible) {
+        // Navbar menu visibile, applica lo stile
+        navbar.classList.add('toAccent');
+        navbar.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
 
-    const boatImages = document.querySelectorAll('.boat-image');
-    boatImages.forEach(boatImage => {
-      boatImage.style.display = 'none';
-    });
 
-  } else if (hasScrolled && !isNotHomepage) {
-    // Scrolled, ma non su homepage
-    navbar.classList.add('toBlack');
-    menuChip.classList.add('toBlack');
-    logo.classList.add('toBlack');
-    logo.classList.remove('text-white');
-    navbar.classList.remove('linear-gradient');
-    
-    // Rimuovi 'active-white' dalle linee
-    menuIconLines.forEach(line => {
-      line.classList.remove('active-white');
-    });
+        const boatImages = document.querySelectorAll('.boat-image');
+        boatImages.forEach(boatImage => {
+          boatImage.style.display = 'none';
+        });
 
-  } else if (hasScrolled) {
-    // Scrolled, non su homepage
-    navbar.classList.add('toBlack');
-    menuChip.classList.add('toBlack');
-    logo.classList.add('toBlack');
-    logo.classList.remove('text-white');
+      } else if (hasScrolled && !isNotHomepage) {
+        // Scrolled, ma non su homepage
+        navbar.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white');
+        navbar.classList.remove('linear-gradient');
 
-    // Rimuovi 'active-white' dalle linee
-    menuIconLines.forEach(line => {
-      line.classList.remove('active-white');
-    });
+        // Rimuovi 'active-white' dalle linee
+        menuIconLines.forEach(line => {
+          line.classList.remove('active-white');
+        });
 
-  } else if (!isNotHomepage && !hasScrolled) {
-    // Siamo sulla homepage, e non c'è scroll
-    navbar.classList.remove('toBlack', 'toAccent');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
-    navbar.classList.remove('linear-gradient');
-    
-    // Aggiungi 'active-white' alle linee
-    menuIconLines.forEach(line => {
-      line.classList.add('active-white');
-    });
+      } else if (hasScrolled) {
+        // Scrolled, non su homepage
+        navbar.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        logo.classList.remove('text-white');
 
-  } else if (isNewsArticle && !hasScrolled) {
-    // Su articolo di notizie senza scroll
-    navbar.classList.remove('toBlack');
-    menuChip.classList.remove('toBlack');
-    logo.classList.remove('toBlack');
-    logo.classList.add('text-white');
-    
-    // Aggiungi 'active-white' alle linee
-    menuIconLines.forEach(line => {
-      line.classList.add('active-white');
-    });
+        // Rimuovi 'active-white' dalle linee
+        menuIconLines.forEach(line => {
+          line.classList.remove('active-white');
+        });
 
-  } else {
-    // Default, non su homepage, scrolled o meno
-    navbar.classList.remove('toBlack', 'toAccent');
-    menuChip.classList.add('toBlack');
-    logo.classList.add('toBlack');
-    navbar.classList.remove('linear-gradient');
-    
-    // Rimuovi 'active-white' dalle linee
-    menuIconLines.forEach(line => {
-      line.classList.remove('active-white');
-    });
-  }
-}
+      } else if (!isNotHomepage && !hasScrolled) {
+        // Siamo sulla homepage, e non c'è scroll
+        navbar.classList.remove('toBlack', 'toAccent');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
+        navbar.classList.remove('linear-gradient');
+
+        // Aggiungi 'active-white' alle linee
+        menuIconLines.forEach(line => {
+          line.classList.add('active-white');
+        });
+
+      } else if (isNewsArticle && !hasScrolled) {
+        // Su articolo di notizie senza scroll
+        navbar.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.remove('toBlack');
+        logo.classList.add('text-white');
+
+        // Aggiungi 'active-white' alle linee
+        menuIconLines.forEach(line => {
+          line.classList.add('active-white');
+        });
+
+      } else {
+        // Default, non su homepage, scrolled o meno
+        navbar.classList.remove('toBlack', 'toAccent');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
+        navbar.classList.remove('linear-gradient');
+
+        // Rimuovi 'active-white' dalle linee
+        menuIconLines.forEach(line => {
+          line.classList.remove('active-white');
+        });
+      }
+    }
 
 
 
@@ -737,7 +733,6 @@
     });
 
 
-
     menuIcon.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -755,6 +750,12 @@
             document.removeEventListener('click', handleClickOutside);
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
+
+            // Rimuovi active-white dalle linee
+            document.querySelectorAll('.menu-icon .line').forEach(line => {
+              line.classList.remove('active-white');
+            });
+
           } else {
             // Nascondi il menu e aggiorna le icone
             navbar.classList.remove('toBlack');
@@ -769,6 +770,11 @@
             document.removeEventListener('click', handleClickOutside);
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
+
+            // Rimuovi active-white dalle linee
+            document.querySelectorAll('.menu-icon .line').forEach(line => {
+              line.classList.remove('active-white');
+            });
           }
         }
       };
@@ -790,6 +796,11 @@
         // Aggiungi animazione "X" al menu icon
         menuIcon.classList.add('active');
 
+        // Aggiungi active-white alle linee
+        document.querySelectorAll('.menu-icon .line').forEach(line => {
+          line.classList.add('active-white');
+        });
+
       } else {
         mainMenu.classList.remove('flex');
         mainMenu.classList.add('hidden');
@@ -802,6 +813,11 @@
 
         // Rimuovi animazione "X"
         menuIcon.classList.remove('active');
+
+        // Rimuovi active-white dalle linee
+        document.querySelectorAll('.menu-icon .line').forEach(line => {
+          line.classList.remove('active-white');
+        });
       }
     });
 
