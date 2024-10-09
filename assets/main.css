@@ -2595,6 +2595,10 @@ p, span{
     min-height: 518px;
   }
 
+  .lg\:min-h-\[505px\] {
+    min-height: 505px;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
