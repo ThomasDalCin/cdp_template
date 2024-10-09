@@ -418,6 +418,10 @@
           boatImage.style.display = 'none';
         });
 
+        menuIconLines.forEach(line => {
+          line.classList.add('active-white');
+        });
+
       } else if (hasScrolled && !isNotHomepage) {
         // Scrolled, ma non su homepage
         navbar.classList.add('toBlack');
