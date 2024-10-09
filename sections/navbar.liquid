@@ -777,13 +777,6 @@
             document.removeEventListener('click', handleClickOutside);
             // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
-
-            // Rimuovi active-white solo se navbar ha scrolled
-            if (window.scrollY > 0) {
-              document.querySelectorAll('.menu-icon .line').forEach(line => {
-                line.classList.remove('active-white');
-              });
-            }
           }
         }
       };
