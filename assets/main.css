@@ -1128,6 +1128,10 @@ p, span{
   margin-bottom: 0.5rem;
 }
 
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -1178,10 +1182,6 @@ p, span{
 
 .mt-\[70px\] {
   margin-top: 70px;
-}
-
-.mb-3 {
-  margin-bottom: 0.75rem;
 }
 
 .box-border {
@@ -1421,10 +1421,6 @@ p, span{
   width: 104px;
 }
 
-.w-\[127px\] {
-  width: 127px;
-}
-
 .w-\[165px\] {
   width: 165px;
 }
@@ -1497,6 +1493,10 @@ p, span{
   width: 100%;
 }
 
+.min-w-\[127px\] {
+  min-width: 127px;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -1511,10 +1511,6 @@ p, span{
 
 .min-w-\[343px\] {
   min-width: 343px;
-}
-
-.min-w-\[127px\] {
-  min-width: 127px;
 }
 
 .max-w-\[343px\] {
@@ -1753,16 +1749,8 @@ p, span{
   white-space: nowrap;
 }
 
-.whitespace-normal {
-  white-space: normal;
-}
-
 .text-nowrap {
   text-wrap: nowrap;
-}
-
-.break-words {
-  overflow-wrap: break-word;
 }
 
 .rounded {
@@ -2000,16 +1988,12 @@ p, span{
   padding-bottom: 13rem;
 }
 
-.pl-\[51px\] {
-  padding-left: 51px;
-}
-
-.pl-4 {
-  padding-left: 1rem;
-}
-
 .pl-5 {
   padding-left: 1.25rem;
+}
+
+.pl-\[51px\] {
+  padding-left: 51px;
 }
 
 .text-center {
@@ -2439,6 +2423,10 @@ p, span{
     margin-bottom: 2.5rem;
   }
 
+  .lg\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
   .lg\:mb-\[24px\] {
     margin-bottom: 24px;
   }
@@ -2465,10 +2453,6 @@ p, span{
 
   .lg\:mt-\[90px\] {
     margin-top: 90px;
-  }
-
-  .lg\:mb-6 {
-    margin-bottom: 1.5rem;
   }
 
   .lg\:flex {
@@ -2655,6 +2639,10 @@ p, span{
     width: calc(100% - 32px);
   }
 
+  .lg\:w-\[calc\(100\%_\+_5rem\)\] {
+    width: calc(100% + 5rem);
+  }
+
   .lg\:w-\[calc\(33\.3\%_-2\.5rem\)\] {
     width: calc(33.3% - 2.5rem);
   }
@@ -2681,10 +2669,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(100\%_\+_5rem\)\] {
-    width: calc(100% + 5rem);
   }
 
   .lg\:min-w-\[220px\] {
