@@ -135,7 +135,7 @@
               {% for collection in collections %}
                  {% if collection.title != 'Pardo approved' %}
                   {% for product in collection.products %}
-                    <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
+                    <div class="badge-product border-white cursor-pointer mt-4 mb-4 flex flex-row flex-wrap w-[343px] max-w-[343px] items-start justify-center" data-target="{{ product.title }}">
                       <a href="{{ product.url }}">
                         {{ product.title | replace: 'Pardo', '' }}
                       </a>
