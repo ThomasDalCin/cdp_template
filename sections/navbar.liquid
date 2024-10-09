@@ -134,11 +134,13 @@
             <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
               {% for collection in collections %}
                  {% if collection.title != 'Pardo approved' %}
-                  <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
-                    <a href="{{ product.url }}">
-                      {{ product.title | replace: 'Pardo', '' }}
-                    </a>
-                  </div>
+                  {% for product in collection.products %}
+                    <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
+                      <a href="{{ product.url }}">
+                        {{ product.title | replace: 'Pardo', '' }}
+                      </a>
+                    </div>
+                  {% endfor %}
                  {% endif %}
               {% endfor %}
             </div>
