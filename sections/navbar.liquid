@@ -242,21 +242,24 @@
     /* Stile base del contenitore */
     .menu-icon {
       position: relative;
-      width: 40px;
-      height: 40px;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
       display: flex;
+      align-items: center;
+      justify-content: center;
       flex-direction: column;
       row-gap: .3rem;
     }
 
     /* Stile delle linee */
     .menu-icon div {
-      width: 30px;
-      height: 1px;
+      width: 24px;
+      height: 2px;
       background-color: black;
       transition: transform 0.4s ease;
       transform-origin: center;
+      border-radius: 2px;
     }
 
     /* Stato attivo */
