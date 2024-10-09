@@ -239,37 +239,42 @@
 </div>
 
 <style>
-/* Stile base del contenitore */
+/* Stile del contenitore */
 .menu-icon {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 30px;  /* Larghezza del menu */
+  height: 24px; /* Altezza */
   cursor: pointer;
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  row-gap: 0.3rem;
+  align-items: center;
 }
 
 /* Stile delle linee */
-.menu-icon div {
-  width: 24px;
+.menu-icon .line {
+  position: absolute;
+  width: 30px;
   height: 2px;
   background-color: black;
-  transition: transform 0.4s ease;
-  transform-origin: center;
-  border-radius: 2px;
-  display: block; /* Assicura che ogni div si comporti come un blocco separato */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Posizione iniziale delle linee */
+.menu-icon .line1 {
+  transform: translateY(-6px); /* Linea superiore */
+}
+
+.menu-icon .line2 {
+  transform: translateY(6px);  /* Linea inferiore */
 }
 
 /* Stato attivo */
 .menu-icon.active .line1 {
-  transform: rotate(45deg); /* Rimuoviamo il translate */
+  transform: rotate(45deg);
 }
 
 .menu-icon.active .line2 {
-  transform: rotate(-45deg); /* Rimuoviamo il translate */
+  transform: rotate(-45deg);
 }
 
 </style>
