@@ -98,7 +98,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px] lg:min-h-[505px] lg:max-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-img">
         {% endif %}
@@ -140,7 +140,7 @@
           {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px] lg:max-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-down-img">
         {% endif %}
@@ -183,7 +183,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px]"
+            class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]  lg:min-h-[505px] lg:max-h-[505px]"
             alt="{{ first_image.alt }}"
             id="first-internal-up-img">
         {% endif %}
