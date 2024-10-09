@@ -2397,6 +2397,10 @@ p, span{
     right: calc(100% - 1024px);
   }
 
+  .lg\:left-\[1024px\] {
+    left: 1024px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
