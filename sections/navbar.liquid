@@ -830,6 +830,7 @@ allChipsCollection.forEach((chipCol) => {
     if (chipClicked.innerText !== 'View all ranges') {
       chipClicked.nextElementSibling.classList.remove('-rotate-45');
       chipClicked.parentElement.classList.add('chips-label-active');
+      chipFixed.classList.remove('hidden'); // Rendi nuovamente visibile "View all ranges"
     }
     
     toggleProducts(chipClicked);
