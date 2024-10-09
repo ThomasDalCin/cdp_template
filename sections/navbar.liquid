@@ -131,11 +131,11 @@
         <div
           class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
           {% if link.title == "View all ranges" %}
-            <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
+            <div class="contaiener-badges h-auto flex flex-row flex-wrap gap-x-2 items-start justify-center w-[343px]">
               {% for collection in collections %}
                  {% if collection.title != 'Pardo approved' %}
                   {% for product in collection.products %}
-                    <div class="badge-product border-white cursor-pointer mt-4 mb-4 flex flex-row flex-wrap w-[343px] max-w-[343px] items-start justify-center" data-target="{{ product.title }}">
+                    <div class="badge-product border-white cursor-pointer mt-4 mb-4" data-target="{{ product.title }}">
                       <a href="{{ product.url }}">
                         {{ product.title | replace: 'Pardo', '' }}
                       </a>
