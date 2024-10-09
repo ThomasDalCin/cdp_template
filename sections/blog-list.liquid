@@ -176,7 +176,7 @@
   {% for article in blogs.news.articles %}
   {% if article.tags contains 'Awards' %}
   <a href="{{ article.url }}">
-    <div class="blog-item-awards w-full h-auto flex flex-col gap-y-4 p-4">
+    <div class="blog-item-awards w-full h-auto flex flex-col gap-y-4 p-4 lg:px-10">
       <div class="blog-item-image w-full h-auto">
         <img src="{{ article.image | img_url: 'master' }}"
           class="w-full h-auto min-h-[200px] max-h-[200px] object-cover rounded-xl lg:h-[480px] lg:max-h-[480px]"
