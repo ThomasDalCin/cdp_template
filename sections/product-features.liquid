@@ -108,7 +108,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
                   {% for item in items_speeds %}
                     <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] px-4 py-[10px]  border">
                       <span class="body-12-medium text-[var(--hover-gray)]">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
-                      <span class="body-12-medium  font-bold">{{ item }}</span>
+                      <span class="body-12-medium  font-bold break-words whitespace-normal">{{ item }}</span>
                     </li>
                   {% endfor %}
                 {% else %}
