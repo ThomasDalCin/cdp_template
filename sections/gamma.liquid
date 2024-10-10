@@ -212,13 +212,6 @@
       });
     }
 
-    const isDesktop = window.innerWidth > 1024;
-    if (isDesktop) {
-      badgeProducts.forEach((badge) => {
-        badge.removeEventListener('click');
-      })
-    }
-
     // Handle click for badge products
     badgeProducts.forEach(badge => {
       badge.addEventListener('click', (e) => {
