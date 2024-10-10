@@ -134,7 +134,6 @@
 </div>
 
 
-
             <!-- Port -->
             <div class="form-group w-full">
               <input
@@ -218,43 +217,44 @@
         charCount.textContent = textarea.value.length;
     }
 
+ 
     document.addEventListener('DOMContentLoaded', function () {
-  const dropdownToggle = document.getElementById('dropdown-toggle');
-  const dropdownOptions = document.getElementById('dropdown-options');
-  const dropdownLabel = document.getElementById('dropdown-label');
-  const dropdownArrow = document.getElementById('dropdown-arrow');
-  const options = document.querySelectorAll('.badge.product'); // Seleziona le chip con classe 'badge product'
+    const dropdownToggle = document.getElementById('dropdown-toggle');
+    const dropdownOptions = document.getElementById('dropdown-options');
+    const dropdownLabel = document.getElementById('dropdown-label');
+    const dropdownArrow = document.getElementById('dropdown-arrow');
+    const options = document.querySelectorAll('.badge.product'); // Seleziona le chip con classe 'badge product'
 
-  // Apre/chiude il dropdown al click
-  dropdownToggle.addEventListener('click', function () {
-    dropdownOptions.classList.toggle('open');
-    dropdownArrow.classList.toggle('rotate-180'); // Ruota la freccia
-  });
+    // Apre/chiude il dropdown al click
+    dropdownToggle.addEventListener('click', function () {
+      dropdownOptions.classList.toggle('hidden'); // Toggle the hidden class to show/hide the dropdown
+      dropdownArrow.classList.toggle('rotate-180'); // Ruota la freccia
+    });
 
-  // Seleziona una chip e aggiorna il label del dropdown
-  options.forEach(option => {
-    option.addEventListener('click', function () {
-      // Rimuove la classe 'selected' da tutte le chip
-      options.forEach(o => o.classList.remove('selected'));
-      
-      // Aggiunge la classe 'selected' alla chip cliccata
-      this.classList.add('selected');
-      
-      // Aggiorna il label del dropdown con il nome del prodotto selezionato
-      dropdownLabel.textContent = this.textContent;
-      
-      // Chiude il dropdown
-      dropdownOptions.classList.remove('open');
+    // Seleziona una chip e aggiorna il label del dropdown
+    options.forEach(option => {
+      option.addEventListener('click', function () {
+        // Rimuove la classe 'selected' da tutte le chip
+        options.forEach(o => o.classList.remove('selected'));
+        
+        // Aggiunge la classe 'selected' alla chip cliccata
+        this.classList.add('selected');
+        
+        // Aggiorna il label del dropdown con il nome del prodotto selezionato
+        dropdownLabel.textContent = this.textContent;
+        
+        // Chiude il dropdown
+        dropdownOptions.classList.add('hidden');
+      });
+    });
+
+    // Chiusura del dropdown quando si clicca fuori
+    document.addEventListener('click', function (e) {
+      if (!dropdownToggle.contains(e.target) && !dropdownOptions.contains(e.target)) {
+        dropdownOptions.classList.add('hidden');
+      }
     });
   });
-
-  // Chiusura del dropdown quando si clicca fuori
-  document.addEventListener('click', function (e) {
-    if (!dropdownToggle.contains(e.target) && !dropdownOptions.contains(e.target)) {
-      dropdownOptions.classList.remove('open');
-    }
-  });
-});
 
 </script>
 
