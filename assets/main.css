@@ -2919,6 +2919,18 @@ p, span{
     border-top-right-radius: 0px;
   }
 
+  .lg\:rounded-br-lg {
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .lg\:rounded-tr-lg {
+    border-top-right-radius: 0.5rem;
+  }
+
+  .lg\:rounded-tl-none {
+    border-top-left-radius: 0px;
+  }
+
   .lg\:border-b-\[1px\] {
     border-bottom-width: 1px;
   }
