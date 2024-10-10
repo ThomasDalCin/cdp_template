@@ -1069,6 +1069,14 @@ p, span{
   top: 16px;
 }
 
+.bottom-\[10px\] {
+  bottom: 10px;
+}
+
+.right-\[10px\] {
+  right: 10px;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1095,10 +1103,6 @@ p, span{
 
 .z-\[99999\] {
   z-index: 99999;
-}
-
-.m-4 {
-  margin: 1rem;
 }
 
 .-mx-4 {
@@ -2008,6 +2012,10 @@ p, span{
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-\[16px\] {
   font-size: 16px;
 }
@@ -2101,6 +2109,11 @@ p, span{
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-gray-700 {
