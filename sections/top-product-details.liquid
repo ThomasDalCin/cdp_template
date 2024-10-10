@@ -695,6 +695,7 @@
     });
 
     // handle scroll images container
+    // handle scroll images container
     const arrows = document.querySelectorAll('.carousel-arrow');
 
     arrows.forEach((arrow) => {
@@ -720,14 +721,19 @@
 
       const scrollAmount = totalImageWidth / imagesLength;
       return scrollAmount;
-    };
+    }
 
     function handleScroll(amount, scrollContainer) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const tolerance = 40; // Tolleranza di 40px oltre la fine
+
+      // Calcola la nuova posizione di scroll
       let newScrollLeft = currentScrollLeft + amount;
-      if (newScrollLeft >= maxScrollLeft) {
-        newScrollLeft = 0;
+
+      // Se siamo oltre la fine con la tolleranza, torniamo all'inizio
+      if (newScrollLeft > maxScrollLeft + tolerance) {
+        newScrollLeft = 0; // Torna all'inizio
       }
 
       scrollContainer.scrollTo({
@@ -735,6 +741,7 @@
         behavior: 'smooth',
       });
     }
+
 
 
   });
