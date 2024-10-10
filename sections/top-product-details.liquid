@@ -694,50 +694,45 @@
       loop: true
     });
 
-    //handle scroll images container
     // handle scroll images container
-    const arrows = document.querySelectorAll('.carousel-arrow');
+const arrows = document.querySelectorAll('.carousel-arrow');
 
-    arrows.forEach((arrow) => {
-      arrow.addEventListener('click', (e) => {
-        const arrowClicked = e.currentTarget;
-        const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
-        const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
-        const scrollAmount = calculateScrollAmount(allImages);
-        handleScroll(scrollAmount, scrollContainer);
-      });
-    });
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', (e) => {
+    const arrowClicked = e.currentTarget;
+    const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
+    const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
+    const scrollAmount = calculateScrollAmount(allImages);
+    handleScroll(scrollAmount, scrollContainer);
+  });
+});
 
-    function calculateScrollAmount(allImages) {
-      const imagesArray = Array.from(allImages); // Convert NodeList to Array
-      const imagesLength = imagesArray.length;
-      const totalImageWidth = imagesArray
-        .map((image) => {
-          const width = image.offsetWidth;
-          const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
-          return width + marginRight;
-        })
-        .reduce((acc, width) => acc + width, 0);
+function calculateScrollAmount(allImages) {
+  const imagesArray = Array.from(allImages); // Convert NodeList to Array
+  const imagesLength = imagesArray.length;
+  const totalImageWidth = imagesArray
+    .map((image) => {
+      const width = image.offsetWidth;
+      const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
+      return width + marginRight;
+    })
+    .reduce((acc, width) => acc + width, 0);
+  
+  const scrollAmount = totalImageWidth / imagesLength;
+  return scrollAmount;
+};
 
-      const scrollAmount = totalImageWidth / imagesLength;
-      return scrollAmount;
-    }
+function handleScroll(amount, scrollContainer) {
+  const currentScrollLeft = scrollContainer.scrollLeft;
+  const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  
+  const newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
 
-    function handleScroll(amount, scrollContainer) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      let newScrollLeft = currentScrollLeft + amount;
-
-      if (newScrollLeft >= maxScrollLeft) {
-        newScrollLeft = 0;
-      }
-
-      scrollContainer.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth',
-      });
-    }
+  scrollContainer.scrollTo({
+    left: newScrollLeft,
+    behavior: 'smooth',
+  });
+}
 
 
   });
