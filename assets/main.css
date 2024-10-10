@@ -1321,6 +1321,10 @@ p, span{
   height: 100vh;
 }
 
+.h-\[705\] {
+  height: 705;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -2553,6 +2557,10 @@ p, span{
 
   .lg\:h-\[160px\] {
     height: 160px;
+  }
+
+  .lg\:h-\[705\] {
+    height: 705;
   }
 
   .lg\:max-h-\[480px\] {
