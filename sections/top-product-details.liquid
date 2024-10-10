@@ -96,7 +96,7 @@
         {% assign internal_images = updated_values | split: "," %}
         {% assign first_image = internal_gallery[internal_images[0]] %}
         <img src="{{ first_image | img_url: 'master' }}"
-          class="w-full min-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px]"
+          class="w-full min-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
           alt="{{ first_image.alt }}" id="first-internal-img">
         {% endif %}
       </div>
@@ -171,7 +171,7 @@
         {% assign internal_images = updated_values | split: "," %}
         {% assign first_image = internal_gallery[internal_images[0]] %}
         <img src="{{ first_image | img_url: 'master' }}"
-          class="w-full min-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px]"
+          class="w-full min-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
           alt="{{ first_image.alt }}" id="first-internal-up-img">
         {% endif %}
       </div>
