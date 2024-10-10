@@ -726,7 +726,7 @@
     function handleScroll(amount, scrollContainer) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const tolerance = 40; // Tolleranza di 40px oltre la fine
+      const tolerance = 200; // Tolleranza di 40px oltre la fine
 
       // Calcola la nuova posizione di scroll
       let newScrollLeft = currentScrollLeft + amount;
