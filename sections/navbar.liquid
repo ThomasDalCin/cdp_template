@@ -396,100 +396,99 @@
       return null;
     }*/
 
-
+    //handle navstyle
     function updateNavbarStyle() {
       const isMenuYatchVisible = menuYatch.classList.contains('flex');
       const isMenuMainVisible = mainMenu.classList.contains('flex');
       const hasScrolled = window.scrollY > 0;
 
-      // Seleziona tutte le linee sotto menuIcon
+      //get lines humburgher menu
       const menuIconLines = document.querySelectorAll('.menu-icon .line');
 
       if (isMenuYatchVisible || isMenuMainVisible) {
-        // Navbar menu visibile, applica lo stile
+        //add style to the nav if its menu is visible
         navbar.classList.add('toAccent');
         navbar.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
 
-
+        //get all boat images for desktop menu
         const boatImages = document.querySelectorAll('.boat-image');
         boatImages.forEach(boatImage => {
           boatImage.style.display = 'none';
         });
-
+        
+        //add white style on lines of humburgher menu
         menuIconLines.forEach(line => {
           line.classList.add('active-white');
         });
 
       } else if (hasScrolled && !isNotHomepage) {
-        // Scrolled, ma non su homepage
+        //Scolled but not home page
         navbar.classList.add('toBlack');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
         navbar.classList.remove('linear-gradient');
 
-        // Rimuovi 'active-white' dalle linee
+        //Remove white lines on humburgher menu
         menuIconLines.forEach(line => {
           line.classList.remove('active-white');
         });
 
       } else if (hasScrolled) {
-        // Scrolled, non su homepage
+        //Scrolled in general
         navbar.classList.add('toBlack');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         logo.classList.remove('text-white');
 
-        // Rimuovi 'active-white' dalle linee
+         //Remove white lines on humburgher menu
         menuIconLines.forEach(line => {
           line.classList.remove('active-white');
         });
 
       } else if (!isNotHomepage && !hasScrolled) {
-        // Siamo sulla homepage, e non c'è scroll
+        //Home page no scroll
         navbar.classList.remove('toBlack', 'toAccent');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
         navbar.classList.remove('linear-gradient');
 
-        // Aggiungi 'active-white' alle linee
+        //Add white lines on humburgher menu
         menuIconLines.forEach(line => {
           line.classList.add('active-white');
         });
 
       } else if (isNewsArticle && !hasScrolled) {
-        // Su articolo di notizie senza scroll
+        //Article page no scroll
         navbar.classList.remove('toBlack');
         menuChip.classList.remove('toBlack');
         logo.classList.remove('toBlack');
         logo.classList.add('text-white');
 
-        // Aggiungi 'active-white' alle linee
+         //Add white lines on humburgher menu
         menuIconLines.forEach(line => {
           line.classList.add('active-white');
         });
 
       } else {
-        // Default, non su homepage, scrolled o meno
+        //Default settings
         navbar.classList.remove('toBlack', 'toAccent');
         menuChip.classList.add('toBlack');
         logo.classList.add('toBlack');
         navbar.classList.remove('linear-gradient');
 
-        // Rimuovi 'active-white' dalle linee
+         //Remove white lines on humburgher menu
         menuIconLines.forEach(line => {
           line.classList.remove('active-white');
         });
       }
     }
-
-
-
-    //handle second menu layut base on device size
+    
+    //handle second menu layout base on device size
     window.addEventListener('resize', handleSecondMenuLevel);
     handleSecondMenuLevel();
 
@@ -497,7 +496,7 @@
     function handleSecondMenuLevel() {
       const screenSize = window.innerWidth;
       let lastBadge;
-
+      //handle each links inside second menu level
       document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
         if (screenSize <= 625) {
           link.addEventListener('click', (e) => {
@@ -512,7 +511,7 @@
           });
         }
         else {
-
+          //set hover on each link
           link.addEventListener('mouseover', (e) => {
             e.currentTarget.classList.add('text-shadow');
           });
@@ -520,7 +519,7 @@
           link.addEventListener('mouseout', (e) => {
             e.currentTarget.classList.remove('text-shadow');
           });
-
+          //set click on each link
           link.addEventListener('click', (e) => {
             e.preventDefault();
 
@@ -531,22 +530,24 @@
             const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
             const boatImages = document.querySelectorAll('.boat-image');
 
-
+            //hide each boat images to prevent them visibility
             boatImages.forEach(boatImage => {
               boatImage.style.display = 'none';
             });
 
-
+            //set style on badge product
             badgesProduct.forEach(badge => {
               badge.classList.remove('text-black', 'bg-white');
             });
-
+            
+            //handle the style of first badge product when click on link
             let lastBadge;
             if (badgesProduct.length === 1) {
               lastBadge = badgesProduct[0];
             } else {
               lastBadge = badgesProduct[badgesProduct.length - 1];
             }
+
             lastBadge.classList.add('text-black', 'bg-white');
 
             badgesProduct.forEach((badge) => {
@@ -564,7 +565,8 @@
                 }
               });
             });
-
+            
+            //display boat image when over on badge product
             const targetImage = lastBadge.getAttribute('data-target');
             boatImages.forEach(boatImage => {
               if (boatImage.getAttribute('data-image') === targetImage) {
@@ -586,21 +588,21 @@
 
             collectionInfoContainer.classList.remove('overflow-hidden', 'h-0');
             collectionInfoContainer.classList.add('overflow-auto', 'h-auto');
-
+            //handle click outside
             function handleOutsideClick(event) {
               const clickedOutside = Array.from(allCollectionMenuItems).every(item => !item.contains(event.target));
 
               if (clickedOutside) {
                 collectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
                 collectionInfoContainer.classList.add('overflow-hidden', 'h-0');
-
+                //remove display on boat image active
                 boatImages.forEach((boatImage) => {
                   const badgeActive = collectionInfoContainer.querySelector('.bg-white').getAttribute('data-target');
                   if (boatImage.getAttribute('data-image') === badgeActive) {
                     boatImage.style.display = 'none';
                   }
                 });
-
+                 //remove event listner
                 document.removeEventListener('click', handleOutsideClick);
               }
             }
@@ -609,8 +611,6 @@
               document.addEventListener('click', handleOutsideClick);
             }, 0);
           });
-
-
         }
       });
     }
@@ -626,7 +626,7 @@
       const boatDesktopContainer = document.querySelector('.boat-image-container');
       const badges = document.querySelectorAll('.badge-product');
       const images = document.querySelectorAll('.boat-image-container img');
-
+      //hide all this elements on mobile
       if (screenSize <= 625) {
         collectionDesktopInfo.forEach((div) => {
           div.style.display = 'none';
@@ -661,7 +661,7 @@
       }
     }
 
-
+    //handle click on menu chip
     menuChip.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
@@ -742,13 +742,12 @@
       }
     });
 
-
+     //handle click on menu icon
     menuIcon.addEventListener('click', (e) => {
       const targetEl = navbar;
       const handleClickOutside = (event) => {
         if (!mainMenu.contains(event.target) && !menuIcon.contains(event.target) && !navbar.contains(event.target)) {
           if (isNotHomepage) {
-            // Nascondi il menu e aggiorna le icone
             mainMenu.classList.remove('flex');
             mainMenu.classList.add('hidden');
             targetEl.classList.remove('toAccent');
@@ -758,10 +757,10 @@
             logo.classList.add('toBlack');
             document.body.classList.remove('no-scroll');
             document.removeEventListener('click', handleClickOutside);
-            // Rimuovi animazione "X"
+            //remove active from humburgher menu
             menuIcon.classList.remove('active');
 
-            // Rimuovi active-white solo se navbar ha scrolled
+            // Remove white lines on humburgher menu if scrolled
             if (window.scrollY > 0) {
               document.querySelectorAll('.menu-icon .line').forEach(line => {
                 line.classList.remove('active-white');
@@ -769,7 +768,6 @@
             }
 
           } else {
-            // Nascondi il menu e aggiorna le icone
             navbar.classList.remove('toBlack');
             mainMenu.classList.remove('flex');
             mainMenu.classList.add('hidden');
@@ -780,7 +778,6 @@
             logo.classList.add('text-white');
             document.body.classList.remove('no-scroll');
             document.removeEventListener('click', handleClickOutside);
-            // Rimuovi animazione "X"
             menuIcon.classList.remove('active');
           }
         }
@@ -799,11 +796,8 @@
         updateNavbarStyle();
 
         document.addEventListener('click', handleClickOutside);
-
-        // Aggiungi animazione "X" al menu icon
         menuIcon.classList.add('active');
 
-        // Aggiungi active-white alle linee
         document.querySelectorAll('.menu-icon .line').forEach(line => {
           line.classList.add('active-white');
         });
@@ -818,10 +812,7 @@
 
         document.removeEventListener('click', handleClickOutside);
 
-        // Rimuovi animazione "X"
         menuIcon.classList.remove('active');
-
-        // Rimuovi active-white solo se navbar ha scrolled
         if (window.scrollY > 0) {
           document.querySelectorAll('.menu-icon .line').forEach(line => {
             line.classList.remove('active-white');
@@ -829,10 +820,7 @@
         }
       }
     });
-
-
-
-
+    
     // Hide the second-level menu and show the main menu when the back arrow is clicked
     document.querySelector('.back-nav-container').addEventListener('click', () => {
       secondMenu.classList.add('hidden');
@@ -849,10 +837,10 @@
     const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
     const chipFixed = document.querySelector('.chip-fixed');
 
-    // Stato delle descrizioni (chiusa o meno)
+    //Description state
     const descriptionState = {};
 
-    // Funzione per mostrare e nascondere i prodotti
+    //Show boats png
     function toggleProducts(chipClicked) {
       productCols.forEach((product) => {
         if (chipClicked.innerText === product.getAttribute('data-product-collection') ||
@@ -864,22 +852,21 @@
       });
     }
 
-    // Funzione per gestire il reset dello scroll
+    //handle reset scroll
     function resetScroll() {
       document.querySelector('.second-level-menu-items').scrollTop = 0;
     }
 
-    // Funzione per gestire la chiusura delle descrizioni
+    //Handle close description content
     function handleDescriptionContent(item) {
       if (item.classList.contains('flex') || item.classList.contains('flex-row')) {
         item.classList.remove('flex');
         item.classList.add('hidden');
-        // Memorizza lo stato della descrizione come "chiusa"
         descriptionState[item.getAttribute('data-collection-description')] = true;
       }
     }
 
-    // Aggiungi la logica per chiudere la descrizione tramite la `x`
+    //handle close description container by tap on x
     function addCloseIconListeners() {
       document.querySelectorAll('.container-x-icon').forEach((icon) => {
         icon.addEventListener('click', (e) => {
@@ -890,15 +877,15 @@
       });
     }
 
-    // Gestione del clic sui link del menu
+    //handle click on links
     allSecondLinksMenu.forEach((link) => {
       link.addEventListener('click', (e) => {
         const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
 
-        // Resetta lo scroll
+        //Rest scroll
         resetScroll();
 
-        // Nascondi i prodotti e le descrizioni
+        //hide description container
         allCollectionDescription.forEach((el) => {
           if (!descriptionState[el.getAttribute('data-collection-description')]) {
             el.classList.add('hidden');
@@ -910,7 +897,7 @@
           product.parentElement.classList.add('hidden');
         });
 
-        // Se è "View all ranges", mostriamo tutti i prodotti ma **non** attiviamo la classe "chips-label-active"
+        // Show png boat if clicked on view all ranges but no active chip stype
         if (linkTarget === "View all ranges") {
           productCols.forEach((product) => {
             if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
@@ -918,19 +905,19 @@
             }
           });
 
-          // Nascondi il chip fisso
+          //Hide chip view all ranges
           chipFixed.classList.add('hidden');
 
-          // Rimuovi l'attivazione da tutte le chips
+          //Remove active chip on each chip
           allChipsCollection.forEach((chip) => {
             chip.parentElement.classList.remove('chips-label-active');
             chip.nextElementSibling.classList.add('-rotate-45');
           });
 
-          return; // Esci dalla funzione qui, non continuare con l'attivazione delle chips
+          return;
         }
 
-        // Mostra la descrizione della collezione corrispondente
+        //Show the description container on target link
         allCollectionDescription.forEach((item) => {
           if (linkTarget === item.getAttribute('data-collection-description') && !descriptionState[item.getAttribute('data-collection-description')]) {
             item.classList.remove('hidden');
@@ -938,7 +925,7 @@
           }
         });
 
-        // Attivazione chips (tranne "View all ranges")
+        //handle active cheap no view all ranges
         allChipsCollection.forEach((chipCol) => {
           const parentElement = chipCol.parentElement;
           parentElement.classList.remove('chips-label-active');
@@ -951,33 +938,32 @@
           }
         });
 
-        // Aggiungi il listener per chiudere la descrizione tramite la `x`
+        //handle close description container
         addCloseIconListeners();
       });
     });
 
-    // Gestione clic sulle chips
+    //handle click on cheaps
     allChipsCollection.forEach((chipCol) => {
       chipCol.addEventListener('click', (e) => {
         const chipClicked = e.currentTarget;
         resetScroll();
 
-        // Rimuovi attivazioni precedenti
         allChipsCollection.forEach((el) => {
           el.parentElement.classList.remove('chips-label-active');
           el.nextElementSibling.classList.add('-rotate-45');
         });
 
-        // Non attivare la classe "active" su "View all ranges"
+        //no active chip on view all ranges fixed chip
         if (chipClicked.innerText !== 'View all ranges') {
           chipClicked.nextElementSibling.classList.remove('-rotate-45');
           chipClicked.parentElement.classList.add('chips-label-active');
-          chipFixed.classList.remove('hidden'); // Rendi nuovamente visibile "View all ranges"
+          chipFixed.classList.remove('hidden');
         }
 
         toggleProducts(chipClicked);
 
-        // Mostra la descrizione della collezione per la chip selezionata
+        //Show description container chip active
         allCollectionDescription.forEach((item) => {
           if (chipClicked.innerText === item.getAttribute('data-collection-description') && !descriptionState[item.getAttribute('data-collection-description')]) {
             item.classList.remove('hidden');
@@ -988,19 +974,19 @@
           }
         });
 
-        // Aggiungi il listener per chiudere la descrizione tramite la `x`
+        //handle close container description
         addCloseIconListeners();
       });
     });
 
-    // Gestione speciale per "View all ranges" sull'intero contenitore
+    //handle fixed chip view all ranges container
     const viewAllRangesContainer = document.querySelector('.chip-fixed');
 
     if (viewAllRangesContainer) {
       viewAllRangesContainer.addEventListener('click', () => {
         resetScroll();
 
-        // Mostra tutti i prodotti, tranne quelli "Pardo approved"
+        //show all png boat no pardo approved
         productCols.forEach((product) => {
           if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
             product.parentElement.classList.remove('hidden');
@@ -1009,24 +995,24 @@
           }
         });
 
-        // Nascondi tutte le descrizioni
+        //hide all description container
         allCollectionDescription.forEach((el) => {
           el.classList.add('hidden');
           el.classList.remove('flex');
         });
 
-        // Rimuovi attivazioni da tutte le chips
+        //remove all active chip layout
         allChipsCollection.forEach((chip) => {
           chip.parentElement.classList.remove('chips-label-active');
           chip.nextElementSibling.classList.add('-rotate-45');
         });
 
-        // Nascondi il chip fisso
+        //hide chip fixed view all ranges
         chipFixed.classList.add('hidden');
       });
     }
 
-    // Aggiungi i listener per chiudere la descrizione tramite la `x` alla prima esecuzione
+    //hide container description by tap on x
     addCloseIconListeners();
 
 

@@ -1045,6 +1045,10 @@ p, span{
   right: 1rem;
 }
 
+.right-5 {
+  right: 1.25rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -1063,10 +1067,6 @@ p, span{
 
 .top-\[16px\] {
   top: 16px;
-}
-
-.right-5 {
-  right: 1.25rem;
 }
 
 .z-0 {
@@ -1623,10 +1623,6 @@ p, span{
 
 .items-start {
   align-items: flex-start;
-}
-
-.items-end {
-  align-items: flex-end;
 }
 
 .items-center {
@@ -2425,6 +2421,11 @@ p, span{
     z-index: 50;
   }
 
+  .lg\:-mx-0 {
+    margin-left: -0px;
+    margin-right: -0px;
+  }
+
   .lg\:-mx-10 {
     margin-left: -2.5rem;
     margin-right: -2.5rem;
@@ -2433,11 +2434,6 @@ p, span{
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
-  }
-
-  .lg\:-mx-0 {
-    margin-left: -0px;
-    margin-right: -0px;
   }
 
   .lg\:mb-0 {
@@ -2808,10 +2804,6 @@ p, span{
     gap: 2.5rem;
   }
 
-  .lg\:gap-4 {
-    gap: 1rem;
-  }
-
   .lg\:gap-x-10 {
     -moz-column-gap: 2.5rem;
          column-gap: 2.5rem;
@@ -2969,12 +2961,12 @@ p, span{
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
-  .lg\:bg-cover {
-    background-size: cover;
-  }
-
   .lg\:bg-55\% {
     background-size: 55%;
+  }
+
+  .lg\:bg-cover {
+    background-size: cover;
   }
 
   .lg\:bg-center {
@@ -3165,10 +3157,6 @@ p, span{
 
   .lg\:last-of-type\:mr-20:last-of-type {
     margin-right: 5rem;
-  }
-
-  .lg\:last-of-type\:mr-6:last-of-type {
-    margin-right: 1.5rem;
   }
 
   .lg\:last-of-type\:pr-20:last-of-type {
