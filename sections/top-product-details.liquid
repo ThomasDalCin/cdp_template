@@ -726,7 +726,13 @@ function handleScroll(amount, scrollContainer) {
   const currentScrollLeft = scrollContainer.scrollLeft;
   const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
   
-  const newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+  // Calcola la nuova posizione di scroll
+  let newScrollLeft = currentScrollLeft + amount;
+
+  // Se abbiamo raggiunto o superato la fine, torniamo all'inizio
+  if (newScrollLeft >= maxScrollLeft) {
+    newScrollLeft = 0;
+  }
 
   scrollContainer.scrollTo({
     left: newScrollLeft,
