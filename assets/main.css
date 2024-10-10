@@ -2435,6 +2435,11 @@ p, span{
     margin-right: 0px;
   }
 
+  .lg\:-mx-0 {
+    margin-left: -0px;
+    margin-right: -0px;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
