@@ -1405,6 +1405,10 @@ p, span{
   min-height: 220px;
 }
 
+.min-h-\[705px\] {
+  min-height: 705px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -2605,6 +2609,10 @@ p, span{
 
   .lg\:min-h-\[518px\] {
     min-height: 518px;
+  }
+
+  .lg\:min-h-\[705px\] {
+    min-height: 705px;
   }
 
   .lg\:w-1\/2 {
