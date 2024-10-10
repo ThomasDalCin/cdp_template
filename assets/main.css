@@ -1325,6 +1325,10 @@ p, span{
   height: 705;
 }
 
+.h-\[705px\] {
+  height: 705px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -2561,6 +2565,10 @@ p, span{
 
   .lg\:h-\[705\] {
     height: 705;
+  }
+
+  .lg\:h-\[705px\] {
+    height: 705px;
   }
 
   .lg\:max-h-\[480px\] {
