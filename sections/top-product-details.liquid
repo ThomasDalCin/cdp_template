@@ -1,5 +1,6 @@
 <!-- product image w tab -->
-<div class="w-full h-auto flex flex-col items-start justify-center lg:flex-row mt-[100px] lg:relative mb-10 lg:gap-x-10 lg:pr-10">
+<div
+  class="w-full h-auto flex flex-col items-start justify-center lg:flex-row mt-[100px] lg:relative mb-10 lg:gap-x-10 lg:pr-10">
   <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 lg:w-2/3 lg:p-0">
     <!-- tab section -->
 
@@ -38,7 +39,8 @@
 
 
     <!-- external gallery section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden overflow-x-hidden"
+    <div
+      class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden overflow-x-hidden"
       id="external-content" data-attribute="external-gallery">
       <div class="video-container w-full h-auto relative">
         {% if external_gallery %}
@@ -55,8 +57,9 @@
         {% assign external_video = external_gallery[external_video_key] %}
 
         {% if external_video %}
-        <video id="productVideo" class="video w-full min-h-[220px] rounded-lg lg:min-h-[705px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none" preload="metadata"
-          muted poster="{{ external_video | img_url: 'master' }}">
+        <video id="productVideo"
+          class="video w-full min-h-[220px] rounded-lg lg:min-h-[705px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
+          preload="metadata" muted poster="{{ external_video | img_url: 'master' }}">
           <source src="{{ external_video | file_url }}" type="video/mp4">
         </video>
         <div id="playButton" class="video-settings absolute inset-0 flex items-center justify-center cursor-pointer">
@@ -71,7 +74,8 @@
           class="scroll-container w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for external_image in external_images %}
           {% assign external_img = external_gallery[external_image] %}
-          <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
+          <div
+            class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
             <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg lg:rounded"
               alt="{{ external_img.alt }}" data-external-src="{{ external_img | img_url: 'master' }}">
           </div>
@@ -79,15 +83,16 @@
         </div>
         <div class="w-full hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
           <button id="nextArrow"
-          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
-          {% render 'arrow-right-icon' %}
-         </button>
+            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-right-icon' %}
+          </button>
         </div>
       </div>
     </div>
 
     <!-- internal gallery section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
+    <div
+      class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-content" data-attribute="internal-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery %}
@@ -122,15 +127,16 @@
         </div>
         <div class="w-full hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
           <button id="nextArrow"
-          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
-          {% render 'arrow-right-icon' %}
-         </button>
+            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-right-icon' %}
+          </button>
         </div>
       </div>
     </div>
 
     <!-- internal gallery down section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
+    <div
+      class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-down-content" data-attribute="internal-down-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery_down %}
@@ -155,7 +161,8 @@
           class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_down_image in internal_down_images %}
           {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
-          <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
+          <div
+            class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
             <img src="{{ internal_down_img | img_url: 'master' }}"
               class="w-full h-full object-cover rounded-lg gallery-main-scroll-image lg:rounded"
               data-image-src="{{ internal_down_img | img_url: 'master' }}" alt="{{ internal_down_img.alt }}"
@@ -165,9 +172,9 @@
         </div>
         <div class="w-full hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
           <button id="nextArrow"
-          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
-          {% render 'arrow-right-icon' %}
-         </button>
+            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-right-icon' %}
+          </button>
         </div>
       </div>
 
@@ -175,7 +182,8 @@
 
 
     <!-- internal gallery up section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
+    <div
+      class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-up-content" data-attribute="internal-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery %}
@@ -200,7 +208,8 @@
           class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
-          <div class="container-magnetic-scroll w-[104px] h-[60px]  flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
+          <div
+            class="container-magnetic-scroll w-[104px] h-[60px]  flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
             <img src="{{ internal_img | img_url: 'master' }}"
               class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
               data-image-src="{{ internal_img | img_url: 'master' }}" alt="{{ internal_img.alt }}"
@@ -210,9 +219,9 @@
         </div>
         <div class="w-full hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
           <button id="nextArrow"
-          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
-          {% render 'arrow-right-icon' %}
-         </button>
+            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-right-icon' %}
+          </button>
         </div>
       </div>
     </div>
@@ -685,15 +694,45 @@
       loop: true
     });
 
-    //handle scroll images container
+    // handle scroll images container
     const arrows = document.querySelectorAll('.carousel-arrow');
-    arrows.forEach((arrow)=>{
+
+    arrows.forEach((arrow) => {
       arrow.addEventListener('click', (e) => {
         const arrowClicked = e.currentTarget;
         const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
-        console.log(scrollContainer);
-      })
-    })
+        const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
+        const scrollAmount = calculateScrollAmount(allImages);
+        handleScroll(scrollAmount, scrollContainer);
+      });
+    });
+
+    function calculateScrollAmount(allImages) {
+      const imagesArray = Array.from(allImages); // Convert NodeList to Array
+      const imagesLength = imagesArray.length;
+      const totalImageWidth = imagesArray
+        .map((image) => {
+          const width = image.offsetWidth;
+          const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
+          return width + marginRight;
+        })
+        .reduce((acc, width) => acc + width, 0);
+
+      const scrollAmount = totalImageWidth / imagesLength;
+      return scrollAmount;
+    };
+
+    function handleScroll(amount, scrollContainer) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      const newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+      scrollContainer.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth',
+      });
+    }
   });
 </script>
 
