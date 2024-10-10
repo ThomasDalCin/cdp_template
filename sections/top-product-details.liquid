@@ -726,13 +726,24 @@
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      const newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+      let newScrollLeft = currentScrollLeft + amount;
+
+      if (newScrollLeft >= maxScrollLeft) {
+        // Se si arriva alla fine, tornare all'inizio
+        newScrollLeft = 0;
+      } else if (newScrollLeft < 0) {
+        // Se si arriva all'inizio e si clicca per tornare indietro, portare alla fine
+        newScrollLeft = maxScrollLeft;
+      }
 
       scrollContainer.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth',
       });
     }
+
+
+
   });
 </script>
 
