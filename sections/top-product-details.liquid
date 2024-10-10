@@ -694,6 +694,7 @@
       loop: true
     });
 
+    //handle scroll images container
     // handle scroll images container
     const arrows = document.querySelectorAll('.carousel-arrow');
 
@@ -720,7 +721,7 @@
 
       const scrollAmount = totalImageWidth / imagesLength;
       return scrollAmount;
-    };
+    }
 
     function handleScroll(amount, scrollContainer) {
       const currentScrollLeft = scrollContainer.scrollLeft;
@@ -728,12 +729,10 @@
 
       let newScrollLeft = currentScrollLeft + amount;
 
+      // Controlla se siamo alla fine
       if (newScrollLeft >= maxScrollLeft) {
-        // Se si arriva alla fine, tornare all'inizio
+        // Se siamo alla fine, torniamo all'inizio
         newScrollLeft = 0;
-      } else if (newScrollLeft < 0) {
-        // Se si arriva all'inizio e si clicca per tornare indietro, portare alla fine
-        newScrollLeft = maxScrollLeft;
       }
 
       scrollContainer.scrollTo({
@@ -741,7 +740,6 @@
         behavior: 'smooth',
       });
     }
-
 
 
   });
