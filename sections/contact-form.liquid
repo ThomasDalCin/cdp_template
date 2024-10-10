@@ -218,7 +218,8 @@
         charCount.textContent = textarea.value.length;
     }
 
-    const dropdownToggle = document.getElementById('dropdown-toggle');
+    document.addEventListener('DOMContentLoaded', function () {
+  const dropdownToggle = document.getElementById('dropdown-toggle');
   const dropdownOptions = document.getElementById('dropdown-options');
   const dropdownLabel = document.getElementById('dropdown-label');
   const dropdownArrow = document.getElementById('dropdown-arrow');
@@ -253,6 +254,8 @@
       dropdownOptions.classList.remove('open');
     }
   });
+});
+
 </script>
 
 
