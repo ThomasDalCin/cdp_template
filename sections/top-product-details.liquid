@@ -696,51 +696,60 @@
 
     // handle scroll images container
     // handle scroll images container
-    const arrows = document.querySelectorAll('.carousel-arrow');
+const arrows = document.querySelectorAll('.carousel-arrow');
 
-    arrows.forEach((arrow) => {
-      arrow.addEventListener('click', (e) => {
-        const arrowClicked = e.currentTarget;
-        const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
-        const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
-        const scrollAmount = calculateScrollAmount(allImages);
-        handleScroll(scrollAmount, scrollContainer);
-      });
-    });
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', (e) => {
+    const arrowClicked = e.currentTarget;
+    const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
+    const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
+    const scrollAmount = calculateScrollAmount(allImages);
+    handleScroll(scrollAmount, scrollContainer, allImages);
+  });
+});
 
-    function calculateScrollAmount(allImages) {
-      const imagesArray = Array.from(allImages); // Convert NodeList to Array
-      const imagesLength = imagesArray.length;
-      const totalImageWidth = imagesArray
-        .map((image) => {
-          const width = image.offsetWidth;
-          const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
-          return width + marginRight;
-        })
-        .reduce((acc, width) => acc + width, 0);
+function calculateScrollAmount(allImages) {
+  const imagesArray = Array.from(allImages); // Convert NodeList to Array
+  const imagesLength = imagesArray.length;
+  const totalImageWidth = imagesArray
+    .map((image) => {
+      const width = image.offsetWidth;
+      const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
+      return width + marginRight;
+    })
+    .reduce((acc, width) => acc + width, 0);
+  
+  const scrollAmount = totalImageWidth / imagesLength;
+  return scrollAmount;
+}
 
-      const scrollAmount = totalImageWidth / imagesLength;
-      return scrollAmount;
-    }
+function handleScroll(amount, scrollContainer, allImages) {
+  const currentScrollLeft = scrollContainer.scrollLeft;
+  const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  
+  const lastImage = allImages[allImages.length - 1]; // L'ultima immagine
+  const lastImageWidth = lastImage.offsetWidth;
+  const lastImageMargin = parseInt(getComputedStyle(lastImage).marginRight) || 0;
+  const lastImageEndPosition = maxScrollLeft - lastImageWidth - lastImageMargin; // La posizione finale dell'ultima immagine
 
-    function handleScroll(amount, scrollContainer) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const tolerance = 200; // Tolleranza di 40px oltre la fine
+  let newScrollLeft = currentScrollLeft + amount;
 
-      // Calcola la nuova posizione di scroll
-      let newScrollLeft = currentScrollLeft + amount;
+  // Se siamo oltre la fine con la tolleranza di 40px
+  if (newScrollLeft > maxScrollLeft + 40) {
+    newScrollLeft = 0; // Torna all'inizio
+  }
 
-      // Se siamo oltre la fine con la tolleranza, torniamo all'inizio
-      if (newScrollLeft > maxScrollLeft + tolerance) {
-        newScrollLeft = 0; // Torna all'inizio
-      }
+  // Se siamo a meno di 40px dalla fine, permettiamo di visualizzare l'ultima immagine completamente
+  if (newScrollLeft >= lastImageEndPosition - 40) {
+    newScrollLeft = maxScrollLeft; // Vai alla fine
+  }
 
-      scrollContainer.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth',
-      });
-    }
+  scrollContainer.scrollTo({
+    left: newScrollLeft,
+    behavior: 'smooth',
+  });
+}
+
 
 
 
