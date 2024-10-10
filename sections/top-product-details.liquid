@@ -1,5 +1,5 @@
 <!-- product image w tab -->
-<div class="w-full h-auto flex flex-col items-start justify-center lg:flex-row mt-[100px] lg:relative mb-10 lg:gap-x-10">
+<div class="w-full h-auto flex flex-col items-start justify-center lg:flex-row mt-[100px] lg:relative mb-10 lg:gap-x-10 lg:pr-10">
   <div class="top-section-gallery w-full h-auto flex flex-col gap-y-2 items-center justify-start p-4 lg:w-2/3 lg:p-0">
     <!-- tab section -->
 
@@ -81,7 +81,7 @@
     </div>
 
     <!-- internal gallery section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-content" data-attribute="internal-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery %}
@@ -118,7 +118,7 @@
     </div>
 
     <!-- internal gallery down section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-down-content" data-attribute="internal-down-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery_down %}
@@ -156,7 +156,7 @@
 
 
     <!-- internal gallery up section -->
-    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden"
+    <div class="container-gallery w-full h-auto flex flex-col items-center justify-start gap-y-2 hidden lg:overflow-x-hidden"
       id="internal-up-content" data-attribute="internal-gallery">
       <div class="main-img-container w-full h-auto relative">
         {% if internal_gallery %}
