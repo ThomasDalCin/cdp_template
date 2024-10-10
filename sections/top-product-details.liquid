@@ -684,6 +684,16 @@
       },
       loop: true
     });
+
+    //handle scroll images container
+    const arrows = querySelectorAll('carousel-arrow');
+    arrows.forEach((arrow)=>{
+      arrow.addEventListener('click', (e) => {
+        const arrowClicked = e.currentTarget;
+        const scrollContainer = arrowClicked.closest('.relative').querySelector('container-magnetic-scroll');
+        console.log(scrollContainer);
+      })
+    })
   });
 </script>
 
