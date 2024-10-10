@@ -55,7 +55,7 @@
         {% assign external_video = external_gallery[external_video_key] %}
 
         {% if external_video %}
-        <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[505px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none" preload="metadata"
+        <video id="productVideo" class="video w-full h-[220px] rounded-lg lg:h-[705px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none" preload="metadata"
           muted poster="{{ external_video | img_url: 'master' }}">
           <source src="{{ external_video | file_url }}" type="video/mp4">
         </video>
@@ -96,7 +96,7 @@
         {% assign internal_images = updated_values | split: "," %}
         {% assign first_image = internal_gallery[internal_images[0]] %}
         <img src="{{ first_image | img_url: 'master' }}"
-          class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+          class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[705px]"
           alt="{{ first_image.alt }}" id="first-internal-img">
         {% endif %}
       </div>
@@ -133,7 +133,7 @@
         {% assign internal_down_images = updated_values | split: "," %}
         {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
         <img src="{{ first_image | img_url: 'master' }}"
-          class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+          class="w-full h-[220px]  rounded-lg object-cover object-center lg:h-[705px]"
           alt="{{ first_image.alt }}" id="first-internal-down-img">
         {% endif %}
       </div>
@@ -171,7 +171,7 @@
         {% assign internal_images = updated_values | split: "," %}
         {% assign first_image = internal_gallery[internal_images[0]] %}
         <img src="{{ first_image | img_url: 'master' }}"
-          class="w-full h-[220px] max-h-[220px] rounded-lg object-cover object-center lg:h-[505px]"
+          class="w-full h-[220px] rounded-lg object-cover object-center lg:h-[705px]"
           alt="{{ first_image.alt }}" id="first-internal-up-img">
         {% endif %}
       </div>
@@ -518,10 +518,9 @@
         function addClassesImage() {
           const screenSize = window.innerWidth; // Get the current screen width
           if (screenSize >= 1024) {
-            classesToAdd.push('h-[505px]');
+            classesToAdd.push('h-[705px]');
           } else {
             classesToAdd.push('h-[220px]');
-            classesToAdd.push('max-h-[220px]');
           }
           // Clear existing classes and add new ones
           mainImg.className = ''; // Clear existing classes
