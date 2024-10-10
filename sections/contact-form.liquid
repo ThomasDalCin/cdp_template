@@ -66,15 +66,15 @@
                 <div class="form-group w-full h-auto flex flex-col items-start justify-center">
                     <input type="text" name="contact[first_name]" id="first_name"
                         value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_name }}" required>
                 </div>
 
                 <!-- Last Name -->
-                <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+                <div class="form-group w-full h-auto flex flex-col items-start justify-center ">
                     <input type="text" name="contact[last_name]" id="last_name"
                         value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_lastname }}" required>
                 </div>
 
@@ -82,7 +82,7 @@
                 <div class="form-group w-full h-auto flex flex-col items-start justify-center">
                     <input type="email" name="contact[email]" id="email"
                         value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_email }}" required>
                 </div>
 
@@ -90,14 +90,14 @@
                 <div class="form-group w-full h-auto flex flex-col items-start justify-center">
                     <input type="tel" name="contact[phone]" id="phone"
                         value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_phone }}">
                 </div>
 
                 <!-- Product Option -->
                 <div class="form-group w-full h-auto flex flex-col items-start justify-center">
                     <select name="contact[product_option]" id="product_option"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]">
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black">
                         <option value="" disabled {% if form.product_option==blank %}selected{% endif %}>{{
                             section.settings.form_models }}</option>
                         {% for collection in collections %}
@@ -113,7 +113,7 @@
                 <div class="form-group w-full">
                     <input type="text" name="contact[port]" id="port"
                         value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_port }}">
                 </div>
 
@@ -121,13 +121,13 @@
                 <div class="form-group w-full">
                     <input type="text" name="contact[boat_registration]" id="boat_registration"
                         value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_boat }}">
                 </div>
 
                 <div class="form-group w-full relative">
                     <textarea name="contact[message]" id="message"
-                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                        class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
                         placeholder="{{ section.settings.form_message }}" maxlength="230"
                         oninput="updateCharCount()">{% if form.message != blank %}{{ form.message }}{% endif %}</textarea>
                     <div class="char-counter absolute right-[10px] bottom-[10px] body-12 text-[var(--hover-gray)]">
