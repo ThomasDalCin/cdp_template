@@ -98,7 +98,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
       {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
       {% if productSpeedDistance %}
         {% assign speedFields = "engine_make,engine_model" | split: "," %}
-        <div class="specifiactions-list-row flex flex-col gap-4 lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-4">
+        <div class="specifiactions-list-row flex flex-col gap-4  lg:border-color-[var(--hover-accent-color)] lg:pb-4">
           <p class="specification-heading body-14-medium">Speed & Distance</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
