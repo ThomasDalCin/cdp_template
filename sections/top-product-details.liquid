@@ -312,12 +312,12 @@
       {% endif %}
     </div>
     <div
-      class="product-details-magnetic-scroll w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full">
+      class="product-details-magnetic-scroll w-[calc(100%_+_2rem)] h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full">
       {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
       {% for productMetafieldsValue in productMetafieldsValues %}
       {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
       <div
-        class="product-details-badge flex min-w-[127px] h-auto flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:h-[100px] lg:flex-1">
+        class="product-details-badge flex min-w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:h-[100px] lg:flex-1">
         <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
         <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
       </div>
