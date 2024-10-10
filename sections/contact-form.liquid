@@ -105,35 +105,40 @@
                 class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_phone }}">
             </div>
+
             <div class="relative w-full">
-                <!-- Contenitore dell'input -->
-                <div class="input-container">
-                  <!-- Trigger del dropdown, include l'input e la freccia -->
-                  <div id="input-toggle" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent cursor-pointer flex items-center justify-between transition-all duration-300">
-                    <span id="dropdown-label" class="body-14 text-[var(--hover-gray)]">Models</span>
-                    <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="transition-transform duration-300">
-                      <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-              
-                  <!-- Input che si espande -->
-                  <div id="expanded-input" class="w-full h-0 overflow-hidden transition-all duration-300 ease-in-out mt-2 max-h-0">
-                    <!-- Etichette dei prodotti, visibili solo quando l'input è espanso -->
-                    <div class="p-2">
-                      {% for collection in collections %}
-                        {% if collection.title != 'Pardo approved' %}
-                          {% for product in collection.products %}
-                            <div class="product-label py-2 px-3 cursor-pointer rounded-lg bg-gray-100 hover:bg-gray-200 my-1" data-value="{{ product.title }}">
-                              {{ product.title }}
-                            </div>
-                          {% endfor %}
-                        {% endif %}
-                      {% endfor %}
-                    </div>
-                  </div>
-                </div>
-            </div>
-              
+  <!-- Contenitore dell'input -->
+  <div class="input-container">
+    <!-- Input Toggle (l'input che si espande) -->
+    <input
+      id="expandable-input"
+      type="text"
+      readonly
+      class="w-full h-12 px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent cursor-pointer transition-all duration-300 ease-in-out"
+      placeholder="Select a model"
+    />
+
+    <!-- Icona della freccia per aprire/chiudere -->
+    <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="absolute right-4 top-1/2 transform -translate-y-1/2 transition-transform duration-300">
+      <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Etichette dei prodotti, visibili solo quando l'input è espanso -->
+    <div id="expanded-options" class="w-full overflow-hidden transition-all duration-300 ease-in-out max-h-0 mt-2 bg-white shadow-lg rounded-lg">
+      <div class="p-2">
+        {% for collection in collections %}
+          {% if collection.title != 'Pardo approved' %}
+            {% for product in collection.products %}
+              <div class="product-label py-2 px-3 cursor-pointer rounded-lg hover:bg-gray-100 my-1" data-value="{{ product.title }}">
+                {{ product.title }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 
             <!-- Port -->
             <div class="form-group w-full">
@@ -217,25 +222,28 @@
         let charCount = document.getElementById("charCount");
         charCount.textContent = textarea.value.length;
     }
-
     document.addEventListener('DOMContentLoaded', function () {
-    const inputToggle = document.getElementById('input-toggle');
-    const expandedInput = document.getElementById('expanded-input');
+    const input = document.getElementById('expandable-input');
+    const expandedOptions = document.getElementById('expanded-options');
     const dropdownArrow = document.getElementById('dropdown-arrow');
     const productLabels = document.querySelectorAll('.product-label'); // Seleziona le etichette dei prodotti
 
     // Funzione per espandere/contrarre l'input
-    inputToggle.addEventListener('click', function () {
+    input.addEventListener('click', function () {
       // Verifica se l'input è espanso
-      const isExpanded = !expandedInput.classList.contains('max-h-0');
+      const isExpanded = expandedOptions.classList.contains('max-h-0');
       if (isExpanded) {
-        // Chiudi l'input (contrai)
-        expandedInput.classList.add('max-h-0');
-      } else {
         // Espandi l'input
-        expandedInput.classList.remove('max-h-0');
+        expandedOptions.classList.remove('max-h-0');
+        expandedOptions.classList.add('max-h-96'); // Cambia max-height per espandere l'input
+        input.classList.add('h-32'); // Aumenta l'altezza dell'input stesso
+      } else {
+        // Contrai l'input
+        expandedOptions.classList.add('max-h-0');
+        expandedOptions.classList.remove('max-h-96'); 
+        input.classList.remove('h-32'); // Ripristina altezza dell'input
       }
-      
+
       // Ruota la freccia
       dropdownArrow.classList.toggle('rotate-180');
     });
@@ -243,18 +251,19 @@
     // Selezione una etichetta del prodotto
     productLabels.forEach(label => {
       label.addEventListener('click', function () {
-        // Aggiorna il label dell'input con il nome del prodotto selezionato
-        document.getElementById('dropdown-label').textContent = this.textContent;
+        // Aggiorna l'input con il nome del prodotto selezionato
+        input.value = this.textContent;
 
         // Chiude l'input espanso dopo la selezione
-        expandedInput.classList.add('max-h-0');
-        
+        expandedOptions.classList.add('max-h-0');
+        expandedOptions.classList.remove('max-h-96');
+        input.classList.remove('h-32'); // Ripristina altezza dell'input
+
         // Ruota la freccia indietro
         dropdownArrow.classList.remove('rotate-180');
       });
     });
   });
-
 </script>
 
 
