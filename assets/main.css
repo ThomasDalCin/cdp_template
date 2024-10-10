@@ -1289,10 +1289,6 @@ p, span{
   height: 439px;
 }
 
-.h-\[505px\] {
-  height: 505px;
-}
-
 .h-\[565px\] {
   height: 565px;
 }
@@ -1319,14 +1315,6 @@ p, span{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[705\] {
-  height: 705;
-}
-
-.h-\[705px\] {
-  height: 705px;
 }
 
 .max-h-\[160px\] {
@@ -1373,6 +1361,10 @@ p, span{
   min-height: 200px;
 }
 
+.min-h-\[220px\] {
+  min-height: 220px;
+}
+
 .min-h-\[224px\] {
   min-height: 224px;
 }
@@ -1399,10 +1391,6 @@ p, span{
 
 .min-h-\[565px\] {
   min-height: 565px;
-}
-
-.min-h-\[220px\] {
-  min-height: 220px;
 }
 
 .min-h-\[705px\] {
@@ -2369,6 +2357,10 @@ p, span{
     bottom: 108px;
   }
 
+  .lg\:bottom-\[calc\(176px\)\] {
+    bottom: calc(176px);
+  }
+
   .lg\:left-0 {
     left: 0px;
   }
@@ -2379,6 +2371,10 @@ p, span{
 
   .lg\:left-\[40px\] {
     left: 40px;
+  }
+
+  .lg\:left-\[calc\(66\.666667\%_-_40px\)\] {
+    left: calc(66.666667% - 40px);
   }
 
   .lg\:right-0 {
@@ -2407,14 +2403,6 @@ p, span{
 
   .lg\:top-\[16px\] {
     top: 16px;
-  }
-
-  .lg\:left-\[calc\(66\.666667\%_-_40px\)\] {
-    left: calc(66.666667% - 40px);
-  }
-
-  .lg\:bottom-\[calc\(176px\)\] {
-    bottom: calc(176px);
   }
 
   .lg\:z-10 {
@@ -2499,6 +2487,10 @@ p, span{
     height: 100px;
   }
 
+  .lg\:h-\[160px\] {
+    height: 160px;
+  }
+
   .lg\:h-\[160pxpx\] {
     height: 160pxpx;
   }
@@ -2529,10 +2521,6 @@ p, span{
 
   .lg\:h-\[480px\] {
     height: 480px;
-  }
-
-  .lg\:h-\[505px\] {
-    height: 505px;
   }
 
   .lg\:h-\[540px\] {
@@ -2573,18 +2561,6 @@ p, span{
 
   .lg\:h-full {
     height: 100%;
-  }
-
-  .lg\:h-\[160px\] {
-    height: 160px;
-  }
-
-  .lg\:h-\[705\] {
-    height: 705;
-  }
-
-  .lg\:h-\[705px\] {
-    height: 705px;
   }
 
   .lg\:max-h-\[480px\] {
@@ -2641,6 +2617,10 @@ p, span{
 
   .lg\:w-\[170px\] {
     width: 170px;
+  }
+
+  .lg\:w-\[220px\] {
+    width: 220px;
   }
 
   .lg\:w-\[252px\] {
@@ -2709,14 +2689,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[200px\] {
-    width: 200px;
-  }
-
-  .lg\:w-\[220px\] {
-    width: 220px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -2885,10 +2857,6 @@ p, span{
     row-gap: 1.5rem;
   }
 
-  .lg\:gap-y-8 {
-    row-gap: 2rem;
-  }
-
   .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(0px * var(--tw-space-x-reverse));
@@ -2943,28 +2911,28 @@ p, span{
     border-bottom-right-radius: 10px;
   }
 
+  .lg\:rounded-br-lg {
+    border-bottom-right-radius: 0.5rem;
+  }
+
   .lg\:rounded-tl-\[10px\] {
     border-top-left-radius: 10px;
+  }
+
+  .lg\:rounded-tl-none {
+    border-top-left-radius: 0px;
   }
 
   .lg\:rounded-tr-\[10px\] {
     border-top-right-radius: 10px;
   }
 
-  .lg\:rounded-tr-none {
-    border-top-right-radius: 0px;
-  }
-
-  .lg\:rounded-br-lg {
-    border-bottom-right-radius: 0.5rem;
-  }
-
   .lg\:rounded-tr-lg {
     border-top-right-radius: 0.5rem;
   }
 
-  .lg\:rounded-tl-none {
-    border-top-left-radius: 0px;
+  .lg\:rounded-tr-none {
+    border-top-right-radius: 0px;
   }
 
   .lg\:border-b-\[1px\] {
@@ -2990,6 +2958,18 @@ p, span{
 
   .lg\:bg-cover {
     background-size: cover;
+  }
+
+  .lg\:bg-55\% {
+    background-size: 55%;
+  }
+
+  .lg\:bg-center {
+    background-position: center;
+  }
+
+  .lg\:bg-no-repeat {
+    background-repeat: no-repeat;
   }
 
   .lg\:object-contain {
@@ -3057,6 +3037,10 @@ p, span{
     padding-bottom: 1.5rem;
   }
 
+  .lg\:pb-10 {
+    padding-bottom: 2.5rem;
+  }
+
   .lg\:pb-4 {
     padding-bottom: 1rem;
   }
@@ -3069,20 +3053,16 @@ p, span{
     padding-left: 9rem;
   }
 
+  .lg\:pr-10 {
+    padding-right: 2.5rem;
+  }
+
   .lg\:pt-10 {
     padding-top: 2.5rem;
   }
 
   .lg\:pt-6 {
     padding-top: 1.5rem;
-  }
-
-  .lg\:pr-10 {
-    padding-right: 2.5rem;
-  }
-
-  .lg\:pb-10 {
-    padding-bottom: 2.5rem;
   }
 
   .lg\:text-center {
@@ -3121,6 +3101,10 @@ p, span{
     line-height: 24px;
   }
 
+  .lg\:leading-\[35px\] {
+    line-height: 35px;
+  }
+
   .lg\:leading-\[40px\] {
     line-height: 40px;
   }
@@ -3131,10 +3115,6 @@ p, span{
 
   .lg\:leading-\[96px\] {
     line-height: 96px;
-  }
-
-  .lg\:leading-\[35px\] {
-    line-height: 35px;
   }
 
   .lg\:text-black {
