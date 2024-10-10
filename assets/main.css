@@ -3170,6 +3170,10 @@ p, span{
     padding-right: 5rem;
   }
 
+  .lg\:last-of-type\:pr-6:last-of-type {
+    padding-right: 1.5rem;
+  }
+
   .lg\:hover\:border-black:hover {
     --tw-border-opacity: 1;
     border-color: rgb(0 0 0 / var(--tw-border-opacity));
