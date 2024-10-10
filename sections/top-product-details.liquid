@@ -68,7 +68,7 @@
 
       <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto relative">
         <div
-          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
+          class="scroll-container w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for external_image in external_images %}
           {% assign external_img = external_gallery[external_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
@@ -686,11 +686,11 @@
     });
 
     //handle scroll images container
-    const arrows = querySelectorAll('carousel-arrow');
+    const arrows = querySelectorAll('.carousel-arrow');
     arrows.forEach((arrow)=>{
       arrow.addEventListener('click', (e) => {
         const arrowClicked = e.currentTarget;
-        const scrollContainer = arrowClicked.closest('.relative').querySelector('container-magnetic-scroll');
+        const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
         console.log(scrollContainer);
       })
     })
