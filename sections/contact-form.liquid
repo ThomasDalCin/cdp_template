@@ -78,7 +78,7 @@
                 name="contact[last_name]"
                 id="last_name"
                 value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_lastname }}"
                 required>
             </div>
@@ -90,7 +90,7 @@
                 name="contact[email]"
                 id="email"
                 value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_email }}"
                 required>
             </div>
@@ -102,7 +102,7 @@
                 name="contact[phone]"
                 id="phone"
                 value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_phone }}">
             </div>
 
@@ -111,7 +111,7 @@
               <select
                 name="contact[product_option]"
                 id="product_option"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black">
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14">
                 <option
                   value=""
                   disabled
@@ -135,7 +135,7 @@
                 name="contact[port]"
                 id="port"
                 value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_port }}">
             </div>
 
@@ -146,7 +146,7 @@
                 name="contact[boat_registration]"
                 id="boat_registration"
                 value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_boat }}">
             </div>
 
@@ -154,7 +154,7 @@
               <textarea
                 name="contact[message]"
                 id="message"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black"
+                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14"
                 placeholder="{{ section.settings.form_message }}"
                 maxlength="230"
                 oninput="updateCharCount()">
@@ -181,7 +181,7 @@
                 type="checkbox"
                 id="privacy_policy"
                 name="contact[privacy]"
-                class="w-4 h-4 border-gray-300 rounded focus:ring-0 focus:bg-black focus:border-black"
+                class="w-4 h-4 border-gray-300 rounded focus:ring-0 focus:bg-black focus:border-black placeholder:body-14"
                 required>
               <label for="privacy_policy" class="text-sm text-gray-700">
                 Privacy Policy*
