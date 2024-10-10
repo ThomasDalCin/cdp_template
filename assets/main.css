@@ -2675,6 +2675,10 @@ p, span{
     width: 200px;
   }
 
+  .lg\:w-\[220px\] {
+    width: 220px;
+  }
+
   .lg\:min-w-\[220px\] {
     min-width: 220px;
   }
