@@ -66,7 +66,7 @@
         {% endif %}
       </div>
 
-      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto relative">
         <div
           class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for external_image in external_images %}
@@ -76,6 +76,12 @@
               alt="{{ external_img.alt }}" data-external-src="{{ external_img | img_url: 'master' }}">
           </div>
           {% endfor %}
+        </div>
+        <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
+          <button id="nextArrow"
+          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+         </button>
         </div>
       </div>
     </div>
@@ -101,9 +107,9 @@
         {% endif %}
       </div>
 
-      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto relative">
         <div
-          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto relative">
+          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px] ">
@@ -113,13 +119,13 @@
               data-internal-overlay="overlay-internal-gallery">
           </div>
           {% endfor %}
-          <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
-            <button id="nextArrow"
-            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-            {% render 'arrow-right-icon' %}
-           </button>
-          </div>
         </div>
+      </div>
+      <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
+        <button id="nextArrow"
+        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+        {% render 'arrow-right-icon' %}
+       </button>
       </div>
     </div>
 
@@ -144,9 +150,9 @@
         {% endif %}
       </div>
 
-      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto relative">
         <div
-          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto relative">
+          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_down_image in internal_down_images %}
           {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
@@ -156,13 +162,13 @@
               data-internal-overlay="overlay-internal-down-gallery">
           </div>
           {% endfor %}
-          <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
-            <button id="nextArrow"
-            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-            {% render 'arrow-right-icon' %}
-           </button>
-          </div>
         </div>
+      </div>
+      <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
+        <button id="nextArrow"
+        class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+        {% render 'arrow-right-icon' %}
+       </button>
       </div>
     </div>
 
@@ -188,9 +194,9 @@
         {% endif %}
       </div>
 
-      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto">
+      <div class="w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto relative">
         <div
-          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto relative">
+          class="w-[calc(100%_+_2rem)] px-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px]  flex-shrink-0 lg:h-[160px] lg:w-[252px] lg:last-of-type:mr-6">
@@ -200,12 +206,12 @@
               data-internal-overlay="overlay-internal-gallery">
           </div>
           {% endfor %}
-          <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
-            <button id="nextArrow"
-            class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-            {% render 'arrow-right-icon' %}
-           </button>
-          </div>
+        </div>
+        <div class="w-full h-auto flex items-end justify-center absolute right-0 top-0">
+          <button id="nextArrow"
+          class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+          {% render 'arrow-right-icon' %}
+         </button>
         </div>
       </div>
     </div>
