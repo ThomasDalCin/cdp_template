@@ -108,7 +108,7 @@
 <!-- Product Option -->
 <div class="relative w-full h-auto">
   <!-- Trigger del dropdown -->
-  <div id="dropdown-toggle" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent cursor-pointer flex items-center justify-between">
+  <div id="dropdown-toggle" class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent cursor-pointer flex items-center justify-between transition-all duration-300">
     <span id="dropdown-label" class="body-14 text-[var(--hover-gray)]">Models</span> <!-- Etichetta aggiornata -->
     <!-- Icona SVG per la freccia -->
     <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="transition-transform duration-300">
@@ -116,8 +116,8 @@
     </svg>
   </div>
 
-  <!-- Contenuto del dropdown -->
-  <div id="dropdown-options" class="absolute w-full mt-1 rounded-lg bg-white border border-gray-300 shadow-lg hidden z-10">
+  <!-- Contenuto del dropdown con altezza espandibile -->
+  <div id="dropdown-options" class="absolute w-full mt-1 rounded-lg bg-white border border-gray-300 shadow-lg max-h-0 overflow-hidden transition-max-height duration-300 ease-in-out z-10">
     <div class="p-2 max-h-64 overflow-y-auto">
       <!-- Loop per i prodotti, escludendo "Pardo approved" -->
       {% for collection in collections %}
@@ -132,7 +132,6 @@
     </div>
   </div>
 </div>
-
 
             <!-- Port -->
             <div class="form-group w-full">
@@ -217,8 +216,6 @@
         charCount.textContent = textarea.value.length;
     }
 
- 
-    document.addEventListener('DOMContentLoaded', function () {
     const dropdownToggle = document.getElementById('dropdown-toggle');
     const dropdownOptions = document.getElementById('dropdown-options');
     const dropdownLabel = document.getElementById('dropdown-label');
@@ -227,8 +224,16 @@
 
     // Apre/chiude il dropdown al click
     dropdownToggle.addEventListener('click', function () {
-      dropdownOptions.classList.toggle('hidden'); // Toggle the hidden class to show/hide the dropdown
-      dropdownArrow.classList.toggle('rotate-180'); // Ruota la freccia
+      const isVisible = !dropdownOptions.classList.contains('max-h-0'); // Verifica se il dropdown è visibile
+      if (isVisible) {
+        // Nasconde il dropdown (collassa)
+        dropdownOptions.classList.add('max-h-0');
+      } else {
+        // Mostra il dropdown (espande)
+        dropdownOptions.classList.remove('max-h-0');
+      }
+      // Ruota la freccia
+      dropdownArrow.classList.toggle('rotate-180');
     });
 
     // Seleziona una chip e aggiorna il label del dropdown
@@ -244,17 +249,16 @@
         dropdownLabel.textContent = this.textContent;
         
         // Chiude il dropdown
-        dropdownOptions.classList.add('hidden');
+        dropdownOptions.classList.add('max-h-0');
       });
     });
 
     // Chiusura del dropdown quando si clicca fuori
     document.addEventListener('click', function (e) {
       if (!dropdownToggle.contains(e.target) && !dropdownOptions.contains(e.target)) {
-        dropdownOptions.classList.add('hidden');
+        dropdownOptions.classList.add('max-h-0');
       }
     });
-  });
 
 </script>
 
