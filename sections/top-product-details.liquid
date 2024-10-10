@@ -72,7 +72,7 @@
           {% for external_image in external_images %}
           {% assign external_img = external_gallery[external_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0 lg:h-[160px] lg:w-[252px]">
-            <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg"
+            <img src="{{ external_img | img_url: 'master' }}" class="w-full h-full object-cover rounded-lg lg:rounded"
               alt="{{ external_img.alt }}" data-external-src="{{ external_img | img_url: 'master' }}">
           </div>
           {% endfor %}
@@ -106,9 +106,9 @@
           class="w-[calc(100%_+_2rem)] px-4 -mx-4 flex flex-row items-center justify-start overflow-x-auto space-x-2 h-auto">
           {% for internal_image in internal_images %}
           {% assign internal_img = internal_gallery[internal_image] %}
-          <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px]">
+          <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px] ">
             <img src="{{ internal_img | img_url: 'master' }}"
-              class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+              class="w-full h-full object-cover rounded-lg gallery-main-scroll-image lg:rounded"
               data-image-src="{{ internal_img | img_url: 'master' }}" alt="{{ internal_img.alt }}"
               data-internal-overlay="overlay-internal-gallery">
           </div>
@@ -145,7 +145,7 @@
           {% assign internal_down_img = internal_gallery_down[internal_down_image] %}
           <div class="container-magnetic-scroll w-[104px] h-[60px] flex-shrink-0  lg:h-[160px] lg:w-[252px]">
             <img src="{{ internal_down_img | img_url: 'master' }}"
-              class="w-full h-full object-cover rounded-lg gallery-main-scroll-image"
+              class="w-full h-full object-cover rounded-lg gallery-main-scroll-image lg:rounded"
               data-image-src="{{ internal_down_img | img_url: 'master' }}" alt="{{ internal_down_img.alt }}"
               data-internal-overlay="overlay-internal-down-gallery">
           </div>
