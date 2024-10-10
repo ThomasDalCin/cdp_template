@@ -283,7 +283,7 @@
       {% for productMetafieldsValue in productMetafieldsValues %}
       {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
       <div
-        class="product-details-badge flex min-w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:flex-1 lg:h-[100px]">
+        class="product-details-badge flex min-w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:flex-wrap lg:items-start lg:justify-center lg:h-[100px]">
         <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
         <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
       </div>
