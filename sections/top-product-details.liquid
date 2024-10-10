@@ -267,7 +267,7 @@
     <div class="product-detaiils-component-main w-full h-auto flex flex-col gap-y-2 items-start justify-start lg:gap-y-8">
       <p class="body-16-medium lg:text-[40px] lg:leading-[35px] lg:font-semibold">{{ product.title }}</p>
       {% if product.description and product.description != '' %}
-        <p class="body-12">{{ product.description | remove: '<p></p>' }}</p>
+        <p class="body-12">{{ product.description | raw  }}</p>
       {% endif %}      
     </div>
     <div class="product-details-magnetic-scroll w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto">
