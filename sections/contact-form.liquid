@@ -114,7 +114,7 @@
                 name="contact[port]"
                 id="port"
                 value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_port }}">
             </div>
 
@@ -125,7 +125,7 @@
                 name="contact[boat_registration]"
                 id="boat_registration"
                 value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[80px]  px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_boat }}">
             </div>
             
@@ -145,7 +145,7 @@
                 <span id="charCount">0</span>/230
               </div>
             </div>
-            
+
             <!-- Primary Info -->
             <div class="info-bullet-points-container w-full h-auto flex flex-col items-start justify-center">
                 <p class="body-12">{{ section.settings.form_info_primary_list}}</p>

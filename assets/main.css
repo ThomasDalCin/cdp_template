@@ -1342,6 +1342,10 @@ p, span{
   height: 3rem;
 }
 
+.h-\[80px\] {
+  height: 80px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
