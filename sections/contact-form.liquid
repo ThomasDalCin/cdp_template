@@ -166,7 +166,14 @@
               </div>
             </div>
             <!-- Primary Info -->
-            <p class="body-12">{{ section.settings.form_info_primary }}</p>
+            <div class="info-bullet-points-container w-full h-auto flex flex-col items-start justify-center">
+                <p class="body-12">{{ section.settings.form_info_primary_list}}</p>
+                <ul class="bullet-points-list">
+                    <li class="list-disc">{{ section.settings.bullet_list_one }}</li>
+                    <li class="list-disc">{{ section.settings.bullet_list_two }}</li>
+                    <li class="list-disc">{{ section.settings.bullet_list_three }}</li>
+                </ul>
+             </div>
 
             <!-- Privacy Policy -->
             <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
@@ -207,10 +214,9 @@
 
 
 {% comment %} 
-  Section Schema Settings here; 
+    Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
-<<<<<<< HEAD
   {
     "name": "contact-form",
     "settings": [
@@ -279,10 +285,29 @@
         "default": "Message"
       }, {
         "type": "textarea",
-        "id": "form_info_primary",
-        "label": "Primary Info",
+        "id": "form_info_primary_list",
+        "label": "Primary Info Bullet Points",
         "default": "Keep me informed, so I can receive: Information about products and services of interest to me. Personalized communications delivered in the way that suits me best. Unique opportunities to have my say and help shape the future of Pardo Yachts."
-      }, {
+      },
+      {
+        "type": "textarea",
+        "id": "bullet_list_one",
+        "label": "Bullet Points First",
+        "default": "Information about products and services of interest to me. Personalized communications delivered in the way that suits me best. Unique opportunities to have my say and help shape the future of Pardo Yachts."
+      }, 
+      {
+        "type": "textarea",
+        "id": "bullet_list_two",
+        "label": "Bullet Points Second",
+        "default": "Personalized communications delivered in the way that suits me best. Unique opportunities to have my say and help shape the future of Pardo Yachts."
+      }, 
+      {
+        "type": "textarea",
+        "id": "bullet_list_three",
+        "label": "Bullet Points Third",
+        "default": "Unique opportunities to have my say and help shape the future of Pardo Yachts."
+      },
+       {
         "type": "textarea",
         "id": "form_info_secondary",
         "label": "Secondary Info",
@@ -359,171 +384,4 @@
       }
     ]
   }
-=======
-{
-"name": "contact-form",
-"settings": [
-{
-"type": "text",
-"id": "delear_cta",
-"label": "Delear Cta",
-"default": "Locate a Delear"
-},
-{
-"type": "text",
-"id": "form_heading",
-"label": "Form Heading",
-"default": "Ask us, we will be happy to assist you."
-},
-{
-"type": "text",
-"id": "alert_form_message",
-"label": "Alert Message",
-"default": "Fields Required*"
-},
-{
-"type": "text",
-"id": "thankyou_message",
-"label": "Thank You Message",
-"default": "Thank you"
-},
-{
-"type": "text",
-"id": "form_name",
-"label": "Form Name",
-"default": "Name*"
-},
-{
-"type": "text",
-"id": "form_lastname",
-"label": "Last Name",
-"default": "Last Name*"
-},
-{
-"type": "text",
-"id": "form_email",
-"label": "Email",
-"default": "Email*"
-},
-{
-"type": "text",
-"id": "form_phone",
-"label": "Phone",
-"default": "Phone*"
-},
-{
-"type": "text",
-"id": "form_models",
-"label": "Models",
-"default": "Models"
-},
-{
-"type": "text",
-"id": "form_port",
-"label": "Port",
-"default": "Port"
-},
-{
-"type": "text",
-"id": "form_boat",
-"label": "Boat",
-"default": "Boat"
-},
-{
-"type": "textarea",
-"id": "form_message",
-"label": "Message",
-"default": "Message"
-},
-{
-"type": "textarea",
-"id": "form_info_primary",
-"label": "Primary Info",
-"default": "Keep me informed, so I can receive: Information about products and services of interest to me. Personalized communications delivered in the way that suits me best. Unique opportunities to have my say and help shape the future of Pardo Yachts."
-},
-{
-"type": "textarea",
-"id": "form_info_secondary",
-"label": "Secondary Info",
-"default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience"
-},
-{
-"type": "text",
-"id": "form_cta",
-"label": "CTA Text",
-"default": "Send"
-}
-],
-"blocks": [
-{
-"name": "card-location-default",
-"type": "card-location-default",
-"settings": [
-{
-"type": "text",
-"id": "card_loc_default_heading",
-"label": "Card Heading",
-"default": "Headquarters"
-},
-{
-"type": "text",
-"id": "card_loc_default_address",
-"label": "Card Address",
-"default": "Address: Via F.II Lumière, 34 47122 Forlì (FC)"
-},
-{
-"type": "text",
-"id": "card_loc_default_email",
-"label": "Card Email",
-"default": "Email: info@pardoyachts.com"
-},
-{
-"type": "text",
-"id": "card_loc_default_phone",
-"label": "Card Phone",
-"default": "Phone: +39 0543 782404"
-}
-]
-},
-{
-"name": "card-location-additional",
-"type": "card-location-additional",
-"settings": [
-{
-"type": "text",
-"id": "card_loc_additional_heading",
-"label": "Card Heading",
-"default": "Bespoke since always"
-},
-{
-"type": "textarea",
-"id": "card_loc_additional_content",
-"label": "Card Content",
-"default": "A passionate, experienced, and highly skilled team can assist you on your journey to purchasing Pardo Yachts; by sharing your preferences, we will create the solution that best suits you."
-}
-]
-}
-],
-"presets": [
-{
-"name": "Default Location Card",
-"category": "Card",
-"blocks": [
-{
-"type": "card-location-default"
-}
-]
-},
-{
-"name": "Additional Location Card",
-"category": "Card",
-"blocks": [
-{
-"type": "card-location-additional"
-}
-]
-}
-]
-}
->>>>>>> 15e8cb04ce8b98f6283d4d83e147cdee260dbc71
 {% endschema %}
