@@ -2357,6 +2357,11 @@ p, span{
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.focus\:bg-black:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
