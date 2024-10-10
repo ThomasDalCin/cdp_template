@@ -2287,6 +2287,18 @@ p, span{
   --caption-height: 16px;
 }
 
+.placeholder\:body-14::-moz-placeholder {
+  font-weight: 400;
+  font-size: var(--body-14);
+  line-height: var(--body-14-height);
+}
+
+.placeholder\:body-14::placeholder {
+  font-weight: 400;
+  font-size: var(--body-14);
+  line-height: var(--body-14-height);
+}
+
 @media (min-width: 1024px) {
   .lg\:big-header-1 {
     font-weight: 600;
