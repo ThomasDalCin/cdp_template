@@ -278,7 +278,7 @@
       {% endif %}
     </div>
     <div
-      class="product-details-magnetic-scroll w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full lg:flex-wrap lg:items-start lg:justify-center">
+      class="product-details-magnetic-scroll w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full lg:flex-wrap lg:items-center lg:justify-start lg:gap-4">
       {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
       {% for productMetafieldsValue in productMetafieldsValues %}
       {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
