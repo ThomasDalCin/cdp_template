@@ -2413,6 +2413,10 @@ p, span{
     left: calc(66.666667% - 40px);
   }
 
+  .lg\:bottom-\[calc\(176px\)\] {
+    bottom: calc(176px);
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
