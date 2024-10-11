@@ -1,10 +1,10 @@
 <div
-class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px] lg:px-10">
+class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px]">
   <!-- Basics Container -->
   {% assign productBasics = product.metafields.custom.basics.value %}
   {% if productBasics %}
     {% assign basicFields = "year,make,model,series,lenght,fuel_type,hull_material" | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5">
+    <div class="specifiactions-list-row w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
       <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px]">
         <p class="specification-heading body-16 font-semibold">{{ section.settings.product_basics }}</p>
       </div>
@@ -33,7 +33,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px] lg
   {% endif %}
 
   <!-- Features Container -->
-  <div class="feature-settings-container w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5">
+  <div class="feature-settings-container w-full flex flex-col gap-4 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
     <!-- Features Heading -->
     <div class="features-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px]">
       <p class="body-16 font-semibold">{{ section.settings.product_features }}</p>
@@ -98,7 +98,7 @@ class="features-container w-full h-auto flex flex-col gap-y-10 px-4 mb-[40px] lg
       {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
       {% if productSpeedDistance %}
         {% assign speedFields = "engine_make,engine_model" | split: "," %}
-        <div class="specifiactions-list-row flex flex-col gap-4  lg:border-color-[var(--hover-accent-color)] lg:pb-4">
+        <div class="specifiactions-list-row flex flex-col gap-4  lg:border-color-[var(--hover-accent-color)] lg:pb-4 lg:px-10">
           <p class="specification-heading body-14-medium">Speed & Distance</p>
           <div class="specification-container-list w-full h-auto">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
