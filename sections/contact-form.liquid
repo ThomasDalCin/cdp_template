@@ -53,8 +53,7 @@
       </div>
 
       <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-        {% form 'contact'
-          , class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+        {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
           {{ form.errors | default_errors }}
 
           <!-- Form Content -->
@@ -67,19 +66,19 @@
                 name="contact[first_name]"
                 id="first_name"
                 value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_name }}"
                 required>
             </div>
 
             <!-- Last Name -->
-            <div class="form-group w-full h-auto flex flex-col items-start justify-center ">
+            <div class="form-group w-full h-auto flex flex-col items-start justify-center">
               <input
                 type="text"
                 name="contact[last_name]"
                 id="last_name"
                 value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_lastname }}"
                 required>
             </div>
@@ -91,7 +90,7 @@
                 name="contact[email]"
                 id="email"
                 value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_email }}"
                 required>
             </div>
@@ -103,44 +102,85 @@
                 name="contact[phone]"
                 id="phone"
                 value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder="{{ section.settings.form_phone }}">
             </div>
 
-            <!-- Port -->
-            <div class="form-group w-full">
+            <!-- Models hidden -->
+            <input type="hidden" name="contact[models]" id="selected-models">
+
+            <!-- Models -->
+            <div class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
+              <div id="dropdown-toggle" class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer text-[var(--hover-gray)]">
+                <span id="placeholder-text" class="placeholder body-14 text-[var(--hover-gray)]">Models</span>
+                <!-- Dropdown icon -->
+                <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="relative transition-transform duration-300" stroke="currentColor">
+                  <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              
+              <!-- Dropdown container (initially collapsed) -->
+              <div id="dropdown-container" class="w-full h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="container-boat-label w-full h-auto flex flex-row flex-wrap items-center justify-start p-4 gap-2">
+                  {% for collection in collections %}
+                    {% if collection.title != 'Pardo approved' %}
+                      {% for product in collection.products %}
+                        <div class="badge-product" data-value="{{ product.title | replace: 'Pardo', '' }}">
+                          {{ product.title | replace: 'Pardo', '' }}
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>  
+
+            <!-- Port register -->
+            <div class="form-group w-full relative">
               <input
                 type="text"
                 name="contact[port]"
                 id="port"
                 value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                class="w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
-                placeholder="{{ section.settings.form_port }}">
+                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder=" "
+                required>
+              <label for="port" class="floating-label absolute left-4 top-2 body-14 text-[var(--hover-gray)] transition-all text-sm">
+                {{ section.settings.form_port }}
+              </label>
             </div>
 
-            <!-- Boat Registration -->
-            <div class="form-group w-full">
+            <!-- Boat number -->
+            <div class="form-group w-full relative">
               <input
                 type="text"
                 name="contact[boat_registration]"
                 id="boat_registration"
                 value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                class="w-full h-[80px]  px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
-                placeholder="{{ section.settings.form_boat }}">
+                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder=" "
+                required>
+              <label for="boat_registration" class="floating-label absolute left-4 top-2 body-14 text-[var(--hover-gray)] transition-all text-sm">
+                {{ section.settings.form_boat }}
+              </label>
             </div>
-            
+
             <!-- Message -->
             <div class="form-group w-full relative">
               <textarea
                 name="contact[message]"
                 id="message"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]  border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:text-[var(--hover-gray)]"
-                placeholder="{{ section.settings.form_message }}"
+                class="floating-input w-full h-[150px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder=" "
                 maxlength="230"
-                oninput="updateCharCount()">
+                oninput="updateCharCount()"
+                required>
                 {% if form.message != blank %}
                   {{ form.message }}{% endif %}
               </textarea>
+              <label for="message" class="floating-label absolute left-4 top-2 body-14 text-[var(--hover-gray)] transition-all text-sm">
+                {{ section.settings.form_message }}
+              </label>
               <div class="char-counter absolute right-[10px] bottom-[10px] body-12 text-[var(--hover-gray)]">
                 <span id="charCount">0</span>/230
               </div>
@@ -148,13 +188,13 @@
 
             <!-- Primary Info -->
             <div class="info-bullet-points-container w-full h-auto flex flex-col items-start justify-center">
-                <p class="body-12">{{ section.settings.form_info_primary_list}}</p>
-                <ul class="bullet-points-list pl-5">
-                    <li class="list-disc body-12">{{ section.settings.bullet_list_one }}</li>
-                    <li class="list-disc  body-12">{{ section.settings.bullet_list_two }}</li>
-                    <li class="list-disc  body-12">{{ section.settings.bullet_list_three }}</li>
-                </ul>
-             </div>
+              <p class="body-12">{{ section.settings.form_info_primary_list}}</p>
+              <ul class="bullet-points-list pl-5">
+                <li class="list-disc body-12">{{ section.settings.bullet_list_one }}</li>
+                <li class="list-disc  body-12">{{ section.settings.bullet_list_two }}</li>
+                <li class="list-disc  body-12">{{ section.settings.bullet_list_three }}</li>
+              </ul>
+            </div>
 
             <!-- Privacy Policy -->
             <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
@@ -186,14 +226,66 @@
 
 
 <script>
-    //handle number of chart 
+    // Handle number of characters
     function updateCharCount() {
         let textarea = document.getElementById("message");
         let charCount = document.getElementById("charCount");
         charCount.textContent = textarea.value.length;
     }
 
+    // Handle dropdown container
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownContainer = document.getElementById('dropdown-container');
+        const dropdownArrow = document.getElementById('dropdown-arrow');
+
+        // Toggle the dropdown when the header is clicked
+        dropdownToggle.addEventListener('click', function() {
+            const isExpanded = dropdownContainer.style.height !== '0px' && dropdownContainer.style.height !== '';
+
+            if (isExpanded) {
+                // Collapse the dropdown
+                dropdownContainer.style.height = '0px';
+                dropdownArrow.classList.remove('rotate-180'); // Rotate arrow back
+            } else {
+                // Expand the dropdown
+                const containerHeight = dropdownContainer.scrollHeight + 'px'; // Get actual height
+                dropdownContainer.style.height = containerHeight;
+                dropdownArrow.classList.add('rotate-180'); // Rotate arrow
+            }
+        });
+
+        // Optional: Ensure that the dropdown starts collapsed on page load
+        dropdownContainer.style.height = '0px';
+
+        const badges = document.querySelectorAll('.badge-product');
+        const selectedModelsInput = document.getElementById('selected-models');
+        let selectedModels = [];
+
+        badges.forEach(badge => {
+            badge.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+
+                if (selectedModels.includes(value)) {
+                    // Deselect if already selected
+                    selectedModels = selectedModels.filter(model => model !== value);
+                    this.classList.remove('chips-label-active');
+                    this.classList.remove('border-transparent');
+                } else {
+                    // Select the badge
+                    selectedModels.push(value);
+                    this.classList.add('chips-label-active'); // Select styling
+                    this.classList.add('border-transparent');
+                }
+
+                // Update hidden input value with selected models
+                selectedModelsInput.value = selectedModels.join(', ');
+            });
+        });
+    });
 </script>
+
+
 
 
 {% comment %} 
