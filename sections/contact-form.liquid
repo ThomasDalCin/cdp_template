@@ -142,7 +142,7 @@
                 name="contact[port]"
                 id="port"
                 value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder=" "
                 required>
               <label for="port" class="floating-label absolute left-4 top-2 body-14 text-[var(--hover-gray)] transition-all text-sm">
@@ -157,7 +157,7 @@
                 name="contact[boat_registration]"
                 id="boat_registration"
                 value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder=" "
                 required>
               <label for="boat_registration" class="floating-label absolute left-4 top-2 body-14 text-[var(--hover-gray)] transition-all text-sm">
@@ -170,7 +170,7 @@
               <textarea
                 name="contact[message]"
                 id="message"
-                class="floating-input w-full h-[150px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border border-transparent focus:outline-none focus:ring-2 focus:ring-black"
+                class="floating-input w-full h-[150px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[var(--hover-gray)]"
                 placeholder=" "
                 maxlength="230"
                 oninput="updateCharCount()"
