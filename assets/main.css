@@ -1037,6 +1037,10 @@ p, span{
   left: 1rem;
 }
 
+.left-6 {
+  left: 1.5rem;
+}
+
 .left-\[16px\] {
   left: 16px;
 }
@@ -1049,8 +1053,8 @@ p, span{
   right: 1rem;
 }
 
-.right-5 {
-  right: 1.25rem;
+.right-6 {
+  right: 1.5rem;
 }
 
 .right-\[10px\] {
@@ -1075,6 +1079,10 @@ p, span{
 
 .top-\[16px\] {
   top: 16px;
+}
+
+.right-5 {
+  right: 1.25rem;
 }
 
 .z-0 {

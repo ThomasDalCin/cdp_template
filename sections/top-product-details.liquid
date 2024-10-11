@@ -74,9 +74,14 @@
             </div>
           {% endfor %}
         </div>
-        <div class="w-auto hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
-          <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+        <div class="container-arrow-right w-auto hidden lg:flex items-center justify-end absolute right-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-right right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
             {% render 'arrow-right-icon' %}
+          </button>
+        </div>
+        <div class="container-arrow-left w-auto hidden lg:flex items-center justify-end absolute left-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-left hidden right-arrow  items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-left-icon' %}
           </button>
         </div>
       </div>
@@ -121,9 +126,14 @@
             </div>
           {% endfor %}
         </div>
-        <div class="w-auto hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
-          <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+        <div class="container-arrow-right w-auto hidden lg:flex items-center justify-end absolute right-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-right right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
             {% render 'arrow-right-icon' %}
+          </button>
+        </div>
+        <div class="container-arrow-left w-auto hidden lg:flex items-center justify-end absolute left-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-left hidden right-arrow  items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-left-icon' %}
           </button>
         </div>
       </div>
@@ -168,9 +178,14 @@
             </div>
           {% endfor %}
         </div>
-        <div class="w-auto hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
-          <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+        <div class="container-arrow-right w-auto hidden lg:flex items-center justify-end absolute right-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-right right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
             {% render 'arrow-right-icon' %}
+          </button>
+        </div>
+        <div class="container-arrow-left w-auto hidden lg:flex items-center justify-end absolute left-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-left hidden right-arrow  items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-left-icon' %}
           </button>
         </div>
       </div>
@@ -215,9 +230,14 @@
             </div>
           {% endfor %}
         </div>
-        <div class="w-auto hidden lg:flex items-center justify-end absolute right-5 top-0 h-full">
-          <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+        <div class="container-arrow-right w-auto hidden lg:flex items-center justify-end absolute right-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-right right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
             {% render 'arrow-right-icon' %}
+          </button>
+        </div>
+        <div class="container-arrow-left w-auto hidden lg:flex items-center justify-end absolute left-6 top-0 h-full">
+          <button id="nextArrow" class="carousel-arrow-left hidden right-arrow  items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
+            {% render 'arrow-left-icon' %}
           </button>
         </div>
       </div>
@@ -293,7 +313,7 @@
       {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
       {% for productMetafieldsValue in productMetafieldsValues %}
         {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-        <div class="product-details-badge flex min-w-[127px] h-auto p-4 flex-col items-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:h-[100px] lg:flex-1">
+        <div class="product-details-badge flex min-w-[127px] h-auto p-4 flex-col items-center justify-center gap-y-1 rounded-xl border border-[var(--secondary-background-color)] flex-shrink-0 lg:h-[100px] lg:flex-1">
           <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
           <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
         </div>
@@ -667,62 +687,91 @@
       loop: true
     });
   
-    // handle Scroll images in carousel containers
-    const arrows = document.querySelectorAll('.carousel-arrow');
-    arrows.forEach((arrow) => {
-      arrow.addEventListener('click', (e) => {
-        const arrowClicked = e.currentTarget;
-        const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
-        const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
-        const scrollAmount = calculateScrollAmount(allImages);
-        handleScroll(scrollAmount, scrollContainer, allImages);
-      });
-    });
+  // Handle Scroll images in carousel containers
+  const arrowsRight = document.querySelectorAll('.carousel-arrow-right');
+  arrowsRight.forEach((arrow) => {
+  arrow.addEventListener('click', (e) => {
+    const arrowClicked = e.currentTarget;
+    const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
+    const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
+    const scrollAmount = calculateScrollAmount(allImages);
+    
+    // Trova il pulsante sinistro associato a questo carosello
+    const arrowLeft = handleDisplayArrow(arrowClicked);
   
-    function calculateScrollAmount(allImages) {
-      const imagesArray = Array.from(allImages); // Convert NodeList to Array
-      const imagesLength = imagesArray.length;
-      const totalImageWidth = imagesArray
-        .map((image) => {
-          const width = image.offsetWidth;
-          const marginRight = parseInt(getComputedStyle(image).marginRight) || 0; // fallback to 0
-          return width + marginRight;
-        })
-        .reduce((acc, width) => acc + width, 0);
+    // Scorri in avanti e gestisci la visibilità del pulsante sinistro
+    handleScroll(scrollAmount, scrollContainer, allImages, arrowLeft);
+  });
+  });
   
-      const scrollAmount = totalImageWidth / imagesLength;
-      return scrollAmount;
+  function handleDisplayArrow(arrow){
+  const scrollContent = arrow.closest('.relative');
+  const arrowLeft = scrollContent.querySelector('.carousel-arrow-left'); // Trova la freccia sinistra
+  return arrowLeft;
+  }
+  
+  const arrowsLeft = document.querySelectorAll('.carousel-arrow-left');
+  arrowsLeft.forEach((arrow) => {
+  arrow.addEventListener('click', (e) => {
+    const arrowClicked = e.currentTarget;
+    const scrollContainer = arrowClicked.closest('.relative').querySelector('.scroll-container');
+    const allImages = scrollContainer.querySelectorAll('.container-magnetic-scroll');
+    const scrollAmount = calculateScrollAmount(allImages);
+  
+    // Scorri indietro e gestisci la visibilità del pulsante sinistro
+    handleScroll(-scrollAmount, scrollContainer, allImages, arrowClicked); // Passa arrowLeft
+  });
+  });
+  
+  function calculateScrollAmount(allImages) {
+  const imagesArray = Array.from(allImages);
+  const imagesLength = imagesArray.length;
+  const totalImageWidth = imagesArray
+    .map((image) => {
+      const width = image.offsetWidth;
+      const marginRight = parseInt(getComputedStyle(image).marginRight) || 0;
+      return width + marginRight;
+    })
+    .reduce((acc, width) => acc + width, 0);
+  
+  const scrollAmount = totalImageWidth / imagesLength;
+  return scrollAmount;
+  }
+  
+  function handleScroll(amount, scrollContainer, allImages, arrowLeft) {
+  const currentScrollLeft = scrollContainer.scrollLeft;
+  const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  
+  let newScrollLeft = currentScrollLeft + amount;
+  
+  if (newScrollLeft > maxScrollLeft) {
+    newScrollLeft = maxScrollLeft; 
+  }
+  if (newScrollLeft < 0) {
+    newScrollLeft = 0;
+  }
+  
+  if (arrowLeft) {
+    if (newScrollLeft <= 0) {
+      arrowLeft.classList.add('hidden'); 
+      arrowLeft.classList.remove('flex');
+    } else {
+      arrowLeft.classList.add('flex');
+      arrowLeft.classList.remove('hidden');
     }
+  }
   
-    function handleScroll(amount, scrollContainer, allImages) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  scrollContainer.scrollTo({
+    left: newScrollLeft,
+    behavior: 'smooth',
+  });
+  }
   
-      const lastImage = allImages[allImages.length - 1];
-      const lastImageWidth = lastImage.offsetWidth;
-      const lastImageMargin = parseInt(getComputedStyle(lastImage).marginRight) || 0;
-      const lastImageEndPosition = maxScrollLeft - lastImageWidth - lastImageMargin;
-  
-      let newScrollLeft = currentScrollLeft + amount;
-  
-      if (newScrollLeft > maxScrollLeft + 40) {
-        newScrollLeft = 0; // Torna all'inizio
-      }
-  
-      if (newScrollLeft >= lastImageEndPosition - 40) {
-        newScrollLeft = maxScrollLeft;
-      }
-  
-      scrollContainer.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth',
-      });
-    }
   });
 </script>
 
 {% comment %} 
-  Section Schema Settings here; 
+    Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
