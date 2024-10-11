@@ -662,85 +662,90 @@
     }
 
     //handle click on menu chip
-    menuChip.addEventListener('click', (e) => {
-      const targetEl = navbar;
-      const handleClickOutside = (event) => {
-
-        if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
-          if (isNotHomepage) {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.add('toBlack');
-            menuIcon.classList.add('toBlack');
-            menuChip.classList.add('toBlack');
-            logo.classList.add('toBlack');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-            const menuIconLines = document.querySelectorAll('.menu-icon .line');
-            menuIconLines.forEach(line => {
-              line.classList.remove('active-white');
-            });
-          } else {
-            menuYatch.classList.remove('flex');
-            menuYatch.classList.add('hidden');
-            targetEl.classList.remove('toAccent');
-            targetEl.classList.remove('toBlack');
-            menuIcon.classList.remove('toBlack');
-            menuChip.classList.remove('toBlack');
-            logo.classList.add('text-white');
-            document.body.classList.remove('no-scroll');
-            chipText.innerHTML = 'Yatch';
-            navbar.classList.remove('linear-gradient')
-          }
-        }
-      };
-
-      // Check if the main menu is visible, if yes do nothing
-      if (mainMenu.classList.contains('flex')) return;
-
-      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
-      const isSecondMenuOpen = secondMenu.classList.contains('flex');
-
-      if (isMenuYatchHidden) {
-        // Show the menu
-        menuYatch.classList.remove('hidden');
-        menuYatch.classList.add('flex');
-        chipText.innerHTML = 'Close';
-        document.body.classList.add('no-scroll');
-        updateNavbarStyle();
-        document.addEventListener('click', handleClickOutside);
-      } else if (isSecondMenuOpen) {
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
+    // handle click on menu chip
+menuChip.addEventListener('click', (e) => {
+  const targetEl = navbar;
+  const handleClickOutside = (event) => {
+    if (!menuYatch.contains(event.target) && !menuChip.contains(event.target) && !navbar.contains(event.target)) {
+      if (isNotHomepage) {
         menuYatch.classList.remove('flex');
         menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
+        targetEl.classList.remove('toAccent');
+        targetEl.classList.add('toBlack');
+        menuIcon.classList.add('toBlack');
+        menuChip.classList.add('toBlack');
+        logo.classList.add('toBlack');
         document.body.classList.remove('no-scroll');
-        navbar.classList.remove('toAccent');
-        updateNavbarStyle();
-      } else if (!isMenuYatchHidden && isNewsArticle) {
-        navbar.classList.remove('toAccent');
-        chipText.innerHTML = 'Yachts';
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-        // Hide the menu
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
-        document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
+        chipText.innerHTML = 'Yatch';
+        const menuIconLines = document.querySelectorAll('.menu-icon .line');
+        menuIconLines.forEach(line => {
+          line.classList.remove('active-white');
+        });
       } else {
-        // Hide the menu
         menuYatch.classList.remove('flex');
         menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Yachts';
+        targetEl.classList.remove('toAccent');
+        targetEl.classList.remove('toBlack');
+        menuIcon.classList.remove('toBlack');
+        menuChip.classList.remove('toBlack');
+        logo.classList.add('text-white');
         document.body.classList.remove('no-scroll');
-        updateNavbarStyle();
+        chipText.innerHTML = 'Yatch';
+        navbar.classList.remove('linear-gradient');
       }
-    });
+    }
+  };
+
+  // Chiudiamo il main menu se è aperto
+  if (mainMenu.classList.contains('flex')) {
+    mainMenu.classList.remove('flex');
+    mainMenu.classList.add('hidden');
+    menuIcon.classList.remove('active');
+  }
+
+  const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+  const isSecondMenuOpen = secondMenu.classList.contains('flex');
+
+  if (isMenuYatchHidden) {
+    // Show the menu
+    menuYatch.classList.remove('hidden');
+    menuYatch.classList.add('flex');
+    chipText.innerHTML = 'Close';
+    document.body.classList.add('no-scroll');
+    updateNavbarStyle();
+    document.addEventListener('click', handleClickOutside);
+  } else if (isSecondMenuOpen) {
+    chipText.innerHTML = 'Yachts';
+    secondMenu.classList.add('hidden');
+    secondMenu.classList.remove('flex');
+    // Hide the menu
+    menuYatch.classList.remove('flex');
+    menuYatch.classList.add('hidden');
+    chipText.innerHTML = 'Yachts';
+    document.body.classList.remove('no-scroll');
+    navbar.classList.remove('toAccent');
+    updateNavbarStyle();
+  } else if (!isMenuYatchHidden && isNewsArticle) {
+    navbar.classList.remove('toAccent');
+    chipText.innerHTML = 'Yachts';
+    secondMenu.classList.add('hidden');
+    secondMenu.classList.remove('flex');
+    // Hide the menu
+    menuYatch.classList.remove('flex');
+    menuYatch.classList.add('hidden');
+    chipText.innerHTML = 'Yachts';
+    document.body.classList.remove('no-scroll');
+    updateNavbarStyle();
+  } else {
+    // Hide the menu
+    menuYatch.classList.remove('flex');
+    menuYatch.classList.add('hidden');
+    chipText.innerHTML = 'Yachts';
+    document.body.classList.remove('no-scroll');
+    updateNavbarStyle();
+  }
+});
+
 
      //handle click on menu icon
     menuIcon.addEventListener('click', (e) => {
