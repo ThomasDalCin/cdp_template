@@ -53,7 +53,8 @@
       </div>
 
       <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-        {% form 'contact', class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+        {% form 'contact'
+          , class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
           {{ form.errors | default_errors }}
 
           <!-- Form Content -->
@@ -107,18 +108,34 @@
             </div>
 
             <!-- Models hidden -->
-            <input type="hidden" name="contact[models]" id="selected-models">
+            <input
+              type="hidden"
+              name="contact[models]"
+              id="selected-models">
 
             <!-- Models -->
             <div class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
               <div id="dropdown-toggle" class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer text-[var(--hover-gray)]">
                 <span id="placeholder-text" class="placeholder body-14 text-[var(--hover-gray)]">Models</span>
                 <!-- Dropdown icon -->
-                <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="relative transition-transform duration-300" stroke="currentColor">
-                  <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg
+                  id="dropdown-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="relative transition-transform duration-300"
+                  stroke="currentColor">
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </div>
-              
+
               <!-- Dropdown container (initially collapsed) -->
               <div id="dropdown-container" class="w-full h-0 overflow-hidden transition-all duration-300 ease-in-out">
                 <div class="container-boat-label w-full h-auto flex flex-row flex-wrap items-center justify-start p-4 gap-2">
@@ -133,7 +150,7 @@
                   {% endfor %}
                 </div>
               </div>
-            </div>  
+            </div>
 
             <!-- Port register -->
             <div class="form-group w-full relative">
@@ -188,7 +205,7 @@
 
             <!-- Primary Info -->
             <div class="info-bullet-points-container w-full h-auto flex flex-col items-start justify-center">
-              <p class="body-12">{{ section.settings.form_info_primary_list}}</p>
+              <p class="body-12">{{ section.settings.form_info_primary_list }}</p>
               <ul class="bullet-points-list pl-5">
                 <li class="list-disc body-12">{{ section.settings.bullet_list_one }}</li>
                 <li class="list-disc  body-12">{{ section.settings.bullet_list_two }}</li>
@@ -213,8 +230,11 @@
             <p class="caption text-[#7A7A7A]">{{ section.settings.form_info_secondary }}</p>
 
             <!-- Submit Button -->
-            <div class="cta-accent outline-none">
-              <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+            <!-- Submit Button -->
+            <div class="cta-accent outline-none cta-submit" id="contact-cta">
+              <button type="submit">
+                {{ section.settings.form_cta }}
+              </button>
               {% render 'cta-icon' %}
             </div>
           </div>
@@ -226,70 +246,103 @@
 
 
 <script>
-    // Handle number of characters
-    function updateCharCount() {
-        let textarea = document.getElementById("message");
-        let charCount = document.getElementById("charCount");
-        charCount.textContent = textarea.value.length;
-    }
-
-    // Handle dropdown container
-    document.addEventListener('DOMContentLoaded', function() {
-        const dropdownToggle = document.getElementById('dropdown-toggle');
-        const dropdownContainer = document.getElementById('dropdown-container');
-        const dropdownArrow = document.getElementById('dropdown-arrow');
-
-        // Toggle the dropdown when the header is clicked
-        dropdownToggle.addEventListener('click', function() {
-            const isExpanded = dropdownContainer.style.height !== '0px' && dropdownContainer.style.height !== '';
-
-            if (isExpanded) {
-                // Collapse the dropdown
-                dropdownContainer.style.height = '0px';
-                dropdownArrow.classList.remove('rotate-180'); // Rotate arrow back
-            } else {
-                // Expand the dropdown
-                const containerHeight = dropdownContainer.scrollHeight + 'px'; // Get actual height
-                dropdownContainer.style.height = containerHeight;
-                dropdownArrow.classList.add('rotate-180'); // Rotate arrow
-            }
-        });
-
-        // Optional: Ensure that the dropdown starts collapsed on page load
+  // Handle number of characters
+  function updateCharCount() {
+    let textarea = document.getElementById("message");
+    let charCount = document.getElementById("charCount");
+    charCount.textContent = textarea.value.length;
+  }
+  
+  // Handle dropdown container
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggle = document.getElementById('dropdown-toggle');
+    const dropdownContainer = document.getElementById('dropdown-container');
+    const dropdownArrow = document.getElementById('dropdown-arrow');
+  
+    // Toggle the dropdown when the header is clicked
+    dropdownToggle.addEventListener('click', function () {
+      const isExpanded = dropdownContainer.style.height !== '0px' && dropdownContainer.style.height !== '';
+  
+      if (isExpanded) {
+        // Collapse the dropdown
         dropdownContainer.style.height = '0px';
-
-        const badges = document.querySelectorAll('.badge-product');
-        const selectedModelsInput = document.getElementById('selected-models');
-        let selectedModels = [];
-
-        badges.forEach(badge => {
-            badge.addEventListener('click', function() {
-                const value = this.getAttribute('data-value');
-
-                if (selectedModels.includes(value)) {
-                    // Deselect if already selected
-                    selectedModels = selectedModels.filter(model => model !== value);
-                    this.classList.remove('chips-label-active');
-                    this.classList.remove('border-transparent');
-                } else {
-                    // Select the badge
-                    selectedModels.push(value);
-                    this.classList.add('chips-label-active'); // Select styling
-                    this.classList.add('border-transparent');
-                }
-
-                // Update hidden input value with selected models
-                selectedModelsInput.value = selectedModels.join(', ');
-            });
-        });
+        dropdownArrow.classList.remove('rotate-180');
+      } else {
+        // Expand the dropdown
+        const containerHeight = dropdownContainer.scrollHeight + 'px';
+        dropdownContainer.style.height = containerHeight;
+        dropdownArrow.classList.add('rotate-180');
+      }
     });
+  
+    dropdownContainer.style.height = '0px';
+  
+    const badges = document.querySelectorAll('.badge-product');
+    const selectedModelsInput = document.getElementById('selected-models');
+    let selectedModels = [];
+  
+    badges.forEach(badge => {
+      badge.addEventListener('click', function () {
+        const value = this.getAttribute('data-value');
+  
+        if (selectedModels.includes(value)) {
+          // Deselect if already selected
+          selectedModels = selectedModels.filter(model => model !== value);
+          this.classList.remove('chips-label-active');
+          this.classList.remove('border-transparent');
+        } else {
+          // Select the badge
+          selectedModels.push(value);
+          this.classList.add('chips-label-active'); // Select styling
+          this.classList.add('border-transparent');
+        }
+  
+        // Update hidden input value with selected models
+        selectedModelsInput.value = selectedModels.join(', ');
+      });
+    });
+  
+    const submitButton = document.getElementById('contact-cta');
+    const form = document.querySelector('form');
+    const inputs = form.querySelectorAll('input, textarea');
+  
+    //check if all fields are not empty
+    function checkFormCompletion() {
+      let allFilled = true;
+  
+      inputs.forEach(input => {
+        //if one field is empty
+        if (input.type !== 'checkbox' && !input.value.trim()) {
+          allFilled = false;
+        }
+  
+        //if the filed is a checkbox check if is selected
+        if (input.type === 'checkbox' && !input.checked) {
+          allFilled = false;
+        }
+      });
+  
+      //change the cta color base on fields
+      if (allFilled) {
+        submitButton.classList.remove('bg-[#BEBEBEF2]');  // Rimuove il colore disabilitato
+      } else {
+        submitButton.classList.add('bg-[#BEBEBEF2]');  // Colore grigio disabilitato
+      }
+    }
+  
+    //add listner to check the fields
+    inputs.forEach(input => {
+      input.addEventListener('input', checkFormCompletion);
+    });
+  
+    //handle the function after page loading
+    checkFormCompletion();
+  });
 </script>
 
 
-
-
 {% comment %} 
-    Section Schema Settings here; 
+  Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
@@ -363,26 +416,22 @@
         "id": "form_info_primary_list",
         "label": "Primary Info Bullet Points",
         "default": "Keep me informed, so I can receive:"
-      },
-      {
+      }, {
         "type": "textarea",
         "id": "bullet_list_one",
         "label": "Bullet Points First",
         "default": "Information about products and services of interest to me."
-      }, 
-      {
+      }, {
         "type": "textarea",
         "id": "bullet_list_two",
         "label": "Bullet Points Second",
         "default": "Personalized communications delivered in the way that suits me best."
-      }, 
-      {
+      }, {
         "type": "textarea",
         "id": "bullet_list_three",
         "label": "Bullet Points Third",
         "default": "Unique opportunities to have my say and help shape the future of Pardo Yachts."
-      },
-       {
+      }, {
         "type": "textarea",
         "id": "form_info_secondary",
         "label": "Secondary Info",
