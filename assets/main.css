@@ -1037,8 +1037,8 @@ p, span{
   left: 1rem;
 }
 
-.left-6 {
-  left: 1.5rem;
+.left-7 {
+  left: 1.75rem;
 }
 
 .left-\[16px\] {
@@ -1053,8 +1053,8 @@ p, span{
   right: 1rem;
 }
 
-.right-6 {
-  right: 1.5rem;
+.right-7 {
+  right: 1.75rem;
 }
 
 .right-\[10px\] {
@@ -1079,18 +1079,6 @@ p, span{
 
 .top-\[16px\] {
   top: 16px;
-}
-
-.right-5 {
-  right: 1.25rem;
-}
-
-.left-7 {
-  left: 1.75rem;
-}
-
-.right-7 {
-  right: 1.75rem;
 }
 
 .z-0 {
@@ -1353,6 +1341,14 @@ p, span{
   height: 100vh;
 }
 
+.h-\[375px\] {
+  height: 375px;
+}
+
+.h-\[344px\] {
+  height: 344px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1533,6 +1529,10 @@ p, span{
   width: 100%;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
 .min-w-\[127px\] {
   min-width: 127px;
 }
@@ -1617,6 +1617,11 @@ p, span{
 
 .rotate-180 {
   --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-45 {
+  --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
