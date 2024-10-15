@@ -1,6 +1,6 @@
 <div class="contact-card-container w-full p-4 flex flex-col lg:flex-row-reverse gap-4 lg:px-10 lg:gap-x-10">
   <!-- Card Location Container -->
-  <div class="card-loc-container w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-1/2 lg:mx-0">
+  <div class="card-loc-container w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-1/2 lg:mx-0 lg:gap-4">
     {% for block in section.blocks %}
       {% if block.type == "card-location-default" %}
         <div class="card-loc-item flex-shrink-0 w-[220px] min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-1/2 lg:min-h-[518px]">
