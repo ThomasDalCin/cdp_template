@@ -3,12 +3,12 @@
 {% assign sorted_collections = collections | sort: 'published_at' %}
 <div class="gamma-asset-container w-full h-auto px-4 mb-[40px] lg:px-6 lg:mb-[24px]">
   <div
-    class="gamma-container w-full h-auto flex flex-col items-center justify-start gap-y-6 shadow-custom rounded-xl p-4 overflow-x-hidden lg:p-2 lg:shadow-none lg:rounded-none">
+    class="gamma-container w-full h-auto flex flex-col items-center justify-start overflow-x-hidden gap-y-6 shadow-custom rounded-xl p-4 lg:p-2 lg:shadow-none lg:rounded-none lg:overflow-x-visible">
     <!--chips section -->
     <div class="container-chips-tab w-full h-auto flex flex-row items-center justify-start gap-x-2 lg:hidden">
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
-      <div class="chips-block cursor-pointer p-2 px-4 rounded-lg" data-target="{{ collection.title }}">
+      <div class="chips-block cursor-pointer p-2 px-4 rounded-xl flex-1" data-target="{{ collection.title }}">
         <p class="body-12">{{ collection.title }}</p>
       </div>
       {% endif %}
@@ -16,11 +16,11 @@
     </div>
     <!-- tab collection container -->
     <div
-      class="tab-container w-full h-auto flex flex-col gap-y-6 p-4 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
+      class="tab-container w-full h-auto flex flex-col gap-y-6 lg:flex-row lg:flex-wrap lg:gap-x-10 lg:justify-between">
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div
-        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden cursor-pointer overflow-x-hidden transition-all duration-200 lg:flex lg:shadow-custom lg:hover:shadow-custom-hover lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-2.5rem)]"
+        class="tab-pane w-full h-auto flex flex-col gap-y-6 hidden cursor-pointer transition-all duration-200 lg:flex lg:shadow-custom lg:hover:shadow-custom-hover lg:rounded-xl lg:p-6 lg:w-[calc(33.3%_-2.5rem)] lg:overflow-x-hidden"
         id="{{ collection.title }}">
         <div class="tab-title">
           <h2 class="header-2 text-nowrap">{{ collection.title }}</h2>
@@ -44,30 +44,30 @@
             {% endfor %}
           </div>
           <div
-            class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-hidden scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36">
+            class="magnetic-scroll w-[calc(100%+4.1875rem)] h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36 snap-x snap-mandatory">
             {% for product in collection.products %}
             {% assign product_images = product.images %}
             {% if product_images.size > 0 %}
             {% assign model_image = product_images[0] %}
-            <div class="image-scroll w-[260px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center">
+            <div
+              class="image-scroll w-[260px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center snap-center">
               <img class="w-full h-full object-contain pImage" src="{{ model_image | img_url: 'master' }}"
                 alt="{{ model_image.alt }}" data-image="{{ product.title }}">
               <p class="header-3">{{ product.title | replace: 'Pardo', '' }}</p>
             </div>
             {% endif %}
             {% endfor %}
-            <!-- fake div -->
-            <div class="image-scroll fake-scroll w-[240px] h-[240px] flex-shrink-0 lg:hidden"></div>
+            <div class="w-full h-[240px] flex-shrink-0 flex "></div>
           </div>
 
           <!-- Arrows Box -->
           <div class="w-full h-auto hidden lg:absolute lg:bottom-[108px] lg:flex lg:justify-between lg:gap-x-6 lg:z-20">
             <button
-              class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+              class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white bg-white">
               {% render 'arrow-left-icon' %}
             </button>
             <button
-              class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
+              class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white  bg-white">
               {% render 'arrow-right-icon' %}
             </button>
           </div>
@@ -110,6 +110,7 @@
     const chips = document.querySelectorAll('.chips-block');
     const tabPanes = document.querySelectorAll('.tab-pane');
     const badgeProducts = document.querySelectorAll('.badge-product');
+    const windowSize = window.innerWidth;
 
     // Initially, set opacity 0.6 for all images in non-active tabs
     const images = document.querySelectorAll('.image-scroll .pImage');
@@ -210,41 +211,55 @@
           });
         }
       });
-    }
+    };
 
-    // Handle click for badge products
-    badgeProducts.forEach(badge => {
-      badge.addEventListener('click', (e) => {
-        const target = e.currentTarget.getAttribute('data-target');
+    // Definisci il gestore per il click
+    const clickHandler = (e) => {
+      const target = e.currentTarget.getAttribute('data-target');
 
-        // Find the active tab && scrollContainer under tab active
-        const activeTab = document.querySelector('.tab-pane.flex');
-        const imageScrollContainer = activeTab.querySelector('.tab-model .magnetic-scroll');
+      // Trova il tab attivo e il contenitore dell'immagine
+      const activeTab = document.querySelector('.tab-pane.flex');
+      const imageScrollContainer = activeTab.querySelector('.tab-model .magnetic-scroll');
 
-        if (activeTab && imageScrollContainer) {
-          // Check the right image based on the target
-          const targetProductImage = activeTab.querySelector(`[data-image="${target}"]`);
+      if (activeTab && imageScrollContainer) {
+        // Trova l'immagine giusta in base al target
+        const targetProductImage = activeTab.querySelector(`[data-image="${target}"]`);
 
-          if (targetProductImage) {
-            //get scrollContainer and the distance between imageleftborder and scollcontainerleft border
-            const scrollContainer = imageScrollContainer;
-            const targetPosition = targetProductImage.offsetLeft;
-            const scrollToPosition = targetPosition - 16; //add some space
+        if (targetProductImage) {
+          // Ottieni il contenitore dello scroll e la posizione
+          const targetPosition = targetProductImage.offsetLeft;
+          const scrollToPosition = targetPosition - 16; // Aggiungi uno spazio
 
-            //handle scroll
-            scrollContainer.scrollLeft = scrollToPosition;
-          }
+          // Esegui lo scroll
+          imageScrollContainer.scrollLeft = scrollToPosition;
         }
-      });
-    });
+      }
+    };
 
-    // Prevent manual scrolling (only allow click to scroll)
-    const magneticScroll = document.querySelector('.magnetic-scroll');
-    if (magneticScroll) {
-      magneticScroll.addEventListener('wheel', (e) => {
-        e.preventDefault();
-      }, {passive: false});
-    }
+    // Funzione per gestire l'aggiornamento del listener
+    const updateListeners = () => {
+      const windowSize = window.innerWidth;
+
+      if (windowSize <= 435) {
+        // Aggiungi event listener se la larghezza della finestra è <= 435px
+        badgeProducts.forEach(badge => {
+          badge.addEventListener('click', clickHandler);
+        });
+      } else {
+        // Rimuovi event listener se la larghezza è > 435px
+        badgeProducts.forEach(badge => {
+          badge.removeEventListener('click', clickHandler);
+        });
+      }
+    };
+
+    // Chiamare la funzione quando la finestra viene ridimensionata
+    window.addEventListener('resize', updateListeners);
+
+    // Esegui il controllo all'inizio (quando la pagina viene caricata)
+    updateListeners();
+
+
 
     // Get all arrows
     const prewArrows = document.querySelectorAll('.left-arrow');
@@ -257,9 +272,6 @@
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
         const scrollAmount = HandleContainerToScroll(magneticScroll);
         scrollContainerBy(-scrollAmount, magneticScroll);
-
-        // Aggiorna le frecce dopo il clic
-        updateArrows(magneticScroll);
       });
     });
 
@@ -269,9 +281,6 @@
         const magneticScroll = tabModel.querySelector('.magnetic-scroll');
         const scrollAmount = HandleContainerToScroll(magneticScroll);
         scrollContainerBy(scrollAmount, magneticScroll);
-
-        // Aggiorna le frecce dopo il clic
-        updateArrows(magneticScroll);
       });
     });
 
@@ -298,7 +307,7 @@
       let newScrollLeft = currentScrollLeft + amount;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-  
+
       if (newScrollLeft < 0) {
         newScrollLeft = 0;
       } else if (newScrollLeft > maxScrollLeft) {
@@ -309,7 +318,33 @@
         left: newScrollLeft,
         behavior: 'smooth'
       });
-    }
+    };
 
+    const container = document.querySelector('.magnetic-scroll');
+    const items = document.querySelectorAll('.image-scroll');
+    const itemWidth = 260; // Larghezza di ogni immagine
+    let isScrolling;
+
+    container.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+
+      // Imposta un timeout per verificare se lo scroll è terminato
+      isScrolling = setTimeout(() => {
+        // Ottieni la posizione di scorrimento corrente
+        const scrollPosition = container.scrollLeft;
+
+        // Calcola l'indice dell'immagine più vicina
+        const index = Math.round(scrollPosition / itemWidth);
+
+        // Calcola la nuova posizione da scrollare
+        const newScrollPosition = index * itemWidth;
+
+        // Esegui lo scroll verso la nuova posizione
+        container.scrollTo({
+          left: newScrollPosition,
+          behavior: 'smooth',
+        });
+      }, 100); // Timeout dopo 100ms di inattività
+    });
   });
 </script>

@@ -1529,6 +1529,10 @@ p, span{
   width: 100%;
 }
 
+.w-\[calc\(100\%\+4\.1875rem\)\] {
+  width: calc(100% + 4.1875rem);
+}
+
 .min-w-\[127px\] {
   min-width: 127px;
 }
@@ -1626,6 +1630,18 @@ p, span{
 
 .resize {
   resize: both;
+}
+
+.snap-x {
+  scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+
+.snap-mandatory {
+  --tw-scroll-snap-strictness: mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }
 
 .list-disc {
@@ -2434,10 +2450,6 @@ p, span{
     position: relative;
   }
 
-  .lg\:sticky {
-    position: sticky;
-  }
-
   .lg\:bottom-0 {
     bottom: 0px;
   }
@@ -2456,6 +2468,10 @@ p, span{
 
   .lg\:left-0 {
     left: 0px;
+  }
+
+  .lg\:left-10 {
+    left: 2.5rem;
   }
 
   .lg\:left-6 {
@@ -2496,18 +2512,6 @@ p, span{
 
   .lg\:top-\[16px\] {
     top: 16px;
-  }
-
-  .lg\:top-\[10\%\] {
-    top: 10%;
-  }
-
-  .lg\:top-2 {
-    top: 0.5rem;
-  }
-
-  .lg\:left-10 {
-    left: 2.5rem;
   }
 
   .lg\:top-\[calc\(820px_\+_1rem\)\] {
@@ -2793,6 +2797,10 @@ p, span{
     width: calc(50% - 1.25rem);
   }
 
+  .lg\:w-\[calc\(50\%_-_1rem\)\] {
+    width: calc(50% - 1rem);
+  }
+
   .lg\:w-\[calc\(66\.7\%_-_1rem\)\] {
     width: calc(66.7% - 1rem);
   }
@@ -2803,14 +2811,6 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(100\%_-_1rem\)\] {
-    width: calc(100% - 1rem);
-  }
-
-  .lg\:w-\[calc\(50\%_-_1rem\)\] {
-    width: calc(50% - 1rem);
   }
 
   .lg\:min-w-\[220px\] {
@@ -2921,10 +2921,6 @@ p, span{
     gap: 1rem;
   }
 
-  .lg\:gap-2 {
-    gap: 0.5rem;
-  }
-
   .lg\:gap-x-10 {
     -moz-column-gap: 2.5rem;
          column-gap: 2.5rem;
@@ -2983,11 +2979,6 @@ p, span{
     row-gap: 1.5rem;
   }
 
-  .lg\:gap-x-0 {
-    -moz-column-gap: 0px;
-         column-gap: 0px;
-  }
-
   .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(0px * var(--tw-space-x-reverse));
@@ -3000,6 +2991,10 @@ p, span{
 
   .lg\:overflow-x-hidden {
     overflow-x: hidden;
+  }
+
+  .lg\:overflow-x-visible {
+    overflow-x: visible;
   }
 
   .lg\:overflow-y-scroll {
@@ -3166,11 +3161,6 @@ p, span{
   .lg\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
-
-  .lg\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 
   .lg\:pb-10 {
