@@ -14,8 +14,11 @@
       "settings": {
         "hero_heading": "Shaped by the sea",
         "slide_text_one": "Discover it",
+        "slide_text_one_url": "https://65f17a-cc.myshopify.com/products/gt75",
         "slide_text_two": "Discover it",
+        "slide_text_two_url": "https://65f17a-cc.myshopify.com/products/e60",
         "slide_text_three": "Watch the full experience",
+        "slide_text_three_url": "",
         "swiper_image_1": "shopify://shop_images/pardo-GT75-gallery-02_desktop-2.jpg",
         "swiper_image_2": "shopify://shop_images/pardo-GT75-gallery-03_desktop.jpg",
         "swiper_image_3": "shopify://shop_images/pardo-GT75-gallery-05_desktop.jpg"
