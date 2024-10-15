@@ -48,7 +48,7 @@
           {% if external_video %}
             <video
               id="productVideo"
-              class="video w-full max-h-[220px] rounded-lg lg:min-h-[705px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
+              class="video w-full h-[220px] rounded-lg lg:min-h-[705px] object-cover lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
               preload="metadata"
               muted
               poster="{{ external_video | img_url: 'master' }}">
@@ -106,7 +106,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full max-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
+            class="w-full h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
             alt="{{ first_image.alt }}"
             id="first-internal-img">
         {% endif %}
@@ -158,7 +158,7 @@
           {% assign first_image = internal_gallery_down[internal_down_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full max-h-[220px]  rounded-lg object-cover object-center lg:min-h-[705px]  lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
+            class="w-full h-[220px]  rounded-lg object-cover object-center lg:min-h-[705px]  lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
             alt="{{ first_image.alt }}"
             id="first-internal-down-img">
         {% endif %}
@@ -210,7 +210,7 @@
           {% assign first_image = internal_gallery[internal_images[0]] %}
           <img
             src="{{ first_image | img_url: 'master' }}"
-            class="w-full max-h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
+            class="w-full h-[220px] rounded-lg object-cover object-center lg:min-h-[705px] lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none"
             alt="{{ first_image.alt }}"
             id="first-internal-up-img">
         {% endif %}
@@ -547,7 +547,7 @@
           if (screenSize >= 1024) {
             classesToAdd.push('min-h-[705px]');
           } else {
-            classesToAdd.push('max-h-[220px]');
+            classesToAdd.push('h-[220px]');
           }
           // Clear existing classes and add new ones
           mainImg.className = ''; // Clear existing classes
