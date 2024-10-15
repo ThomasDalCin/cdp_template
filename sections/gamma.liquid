@@ -9,7 +9,7 @@
       {% for collection in sorted_collections %}
       {% if collection.title != 'Pardo approved' %}
       <div class="chips-block cursor-pointer p-2 px-4 rounded-xl flex-1" data-target="{{ collection.title }}">
-        <p class="body-12">{{ collection.title }}</p>
+        <p class="body-12 text-nowrap">{{ collection.title }}</p>
       </div>
       {% endif %}
       {% endfor %}
