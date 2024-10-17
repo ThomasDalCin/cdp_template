@@ -177,7 +177,14 @@
         eventNameElement.textContent = articleTitle;
         formContainer.classList.remove('hidden');
         formContainer.classList.remove('translate-y-full'); 
-        formContainer.classList.add('translate-y-0'); 
+        formContainer.classList.add('translate-y-0');
+        if (window.innerWidth <= 435) {
+      const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: formContainerPosition - 100,
+        behavior: 'smooth'
+      });
+    }
       });
     });
   
@@ -203,7 +210,7 @@
 </script>
 
 {% comment %} 
-    Schema Section Settings here 
+        Schema Section Settings here 
 {% endcomment %}
 {% schema %}
   {
