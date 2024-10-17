@@ -1,6 +1,12 @@
 
 {
   "sections": {
+    "Page-loading": {
+      "type": "page-loading",
+      "settings": {
+
+      }
+    },
     "hero-section": {
       "type": "hero",
       "settings": {
@@ -35,6 +41,7 @@
     }
   },
   "order": [
+    "page-loading",
     "hero-section",
     "gamma-section",
     "collab-section",
