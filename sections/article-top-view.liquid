@@ -8,7 +8,7 @@
     <a href="javascript:history.back()">
       <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
         {% render 'back-arrow-icon' %}
-        <p class="body-14-medium ml-2">{{ section.settings.article_cta }}</p>
+        <p class="body-14-medium ml-2">{{ section.settings.article_cta_text }}</p>
       </div>
     </a>
   </div>
@@ -28,9 +28,10 @@
     "settings": [
       {
         "type": "text",
-        "id": "article_cta",
+        "id": "article_cta_text",
         "default": "Back",
-        "label": "Article Cta"
+        "label": "Article Text Cta",
+        "info": "Set the text inside your Cta"
       }
     ]
   }
