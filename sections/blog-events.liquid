@@ -34,6 +34,36 @@
       {% endfor %}
     {% endif %}
   {% endif %}
+  {% for block in section.blocks %}
+    {% if block.type == "card-event" %}
+      <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
+        <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
+          <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
+            <p class="article-title body-16-medium">{{ block.settings.card_event_title }}</p>
+          </div>
+          <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
+            <a href="{{ block.settings.card_redirect_google_url }}">
+              <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">{{ block.settings.card_redirect_google }}</p>
+                {% render 'cta-icon' %}
+              </div>
+            </a>
+            <a href="{{ block.settings.card_redirect_google_calendar_url }}">
+              <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                <p class="body-14 underline">{{ block.settings.card_redirect_calendar }}</p>
+                {% render 'calendar-icon' %}
+              </div>
+            </a>
+          </div>
+          <div class="events-cta lg:w-full lg:flex lg:justify-end">
+            <div class="cta-appointment outline-none book-appointment">
+              <p class="body-14">{{ block.settings.card_cta_appointment }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
 
   <!-- Book appointment Form -->
   {% if form.posted_successfully? %}
@@ -172,8 +202,8 @@
   });
 </script>
 
-{% comment %}
-  Schema Section Settings here
+{% comment %} 
+    Schema Section Settings here 
 {% endcomment %}
 {% schema %}
   {
@@ -183,66 +213,125 @@
         "type": "text",
         "id": "redirect_google",
         "label": "Google Maps",
-        "default": "Show on Google maps"
+        "default": "Show on Google maps",
+        "info": "Set the text of google maps cta"
       },
       {
-        "type": "text",
+        "type": "url",
         "id": "redirect_google_url",
         "label": "Google Maps Url",
-        "default": "Google Maps Url"
+        "info": "Set the correct google maps url"
       },
       {
         "type": "text",
         "id": "redirect_calendar",
         "label": "Google Calendar",
-        "default": "Open Google Calendar"
+        "default": "Open Google Calendar",
+        "info": "Set the text of google calendar cta"
       },
       {
         "type": "text",
         "id": "cta_appointment",
         "label": "Cta Appointment",
-        "default": "Book appointment"
+        "default": "Book appointment",
+        "info": "Set the text of the appointment cta"
       }, {
-        "type": "text",
+        "type": "url",
         "id": "redirect_google_calendar",
         "label": "Google Calendar Url",
-        "default": "Google Calendar Url"
+        "info": "Set the correct google calendar url"
       }, {
         "type": "text",
         "id": "confirm_message",
         "label": "Confirm form message",
-        "default": "Request sent"
+        "default": "Request sent",
+        "info": "Set the input placeholder"
       }, {
         "type": "text",
         "id": "form_first_name",
         "label": "Form Name",
-        "default": "Name"
+        "default": "Name",
+        "info": "Set the input placeholder"
       }, {
         "type": "text",
         "id": "form_last_name",
         "label": "Last Name",
-        "default": "Last Name"
+        "default": "Last Name",
+        "info": "Set the input placeholder"
       }, {
         "type": "text",
         "id": "form_email",
         "label": "Email",
-        "default": "Email*"
+        "default": "Email*",
+        "info": "Set the input placeholder"
       }, {
         "type": "text",
         "id": "form_content",
         "label": "Message",
-        "default": "Message"
+        "default": "Message",
+        "info": "Set the input placeholder"
       }, {
         "type": "textarea",
         "id": "form_privacy",
         "label": "Secondary Info",
-        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience."
+        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience.",
+        "info": "Set the privacy text directly here"
       }, {
         "type": "text",
         "id": "form_cta",
         "label": "CTA Text",
-        "default": "Send"
+        "default": "Send",
+        "info": "Set the Text of the Cta's Form"
       }
-    ]
+    ],
+    "blocks": [
+      {
+        "name": "card-event",
+        "type": "card-event",
+        "settings": [
+
+          {
+            "type": "text",
+            "id": "card_event_title",
+            "label": "Card Event Title",
+            "default": "Custom Event",
+            "info": "Set the event title"
+          },
+          {
+            "type": "text",
+            "id": "card_redirect_google",
+            "label": "Google Maps",
+            "default": "Show on Google maps",
+            "info": "Set the text of google maps cta"
+          },
+          {
+            "type": "url",
+            "id": "card_redirect_google_url",
+            "label": "Google Maps Url",
+            "info": "Set the correct google maps url"
+          },
+          {
+            "type": "text",
+            "id": "card_redirect_calendar",
+            "label": "Google Calendar",
+            "default": "Show on Google Calendar",
+            "info": "Set the text of google calendar cta"
+          }, {
+            "type": "url",
+            "id": "card_redirect_google_calendar_url",
+            "label": "Google calendar Url",
+            "info": "Set the correct google maps url"
+          }, {
+            "type": "text",
+            "id": "card_cta_appointment",
+            "label": "Cta Appointment",
+            "default": "Book appointment",
+            "info": "Set the cta text of the card event"
+          }
+
+        ]
+      }
+    ],
+    "max_blocks": 5
   }
 {% endschema %}
