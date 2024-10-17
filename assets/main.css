@@ -1477,10 +1477,6 @@ p, span{
   width: 220px;
 }
 
-.w-\[240px\] {
-  width: 240px;
-}
-
 .w-\[250px\] {
   width: 250px;
 }
@@ -1509,8 +1505,8 @@ p, span{
   width: calc(100% + 2rem);
 }
 
-.w-\[calc\(100\%\+3\.1875rem\)\] {
-  width: calc(100% + 3.1875rem);
+.w-\[calc\(100\%\+4\.1875rem\)\] {
+  width: calc(100% + 4.1875rem);
 }
 
 .w-\[calc\(100\%_\+_2rem\)\] {
@@ -1527,10 +1523,6 @@ p, span{
 
 .w-full {
   width: 100%;
-}
-
-.w-\[calc\(100\%\+4\.1875rem\)\] {
-  width: calc(100% + 4.1875rem);
 }
 
 .min-w-\[127px\] {
@@ -3241,11 +3233,6 @@ p, span{
 
   .lg\:leading-\[96px\] {
     line-height: 96px;
-  }
-
-  .lg\:text-black {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 
   .lg\:shadow-custom {

@@ -15,26 +15,26 @@
               <div class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10 lg:inline-flex lg:w-auto lg:h-auto lg:bottom-6 lg:left-6">
                 {% case forloop.index0 %}
                   {% when 0 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">GT75</h2>
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_first_model_heading }}</h2>
                     <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]  hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_text_one_url }}">
-                        <p class="body-14-medium">{{ section.settings.slide_text_one }}</p>
+                      <a href="{{ section.settings.slide_first_cta_url }}">
+                        <p class="body-14-medium">{{ section.settings.slide_first_cta_text }}</p>
                       </a>
                       {% render "cta-icon" %}
                     </div>
                   {% when 1 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">E60</h2>
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_second_model_heading }}</h2>
                     <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px] hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_text_two_url }}">
-                        <p class="body-14-medium">{{ section.settings.slide_text_two }}</p>
+                      <a href="{{ section.settings.slide_second_cta_url }}">
+                        <p class="body-14-medium">{{ section.settings.slide_second_cta_text }}</p>
                       </a>
                       {% render "cta-icon" %}
                     </div>
                   {% when 2 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">Details.</h2>
+                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_third_model_heading }}</h2>
                     <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px] hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_text_one_three }}">
-                        <p class="body-14-medium">{{ section.settings.slide_text_three }}</p>
+                      <a href="{{ section.settings.slide_third_cta_url }}">
+                        <p class="body-14-medium">{{ section.settings.slide_third_cta_text }}</p>
                       </a>
                       {% render "cta-icon" %}
                     </div>
@@ -86,40 +86,68 @@
         "type": "text",
         "id": "hero_heading",
         "default": "Shaped by the sea",
-        "label": "Hero heading"
+        "label": "Hero heading",
+        "info": "Set the hero heading"
       },
       {
         "type": "text",
-        "id": "slide_text_one",
-        "label": "Slide text one",
-        "default": "Discover it"
+        "id": "slide_first_model_heading",
+        "label": "Slide Cta Model Heading",
+        "default": "GT75",
+        "info": "Set the heading's model into the slide"
+      },
+      {
+        "type": "text",
+        "id": "slide_first_cta_text",
+        "label": "Slide Cta Text",
+        "default": "Discover it",
+        "info": "Set the slide's cta text"
       },
       {
         "type": "url",
-        "id": "slide_text_one_url",
-        "label": "Slide text one url"
+        "id": "slide_first_cta_url",
+        "label": "Slide First Cta Url",
+        "info": "Set the cta's url"
       },
       {
         "type": "text",
-        "id": "slide_text_two",
-        "label": "Slide text two",
-        "default": "Discover it"
+        "id": "slide_second_model_heading",
+        "label": "Slide Second Cta Model Heading",
+        "default": "E60",
+        "info": "Set the heading's model into the slide"
+      },
+      {
+        "type": "text",
+        "id": "slide_second_cta_text",
+        "label": "Slide Second Cta Text",
+        "default": "Discover it",
+        "info": "Set the slide's cta text"
       },
       {
         "type": "url",
-        "id": "slide_text_two_url",
-        "label": "Slide text two url"
+        "id": "slide_second_cta_url",
+        "label": "Slide Second Cta Url",
+        "info": "Set the cta's url"
       },
       {
         "type": "text",
-        "id": "slide_text_three",
+        "id": "slide_third_model_heading",
+        "label": "Slide Third Cta Model Heading",
+        "default": "Discover it",
+        "info": "Set the heading's model into the slide"
+      },
+      {
+        "type": "text",
+        "id": "slide_third_cta_text",
         "label": "Slide text three",
-        "default": "Watch the full experience"
+        "default": "Watch the full experience",
+        "info": "Set the slide's cta text"
       },
       {
         "type": "url",
-        "id": "slide_text_three_url",
-        "label": "Slide text three url"
+        "id": "slide_third_cta_url",
+        "label": "Slide Third Cta Url",
+        "info": "Set the cta's url"
       },
        {
         "type": "image_picker",
