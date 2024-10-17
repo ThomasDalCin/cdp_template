@@ -3,9 +3,7 @@
   "sections": {
     "page-loading": {
       "type": "page-loading",
-      "settings": {
-
-      }
+      "settings": {}
     },
     "hero-section": {
       "type": "hero",
