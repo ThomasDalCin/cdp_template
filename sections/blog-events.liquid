@@ -4,6 +4,8 @@
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
       {% for eventArticle in eventsArticles %}
+        {% assign eventLocation = eventArticle.metafields.custom.location.value | default: "Location not provided" %}
+        {% assign eventDate = eventArticle.metafields.custom.when.value | default: "Date not provided" %}
         <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
           <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
             <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
@@ -64,6 +66,10 @@
       </div>
     {% endif %}
   {% endfor %}
+
+  <div class="json-ld-container hidden">
+    <!-- json ld data structure -->
+  </div>
 
   <!-- Book appointment Form -->
   {% if form.posted_successfully? %}
@@ -164,50 +170,141 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const appointmentButtons = document.querySelectorAll('.book-appointment');
     const formContainer = document.querySelector('.form-container');
     const eventNameElement = formContainer.querySelector('.events-name');
-    const confirmPopup = document.querySelector('.confirm-pop-up'); 
+    const confirmPopup = document.querySelector('.confirm-pop-up');
     const closeIcon = formContainer.querySelector('.icon-content');
+    const jsonLdContainer = document.querySelector('.json-ld-container');
   
     appointmentButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
         eventNameElement.textContent = articleTitle;
         formContainer.classList.remove('hidden');
-        formContainer.classList.remove('translate-y-full'); 
+        formContainer.classList.remove('translate-y-full');
         formContainer.classList.add('translate-y-0');
         if (window.innerWidth <= 435) {
-      const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: formContainerPosition - 100,
-        behavior: 'smooth'
+          const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: formContainerPosition - 100,
+            behavior: 'smooth'
+          });
+        }
       });
+    });
+  
+    closeIcon.addEventListener('click', function () {
+      formContainer.classList.add('translate-y-full');
+      setTimeout(() => {
+        formContainer.classList.add('hidden');
+      }, 300);
+    });
+  
+  //handle json ld for Google
+  const shopifyStore = 'cantiere-del-pardo';
+  const apiVersion = '2023-01';
+  const storeFrontaccessToken = 'c1e0c954c3a0d709e18e96774f3e04b2';
+  const handle = 'events';
+  
+  // GraphQL query
+  const query = `
+  {
+  blogByHandle(handle: "${handle}") {
+    id
+    title
+    articles(first: 100) {
+      edges {
+        node {
+          id
+          title
+          contentHtml
+          publishedAt
+          metafields(identifiers: [
+            {namespace: "custom", key: "when"},
+            {namespace: "custom", key: "location"}
+          ]) {
+            key
+            value
+          }
+        }
+      }
     }
-      });
+  }
+  }
+  `;
+  
+  const fetchBlog = async () => {
+  const baseUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
+  
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': storeFrontaccessToken
+      },
+      body: JSON.stringify({ query })
     });
   
-    closeIcon.addEventListener('click', function() {
-      formContainer.classList.add('translate-y-full');
-      setTimeout(() => {
-        formContainer.classList.add('hidden');
-      }, 300); 
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching blog:', error);
+  }
+  };
+  
+  const buildJsonLd = async () => {
+  const data = await fetchBlog();
+  if (data && data.data && data.data.blogByHandle) {
+    const articles = data.data.blogByHandle.articles.edges;
+    
+    articles.forEach((articleObj) => {
+      const article = articleObj.node;
+      
+      // Estrazione dei metafields "when" e "location"
+      const whenMetafield = article.metafields.find(mf => mf.key === 'when');
+      const locationMetafield = article.metafields.find(mf => mf.key === 'location');
+  
+      const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": article.title,
+        "description": article.contentHtml,
+        "startDate": whenMetafield ? whenMetafield.value : null,
+        "location": {
+          "@type": "Place",
+          "name": locationMetafield ? locationMetafield.value : null
+        },
+        "datePublished": article.publishedAt,
+        "mainEntityOfPage": `https://${shopifyStore}/articles/${article.id}`
+      };
+  
+      // Creazione dell'elemento script
+      const scriptEl = document.createElement('script');
+      scriptEl.type = 'application/ld+json';
+      scriptEl.textContent = JSON.stringify(jsonLd);
+      
+      // Aggiunta dell'elemento al DOM
+      jsonLdContainer.appendChild(scriptEl);
     });
+  } else {
+    console.error('No blog or articles found.');
+  }
+  };
   
-    {% if form.posted_successfully? %}
-      formContainer.classList.add('translate-y-full');
-      setTimeout(() => {
-        formContainer.classList.add('hidden');
-      }, 300); 
-      confirmPopup.classList.remove('hidden'); 
+  // Esegui la funzione per creare JSON-LD
+  buildJsonLd();
   
-      setTimeout(() => {
-        confirmPopup.classList.add('hidden');
-      }, 3000);
-    {% endif %}
+  
   });
 </script>
+
 
 {% comment %} 
         Schema Section Settings here 
