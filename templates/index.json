@@ -1,10 +1,7 @@
 
+
 {
   "sections": {
-    "page-loading": {
-      "type": "page-loading",
-      "settings": {}
-    },
     "hero-section": {
       "type": "hero",
       "settings": {
@@ -36,13 +33,24 @@
       "type": "articles-list",
       "settings": {
       }
+    },
+    "explore-section": {
+      "type": "explore",
+      "settings": {
+      }
+    },
+    "infinity-banner": {
+      "type": "infinity-banner",
+      "settings": {
+      }
     }
   },
   "order": [
-    "page-loading",
     "hero-section",
     "gamma-section",
     "collab-section",
-    "articles-list"
+    "articles-list",
+    "explore-section",
+    "infinity-banner"
   ]
 }

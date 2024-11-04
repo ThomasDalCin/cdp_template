@@ -1,0 +1,104 @@
+<!-- explore section home page -->
+<div class="w-full h-auto flex flex-col items-center justify-center">
+  <!-- wrapper content section headings -->
+  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14">
+    <h4 class="header-4 text-[#818181]">{{ section.settings.secondary_heading | upcase | default: "Shaped by the Sea" }}</h4>
+    <h2 class="text-[48px] leading-[54px]">{{ section.settings.primary_heading | default: "Lorem Ipsum" }}</h2>
+  </div>
+  
+  <!-- explore gallery wrapper -->
+  <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+    <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
+      <!-- assign variables -->
+      {% assign explore_images = "explore_image_one,explore_image_two,explore_image_three,explore_image_four" | split: "," %}
+      {% assign total_images = explore_images.size %}
+
+      {% for explore_image in explore_images %}
+        {% assign explore_image_url = section.settings[explore_image] | img_url: 'master' %}
+          {% if explore_image_url %}
+          <!-- container explore section image -->
+          <div class="w-[382px] min-w-[382px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="{{ explore_image }}">
+            <img class="w-full h-full object-cover object-center" src="{{ explore_image_url }}" alt="{{ explore_image.alt }}">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    <!-- handle counter images during scroll -->
+    <div class="w-auto h-auto absolute left-4 bottom-4">
+      <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const counterText = document.querySelector('.counter-items'); 
+    const exploreImages = document.querySelectorAll('[id^="explore_image"]');
+    const container = document.querySelector('.scroll-snap-type-x');
+
+    const updateCounterOnScroll = () => {
+      //set the intial values
+      let closestImageIndex = 0;
+      let closestDistance = Infinity;
+      //check each image and foreach image check the distance from the center of the viewport, if the ditance is less than the previous update the counter
+      exploreImages.forEach((image, index) => {
+        const rect = image.getBoundingClientRect();
+        const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+
+        if (distanceFromCenter < closestDistance) {
+          closestDistance = distanceFromCenter;
+          closestImageIndex = index;
+        }
+      });
+      //update the counter with the current index image
+      counterText.innerHTML = `(0${closestImageIndex + 1}/0${exploreImages.length})`;
+    };
+
+    updateCounterOnScroll();
+    container.addEventListener('scroll', updateCounterOnScroll);
+  });
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "explore-gallery",
+    "settings": [
+      {
+        "type": "text",
+        "id": "secondary_heading",
+        "default": "Shaped by the Sea",
+        "label": "Secondary heading",
+        "info": "Set the heading here"
+      },
+      {
+        "type": "text",
+        "id": "primary_heading",
+        "default": "Lorem Ipsum",
+        "label": "Primary heading",
+        "info": "Set the heading here"
+      },
+      {
+        "type": "image_picker",
+        "id": "explore_image_one",
+        "label": "Explore image"
+      },
+      {
+        "type": "image_picker",
+        "id": "explore_image_two",
+        "label": "Explore image"
+      }, {
+        "type": "image_picker",
+        "id": "explore_image_three",
+        "label": "Explore image"
+      }, {
+        "type": "image_picker",
+        "id": "explore_image_four",
+        "label": "Explore image"
+      }
+    ]
+  }
+{% endschema %}
