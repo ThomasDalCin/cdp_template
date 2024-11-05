@@ -13,7 +13,7 @@
 
   <div class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-10 lg:pb-4">
     <!-- Assign liquid variables -->
-    {% assign allBlogs = "News, Events" | split: "," %}
+    {% assign allBlogs = "News, " | split: "," %}
     {% assign article_count = 0 %}
     {% for handle in allBlogs %}
       {% for article in blogs[handle].articles %}
