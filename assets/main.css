@@ -1146,6 +1146,10 @@ p, span{
   z-index: 99999;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
