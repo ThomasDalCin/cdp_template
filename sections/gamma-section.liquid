@@ -29,7 +29,7 @@
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
                 <div
-                    class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-center relative">
+                    class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative">
                     <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}" data-image="{{ product.title }}">
                     <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
