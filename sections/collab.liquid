@@ -1,12 +1,11 @@
 <!-- collab section home page -->
 <div class="collab-card-container w-full h-auto flex flex-col items-center justify-start gap-y-6 bg-[#262322] px-6 py-14">
 
-  <!--handle card blocks here -->
+  <!--handle card blocks here choosed by user -->
   {% for block in section.blocks %}
     {% if block.type == "collab-card" %}
       <div class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
-        <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default:
- "Collaboration" }}</p>
+        <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
         <img
           src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
           class="w-[260px] h-auto object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
@@ -20,9 +19,9 @@
       </div>
     {% endif %}
   {% endfor %}
+
   <!--default card here -->
   <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]" style="background-image: url('{{ section.settings.collab_custom_collab_image | img_url: 'master' }}'); background-size: cover;">
-
     <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
     <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="inline-flex justify-end">
       <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
@@ -30,9 +29,7 @@
         {% render 'cta-icon' %}
       </div>
     </a>
-
   </div>
-
 
 </div>
 

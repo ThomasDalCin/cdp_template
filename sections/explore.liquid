@@ -1,5 +1,6 @@
 <!-- explore section home page -->
 <div class="w-full h-auto flex flex-col items-center justify-center">
+
   <!-- wrapper content section headings -->
   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14">
     <h4 class="header-4 text-[#818181]">{{ section.settings.secondary_heading | upcase | default: "Shaped by the Sea" }}</h4>
@@ -62,7 +63,9 @@
 </script>
 
 
-
+{% comment %} 
+  Section Schema Settings here; 
+{% endcomment %}
 {% schema %}
   {
     "name": "explore-gallery",
