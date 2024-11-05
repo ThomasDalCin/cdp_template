@@ -8,7 +8,7 @@
           src="{{ collab_custom_collab_image }}"
           class="w-full h-full object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
           alt="{{ collab_custom_collab_image.alt }}">
-        <a href="{{}}">
+        <a href="{{ block.settings.collab_custom_collab_cta_text_url }}">
           <div class="w-auto h-auto inline-flex flex-row items-start justify-center">
             <p class="body-16 text-white">{{ block.settings.collab_custom_collab_cta_text | default: "Discover" }}</p>
             {% render 'cta-icon' %}
@@ -36,12 +36,20 @@
             "id": "collab_custom_collab_heading",
             "label": "Collab Costum Heading",
             "info": "Choose the collab heading"
-          }, {
+          },
+          {
             "type": "text",
             "id": "collab_custom_collab_cta_text",
             "label": "Collab Costum Cta Text",
             "info": "Choose the collab cta text"
-          }, {
+          },
+          {
+            "type": "url",
+            "id": "collab_custom_collab_cta_text_url",
+            "label": "Collab Costum Cta Text Url",
+            "info": "Choose the collab cta text url"
+          },
+          {
             "type": "image_picker",
             "id": "collab_custom_collab_image",
             "label": "Collab Costum Image",
