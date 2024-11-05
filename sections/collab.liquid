@@ -1,7 +1,7 @@
 <!-- collab section home page -->
-<div class="collab-scroll w-full h-auto flex flex-col items-center justify-start gap-y-6 bg-[#262322] px-6 py-14">
+<div class="collab-card-container w-full h-auto flex flex-col items-center justify-start gap-y-6 bg-[#262322] px-6 py-14">
 
-  <div class="w-full h-[480px] collab-container px-6 bg-[#8B7E7A] flex flex-col items-start justify-start relative bg-[url({{ section.settings.collab_custom_collab_image |  img_url: 'master' }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
+  <div class="w-full h-[480px] collab-container px-6 bg-[#8B7E7A] flex flex-col items-start justify-start relative bg-[url({{ section.settings.collab_custom_collab_image | img_url: 'master' }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
 
     <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
     <a href="{{ section.settings.collab_custom_collab_cta_text_url }}">
@@ -18,9 +18,9 @@
       <div class="w-full h-[480px] collab-container px-6 bg-[#8B7E7A] flex flex-col items-start justify-start relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
         <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
         <img
-          src="{{ block.settings.collab_custom_collab_image| img_url : 'master' }}"
+          src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
           class="w-full h-full object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
-          alt="{{ collab_custom_collab_image.alt }}">
+          alt="{{ block.settings.collab_custom_collab_heading | default: "Collaboration Image" }}">
         <a href="{{ block.settings.collab_custom_collab_cta_text_url }}">
           <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
             <p class="body-16 text-white">{{ block.settings.collab_custom_collab_cta_text | default: "Discover" }}</p>
@@ -33,7 +33,6 @@
 
 </div>
 
-
 {% comment %} 
           Section Schema Settings here; 
 {% endcomment %}
@@ -44,23 +43,23 @@
       {
         "type": "text",
         "id": "collab_custom_collab_heading",
-        "label": "Collab Costum Heading",
+        "label": "Collab Custom Heading",
         "info": "Choose the collab heading"
       }, {
         "type": "text",
         "id": "collab_custom_collab_cta_text",
-        "label": "Collab Costum Cta Text",
-        "info": "Choose the collab cta text"
+        "label": "Collab Custom CTA Text",
+        "info": "Choose the collab CTA text"
       }, {
         "type": "url",
         "id": "collab_custom_collab_cta_text_url",
-        "label": "Collab Costum Cta Text Url",
-        "info": "Choose the collab cta text url"
+        "label": "Collab Custom CTA Text URL",
+        "info": "Choose the collab CTA text URL"
       }, {
         "type": "image_picker",
         "id": "collab_custom_collab_image",
-        "label": "Collab Costum Image",
-        "info": "Choose the collab Image"
+        "label": "Collab Custom Image",
+        "info": "Choose the collab image"
       }
     ],
     "blocks": [
@@ -71,23 +70,23 @@
           {
             "type": "text",
             "id": "collab_custom_collab_heading",
-            "label": "Collab Costum Heading",
+            "label": "Collab Custom Heading",
             "info": "Choose the collab heading"
           }, {
             "type": "text",
             "id": "collab_custom_collab_cta_text",
-            "label": "Collab Costum Cta Text",
-            "info": "Choose the collab cta text"
+            "label": "Collab Custom CTA Text",
+            "info": "Choose the collab CTA text"
           }, {
             "type": "url",
             "id": "collab_custom_collab_cta_text_url",
-            "label": "Collab Costum Cta Text Url",
-            "info": "Choose the collab cta text url"
+            "label": "Collab Custom CTA Text URL",
+            "info": "Choose the collab CTA text URL"
           }, {
             "type": "image_picker",
             "id": "collab_custom_collab_image",
-            "label": "Collab Costum Image",
-            "info": "Choose the collab Image"
+            "label": "Collab Custom Image",
+            "info": "Choose the collab image"
           }
         ]
       }
