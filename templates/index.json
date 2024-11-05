@@ -50,6 +50,20 @@
     },
     "collab-section": {
       "type": "collab",
+      "blocks": {
+        "collab_card_nw9qf8": {
+          "type": "collab-card",
+          "settings": {
+            "collab_custom_collab_heading": "",
+            "collab_custom_collab_cta_text": "",
+            "collab_custom_collab_cta_text_url": "",
+            "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png"
+          }
+        }
+      },
+      "block_order": [
+        "collab_card_nw9qf8"
+      ],
       "settings": {
         "collab_custom_collab_heading": "",
         "collab_custom_collab_cta_text": "",
