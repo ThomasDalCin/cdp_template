@@ -1,6 +1,6 @@
 <!--infinity banner strip section-->
 <div class="w-full h-auto overflow-x-hidden">
-    <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-8">
+    <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-8 infinity-banner">
 
         <!--container block strip text & elipse-->
         <div class="w-auto min-w-[438px] h-auto min-h-[55px] flex flex-row items-center justify-center gap-x-8">
@@ -38,3 +38,19 @@
     </div>
 </div>
 
+<style>
+    @keyframes infinityScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-100% - 96px));
+            /* -100% più 3 gap di 32px */
+        }
+    }
+
+    .infinity-banner {
+        animation: infinityScroll 15s linear infinite;
+    }
+</style>
