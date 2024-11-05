@@ -32,13 +32,6 @@
       "settings": {
       }
     },
-    "collab-section": {
-      "type": "collab",
-      "settings": {
-        "collab_image_1": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
-        "collab_image_2": "shopify://shop_images/PardoYatch-Home-Collaborations-PoldoxPardo.png"
-      }
-    },
     "articles-list": {
       "type": "articles-list",
       "settings": {
@@ -55,6 +48,13 @@
         "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
       }
     },
+    "collab-section": {
+      "type": "collab",
+      "settings": {
+        "collab_image_1": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
+        "collab_image_2": "shopify://shop_images/PardoYatch-Home-Collaborations-PoldoxPardo.png"
+      }
+    },
     "infinity-banner": {
       "type": "infinity-banner",
       "settings": {
@@ -64,9 +64,9 @@
   "order": [
     "hero-section",
     "gamma-section",
-    "collab-section",
     "articles-list",
     "explore-section",
+    "collab-section",
     "infinity-banner"
   ]
 }
