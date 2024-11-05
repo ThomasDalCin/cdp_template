@@ -1,9 +1,9 @@
-<!--gamma section new -->
+<!-- gamma section new -->
 <div class="w-full h-auto px-6 py-14 bg-[#A9A09E] overflow-x-hidden">
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
-            <!--tab wrapper -->
+            <!-- tab wrapper -->
             <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6 relative">
                 {% assign sorted_collections = collections | sort: 'published_at' %}
                 {% for collection in sorted_collections %}
@@ -13,69 +13,68 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                <!--union icon-->
+                <!-- union icon -->
                 <div class="w-auto h-auto absolute left-[calc(33.3%_/_2)] -top-4 transition-all duration-200 ease-in">
                     {% render 'union-icon' %}
                 </div>
             </div>
 
-            <!--model wrapper-->
-            <div class="magnetic-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory gamma-scroll">
-                {% for collection in sorted_collections %}
-                    {% if collection.title != "Pardo approved" %}
-                    {% for product in collection.products %}
-                    {% assign product_images = product.images %}
-                    {% if product_images.size > 0 %}
-                    {% assign model_image = product_images[0] %}
-                    <!--product image-->
-                    <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative" data-collection="{{ collection.title }}">
-                        <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
-                        <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                    <div class="w-full h-[240px] flex-shrink-0 flex "></div>
-                    {% endif %}
-                {% endfor %}                    
+            <!-- model wrapper -->
+            {% for collection in sorted_collections %}
+            {% if collection.title != "Pardo approved" %}
+            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory" data-collection="{{ collection.title }}" style="display: none;">
+                {% for product in collection.products %}
+                {% assign product_images = product.images %}
+                {% if product_images.size > 0 %}
+                {% assign model_image = product_images[0] %}
+                <!-- product image -->
+                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative" data-collection="{{ collection.title }}">
+                    <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
+                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="w-full h-[240px] flex-shrink-0 flex "></div>
             </div>
-        
+            {% endif %}
+            {% endfor %}
+
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const tabs = document.querySelectorAll('.tab-gamma');
-    const gammaScroll = document.querySelectorAll('.gamma-scroll');
-    
-    // Aggiungi un event listener a ogni tab
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const collectionId = tab.id;
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll('.tab-gamma');
+        const gammaScrolls = document.querySelectorAll('.gamma-scroll');
 
-            //Hide gamma scroll
-            gammaScroll.forEach(container => {
-                container.style.display = 'none';
+        // Aggiungi un event listener a ogni tab
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                const collectionId = tab.id;
+
+                // Nascondi tutti i gamma-scroll
+                gammaScrolls.forEach(container => {
+                    container.style.display = 'none';
+                });
+
+                // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
+                gammaScrolls.forEach(container => {
+                    const scrollCollection = container.getAttribute('data-collection');
+                    if (scrollCollection === collectionId) {
+                        container.style.display = 'flex';
+                    }
+                });
+
+                // Aggiorna lo stile del tab attivo
+                tabs.forEach(t => t.classList.remove('active-tab'));
+                tab.classList.add('active-tab');
             });
-
-            //Show the container scroll
-            gammaScroll.forEach(container => {
-                const scrollCollection = container.getAttribute('data-collection')
-                if (scrollCollection === collectionId) {
-                    image.style.display = 'flex';
-                }
-            });
-
-            //handle tab style
-            tabs.forEach(t => t.classList.remove('active-tab'));
-            tab.classList.add('active-tab');
         });
+
+        // Mostra i prodotti della prima collezione all'avvio
+        if (tabs.length > 0) {
+            tabs[0].click();
+        }
     });
-
-    // Mostra i prodotti della prima collezione all'avvio
-    if (tabs.length > 0) {
-        tabs[0].click();
-    }
-});
-
 </script>
