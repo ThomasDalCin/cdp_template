@@ -3,21 +3,44 @@
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
+            <!--tab wrapper -->
             <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6 relative">
                 {% assign sorted_collections = collections | sort: 'published_at' %}
                 {% for collection in sorted_collections %}
-                    {% if collection.title != "Pardo approved" %}
-                        <div class="w-auto min-w-[99px] h-auto">
-                            <p class="header-1 satoshi">{{ collection.title |  capitalize }}</p>
-                        </div>
-                    {% endif %}
+                {% if collection.title != "Pardo approved" %}
+                <div class="w-auto min-w-[99px] h-auto" id="{{ collection.title }}">
+                    <p class="header-1 satoshi">{{ collection.title | capitalize }}</p>
+                </div>
+                {% endif %}
                 {% endfor %}
                 <!--union icon-->
-                <div class="w-auto h-auto absolute left-[calc(33.3%_/_2)] -top-4">
+                <div class="w-auto h-auto absolute left-[calc(33.3%_/_2)] -top-4 transition-all duration-200 ease-in">
                     {% render 'union-icon' %}
                 </div>
             </div>
 
+            <!--model wrapper-->
+            <div
+                class="magnetic-scroll w-[calc(100%+4.1875rem)] h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36 snap-x snap-mandatory">
+                {% for collection in sorted_collections %}
+                {% if collection.title != "Pardo approved" %}
+                {% for product in collection.products %}
+                {% assign product_images = product.images %}
+                {% if product_images.size > 0 %}
+                {% assign model_image = product_images[0] %}
+                <div
+                    class="image-scroll w-[260px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center snap-center relative">
+                    <img class="w-full h-full object-contain pImage" src="{{ model_image | img_url: 'master' }}"
+                        alt="{{ model_image.alt }}" data-image="{{ product.title }}">
+                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">{{ product.title | replace: 'Pardo', '' }}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <div class="w-full h-[240px] flex-shrink-0 flex "></div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        
         </div>
     </div>
 </div>
