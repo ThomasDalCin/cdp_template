@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero-section": {
@@ -45,6 +53,11 @@
       "settings": {
       }
     },
+    "infinity-banner": {
+      "type": "infinity-banner",
+      "settings": {
+      }
+    },
     "collab-section": {
       "type": "collab",
       "blocks": {
@@ -67,20 +80,15 @@
         "collab_custom_collab_cta_text_url": "",
         "collab_custom_collab_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg"
       }
-    },
-    "infinity-banner": {
-      "type": "infinity-banner",
-      "settings": {
-      }
     }
   },
   "order": [
     "hero-section",
     "gamma-section",
+    "gamma-section-new",
     "explore-section",
     "articles-list",
     "infinity-banner",
-    "collab-section",
-    "gamma-section-new"
+    "collab-section"
   ]
 }

@@ -543,15 +543,6 @@ p, span{
   line-height: var(--caption-height);
 }
 
-.satoshi{
-  /* General font settings */
-  font-family: "Satoshi-regular", sans-serif !important;
-  font-optical-sizing: auto !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  letter-spacing: -0.4px;
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
