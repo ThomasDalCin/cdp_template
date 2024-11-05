@@ -2,7 +2,8 @@
 <div class="w-full h-auto px-6 py-14 bg-[#A9A09E]">
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
-            <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6">
+
+            <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6 relative">
                 {% assign sorted_collections = collections | sort: 'published_at' %}
                 {% for collection in sorted_collections %}
                     {% if collection.title != "Pardo approved" %}
@@ -11,7 +12,12 @@
                         </div>
                     {% endif %}
                 {% endfor %}
+                <!--union icon-->
+                <div class="w-auto h-auto">
+                    {% render 'union-icon' %}
+                </div>
             </div>
+
         </div>
     </div>
 </div>
