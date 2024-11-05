@@ -11,8 +11,8 @@
           src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
           class="w-[260px] h-auto object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
           alt="{{ block.settings.collab_custom_collab_heading | default: " Collaboration Image" }}">
-        <a href="{{ block.settings.collab_custom_collab_cta_text_url }}">
-          <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
+        <a href="{{ block.settings.collab_custom_collab_cta_text_url }}" class="inline-flex justify-end">
+          <div class="w-auto h-auto flex flex-row items-start justify-center text-white">
             <p class="body-16 text-white">{{ block.settings.collab_custom_collab_cta_text | default: "Discover" }}</p>
             {% render 'cta-icon' %}
           </div>
@@ -25,7 +25,7 @@
 
     <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default:
  "Connect on Instagram" }}</p>
-    <a href="{{ section.settings.collab_custom_collab_cta_text_url }}">
+    <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="inline-flex justify-end">
       <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
         <p class="body-16 text-white">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>
         {% render 'cta-icon' %}
