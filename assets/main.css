@@ -2500,6 +2500,16 @@ p, span{
   color: var(--hover-gray);
 }
 
+.placeholder\:text-black::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .last-of-type\:mr-8:last-of-type {
   margin-right: 2rem;
 }
