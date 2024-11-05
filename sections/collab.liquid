@@ -1,7 +1,7 @@
 <!-- collab section home page -->
 <div class="collab-card-container w-full h-auto flex flex-col items-center justify-start gap-y-6 bg-[#262322] px-6 py-14">
 
-
+  <!--handle card blocks here -->
   {% for block in section.blocks %}
     {% if block.type == "collab-card" %}
       <div class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
@@ -20,25 +20,24 @@
       </div>
     {% endif %}
   {% endfor %}
+  <!--default card here -->
+  <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]" style="background-image: url('{{ section.settings.collab_custom_collab_image | img_url: 'master' }}'); background-size: cover;">
 
-  <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]"
-     style="background-image: url('{{ section.settings.collab_custom_collab_image | img_url: 'master' }}'); background-size: cover;">
-  
-  <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
-  <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="inline-flex justify-end">
-    <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
-      <p class="body-16 text-white">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>
-      {% render 'cta-icon' %}
-    </div>
-  </a>
+    <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
+    <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="inline-flex justify-end">
+      <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
+        <p class="body-16 text-white">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>
+        {% render 'cta-icon' %}
+      </div>
+    </a>
 
-</div>
+  </div>
 
 
 </div>
 
 {% comment %} 
-  Section Schema Settings here; 
+    Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
@@ -49,17 +48,20 @@
         "id": "collab_custom_collab_heading",
         "label": "Collab Custom Heading",
         "info": "Choose the collab heading"
-      }, {
+      },
+      {
         "type": "text",
         "id": "collab_custom_collab_cta_text",
         "label": "Collab Custom CTA Text",
         "info": "Choose the collab CTA text"
-      }, {
+      },
+      {
         "type": "url",
         "id": "collab_custom_collab_cta_text_url",
         "label": "Collab Custom CTA Text URL",
         "info": "Choose the collab CTA text URL"
-      }, {
+      },
+      {
         "type": "image_picker",
         "id": "collab_custom_collab_image",
         "label": "Collab Custom Image",
@@ -76,21 +78,47 @@
             "id": "collab_custom_collab_heading",
             "label": "Collab Custom Heading",
             "info": "Choose the collab heading"
-          }, {
+          },
+          {
             "type": "text",
             "id": "collab_custom_collab_cta_text",
             "label": "Collab Custom CTA Text",
             "info": "Choose the collab CTA text"
-          }, {
+          },
+          {
             "type": "url",
             "id": "collab_custom_collab_cta_text_url",
             "label": "Collab Custom CTA Text URL",
             "info": "Choose the collab CTA text URL"
-          }, {
+          },
+          {
             "type": "image_picker",
             "id": "collab_custom_collab_image",
             "label": "Collab Custom Image",
             "info": "Choose the collab image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default Collab Cards",
+        "category": "Custom Sections",
+        "settings": {
+          "collab_custom_collab_heading": "Collaboration",
+          "collab_custom_collab_cta_text": "Discover",
+          "collab_custom_collab_cta_text_url": "https://instagram.com/",
+          "collab_custom_collab_image": "collab-image.jpg"
+        },
+        "blocks": [
+          {
+            "type": "collab-card",
+            "settings": {
+              "collab_custom_collab_heading": "Connect on Instagram",
+              "collab_custom_collab_cta_text": "Follow us",
+              "collab_custom_collab_cta_text_url": "https://instagram.com/",
+              "collab_custom_collab_image": "exclusive-collab-image.jpg"
+            }
           }
         ]
       }
