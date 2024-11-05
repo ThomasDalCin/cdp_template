@@ -537,15 +537,6 @@ p, span{
   line-height: var(--caption-height);
 }
 
-.satoshi{
-  /* General font settings */
-  font-family: "Satoshi-regular", sans-serif !important;
-  font-optical-sizing: auto !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  letter-spacing: -0.4px;
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1211,10 +1202,6 @@ p, span{
   margin-top: 70px;
 }
 
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -1368,14 +1355,6 @@ p, span{
   height: 100vh;
 }
 
-.h-\[55px\] {
-  height: 55px;
-}
-
-.h-2 {
-  height: 0.5rem;
-}
-
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1398,10 +1377,6 @@ p, span{
 
 .max-h-\[600px\] {
   max-height: 600px;
-}
-
-.max-h-\[55px\] {
-  max-height: 55px;
 }
 
 .min-h-\[120px\] {
@@ -1564,26 +1539,6 @@ p, span{
   width: 100%;
 }
 
-.w-\[200\%\] {
-  width: 200%;
-}
-
-.w-\[430px\] {
-  width: 430px;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
-.w-2 {
-  width: 0.5rem;
-}
-
-.w-\[50\%\] {
-  width: 50%;
-}
-
 .min-w-\[127px\] {
   min-width: 127px;
 }
@@ -1618,10 +1573,6 @@ p, span{
 
 .flex-shrink-0 {
   flex-shrink: 0;
-}
-
-.flex-grow-0 {
-  flex-grow: 0;
 }
 
 .-translate-x-1\/2 {
@@ -1773,10 +1724,6 @@ p, span{
   gap: 1rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -1833,11 +1780,6 @@ p, span{
   row-gap: 2rem;
 }
 
-.gap-x-8 {
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-}
-
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1866,10 +1808,6 @@ p, span{
 
 .overflow-x-hidden {
   overflow-x: hidden;
-}
-
-.overflow-x-scroll {
-  overflow-x: scroll;
 }
 
 .overflow-y-scroll {
@@ -2040,6 +1978,11 @@ p, span{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#262322\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 35 34 / var(--tw-bg-opacity));
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -2056,11 +1999,6 @@ p, span{
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
 }
 
 .object-center {
@@ -2133,10 +2071,6 @@ p, span{
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.pb-10 {
-  padding-bottom: 2.5rem;
 }
 
 .pb-2 {
@@ -2557,14 +2491,6 @@ p, span{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.hover\:w-\[1068px\]:hover {
-  width: 1068px;
-}
-
-.hover\:flex-grow:hover {
-  flex-grow: 1;
-}
-
 .hover\:bg-\[var\(--accent-color\)\]:hover {
   background-color: var(--accent-color);
 }
@@ -2982,8 +2908,8 @@ p, span{
     width: 100%;
   }
 
-  .lg\:w-\[1068px\] {
-    width: 1068px;
+  .lg\:min-w-0 {
+    min-width: 0px;
   }
 
   .lg\:min-w-\[220px\] {
@@ -3014,14 +2940,6 @@ p, span{
     min-width: 100%;
   }
 
-  .lg\:min-w-0 {
-    min-width: 0px;
-  }
-
-  .lg\:min-w-\[1068px\] {
-    min-width: 1068px;
-  }
-
   .lg\:max-w-\[297px\] {
     max-width: 297px;
   }
@@ -3034,10 +2952,6 @@ p, span{
     max-width: calc(50% - 1rem);
   }
 
-  .lg\:max-w-\[1068px\] {
-    max-width: 1068px;
-  }
-
   .lg\:flex-1 {
     flex: 1 1 0%;
   }
@@ -3048,14 +2962,6 @@ p, span{
 
   .lg\:flex-grow {
     flex-grow: 1;
-  }
-
-  .lg\:flex-grow-0 {
-    flex-grow: 0;
-  }
-
-  .lg\:grow-0 {
-    flex-grow: 0;
   }
 
   .lg\:grid-cols-2 {
@@ -3476,40 +3382,8 @@ p, span{
     padding-right: 1.5rem;
   }
 
-  .lg\:hover\:w-\[1068px\]:hover {
-    width: 1068px;
-  }
-
-  .hover\:lg\:flex-grow:hover {
-    flex-grow: 1;
-  }
-
-  .lg\:hover\:flex-grow:hover {
-    flex-grow: 1;
-  }
-
-  .lg\:hover\:flex-grow-\[7\]:hover {
-    flex-grow: 7;
-  }
-
-  .lg\:hover\:grow-\[7\]:hover {
-    flex-grow: 7;
-  }
-
-  .lg\:hover\:grow-\[2\]:hover {
-    flex-grow: 2;
-  }
-
   .lg\:hover\:grow-\[3\]:hover {
     flex-grow: 3;
-  }
-
-  .lg\:hover\:grow-\[4\]:hover {
-    flex-grow: 4;
-  }
-
-  .lg\:hover\:grow-\[5\]:hover {
-    flex-grow: 5;
   }
 
   .lg\:hover\:border-black:hover {
