@@ -4,7 +4,7 @@
 
   {% for block in section.blocks %}
     {% if block.type == "collab-card" %}
-      <div class="w-full h-[480px] collab-container px-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
+      <div class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
         <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
         <img
           src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
@@ -20,7 +20,7 @@
     {% endif %}
   {% endfor %}
 
-  <div class="w-full h-[480px] collab-container px-6 flex flex-col items-start justify-between relative bg-[url({{ section.settings.collab_custom_collab_image | img_url: 'master' }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
+  <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative bg-[url({{ section.settings.collab_custom_collab_image | img_url: 'master' }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
 
   <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
   <a href="{{ section.settings.collab_custom_collab_cta_text_url }}">
