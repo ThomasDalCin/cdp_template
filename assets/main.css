@@ -1202,6 +1202,10 @@ p, span{
   margin-top: 70px;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
