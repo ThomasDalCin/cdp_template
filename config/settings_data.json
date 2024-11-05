@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "logo_width": 90,
@@ -133,7 +133,6 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify://shop_images/Platform_Instagram_Color_Negative.png",
-              "social_name": "Instagram",
               "social_url": "https://www.instagram.com/"
             }
           },
@@ -141,7 +140,6 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify://shop_images/Platform_LinkedIn_Color_Negative.png",
-              "social_name": "Linkedln",
               "social_url": ""
             }
           },
@@ -149,7 +147,6 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify://shop_images/Platform_Facebook_Color_Negative.png",
-              "social_name": "Facebook",
               "social_url": "https://www.instagram.com/"
             }
           },
@@ -157,7 +154,6 @@
             "type": "social-channel",
             "settings": {
               "social_icon": "shopify://shop_images/Platform_YouTube_Color_Negative.png",
-              "social_name": "You tube",
               "social_url": "https://www.instagram.com/"
             }
           }
@@ -175,11 +171,9 @@
           "checkbox_1_label": "Pardo owner",
           "checkbox_2_label": "Visitor",
           "placeholder_text": "Email",
-          "button_text": "Come on board",
           "footer_models_menu": "Models",
           "footer_discover_menu": "Discover",
           "footer_socials_menu": "Socials",
-          "cta_delear_text": "Locate the nearest delear",
           "right_reserved": "©2024 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved"
         }
       }

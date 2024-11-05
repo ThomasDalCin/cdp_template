@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
   "sections": {
     "hero-section": {
@@ -33,11 +32,6 @@
       "settings": {
       }
     },
-    "articles-list": {
-      "type": "articles-list",
-      "settings": {
-      }
-    },
     "explore-section": {
       "type": "explore",
       "settings": {
@@ -47,6 +41,11 @@
         "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
         "explore_image_three": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
         "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
+      }
+    },
+    "articles-list": {
+      "type": "articles-list",
+      "settings": {
       }
     },
     "collab-section": {
@@ -81,9 +80,9 @@
   "order": [
     "hero-section",
     "gamma-section",
-    "articles-list",
     "explore-section",
-    "collab-section",
-    "infinity-banner"
+    "articles-list",
+    "infinity-banner",
+    "collab-section"
   ]
 }
