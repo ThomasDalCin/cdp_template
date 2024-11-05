@@ -28,7 +28,7 @@
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
                 <!-- product image -->
-                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative" data-collection="{{ collection.title }}">
+                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative">
                     <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
                     <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
                 </div>
@@ -48,17 +48,17 @@
         const tabs = document.querySelectorAll('.tab-gamma');
         const gammaScrolls = document.querySelectorAll('.gamma-scroll');
 
-        // Aggiungi un event listener a ogni tab
+        //add click event on each tab
         tabs.forEach(tab => {
             tab.addEventListener('click', function () {
                 const collectionId = tab.id;
 
-                // Nascondi tutti i gamma-scroll
+                //hide each container gamma scroll
                 gammaScrolls.forEach(container => {
                     container.style.display = 'none';
                 });
 
-                // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
+                //Show the gamma scroll container 
                 gammaScrolls.forEach(container => {
                     const scrollCollection = container.getAttribute('data-collection');
                     if (scrollCollection === collectionId) {
@@ -66,13 +66,13 @@
                     }
                 });
 
-                // Aggiorna lo stile del tab attivo
+                //handle tab active
                 tabs.forEach(t => t.classList.remove('active-tab'));
                 tab.classList.add('active-tab');
             });
         });
 
-        // Mostra i prodotti della prima collezione all'avvio
+        //Show after page load
         if (tabs.length > 0) {
             tabs[0].click();
         }
