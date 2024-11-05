@@ -22,23 +22,21 @@
             <!--model wrapper-->
             <div class="magnetic-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory gamma-scroll">
                 {% for collection in sorted_collections %}
-                {% if collection.title != "Pardo approved" %}
-                {% for product in collection.products %}
-                {% assign product_images = product.images %}
-                {% if product_images.size > 0 %}
-                {% assign model_image = product_images[0] %}
-                <!--product image-->
-                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative">
-                    <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}"
-                        alt="{{ model_image.alt }}" data-image="{{ product.title }}">
-                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
-                </div>
-                {% endif %}
-                {% endfor %}
-                <!--fake div-->
-                <div class="w-full h-[240px] flex-shrink-0 flex "></div>
-                {% endif %}
-                {% endfor %}
+                    {% if collection.title != "Pardo approved" %}
+                    {% for product in collection.products %}
+                    {% assign product_images = product.images %}
+                    {% if product_images.size > 0 %}
+                    {% assign model_image = product_images[0] %}
+                    <!--product image-->
+                    <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative" data-collection="{{ collection.title }}">
+                        <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
+                        <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="w-full h-[240px] flex-shrink-0 flex "></div>
+                    {% endif %}
+                {% endfor %}                    
             </div>
         
         </div>
@@ -46,36 +44,35 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     const tabs = document.querySelectorAll('.tab-gamma');
-    const gammaScroll = document.querySelector('.gamma-scroll');
+    const gammaScroll = document.querySelectorAll('.gamma-scroll');
     
-    //add event click on each tab
+    // Aggiungi un event listener a ogni tab
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const collectionId = tab.id;
-            console.log(tab);
-            
-            //hide all images inside gammaScroll
-            const productImages = gammaScroll.querySelectorAll('.image-scroll');
-            productImages.forEach(image => {
-                image.style.display = 'none';
+
+            //Hide gamma scroll
+            gammaScroll.forEach(container => {
+                container.style.display = 'none';
             });
 
-            //Show the images inside the tab
-            productImages.forEach(image => {
-                const imageCollection = image.querySelector('img').getAttribute('data-image');
-                if (imageCollection === collectionId) {
+            //Show the container scroll
+            gammaScroll.forEach(container => {
+                const scrollCollection = container.getAttribute('data-collection')
+                if (scrollCollection === collectionId) {
                     image.style.display = 'flex';
                 }
             });
 
-            //add class active on tab active
+            //handle tab style
             tabs.forEach(t => t.classList.remove('active-tab'));
             tab.classList.add('active-tab');
         });
     });
 
+    // Mostra i prodotti della prima collezione all'avvio
     if (tabs.length > 0) {
         tabs[0].click();
     }
