@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const collectionId = tab.id;
-            console.log(collectionId)
+            console.log(tab);
+            
             //hide all images inside gammaScroll
             const productImages = gammaScroll.querySelectorAll('.image-scroll');
             productImages.forEach(image => {
