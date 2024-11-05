@@ -59,6 +59,26 @@
       {% endform %}
     </div>
   </div>
+
+  <!--social icon block here -->
+  <div class="socials-menu-container w-full h-auto">
+    <div class="social-links-container flex flex-row gap-x-6 items-start justify-center w-full h-auto">
+      {% for block in section.blocks %}
+        {% if block.type == "social-channel" %}
+          <div class="social-link-container w-full h-auto">
+            <li class="social-link flex flex-row gap-x-3 items-center justify-start">
+              <img
+                src="{{ block.settings.social_icon |  img_url: 'master' }}"
+                alt="{{ block.settings.social_icon.alt }}"
+                class="social-image w-5 h-5 object-cover"
+                style="width: 20px; height: 20px">
+            </li>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
   <div class="footer-menu w-full h-auto flex flex-row items-start justify-between  lg:w-[calc(66.7%_-_1rem)] lg:p-4">
     <div class="col-footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start lg:p-4">
       <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_models_menu | upcase }}</p>
@@ -87,27 +107,9 @@
           {% endfor %}
         </div>
       </div>
-      <div class="socials-menu-container w-full h-auto flex flex-col gap-y-5">
-        <p class="body-16-medium text-[var(--inactive-color)]">{{ section.settings.footer_socials_menu | upcase }}</p>
-        <div class="social-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
-          {% for block in section.blocks %}
-            {% if block.type == "social-channel" %}
-              <div class="social-link-container w-full h-auto">
-                <li class="social-link flex flex-row gap-x-3 items-center justify-start">
-                  <img
-                    src="{{ block.settings.social_icon |  img_url: 'master' }}"
-                    alt="{{ block.settings.social_icon.alt }}"
-                    class="social-image w-5 h-5 object-cover"
-                    style="width: 20px; height: 20px">
-                  <a class="body-16 text-white" href="{{ block.settings.social_url }}">{{ block.settings.social_name }}</a>
-                </li>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
     </div>
   </div>
+
   <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:p-4 lg:flex-row-reverse lg:justify-center lg:items-center">
     <div class="cta-primary border-none self-auto bg-white">
       <a href="/pages/locate-delear" class="text-nowrap">{{ section.settings.cta_delear_text }}</a>
@@ -213,11 +215,8 @@
             "type": "image_picker",
             "id": "social_icon",
             "label": "Social Icon"
-          }, {
-            "type": "text",
-            "id": "social_name",
-            "label": "Social name"
-          }, {
+          },
+           {
             "type": "url",
             "id": "social_url",
             "label": "Social Url"
