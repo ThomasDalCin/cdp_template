@@ -19,8 +19,18 @@
           <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
         {% else %}
           <div class="newsletter-form-radio-containers w-full h-auto flex flex-row items-start justify-center gap-y-3">
-            <!-- radio one -->
-            <div class="radio-contaier w-full h-auto flex flex-row gap-x-2 items-center justify-start">
+                     <!-- radio one -->
+                     <div class="radio-contaier w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                      <input
+                        class="appearance-none w-5 h-5 border-[1.5px] border-white rounded-full checked:bg-white"
+                        type="radio"
+                        id="visitor"
+                        name="contact[role]"
+                        value="visitor">
+                      <label for="visitor" class="body-16  text-white">{{ section.settings.checkbox_2_label }}</label>
+                    </div>
+            <!-- radio two -->
+            <div class="radio-contaier w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
               <input
                 class="appearance-none w-5 h-5  border-[1.5px] border-white rounded-full checked:bg-white"
                 type="radio"
@@ -28,16 +38,6 @@
                 name="contact[role]"
                 value="owner">
               <label for="owner" class="body-16  text-white">{{ section.settings.checkbox_1_label }}</label>
-            </div>
-            <!-- radio two -->
-            <div class="radio-contaier w-full h-auto flex flex-row gap-x-2 items-center justify-start">
-              <input
-                class="appearance-none w-5 h-5 border-[1.5px] border-white rounded-full checked:bg-white"
-                type="radio"
-                id="visitor"
-                name="contact[role]"
-                value="visitor">
-              <label for="visitor" class="body-16  text-white">{{ section.settings.checkbox_2_label }}</label>
             </div>
           </div>
 
