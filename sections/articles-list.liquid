@@ -20,9 +20,11 @@
       
         <!-- Check if less than 10 articles have been rendered -->
         {% if article_count < 10 %}
+
           <!-- container article news or events -->
           {% assign articlesDivided = article_count |  modulo: 2 %}
           {% if articlesDivided == 0 %}
+            
             <!-- Article for even index -->
             <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
 
