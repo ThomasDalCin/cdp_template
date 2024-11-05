@@ -1567,6 +1567,10 @@ p, span{
   min-width: 382px;
 }
 
+.min-w-\[124px\] {
+  min-width: 124px;
+}
+
 .max-w-\[343px\] {
   max-width: 343px;
 }
