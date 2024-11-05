@@ -3,10 +3,13 @@
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
             <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6">
-                {% for collection in collections %}
-                    <div class="w-auto min-w-[99px] h-auto">
-                        <p class="header-1">{{ collection.title |  capitalize }}</p>
-                    </div>
+                {% assign sorted_collections = collections | sort: 'published_at' %}
+                {% for collection in sorted_collections %}
+                    {% if collection.title != "Pardo approved" %}
+                        <div class="w-auto min-w-[99px] h-auto">
+                            <p class="header-1">{{ collection.title |  capitalize }}</p>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
