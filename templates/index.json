@@ -1,17 +1,27 @@
-
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero-section": {
       "type": "hero",
       "settings": {
         "hero_heading": "Shaped by the sea",
-        "slide_text_one": "Discover it",
-        "slide_text_one_url": "https://65f17a-cc.myshopify.com/products/gt75",
-        "slide_text_two": "Discover it",
-        "slide_text_two_url": "https://65f17a-cc.myshopify.com/products/e60",
-        "slide_text_three": "Watch the full experience",
-        "slide_text_three_url": "",
+        "slide_first_model_heading": "GT75",
+        "slide_first_cta_text": "Discover it",
+        "slide_first_cta_url": "",
+        "slide_second_model_heading": "E60",
+        "slide_second_cta_text": "Discover it",
+        "slide_second_cta_url": "",
+        "slide_third_model_heading": "Discover it",
+        "slide_third_cta_text": "Watch the full experience",
+        "slide_third_cta_url": "",
         "swiper_image_1": "shopify://shop_images/pardo-GT75-gallery-02_desktop-2.jpg",
         "swiper_image_2": "shopify://shop_images/pardo-GT75-gallery-03_desktop.jpg",
         "swiper_image_3": "shopify://shop_images/pardo-GT75-gallery-05_desktop.jpg"
@@ -22,13 +32,6 @@
       "settings": {
       }
     },
-    "collab-section": {
-      "type": "collab",
-      "settings": {
-        "collab_image_1": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
-        "collab_image_2": "shopify://shop_images/PardoYatch-Home-Collaborations-PoldoxPardo.png"
-      }
-    },
     "articles-list": {
       "type": "articles-list",
       "settings": {
@@ -37,6 +40,19 @@
     "explore-section": {
       "type": "explore",
       "settings": {
+        "secondary_heading": "Shaped by the Sea",
+        "primary_heading": "Lorem Ipsum",
+        "explore_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
+        "explore_image_three": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
+      }
+    },
+    "collab-section": {
+      "type": "collab",
+      "settings": {
+        "collab_image_1": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
+        "collab_image_2": "shopify://shop_images/PardoYatch-Home-Collaborations-PoldoxPardo.png"
       }
     },
     "infinity-banner": {
@@ -48,9 +64,9 @@
   "order": [
     "hero-section",
     "gamma-section",
-    "collab-section",
     "articles-list",
     "explore-section",
+    "collab-section",
     "infinity-banner"
   ]
 }
