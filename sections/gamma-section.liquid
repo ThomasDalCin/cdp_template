@@ -1,4 +1,4 @@
-<!-- gamma section new -->
+<!--gamma section new -->
 <div class="w-full h-auto px-6 py-14 bg-[#A9A09E] overflow-x-hidden">
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
@@ -14,7 +14,7 @@
                 {% endif %}
                 {% endfor %}
                 <!-- union icon -->
-                <div class="w-auto h-auto absolute left-[calc(33.3%_/_2)] -top-4 transition-all duration-200 ease-in">
+                <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in">
                     {% render 'union-icon' %}
                 </div>
             </div>
@@ -22,13 +22,12 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
             {% if collection.title != "Pardo approved" %}
-            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory pl-[55px]" data-collection="{{ collection.title }}" style="display: none;">
+            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory" data-collection="{{ collection.title }}" style="display: none;">
                 {% for product in collection.products %}
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <!-- product image -->
-                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative">
+                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative" data-collection="{{ collection.title }}">
                     <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
                     <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{ product.title | replace: 'Pardo', '' }}</p>
                 </div>
@@ -47,18 +46,19 @@
     document.addEventListener("DOMContentLoaded", function () {
         const tabs = document.querySelectorAll('.tab-gamma');
         const gammaScrolls = document.querySelectorAll('.gamma-scroll');
+        const unionIcon = document.querySelector('.union-icon');
 
-        //add click event on each tab
+        // Aggiungi un event listener a ogni tab
         tabs.forEach(tab => {
             tab.addEventListener('click', function () {
                 const collectionId = tab.id;
 
-                //hide each container gamma scroll
+                // Nascondi tutti i gamma-scroll
                 gammaScrolls.forEach(container => {
                     container.style.display = 'none';
                 });
 
-                //Show the gamma scroll container 
+                // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
                 gammaScrolls.forEach(container => {
                     const scrollCollection = container.getAttribute('data-collection');
                     if (scrollCollection === collectionId) {
@@ -66,13 +66,21 @@
                     }
                 });
 
-                //handle tab active
+                // Aggiorna lo stile del tab attivo
                 tabs.forEach(t => t.classList.remove('active-tab'));
                 tab.classList.add('active-tab');
+
+                // Calcola la posizione della tab attiva
+                const tabRect = tab.getBoundingClientRect();
+                const wrapperRect = tab.parentElement.getBoundingClientRect();
+
+                // Calcola la posizione centrale del tab rispetto al wrapper e sposta l'union icon
+                const iconLeft = tabRect.left - wrapperRect.left + tabRect.width / 2 - unionIcon.offsetWidth / 2;
+                unionIcon.style.left = `${iconLeft}px`;
             });
         });
 
-        //Show after page load
+        // Mostra i prodotti della prima collezione e posiziona l'icona all'avvio
         if (tabs.length > 0) {
             tabs[0].click();
         }
