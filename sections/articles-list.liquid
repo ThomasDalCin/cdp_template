@@ -21,12 +21,13 @@
         <!-- Check if less than 10 articles have been rendered -->
         {% if article_count < 10 %}
           <!-- container article news or events -->
-          {% if article_count % 2 == 0 %}
+           {% assign articlesDivided = article_count |  divided_by: 2 %}
+          {% if articlesDivided == 0 %}
             <!-- Article for even index -->
-            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
 
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
-                <p class="body-12">{{ article.content | truncate: 50 | capitalize }}</p>
+                <p class="text-[24px] leading-[30px] text-white">{{ article.content }}</p>
               </div>
 
               {% if handle == 'Events' %}
@@ -41,10 +42,10 @@
 
           {% else %}
             <!-- Article for odd index -->
-            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
               
             <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
-                <p class="body-12">{{ article.content | truncate: 50 | capitalize }}</p>
+                <p class="text-[24px] leading-[30px] text-white">{{ article.content }}</p>
             </div>
             
             {% if handle == 'Events' %}
