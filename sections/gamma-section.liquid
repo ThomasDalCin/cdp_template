@@ -1,6 +1,6 @@
 <!--gamma section new -->
 <div class="w-full h-auto px-6 py-14 bg-[#A9A09E]">
-    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 overflow-x-hidden">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
             <!--tab wrapper -->
@@ -21,7 +21,7 @@
 
             <!--model wrapper-->
             <div
-                class="magnetic-scroll w-[calc(100%+3.1875rem)] h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center pl-[51px] -ml-[51px] lg:w-[calc(100%+8.8125rem)] lg:pl-36 snap-x snap-mandatory">
+                class="magnetic-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center pl-[55px] snap-x snap-mandatory">
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
                 {% for product in collection.products %}
@@ -29,10 +29,10 @@
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
                 <div
-                    class="image-scroll w-[260px] h-[240px] flex-shrink-0 flex flex-col items-center justify-center snap-center relative">
-                    <img class="w-full h-full object-contain pImage" src="{{ model_image | img_url: 'master' }}"
+                    class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-center relative">
+                    <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}" data-image="{{ product.title }}">
-                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">{{ product.title | replace: 'Pardo', '' }}</p>
+                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">{{ product.title | replace: 'Pardo', '' }}</p>
                 </div>
                 {% endif %}
                 {% endfor %}

@@ -1394,6 +1394,10 @@ p, span{
   height: 100vh;
 }
 
+.h-\[147px\] {
+  height: 147px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -2193,6 +2197,10 @@ p, span{
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pl-\[55px\] {
+  padding-left: 55px;
 }
 
 .text-center {
