@@ -1590,6 +1590,10 @@ p, span{
   width: 100%;
 }
 
+.w-\[calc\(100\%\+3\.1875rem\)\] {
+  width: calc(100% + 3.1875rem);
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
