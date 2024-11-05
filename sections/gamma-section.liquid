@@ -22,7 +22,7 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
             {% if collection.title != "Pardo approved" %}
-            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory" data-collection="{{ collection.title }}" style="display: none;">
+            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory pl-[55px]" data-collection="{{ collection.title }}" style="display: none;">
                 {% for product in collection.products %}
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
