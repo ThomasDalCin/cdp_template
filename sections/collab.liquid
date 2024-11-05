@@ -5,11 +5,12 @@
   {% for block in section.blocks %}
     {% if block.type == "collab-card" %}
       <div class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:px-[100px] lg:flex-1 lg:h-[400px]">
-        <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
+        <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default:
+ "Collaboration" }}</p>
         <img
           src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
           class="w-auto h-auto object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
-          alt="{{ block.settings.collab_custom_collab_heading | default: "Collaboration Image" }}">
+          alt="{{ block.settings.collab_custom_collab_heading | default: " Collaboration Image" }}">
         <a href="{{ block.settings.collab_custom_collab_cta_text_url }}">
           <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
             <p class="body-16 text-white">{{ block.settings.collab_custom_collab_cta_text | default: "Discover" }}</p>
@@ -20,23 +21,24 @@
     {% endif %}
   {% endfor %}
 
-  <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative bg-[url({{ section.settings.collab_custom_collab_image | img_url: 'master' }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
+  <div class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative bg-[url({{ section.settings.collab_custom_collab_image }})] lg:px-[100px] lg:flex-1 lg:h-[400px]">
 
-  <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
-  <a href="{{ section.settings.collab_custom_collab_cta_text_url }}">
-    <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
-      <p class="body-16 text-white">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>
-      {% render 'cta-icon' %}
-    </div>
-  </a>
+    <p class="text-[32px] leading-[38px] text-white">{{ section.settings.collab_custom_collab_heading | default:
+ "Connect on Instagram" }}</p>
+    <a href="{{ section.settings.collab_custom_collab_cta_text_url }}">
+      <div class="w-auto h-auto inline-flex flex-row items-start justify-center text-white">
+        <p class="body-16 text-white">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>
+        {% render 'cta-icon' %}
+      </div>
+    </a>
 
-</div>
+  </div>
 
 
 </div>
 
 {% comment %} 
-          Section Schema Settings here; 
+  Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
