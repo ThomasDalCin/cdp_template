@@ -1555,6 +1555,10 @@ p, span{
   width: 380px;
 }
 
+.w-2 {
+  width: 0.5rem;
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
