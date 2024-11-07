@@ -4,7 +4,7 @@
   <!-- video conver image container -->
   <div class="w-full h-full absolute inset-0 brightness-75">
     <img
-      src="{{ section.settings.video_cover_image }}"
+      src="{{ section.settings.video_cover_image |  img_url: 'master' }}"
       alt="{{ section.settings.video_cover_image.alt }}"
       class="w-full h-full object-cover object-center">
   </div>
