@@ -50,6 +50,11 @@
       "settings": {
       }
     },
+    "home-video": {
+      "type": "home-video",
+      "settings": {
+      }
+    },
     "collab-section": {
       "type": "collab",
       "blocks": {
@@ -81,6 +86,7 @@
     "explore-section",
     "articles-list",
     "infinity-banner",
-    "collab-section"
+    "collab-section",
+    "home-video"
   ]
 }
