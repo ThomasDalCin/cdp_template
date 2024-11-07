@@ -75,7 +75,7 @@
             // Calcola la posizione della tab attiva
             const tabRect = tab.getBoundingClientRect();
             const wrapperRect = tab.parentElement.getBoundingClientRect();
-            const iconOffset = wrapperRect.left + (tabRect.left + tab.clientWidth / 2 - unionIcon.offsetWidth / 2);
+            const iconOffset = wrapperRect.left + (tabRect.left + tab.offsetWidth / 2 - unionIcon.offsetWidth / 2);
 
             // Sposta l'icona
             if (unionIcon.offsetWidth) {
