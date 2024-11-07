@@ -1,0 +1,26 @@
+<!-- home video section -->
+<!-- video cover container -->
+<div class="w-full h-[620px] min-h-[620px] relative">
+  <!-- video conver image container -->
+  <div class="w-full h-full absolute inset-0 brightness-75">
+    <img
+      src="{{ section.settings.video_cover_image }}"
+      alt="{{ section.settings.video_cover_image.alt }}"
+      class="w-full h-full object-cover object-center">
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "video-home",
+    "settings": [
+      {
+
+        "type": "image_picker",
+        "id": "video_cover_image",
+        "label": "Video Cover Image",
+        "info": "Choose The Video Cover Image"
+      }
+    ]
+  }
+{% endschema %}
