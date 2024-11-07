@@ -1,14 +1,46 @@
 <!-- home video section -->
 <!-- video cover container -->
 <div class="w-full h-[620px] min-h-[620px] relative">
-  <!-- video conver image container -->
-  <div class="w-full h-full absolute inset-0 brightness-75">
+
+  <!-- video container -->
+  <div class="w-full h-full absolute inset-0 z-0">
+    <!-- video container html -->
+    <video
+      id="player"
+      playsinline
+      controls
+      data-poster="/path/to/poster.jpg">
+      <source src="/path/to/video.mp4" type="video/mp4" />
+      <source src="/path/to/video.webm" type="video/webm" />
+
+        <!-- Captions are optional -->
+      <track
+        kind="captions"
+        label="English captions"
+        src="/path/to/captions.vtt"
+        srclang="en"
+        default />
+    </video>
+  </div>
+
+
+  <!-- video cover image container -->
+  <div class="w-full h-full absolute inset-0 brightness-75 z-10">
     <img
       src="{{ section.settings.video_cover_image |  img_url: 'master' }}"
       alt="{{ section.settings.video_cover_image.alt }}"
       class="w-full h-full object-cover object-center">
   </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const videoPlayer = document.getElementById('player');
+        //inzialize plyr
+        const plyr = new Plyr(videoPlayer);
+
+    })
+</script>
 
 {% schema %}
   {
@@ -20,6 +52,12 @@
         "id": "video_cover_image",
         "label": "Video Cover Image",
         "info": "Choose The Video Cover Image"
+      },
+      {
+        "type": "video",
+        "id": "video_source",
+        "label": "Video HomePage",
+        "info": "Choose The Video Source"
       }
     ]
   }
