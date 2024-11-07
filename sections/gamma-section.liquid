@@ -45,46 +45,49 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll('.tab-gamma');
-        const gammaScrolls = document.querySelectorAll('.gamma-scroll');
-        const unionIcon = document.querySelector('.union-icon');
+   document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll('.tab-gamma');
+    const gammaScrolls = document.querySelectorAll('.gamma-scroll');
+    const unionIcon = document.querySelector('.union-icon');
 
-        // Aggiungi un event listener a ogni tab
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                const collectionId = tab.id;
+    // Aggiungi un event listener a ogni tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const collectionId = tab.id;
 
-                // Nascondi tutti i gamma-scroll
-                gammaScrolls.forEach(container => {
-                    container.style.display = 'none';
-                });
-
-                // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
-                gammaScrolls.forEach(container => {
-                    const scrollCollection = container.getAttribute('data-collection');
-                    if (scrollCollection === collectionId) {
-                        container.style.display = 'flex';
-                    }
-                });
-
-                // Aggiorna lo stile del tab attivo
-                tabs.forEach(t => t.classList.remove('active-tab'));
-                tab.classList.add('active-tab');
-
-                // Calcola la posizione della tab attiva
-                const tabRect = tab.getBoundingClientRect();
-                const wrapperRect = tab.parentElement.getBoundingClientRect();
-
-                // Calcola la posizione centrale del tab rispetto al wrapper e sposta l'union icon
-                const iconLeft = tabRect.left - wrapperRect.left + tabRect.width / 2 - unionIcon.offsetWidth / 2;
-                unionIcon.style.left = `${iconLeft}px`;
+            // Nascondi tutti i gamma-scroll
+            gammaScrolls.forEach(container => {
+                container.style.display = 'none';
             });
-        });
 
-        // Mostra i prodotti della prima collezione e posiziona l'icona all'avvio
-        if (tabs.length > 0) {
-            tabs[0].click();
-        }
+            // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
+            gammaScrolls.forEach(container => {
+                const scrollCollection = container.getAttribute('data-collection');
+                if (scrollCollection === collectionId) {
+                    container.style.display = 'flex';
+                }
+            });
+
+            // Aggiorna lo stile del tab attivo
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            tab.classList.add('active-tab');
+
+            // Calcola la posizione della tab attiva
+            const tabRect = tab.getBoundingClientRect();
+            const wrapperRect = tab.parentElement.getBoundingClientRect();
+            const iconOffset = wrapperRect.left + (tabRect.left + tab.clientWidth / 2 - unionIcon.offsetWidth / 2);
+
+            // Sposta l'icona
+            if (unionIcon.offsetWidth) {
+                unionIcon.style.left = `${iconOffset}px`;
+            }
+        });
     });
+
+    // Mostra i prodotti della prima collezione e posiziona l'icona all'avvio
+    if (tabs.length > 0) {
+        tabs[0].click();
+    }
+});
+
 </script>
