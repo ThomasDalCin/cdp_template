@@ -1973,6 +1973,11 @@ p, span{
   border-top-right-radius: 1rem;
 }
 
+.rounded-b-md {
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
 .rounded-tl-xl {
   border-top-left-radius: 0.75rem;
 }
