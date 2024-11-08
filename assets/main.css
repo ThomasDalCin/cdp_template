@@ -469,28 +469,28 @@ p, span{
   font-weight: 600;
   font-size: var(--big-header-1);
   line-height: var(--big-header-1-height);
-  font-family: 'TT-Norms-Pro-Bold';
+  font-family: 'TT-Norms-Pro-Black';
 }
 
 .header-2 {
   font-weight: 600;
   font-size: var(--header-2);
   line-height: var(--header-2-height);
-  font-family: 'TT-Norms-Pro-Bold';
+  font-family: 'TT-Norms-Pro-Black';
 }
 
 .header-3 {
   font-weight: 600;
   font-size: var(--header-3);
   line-height: var(--header-3-height);
-  font-family: 'TT-Norms-Pro-Bold';
+  font-family: 'TT-Norms-Pro-Black';
 }
 
 .header-4 {
   font-weight: 600;
   font-size: var(--header-4);
   line-height: var(--header-4-height);
-  font-family: 'TT-Norms-Pro-Bold';
+  font-family: 'TT-Norms-Pro-Black';
 }
 
 .header-1-medium {
@@ -2544,6 +2544,12 @@ p, span{
   src: url('../assets/TT\ Norms\ Pro\ Bold.otf');
 }
 
+@font-face {
+  font-family: 'TT-Norms-Pro-Black';
+
+  src: url('../assets/TT\ Norms\ Pro\ Black.otf');
+}
+
 .placeholder\:body-14::-moz-placeholder {
   font-weight: 400;
   font-size: var(--body-14);
@@ -2563,21 +2569,21 @@ p, span{
     font-weight: 600;
     font-size: var(--big-header-1);
     line-height: var(--big-header-1-height);
-    font-family: 'TT-Norms-Pro-Bold';
+    font-family: 'TT-Norms-Pro-Black';
   }
 
   .lg\:header-2 {
     font-weight: 600;
     font-size: var(--header-2);
     line-height: var(--header-2-height);
-    font-family: 'TT-Norms-Pro-Bold';
+    font-family: 'TT-Norms-Pro-Black';
   }
 
   .lg\:header-3 {
     font-weight: 600;
     font-size: var(--header-3);
     line-height: var(--header-3-height);
-    font-family: 'TT-Norms-Pro-Bold';
+    font-family: 'TT-Norms-Pro-Black';
   }
 
   .lg\:hover\:text-shadow:hover {
