@@ -59,40 +59,29 @@
         "scroll_image_n7XxC3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-04.jpg"
+            "scroll_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_qyVFT3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-02.jpg"
+            "scroll_image": "shopify://shop_images/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_CyKbRF": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-01.jpg"
-          }
-        },
-        "scroll_image_nBnDy7": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-01.jpg"
-          }
-        },
-        "scroll_image_TEPwan": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-06.jpg"
+            "scroll_image": "shopify://shop_images/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         }
       },
       "block_order": [
         "scroll_image_n7XxC3",
         "scroll_image_qyVFT3",
-        "scroll_image_CyKbRF",
-        "scroll_image_nBnDy7",
-        "scroll_image_TEPwan"
+        "scroll_image_CyKbRF"
       ],
       "settings": {
         "section_heading": "Innovazione e tecnologia",
