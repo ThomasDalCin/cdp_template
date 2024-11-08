@@ -5,7 +5,7 @@
   </div>
   
   <div class="pardo-care-container-film-strip w-full h-auto">
-    <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
+    <div id="filmstrip" class="container-film-strip w-full p-4 -mx-4 h-auto flex flex-col items-start justify-center gap-y-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10 lg:overflow-x-auto">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
           <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 lg:last-of-type:mr-0 shadow-custom rounded-md">

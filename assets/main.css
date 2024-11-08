@@ -3217,6 +3217,10 @@ p, span{
     overflow: hidden;
   }
 
+  .lg\:overflow-x-auto {
+    overflow-x: auto;
+  }
+
   .lg\:overflow-x-hidden {
     overflow-x: hidden;
   }
