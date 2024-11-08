@@ -469,78 +469,91 @@ p, span{
   font-weight: 600;
   font-size: var(--big-header-1);
   line-height: var(--big-header-1-height);
+  font-family: 'TT-Norms-Pro-Bold';
 }
 
 .header-2 {
   font-weight: 600;
   font-size: var(--header-2);
   line-height: var(--header-2-height);
+  font-family: 'TT-Norms-Pro-Bold';
 }
 
 .header-3 {
   font-weight: 600;
   font-size: var(--header-3);
   line-height: var(--header-3-height);
+  font-family: 'TT-Norms-Pro-Bold';
 }
 
 .header-4 {
   font-weight: 600;
   font-size: var(--header-4);
   line-height: var(--header-4-height);
+  font-family: 'TT-Norms-Pro-Bold';
 }
 
 .header-1-medium {
   font-weight: 500;
   font-size: var(--header-1-medium);
   line-height: var(--header-1-medium-height);
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .body-16-medium {
   font-weight: 500;
   font-size: var(--body-16-medium);
   line-height: var(--body-16-medium-height);
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .body-14-medium {
   font-weight: 500;
   font-size: var(--body-14-medium);
   line-height: var(--body-14-medium-height);
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-1 {
   font-weight: 400;
   font-size: var(--header-1);
   line-height: var(--header-1-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .body-16 {
   font-weight: 400;
   font-size: var(--body-16);
   line-height: var(--body-16-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .body-14 {
   font-weight: 400;
   font-size: var(--body-14);
   line-height: var(--body-14-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .body-12 {
   font-weight: 400;
   font-size: var(--body-12);
   line-height: var(--body-12-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .body-small {
   font-weight: 400;
   font-size: var(--body-small);
   line-height: var(--body-small-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .caption {
   font-weight: 400;
   font-size: var(--caption);
   line-height: var(--caption-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .satoshi{
@@ -1318,8 +1331,8 @@ p, span{
   height: 2px;
 }
 
-.h-\[320px\] {
-  height: 320px;
+.h-\[343px\] {
+  height: 343px;
 }
 
 .h-\[344px\] {
@@ -1380,10 +1393,6 @@ p, span{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[343px\] {
-  height: 343px;
 }
 
 .max-h-\[160px\] {
@@ -1554,6 +1563,10 @@ p, span{
   width: 320px;
 }
 
+.w-\[343px\] {
+  width: 343px;
+}
+
 .w-\[380px\] {
   width: 380px;
 }
@@ -1588,10 +1601,6 @@ p, span{
 
 .w-full {
   width: 100%;
-}
-
-.w-\[343px\] {
-  width: 343px;
 }
 
 .min-w-\[124px\] {
@@ -2009,10 +2018,6 @@ p, span{
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-inherit {
-  border-color: inherit;
-}
-
 .bg-\[\#262322\] {
   --tw-bg-opacity: 1;
   background-color: rgb(38 35 34 / var(--tw-bg-opacity));
@@ -2030,6 +2035,11 @@ p, span{
 
 .bg-\[\#BEBEBEF2\] {
   background-color: #BEBEBEF2;
+}
+
+.bg-\[\#EFEEED\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 238 237 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#F7F7F7\] {
@@ -2069,11 +2079,6 @@ p, span{
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#EFEEED\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 238 237 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -2543,12 +2548,14 @@ p, span{
   font-weight: 400;
   font-size: var(--body-14);
   line-height: var(--body-14-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 .placeholder\:body-14::placeholder {
   font-weight: 400;
   font-size: var(--body-14);
   line-height: var(--body-14-height);
+  font-family: 'TT-Norms-Pro-Regular';
 }
 
 @media (min-width: 1024px) {
@@ -2556,18 +2563,21 @@ p, span{
     font-weight: 600;
     font-size: var(--big-header-1);
     line-height: var(--big-header-1-height);
+    font-family: 'TT-Norms-Pro-Bold';
   }
 
   .lg\:header-2 {
     font-weight: 600;
     font-size: var(--header-2);
     line-height: var(--header-2-height);
+    font-family: 'TT-Norms-Pro-Bold';
   }
 
   .lg\:header-3 {
     font-weight: 600;
     font-size: var(--header-3);
     line-height: var(--header-3-height);
+    font-family: 'TT-Norms-Pro-Bold';
   }
 
   .lg\:hover\:text-shadow:hover {
@@ -2595,10 +2605,6 @@ p, span{
 
 .last-of-type\:mr-8:last-of-type {
   margin-right: 2rem;
-}
-
-.last-of-type\:pr-0:last-of-type {
-  padding-right: 0px;
 }
 
 .last-of-type\:pr-8:last-of-type {
@@ -2841,10 +2847,6 @@ p, span{
 
   .lg\:h-\[30px\] {
     height: 30px;
-  }
-
-  .lg\:h-\[343px\] {
-    height: 343px;
   }
 
   .lg\:h-\[400px\] {
