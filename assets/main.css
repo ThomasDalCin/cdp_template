@@ -473,21 +473,21 @@ p, span{
 }
 
 .header-2 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--header-2);
   line-height: var(--header-2-height);
   font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-3 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--header-3);
   line-height: var(--header-3-height);
   font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-4 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--header-4);
   line-height: var(--header-4-height);
   font-family: 'TT-Norms-Pro-Medium';
@@ -2573,14 +2573,14 @@ p, span{
   }
 
   .lg\:header-2 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: var(--header-2);
     line-height: var(--header-2-height);
     font-family: 'TT-Norms-Pro-Medium';
   }
 
   .lg\:header-3 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: var(--header-3);
     line-height: var(--header-3-height);
     font-family: 'TT-Norms-Pro-Medium';
