@@ -1,12 +1,11 @@
-
 {
-    "sections": {
-        "article-top-view": {
-            "type": "article-top-view",
-            "settings": {}
-        }
-    },
-    "order": [
-        "article-top-view"
-    ]
+  "sections": {
+    "article-top-view": {
+      "type": "article-top-view",
+      "settings": {}
+    }
+  },
+  "order": [
+    "article-top-view"
+  ]
 }

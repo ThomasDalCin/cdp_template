@@ -1,16 +1,16 @@
 {
-    "sections": {
-        "top-approved-details": {
-            "type": "top-approved-details",
-            "settings": {}
-        },
-        "product-approved-features": {
-            "type": "product-approved-features",
-            "settings": {}
-        }
+  "sections": {
+    "top-approved-details": {
+      "type": "top-approved-details",
+      "settings": {}
     },
-    "order": [
-        "top-approved-details",
-        "product-approved-features"
-    ]
+    "product-approved-features": {
+      "type": "product-approved-features",
+      "settings": {}
+    }
+  },
+  "order": [
+    "top-approved-details",
+    "product-approved-features"
+  ]
 }

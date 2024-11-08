@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "page-title": {
@@ -26,19 +17,19 @@
         "scroll_image_4FrnVm": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/26b03faafb1d32b0806299c3643189c9.jpg"
+            "scroll_image": "shopify:\/\/shop_images\/26b03faafb1d32b0806299c3643189c9.jpg"
           }
         },
         "scroll_image_xktceD": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/1704d18f1693c194bf6b6e52ff2d2cf4.jpg"
+            "scroll_image": "shopify:\/\/shop_images\/1704d18f1693c194bf6b6e52ff2d2cf4.jpg"
           }
         },
         "scroll_image_m8PkyN": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/5d3930c93c503de499d15320a8f31b86.png"
+            "scroll_image": "shopify:\/\/shop_images\/5d3930c93c503de499d15320a8f31b86.png"
           }
         }
       },
@@ -59,57 +50,45 @@
         "scroll_image_n7XxC3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-04.jpg"
+            "scroll_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_qyVFT3": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-02.jpg"
+            "scroll_image": "shopify:\/\/shop_images\/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_CyKbRF": {
           "type": "scroll-image",
           "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Gallery-01.jpg"
-          }
-        },
-        "scroll_image_nBnDy7": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-01.jpg"
-          }
-        },
-        "scroll_image_TEPwan": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify://shop_images/PardoYatch-Company-Slider-06.jpg"
+            "scroll_image": "shopify:\/\/shop_images\/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
+            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         }
       },
       "block_order": [
         "scroll_image_n7XxC3",
         "scroll_image_qyVFT3",
-        "scroll_image_CyKbRF",
-        "scroll_image_nBnDy7",
-        "scroll_image_TEPwan"
+        "scroll_image_CyKbRF"
       ],
       "settings": {
         "section_heading": "Innovazione e tecnologia",
         "section_heading_secondary": "Controllo qualità",
-        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_content_cta": "Tienimi Informato",
-        "section_etic_code": "Codice etico",
-        "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
-        "section_etic_code_boat_image": "shopify://shop_images/PardoYatch-Menu-E72.png",
-        "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "section_etic_code_download": "Scarica il codice etico"
+        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
       }
+    },
+    "infinity-banner": {
+      "type": "infinity-banner",
+      "settings": {}
     }
   },
   "order": [
     "page-title",
     "our-values",
-    "eco-module"
+    "eco-module",
+    "infinity-banner"
   ]
 }

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero-section": {
@@ -22,9 +13,9 @@
         "slide_third_model_heading": "Discover it",
         "slide_third_cta_text": "Watch the full experience",
         "slide_third_cta_url": "",
-        "swiper_image_1": "shopify://shop_images/pardo-GT75-gallery-02_desktop-2.jpg",
-        "swiper_image_2": "shopify://shop_images/pardo-GT75-gallery-03_desktop.jpg",
-        "swiper_image_3": "shopify://shop_images/pardo-GT75-gallery-05_desktop.jpg"
+        "swiper_image_1": "shopify:\/\/shop_images\/pardo-GT75-gallery-02_desktop-2.jpg",
+        "swiper_image_2": "shopify:\/\/shop_images\/pardo-GT75-gallery-03_desktop.jpg",
+        "swiper_image_3": "shopify:\/\/shop_images\/pardo-GT75-gallery-05_desktop.jpg"
       }
     },
     "gamma-section": {
@@ -38,7 +29,7 @@
     "home-video": {
       "type": "home-video",
       "settings": {
-        "video_cover_image": "shopify://shop_images/7da910d2e3ecbb779e4b529a1a8bb4d3.png"
+        "video_cover_image": "shopify:\/\/shop_images\/7da910d2e3ecbb779e4b529a1a8bb4d3.png"
       }
     },
     "explore-section": {
@@ -46,10 +37,10 @@
       "settings": {
         "secondary_heading": "Shaped by the Sea",
         "primary_heading": "Lorem Ipsum",
-        "explore_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "explore_image_three": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
+        "explore_image_one": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_two": "shopify:\/\/shop_images\/49e01ee7d08aa4b7f0edfda3555714fe.png",
+        "explore_image_three": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_four": "shopify:\/\/shop_images\/54324c5a1294abd1bf9a076fc2339c16.png"
       }
     },
     "articles-list": {
@@ -69,7 +60,7 @@
             "collab_custom_collab_heading": "",
             "collab_custom_collab_cta_text": "",
             "collab_custom_collab_cta_text_url": "",
-            "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png"
+            "collab_custom_collab_image": "shopify:\/\/shop_images\/PardoYatch-Home-Collaborations-FalconerixPardo.png"
           }
         }
       },
@@ -80,7 +71,7 @@
         "collab_custom_collab_heading": "",
         "collab_custom_collab_cta_text": "",
         "collab_custom_collab_cta_text_url": "",
-        "collab_custom_collab_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg"
+        "collab_custom_collab_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg"
       }
     }
   },

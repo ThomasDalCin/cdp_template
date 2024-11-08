@@ -1,18 +1,21 @@
-
 {
-    "sections": {
-        "blog-tab": {
-            "type": "blog-tab",
-            "settings": {}
-        },
-        "blog-list": {
-            "type": "blog-list",
-            "settings": {}
-        },
-        "blog-events": {
-            "type": "blog-events",
-            "settings": {}
-        }
+  "sections": {
+    "blog-tab": {
+      "type": "blog-tab",
+      "settings": {}
     },
-    "order": [ "blog-tab", "blog-list", "blog-events"]
+    "blog-list": {
+      "type": "blog-list",
+      "settings": {}
+    },
+    "blog-events": {
+      "type": "blog-events",
+      "settings": {}
+    }
+  },
+  "order": [
+    "blog-tab",
+    "blog-list",
+    "blog-events"
+  ]
 }

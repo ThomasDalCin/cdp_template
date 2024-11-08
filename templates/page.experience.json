@@ -1,18 +1,8 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "page-title": {
       "type": "page-title",
-      "settings": {
-      }
+      "settings": {}
     },
     "pardo-care": {
       "type": "pardo-care",
@@ -20,7 +10,7 @@
         "scroll_image_card_RxQKMd": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -28,7 +18,7 @@
         "scroll_image_card_GUWRHk": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -36,7 +26,7 @@
         "scroll_image_card_THmJbf": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -44,7 +34,7 @@
         "scroll_image_card_VQbiMt": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -52,7 +42,7 @@
         "scroll_image_card_yGXNpG": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -60,7 +50,7 @@
         "scroll_image_card_kY6EBc": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/PardoYatch-P43-Slider-02.jpg",
+            "card_image": "shopify:\/\/shop_images\/PardoYatch-P43-Slider-02.jpg",
             "card_title": "Al vostro fianco, dall'inizio",
             "card_text": "Accompagniamo i nostri clienti in un viaggio a 360°, dalla selezione alla personalizzazione delle loro imbarcazioni."
           }
@@ -86,7 +76,7 @@
         "scroll_image_card_8ynm7Q": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/Pardo-Yachts-Ownership-AFTER-SALE.jpg",
+            "card_image": "shopify:\/\/shop_images\/Pardo-Yachts-Ownership-AFTER-SALE.jpg",
             "card_title": "Barca pronta per ogni uscita",
             "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
           }
@@ -94,7 +84,7 @@
         "scroll_image_card_HWtNYw": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/Pardo-Yachts-Ownership-SHIPPING.jpg",
+            "card_image": "shopify:\/\/shop_images\/Pardo-Yachts-Ownership-SHIPPING.jpg",
             "card_title": "Barca pronta per ogni uscita",
             "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
           }
@@ -102,7 +92,7 @@
         "scroll_image_card_FAh86V": {
           "type": "scroll-image-card",
           "settings": {
-            "card_image": "shopify://shop_images/Pardo-Yachts-Ownership-Winter-Storage.jpg",
+            "card_image": "shopify:\/\/shop_images\/Pardo-Yachts-Ownership-Winter-Storage.jpg",
             "card_title": "Barca pronta per ogni uscita",
             "card_text": "Basterà avvisarci del vostro orario di arrivo in porto, per trovare la vostra barca pronta e in ordine per uscire in mare, per non farvi perdere nemmeno un minuto del vostro relax a bordo. Ecco i servizi che offriamo:• Concierge: servizio di pick up da e verso l’aeroporto più vicino al marina• Pulizia• Controllo carburante• Marinaio a bordo• Presa in carica dell’imbarcazione al ritorno in porto (ormeggio sicuro e pulizia)"
           }

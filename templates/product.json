@@ -1,25 +1,20 @@
-
 {
   "sections": {
     "product-features": {
       "type": "product-features",
-      "settings": {
-      }
+      "settings": {}
     },
     "product-description": {
       "type": "product-description",
-      "settings": {
-      }
+      "settings": {}
     },
     "product-top-view-galley": {
       "type": "top-view-galley",
-      "settings": {
-      }
+      "settings": {}
     },
     "product-top-details": {
       "type": "top-product-details",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
