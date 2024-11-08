@@ -17,16 +17,16 @@
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col last-of-type:pr-0 rounded-2xl overflow-hidden">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col last-of-type:pr-0 rounded-2xl">
             <img
-              src="{{ block.settings.card_image | img_url: 'master' }}"
+              src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"
-              class="card-image w-[320px] h-[320px] min-w-[320px] object-cover object-center rounded-2xl lg:w-[343px] lg:h-[343px]">
+              class="card-image w-[320px] h-[320px] min-w-[320px] object-cover object-center  rounded-2xl lg:w-[343px] lg:h-[343px]">
             <div class="w-full h-auto flex flex-col items-start justify-center px-6 py-4 gap-y-2 bg-[#EFEEED]">
               <p class="body-14-medium">{{ block.settings.card_title }}</p>
               <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>
             </div>
-        </div>        
+          </div>
         {% endif %}
       {% endfor %}
     </div>
