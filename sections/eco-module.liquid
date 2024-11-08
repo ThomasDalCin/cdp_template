@@ -1,17 +1,5 @@
-<!-- eco module section -->
+<!-- Eco Module Section -->
 <div class="eco-container w-full h-auto flex flex-col items-start justify-center p-4 mb-10 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10">
-  <div class="eco-container-primary w-full h-auto flex flex-col gap-y-10 lg:pt-10 lg:items-center">
-    <!-- Section Heading -->
-    <h2 class="header-2 text-white lg:big-header-1 lg:text-center">{{ section.settings.section_heading }}</h2>
-    <div class="container-image-w-hotspot w-auto h-auto mb-10">
-        <!-- Section Image with Hotspot -->
-      <img
-        class="w-auto h-auto min-w-[343px] min-h-[172px] object-contain lg:h-[670px] lg:w-[1335px]"
-        src="{{ section.settings.section_etic_code_boat_image |  img_url: 'master' }}"
-        alt="{{ section.settings.section_etic_code_boat_image.alt }}">
-    </div>
-  </div>
-
   <!-- Box Containers with Eco and Innovation Sections -->
   <div class="box-containers w-full h-auto flex flex-col gap-y-10 items-start justify-center lg:flex-row lg:gap-x-4">
 
@@ -23,13 +11,12 @@
     </div>
 
   </div>
-
 </div>
 
-<!-- innovation section -->
+<!-- Innovation Section -->
 <div class="innovation-container w-full h-auto flex flex-col gap-y-4 items-start justify-center p-4 mb-8 overflow-x-hidden lg:items-center lg:gap-y-6 relative lg:px-10">
 
-  <!-- arrow box -->
+  <!-- Arrow Box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6">
     <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
       {% render 'arrow-left-icon' %}
@@ -40,28 +27,30 @@
   </div>
 
   <!-- Scrolling Images -->
-  <div class="innovation-container-scrolling w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-3 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+  <div class="innovation-container-scrolling w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
     {% for block in section.blocks %}
       {% if block.type == "scroll-image" %}
-        <div class="container-scroll-image w-auto h-auto">
-          <img
-            src="{{ block.settings.scroll_image | img_url: 'master' }}"
-            alt="{{ block.settings.scroll_image.alt }}"
-            class="w-[313px] min-w-[313px] h-[210px] object-cover object-center rounded-md">
-        </div>
+        {% assign blockItems = forloop.index | modulo: 2 %}
+        {% if blockItems == 0 %}
+          <!-- Card for even index -->
+          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ block.settings.scroll_image | img_url: 'master' }});">
+            <div class="card-image-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+              <p class="text-[24px] leading-[30px] ">{{ block.settings.text_card_image | truncate: 100 }}</p>
+            </div>
+          </div>
+        {% else %}
+          <!-- Card for odd index -->
+          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ block.settings.scroll_image | img_url: 'master' }});">
+            <div class="card-image-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+              <p class="text-[24px] leading-[30px]">{{ block.settings.text_card_image | truncate: 100 }}</p>
+            </div>
+          </div>
+        {% endif %}
       {% endif %}
     {% endfor %}
   </div>
-
-  <!-- CTA Section -->
-  <div class="innvation-content-cta w-full h-auto block lg:flex items-start justify-center">
-    <div class="cta-primary lg:px-20">
-      <p class="body-14">{{ section.settings.section_content_cta }}</p>
-    </div>
-  </div>
+  
 </div>
-
-
 
 <style>
   .carousel-arrow.disabled {
@@ -81,50 +70,46 @@
         const nextArrow = document.getElementById('nextArrow');
         const scrollContainer = document.querySelector('.innovation-container-scrolling');
         const images = Array.from(scrollContainer.querySelectorAll('img'));
-        //handle scroll container
         if (images.length > 1) {
             const firstImage = images[0];
             const secondImage = images[1];
             const firstImageLeft = firstImage.offsetLeft;
             const secondImageLeft = secondImage.offsetLeft;
             const scrollAmount = secondImageLeft - firstImageLeft;
-            //handle arrows
             function updateArrows() {
                 const currentScrollLeft = scrollContainer.scrollLeft;
                 const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
                 prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
                 nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
             }
-            //handle scroll amount
             function scrollContainerBy(amount) {
                 const currentScrollLeft = scrollContainer.scrollLeft;
                 const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-  
+
                 let newScrollLeft = currentScrollLeft + amount;
-  
+
                 if (newScrollLeft < 0) {
                     newScrollLeft = 0;
                 } else if (newScrollLeft > maxScrollLeft) {
                     newScrollLeft = maxScrollLeft;
                 }
-  
+
                 scrollContainer.scrollTo({
                     left: newScrollLeft,
                     behavior: 'smooth'
                 });
-  
+
                 setTimeout(updateArrows, 300);
             }
-            //handle click on each arrow
             if (prevArrow && nextArrow && scrollContainer) {
                 prevArrow.addEventListener('click', function () {
                     scrollContainerBy(-scrollAmount);
                 });
-  
+
                 nextArrow.addEventListener('click', function () {
                     scrollContainerBy(scrollAmount);
                 });
-  
+
                 updateArrows();
                 scrollContainer.addEventListener('scroll', updateArrows);
             }
@@ -132,14 +117,16 @@
     });
 </script>
 
-
-{% comment %}
-  Section Schema Settings here;
-{% endcomment %}
 {% schema %}
   {
     "name": "eco-innovation-module",
     "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "Eco Section",
+        "label": "Section Heading"
+      },
       {
         "type": "text",
         "id": "section_heading_secondary",
@@ -151,44 +138,22 @@
         "id": "section_content",
         "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
         "label": "Section Text Content"
-      },
-      {
-        "type": "text",
-        "id": "section_content_cta",
-        "default": "Tienimi Informato",
-        "label": "Section Text Content Cta"
-      }, {
-        "type": "text",
-        "id": "section_etic_code",
-        "default": "Etic code",
-        "label": "Section Etic Code"
-      }, {
-        "type": "text",
-        "id": "section_etic_code_cit",
-        "default": "Designing luxury with an ecological approach",
-        "label": "Section Etic Code Cit"
-      },
-      {
-        "type": "text",
-        "id": "section_etic_code_content",
-        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "label": "Section Etic Code Content"
-      }, {
-        "type": "text",
-        "id": "section_etic_code_download",
-        "default": "Download Etic Code",
-        "label": "Section Etic Code Download"
       }
     ],
     "blocks": [
       {
-        "name": "scroll-image-block",
         "type": "scroll-image",
+        "name": "Scroll Image Block",
         "settings": [
           {
             "type": "image_picker",
             "id": "scroll_image",
             "label": "Scroll Image"
+          },
+          {
+            "type": "text",
+            "id": "text_card_image",
+            "label": "Text Card Image"
           }
         ]
       }
@@ -198,31 +163,23 @@
         "name": "eco-innovation-module",
         "category": "custom",
         "settings": {
-          "section_heading": "Innovazione e tecnologia",
+          "section_heading": "Eco Section",
           "section_heading_secondary": "Controllo qualità",
-          "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-          "section_content_cta": "Tienimi Informato",
-          "section_etic_code": "Etic code",
-          "section_etic_code_cit": "Progettare il lusso con un approccio ecologico",
-          "section_etic_code_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-          "section_etic_code_download": "Scarica il codice etico",
-          "section_etic_code_boat_image": "shopify://shop_images/66_2.png"
+          "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
         },
         "blocks": [
           {
             "type": "scroll-image",
             "settings": {
-              "scroll_image": "shopify://shop_images/image_18_1.png"
+              "scroll_image": "shopify://shop_images/image_1.png",
+              "text_card_image": "Text for first image"
             }
-          }, {
+          },
+          {
             "type": "scroll-image",
             "settings": {
-              "scroll_image": "shopify://shop_images/image_18_1.png"
-            }
-          }, {
-            "type": "scroll-image",
-            "settings": {
-              "scroll_image": "shopify://shop_images/image_18_1.png"
+              "scroll_image": "shopify://shop_images/image_2.png",
+              "text_card_image": "Text for second image"
             }
           }
         ]
