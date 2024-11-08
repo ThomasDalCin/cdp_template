@@ -957,26 +957,6 @@ p, span{
   outline-offset: 2px;
 }
 
-.cta-eco {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 9999px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  background-color: transparent;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .cta-primary {
   display: flex;
   align-items: center;
@@ -1315,6 +1295,10 @@ p, span{
   height: 210px;
 }
 
+.h-\[218px\] {
+  height: 218px;
+}
+
 .h-\[220px\] {
   height: 220px;
 }
@@ -1393,10 +1377,6 @@ p, span{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[218px\] {
-  height: 218px;
 }
 
 .max-h-\[160px\] {
@@ -1617,10 +1597,6 @@ p, span{
 
 .min-w-\[313px\] {
   min-width: 313px;
-}
-
-.min-w-\[320px\] {
-  min-width: 320px;
 }
 
 .min-w-\[343px\] {
@@ -1947,9 +1923,19 @@ p, span{
   border-radius: 0.75rem;
 }
 
+.rounded-b-2xl {
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
 .rounded-b-\[10px\] {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+
+.rounded-t-2xl {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .rounded-t-\[10px\] {
@@ -1960,26 +1946,6 @@ p, span{
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-}
-
-.rounded-t-md {
-  border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
-}
-
-.rounded-b-2xl {
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-
-.rounded-t-2xl {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-
-.rounded-b-md {
-  border-bottom-right-radius: 0.375rem;
-  border-bottom-left-radius: 0.375rem;
 }
 
 .rounded-tl-xl {
@@ -2187,6 +2153,11 @@ p, span{
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .pb-10 {
@@ -2808,10 +2779,6 @@ p, span{
 
   .lg\:mb-\[70px\] {
     margin-bottom: 70px;
-  }
-
-  .lg\:mt-0 {
-    margin-top: 0px;
   }
 
   .lg\:mt-10 {
