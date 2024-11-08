@@ -20,34 +20,6 @@
       "type": "infinity-banner",
       "settings": {}
     },
-    "special-collab": {
-      "type": "special-collab",
-      "blocks": {
-        "collab_card_tRwDkG": {
-          "type": "collab-card",
-          "settings": {
-            "collab_card_image": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
-            "collab_card_title": "Down Vest Jacket",
-            "collab_card_content": "Reversible sleeveless down jacket in technical fabric and ultralight cashmere."
-          }
-        },
-        "collab_card_rDUxxD": {
-          "type": "collab-card",
-          "settings": {
-            "collab_card_image": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
-            "collab_card_title": "Down Vest Jacket",
-            "collab_card_content": "Reversible sleeveless down jacket in technical fabric and ultralight cashmere."
-          }
-        }
-      },
-      "block_order": [
-        "collab_card_tRwDkG",
-        "collab_card_rDUxxD"
-      ],
-      "settings": {
-        "collab_heading": "Special collaboration"
-      }
-    },
     "special-collab-poldo": {
       "type": "special-collab-poldo",
       "settings": {
@@ -62,7 +34,6 @@
     "page-title",
     "collab-fimstrip",
     "infinity-banner",
-    "special-collab",
     "special-collab-poldo"
   ]
 }
