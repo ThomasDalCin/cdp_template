@@ -24,23 +24,62 @@
   </div>
 
 
-  <!-- video cover image container -->
-  <div class="w-full h-full absolute inset-0 brightness-75 z-10">
+  <!-- video cover image overlay container -->
+  <div class="w-full h-full absolute inset-0 brightness-75 z-10 overlay-video-wrap">
     <img
       src="{{ section.settings.video_cover_image |  img_url: 'master' }}"
       alt="{{ section.settings.video_cover_image.alt }}"
       class="w-full h-full object-cover object-center">
   </div>
+
+  <!-- draggable content icon -->
+  <div class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
+    <p class="body-16 text-white text-center text-nowrap">{{ section.settings.draggable_text }}</p>
+    <!-- draggable icon svg -->
+    <div class="w-auto h-auto draggable-icon">
+      {% render 'fab-icon' %}
+    </div>
+  </div>
+
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const videoPlayer = document.getElementById('player');
-        //inzialize plyr
-        const plyr = new Plyr(videoPlayer);
+  document.addEventListener('DOMContentLoaded', () => {
+    //register plugin gsap
+    gsap.registerPlugin(Draggable);
 
-    })
+    const draggableIcon = document.querySelector('.draggable-icon');
+    const overlayVideoWrap = document.querySelector('.overlay-video-wrap');
+
+    //get the rect elements
+    const draggableIconRect = draggableIcon.getBoundingClientRect();
+    const overlayRect = overlayVideoWrap.getBoundingClientRect();
+
+    //get the starting position
+    const startingPosition = overlayRect.bottom - draggableIconRect.bottom;
+
+    //set the offset on ass y
+    let overlayOffsetY = ((overlayVideoWrap.clientHeight / 2) - startingPosition - (draggableIcon.clientHeight / 2));
+    overlayOffsetY = -overlayOffsetY;
+
+    console.log("Overlay Offset Y:", overlayOffsetY);
+
+    //handle draggable icon
+    Draggable.create(draggableIcon, {
+      type: "y",
+      inertia: true,
+      bounds: { minY: 0, maxY: overlayOffsetY }, 
+      onDragEnd: function () {
+        console.log("drag ended");
+      },
+    });
+
+    // Inizializza il video player con Plyr
+    const videoPlayer = document.getElementById('player');
+    const plyr = new Plyr(videoPlayer);
+  });
 </script>
+
 
 {% schema %}
   {
@@ -52,13 +91,19 @@
         "id": "video_cover_image",
         "label": "Video Cover Image",
         "info": "Choose The Video Cover Image"
-      },
-      {
+      }, {
         "type": "video",
         "id": "video_source",
         "label": "Video HomePage",
         "info": "Choose The Video Source"
+      }, {
+        "type": "text",
+        "id": "draggable_text",
+        "label": "draggable text",
+        "info": "Set the draggable text",
+        "default": "Trascina per sbloccare un sogno"
       }
     ]
   }
 {% endschema %}
+
