@@ -8,11 +8,11 @@
     <div id="filmstrip" class="container-film-strip w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10 lg:overflow-x-auto">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col gap-y-2 lg:last-of-type:mr-0">
+          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col lg:last-of-type:mr-0">
             <img 
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}"
-              class="card-image w-full h-[160px]  object-cover object-center rounded-t-2xl lg:min-w-full">
+              class="card-image w-full h-[160px] object-cover object-center rounded-t-2xl lg:min-w-full">
             <div class="container-filmstrip-card-text w-full h-auto flex flex-col gap-y-3 items-start justify-center p-6 bg-[#EFEEED] rounded-b-2xl lg:p-6">
               <p class="body-14-medium">{{ block.settings.card_title }}</p>
               <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>
