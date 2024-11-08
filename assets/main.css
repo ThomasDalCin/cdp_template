@@ -1382,6 +1382,10 @@ p, span{
   height: 100vh;
 }
 
+.h-\[343px\] {
+  height: 343px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1584,6 +1588,10 @@ p, span{
 
 .w-full {
   width: 100%;
+}
+
+.w-\[343px\] {
+  width: 343px;
 }
 
 .min-w-\[124px\] {

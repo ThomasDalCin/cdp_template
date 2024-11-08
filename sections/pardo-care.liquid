@@ -1,4 +1,4 @@
-<!--pardo care container -->
+<!-- pardo care container -->
 <div class="pardo-care-container w-full h-auto flex flex-col gap-y-8 relative mb-10 overflow-x-hidden p-4 lg:px-10">
   <div class="pardo-care-container-heading w-full h-auto flex flex-col gap-y-6 items-start justify-center ">
     <h2 class="header-2">{{ section.settings.section_heading }}</h2>
@@ -17,11 +17,13 @@
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-filmstrip-card w-auto h-auto max-h-[423px] flex flex-col last-of-type:pr-0 rounded-2xl">
-            <img
-              src="{{ block.settings.card_image |  img_url: 'master' }}"
-              alt="{{ block.settings.card_image.alt }}"
-              class="card-image w-[320px] h-[320px] min-w-[320px] object-cover object-center  rounded-2xl lg:w-[343px] lg:h-[343px]">
+          <div class="container-film-strip-card w-[343px] h-auto flex flex-col items-start justify-center rounded-2xl">
+            <div class="container-film-strip-card-image w-full h-[343px]">
+              <img
+                src="{{ block.settings.card_image |  img_url: 'master' }}"
+                alt="{{ block.settings.card_image.alt }}"
+                class="w-full h-full object-cover object-center">
+            </div>
             <div class="w-full h-auto flex flex-col items-start justify-center px-6 py-4 gap-y-2 bg-[#EFEEED]">
               <p class="body-14-medium">{{ block.settings.card_title }}</p>
               <p class="body-12 text-[var(--accent-hover-color)]">{{ block.settings.card_text }}</p>
@@ -34,7 +36,7 @@
   <a href="pages/contacts" class="p-4">
     <div class="pardo-care-content-cta w-full h-auto flex items-start justify-center lg:mt-0">
       <div class="cta-primary w-full lg:w-[343px]">
-        <p class="body-14">{{ section.settings.cta_text}}</p>
+        <p class="body-14">{{ section.settings.cta_text }}</p>
       </div>
     </div>
   </a>
@@ -42,14 +44,14 @@
 
 <style>
   .carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none; 
-}
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto; 
-}
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
 
 <script>
@@ -69,7 +71,7 @@
     function updateArrows() {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
+  
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
     }
@@ -77,20 +79,20 @@
     function scrollContainerBy(amount) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
+  
       let newScrollLeft = currentScrollLeft + amount;
-
+  
       if (newScrollLeft < 0) {
         newScrollLeft = 0;
       } else if (newScrollLeft > maxScrollLeft) {
         newScrollLeft = maxScrollLeft;
       }
-
+  
       scrollContainer.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth'
       });
-
+  
       setTimeout(updateArrows, 300);
     }
     //Handle click on each arrow
@@ -98,21 +100,21 @@
       prevArrow.addEventListener('click', function() {
         scrollContainerBy(-scrollAmount);
       });
-
+  
       nextArrow.addEventListener('click', function() {
         scrollContainerBy(scrollAmount);
       });
-
+  
       updateArrows();
       scrollContainer.addEventListener('scroll', updateArrows);
     }
   }
-});
+  });
 </script>
 
 
-{% comment %}
-  Section Schema Settings here;
+{% comment %} 
+  Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
