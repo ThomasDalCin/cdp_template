@@ -1,0 +1,98 @@
+<!-- collab filmstrip section -->
+<div class="falconeri-container w-full h-auto flex flex-col items-start justify-center gap-y-4 p-4 mb-10 lg:gap-y-6 lg:p-10">  
+  <!-- Scrolling Images -->
+  <div class="innovation-container-scrolling w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+    {% assign sectionImages = "image_one,image_two,image_three" | split: "," %}
+    {% assign sectionTexts = "text_one,text_two,text_three" | split: "," %}
+    {% for sectionImage in sectionImages %}
+      {% assign image = section.settings[sectionImage] %}
+      {% assign text = section.settings[sectionTexts[forloop.index0]] %}
+      {% assign imageItems = forloop.index | modulo: 2 %}
+      
+      {% if image %}
+        {% if imageItems == 0 %}
+          <!-- Card for even index -->
+          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start lg:w-[400px] rounded-2xl lg:min-w-[400px] relative bg-center bg-cover" style="background-image: url({{ image | img_url: 'master' }});">
+            <div class="absolute inset-0 w-full h-full z-0 rounded-2xl"></div>
+            <div class="card-image-content absolute inset-0 w-full h-full p-6 flex flex-col gap-y-1 items-start justify-start z-10 rounded-2xl">
+              <p class="text-[24px] leading-[30px] text-white">{{ text | truncate: 100 }}</p>
+            </div>
+          </div>
+        {% else %}
+          <!-- Card for odd index -->
+          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-center bg-cover" style="background-image: url({{ image | img_url: 'master' }});">
+            <div class="absolute inset-0 w-full h-full z-0 rounded-2xl"></div>
+            <div class="card-image-content absolute inset-0 w-full h-full p-6 flex flex-col gap-y-1 items-start justify-end z-10 rounded-2xl">
+              <p class="text-[24px] leading-[30px] text-white">{{ text | truncate: 100 }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% comment %} 
+  Section Schema Settings here; 
+{% endcomment %}
+{% schema %}
+{
+  "name": "collab filmstrip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "default": "Falconeri X Pardo Yachts",
+      "label": "Falconeri X Pardo Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_one",
+      "label": "Collab filmstrip Image One"
+    },
+    {
+      "type": "text",
+      "id": "text_one",
+      "default": "Exclusive partnership on sea.",
+      "label": "Text for Image One"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_two",
+      "label": "Collab filmstrip Image Two"
+    },
+    {
+      "type": "text",
+      "id": "text_two",
+      "default": "Blending fashion and craftsmanship.",
+      "label": "Text for Image Two"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_three",
+      "label": "Collab filmstrip Image Three"
+    },
+    {
+      "type": "text",
+      "id": "text_three",
+      "default": "Elegance and innovation.",
+      "label": "Text for Image Three"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Collab filmstrip Section",
+      "category": "Custom Sections",
+      "settings": {
+        "section_heading": "Falconeri X Pardo Yachts Collaboration",
+        "image_one": "shopify://shop_images/Rectangle_597.png",
+        "text_one": "Exclusive partnership on sea.",
+        "image_two": "shopify://shop_images/Rectangle_597.png",
+        "text_two": "Blending fashion and craftsmanship.",
+        "image_three": "shopify://shop_images/Rectangle_597.png",
+        "text_three": "Elegance and innovation."
+      }
+    }
+  ]
+}
+{% endschema %}

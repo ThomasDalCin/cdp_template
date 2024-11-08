@@ -4,15 +4,21 @@
       "type": "page-title",
       "settings": {}
     },
-    "falconeriXpardo": {
-      "type": "falconeriXpardo",
+    "collab-fimstrip": {
+      "type": "collab-filmstrip",
       "settings": {
         "section_heading": "Falconeri X Pardo Yachts",
-        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "image_one": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-03_desktop-1440x810.jpg",
-        "image_two": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-02_desktop-1440x810.jpg",
-        "image_three": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-01_desktop-1440x810.jpg"
+        "image_one": "shopify:\/\/shop_images\/d7c86f2c1ac2acbbdf80f9f9a20b90f3.jpg",
+        "text_one": "Exclusive partnership on sea.",
+        "image_two": "shopify:\/\/shop_images\/a4ef2315e14c7a0e040f799d1b2a7cc5.jpg",
+        "text_two": "Blending fashion and craftsmanship.",
+        "image_three": "shopify:\/\/shop_images\/616e6b181ed7204f3a5ca7050e73e215.jpg",
+        "text_three": "Elegance and innovation."
       }
+    },
+    "infinity-banner": {
+      "type": "infinity-banner",
+      "settings": {}
     },
     "special-collab": {
       "type": "special-collab",
@@ -54,7 +60,8 @@
   },
   "order": [
     "page-title",
-    "falconeriXpardo",
+    "collab-fimstrip",
+    "infinity-banner",
     "special-collab",
     "special-collab-poldo"
   ]
