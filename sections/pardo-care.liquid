@@ -17,7 +17,7 @@
     <div id="filmstrip" class="container-film-strip w-[calc(100%+2rem)] p-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-3 overflow-x-auto lg:w-[calc(100%+5rem)] lg:p-10 lg:-mx-10">
       {% for block in section.blocks %}
         {% if block.type == 'scroll-image-card' %}
-          <div class="container-film-strip-card w-[343px] h-auto flex flex-col items-start justify-center rounded-2xl">
+          <div class="container-film-strip-card w-[343px] min-w-[343px] h-auto flex flex-col items-start justify-center rounded-2xl">
             <div class="container-film-strip-card-image w-full h-[343px]">
               <img
                 src="{{ block.settings.card_image |  img_url: 'master' }}"
