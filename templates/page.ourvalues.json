@@ -50,21 +50,33 @@
         "scroll_image_n7XxC3": {
           "type": "scroll-image",
           "settings": {
+<<<<<<< HEAD
             "scroll_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+=======
+            "scroll_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+>>>>>>> 9c909f129953bc9dad5e0de0c561df15a54fa57c
             "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_qyVFT3": {
           "type": "scroll-image",
           "settings": {
+<<<<<<< HEAD
             "scroll_image": "shopify:\/\/shop_images\/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
+=======
+            "scroll_image": "shopify://shop_images/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
+>>>>>>> 9c909f129953bc9dad5e0de0c561df15a54fa57c
             "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         },
         "scroll_image_CyKbRF": {
           "type": "scroll-image",
           "settings": {
+<<<<<<< HEAD
             "scroll_image": "shopify:\/\/shop_images\/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
+=======
+            "scroll_image": "shopify://shop_images/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
+>>>>>>> 9c909f129953bc9dad5e0de0c561df15a54fa57c
             "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
           }
         }
