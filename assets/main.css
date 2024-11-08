@@ -469,28 +469,28 @@ p, span{
   font-weight: 600;
   font-size: var(--big-header-1);
   line-height: var(--big-header-1-height);
-  font-family: 'TT-Norms-Pro-Black';
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-2 {
   font-weight: 600;
   font-size: var(--header-2);
   line-height: var(--header-2-height);
-  font-family: 'TT-Norms-Pro-Black';
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-3 {
   font-weight: 600;
   font-size: var(--header-3);
   line-height: var(--header-3-height);
-  font-family: 'TT-Norms-Pro-Black';
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-4 {
   font-weight: 600;
   font-size: var(--header-4);
   line-height: var(--header-4-height);
-  font-family: 'TT-Norms-Pro-Black';
+  font-family: 'TT-Norms-Pro-Medium';
 }
 
 .header-1-medium {
@@ -2569,21 +2569,21 @@ p, span{
     font-weight: 600;
     font-size: var(--big-header-1);
     line-height: var(--big-header-1-height);
-    font-family: 'TT-Norms-Pro-Black';
+    font-family: 'TT-Norms-Pro-Medium';
   }
 
   .lg\:header-2 {
     font-weight: 600;
     font-size: var(--header-2);
     line-height: var(--header-2-height);
-    font-family: 'TT-Norms-Pro-Black';
+    font-family: 'TT-Norms-Pro-Medium';
   }
 
   .lg\:header-3 {
     font-weight: 600;
     font-size: var(--header-3);
     line-height: var(--header-3-height);
-    font-family: 'TT-Norms-Pro-Black';
+    font-family: 'TT-Norms-Pro-Medium';
   }
 
   .lg\:hover\:text-shadow:hover {
