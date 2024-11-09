@@ -10,10 +10,9 @@
       playsinline
       controls
       data-poster="/path/to/poster.jpg">
-      <source src="/path/to/video.mp4" type="video/mp4" />
-      <source src="/path/to/video.webm" type="video/webm" />
+      <source src="{{ section.settings.video_source |  video_tag }}" />
 
-        <!-- Captions are optional -->
+      <!-- Captions are optional -->
       <track
         kind="captions"
         label="English captions"
