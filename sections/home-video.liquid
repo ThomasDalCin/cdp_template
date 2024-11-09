@@ -34,7 +34,7 @@
 
   <!-- draggable content icon -->
   <div class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
-    <p class="body-16 text-white text-center text-nowrap">{{ section.settings.draggable_text }}</p>
+    <p class="body-16 text-white text-center text-nowrap overlay-text">{{ section.settings.draggable_text }}</p>
     <!-- draggable icon svg -->
     <div class="w-auto h-auto draggable-icon">
       {% render 'fab-icon' %}
@@ -43,13 +43,41 @@
 
 </div>
 
+<style>
+
+.plyr {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Nasconde il cerchio (thumb) sulla barra di progressione */
+.plyr__progress input[type="range"]::-webkit-slider-thumb {
+    display: none;
+}
+
+.plyr__progress input[type="range"]::-moz-range-thumb {
+    display: none;
+}
+
+.plyr__progress input[type="range"]::-ms-thumb {
+    display: none;
+}
+
+:root{
+  --plyr-color-main: white;
+}
+
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     //register plugin gsap
     gsap.registerPlugin(Draggable);
+    const timeline = gsap.timeline();
 
     const draggableIcon = document.querySelector('.draggable-icon');
     const overlayVideoWrap = document.querySelector('.overlay-video-wrap');
+    const overlayText = document.querySelector('.overlay-text');
 
     //get the rect elements
     const draggableIconRect = draggableIcon.getBoundingClientRect();
@@ -62,21 +90,34 @@
     let overlayOffsetY = ((overlayVideoWrap.clientHeight / 2) - startingPosition - (draggableIcon.clientHeight / 2));
     overlayOffsetY = -overlayOffsetY;
 
-    console.log("Overlay Offset Y:", overlayOffsetY);
+  
 
     //handle draggable icon
     Draggable.create(draggableIcon, {
       type: "y",
       inertia: true,
-      bounds: { minY: 0, maxY: overlayOffsetY }, 
+      bounds: { minY: 0, maxY: overlayOffsetY },
       onDragEnd: function () {
-        console.log("drag ended");
+        timeline
+          .to(overlayText, {
+            opacity: 0,
+            duration: 0.4,
+          })
+          .to(overlayVideoWrap, {
+            opacity: 0,
+            duration: 0.4,
+          })
+          .to(overlayVideoWrap, {
+            display: "none",
+          });
       },
     });
 
-    // Inizializza il video player con Plyr
+    //Plyr
     const videoPlayer = document.getElementById('player');
-    const plyr = new Plyr(videoPlayer);
+    const plyr = new Plyr(videoPlayer, {
+      controls: ['progress', 'current-time', 'duration']
+    });
   });
 </script>
 
