@@ -4,12 +4,12 @@
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
             <!-- tab wrapper -->
-            <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6 relative">
+            <div class="w-full h-auto flex flex-row items-center justify-center gap-x-6 relative wrap-content">
                 {% assign sorted_collections = collections | sort: 'published_at' %}
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
                 <div class="w-auto min-w-[99px] h-auto tab-gamma" id="{{ collection.title }}">
-                    <p class="header-1 satoshi">{{ collection.title | capitalize }}</p>
+                    <p class="text-[18px] leading-[24px] satoshi text-nowrap">{{ collection.title | capitalize }}</p>
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -29,7 +29,7 @@
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
                 <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative"
-                    data-collection="{{ collection.title }}">
+                    data-collection="{{ collection.title }}" data-content="{{ product.title }}">
                     <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}">
                     <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{
@@ -37,67 +37,131 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-                <div class="w-full h-[240px] flex-shrink-0 flex "></div>
+                <div class="w-full h-[240px] flex-shrink-0 flex"></div>
             </div>
             {% endif %}
             {% endfor %}
+        </div>
 
+        <!--title + buttons-->
+
+        <!--gamma content details section-->
+        <div class="w-full h-auto flex flex-col items-start justify-center">
+            <!--product description content -->
+            {% for collection in sorted_collections %}
+            {% if collection.title != "Pardo approved" %}
+            {% for product in collection.products %}
+            <div class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content"
+                data-content="{{ product.title }}">
+                <div class="w-full h-auto flex items-start justify-center">
+                    <p class="text-[24px] text-balance leading-[30px]">{{ product.description }}</p>
+                </div>
+                <div class="w-full h-[56px]">
+                    <a href="{{ product.url }}" class="w-full h-auto cta-black">{{ section.settings.cta_gamma_product |
+                        default: "Discover" }}</a>
+                </div>
+                <div class="w-full h-[56px]">
+                    <a href="pages/delear" class="w-full h-auto cta-transparent">{{ section.settings.cta_gamma_delear |
+                        default: "Find a delear" }}</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    <!--title + buttons-->
-
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll('.tab-gamma');
-        const gammaScrolls = document.querySelectorAll('.gamma-scroll');
-        const unionIcon = document.querySelector('.union-icon');
+    const tabs = document.querySelectorAll('.tab-gamma');
+    const gammaScrolls = document.querySelectorAll('.gamma-scroll');
+    const unionIcon = document.querySelector('.union-icon');
+    const detailsWrap = document.querySelectorAll('.details-content');
+    const imageScroll = document.querySelectorAll('.image-scroll');
+    const mainWrap = document.querySelector('.wrap-content');
 
-        // Aggiungi un event listener a ogni tab
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                const collectionId = tab.id;
+    // Get the rect of the main wrapper to compare positions
+    const mainWrapRect = mainWrap.getBoundingClientRect();
 
-                // Nascondi tutti i gamma-scroll
-                gammaScrolls.forEach(container => {
-                    container.style.display = 'none';
-                });
+    // Funzione per mostrare il details-content in base all'immagine visibile
+    function showDetailsContentForVisibleImage() {
+        imageScroll.forEach((image) => {
+            const imageData = image.getAttribute('data-content');
+            const imageRect = image.getBoundingClientRect();
 
-                // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
-                gammaScrolls.forEach(container => {
-                    const scrollCollection = container.getAttribute('data-collection');
-                    if (scrollCollection === collectionId) {
-                        container.style.display = 'flex';
+            if (imageRect.left == mainWrapRect.left ) {
+                detailsWrap.forEach(content => {
+                    if (content.getAttribute('data-content') === imageData) {
+                        content.style.display = 'flex';
+                    } else {
+                        content.style.display = 'none';
                     }
                 });
+            }
+        });
+    }
 
-                // Aggiorna lo stile del tab attivo
-                tabs.forEach(t => t.classList.remove('active-tab'));
-                tab.classList.add('active-tab');
+    // Ascolta lo scroll del gammaScroll
+    gammaScrolls.forEach((gammaScroll) => {
+        gammaScroll.addEventListener('scroll', () => {
+            showDetailsContentForVisibleImage();
+        });
+    });
 
-                // Calcola la posizione della tab attiva
-                const tabRect = tab.getBoundingClientRect();
-                const wrapperRect = tab.parentElement.getBoundingClientRect();
-                const iconOffset = (tabRect.left - wrapperRect.left) + (tab.offsetWidth / 2 - unionIcon.offsetWidth / 2);
+    // Aggiungi un event listener a ogni tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const collectionId = tab.id;
 
+            // Nascondi tutti i gamma-scroll
+            gammaScrolls.forEach(container => {
+                container.style.display = 'none';
+            });
 
-                // Sposta l'icona
-                if (unionIcon.offsetWidth) {
-                    unionIcon.style.left = `${iconOffset}px`;
+            detailsWrap.forEach((content) => {
+                content.style.display = 'none'; // Nascondi tutti i dettagli
+            });
+
+            // Mostra solo il gamma-scroll corrispondente alla collezione selezionata
+            gammaScrolls.forEach(container => {
+                const scrollCollection = container.getAttribute('data-collection');
+                if (scrollCollection === collectionId) {
+                    container.style.display = 'flex';
                 }
             });
+
+            // Aggiorna lo stile del tab attivo
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            tab.classList.add('active-tab');
+
+            // Calcola la posizione della tab attiva
+            const tabRect = tab.getBoundingClientRect();
+            const wrapperRect = tab.parentElement.getBoundingClientRect();
+            const iconOffset = (tabRect.left - wrapperRect.left) + (tab.offsetWidth / 2 - unionIcon.offsetWidth / 2);
+
+            // Sposta l'icona
+            if (unionIcon.offsetWidth) {
+                unionIcon.style.left = `${iconOffset}px`;
+            }
+
+            showDetailsContentForVisibleImage();
         });
-
-        // Mostra i prodotti della prima collezione e posiziona l'icona all'avvio
-        if (tabs.length > 0) {
-            tabs[0].click();
-
-            // Centra l'icona sulla prima tab dopo aver simulato il click
-            const firstTabRect = tabs[0].getBoundingClientRect();
-            const wrapperRect = tabs[0].parentElement.getBoundingClientRect();
-            const initialIconOffset = (firstTabRect.left - wrapperRect.left) + (tabs[0].offsetWidth / 2 - unionIcon.offsetWidth / 2);
-            unionIcon.style.left = `${initialIconOffset}px`;
-        }
     });
+
+    // Mostra i prodotti della prima collezione e posiziona l'icona all'avvio
+    if (tabs.length > 0) {
+        tabs[0].click();
+
+        // Centra l'icona sulla prima tab dopo aver simulato il click
+        const firstTabRect = tabs[0].getBoundingClientRect();
+        const wrapperRect = tabs[0].parentElement.getBoundingClientRect();
+        const initialIconOffset = (firstTabRect.left - wrapperRect.left) + (tabs[0].offsetWidth / 2 - unionIcon.offsetWidth / 2);
+        unionIcon.style.left = `${initialIconOffset}px`;
+    }
+
+    // Esegui il controllo anche al caricamento per la prima immagine visibile
+    showDetailsContentForVisibleImage();
+});
+
 </script>
