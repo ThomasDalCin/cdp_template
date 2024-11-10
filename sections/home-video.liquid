@@ -5,7 +5,7 @@
   <div class="w-full h-full absolute inset-0 z-0">
     <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
       data-poster="/path/to/poster.jpg">
-      <source src="{{ section.settings.video_source | video_tag }}" />
+      <source src="{{ section.settings.source | video_tag }}" />
     </video>
   </div>
 
@@ -29,7 +29,7 @@
     <label class="switch">
       <input type="checkbox" id="muteSwitch">
       <span class="slider">
-        {% render 'mute-off-icon' %}
+          {% render 'mute-off-icon' %}
       </span>
     </label>
 
@@ -178,7 +178,7 @@
 "info": "Choose The Video Cover Image"
 }, {
 "type": "video",
-"id": "video_source",
+"id": "source",
 "label": "Video HomePage",
 "info": "Choose The Video Source"
 }, {
