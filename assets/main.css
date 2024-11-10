@@ -1145,6 +1145,10 @@ p, span{
   top: 16px;
 }
 
+.bottom-\[68px\] {
+  bottom: 68px;
+}
+
 .z-0 {
   z-index: 0;
 }

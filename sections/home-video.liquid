@@ -3,7 +3,7 @@
 
   <!-- video container -->
   <div class="w-full h-full absolute inset-0 z-0">
-    <video class="w-full h-full object-cover object-center" id="player" playsinline controls
+    <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
       data-poster="/path/to/poster.jpg">
       <source src="{{ section.settings.video_source | video_tag }}" />
     </video>
@@ -24,14 +24,25 @@
     </div>
   </div>
 
+  <!-- Switch button -->
+  <div class="w-auto h-auto absolute right-4 bottom-[68px] z-0">
+    <label class="switch">
+      <input type="checkbox" id="muteSwitch">
+      <span class="slider">
+        {% render 'mute-off-icon' %}
+      </span>
+    </label>
+
+  </div>
 
 </div>
 
 <style>
-
-:root {
+  :root {
     --plyr-color-main: white;
     --plyr-range-track-height: 2px;
+    --plyr-video-controls-background: transparent;
+    --plyr-video-control-background-hover: transparent;
   }
 
   .plyr {
@@ -41,27 +52,89 @@
     object-position: center;
   }
 
+  /* Stili per lo switch button */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 48px;
+  }
 
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #EFEEED;
+    padding: 4px;
+    transition: all 0.4s ease;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  input:checked+.slider {
+    justify-content: flex-end;
+  }
+
+  .mute-icon {
+    transition: transform 0.4s ease;
+  }
+
+  input:checked+.slider .mute-icon {
+    transform: translateX(32px);
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    //register plugin gsap
+    //Gsap plugin
     gsap.registerPlugin(Draggable);
     const timeline = gsap.timeline();
-
+    //get elements
     const draggableIcon = document.querySelector('.draggable-icon');
     const overlayVideoWrap = document.querySelector('.overlay-video-wrap');
     const overlayText = document.querySelector('.overlay-text');
 
-    //get the rect elements
+    //get elements
+    const videoPlayer = document.getElementById('player');
+    const muteSwitch = document.getElementById('muteSwitch');
+    const muteIcon = document.querySelector('.slider');
+
+    //inzialize plyr
+    const plyr = new Plyr(videoPlayer, {
+      controls: ['play', 'progress', 'current-time', 'duration', 'fullscreen', 'duration']
+    });
+
+    //toggle on off video
+    function toggleMute() {
+      videoPlayer.muted = !videoPlayer.muted;
+
+      //set icons
+      if (videoPlayer.muted) {
+        muteIcon.innerHTML = `{% render 'mute-off-icon' %}`;
+      } else {
+        muteIcon.innerHTML = `{% render 'mute-on-icon' %}`;
+      }
+    }
+
+
+    muteSwitch.addEventListener('change', toggleMute);
+
+    //gsap draggable
     const draggableIconRect = draggableIcon.getBoundingClientRect();
     const overlayRect = overlayVideoWrap.getBoundingClientRect();
-
-    //get the starting position
     const startingPosition = overlayRect.bottom - draggableIconRect.bottom;
 
-    //set the offset on ass y
     let overlayOffsetY = ((overlayVideoWrap.clientHeight / 2) - startingPosition - (draggableIcon.clientHeight / 2));
     overlayOffsetY = -overlayOffsetY;
 
@@ -71,7 +144,7 @@
       bounds: {minY: 0, maxY: overlayOffsetY},
 
       onDrag: function () {
-        if (this.y == overlayOffsetY) {
+        if (this.y === overlayOffsetY) {
           gsap.to(draggableIcon, {
             opacity: 0,
             duration: 0.4,
@@ -88,13 +161,8 @@
         }
       },
     });
-
-    //Plyr
-    const videoPlayer = document.getElementById('player');
-    const plyr = new Plyr(videoPlayer, {
-      controls: ['progress', 'current-time', 'duration', 'play-large']
-    });
   });
+
 </script>
 
 
