@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero-section": {
@@ -31,7 +39,7 @@
       "type": "home-video",
       "settings": {
         "video_cover_image": "shopify://shop_images/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
-        "video_source": "shopify://files/videos/2711212-uhd_3840_2160_24fps.mp4",
+        "source": "shopify://files/videos/2711212-uhd_3840_2160_24fps.mp4",
         "draggable_text": "Trascina per sbloccare un sogno"
       }
     },
