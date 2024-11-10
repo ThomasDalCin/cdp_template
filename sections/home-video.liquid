@@ -23,9 +23,17 @@
       {% render 'fab-icon' %}
     </div>
   </div>
+
+
 </div>
 
 <style>
+
+:root {
+    --plyr-color-main: white;
+    --plyr-range-track-height: 2px;
+  }
+
   .plyr {
     width: 100% !important;
     height: 100% !important;
@@ -33,22 +41,7 @@
     object-position: center;
   }
 
-  /* Nasconde il cerchio (thumb) sulla barra di progressione */
-  .plyr__progress input[type="range"]::-webkit-slider-thumb {
-    display: none;
-  }
 
-  .plyr__progress input[type="range"]::-moz-range-thumb {
-    display: none;
-  }
-
-  .plyr__progress input[type="range"]::-ms-thumb {
-    display: none;
-  }
-
-  :root {
-    --plyr-color-main: white;
-  }
 </style>
 
 <script>
