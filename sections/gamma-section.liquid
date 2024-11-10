@@ -44,7 +44,6 @@
         </div>
 
         <!--title + buttons-->
-<<<<<<< HEAD
 
         <!--gamma content details section-->
         <div class="w-full h-auto flex flex-col items-start justify-center">
@@ -69,27 +68,6 @@
             {% endfor %}
             {% endif %}
             {% endfor %}
-=======
-    
-        <!--gamma content details section-->
-        <div class="w-full h-auto flex items-start justify-center gap-y-4">
-           <!--product description content -->
-           {% for collection in sorted_collections %}
-              {% if collection.title != "Pardo approved" %}
-                {% for product in collections.products %}
-                    <div class="w-full h-auto flex items-start justify-center">
-                        <p class="text-[24px]">{{ product.description }}</p>
-                    </div>
-                    <div class="w-full h-[56px]">
-                        <a href="{{ product.url }}" class="w-full h-auto cta-black">{{ section.settings.cta_gamma_product |  default: "Discover" }}</a>
-                    </div>
-                    <div class="w-full h-[56px]">
-                        <a href="pages/delear" class="w-full h-auto cta-transparent">{{ section.settings.cta_gamma_delear |  default: "Find a delear" }}</a>
-                    </div>
-                {% endfor %}
-              {% endif %}
-           {% endfor %}
->>>>>>> bfe72a9c35d65dc93189288d41d39420bb55dad4
         </div>
     </div>
 </div>
