@@ -2,7 +2,7 @@
 <div class="w-full h-[620px] min-h-[620px] relative">
 
   <!-- video container -->
-  <div class="w-full h-full absolute inset-0 z-0">
+  <div class="w-full h-full absolute inset-0 z-0 overflow-hidden">
     <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
       data-poster="/path/to/poster.jpg">
       <source src="{{ section.settings.source | video_tag }}" />
