@@ -161,12 +161,10 @@
 </div>
 
 <style>
-
   .rotate-90 {
     transform: rotate(45deg);
     transition: transform 0.3s ease;
   }
-
 </style>
 
 
@@ -197,15 +195,19 @@
         const dropdownContent = dropdownContents[index];
   
         if (dropdownContent.style.height === '0px' || dropdownContent.style.height === '0') {
+          dropdownContent.style.opacity = '1';
           dropdownContent.style.height = `${dropdownContent.scrollHeight}px`;
           icon.classList.add('rotate-90');
         } else {
-          dropdownContent.style.height = '0';
+          dropdownContent.style.opacity = '0';
+          setTimeout(() => {
+            dropdownContent.style.height = '0';
+          }, 100)
           icon.classList.remove('rotate-90');
         }
       });
     });
-
+  
   });
 </script>
 
