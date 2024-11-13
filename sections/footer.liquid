@@ -5,7 +5,8 @@
       <!-- form section headings -->
       <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
         {% if section.settings.section_title != blank %}
-          <label for="Email" class="text-[30px] leading-[30px] font-semibold text-white">{{ section.settings.section_title | escape }}</label>
+          <label for="Email" class="text-[30px] leading-[30px] font-semibold text-white">{{ section.settings.section_title
+ | escape }}</label>
         {% endif %}
         {% if section.settings.subheading != blank %}
           <p class="body-16 text-white">{{ section.settings.subheading | escape }}</p>
@@ -60,7 +61,7 @@
     </div>
   </div>
 
-  <!--social icon block here -->
+  <!-- social icon block here -->
   <div class="socials-menu-container w-full h-auto pb-14">
     <div class="social-links-container flex flex-row gap-x-6 items-center justify-start w-auto h-auto">
       {% for block in section.blocks %}
@@ -78,8 +79,8 @@
       {% endfor %}
     </div>
   </div>
-  
-  <!--footer menu links container -->
+
+  <!-- footer menu links container -->
   <div class="footer-menu w-full h-auto py-6">
     <div class="footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start lg:p-4 lg:flex-row lg:gap-x-4">
       <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
@@ -94,29 +95,120 @@
     </div>
   </div>
 
-  
-  <!--right reserved container -->
-  <div class="right-reserved-container w-full h-auto flex items-center justify-start lg:w-full lg:flex-grow lg:justify-start">
-      <p class="caption text-white text-center">{{ section.settings.right_reserved }}</p>
+
+  <!-- gamma footer container -->
+  <div class="gamma-container w-full h-auto flex items-start justify-center gap-y-12 flex-col">
+
+    <!-- gamma list containers -->
+    <div class="w-full h-auto flex items-center justify-start flex-col">
+      <div class="w-full h-auto flex items-center justify-start py-4">
+        <p class="text-[32px] leading-[38px] font-semibold text-white">{{ section.settings.gamma_title | default:
+ "Pardo's gamma" }}</p>
+      </div>
+      <div class="w-full h-auto flex items-start justify-center flex-col">
+        {% assign collection_sorted = collections | sort: 'title' | reverse %}
+        {% for collection in collection_sorted %}
+          {% if collection.title != "Pardo approved" %}
+            <div class="w-full h-auto flex items-start justify-center flex-col overflow-hidden">
+              <li class="w-full h-auto flex items-start justify-between py-6">
+                <span class="text-[20px] leading-[18px] text-white">{{ collection.title }}</span>
+                <!-- plus icon -->
+                <span class="w-auto h-auto flex items-center justify-center text-white dropdown-icon">
+                  {% render 'plus-icon' %}
+                </span>
+              </li>
+              <!-- content -->
+
+              <div class="w-full h-auto transition-all duration-200 ease overflow-hidden dropdown-content">
+                <div class="w-full h-auto flex items-start justify-center pt-2 pb-6 gap-y-4 flex-col">
+                  <div class="w-auto h-auto">
+                    <p class="body-14 text-white">{{ collection.description }}</p>
+                  </div>
+                  <div class="w-full h-auto flex items-center justify-start flex-row gap-x-6">
+                    {% for product in collection.products %}
+                      <a href="{{ product.url }}">
+                        <p class="body-14 text-white font-semibold">{{ product.title | replace: "Pardo", "" }}</p>
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
+
+    <!-- right reserved container + icon pardo -->
+    <div class="w-full h-auto flex items-start justify-center flex-col  gap-y-12">
+
+      <!-- pardo logo container -->
+      <div class="w-full h-auto flex items-center justify-center pardo-logo">
+        <!-- render cantiere logo -->
+        {% render 'cantiere-icon' %}
+      </div>
+      <!-- reserved container -->
+
+      <div class="right-reserved-container w-full h-auto flex items-center justify-start lg:w-full lg:flex-grow lg:justify-start">
+        <p class="caption text-white text-center">{{ section.settings.right_reserved }}</p>
+      </div>
+
+    </div>
+
   </div>
+
 </div>
+
+<style>
+
+  .rotate-90 {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+  }
+
+</style>
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
-        const userTag = document.getElementById('user-tag');
   
-        radioButtons.forEach(function (radio) {
-            radio.addEventListener('change', function () {
-                if (this.checked) {
-                    userTag.value = `newsletter,${this.value}`;
-                }
-            });
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
+    const userTag = document.getElementById('user-tag');
+  
+    radioButtons.forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        if (this.checked) {
+          userTag.value = `newsletter,${this.value}`;
+        }
+      });
     });
+  
+    //handle drowdown
+    const dropdownContents = document.querySelectorAll('.dropdown-content');
+    dropdownContents.forEach((content) => {
+      content.style.height = '0';
+      content.style.overflow = 'hidden';
+    });
+  
+    const dropIcons = document.querySelectorAll('.dropdown-icon');
+    dropIcons.forEach((icon, index) => {
+      icon.addEventListener('click', function () {
+        const dropdownContent = dropdownContents[index];
+  
+        if (dropdownContent.style.height === '0px' || dropdownContent.style.height === '0') {
+          dropdownContent.style.height = `${dropdownContent.scrollHeight}px`;
+          icon.classList.add('rotate-90');
+        } else {
+          dropdownContent.style.height = '0';
+          icon.classList.remove('rotate-90');
+        }
+      });
+    });
+
+  });
 </script>
+
 
 {% comment %} 
   Section Schema Settings here; 
@@ -158,8 +250,7 @@
         "id": "placeholder_text",
         "label": "Placeholder",
         "default": "Email"
-      },
-      {
+      }, {
         "type": "text",
         "id": "footer_models_menu",
         "label": "Models footer menu",
@@ -174,8 +265,7 @@
         "id": "footer_socials_menu",
         "label": "Socials footer menu",
         "default": "Socials"
-      },
-      {
+      }, {
         "type": "text",
         "id": "right_reserved",
         "label": "Right Reserved",
@@ -191,8 +281,7 @@
             "type": "image_picker",
             "id": "social_icon",
             "label": "Social Icon"
-          },
-           {
+          }, {
             "type": "url",
             "id": "social_url",
             "label": "Social Url"

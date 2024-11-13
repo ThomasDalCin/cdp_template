@@ -1,0 +1,21 @@
+<!-- home ispirational text -->
+
+<!-- hero ispirational text container -->
+<div class="w-full h-auto flex items-center justify-center px-6 py-14">
+  <p class="text-[32px] leading-[38px] text-center text-balance">{{ section.settings.ispirational_text }}</p>
+</div>
+
+{% schema %}
+  {
+    "name": "Ispirational Home Text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ispirational_text",
+        "default": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem.",
+        "label": "Ispirational Home Text",
+        "info": "Set the ispirational text here"
+      }
+    ]
+  }
+{% endschema %}
