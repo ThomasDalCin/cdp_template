@@ -129,16 +129,16 @@
         <!--links menu container -->
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-10">
             <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center">
-                {% for link in linklists.main-menu.links %}
-                {% if link.title == "Privacy preferences" or link.title = "Privacy policy" %}
+            {% for link in linklists.main-menu.links %}
+                {% if link.title != "Privacy preferences" or link.title != "Privacy policy" %}
                     {% unless link.title == 'Press room'%}
                         <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
                             {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px]
                             lg:leading-[40px]" }}
                         </li>
-                        {% endunless %}
-                        {% endfor %}
+                    {% endunless %}
                 {% endif %}
+            {% endfor %}
             </div>
 
             <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
