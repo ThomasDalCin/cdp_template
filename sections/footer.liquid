@@ -88,7 +88,7 @@
           {% for link in linklists.main-menu.links %}
             <li class="list-none">
               {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
-                <a class="text-white font-light text-[16px] leading-[22px] lg:text-[16px] lg:leading-[22px] underline" href="{{ link.url }}">
+                <a class="text-white font-light text-[16px] leading-[22px] lg:text-[16px] lg:leading-[22px]" href="{{ link.url }}">
                   {{ link.title }}
                 </a>
               {% else %}
