@@ -1,12 +1,17 @@
 <!--hero wrapper section-->
 <div class="hero-wrapper w-full h-lvh relative">
   <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
+
+    <!--swiper slider start here-->
     <div class="swiper mySwiper w-full h-full relative">
+
       <div class="swiper-wrapper">
+        <!--assign swiper images-->
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
         {% for swiper_image in swiper_images %}
           {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
           {% if image_url %}
+            <!--swiper slide-->
             <div class="swiper-slide relative">
               <img
                 src="{{ image_url }}"
@@ -44,10 +49,15 @@
           {% endif %}
         {% endfor %}
       </div>
-      <div class="container-swiper-pagination absolute left-4 top-[120px] z-10 lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
-        <div class="swiper-pagination mb-8 flex items-center justify-start lg:mb-[70px]"></div>
-        <h1 class="header-3 text-[var(--secondary-text-color)] lg:text-[60px] lg:leading-[60px]">{{ section.settings.hero_heading }}</h1>
+
+      <!--container swiper bullets-->
+      <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+        <!--container bullets-->
+        <div class="w-auto h-auto">
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
+      
     </div>
   </div>
 </div>
