@@ -89,8 +89,7 @@
             <li class="list-none ">
               <a class="text-white text-[32px] leading-[32px]" href="{{ link.url }}">{{ link.title }}</a>
             </li>
-            {% if link.title == 'Press room' %}
-
+            {% if link.title == "Privacy preferences" or link.title = "Privacy policy" %}
               {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px]
               lg:text-[16px]
               lg:leading-[22px] underline" }}
