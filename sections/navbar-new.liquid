@@ -1,0 +1,620 @@
+<!--navbar-new-->
+
+<!--navbar-container-->
+<div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50">
+    <div class="w-full h-[72px] bg-white rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
+
+        <!--menu yatch cta-->
+        <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px]">
+            <p class="body-14 chip-text">Yachts</p>
+        </div>
+
+        <!--pardo logo container -->
+        <div
+            class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="pardo-logo w-auto h-auto">
+                <a href="/" id="pardo-logo" class="w-auto h-auto">
+                    <div class="w-auto h-auto">
+                        {% render 'pardo-logo-one' %}
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!--humburhger icon-->
+        <div class="menu-icon">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Yatch Menu Container -->
+<div class="yatch-menu-container absolute z-10 inset-0 w-full h-screen flex-col gap-y-10 hidden px-6 pt-[136px] lg:mt-10 lg:mb-10"
+    style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
+
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-5">
+        <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8">
+            {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
+            {% for link in linklists.yatch.links %}
+            {% assign matching_collection = collections[link.object.handle] %}
+            {% unless link.title == 'Pardo pre-owned' %}
+            <li class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item"
+                data-collection="{{ link.object.handle }}">
+
+                <div class="relative inline-block">
+                    {% if allLinksTitle contains link.title %}
+                    {% if link.title == 'View all ranges' %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] font-light leading-[20px]
+                    lg:text-[24px] lg:leading-[24px]" }}
+                    {% else %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] lg:text-[40px]
+                    lg:leading-[40px]" }}
+                    {% endif %}
+                    {% endif %}
+                </div>
+
+                <div
+                    class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+                    {% if link.title == "View all ranges" %}
+                    <div
+                        class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full my-4">
+                        {% for collection in collections %}
+                        {% for product in collection.products %}
+                        {% unless collection.title == 'Pardo pre-owned' %}
+                        <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+                            <a href="{{ product.url }}">
+                                {{ product.title | replace: 'Pardo', '' }}
+                            </a>
+                        </div>
+                        {% endunless %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
+                        {% for product in matching_collection.products %}
+                        <div class="badge-product border-white cursor-pointer mt-4 mb-4"
+                            data-target="{{ product.title }}">
+                            <a href="{{ product.url }}">
+                                {{ product.title | replace: 'Pardo', '' }}
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </li>
+            {% endunless %}
+            {% endfor %}
+        </div>
+
+
+
+        <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
+            {% for link in linklists.yatch.links %}
+            {% unless allLinksTitle contains link.title %}
+            {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px] lg:text-[16px]
+            lg:leading-[22px] underline" }}
+            {% endunless %}
+            {% endfor %}
+        </div>
+
+        <!-- boat image container on desktop -->
+        <div
+            class="boat-image-container w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/4 -translate-y-1/2 z-30">
+            {% for collection in collections %}
+            {% for product in collection.products %}
+            {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
+            {% if boatImage %}
+            <a href="{{ product.url }}">
+                <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+                    class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!-- Main Menu Container -->
+<div class="main-menu-container w-full absolute z-10 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mt-10 lg:mb-10"
+    style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
+
+    <div class="w-full h-full flex flex-col items-start justify-between">
+
+        <!--links menu container -->
+        <div class="w-full h-auto flex items-start justify-center flex-col gap-y-10">
+            <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center">
+                {% for link in linklists.main-menu.links %}
+                {% unless link.title == 'Press room' %}
+                <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
+                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px]
+                    lg:leading-[40px]" }}
+                </li>
+                {% endunless %}
+                {% endfor %}
+            </div>
+
+            <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
+                {% for link in linklists.main-menu.links %}
+                {% if link.title == 'Press room' %}
+
+                {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px]
+                lg:text-[16px]
+                lg:leading-[22px] underline" }}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!--horizontal scroll parntership menu container-->
+        <div class="w-full h-auto">
+            <div
+                class="w-[calc(100%+2rem)] px-2 -mx-2 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+                {% if blogs['Partnership'] %}
+                {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
+                {% if partnershipArticles.size > 0 %}
+                {% for partnershipArticle in partnershipArticles %}
+                {% assign articleItems = forloop.index | modulo: 2 %}
+                {% if articleItems == 0 %}
+                <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl"
+                    style="background-image:url({{ partnershipArticle.image |  img_url: 'master' }});">
+                    <div class="w-auto h-auto flex items-start justify-center absolute left-0 bottom-0 p-6">
+                        <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
+                    </div>
+                </div>
+                {% else %}
+                <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl"
+                    style="background-image:url({{ partnershipArticle.image |  img_url: 'master' }});">
+                    <div class="w-auto h-auto flex items-start justify-center absolute left-0 top-0 p-6">
+                        <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Second level Menu Container -->
+<div class="second-level-menu-container absolute z-10 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[136px] hidden"
+    style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
+
+    <!--back arrow container-->
+    <div class="back-nav-container flex items-center justify-start py-4 text-white">
+        {% render 'back-arrow-icon' %}
+    </div>
+
+    <!--container horizontal chips-->
+    <div
+        class="chips-horizontal-container w-[calc(100%+2rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-4 -mx-4 mb-3">
+        {% assign collectionSorted = collections | sort : 'title' | reverse %}
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+        <div class="chips-label flex items-center space-x-2 min-h-[40px] text-white">
+            <div class="chips-text text-nowrap body-14 text-white" id="collection-chips-title">{{ collection.title }}
+            </div>
+            {% render 'arrow-down-icon' %}
+        </div>
+        {% endunless %}
+        {% endfor %}
+    </div>
+
+    <!--container images products-->
+    <div class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52">
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {% assign productMainImg = product.images[0] %}
+        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
+            <li class="container-product-main-image w-full h-auto list-none"
+                data-product-collection="{{ collection.title }}">
+                <a href="{{ product.url }}" class="w-full h-auto">
+                    <img class="product-main-img w-full h-auto object-contain"
+                        src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}">
+                </a>
+            </li>
+            <p class="header-1-medium text-white">{{ product.title | replace: "Pardo", "" }}</p>
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+    <!-- Fixed "View all ranges" label at the bottom -->
+    <a class="w-full h-auto chip-fixed fixed left-0 right-0 bottom-0 px-4 py-6 bg-white z-50">
+        <div class="w-full h-auto flex flex-row justify-between">
+            <div class="chips-text text-nowrap body-14"></div>
+            {% render 'arrow-down-menu' %}
+        </div>
+    </a>
+
+</div>
+
+
+
+<style>
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    .menu-icon {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-icon .line {
+        position: absolute;
+        width: 24px;
+        height: 1px;
+        background-color: black;
+        transition: transform 0.3s ease-in-out;
+        border-radius: 4px;
+    }
+
+    .menu-icon .line1 {
+        transform: translateY(-3px);
+    }
+
+    .menu-icon .line2 {
+        transform: translateY(3px);
+    }
+
+
+    .menu-icon.active .line1 {
+        transform: rotate(45deg);
+    }
+
+    .menu-icon.active .line2 {
+        transform: rotate(-45deg);
+    }
+</style>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //get current page and others
+        const hadScrolled = window.scrollY;
+        const currentPage = window.location.pathname;
+        const isNotHomepage = currentPage !== '/';
+        const isNewsArticle = currentPage.startsWith('/blogs/news/');
+        // Navbar elements
+        const navbar = document.querySelector('.navbar');
+        const menuIcon = document.querySelector('.menu-icon');
+        const menuChip = document.querySelector('.menu-yachts-label');
+        // Menu types
+        const menuYatch = document.querySelector('.yatch-menu-container');
+        const mainMenu = document.querySelector('.main-menu-container');
+        const secondMenu = document.querySelector('.second-level-menu-container');
+        const navDynamicHeight = navbar.offsetHeight;
+        // Chips label
+        const chipText = document.querySelector('.chip-text');
+
+        //handle second menu layout base on device size
+        window.addEventListener('resize', handleSecondMenuLevel);
+        handleSecondMenuLevel();
+
+        // Handle second menu
+        function handleSecondMenuLevel() {
+
+            const screenSize = window.innerWidth;
+            let lastBadge;
+
+            //handle each links inside second menu level
+            document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
+                if (screenSize <= 625) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        secondMenu.classList.remove('hidden');
+                        secondMenu.classList.add('flex');
+
+                    });
+                }
+                else {
+                    //set hover on each link
+                    link.addEventListener('mouseover', (e) => {
+                        e.currentTarget.classList.add('text-shadow');
+                    });
+
+                    link.addEventListener('mouseout', (e) => {
+                        e.currentTarget.classList.remove('text-shadow');
+                    });
+                    //set click on each link
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        navbar.classList.add('linear-gradient');
+
+                        const collectionMenuItem = e.currentTarget.closest('.collection-menu-item');
+                        const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
+                        const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
+                        const boatImages = document.querySelectorAll('.boat-image');
+
+                        //hide each boat images to prevent them visibility
+                        boatImages.forEach(boatImage => {
+                            boatImage.style.display = 'none';
+                        });
+
+                        //set style on badge product
+                        badgesProduct.forEach(badge => {
+                            badge.classList.remove('text-black', 'bg-white');
+                        });
+
+                        //handle the style of first badge product when click on link
+                        let lastBadge;
+                        if (badgesProduct.length === 1) {
+                            lastBadge = badgesProduct[0];
+                        } else {
+                            lastBadge = badgesProduct[badgesProduct.length - 1];
+                        }
+
+                        lastBadge.classList.add('text-black', 'bg-white');
+
+                        badgesProduct.forEach((badge) => {
+                            badge.addEventListener('mouseover', (e) => {
+                                badgesProduct.forEach(badge => {
+                                    badge.classList.remove('text-black', 'bg-white');
+                                });
+
+                                if (e.currentTarget !== lastBadge) {
+                                    e.currentTarget.classList.add('text-black', 'bg-white');
+                                    lastBadge.classList.remove('text-black', 'bg-white');
+                                    lastBadge = e.currentTarget;
+                                } else {
+                                    e.currentTarget.classList.add('text-black', 'bg-white');
+                                }
+                            });
+                        });
+
+                        //display boat image when over on badge product
+                        const targetImage = lastBadge.getAttribute('data-target');
+                        boatImages.forEach(boatImage => {
+                            if (boatImage.getAttribute('data-image') === targetImage) {
+                                boatImage.style.display = 'block';
+                            }
+                        });
+
+                        const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
+                        allCollectionMenuItems.forEach(item => {
+                            if (item !== collectionMenuItem) {
+                                const otherCollectionInfoContainer = item.querySelector('.collection-info-container');
+                                if (otherCollectionInfoContainer) {
+                                    otherCollectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
+                                    otherCollectionInfoContainer.classList.add('overflow-hidden', 'h-0');
+                                }
+                            }
+                        });
+
+
+                        collectionInfoContainer.classList.remove('overflow-hidden', 'h-0');
+                        collectionInfoContainer.classList.add('overflow-auto', 'h-auto');
+                    });
+                }
+            });
+        }
+
+        //check device on resize event
+        window.addEventListener('resize', checkDevice);
+        checkDevice();
+
+        //check screenSize to show the boat image container and link info pop-up
+        function checkDevice() {
+            const screenSize = window.innerWidth;
+            const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
+            const boatDesktopContainer = document.querySelector('.boat-image-container');
+            const badges = document.querySelectorAll('.badge-product');
+            const images = document.querySelectorAll('.boat-image-container img');
+
+            //hide all this elements on mobile
+            if (screenSize <= 625) {
+                collectionDesktopInfo.forEach((div) => {
+                    div.style.display = 'none';
+                });
+                if (boatDesktopContainer) {
+                    boatDesktopContainer.style.display = 'none';
+                }
+            } else {
+                collectionDesktopInfo.forEach((div) => {
+                    div.style.display = 'flex';
+                });
+                if (boatDesktopContainer) {
+                    boatDesktopContainer.style.display = 'block';
+                }
+
+                images.forEach(image => {
+                    image.style.display = 'none';
+                });
+
+                badges.forEach(badge => {
+                    badge.addEventListener('mouseover', function () {
+                        const target = badge.getAttribute('data-target');
+                        images.forEach(image => {
+                            image.style.display = 'none';
+                        });
+                        const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
+                        if (selectedImage) {
+                            selectedImage.style.display = 'block';
+                        }
+                    });
+                });
+            }
+        }
+
+        //handle click on menu chip
+        menuChip.addEventListener('click', () => {
+
+            if (mainMenu.classList.contains('flex')) {
+                mainMenu.classList.remove('flex');
+                mainMenu.classList.add('hidden');
+                menuIcon.classList.remove('active');
+            }
+
+            const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+            const isSecondMenuOpen = secondMenu.classList.contains('flex');
+
+            if (isMenuYatchHidden) {
+                // Show the menu
+                menuYatch.classList.remove('hidden');
+                menuYatch.classList.add('flex');
+                chipText.innerHTML = 'Close';
+                document.body.classList.add('no-scroll');
+            } else if (isSecondMenuOpen) {
+                chipText.innerHTML = 'Yachts';
+                secondMenu.classList.add('hidden');
+                secondMenu.classList.remove('flex');
+                // Hide the menu
+                menuYatch.classList.remove('flex');
+                menuYatch.classList.add('hidden');
+                chipText.innerHTML = 'Yachts';
+                document.body.classList.remove('no-scroll');
+            } else {
+                // Hide the menu
+                menuYatch.classList.remove('flex');
+                menuYatch.classList.add('hidden');
+                chipText.innerHTML = 'Yachts';
+                document.body.classList.remove('no-scroll');
+            }
+        });
+
+
+        // handle click on menu icon
+        menuIcon.addEventListener('click', () => {
+
+            const isMenuMainHidden = mainMenu.classList.contains('hidden');
+
+            if (menuYatch.classList.contains('flex')) {
+                menuYatch.classList.remove('flex');
+                menuYatch.classList.add('hidden');
+                chipText.innerHTML = 'Yachts';
+            }
+
+            if (isMenuMainHidden) {
+                mainMenu.classList.remove('hidden');
+                mainMenu.classList.add('flex');
+                document.body.classList.add('no-scroll');
+                menuIcon.classList.add('active');
+
+            } else {
+                mainMenu.classList.remove('flex');
+                mainMenu.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+                menuIcon.classList.remove('active');
+            }
+        });
+
+
+        // Hide the second-level menu and show the main menu when the back arrow is clicked
+        document.querySelector('.back-nav-container').addEventListener('click', () => {
+            secondMenu.classList.add('hidden');
+            secondMenu.classList.remove('flex');
+        });
+
+        const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
+        const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
+        const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
+        const chipFixed = document.querySelector('.chip-fixed');
+        const chipFixedText = chipFixed.querySelector('.chips-text');
+
+        function toggleProducts(chipClicked) {
+
+            const selectedCollectionName = chipClicked.innerText.trim();
+            const collectionURL = `/collections/${selectedCollectionName.replace(/\s+/g, '-').toLowerCase()}`;
+
+            productCols.forEach((product) => {
+                if (selectedCollectionName === product.getAttribute('data-product-collection')) {
+                    product.parentElement.classList.remove('hidden');
+                } else {
+                    product.parentElement.classList.add('hidden');
+                }
+            });
+
+            chipFixedText.innerText = `Discover ${selectedCollectionName}`;
+            chipFixed.setAttribute('href', collectionURL);
+            chipFixed.classList.remove('hidden');
+        }
+
+        allSecondLinksMenu.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
+
+                resetScroll();
+
+                if (linkTarget === "View all ranges") {
+                    productCols.forEach((product) => {
+                        if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+                            product.parentElement.classList.remove('hidden');
+                        } else {
+                            product.parentElement.classList.add('hidden');
+                        }
+                    });
+
+                    chipFixed.classList.add('hidden');
+
+                    allChipsCollection.forEach((chip) => {
+                        chip.parentElement.classList.remove('chips-label-active');
+                        chip.nextElementSibling.classList.add('-rotate-45');
+                    });
+
+                    return;
+                }
+
+                productCols.forEach((product) => {
+                    product.parentElement.classList.add('hidden');
+                });
+
+                allChipsCollection.forEach((chipCol) => {
+                    const parentElement = chipCol.parentElement;
+                    parentElement.classList.remove('chips-label-active');
+                    chipCol.nextElementSibling.classList.add('-rotate-45');
+
+                    if (chipCol.innerText.trim() === linkTarget) {
+                        chipCol.parentElement.classList.add('chips-label-active');
+                        chipCol.nextElementSibling.classList.remove('-rotate-45');
+                        toggleProducts(chipCol);
+                    }
+                });
+
+                const collectionURL = `/collections/${linkTarget.replace(/\s+/g, '-').toLowerCase()}`;
+                chipFixedText.innerText = `Discover ${linkTarget}`;
+                chipFixed.setAttribute('href', collectionURL);
+            });
+        });
+
+        //Handle click on chips
+        allChipsCollection.forEach((chipCol) => {
+            chipCol.addEventListener('click', (e) => {
+                const chipClicked = e.currentTarget;
+
+                resetScroll();
+
+                allChipsCollection.forEach((el) => {
+                    el.parentElement.classList.remove('chips-label-active');
+                    el.nextElementSibling.classList.add('-rotate-45');
+                });
+
+                chipClicked.nextElementSibling.classList.remove('-rotate-45');
+                chipClicked.parentElement.classList.add('chips-label-active');
+                chipFixed.classList.remove('hidden');
+
+                toggleProducts(chipClicked);
+            });
+        });
+
+        function resetScroll() {
+            document.querySelector('.second-level-menu-items').scrollTop = 0;
+        }
+
+    });
+</script>
