@@ -26,7 +26,7 @@
               <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
 
               <!-- Condition cta foreach slide -->
-              {% if section.settings[cta_check] %}
+              {% if section.settings[cta_check] == true %}
                 {% assign current_cta_text = section.settings[cta_text] %}
                 {% assign current_cta_url = section.settings[cta_url] %}
                 {% if current_cta_text and current_cta_url %}
