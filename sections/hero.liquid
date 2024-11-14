@@ -1,63 +1,35 @@
-<!--hero wrapper section-->
+<!-- hero wrapper section -->
 <div class="hero-wrapper w-full h-lvh relative">
   <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
 
-    <!--swiper slider start here-->
+    <!-- swiper slider start here -->
     <div class="swiper mySwiper w-full h-full relative">
 
       <div class="swiper-wrapper">
-        <!--assign swiper images-->
+        <!-- assign swiper images -->
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
         {% for swiper_image in swiper_images %}
           {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
-          {% if image_url %}
-            <!--swiper slide-->
+            {% if image_url %}
+            <!-- swiper slide -->
             <div class="swiper-slide relative">
               <img
                 src="{{ image_url }}"
                 alt="{{ swiper_image.alt }}"
                 class="swiper-img w-full h-full object-cover block">
-              <div class="hero-text-content absolute left-4 bottom-4 right-4 flex items-start justify-start flex-col gap-y-10 lg:inline-flex lg:w-auto lg:h-auto lg:bottom-6 lg:left-6">
-                {% case forloop.index0 %}
-                  {% when 0 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_first_model_heading }}</h2>
-                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px]  hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_first_cta_url }}">
-                        <p class="body-14-medium">{{ section.settings.slide_first_cta_text }}</p>
-                      </a>
-                      {% render "cta-icon" %}
-                    </div>
-                  {% when 1 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_second_model_heading }}</h2>
-                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px] hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_second_cta_url }}">
-                        <p class="body-14-medium">{{ section.settings.slide_second_cta_text }}</p>
-                      </a>
-                      {% render "cta-icon" %}
-                    </div>
-                  {% when 2 %}
-                    <h2 class="big-header-1 text-white lg:text-[96px] lg:leading-[96px]">{{ section.settings.slide_third_model_heading }}</h2>
-                    <div class="hero-cta lg:inline-flex lg:w-auto lg:p-4 lg:rounded-full lg:min-w-[220px] hover:bg-[var(--accent-color)] hover:text-white cursor-pointer">
-                      <a href="{{ section.settings.slide_third_cta_url }}">
-                        <p class="body-14-medium">{{ section.settings.slide_third_cta_text }}</p>
-                      </a>
-                      {% render "cta-icon" %}
-                    </div>
-                {% endcase %}
-              </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
 
-      <!--container swiper bullets-->
+      <!-- container swiper bullets -->
       <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
-        <!--container bullets-->
+        <!-- container bullets -->
         <div class="w-auto h-auto">
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -85,81 +57,14 @@
   }
 </style>
 
-{% comment %}
-  Section Schema Settings here;
+{% comment %} 
+  Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
     "name": "hero-section",
     "settings": [
       {
-        "type": "text",
-        "id": "hero_heading",
-        "default": "Shaped by the sea",
-        "label": "Hero heading",
-        "info": "Set the hero heading"
-      },
-      {
-        "type": "text",
-        "id": "slide_first_model_heading",
-        "label": "Slide Cta Model Heading",
-        "default": "GT75",
-        "info": "Set the heading's model into the slide"
-      },
-      {
-        "type": "text",
-        "id": "slide_first_cta_text",
-        "label": "Slide Cta Text",
-        "default": "Discover it",
-        "info": "Set the slide's cta text"
-      },
-      {
-        "type": "url",
-        "id": "slide_first_cta_url",
-        "label": "Slide First Cta Url",
-        "info": "Set the cta's url"
-      },
-      {
-        "type": "text",
-        "id": "slide_second_model_heading",
-        "label": "Slide Second Cta Model Heading",
-        "default": "E60",
-        "info": "Set the heading's model into the slide"
-      },
-      {
-        "type": "text",
-        "id": "slide_second_cta_text",
-        "label": "Slide Second Cta Text",
-        "default": "Discover it",
-        "info": "Set the slide's cta text"
-      },
-      {
-        "type": "url",
-        "id": "slide_second_cta_url",
-        "label": "Slide Second Cta Url",
-        "info": "Set the cta's url"
-      },
-      {
-        "type": "text",
-        "id": "slide_third_model_heading",
-        "label": "Slide Third Cta Model Heading",
-        "default": "Discover it",
-        "info": "Set the heading's model into the slide"
-      },
-      {
-        "type": "text",
-        "id": "slide_third_cta_text",
-        "label": "Slide text three",
-        "default": "Watch the full experience",
-        "info": "Set the slide's cta text"
-      },
-      {
-        "type": "url",
-        "id": "slide_third_cta_url",
-        "label": "Slide Third Cta Url",
-        "info": "Set the cta's url"
-      },
-       {
         "type": "image_picker",
         "id": "swiper_image_1",
         "label": "Swiper Image 1",
@@ -177,25 +82,15 @@
       }
     ],
     "presets": [
-    {
-      "name": "Hero Section",
-      "category": "Custom Sections",
-      "settings": {
-        "hero_heading": "Shaped by the sea",
-        "slide_first_model_heading": "GT75",
-        "slide_first_cta_text": "Discover it",
-        "slide_first_cta_url": "#",
-        "slide_second_model_heading": "E60",
-        "slide_second_cta_text": "Discover it",
-        "slide_second_cta_url": "#",
-        "slide_third_model_heading": "Sail",
-        "slide_third_cta_text": "Watch the full experience",
-        "slide_third_cta_url": "#",
-        "swiper_image_1": "shopify://shop_images/swiper_1.jpg",
-        "swiper_image_2": "shopify://shop_images/swiper_2.jpg",
-        "swiper_image_3": "shopify://shop_images/swiper_3.jpg"
+      {
+        "name": "Hero Section",
+        "category": "Custom Sections",
+        "settings": {
+          "swiper_image_1": "shopify://shop_images/swiper_1.jpg",
+          "swiper_image_2": "shopify://shop_images/swiper_2.jpg",
+          "swiper_image_3": "shopify://shop_images/swiper_3.jpg"
+        }
       }
-    }
-  ]
+    ]
   }
 {% endschema %}
