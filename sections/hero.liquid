@@ -6,44 +6,49 @@
     <div class="swiper mySwiper w-full h-full relative">
       <div class="swiper-wrapper">
 
-        <!-- Assegna immagini, CTA e checkbox -->
-        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
-        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
-        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
-        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3" | split: "," %}
-        {% assign max_index = swiper_images.size | minus: 1 %}
+      {% assign max_index = swiper_images.size | minus: 1 %}
 
-        {% for i in (0..max_index) %}
-          {% assign swiper_image = swiper_images[i] %}
-          {% assign cta_text = cta_texts[i] %}
-          {% assign cta_url = cta_urls[i] %}
-          {% assign cta_check = cta_enabled[i] %}
-          {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
-
-          {% if image_url %}
-
-            <!-- Swiper slide -->
-            <div class="swiper-slide relative">
-              <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
-
-              <!-- Condition cta for each slide -->
-              {% if section.settings[cta_check] == true %}
-                {% assign current_cta_text = section.settings[cta_text] %}
-                {% assign current_cta_url = section.settings[cta_url] %}
-                {% if current_cta_text and current_cta_url %}
-                  <div class="w-full h-auto absolute left-0 bottom-14 right-0">
-                    <a href="{{ current_cta_url }}">
-                      <div class="w-full h-[56px] bg-white rounded-xl">
-                        <p class="body-16 text-white">{{ current_cta_text }}</p>
-                      </div>
-                    </a>
-                  </div>
-                {% endif %}
+      {% for i in (0..max_index) %}
+        {% assign swiper_image = swiper_images[i] %}
+        {% assign cta_text = cta_texts[i] %}
+        {% assign cta_url = cta_urls[i] %}
+        {% assign cta_check = cta_enabled[i] %}
+        {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
+      
+        {% if image_url %}
+          <!-- Swiper slide -->
+          <div class="swiper-slide relative">
+            <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+      
+            <!-- Debug: verifica variabili CTA -->
+            {{ section.settings[cta_check] }}
+            {{ section.settings[cta_text] }}
+            {{ section.settings[cta_url] }}
+      
+            <!-- Condizione CTA per ogni slide -->
+            {% if section.settings[cta_check] == true %}
+              {% assign current_cta_text = section.settings[cta_text] %}
+              {% assign current_cta_url = section.settings[cta_url] %}
+              {% if current_cta_text and current_cta_url %}
+                <div class="w-full h-auto absolute left-0 bottom-14 right-0">
+                  <a href="{{ current_cta_url }}">
+                    <div class="w-full h-[56px] bg-white rounded-xl">
+                      <p class="body-16 text-white">{{ current_cta_text }}</p>
+                    </div>
+                  </a>
+                </div>
+              {% else %}
+                <!-- Debug: Messaggio per capire cosa manca -->
+                <p>CTA text o URL mancante per la slide {{ i }}</p>
               {% endif %}
-            </div>
-
-          {% endif %}
-        {% endfor %}
+            {% else %}
+              <!-- Debug: Messaggio per capire cosa manca -->
+              <p>CTA disabilitata per la slide {{ i }}</p>
+            {% endif %}
+          </div>
+      
+        {% endif %}
+      {% endfor %}
       </div>
 
       <!-- Container swiper bullets -->
