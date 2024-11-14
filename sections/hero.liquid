@@ -7,10 +7,10 @@
       <div class="swiper-wrapper">
 
         <!-- Assegna immagini, CTA e checkbox -->
-        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
-        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
-        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
-        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3" | split: "," %}
+        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
+        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3," | split: "," %}
+        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3," | split: "," %}
+        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3," | split: "," %}
 
         {% for i in (0..swiper_images.size) %}
           {% assign swiper_image = swiper_images[i] %}
