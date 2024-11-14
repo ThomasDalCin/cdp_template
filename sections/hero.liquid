@@ -6,7 +6,7 @@
     <div class="swiper mySwiper w-full h-full relative">
       <div class="swiper-wrapper">
 
-        <!-- Assegna immagini, CTA e checkbox -->
+        <!-- assign variables -->
         {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
         {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
         {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
@@ -82,7 +82,7 @@
   }
 
   .hero-wrapper {
-  transition: height 0.2s ease-in-out;
+  transition: height 0.2s linear;
 }
 
 </style>
