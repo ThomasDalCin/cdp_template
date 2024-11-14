@@ -80,29 +80,28 @@
     </div>
   </div>
 
-<!-- footer menu links container -->
-<div class="footer-menu w-full h-auto py-6">
-  <div class="footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start lg:p-4 lg:flex-row lg:gap-x-4">
-    <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
-      <div class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
-        {% for link in linklists.main-menu.links %}
-          <li class="list-none">
-            {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
-              <a class="text-white font-light text-[16px] leading-[22px] lg:text-[16px] lg:leading-[22px] underline" href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            {% else %}
-              <a class="text-white text-[32px] leading-[32px]" href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            {% endif %}
-          </li>
-        {% endfor %}
+  <!-- footer menu links container -->
+  <div class="footer-menu w-full h-auto py-6">
+    <div class="footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start lg:p-4 lg:flex-row lg:gap-x-4">
+      <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
+        <div class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto">
+          {% for link in linklists.main-menu.links %}
+            <li class="list-none">
+              {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
+                <a class="text-white font-light text-[16px] leading-[22px] lg:text-[16px] lg:leading-[22px] underline" href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              {% else %}
+                <a class="text-white text-[32px] leading-[32px]" href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 
 
   <!-- gamma footer container -->
@@ -231,7 +230,7 @@
 
 
 {% comment %} 
-      Section Schema Settings here; 
+        Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
