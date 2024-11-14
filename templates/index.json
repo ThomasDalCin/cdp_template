@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero-section": {
@@ -17,6 +25,12 @@
         "swiper_image_1": "shopify://shop_images/pardo-GT75-gallery-02_desktop-2.jpg",
         "swiper_image_2": "shopify://shop_images/pardo-GT75-gallery-03_desktop.jpg",
         "swiper_image_3": "shopify://shop_images/pardo-GT75-gallery-05_desktop.jpg"
+      }
+    },
+    "home-text": {
+      "type": "home-text",
+      "settings": {
+        "ispirational_text": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem."
       }
     },
     "gamma-section-new": {
@@ -72,20 +86,16 @@
         "collab_custom_collab_cta_text_url": "",
         "collab_custom_collab_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg"
       }
-    },
-    "home-text": {
-      "type": "home-text",
-      "settings": {}
     }
   },
   "order": [
     "hero-section",
+    "home-text",
     "gamma-section-new",
     "home-video",
     "explore-section",
     "articles-list",
     "infinity-banner",
-    "collab-section",
-    "home-text"
+    "collab-section"
   ]
 }
