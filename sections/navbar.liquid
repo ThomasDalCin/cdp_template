@@ -130,7 +130,7 @@
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-10">
             <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center">
                 {% for link in linklists.main-menu.links %}
-                {% unless link.title == 'Press room' %}
+                {% unless link.title == 'Press room' or link.title == "Privacy preferences" or link.title = "Privacy policy" %}
                 <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
                     {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px]
                     lg:leading-[40px]" }}
