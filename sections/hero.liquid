@@ -7,12 +7,13 @@
       <div class="swiper-wrapper">
 
         <!-- Assegna immagini, CTA e checkbox -->
-        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3," | split: "," %}
-        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3," | split: "," %}
-        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3," | split: "," %}
-        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3," | split: "," %}
+        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
+        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
+        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
+        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3" | split: "," %}
+        {% assign max_index = swiper_images.size | minus: 1 %}
 
-        {% for i in (0..swiper_images.size | minus: 1) %}
+        {% for i in (0..max_index) %}
           {% assign swiper_image = swiper_images[i] %}
           {% assign cta_text = cta_texts[i] %}
           {% assign cta_url = cta_urls[i] %}
@@ -20,40 +21,32 @@
           {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
 
           {% if image_url %}
-
             <!-- Swiper slide -->
             <div class="swiper-slide relative">
               <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
 
-              <!-- Condition cta foreach slide -->
-              {% if section.settings[cta_check] == true %}
-                {% assign current_cta_text = section.settings[cta_text] %}
-                {% assign current_cta_url = section.settings[cta_url] %}
-                {% if current_cta_text and current_cta_url %}
-                  <div class="w-full h-auto absolute left-0 bottom-14 right-0">
-                    <a href="{{ current_cta_url }}">
-                      <div class="w-full h-[56px] bg-white rounded-xl">
-                        <p class="body-16 text-white">{{ current_cta_text }}</p>
-                      </div>
-                    </a>
-                  </div>
-                {% endif %}
+              <!-- Condition cta -->
+              {% if section.settings[cta_check] or section.settings[cta_url] %}
+                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4">
+                  <a href="{{ section.settings[cta_url] }}">
+                    <div class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold">
+                      <p class="body-16">{{ section.settings[cta_text] }}</p>
+                    </div>
+                  </a>
+                </div>
               {% endif %}
             </div>
-
           {% endif %}
         {% endfor %}
       </div>
 
       <!-- Container swiper bullets -->
-      <div
-        class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+      <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
         <!-- Container bullets -->
         <div class="w-auto h-auto">
           <div class="swiper-pagination"></div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -81,7 +74,7 @@
     border-radius: 2px !important;
     background-color: white !important;
   }
-  .swiper-pagination-bullet{
+  .swiper-pagination-bullet {
     width: 8px !important;
     height: 2px !important;
     border-radius: 2px !important;
@@ -90,7 +83,7 @@
 </style>
 
 {% comment %}
-Section Schema Settings here;
+Section Schema Settings here
 {% endcomment %}
 {% schema %}
 {
