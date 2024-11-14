@@ -152,8 +152,7 @@
         </div>
 
         <!--horizontal scroll parntership menu container-->
-            <div
-                class="w-[calc(100%+2rem)] px-2 -mx-2 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+            <div class="w-[calc(100%+2rem)] px-2 -mx-2 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
                 {% if blogs['Partnership'] %}
                 {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
                 {% if partnershipArticles.size > 0 %}
