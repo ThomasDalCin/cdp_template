@@ -34,7 +34,7 @@
                 {% assign current_cta_text = section.settings[cta_text] %}
                 {% assign current_cta_url = section.settings[cta_url] %}
                 
-                {% if current_cta_text and current_cta_url %}
+                {% if current_cta_text or current_cta_url %}
                   <div class="w-full h-auto absolute left-0 bottom-14 right-0">
                     <a href="{{ current_cta_url }}">
                       <div class="w-full h-[56px] bg-white rounded-xl">
