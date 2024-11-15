@@ -1789,6 +1789,11 @@ p, span{
   scroll-snap-align: start;
 }
 
+.scroll-px-6 {
+  scroll-padding-left: 1.5rem;
+  scroll-padding-right: 1.5rem;
+}
+
 .list-disc {
   list-style-type: disc;
 }
@@ -1951,6 +1956,10 @@ p, span{
   overflow-y: hidden;
 }
 
+.overflow-x-visible {
+  overflow-x: visible;
+}
+
 .overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -1962,6 +1971,10 @@ p, span{
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.whitespace-nowrap {
   white-space: nowrap;
 }
 
