@@ -1,0 +1,63 @@
+<!--overview-pdp-->
+<div class="w-full h-auto flex items-center justify-center fixed z-10 left-0 bottom-8 right-0">
+    <!--container fab pdp-->
+    <div
+        class="w-[120px] h-[40px] flex flex-col items-center justify-center px-6 py-[10px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg badge-overlay">
+        <p class="body-14 text-white">{{ section.settings.cta_text | default: "Overview" }}</p>
+    </div>
+
+</div>
+
+
+<!--container nav items-->
+<div
+    class="w-full h-auto fixed left-0 bottom-0 right-0 flex flex-col items-center justify-center z-30 py-8 bg-[rgba(0,0,0,0.20)] backdrop-blur-lg rounded-t-lg gap-y-8 translate-y-[1000px] transition-all duration-200 ease container-ancor-links">
+    <p class="body-14 text-white font-light">{{ section.settings.overlay_main | default: "Overview" | upcase }}</p>
+    <ul class="w-full h-auto flex flex-col items-center justify-center gap-y-4">
+        <a href="" class="ancor-link">
+            <li class="body-16 text-white">{{ section.settings.item_one | default: "Design" }}</li>
+        </a>
+        <a href="" class="ancor-link">
+            <li class="body-16 text-white">{{ section.settings.item_one | default: "Top view" }}</li>
+        </a>
+        <a href="" class="ancor-link">
+            <li class="body-16 text-white">{{ section.settings.item_one | default: "Technical feature" }}</li>
+        </a>
+        <a href="" class="ancor-link">
+            <li class="body-16 text-white">{{ section.settings.item_one | default: "General Arrangment" }}</li>
+        </a>
+        <a href="" class="ancor-link">
+            <li class="body-16 text-white">{{ section.settings.item_one | default: "Gallery" }}</li>
+        </a>
+    </ul>
+    <div class="w-full h-auto flex items-center justify-center text-white closing-icon">
+        {% render 'x-icon' %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //get elements
+        const containerLinks = document.querySelector('.container-ancor-links');
+        const allClickableLinks = document.querySelectorAll('.ancor-link');
+        const closingIcon = document.querySelector('.closing-icon');
+        const badgeOverlay = document.querySelector('.badge-overlay');
+
+        badgeOverlay.addEventListener('click', () => {
+            containerLinks.classList.remove('translate-y-[1000px]');
+        });
+
+        closingIcon.addEventListener('click', () => {
+            containerLinks.classList.add('translate-y-[1000px]');
+        });
+
+        allClickableLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                containerLinks.classList.add('translate-y-[1000px]');
+            })
+        })
+
+
+    });
+
+</script>

@@ -25,6 +25,10 @@
     "top-view-pdp": {
       "type": "top-view-pdp",
       "settings": {}
+    },
+    "overview-pdp": {
+      "type": "overview-pdp",
+      "settings": {}
     }
   },
   "order": [
@@ -32,6 +36,7 @@
     "info-pdp",
     "ext-int-pdp",
     "top-view-pdp",
-    "features-pdp"
+    "features-pdp",
+    "overview-pdp"
   ]
 }
