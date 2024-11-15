@@ -1431,6 +1431,10 @@ p, span{
   height: 100vh;
 }
 
+.h-\[540px\] {
+  height: 540px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1521,6 +1525,10 @@ p, span{
 
 .min-h-\[705px\] {
   min-height: 705px;
+}
+
+.min-h-\[540px\] {
+  min-height: 540px;
 }
 
 .w-0 {
