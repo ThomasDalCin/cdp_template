@@ -1,252 +1,140 @@
-<!--top view galley section -->
-<div class="top-view-horizontal-scroll w-full h-auto px-4 flex flex-col gap-y-6 mb-[40px] lg:overflow-x-hidden lg:px-10">
-    <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start lg:hidden">
-        <h2 class="header-2">The shape of power</h2>
+<!-- Top View Galley Section -->
+<div
+    class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] lg:overflow-x-hidden bg-[#A9A09E] lg:px-10">
+
+    <!-- Main Title Content -->
+    <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start pt-14 pb-6 lg:hidden">
+        <h2 class="header-2">{{ section.settings.main_title | default: "Top view" }}</h2>
     </div>
+
+    <!-- Horizontal Container Scrolling -->
     <div
-        class="horizontal-magnetic-scroll-container w-[calc(100%_+_2rem)] p-4 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-10 lg:-mx-10">
-        {% assign galleryUp = product.metafields.custom.gallery_up.value %}
-        {% assign galleryDown = product.metafields.custom.gallery_down.value %}
-        {% assign interiorGallery = product.metafields.custom.interior_gallery.value %}
+        class="horizontal-magnetic-scroll-container w-[calc(100%_+_2rem)] px-4 py-14 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-10 lg:-mx-10">
 
-        <!-- Galley Up -->
-        {% if galleryUp %}
-        {% assign gallery_up_images = 'gallery_up_one,gallery_up_two,gallery_up_three,gallery_up_four' | split: ',' %}
-        {% assign first_gallery_up_image = gallery_up_images[0] %}
-        {% assign imageUpItem = galleryUp[first_gallery_up_image] %}
-        {% if imageUpItem %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto  flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:bg-center lg:w-full lg:bg-no-repeat lg:bg-55%"
-                style="background-image: url('{{ imageUpItem | img_url: 'master' }}');"
-                data-overlay="overlay-galley-up">
-            </div>
-            <div class="flex items-center justify-center  w-full h-auto">
-                <p class="body-16">Top View | Galley-up</p>
-            </div>
-        </div>
-        {% endif %}
-        {% endif %}
+        <!-- Metafield Assignment for Galley Up and Galley Down -->
+        {% assign topViewGalleyUp = product.metafields.custom.top_view_galley_up.value %}
+        {% assign topViewGalleyDown = product.metafields.custom.top_view_galley_down.value %}
+        {% assign interiorViewGalleyUp = product.metafields.custom.interior_view_galley_up.value %}
+        {% assign interiorViewGalleyDown = product.metafields.custom.interior_view_galley_down.value %}
 
-        <!-- Overlay Galley Up -->
-        <div id="overlay-galley-up"
-            class="overlay-galley-container  fixed inset-0 z-40 w-full h-auto bg-[var(--secondary-text-color)] overflow-y-scroll hidden lg:mt-[100px]">
-            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
-                <div
-                    class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-                    <img src="{{ imageUpItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img"
-                        alt="{{ imageUpItem.alt }}">
-                    <div
-                        class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
-                        {% render 'back-arrow-icon' %}
-                        <p class="body-14-medium ml-2">Back</p>
-                    </div>
-                </div>
-                <div
-                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-                    {% for overlayItems in gallery_up_images %}
-                    {% assign overlayScrollImage = galleryUp[overlayItems] %}
-                    {% if overlayScrollImage %}
-                    <div
-                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-                        <img src="{{ overlayScrollImage | img_url: 'master'}}"
-                            class="w-full h-full object-contain overlay-galley-img" alt="">
-                    </div>
+        <!-- Galley Up Section -->
+        {% if topViewGalleyUp %}
+            {% assign topViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+
+            <!-- Loop Through Galley Up Images and Render Only the First Image -->
+            {% for image_key in topViewGalleyUp_images %}
+                {% assign image_item = topViewGalleyUp[image_key] %}
+                
+                {% if image_item %}
+                    <!-- Check if this is the first image in the loop for Galley Up -->
+                    {% if forloop.first %}
+                        <div
+                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+                            
+                            <!-- Image -->
+                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                                data-overlay="overlay-galley-up">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="flex items-center justify-center w-full h-auto">
+                                <p class="body-16">Top View | Galley-up</p>
+                            </div>
+                        </div>
                     {% endif %}
-                    {% endfor %}
-                </div>
-                <div
-                    class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4 lg:flex-row lg:items-center lg:justify-start lg:gap-x-2">
-                    <div class="cta-delear">
-                        <p class="body-14-medium">Locate dealer</p>
-                        {% render 'cta-icon' %}
-                    </div>
-                    <div class="cta-brochure">
-                        <p class="body-14-medium">Download brochure</p>
-                        {% render 'download-icon' %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Galley Down -->
-        {% if galleryDown %}
-        {% assign gallery_down_images = 'gallery_down_one,gallery_down_two,gallery_down_three,gallery_down_four' |
-        split: ',' %}
-        {% assign first_gallery_down_image = gallery_down_images[0] %}
-        {% assign imageDownItem = galleryDown[first_gallery_down_image] %}
-        {% if imageDownItem %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1 ">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:bg-center lg:w-full lg:bg-no-repeat lg:bg-55%"
-                style="background-image: url('{{ imageDownItem | img_url: 'master' }}');"
-                data-overlay="overlay-galley-down">
-            </div>
-            <div class="flex items-center justify-center w-full h-auto">
-                <p class="body-16">Top View | Galley-down</p>
-            </div>
-        </div>
-        {% endif %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
 
-        <!-- Overlay Galley Down -->
-        <div id="overlay-galley-down"
-            class="overlay-galley-container  fixed inset-0 z-40 w-full h-auto bg-[var(--secondary-text-color)] overflow-y-scroll hidden lg:mt-[100px]">
-            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
-                <div
-                    class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-                    <img src="{{ imageDownItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img"
-                        alt="{{ imageDownItem.alt }}">
-                    <div
-                        class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
-                        {% render 'back-arrow-icon' %}
-                        <p class="body-14-medium ml-2">Back</p>
-                    </div>
-                </div>
-                <div
-                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-                    {% for overlayItems in gallery_down_images %}
-                    {% assign overlayDownScrollImage = galleryDown[overlayItems] %}
-                    {% if overlayDownScrollImage %}
-                    <div
-                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-                        <img src="{{ overlayDownScrollImage | img_url: 'master'}}"
-                            class="w-full h-full object-contain overlay-galley-img"
-                            alt="{{ overlayDownScrollImage.alt }}">
-                    </div>
+        <!-- Galley Down Section -->
+        {% if topViewGalleyDown %}
+            {% assign topViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+
+            <!-- Loop Through Galley Down Images and Render Only the First Image -->
+            {% for image_key in topViewGalleyDown_images %}
+                {% assign image_item = topViewGalleyDown[image_key] %}
+                
+                {% if image_item %}
+                    <!-- Check if this is the first image in the loop for Galley Down -->
+                    {% if forloop.first %}
+                        <div
+                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+                            
+                            <!-- Image -->
+                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                                data-overlay="overlay-galley-down">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="flex items-center justify-center w-full h-auto">
+                                <p class="body-16">Top View | Galley-down</p>
+                            </div>
+                        </div>
                     {% endif %}
-                    {% endfor %}
-                </div>
-                <div
-                    class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4 lg:items-center lg:justify-start lg:gap-x-2">
-                    <div class="cta-delear">
-                        <p class="body-14-medium">Locate dealer</p>
-                        {% render 'cta-icon' %}
-                    </div>
-                    <div class="cta-brochure">
-                        <p class="body-14-medium">Download brochure</p>
-                        {% render 'download-icon' %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Interior Galley -->
-        {% if interiorGallery %}
-        {% assign gallery_interiors = 'ineriori_image_one,ineriori_image_two,ineriori_image_three,ineriori_image_four' |
-        split: ',' %}
-        {% assign first_gallery_interior_image = gallery_interiors[0] %}
-        {% assign imageInteriorItem = interiorGallery[first_gallery_interior_image] %}
-        {% if imageInteriorItem %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto  flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:bg-cover lg:w-full"
-                style="background-image: url('{{ imageDownItem | img_url: 'master' }}');"
-                data-overlay="overlay-galley-interior">
-            </div>
-            <div class="flex items-center justify-center  w-full h-auto">
-                <p class="body-16">Top View | Galley-down</p>
-            </div>
-        </div>
-        {% endif %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
 
-        <!-- Overlay Interior Galley -->
-        <div id="overlay-galley-interior"
-            class="overlay-galley-container fixed inset-0 z-40 w-full h-auto bg-[var(--secondary-text-color)] overflow-y-scroll hidden lg:mt-[100px]">
-            <div class="overlay-galley-content w-full h-full flex flex-col justify-center">
-                <div
-                    class="overlay-main-img-content w-full flex-1 bg-[var(--primary-background-color)] flex items-center justify-center relative">
-                    <img src="{{ imageInteriorItem | img_url: 'master' }}"
-                        class="w-full h-[565px] max-h-[600px] object-contain main-galley-img"
-                        alt="{{ imageInteriorItem.alt }}">
-                    <div
-                        class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer close-overlay">
-                        {% render 'back-arrow-icon' %}
-                        <p class="body-14-medium ml-2">Back</p>
-                    </div>
-                </div>
-                <div
-                    class="overlay-magnetic-scroll-container flex flex-row items-center justify-start overflow-x-auto space-x-2 p-4 flex-shrink-0 h-auto">
-                    {% for overlayItems in gallery_interiors %}
-                    {% assign overlayInteriorScrollImage = interiorGallery[overlayItems] %}
-                    {% if overlayInteriorScrollImage %}
-                    <div
-                        class="overlay-magnetic-scroll w-[208px] h-[128px] rounded-xl bg-[var(--primary-background-color)] bg-cover bg-center flex-shrink-0">
-                        <img src="{{ overlayInteriorScrollImage | img_url: 'master'}}"
-                            class="w-full h-full object-contain  overlay-galley-img" alt="">
-                    </div>
+        <!-- Interior Galley Up Section -->
+        {% if interiorViewGalleyUp %}
+            {% assign interiorViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+
+            <!-- Loop Through Interior Galley Up Images and Render Only the First Image -->
+            {% for image_key in interiorViewGalleyUp_images %}
+                {% assign image_item = interiorViewGalleyUp[image_key] %}
+                
+                {% if image_item %}
+                    <!-- Check if this is the first image in the loop for Interior Galley Up -->
+                    {% if forloop.first %}
+                        <div
+                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+                            
+                            <!-- Image -->
+                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                                data-overlay="overlay-interior-galley-up">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="flex items-center justify-center w-full h-auto">
+                                <p class="body-16">Interior View | Galley-up</p>
+                            </div>
+                        </div>
                     {% endif %}
-                    {% endfor %}
-                </div>
-                <div
-                    class="overlay-ctas-container w-full h-auto flex flex-col gap-y-4 p-4 lg:items-center lg:justify-start lg:gap-x-2">
-                    <div class="cta-delear">
-                        <p class="body-14-medium">Locate dealer</p>
-                        {% render 'cta-icon' %}
-                    </div>
-                    <div class="cta-brochure">
-                        <p class="body-14-medium">Download brochure</p>
-                        {% render 'download-icon' %}
-                    </div>
-                </div>
-            </div>
-        </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!-- Interior Galley Down Section -->
+        {% if interiorViewGalleyDown %}
+            {% assign interiorViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+
+            <!-- Loop Through Interior Galley Down Images and Render Only the First Image -->
+            {% for image_key in interiorViewGalleyDown_images %}
+                {% assign image_item = interiorViewGalleyDown[image_key] %}
+                
+                {% if image_item %}
+                    <!-- Check if this is the first image in the loop for Interior Galley Down -->
+                    {% if forloop.first %}
+                        <div
+                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+                            
+                            <!-- Image -->
+                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                                data-overlay="overlay-interior-galley-down">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="flex items-center justify-center w-full h-auto">
+                                <p class="body-16">Interior View | Galley-down</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
-
-<script>
-    //handle overlay 
-    document.addEventListener('DOMContentLoaded', function () {
-        const galleryImages = document.querySelectorAll('[data-overlay]');
-
-        galleryImages.forEach(image => {
-            image.addEventListener('click', function () {
-                const overlayId = this.getAttribute('data-overlay');
-                const overlay = document.getElementById(overlayId);
-                if (overlay) {
-                    overlay.classList.remove('hidden');
-                }
-            });
-        });
-
-        const closeButtons = document.querySelectorAll('.close-overlay');
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const overlay = this.closest('.overlay-galley-container ');
-                if (overlay) {
-                    overlay.classList.add('hidden');
-                }
-            });
-        });
-
-        function setMainOverlayImg(mainImg, mainSrc, clickedSrc) {
-            if (mainSrc != clickedSrc) {
-                mainImg.setAttribute('src', clickedSrc)
-            }
-        }
-
-        //handle images inside overlay
-        const insideImgsOverlay = document.querySelectorAll('.overlay-galley-img');
-        insideImgsOverlay.forEach(img => {
-            img.addEventListener('click', (e) => {
-                const imgClicked = e.currentTarget;
-                let mainGalleryDiv = imgClicked.closest('.overlay-galley-content');
-                if (mainGalleryDiv) {
-                    mainGalleryDiv = mainGalleryDiv.querySelector('.overlay-main-img-content');
-                    if (mainGalleryDiv) {
-                        const mainGalleryImg = mainGalleryDiv.querySelector('img.main-galley-img');
-                        if (mainGalleryImg) {
-                            const mainSrc = mainGalleryImg.getAttribute('src');
-                            const clickedSrc = imgClicked.getAttribute('src');
-                            setMainOverlayImg(mainGalleryImg, mainSrc, clickedSrc);
-                        }
-                    }
-                }
-            });
-        });
-    });
-
-</script>
