@@ -1651,6 +1651,10 @@ p, span{
   width: 120px;
 }
 
+.w-\[calc\(100\%\+4rem\)\] {
+  width: calc(100% + 4rem);
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
@@ -2864,6 +2868,11 @@ p, span{
     margin-right: 0px;
   }
 
+  .lg\:-mx-6 {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -3070,6 +3079,10 @@ p, span{
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[calc\(100\%\+6rem\)\] {
+    width: calc(100% + 6rem);
   }
 
   .lg\:min-w-0 {
