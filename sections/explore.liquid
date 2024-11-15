@@ -18,7 +18,7 @@
         {% assign explore_image_url = section.settings[explore_image] | img_url: 'master' %}
           {% if explore_image_url %}
           <!-- container explore section image -->
-          <div class="w-[382px] min-w-[382px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="{{ explore_image }}">
+          <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="{{ explore_image }}">
             <img class="w-full h-full object-cover object-center" src="{{ explore_image_url }}" alt="{{ explore_image.alt }}">
           </div>
         {% endif %}

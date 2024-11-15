@@ -1,0 +1,172 @@
+<!-- interior & exteriors pdp section -->
+
+<div class="w-full h-auto flex flex-col items-start justify-center">
+    <!-- container main title -->
+    <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-6">
+        <p class="text-[64px] leading-[56px]">{{ section.settings.main_title | default: "Design" }}</p>
+    </div>
+
+    <!-- container text exteriors text and images -->
+    <div class="w-full h-auto flex flex-col items-start justify-center">
+        <!-- container text -->
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
+            <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default: "Exteriors" }}</p>
+            <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+        </div>
+
+        <!-- container images -->
+        <!-- explore gallery wrapper -->
+        <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+            <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
+                <!-- assign variables -->
+                {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
+                {% if externalBoat %}
+                    {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+                    {% assign total_images = externalBoatImages.size %}
+                    {% for externalBoatImage in externalBoatImages %}
+                        {% assign externalImage = externalBoat[externalBoatImage] %}
+                        {% if externalImage %}
+                            <!-- container explore section image -->
+                            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="externalImage_{{ forloop.index }}">
+                                <img class="w-full h-full object-cover object-center" src="{{ externalImage | img_url: 'master' }}" alt="{{ externalImage.alt }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- handle counter images during scroll -->
+            <div class="w-auto h-auto absolute left-4 bottom-4">
+                <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- container text interiors text and images -->
+    <div class="w-full h-auto flex flex-col items-start justify-center">
+        <!-- container text -->
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
+            <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors" }}</p>
+            <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+        </div>
+
+        <!-- container images -->
+        <!-- explore gallery wrapper -->
+        <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+            <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x-internal">
+                <!-- assign variables -->
+                {% assign internalBoat = product.metafields.custom.internal_boat.value %}
+                {% if internalBoat %}
+                    {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+                    {% assign total_images_internal = internalBoatImages.size %}
+                    {% for internalBoatImage in internalBoatImages %}
+                        {% assign internalImage = internalBoat[internalBoatImage] %}
+                        {% if internalImage %}
+                            <!-- container explore section image -->
+                            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="internalImage_{{ forloop.index }}">
+                                <img class="w-full h-full object-cover object-center" src="{{ internalImage | img_url: 'master' }}" alt="{{ internalImage.alt }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- handle counter images during scroll -->
+            <div class="w-auto h-auto absolute left-4 bottom-4">
+                <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0' }})</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const updateCounterOnScroll = (images, counterText, container) => {
+      const updateCounter = () => {
+        let closestImageIndex = 0;
+        let closestDistance = Infinity;
+
+        images.forEach((image, index) => {
+          const rect = image.getBoundingClientRect();
+          const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+
+          if (distanceFromCenter < closestDistance) {
+            closestDistance = distanceFromCenter;
+            closestImageIndex = index;
+          }
+        });
+
+        counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
+      };
+
+      updateCounter(); // Initial update
+      container.addEventListener('scroll', updateCounter);
+    };
+
+    // Exteriors
+    const externalCounterText = document.querySelector('.counter-items');
+    const externalImages = document.querySelectorAll('[id^="externalImage_"]');
+    const externalContainer = document.querySelector('.scroll-snap-type-x');
+
+    if (externalImages.length) {
+      updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
+    }
+
+    // Interiors
+    const internalCounterText = document.querySelector('.counter-items-internal');
+    const internalImages = document.querySelectorAll('[id^="internalImage_"]');
+    const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
+
+    if (internalImages.length) {
+      updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
+    }
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Int & Ent",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Design"
+    },
+    {
+      "type": "text",
+      "id": "exterior_text_title",
+      "label": "Exteriors Title",
+      "default": "Exteriors"
+    },
+    {
+      "type": "textarea",
+      "id": "exterior_text_content",
+      "label": "Exteriors Content",
+      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    },
+    {
+      "type": "text",
+      "id": "interior_text_title",
+      "label": "Interiors Title",
+      "default": "Interiors"
+    },
+    {
+      "type": "textarea",
+      "id": "interior_text_content",
+      "label": "Interiors Content",
+      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interior & Exterior Design",
+      "category": "Custom"
+    }
+  ]
+}
+
+{% endschema %}

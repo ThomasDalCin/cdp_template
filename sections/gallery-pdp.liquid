@@ -1,0 +1,63 @@
+<!--gallery pdp section-->
+<div class="w-full h-[640px] min-h-[640px] relative">
+    <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
+
+        <!-- Swiper slider start here -->
+        <div class="swiper mySwiper w-full h-full relative">
+            <div class="swiper-wrapper">
+
+                <!-- assign variables -->
+                {% for image in product.images %}
+                    {% if forloop.index > 1 %}
+                        <div class="swiper-slide relative">
+                            <img src="{{ image | img_url: 'master' }}" alt="Slide {{ forloop.index }}" class="swiper-img w-full h-full object-cover">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                    
+            </div>
+
+            <!-- Container swiper bullets -->
+            <div
+                class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+                <!-- Container bullets -->
+                <div class="w-auto h-auto">
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Initialize Swiper -->
+<script>
+var swiper = new Swiper(".mySwiper", {
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    },
+});
+
+</script>
+
+<!-- Swiper Custom Style -->
+<style>
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 24px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
+</style>

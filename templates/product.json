@@ -1,26 +1,37 @@
 {
   "sections": {
-    "product-features": {
-      "type": "product-features",
+    "gallery-pdp": {
+      "type": "gallery-pdp",
+      "settings": {
+
+      }
+    },
+    "info-pdp": {
+      "type": "info-pdp",
+      "settings": {
+
+      }
+    },
+    "ext-int-pdp": {
+      "type": "ext-int-pdp",
+      "settings": {
+
+      }
+    },
+    "features-pdp": {
+      "type": "features-pdp",
       "settings": {}
     },
-    "product-description": {
-      "type": "product-description",
-      "settings": {}
-    },
-    "product-top-view-galley": {
-      "type": "top-view-galley",
-      "settings": {}
-    },
-    "product-top-details": {
-      "type": "top-product-details",
+    "top-view-pdp": {
+      "type": "top-view-pdp",
       "settings": {}
     }
   },
   "order": [
-    "product-top-details",
-    "product-top-view-galley",
-    "product-description",
-    "product-features"
+    "gallery-pdp",
+    "info-pdp",
+    "ext-int-pdp",
+    "top-view-pdp",
+    "features-pdp"
   ]
 }

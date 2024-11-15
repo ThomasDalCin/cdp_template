@@ -2,7 +2,7 @@
 
 <!--navbar-container-->
 <div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50">
-    <div class="w-full h-[72px] bg-white rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
+    <div class="navbar-container w-full h-[72px] bg-white rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
 
         <!--menu yatch cta-->
         <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] flex items-center justify-center">
@@ -296,9 +296,10 @@
         const hadScrolled = window.scrollY;
         const currentPage = window.location.pathname;
         const isNotHomepage = currentPage !== '/';
-        const isNewsArticle = currentPage.startsWith('/blogs/news/');
+        const isProductPage = currentPage.startsWith('/products/');
         // Navbar elements
         const navbar = document.querySelector('.navbar');
+        const navBg = document.querySelector('.navbar-container')
         const menuIcon = document.querySelector('.menu-icon');
         const menuChip = document.querySelector('.menu-yachts-label');
         // Menu types
@@ -312,6 +313,16 @@
         //handle second menu layout base on device size
         window.addEventListener('resize', handleSecondMenuLevel);
         handleSecondMenuLevel();
+
+        function updateNavBackground() {
+            if (isProductPage) {
+               navBg.classList.remove('bg-white');
+               navBg.classList.add('bg-blur-opacity');
+            }
+        }
+
+        updateNavBackground();
+
 
         // Handle second menu
         function handleSecondMenuLevel() {
