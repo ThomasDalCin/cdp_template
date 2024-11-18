@@ -1,3 +1,24 @@
+<!-- Overlay per Swiper -->
+<div class="overlay hidden fixed z-100 inset-0 w-full h-dvh swiper">
+    <div class="overlay-content swiper-container-overlay swiper">
+        <div class="swiper-wrapper-overlay">
+            <!-- Le slide saranno qui -->
+        </div>
+
+        <!-- Pulsante di chiusura -->
+        <button class="close-overlay">Chiudi</button>
+
+        <!-- Container per la pagination -->
+        <div
+            class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+            <div class="w-auto h-auto">
+                <div class="swiper-pagination-overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Top View Galley Section -->
 <div
     class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] lg:overflow-x-hidden bg-[#A9A09E] lg:px-10">
@@ -19,122 +40,210 @@
 
         <!-- Galley Up Section -->
         {% if topViewGalleyUp %}
-            {% assign topViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% assign topViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
-            <!-- Loop Through Galley Up Images and Render Only the First Image -->
+        <!-- Loop Through Galley Up Images and Render Only the First Image -->
+        {% for image_key in topViewGalleyUp_images %}
+        {% assign image_item = topViewGalleyUp[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-galley-up"
+                data-image="{{ image_item | img_url: 'master' }}">
+            </div>
+            <div class="flex items-center justify-center w-full h-auto">
+                <p class="body-16">Top View | Galley-up</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images for Galley Up -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-galley-up">
             {% for image_key in topViewGalleyUp_images %}
-                {% assign image_item = topViewGalleyUp[image_key] %}
-                
-                {% if image_item %}
-                    <!-- Check if this is the first image in the loop for Galley Up -->
-                    {% if forloop.first %}
-                        <div
-                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-                            
-                            <!-- Image -->
-                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
-                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                                data-overlay="overlay-galley-up">
-                            </div>
-
-                            <!-- Description -->
-                            <div class="flex items-center justify-center w-full h-auto">
-                                <p class="body-16">Top View | Galley-up</p>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
+            {% assign image_item = topViewGalleyUp[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
             {% endfor %}
+        </div>
         {% endif %}
 
         <!-- Galley Down Section -->
         {% if topViewGalleyDown %}
-            {% assign topViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% assign topViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
-            <!-- Loop Through Galley Down Images and Render Only the First Image -->
+        <!-- Loop Through Galley Down Images and Render Only the First Image -->
+        {% for image_key in topViewGalleyDown_images %}
+        {% assign image_item = topViewGalleyDown[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="overlay-galley-down">
+            </div>
+            <div class="flex items-center justify-center w-full h-auto">
+                <p class="body-16">Top View | Galley-down</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images for Galley Down -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-galley-down">
             {% for image_key in topViewGalleyDown_images %}
-                {% assign image_item = topViewGalleyDown[image_key] %}
-                
-                {% if image_item %}
-                    <!-- Check if this is the first image in the loop for Galley Down -->
-                    {% if forloop.first %}
-                        <div
-                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-                            
-                            <!-- Image -->
-                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
-                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                                data-overlay="overlay-galley-down">
-                            </div>
-
-                            <!-- Description -->
-                            <div class="flex items-center justify-center w-full h-auto">
-                                <p class="body-16">Top View | Galley-down</p>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
+            {% assign image_item = topViewGalleyDown[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
             {% endfor %}
+        </div>
         {% endif %}
 
         <!-- Interior Galley Up Section -->
         {% if interiorViewGalleyUp %}
-            {% assign interiorViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% assign interiorViewGalleyUp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
-            <!-- Loop Through Interior Galley Up Images and Render Only the First Image -->
+        <!-- Loop Through Interior Galley Up Images and Render Only the First Image -->
+        {% for image_key in interiorViewGalleyUp_images %}
+        {% assign image_item = interiorViewGalleyUp[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="overlay-interior-galley-up">
+            </div>
+            <div class="flex items-center justify-center w-full h-auto" data-overlay="overlay-interior-galley-up">
+                <p class="body-16">Interior View | Galley-up</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images for Interior Galley Up -->
+        <div class="hidden-images-container" style="display: none;">
             {% for image_key in interiorViewGalleyUp_images %}
-                {% assign image_item = interiorViewGalleyUp[image_key] %}
-                
-                {% if image_item %}
-                    <!-- Check if this is the first image in the loop for Interior Galley Up -->
-                    {% if forloop.first %}
-                        <div
-                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-                            
-                            <!-- Image -->
-                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
-                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                                data-overlay="overlay-interior-galley-up">
-                            </div>
-
-                            <!-- Description -->
-                            <div class="flex items-center justify-center w-full h-auto">
-                                <p class="body-16">Interior View | Galley-up</p>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
+            {% assign image_item = interiorViewGalleyUp[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
             {% endfor %}
+        </div>
         {% endif %}
 
         <!-- Interior Galley Down Section -->
         {% if interiorViewGalleyDown %}
-            {% assign interiorViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% assign interiorViewGalleyDown_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
-            <!-- Loop Through Interior Galley Down Images and Render Only the First Image -->
-            {% for image_key in interiorViewGalleyDown_images %}
-                {% assign image_item = interiorViewGalleyDown[image_key] %}
-                
-                {% if image_item %}
-                    <!-- Check if this is the first image in the loop for Interior Galley Down -->
-                    {% if forloop.first %}
-                        <div
-                            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-                            
-                            <!-- Image -->
-                            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
-                                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                                data-overlay="overlay-interior-galley-down">
-                            </div>
-
-                            <!-- Description -->
-                            <div class="flex items-center justify-center w-full h-auto">
-                                <p class="body-16">Interior View | Galley-down</p>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
+        <!-- Loop Through Interior Galley Down Images and Render Only the First Image -->
+        {% for image_key in interiorViewGalleyDown_images %}
+        {% assign image_item = interiorViewGalleyDown[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="overlay-interior-galley-down">
+            </div>
+            <div class="flex items-center justify-center w-full h-auto">
+                <p class="body-16">Interior View | Galley-down</p>
+            </div>
+        </div>
         {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images for Interior Galley Down -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-interior-galley-down">
+            {% for image_key in interiorViewGalleyDown_images %}
+            {% assign image_item = interiorViewGalleyDown[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const overlay = document.querySelector('.overlay');
+
+        // Funzione per mostrare l'overlay e inizializzare il Swiper
+        function openOverlay(images) {
+            const swiperWrapper = document.querySelector('.swiper-wrapper-overlay');
+
+            // Svuotiamo il contenitore delle slide prima di aggiungere nuove immagini
+            swiperWrapper.innerHTML = '';
+
+            // Aggiungiamo le immagini al swiper
+            images.forEach(imageUrl => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                const slideImg = document.createElement('img');
+                slideImg.setAttribute('src', imageUrl);
+                slide.appendChild(slideImg);
+                swiperWrapper.appendChild(slide);
+            });
+
+            // Inizializzare il swiper dopo aver aggiunto le slide
+            var swiperOverlay = new Swiper('.swiper-container-overlay', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                pagination: {
+                    el: '.swiper-pagination-overlay',
+                    clickable: true
+                },
+            });
+
+            // Mostra l'overlay
+            overlay.classList.remove('hidden');
+        }
+
+        // Gestisci il click su una delle immagini
+        const imageContainers = document.querySelectorAll('.top-view-scroll-img');
+
+        imageContainers.forEach(container => {
+            container.addEventListener('click', function () {
+                // Recupera tutte le immagini correlate
+                const overlayType = container.getAttribute('data-overlay');
+                let images = [];
+
+                // Seleziona tutte le immagini nascoste relative all'overlay cliccato
+                const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
+
+                // Aggiungi le immagini nascoste
+                hiddenImages.forEach(hiddenImage => {
+                    images.push(hiddenImage.getAttribute('data-image'));
+                });
+
+                // Apri l'overlay con le immagini
+                openOverlay(images);
+            });
+        });
+
+        // Gestisci il click sul bottone di chiusura dell'overlay
+        const closeButton = document.querySelector('.close-overlay');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                overlay.classList.add('hidden');
+            });
+        }
+    });
+
+</script>
