@@ -243,118 +243,118 @@
 
 
 <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.querySelector('.overlay');
-    const swiperWrapper = document.querySelector('.swiper-wrapper-overlay');
-    const swiperContainer = document.querySelector('.swiper-container-overlay');
-    const overlayButton = document.querySelector('.overlay-button');
-    const overlayDescriptions = document.querySelectorAll('.overlay-description');
+    document.addEventListener('DOMContentLoaded', function () {
+        const overlay = document.querySelector('.overlay');
+        const swiperWrapper = document.querySelector('.swiper-wrapper-overlay');
+        const swiperContainer = document.querySelector('.swiper-container-overlay');
+        const overlayButton = document.querySelector('.overlay-button');
+        const overlayDescriptions = document.querySelectorAll('.overlay-description');
 
-    let swiperOverlay;
+        let swiperOverlay;
 
-    function openOverlay(images) {
-        // Svuota il contenuto del wrapper prima di creare le slide
-        swiperWrapper.innerHTML = '';
+        function openOverlay(images) {
+            // Svuota il contenuto del wrapper prima di creare le slide
+            swiperWrapper.innerHTML = '';
 
-        // Classi da aggiungere ad ogni slide
-        const slideClasses = ["h-screen", "flex", "items-center", "justify-center"];
+            // Classi da aggiungere ad ogni slide
+            const slideClasses = ["h-screen", "flex", "items-center", "justify-center"];
 
-        // Aggiungi le immagini al wrapper
-        images.forEach(imageUrl => {
-            const slide = document.createElement('div');
-            slide.classList.add('swiper-slide');
-            slideClasses.forEach(cls => {
-                slide.classList.add(cls);
+            // Aggiungi le immagini al wrapper
+            images.forEach(imageUrl => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                slideClasses.forEach(cls => {
+                    slide.classList.add(cls);
+                });
+
+                const slideImg = document.createElement('img');
+                slideImg.classList.add('w-[247px]', 'h-[598px]');
+                slideImg.setAttribute('src', imageUrl);
+                slide.appendChild(slideImg);
+                swiperWrapper.appendChild(slide);
             });
 
-            const slideImg = document.createElement('img');
-            slideImg.classList.add('w-[247px]', 'h-[598px]');
-            slideImg.setAttribute('src', imageUrl);
-            slide.appendChild(slideImg);
-            swiperWrapper.appendChild(slide);
-        });
-
-        // Inizializza Swiper
-        swiperOverlay = new Swiper('.swiper-container-overlay', {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            pagination: {
-                el: '.swiper-pagination-overlay',
-                clickable: true
-            },
-        });
-
-        // Mostra l'overlay e disabilita lo scroll del corpo
-        overlay.classList.remove('hidden');
-        document.body.classList.add('no-scroll');
-    }
-
-    function openOverlayText(overlayDescription) {
-        // Nascondi tutte le altre descrizioni
-        overlayDescriptions.forEach((desc) => {
-            desc.style.height = '0'; // Chiudi tutte le descrizioni
-        });
-
-        // Mostra solo la descrizione attiva
-        const descriptionHeight = overlayDescription.scrollHeight;
-        overlayDescription.style.height = `${descriptionHeight}px`;
-
-        const swiperHeight = swiperContainer.clientHeight;
-        const adjustedHeight = swiperHeight - descriptionHeight;
-        swiperContainer.style.height = `${Math.max(adjustedHeight, 0)}px`;
-    }
-
-    // Gestione del click sulle immagini principali
-    const imageContainers = document.querySelectorAll('.top-view-scroll-img');
-
-    imageContainers.forEach(container => {
-        container.addEventListener('click', function () {
-            // Ottieni tutte le immagini nascoste
-            const overlayType = container.getAttribute('data-overlay');
-            let images = [];
-
-            const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
-            const hiddenDescription = document.querySelector(`.overlay-description[data-overlay="${overlayType}"]`);
-
-            // Aggiungi le immagini all'array
-            hiddenImages.forEach(hiddenImage => {
-                images.push(hiddenImage.getAttribute('data-image'));
+            // Inizializza Swiper
+            swiperOverlay = new Swiper('.swiper-container-overlay', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                pagination: {
+                    el: '.swiper-pagination-overlay',
+                    clickable: true
+                },
             });
 
-            // Gestisci il click del bottone "More Info"
-            overlayButton.addEventListener('click', () => {
-                if (hiddenDescription) {
-                    openOverlayText(hiddenDescription);
+            // Mostra l'overlay e disabilita lo scroll del corpo
+            overlay.classList.remove('hidden');
+            document.body.classList.add('no-scroll');
+        }
+
+        function openOverlayText(overlayDescription) {
+            // Nascondi tutte le altre descrizioni
+            overlayDescriptions.forEach((desc) => {
+                desc.style.height = '0'; // Chiudi tutte le descrizioni
+            });
+
+            // Mostra solo la descrizione attiva
+            const descriptionHeight = overlayDescription.scrollHeight;
+            overlayDescription.style.height = `${descriptionHeight}px`;
+
+            const swiperHeight = swiperContainer.clientHeight;
+            const adjustedHeight = swiperHeight - descriptionHeight;
+            swiperContainer.style.height = `${Math.max(adjustedHeight, 0)}px`;
+        }
+
+        // Gestione del click sulle immagini principali
+        const imageContainers = document.querySelectorAll('.top-view-scroll-img');
+
+        imageContainers.forEach(container => {
+            container.addEventListener('click', function () {
+                // Ottieni tutte le immagini nascoste
+                const overlayType = container.getAttribute('data-overlay');
+                let images = [];
+
+                const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
+                const hiddenDescription = document.querySelector(`.overlay-description[data-overlay="${overlayType}"]`);
+
+                // Aggiungi le immagini all'array
+                hiddenImages.forEach(hiddenImage => {
+                    images.push(hiddenImage.getAttribute('data-image'));
+                });
+
+                // Gestisci il click del bottone "More Info"
+                overlayButton.addEventListener('click', () => {
+                    if (hiddenDescription) {
+                        openOverlayText(hiddenDescription);
+                    }
+                });
+
+                // Apri l'overlay con Swiper inizializzato
+                openOverlay(images);
+            });
+        });
+
+        // Gestione della chiusura dell'overlay con il pulsante "x"
+        const closeButton = document.querySelector('.close-overlay');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                if (swiperOverlay) {
+                    // Distruggi Swiper e svuota il contenuto del wrapper
+                    swiperOverlay.destroy(true, true);
+                    swiperWrapper.innerHTML = '';
                 }
-            });
 
-            // Apri l'overlay con Swiper inizializzato
-            openOverlay(images);
-        });
+                // Nascondi l'overlay e abilita lo scroll del corpo
+                overlay.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+
+                // Resetta tutte le descrizioni
+                overlayDescriptions.forEach((overlayDescription) => {
+                    overlayDescription.style.height = '0';
+                });
+
+                // Resetta l'altezza dello swiper container
+                swiperContainer.style.height = '100%';
+            });
+        }
     });
-
-    // Gestione della chiusura dell'overlay con il pulsante "x"
-    const closeButton = document.querySelector('.close-overlay');
-    if (closeButton) {
-        closeButton.addEventListener('click', function () {
-            if (swiperOverlay) {
-                // Distruggi Swiper e svuota il contenuto del wrapper
-                swiperOverlay.destroy(true, true);
-                swiperWrapper.innerHTML = '';
-            }
-
-            // Nascondi l'overlay e abilita lo scroll del corpo
-            overlay.classList.add('hidden');
-            document.body.classList.remove('no-scroll');
-
-            // Resetta tutte le descrizioni
-            overlayDescriptions.forEach((overlayDescription) => {
-                overlayDescription.style.height = '0';
-            });
-
-            // Resetta l'altezza dello swiper container
-            swiperContainer.style.height = '100%';
-        });
-    }
-});
 </script>
