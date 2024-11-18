@@ -1142,6 +1142,10 @@ p, span{
   top: 16px;
 }
 
+.top-16 {
+  top: 4rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1411,6 +1415,14 @@ p, span{
   height: 100vh;
 }
 
+.h-\[247px\] {
+  height: 247px;
+}
+
+.h-\[598px\] {
+  height: 598px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1593,6 +1605,14 @@ p, span{
 
 .w-full {
   width: 100%;
+}
+
+.w-\[598px\] {
+  width: 598px;
+}
+
+.w-\[247px\] {
+  width: 247px;
 }
 
 .min-w-\[124px\] {
@@ -2108,6 +2128,10 @@ p, span{
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-2 {
