@@ -1146,6 +1146,14 @@ p, span{
   top: 4rem;
 }
 
+.bottom-12 {
+  bottom: 3rem;
+}
+
+.bottom-16 {
+  bottom: 4rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1172,6 +1180,10 @@ p, span{
 
 .z-40 {
   z-index: 40;
+}
+
+.z-\[100\] {
+  z-index: 100;
 }
 
 .-mx-2 {
@@ -1965,6 +1977,10 @@ p, span{
   border-radius: 0.75rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
 .rounded-b-2xl {
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -2202,6 +2218,11 @@ p, span{
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pb-10 {

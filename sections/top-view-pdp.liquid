@@ -8,7 +8,7 @@
     </div>
 
     <!--Swiper wrapper-->
-    <div class="swiper swiper-container-overlay">
+    <div class="swiper swiper-container-overlay transition-all duration-200 ease-linear relative">
 
 
         <div class="swiper-wrapper swiper-wrapper-overlay">
@@ -21,6 +21,60 @@
             class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
             <div class="w-auto h-auto">
                 <div class="swiper-pagination-overlay"></div>
+            </div>
+        </div>
+
+        <!--container button more info-->
+        <div
+            class="w-full h-auto flex items-center justify-center absolute z-50 left-0 right-0 bottom-16 overlay-button">
+            <div class="w-auto h-auto px-4 py-2 bg-white rounded-3xl">{{ section.settings.more_info_cta | default:
+                "More
+                info" }}</div>
+        </div>
+    </div>
+
+
+
+    <!--more info button container & text-->
+    <div class="w-full h-auto flex flex-col items-start justify-center absolute z-50 left-0 right-0 bottom-0">
+
+        <!--get metafields content text-->
+        {% assign topViewGalleyUpText = product.metafields.custom.top_view_galley_up_description.value %}
+        {% assign topViewGalleyDownText = product.metafields.custom.top_view_galley_down_description.value %}
+        {% assign topViewInteriorGalleyUpText = product.metafields.custom.interiori_view_galley_up_description.value %}
+        {% assign topViewInteriorGalleyDownText = product.metafields.custom.interior_view_galley_down_description.value
+        %}
+
+
+        <!--container more info text-->
+        <div class="w-full h-0  bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-galley-up">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ topViewGalleyUpText }}</p>
+            </div>
+        </div>
+
+        <!--container more info text-->
+        <div class="w-full h-0  bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-galley-down">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ topViewGalleyDownText }}</p>
+            </div>
+        </div>
+
+        <!--container more info text-->
+        <div class="w-full h-0  bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-interior-galley-up">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ topViewInteriorGalleyUpText }}</p>
+            </div>
+        </div>
+
+        <!--container more info text-->
+        <div class="w-full h-0 bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-interior-galley-down">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ topViewInteriorGalleyDownText }}</p>
             </div>
         </div>
     </div>
@@ -42,7 +96,7 @@
     <div
         class="horizontal-magnetic-scroll-container w-[calc(100%_+_2rem)] px-4 py-14 -mx-4 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-10 lg:-mx-10">
 
-        <!-- Metafield Assignment for Galley Up and Galley Down -->
+        <!-- Metafield Assignment for Galley Up, Galley Down, Interior view up, Interior view down -->
         {% assign topViewGalleyUp = product.metafields.custom.top_view_galley_up.value %}
         {% assign topViewGalleyDown = product.metafields.custom.top_view_galley_down.value %}
         {% assign interiorViewGalleyUp = product.metafields.custom.interior_view_galley_up.value %}
@@ -187,83 +241,95 @@
     </div>
 </div>
 
-
 <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.querySelector('.overlay');
-
-    // Funzione per mostrare l'overlay e inizializzare il Swiper
-    function openOverlay(images) {
+    document.addEventListener('DOMContentLoaded', function () {
+        const overlay = document.querySelector('.overlay');
         const swiperWrapper = document.querySelector('.swiper-wrapper-overlay');
+        const swiperContainer = document.querySelector('.swiper-container-overlay');
+        const overlayButton = document.querySelector('.overlay-button');
+        const overlayDescriptions = document.querySelectorAll('.overlay-description');
 
-        // Svuotiamo il contenitore delle slide prima di aggiungere nuove immagini
-        swiperWrapper.innerHTML = '';
+        let swiperOverlay;
 
-        // Definiamo le classi da aggiungere alla slide
-        const slideClasses = ["h-dvh", "flex", "items-center", "justify-center"];
+        function openOverlay(images) {
+            swiperWrapper.innerHTML = '';
+            const slideClasses = ["h-screen", "flex", "items-center", "justify-center"];
 
-        // Aggiungiamo le immagini al swiper
-        images.forEach(imageUrl => {
-            const slide = document.createElement('div');
-            slide.classList.add('swiper-slide');
-            slideClasses.forEach(cls => {
-                slide.classList.add(cls); // Aggiunge tutte le classi necessarie
+            images.forEach(imageUrl => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                slideClasses.forEach(cls => {
+                    slide.classList.add(cls);
+                });
+
+                const slideImg = document.createElement('img');
+                slideImg.classList.add('w-[247px]', 'h-[598px]');
+                slideImg.setAttribute('src', imageUrl);
+                slide.appendChild(slideImg);
+                swiperWrapper.appendChild(slide);
             });
 
-            const slideImg = document.createElement('img');
-            slideImg.classList.add('w-[247px]', 'h-[598px]'); // Aggiungi direttamente le classi per le dimensioni
-            slideImg.setAttribute('src', imageUrl); // Imposta l'attributo src dell'immagine
-            slide.appendChild(slideImg);
-            swiperWrapper.appendChild(slide);
-        });
-
-        // Inizializzare il swiper dopo aver aggiunto le slide
-        var swiperOverlay = new Swiper('.swiper-container-overlay', {
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            pagination: {
-                el: '.swiper-pagination-overlay',
-                clickable: true
-            },
-        });
-
-        // Mostra l'overlay
-        overlay.classList.remove('hidden');
-        document.body.classList.add('no-scroll');
-    }
-
-    // Gestisci il click su una delle immagini
-    const imageContainers = document.querySelectorAll('.top-view-scroll-img');
-
-    imageContainers.forEach(container => {
-        container.addEventListener('click', function () {
-            // Recupera tutte le immagini correlate
-            const overlayType = container.getAttribute('data-overlay');
-            let images = [];
-
-            // Seleziona tutte le immagini nascoste relative all'overlay cliccato
-            const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
-
-            // Aggiungi le immagini nascoste
-            hiddenImages.forEach(hiddenImage => {
-                images.push(hiddenImage.getAttribute('data-image'));
+            swiperOverlay = new Swiper('.swiper-container-overlay', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                pagination: {
+                    el: '.swiper-pagination-overlay',
+                    clickable: true
+                },
             });
 
-            // Apri l'overlay con le immagini
-            openOverlay(images);
+            overlay.classList.remove('hidden');
+            document.body.classList.add('no-scroll');
+        }
+
+        function openOverlayText(overlayDescription) {
+            const descriptionHeight = overlayDescription.scrollHeight;
+            overlayDescription.style.height = `${descriptionHeight}px`;
+
+            const swiperHeight = swiperContainer.clientHeight;
+            const adjustedHeight = swiperHeight - descriptionHeight;
+            swiperContainer.style.height = `${Math.max(adjustedHeight, 0)}px`;
+        }
+
+        const imageContainers = document.querySelectorAll('.top-view-scroll-img');
+
+        imageContainers.forEach(container => {
+            container.addEventListener('click', function () {
+                const overlayType = container.getAttribute('data-overlay');
+                let images = [];
+
+                const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
+                const hiddenDescription = document.querySelector(`.overlay-description[data-overlay=${overlayType}]`);
+
+                hiddenImages.forEach(hiddenImage => {
+                    images.push(hiddenImage.getAttribute('data-image'));
+                });
+
+                overlayButton.addEventListener('click', () => {
+                    openOverlayText(hiddenDescription);
+                });
+
+                openOverlay(images);
+            });
         });
+
+        const closeButton = document.querySelector('.close-overlay');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                if (swiperOverlay) {
+                    swiperOverlay.destroy(true, true);
+                    swiperWrapper.innerHTML = '';
+                }
+
+                overlay.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+
+                overlayDescriptions.forEach((overlayDescription) => {
+                    overlayDescription.style.height = '0';
+                    swiperContainer.style.height = '100%';
+                });
+            });
+        }
     });
-
-    // Gestisci il click sul bottone di chiusura dell'overlay
-    const closeButton = document.querySelector('.close-overlay');
-    if (closeButton) {
-        closeButton.addEventListener('click', function () {
-            overlay.classList.add('hidden');
-            document.body.classList.remove('no-scroll'); // Rimuove il blocco dello scroll
-        });
-    }
-});
 
 </script>
