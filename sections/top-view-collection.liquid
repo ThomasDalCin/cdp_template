@@ -1,0 +1,53 @@
+<!--top view collection page-->
+<div class="w-full h-auto flex flex-col items-center justify-start gap-y-10 px-6 mt-[50px]">
+
+    <!--container collection title-->
+    <div class="w-auto h-auto">
+        <p class="text-[40px] leading-[40px] text-center">{{ section.settings.main_title | default: "Experience the" }} {{ collection.title }}</p>
+    </div>
+
+    <!--container badge product collection-->
+    <div class="w-full h-auto flex items-center justify-center relative">
+        <div class="badge-container w-[276px] min-w-[276px] h-[46px] min-h-[46px] bg-[#EFEEED] rounded-full flex flex-row items-center justify-start gap-x-2 p-1 relative">
+            {% for product in collection.products %}
+            <div class="flex-1 h-auto flex items-center justify-center p-badge" data-attribute="{{ product.title }}" data-index="{{ forloop.index0 }}">
+                <p class="body-16">{{ product.title | replace: "Pardo", ""}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--container product image-->
+    <div class="w-full h-auto">
+        {% for product in collection.products %}
+        {% if product.images.size > 0 %}
+        {% assign firstImage = product.images[0] %}
+        <div class="w-full h-[268px] min-h-[268px] relative product-image" data-index="{{ forloop.index0 }}" style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
+            <img src="{{ firstImage | img_url: 'master' }}" alt="{{ product.title }}"
+                class="w-full h-full object-contain object-center" data-attribute="{{ product.title }}">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const badges = document.querySelectorAll('.p-badge');
+        const productImages = document.querySelectorAll('.product-image');
+        
+        function showProductImage(index) {
+            productImages.forEach(img => img.style.display = 'none');
+            productImages[index].style.display = 'block';
+        }
+
+        badges.forEach((badge, index) => {
+            badge.addEventListener('click', function() {
+                showProductImage(index);
+            });
+        });
+
+        showProductImage(0);
+    });
+</script>

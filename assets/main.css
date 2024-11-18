@@ -1266,6 +1266,10 @@ p, span{
   margin-top: 70px;
 }
 
+.mt-\[50px\] {
+  margin-top: 50px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1435,6 +1439,14 @@ p, span{
   height: 598px;
 }
 
+.h-\[46px\] {
+  height: 46px;
+}
+
+.h-\[268px\] {
+  height: 268px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1509,6 +1521,14 @@ p, span{
 
 .min-h-\[620px\] {
   min-height: 620px;
+}
+
+.min-h-\[46px\] {
+  min-height: 46px;
+}
+
+.min-h-\[268px\] {
+  min-height: 268px;
 }
 
 .w-0 {
@@ -1627,6 +1647,10 @@ p, span{
   width: 247px;
 }
 
+.w-\[276px\] {
+  width: 276px;
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
@@ -1661,6 +1685,10 @@ p, span{
 
 .min-w-\[99px\] {
   min-width: 99px;
+}
+
+.min-w-\[276px\] {
+  min-width: 276px;
 }
 
 .max-w-\[343px\] {
@@ -2150,6 +2178,10 @@ p, span{
   padding: 0.75rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2318,6 +2350,10 @@ p, span{
   line-height: 1.25rem;
 }
 
+.text-\[40px\] {
+  font-size: 40px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2380,6 +2416,10 @@ p, span{
 
 .leading-\[56px\] {
   line-height: 56px;
+}
+
+.leading-\[40px\] {
+  line-height: 40px;
 }
 
 .text-\[\#7A7A7A\] {
