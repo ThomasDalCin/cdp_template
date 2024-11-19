@@ -24,15 +24,13 @@
       }
     },
     "oriz-scroll-text": {
-        "type": "oriz-scroll-text",
-        "settings": {
-
-        }
+      "type": "oriz-scroll-text",
+      "settings": {}
     },
     "articles-list": {
-        "type": "articles-list",
-        "settings": {}
-      },
+      "type": "articles-list",
+      "settings": {}
+    },
     "find-delear": {
       "type": "find-delear",
       "settings": {

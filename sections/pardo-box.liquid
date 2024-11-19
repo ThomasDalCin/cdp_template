@@ -1,0 +1,58 @@
+<!-- Pardo box -->
+<div
+    class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-14 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10">
+
+    <!-- Box Containers -->
+    <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:flex-row lg:gap-x-4">
+        <!--title-->
+        <p class="text-[40px] leading-[40px]">{{ section.settings.box_title | default: "Cantiere del Pardo" }}</p>
+        <!--description-->
+        <p class="body-16">{{ section.settings.box_text | default: "Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos."}}</p>
+        <!--container cta-->
+        <div class="w-full h-auto">
+            <!--cta-->
+            <a href="{{ section.settings.cta_link }}" class="w-auto h-auto">
+                <div class="w-full h-[48px] min-h-[48px] cta-white">
+                    <p class="body-14">{{ section.settings.cta_text |  default: "Discover more" }}</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+{% schema %}
+{
+  "name": "Pardo Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "box_title",
+      "label": "Box Title",
+      "default": "Cantiere del Pardo"
+    },
+    {
+      "type": "textarea",
+      "id": "box_text",
+      "label": "Box Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Discover more"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    }
+  ]
+}
+
+{% endschema %}

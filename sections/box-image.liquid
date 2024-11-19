@@ -1,0 +1,70 @@
+<!-- Simple Box Image Text Section -->
+<div class="w-full h-auto flex flex-col gap-y-6">
+  {% for block in section.blocks %}
+  <div class="w-full h-auto flex items-start justify-center flex-col">
+    <!-- Image -->
+    <img 
+      src="{{ block.settings.box_image | img_url: '720x' }}" 
+      alt="" 
+      class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %}">
+    <!-- Content -->
+    <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4">
+      <p class="{% if block.settings.large_heading %}text-[40px] leading-[46px]{% else %}text-[24px] leading-[30px]{% endif %}">
+        {{ block.settings.box_heading }}
+      </p>
+      <p class="body-14">{{ block.settings.box_text }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Simple Box Image Text",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "box_image",
+          "label": "Box Image"
+        },
+        {
+          "type": "text",
+          "id": "box_heading",
+          "label": "Heading Text",
+          "default": "Default heading"
+        },
+        {
+          "type": "textarea",
+          "id": "box_text",
+          "label": "Body Text",
+          "default": "Default body text"
+        },
+        {
+          "type": "checkbox",
+          "id": "large_image",
+          "label": "Use larger image height (340px)",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "large_heading",
+          "label": "Use larger heading font size (40px)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple Box Image Text",
+      "category": "Custom Sections"
+    }
+  ]
+}
+
+{% endschema %}

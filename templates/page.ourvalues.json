@@ -6,85 +6,33 @@
     },
     "our-values": {
       "type": "ourvalues-top",
-      "blocks": {
-        "scroll_white_block_4jhykh": {
-          "type": "scroll-white-block",
-          "settings": {
-            "scroll_white_block_heading": "A different Story",
-            "scroll_white_block_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-          }
-        },
-        "scroll_image_4FrnVm": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/26b03faafb1d32b0806299c3643189c9.jpg"
-          }
-        },
-        "scroll_image_xktceD": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/1704d18f1693c194bf6b6e52ff2d2cf4.jpg"
-          }
-        },
-        "scroll_image_m8PkyN": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/5d3930c93c503de499d15320a8f31b86.png"
-          }
-        }
-      },
-      "block_order": [
-        "scroll_white_block_4jhykh",
-        "scroll_image_4FrnVm",
-        "scroll_image_xktceD",
-        "scroll_image_m8PkyN"
-      ],
       "settings": {
-        "section_heading": "A different Story",
-        "section_content": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+
       }
     },
     "eco-module": {
       "type": "eco-module",
-      "blocks": {
-        "scroll_image_n7XxC3": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
-            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
-          }
-        },
-        "scroll_image_qyVFT3": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
-            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
-          }
-        },
-        "scroll_image_CyKbRF": {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
-            "text_card_image": "Lorem ipsum dolor sit amet consectutor melli adipising nantes avirol mer"
-          }
-        }
-      },
-      "block_order": [
-        "scroll_image_n7XxC3",
-        "scroll_image_qyVFT3",
-        "scroll_image_CyKbRF"
-      ],
       "settings": {}
     },
     "infinity-banner": {
       "type": "infinity-banner",
+      "settings": {}
+    },
+    "pardo-box": {
+      "type": "pardo-box",
+      "settings": {}
+    },
+    "box-image" : {
+      "type": "box-image",
       "settings": {}
     }
   },
   "order": [
     "page-title",
     "our-values",
+    "infinity-banner",
+    "pardo-box",
     "eco-module",
-    "infinity-banner"
+    "box-image"
   ]
 }
