@@ -1,237 +1,60 @@
 <!-- Eco Module Section -->
-<div class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-12 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10">
+<div class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 pt-8 pb-14 lg:items-center lg:mb-0 lg:px-10">
 
-  <!-- Box Containers with Eco and Innovation Sections -->
+  <!-- Box Containers -->
   <div class="box-containers w-full h-auto flex flex-col gap-y-4 items-start justify-center lg:flex-row lg:gap-x-4">
 
-    <!--Etic code container -->
-    <div class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col items-start justify-center gap-y-6 rounded-lg p-6 bg-white lg:px-6 lg:pt-6 lg:pb-6">
+    <!-- Etic Code Container -->
+    <div class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col items-start justify-center gap-y-6 rounded-lg p-6 bg-[#EFEEED] lg:px-6 lg:pt-6 lg:pb-6">
       <p class="body-14">{{ section.settings.section_heading_etic }}</p>
-      <p class="body-16 italic">{{ section.settings.section_heading_etic }}</p>
-      <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content_etic }}</p>
-      <div class="w-full h-auto flex  items-center justify-end">
-        <div class="cta-choco lg:flex-1 lg:px-4 lg:py-2">
+      <p class="body-16 italic">{{ section.settings.section_subheading_etic }}</p>
+      <p class="body-16">{{ section.settings.section_content_etic }}</p>
+      <div class="w-full h-auto flex items-center justify-end">
+        <a href="{{ section.settings.cta_link_etic }}" class="cta-choco lg:flex-1 lg:px-4 lg:py-2">
           <p class="body-14-medium">{{ section.settings.cta_text_etic }}</p>
-        </div>
+        </a>
       </div>
     </div>
 
-    <!-- Innovation Container -->
-    <div class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col items-start justify-center gap-y-6 rounded-lg p-6 bg-white lg:px-6 lg:pt-6 lg:pb-6">
-      <p class="body-14">{{ section.settings.section_heading_innovation }}</p>
-      <p class="body-16 italic">{{ section.settings.section_heading_secondary_innovation }}</p>
-      <p class="body-12 text-[var(--hover-accent-color)]">{{ section.settings.section_content_innovation }}</p>
-    </div>
-
   </div>
+
 </div>
 
-<!-- Innovation Section -->
-<div class="innovation-container w-full h-auto flex flex-col gap-y-4 px-6 py-14 items-start justify-center overflow-x-hidden lg:items-center lg:gap-y-6 relative lg:px-10">
-
-  <!-- Arrow Box -->
-  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6">
-    <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-left-icon' %}
-    </button>
-    <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-right-icon' %}
-    </button>
-  </div>
-  <!-- Scrolling Images -->
-  <div class="innovation-container-scrolling w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
-    {% for block in section.blocks %}
-      {% if block.type == "scroll-image" %}
-        {% assign blockItems = forloop.index | modulo: 2 %}
-        {% if blockItems == 0 %}
-          <!-- Card for even index -->
-          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start lg:w-[400px] rounded-2xl lg:min-w-[400px] relative bg-center bg-cover" style="background-image: url({{ block.settings.scroll_image | img_url: 'master' }})"
-          >
-            <div class="absolute inset-0 w-full h-full z-0 rounded-2xl">
-            </div>
-            <div class="card-image-content absolute inset-0 w-full h-full p-6 flex flex-col gap-y-1 items-start justify-start z-10 rounded-2xl">
-              <p class="text-[24px] leading-[30px] text-white">{{ block.settings.text_card_image | truncate: 100 }}</p>
-            </div>
-          </div>
-        {% else %}
-          <!-- Card for odd index -->
-          <div class="card-image w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-center bg-cover" style="background-image: url({{ block.settings.scroll_image | img_url: 'master' }})"
-          >
-            <div class="absolute inset-0 w-full h-full z-0 rounded-2xl">
-            </div>
-            <div class="card-image-content absolute inset-0 w-full h-full p-6 flex flex-col gap-y-1 items-start justify-end z-10 rounded-2xl">
-              <p class="text-[24px] leading-[30px] text-white">{{ block.settings.text_card_image | truncate: 100 }}</p>
-            </div>
-          </div>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </div>
-  
-  </div>
-  
-</div>
-
-<style>
-  .carousel-arrow.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .carousel-arrow:not(.disabled) {
-    opacity: 1;
-    pointer-events: auto;
-  }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const prevArrow = document.getElementById('prevArrow');
-        const nextArrow = document.getElementById('nextArrow');
-        const scrollContainer = document.querySelector('.innovation-container-scrolling');
-        const images = Array.from(scrollContainer.querySelectorAll('img'));
-        if (images.length > 1) {
-            const firstImage = images[0];
-            const secondImage = images[1];
-            const firstImageLeft = firstImage.offsetLeft;
-            const secondImageLeft = secondImage.offsetLeft;
-            const scrollAmount = secondImageLeft - firstImageLeft;
-            function updateArrows() {
-                const currentScrollLeft = scrollContainer.scrollLeft;
-                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-                nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-            }
-            function scrollContainerBy(amount) {
-                const currentScrollLeft = scrollContainer.scrollLeft;
-                const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-                let newScrollLeft = currentScrollLeft + amount;
-
-                if (newScrollLeft < 0) {
-                    newScrollLeft = 0;
-                } else if (newScrollLeft > maxScrollLeft) {
-                    newScrollLeft = maxScrollLeft;
-                }
-
-                scrollContainer.scrollTo({
-                    left: newScrollLeft,
-                    behavior: 'smooth'
-                });
-
-                setTimeout(updateArrows, 300);
-            }
-            if (prevArrow && nextArrow && scrollContainer) {
-                prevArrow.addEventListener('click', function () {
-                    scrollContainerBy(-scrollAmount);
-                });
-
-                nextArrow.addEventListener('click', function () {
-                    scrollContainerBy(scrollAmount);
-                });
-
-                updateArrows();
-                scrollContainer.addEventListener('scroll', updateArrows);
-            }
-        }
-    });
-</script>
 
 {% schema %}
   {
-    "name": "eco-innovation-module",
+    "name": "Eco Module Section",
     "settings": [
       {
         "type": "text",
-        "id": "section_heading_innovation",
-        "default": "Eco Section",
-        "label": "Section Heading"
-      },
-      {
-        "type": "text",
-        "id": "section_heading_secondary_innovation",
-        "default": "Controllo qualità",
-        "label": "Section Heading Secondary"
-      },
-      {
-        "type": "textarea",
-        "id": "section_content_innovation",
-        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "label": "Section Text Content"
-      },
-      {
-        "type": "text",
         "id": "section_heading_etic",
-        "default": "Eco Section",
-        "label": "Section Heading"
+        "label": "Etic Section Heading",
+        "default": "Codice etico"
       },
       {
         "type": "text",
-        "id": "section_heading_secondary_etic",
-        "default": "Controllo qualità",
-        "label": "Section Heading Secondary"
-      },
-      {
-        "type": "text",
-        "id": "cta_text_etic",
-        "default": "Scarica codice etico",
-        "label": "Cta text"
+        "id": "section_subheading_etic",
+        "label": "Etic Section Subheading",
+        "default": "Progettare il lusso con un approccio ecologico"
       },
       {
         "type": "textarea",
         "id": "section_content_etic",
-        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-        "label": "Section Text Content"
-      }
-    ],
-    "blocks": [
+        "label": "Etic Section Content",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+      },
       {
-        "type": "scroll-image",
-        "name": "Scroll Image Block",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "scroll_image",
-            "label": "Scroll Image"
-          },
-          {
-            "type": "text",
-            "id": "text_card_image",
-            "label": "Text Card Image"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "eco-innovation-module",
-        "category": "custom",
-        "settings": {
-          "section_heading_innovation": "Innovazione e tecnologia",
-          "section_heading_secondary_innovation": "Controllo qualità",
-          "section_content_innovation": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-          "section_heading_etic": "Codice etico",
-          "section_heading_secondary_etic": "Progettare il lusso con un approccio ecologico",
-          "section_content_etic": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-          "cta_text_etic": "Scarica codice etico"
-        },
-        "blocks": [
-          {
-            "type": "scroll-image",
-            "settings": {
-              "scroll_image": "shopify://shop_images/image_1.png",
-              "text_card_image": "Text for first image"
-            }
-          },
-          {
-            "type": "scroll-image",
-            "settings": {
-              "scroll_image": "shopify://shop_images/image_2.png",
-              "text_card_image": "Text for second image"
-            }
-          }
-        ]
+        "type": "text",
+        "id": "cta_text_etic",
+        "label": "CTA Text",
+        "default": "Scarica il codice etico"
+      }, {
+        "type": "url",
+        "id": "cta_link_etic",
+        "label": "CTA Link"
+
       }
     ]
   }
+
 {% endschema %}
