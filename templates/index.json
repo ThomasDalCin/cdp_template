@@ -64,10 +64,8 @@
       }
     },
     "oriz-scroll-text": {
-        "type": "oriz-scroll-text",
-        "settings": {
-
-        }
+      "type": "oriz-scroll-text",
+      "settings": {}
     },
     "collab-section": {
       "type": "collab",
