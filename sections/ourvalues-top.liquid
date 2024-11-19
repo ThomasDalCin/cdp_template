@@ -1,172 +1,58 @@
-<!--our values top page section-->
-<div class="our-values-top w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 relative overflow-x-hidden lg:px-10 lg:mb-6">
-  <h2 class="header-2 lg:hidden">{{ section.settings.section_heading }}</h2>
-  <p class="body-12 text-[var(--hover-accent-color)] lg:hidden">{{ section.settings.section_content }}</p>
-  <!-- arrow box -->
-  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6">
-    <button id="prevArrowTop" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-left-icon' %}
-    </button>
-    <button id="nextArrowTop" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-right-icon' %}
-    </button>
+<!-- our values top page section -->
+<div class="w-full h-auto flex flex-col gap-y-12 items-start justify-center px-6 pb-10">
+
+  <!-- container hedings -->
+  <div class="w-full h-auto flex flex-col items-center justify-center">
+    <h2 class="header-2 text-center">{{ section.settings.section_heading | default: "More than 50 years of experience" }}</h2>
   </div>
-  <div class="our-values-top-scrolling w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
-    {% for block in section.blocks %}
-      <div class="container-scroll-image w-auto h-auto">
-        {% if block.type == "scroll-image" %}
-          <img
-            src="{{ block.settings.scroll_image | img_url: 'master' }}"
-            alt="{{ block.settings.scroll_image.alt }}"
-            class="w-[343px] min-w-[343px] h-[218px] object-cover object-center rounded-2xl">
-        {% elsif block.type == "scroll-white-block" %}
-          <div class="scroll-white-block hidden lg:flex lg:w-[313px] lg:min-w-[313px] lg:h-[210px] lg:rounded-md lg:shadow-custom lg:flex-col lg:gap-y-4 lg:items-start lg:justify-center lg:bg-white lg:p-4">
-            <h2 class="header-2 lg:header-3">{{ block.settings.scroll_white_block_heading }}</h2>
-            <p class="body-12 text-[var(--hover-accent-color)]">{{ block.settings.scroll_white_block_content }}</p>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>  
+
+
+  <!-- container image -->
+  <div class="w-full h-[480px] min-h-[480px] rounded-2xl relative">
+      <!-- image -->
+    <img
+      src="{{ section.settings.section_image | img_url: 'master' }}"
+      alt="{{ section.settings.section_image.alt }}"
+      class="w-full h-full object-cover object-center rounded-2xl">
+    <!-- paragraph attached to the image -->
+    <div class="w-auto h-auto absolute left-6 top-6 right-6 z-10">
+      <p class="text-[32px] leading-[38px] text-white">{{ section.setting.section_text | default: "Italian craftmanship at its finest." }}</p>
+    </div>
+    <!-- overlay bg -->
+    <div class="w-full h-full absolute inset-0 z-0 rounded-2xl" style=" background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.20) 0%,
+      rgba(0, 0, 0, 0.20) 100%
+    )">
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const prevArrowTop = document.getElementById('prevArrowTop');
-    const nextArrowTop = document.getElementById('nextArrowTop');
-    const scrollContainerTop = document.querySelector('.our-values-top-scrolling'); // Corretto il selettore qui
-    const images = Array.from(scrollContainerTop.querySelectorAll('img'));
-    //handle scroll
-    if (images.length > 1) {
-      const firstImage = images[0];
-      const secondImage = images[1];
-      const firstImageLeft = firstImage.offsetLeft;
-      const secondImageLeft = secondImage.offsetLeft;
-      const scrollAmount = secondImageLeft - firstImageLeft;
-      //handle arrows
-      function updateArrows() {
-        const currentScrollLeft = scrollContainerTop.scrollLeft;
-        const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
+  </div>
 
-        prevArrowTop.classList.toggle('disabled', currentScrollLeft === 0);
-        nextArrowTop.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-      }
-      //handle scroll amount
-      function scrollContainerBy(amount) {
-        const currentScrollLeft = scrollContainerTop.scrollLeft;
-        const maxScrollLeft = scrollContainerTop.scrollWidth - scrollContainerTop.clientWidth;
-        let newScrollLeft = currentScrollLeft + amount;
+</div>
 
-        if (newScrollLeft < 0) {
-          newScrollLeft = 0;
-        } else if (newScrollLeft > maxScrollLeft) {
-          newScrollLeft = maxScrollLeft;
-        }
-
-        scrollContainerTop.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth'
-        });
-
-        setTimeout(updateArrows, 300);
-      }
-      //handle click on each arrows
-      if (prevArrowTop && nextArrowTop && scrollContainerTop) {
-        prevArrowTop.addEventListener('click', function() {
-          scrollContainerBy(-scrollAmount);
-        });
-
-        nextArrowTop.addEventListener('click', function() {
-          scrollContainerBy(scrollAmount);
-        });
-
-        updateArrows();
-        scrollContainerTop.addEventListener('scroll', updateArrows);
-      }
-    }
-  });
-</script>
 
 {% comment %}
   Section Schema Settings here;
 {% endcomment %}
 {% schema %}
-{
-  "name": "our-values",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_heading",
-      "default": "A different Story",
-      "label": "Section Heading"
-    },
-    {
-      "type": "textarea",
-      "id": "section_content",
-      "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-      "label": "Section Content"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "scroll-image-block",
-      "type": "scroll-image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "scroll_image",
-          "label": "Scroll Image"
-        }
-      ]
-    },
-    {
-      "name": "scroll-white-block",
-      "type": "scroll-white-block",
-      "settings": [
-        {
-          "type": "text",
-          "id": "scroll_white_block_heading",
-          "default": "A different Story",
-          "label": "Scroll block Heading"
-        },
-        {
-          "type": "textarea",
-          "id": "scroll_white_block_content",
-          "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-          "label": "Scroll block Content"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Our Values Top",
-      "category": "Custom",
-      "settings": {
-        "section_heading": "A Different Story",
-        "section_content": "We believe in craftsmanship, sustainability, and the finest materials for our products."
-      },
-      "blocks": [
-        {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
-          }
-        },
-        {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
-          }
-        },
-        {
-          "type": "scroll-image",
-          "settings": {
-            "scroll_image": "shopify:\/\/shop_images\/image_18.png"
-          }
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "our-values",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "default": "More than 50 years of experience",
+        "label": "Section Heading"
+      }, {
+        "type": "textarea",
+        "id": "section_text",
+        "default": "Italian craftmanship at its finest.",
+        "label": "Section Text"
+      }, {
+        "type": "image_picker",
+        "id": "section_image",
+        "label": "Section Image"
+      }
+    ]
+  }
 {% endschema %}
