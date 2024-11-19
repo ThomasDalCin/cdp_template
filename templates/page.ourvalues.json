@@ -6,31 +6,72 @@
     },
     "our-values": {
       "type": "ourvalues-top",
-      "settings": {}
-    },
-    "eco-module": {
-      "type": "eco-module",
-      "settings": {}
+      "settings": {
+        "section_heading": "More than 50 years of experience",
+        "section_text": "Italian craftmanship at its finest.",
+        "section_image": "shopify://shop_images/d39e969a02d108683d79ec6bf4fe289e.jpg"
+      }
     },
     "infinity-banner": {
       "type": "infinity-banner",
       "settings": {}
     },
-    "pardo-box": {
-      "type": "pardo-box",
-      "settings": {}
-    },
     "box-image": {
       "type": "box-image",
+      "blocks": {
+        "box_pfwyPB": {
+          "type": "box",
+          "settings": {
+            "box_image": "shopify://shop_images/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
+            "box_heading": "Default heading",
+            "box_text": "Default body text",
+            "large_image": true,
+            "large_heading": true
+          }
+        },
+        "box_hQd44N": {
+          "type": "box",
+          "settings": {
+            "box_image": "shopify://shop_images/5bf19131e64b745b7b93240edf87ffb8.jpg",
+            "box_heading": "Default heading",
+            "box_text": "Default body text",
+            "large_image": false,
+            "large_heading": false
+          }
+        }
+      },
+      "block_order": [
+        "box_pfwyPB",
+        "box_hQd44N"
+      ],
       "settings": {}
+    },
+    "pardo-box": {
+      "type": "pardo-box",
+      "settings": {
+        "box_title": "Cantiere del Pardo",
+        "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "cta_text": "Discover more",
+        "cta_link": ""
+      }
+    },
+    "eco-module": {
+      "type": "eco-module",
+      "settings": {
+        "section_heading_etic": "Codice etico",
+        "section_subheading_etic": "Progettare il lusso con un approccio ecologico",
+        "section_content_etic": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "cta_text_etic": "Scarica il codice etico",
+        "cta_link_etic": ""
+      }
     }
   },
   "order": [
     "page-title",
     "our-values",
     "infinity-banner",
+    "box-image",
     "pardo-box",
-    "eco-module",
-    "box-image"
+    "eco-module"
   ]
 }
