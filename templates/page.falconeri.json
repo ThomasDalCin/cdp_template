@@ -1,17 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-      "page-title": {
-        "type": "page-title",
-        "settings": {}
-      },
-      "box-image": {
-        "type": "box-image",
-        "settings": {}
-      }
+  "sections": {
+    "page-title": {
+      "type": "page-title",
+      "settings": {}
     },
-    "order": [
-      "page-title",
-      "box-image"
-    ]
-  }
-  
+    "box-image": {
+      "type": "box-image",
+      "blocks": {
+        "box_CDtHXj": {
+          "type": "box",
+          "settings": {
+            "box_image": "shopify://shop_images/b3ceb364d46f0ca266c95b619d2dec6f.jpg",
+            "box_heading": "Default heading",
+            "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "large_image": false,
+            "large_heading": false,
+            "show_large_heading": false,
+            "show_cta": false,
+            "cta_text": "Click here"
+          }
+        },
+        "box_pntJ47": {
+          "type": "box",
+          "settings": {
+            "box_heading": "Default heading",
+            "box_text": "Default body text",
+            "large_image": false,
+            "large_heading": false,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
+          }
+        },
+        "box_zaq7WM": {
+          "type": "box",
+          "settings": {
+            "box_heading": "Default heading",
+            "box_text": "Default body text",
+            "large_image": false,
+            "large_heading": false,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
+          }
+        },
+        "box_ppBkQ3": {
+          "type": "box",
+          "settings": {
+            "box_heading": "Default heading",
+            "box_text": "Default body text",
+            "large_image": false,
+            "large_heading": false,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
+          }
+        }
+      },
+      "block_order": [
+        "box_CDtHXj",
+        "box_pntJ47",
+        "box_zaq7WM",
+        "box_ppBkQ3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "page-title",
+    "box-image"
+  ]
+}
