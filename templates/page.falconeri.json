@@ -1,0 +1,17 @@
+{
+    "sections": {
+      "page-title": {
+        "type": "page-title",
+        "settings": {}
+      },
+      "box-image": {
+        "type": "box-image",
+        "settings": {}
+      }
+    },
+    "order": [
+      "page-title",
+      "box-image"
+    ]
+  }
+  

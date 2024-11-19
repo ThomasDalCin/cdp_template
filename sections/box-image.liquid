@@ -7,16 +7,31 @@
       src="{{ block.settings.box_image | img_url: '720x' }}" 
       alt="" 
       class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %}">
+    
     <!-- Content -->
     <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4">
+      {% if block.settings.show_large_heading %}
       <p class="{% if block.settings.large_heading %}text-[40px] leading-[46px]{% else %}text-[24px] leading-[30px]{% endif %}">
         {{ block.settings.box_heading }}
       </p>
+      {% endif %}
       <p class="body-14">{{ block.settings.box_text }}</p>
     </div>
+    
+    <!-- Box CTA -->
+    {% if block.settings.show_cta %}
+    <div class="w-full h-auto px-6">
+      <a href="" class="w-full h-auto">
+        <div class="w-full h-[48px] min-h-[48px] cta-choco">
+          <p class="body-14">{{ block.settings.cta_text }}</p>
+        </div>
+      </a>
+    </div>
+    {% endif %}
   </div>
   {% endfor %}
 </div>
+
 
 {% schema %}
 {
@@ -55,6 +70,24 @@
           "id": "large_heading",
           "label": "Use larger heading font size (40px)",
           "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_large_heading",
+          "label": "Show Heading",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_cta",
+          "label": "Show CTA",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Click here"
         }
       ]
     }
@@ -66,5 +99,6 @@
     }
   ]
 }
+
 
 {% endschema %}
