@@ -6,9 +6,7 @@
     },
     "our-values": {
       "type": "ourvalues-top",
-      "settings": {
-
-      }
+      "settings": {}
     },
     "eco-module": {
       "type": "eco-module",
@@ -22,7 +20,7 @@
       "type": "pardo-box",
       "settings": {}
     },
-    "box-image" : {
+    "box-image": {
       "type": "box-image",
       "settings": {}
     }
