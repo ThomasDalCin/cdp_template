@@ -1,5 +1,5 @@
 <!-- Article list home page -->
-<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 mb-10">
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6">
 
     <!-- Assign liquid variables -->
     {% assign allBlogs = "Partnership, " | split: "," %}
@@ -15,18 +15,24 @@
         </div>
 
         <!--article wrap content-->
-        <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-6">
-            <p class="text-[24px] leading-[24px]">{{ article.title }}</p>
-            <p class="text-[24px] leading-[30px] text-white">{{ article.content | truncate: 100 }}</p>
-        </div>
+        <div class="card-article-content w-full h-auto flex flex-col gap-y-6 items-start justify-start p-6">
 
-        <!--article card button-->
-        <div class="w-full h-auto flex flex-row items-start justify-end">
-            <!-- container button -->
-            <div class="inline-flex cta-choco">
-                <p class="body-14">{{ section.settings.cta_text | default: "Discover more" }}</p>
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+                <p class="text-[24px] leading-[24px]">{{ article.title }}</p>
+                <p class="body-14">{{ article.content | truncate: 100 }}</p>
+            </div>
+
+            <!--article card button-->
+            <div class="w-full h-auto flex flex-row items-start justify-end">
+                <!-- container button -->
+                <a href="{{ article.url }}">
+                    <div class="inline-flex cta-choco w-[129px] h-[32px]">
+                        <p class="body-14">{{ section.settings.cta_text | default: "Discover more" }}</p>
+                    </div>
+                </a>
             </div>
         </div>
+
 
     </div>
 
