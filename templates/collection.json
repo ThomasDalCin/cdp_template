@@ -15,7 +15,13 @@
         "collection-oriz-scroll": {
             "type": "collection-oriz-scroll",
             "settings": {
-                
+
+            }
+        },
+        "find-delear": {
+            "type": "find-delear",
+            "settings": {
+
             }
         }
 
@@ -24,6 +30,7 @@
         "page-title",
         "top-view-collection",
         "emotional-text",
-        "collection-oriz-scroll"
+        "collection-oriz-scroll",
+        "find-delear"
     ]
 }
