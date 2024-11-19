@@ -1,12 +1,11 @@
-
 {
   "sections": {
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_image_1": "shopify://shop_images/5b3bf7d32d9dae0b3aa3f895e1bb9e42.jpg",
-        "swiper_image_2": "shopify://shop_images/c0df3a782758c01a8ce3daca8d2d3b50.jpg",
-        "swiper_image_3": "shopify://shop_images/Pardo-Yachts-Ownership-SHIPPING.jpg",
+        "swiper_image_1": "shopify:\/\/shop_images\/5b3bf7d32d9dae0b3aa3f895e1bb9e42.jpg",
+        "swiper_image_2": "shopify:\/\/shop_images\/c0df3a782758c01a8ce3daca8d2d3b50.jpg",
+        "swiper_image_3": "shopify:\/\/shop_images\/Pardo-Yachts-Ownership-SHIPPING.jpg",
         "enable_cta_1": true,
         "cta_text_1": "Discover more",
         "cta_url_1": "",
@@ -31,8 +30,8 @@
     "home-video": {
       "type": "home-video",
       "settings": {
-        "video_cover_image": "shopify://shop_images/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
-        "source": "shopify://files/videos/2711212-uhd_3840_2160_24fps.mp4",
+        "video_cover_image": "shopify:\/\/shop_images\/7da910d2e3ecbb779e4b529a1a8bb4d3.png",
+        "source": "shopify:\/\/files\/videos\/2711212-uhd_3840_2160_24fps.mp4",
         "draggable_text": "Trascina per sbloccare un sogno"
       }
     },
@@ -41,10 +40,10 @@
       "settings": {
         "secondary_heading": "Shaped by the Sea",
         "primary_heading": "Lorem Ipsum",
-        "explore_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "explore_image_three": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
+        "explore_image_one": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_two": "shopify:\/\/shop_images\/49e01ee7d08aa4b7f0edfda3555714fe.png",
+        "explore_image_three": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_four": "shopify:\/\/shop_images\/54324c5a1294abd1bf9a076fc2339c16.png"
       }
     },
     "articles-list": {
@@ -55,6 +54,21 @@
       "type": "infinity-banner",
       "settings": {}
     },
+    "collection-oriz-scroll": {
+      "type": "collection-oriz-scroll",
+      "settings": {
+        "explore_image_one": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "explore_image_two": "shopify:\/\/shop_images\/49e01ee7d08aa4b7f0edfda3555714fe.png",
+        "explore_image_three": "shopify:\/\/shop_images\/25194cb11459cc4c349d1fa39e37a83c.png",
+        "explore_image_four": "shopify:\/\/shop_images\/c0df3a782758c01a8ce3daca8d2d3b50.jpg"
+      }
+    },
+    "oriz-scroll-text": {
+        "type": "oriz-scroll-text",
+        "settings": {
+
+        }
+    },
     "collab-section": {
       "type": "collab",
       "blocks": {
@@ -64,7 +78,7 @@
             "collab_custom_collab_heading": "",
             "collab_custom_collab_cta_text": "",
             "collab_custom_collab_cta_text_url": "",
-            "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png"
+            "collab_custom_collab_image": "shopify:\/\/shop_images\/PardoYatch-Home-Collaborations-FalconerixPardo.png"
           }
         }
       },
@@ -75,7 +89,7 @@
         "collab_custom_collab_heading": "",
         "collab_custom_collab_cta_text": "",
         "collab_custom_collab_cta_text_url": "",
-        "collab_custom_collab_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg"
+        "collab_custom_collab_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg"
       }
     }
   },
@@ -87,6 +101,8 @@
     "explore-section",
     "articles-list",
     "infinity-banner",
+    "collection-oriz-scroll",
+    "oriz-scroll-text",
     "collab-section"
   ]
 }

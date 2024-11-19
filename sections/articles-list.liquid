@@ -1,5 +1,5 @@
 <!-- Article list home page -->
-<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative">
+<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center mb-10 relative py-14">
 
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
@@ -11,7 +11,7 @@
     </button>
   </div>
 
-  <div class="articles-list-container w-full h-auto flex flex-row gap-x-3 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-10 lg:pb-4">
+  <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-10 lg:pb-4">
     <!-- Assign liquid variables -->
     {% assign allBlogs = "News, " | split: "," %}
     {% assign article_count = 0 %}
@@ -26,7 +26,7 @@
           {% if articlesDivided == 0 %}
             
             <!-- Article for even index -->
-            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
 
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>
@@ -44,7 +44,7 @@
 
           {% else %}
             <!-- Article for odd index -->
-            <div class="card-article w-[380px] min-w-[380px] h-[386px] min-h-[480px]  p-6  flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
               
             <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>
