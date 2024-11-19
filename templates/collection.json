@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
     "page-title": {
@@ -26,40 +18,17 @@
     "collection-oriz-scroll": {
       "type": "collection-oriz-scroll",
       "settings": {
-<<<<<<< HEAD
-        "explore_image_one": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_two": "shopify:\/\/shop_images\/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "explore_image_three": "shopify:\/\/shop_images\/25194cb11459cc4c349d1fa39e37a83c.png",
-        "explore_image_four": "shopify:\/\/shop_images\/c0df3a782758c01a8ce3daca8d2d3b50.jpg"
-      }
-    },
-    "oriz-scroll-text": {
-        "type": "oriz-scroll-text",
-        "settings": {
-
-        }
-    },
-    "articles-list": {
-        "type": "articles-list",
-        "settings": {}
-      },
-=======
         "explore_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
         "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
         "explore_image_three": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png",
         "explore_image_four": "shopify://shop_images/c0df3a782758c01a8ce3daca8d2d3b50.jpg"
       }
     },
->>>>>>> 1e57b79203bba7802af48e263a878672f0872b87
     "find-delear": {
       "type": "find-delear",
       "settings": {
         "section_title": "Time to find a dealer",
-<<<<<<< HEAD
         "section_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
-=======
-        "section_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg",
->>>>>>> 1e57b79203bba7802af48e263a878672f0872b87
         "section_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
         "cta_text": "Find a dealer"
       }
@@ -70,11 +39,8 @@
     "top-view-collection",
     "emotional-text",
     "collection-oriz-scroll",
-<<<<<<< HEAD
     "oriz-scroll-text",
     "articles-list",
-=======
->>>>>>> 1e57b79203bba7802af48e263a878672f0872b87
     "find-delear"
   ]
 }
