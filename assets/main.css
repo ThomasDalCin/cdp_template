@@ -1612,6 +1612,10 @@ p, span{
   min-height: 340px;
 }
 
+.min-h-\[220px\] {
+  min-height: 220px;
+}
+
 .w-0 {
   width: 0px;
 }

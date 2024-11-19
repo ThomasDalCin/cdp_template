@@ -1,0 +1,17 @@
+{
+    "sections": {
+      "page-title": {
+        "type": "page-title",
+        "settings": {}
+      },
+      "article-list": {
+        "type": "article-list-partnership",
+        "settings": {}
+      }
+    },
+    "order": [
+      "page-title",
+      "article-list"
+    ]
+  }
+  
