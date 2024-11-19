@@ -7,10 +7,23 @@
         "top-view-collection": {
             "type": "top-view-collection",
             "settings": {}
+        },
+        "emotional-text": {
+            "type": "emotional-text",
+            "settings": {}
+        },
+        "collection-oriz-scroll": {
+            "type": "collection-oriz-scroll",
+            "settings": {
+                
+            }
         }
+
     },
     "order": [
         "page-title",
-        "top-view-collection"
+        "top-view-collection",
+        "emotional-text",
+        "collection-oriz-scroll"
     ]
 }
