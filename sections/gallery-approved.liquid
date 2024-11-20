@@ -1,53 +1,27 @@
-<!-- Scrolling container -->
-<div
-    class="product-title-container w-full h-auto flex items-center justify-center p-4 mt-[70px] mb-10 relative lg:mt-[90px]">
-    <div class="container-back-arrow absolute left-[16px] top-[16px]">
-        <a href="javascript:history.back()">
-            {% render 'back-arrow-icon' %}
-        </a>
-    </div>
-    <h1 class="body-14-medium">{{ product.title }}</h1>
-</div>
-
-<!-- Tab section -->
-<div
-    class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-[-32px] lg:right-0 z-20">
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
-        id="external-tab">
-        <p class="body-14">{{ section.settings.tab_external }}</p>
-        <div
-            class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
-        </div>
-    </div>
-    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
-        id="internal-tab">
-        <p class="body-14">{{ section.settings.tab_internal }}</p>
-        <div
-            class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
-        </div>
-    </div>
-</div>
 
 <!-- assign liquid variables metaobjects -->
 {% assign external_gallery = product.metafields.custom.external_images_approved_boat.value %}
-{% assign external_gallery_split = product.metafields.custom.external_images_approved_boat.value | json |
-replace: '{', '' | replace: '}', '' | split: "," %}
-{% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
-{% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace: '{', '' |
-replace: '}', '' | split: "," %}
+{% assign internal_gallery = product.metafields.custom.internal_images_approved_boat.value %}
 
 <!-- Gallery Section -->
-<div class="w-full h-dvh relative">
+<div class="w-full h-[640px] min-h-[640px] relative">
     <div class="w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
+        
         <!-- External Swiper -->
         <div id="external-content" class="swiper mySwiper w-full h-full relative">
             <div class="swiper-wrapper">
-                {% for image_url in external_gallery_split %}
-                <div class="swiper-slide relative">
-                    <img src="{{ image_url |  img_url: 'master' }}" alt="External Slide {{ forloop.index }}"
-                        class="swiper-img w-full h-full object-cover block">
-                </div>
-                {% endfor %}
+                {% if external_gallery %}
+                    {% assign external_gallery_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+                    {% for image_key in external_gallery_images %}
+                        {% assign image_item = external_gallery[image_key] %}
+                        {% if image_item %}
+                                <div class="swiper-slide relative">
+                                    <img src="{{ image_item | img_url: 'master' }}" alt="External Slide {{ forloop.index }}"
+                                         class="swiper-img w-full h-full object-cover block">
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -55,17 +29,39 @@ replace: '}', '' | split: "," %}
         <!-- Internal Swiper -->
         <div id="internal-content" class="swiper mySwiper w-full h-full relative hidden">
             <div class="swiper-wrapper">
-                {% for image_url in internal_gallery_split %}
-                <div class="swiper-slide relative">
-                    <img src="{{ image_url |  img_url: 'master' }}" alt="Internal Slide {{ forloop.index }}"
-                        class="swiper-img w-full h-full object-cover block">
-                </div>
-                {% endfor %}
+                {% if internal_gallery %}
+                    {% assign internal_gallery_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+                    {% for image_key in internal_gallery_images %}
+                        {% assign image_item = internal_gallery[image_key] %}
+                        {% if image_item %}
+                                <div class="swiper-slide relative">
+                                    <img src="{{ image_item | img_url: 'master' }}" alt="Internal Slide {{ forloop.index }}"
+                                         class="swiper-img w-full h-full object-cover block">
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="swiper-pagination"></div>
         </div>
+
     </div>
 </div>
+
+<!-- Tab section -->
+<div class="tab-section w-full h-auto flex flex-row items-center justify-start py-6 lg:absolute lg:justify-end lg:w-auto lg:top-[-32px] lg:right-0 z-20">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="external-tab">
+        <p class="body-14">{{ section.settings.tab_external }}</p>
+        <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="internal-tab">
+        <p class="body-14">{{ section.settings.tab_internal }}</p>
+        <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out"></div>
+    </div>
+</div>
+
+
+
 
 <!-- Swiper Custom Style -->
 <style>
@@ -141,3 +137,25 @@ replace: '}', '' | split: "," %}
         showTab(externalContent, externalRect);
     });
 </script>
+
+{% comment %}
+  Section Schema Settings here;
+{% endcomment %}
+{% schema %}
+    {
+      "name": "approved-gallery",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_external",
+          "default": "External",
+          "label": "Tab External Text"
+        }, {
+          "type": "text",
+          "id": "tab_internal",
+          "default": "Internal",
+          "label": "Tab Internal Text"
+        }
+      ]
+    }
+  {% endschema %}
