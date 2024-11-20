@@ -1,7 +1,7 @@
 {
   "sections": {
-    "top-approved-details": {
-      "type": "top-approved-details",
+    "gallery-approved" : {
+      "type": "gallery-approved",
       "settings": {}
     },
     "product-approved-features": {
@@ -10,7 +10,7 @@
     }
   },
   "order": [
-    "top-approved-details",
+    "gallery-approved",
     "product-approved-features"
   ]
 }

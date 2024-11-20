@@ -128,8 +128,7 @@
         const internalRect = internalTab.querySelector('.tab-rect');
         const externalContent = document.getElementById('external-content');
         const internalContent = document.getElementById('internal-content');
-        const mainImg = document.getElementById('main-img');
-        const mainImgInternal = document.getElementById('main-img-internal');
+
         //handle tab to show 
         function showTab(tab, content, rect) {
             externalContent.classList.add('hidden');
@@ -162,9 +161,6 @@
                 });
             });
         }
-  
-        setupImageClickHandler(externalContent, mainImg);
-        setupImageClickHandler(internalContent, mainImgInternal);
     });
 </script>
 
