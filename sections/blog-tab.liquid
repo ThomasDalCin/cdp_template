@@ -47,6 +47,7 @@
         const newsTab = document.getElementById('news-tab');
         const blogChips = document.getElementById('blog-chips');
         const eventsContent = document.querySelectorAll('.blog-events-container');
+        const pastEvents = document.querySelector('.past-event');
         const newsContent = document.querySelector('.blog-news-container');
         const newsRect = document.querySelector('.tab-news-rect');
         const eventsRect = document.querySelector('.tab-events-rect');
@@ -72,6 +73,8 @@
             eventsContent.forEach((event) => {
                 event.classList.add('flex');
                 event.classList.remove('hidden');
+                pastEvents.classList.add('flex');
+                pastEvents.classList.remove('hidden');
             })
   
             newsContent.classList.add('hidden');
@@ -89,6 +92,8 @@
             eventsContent.forEach((event) => {
                 event.classList.remove('flex');
                 event.classList.add('hidden');
+                pastEvents.classList.remove('flex');
+                pastEvents.classList.add('hidden');
             })
   
             newsContent.classList.remove('hidden');
