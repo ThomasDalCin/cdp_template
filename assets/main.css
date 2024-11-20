@@ -1718,6 +1718,10 @@ p, span{
   max-width: 343px;
 }
 
+.max-w-\[99px\] {
+  max-width: 99px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
