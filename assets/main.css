@@ -1506,6 +1506,10 @@ p, span{
   height: 228px;
 }
 
+.h-\[196px\] {
+  height: 196px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1536,6 +1540,10 @@ p, span{
 
 .max-h-\[228px\] {
   max-height: 228px;
+}
+
+.max-h-\[196px\] {
+  max-height: 196px;
 }
 
 .min-h-\[160px\] {
@@ -1620,6 +1628,14 @@ p, span{
 
 .min-h-\[620px\] {
   min-height: 620px;
+}
+
+.min-h-\[196px\] {
+  min-height: 196px;
+}
+
+.min-h-\[412px\] {
+  min-height: 412px;
 }
 
 .w-0 {
@@ -1796,6 +1812,10 @@ p, span{
 
 .min-w-\[247px\] {
   min-width: 247px;
+}
+
+.min-w-\[208px\] {
+  min-width: 208px;
 }
 
 .max-w-\[343px\] {

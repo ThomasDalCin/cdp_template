@@ -7,30 +7,38 @@
         {% assign eventLocation = eventArticle.metafields.custom.location.value | default: "Location not provided" %}
         {% assign eventDate = eventArticle.metafields.custom.when.value | default: "Date not provided" %}
         <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
-          <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
-            <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
-              <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
-              <p class="article-content body-14">{{ eventArticle.published_at }}</p>
+          <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
+            <!--events image-->
+            <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
+              <img src="{{ eventArticle |  img_url: 'master' }}" alt="{{ article.title }}" class="w-full h-full object-cover object-center rounded-t-2xl">
             </div>
-            <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-              <a href="{{ section.settings.redirect_google_url }}">
-                <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                  <p class="body-14 underline">{{ section.settings.redirect_google }}</p>
-                  {% render 'cta-icon' %}
+
+            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6 ">
+              <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
+                <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
+                <p class="article-content body-14">{{ eventArticle.published_at }}</p>
+              </div>
+              <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
+                <a href="{{ section.settings.redirect_google_url }}">
+                  <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                    <p class="body-14 underline">{{ section.settings.redirect_google }}</p>
+                    {% render 'cta-icon' %}
+                  </div>
+                </a>
+                <a href="{{ section.settings.redirect_calendar }}">
+                  <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                    <p class="body-14 underline">{{ section.settings.redirect_calendar }}</p>
+                    {% render 'calendar-icon' %}
+                  </div>
+                </a>
+              </div>
+              <div class="events-cta lg:w-full lg:flex lg:justify-end">
+                <div class="cta-choco min-w-[208px] book-appointment inline-flex">
+                  <p class="body-14">{{ section.settings.cta_appointment }}</p>
                 </div>
-              </a>
-              <a href="{{ section.settings.redirect_calendar }}">
-                <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                  <p class="body-14 underline">{{ section.settings.redirect_calendar }}</p>
-                  {% render 'calendar-icon' %}
-                </div>
-              </a>
-            </div>
-            <div class="events-cta lg:w-full lg:flex lg:justify-end">
-              <div class="cta-appointment outline-none book-appointment">
-                <p class="body-14">{{ section.settings.cta_appointment }}</p>
               </div>
             </div>
+
           </div>
         </div>
       {% endfor %}
@@ -58,7 +66,7 @@
             </a>
           </div>
           <div class="events-cta lg:w-full lg:flex lg:justify-end">
-            <div class="cta-appointment outline-none book-appointment">
+            <div class="cta-choco min-w-[208px] book-appointment inline-flex">
               <p class="body-14">{{ block.settings.card_cta_appointment }}</p>
             </div>
           </div>
