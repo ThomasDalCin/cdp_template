@@ -1,131 +1,143 @@
 <!-- Scrolling container -->
-<div class="product-title-container w-full h-auto flex items-center justify-center p-4 mt-[70px] mb-10 relative lg:mt-[90px]">
-  <div class="container-back-arrow absolute left-[16px] top-[16px]">
-    <a href="javascript:history.back()">
-      {% render 'back-arrow-icon' %}
-    </a>
-  </div>
-  <h1 class="body-14-medium">{{ product.title }}</h1>
+<div
+    class="product-title-container w-full h-auto flex items-center justify-center p-4 mt-[70px] mb-10 relative lg:mt-[90px]">
+    <div class="container-back-arrow absolute left-[16px] top-[16px]">
+        <a href="javascript:history.back()">
+            {% render 'back-arrow-icon' %}
+        </a>
+    </div>
+    <h1 class="body-14-medium">{{ product.title }}</h1>
 </div>
 
 <!-- Tab section -->
-<div class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-[-32px] lg:right-0 z-20">
-  <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="external-tab">
-    <p class="body-14">{{ section.settings.tab_external }}</p>
-    <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>
-  </div>
-  <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="internal-tab">
-    <p class="body-14">{{ section.settings.tab_internal }}</p>
-    <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out"></div>
-  </div>
+<div
+    class="tab-section w-full h-auto flex flex-row items-center justify-start mb-7 lg:absolute lg:justify-end lg:w-auto lg:top-[-32px] lg:right-0 z-20">
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
+        id="external-tab">
+        <p class="body-14">{{ section.settings.tab_external }}</p>
+        <div
+            class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out">
+        </div>
+    </div>
+    <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]"
+        id="internal-tab">
+        <p class="body-14">{{ section.settings.tab_internal }}</p>
+        <div
+            class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black hidden transition-transform duration-300 ease-in-out">
+        </div>
+    </div>
 </div>
+
+<!-- assign liquid variables metaobjects -->
+{% assign external_gallery = product.metafields.custom.external_images_approved_boat.value %}
+{% assign external_gallery_split = product.metafields.custom.external_images_approved_boat.value | json |
+replace: '{', '' | replace: '}', '' | split: "," %}
+{% assign internal_gallery = product.metafields.custom.internal_boat_up.value %}
+{% assign internal_gallery_split = product.metafields.custom.internal_boat_up.value | json | replace: '{', '' |
+replace: '}', '' | split: "," %}
 
 <!-- Gallery Section -->
 <div class="w-full h-dvh relative">
-  <div class="w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
-    <!-- External Swiper -->
-    <div id="external-content" class="swiper mySwiper w-full h-full relative">
-      <div class="swiper-wrapper">
-        {% for image_url in external_gallery_split %}
-          <div class="swiper-slide relative">
-            <img
-              src="{{ image_url |  img_url: 'master' }}"
-              alt="External Slide {{ forloop.index }}"
-              class="swiper-img w-full h-full object-cover block">
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
+    <div class="w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
+        <!-- External Swiper -->
+        <div id="external-content" class="swiper mySwiper w-full h-full relative">
+            <div class="swiper-wrapper">
+                {% for image_url in external_gallery_split %}
+                <div class="swiper-slide relative">
+                    <img src="{{ image_url |  img_url: 'master' }}" alt="External Slide {{ forloop.index }}"
+                        class="swiper-img w-full h-full object-cover block">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-    <!-- Internal Swiper -->
-    <div id="internal-content" class="swiper mySwiper w-full h-full relative hidden">
-      <div class="swiper-wrapper">
-        {% for image_url in internal_gallery_split %}
-          <div class="swiper-slide relative">
-            <img
-              src="{{ image_url |  img_url: 'master' }}"
-              alt="Internal Slide {{ forloop.index }}"
-              class="swiper-img w-full h-full object-cover block">
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
+        <!-- Internal Swiper -->
+        <div id="internal-content" class="swiper mySwiper w-full h-full relative hidden">
+            <div class="swiper-wrapper">
+                {% for image_url in internal_gallery_split %}
+                <div class="swiper-slide relative">
+                    <img src="{{ image_url |  img_url: 'master' }}" alt="Internal Slide {{ forloop.index }}"
+                        class="swiper-img w-full h-full object-cover block">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Swiper Custom Style -->
 <style>
-  .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    width: 24px !important;
-    height: 2px !important;
-    border-radius: 2px !important;
-    background-color: white !important;
-  }
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 24px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
 
-  .swiper-pagination-bullet {
-    width: 8px !important;
-    height: 2px !important;
-    border-radius: 2px !important;
-    background-color: white !important;
-  }
+    .swiper-pagination-bullet {
+        width: 8px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
 
-  #external-content.hidden,
-  #internal-content.hidden {
-    display: none;
-  }
+    #external-content.hidden,
+    #internal-content.hidden {
+        display: none;
+    }
 </style>
 
 <!-- JavaScript -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const externalTab = document.getElementById('external-tab');
-    const internalTab = document.getElementById('internal-tab');
-    const externalRect = externalTab.querySelector('.tab-rect');
-    const internalRect = internalTab.querySelector('.tab-rect');
-    const externalContent = document.getElementById('external-content');
-    const internalContent = document.getElementById('internal-content');
+    document.addEventListener('DOMContentLoaded', () => {
+        const externalTab = document.getElementById('external-tab');
+        const internalTab = document.getElementById('internal-tab');
+        const externalRect = externalTab.querySelector('.tab-rect');
+        const internalRect = internalTab.querySelector('.tab-rect');
+        const externalContent = document.getElementById('external-content');
+        const internalContent = document.getElementById('internal-content');
 
-    // Initialize Swipers
-    const externalSwiper = new Swiper("#external-content", {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      loop: true,
+        // Initialize Swipers
+        const externalSwiper = new Swiper("#external-content", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+        });
+
+        const internalSwiper = new Swiper("#internal-content", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+        });
+
+        // Tab click handling
+        function showTab(contentToShow, rectToShow) {
+            // Hide all tabs
+            externalContent.classList.add('hidden');
+            internalContent.classList.add('hidden');
+            externalRect.classList.add('hidden');
+            internalRect.classList.add('hidden');
+
+            // Show selected tab
+            contentToShow.classList.remove('hidden');
+            rectToShow.classList.remove('hidden');
+        }
+
+        externalTab.addEventListener('click', () => {
+            showTab(externalContent, externalRect);
+        });
+
+        internalTab.addEventListener('click', () => {
+            showTab(internalContent, internalRect);
+        });
+
+        // Show external tab by default
+        showTab(externalContent, externalRect);
     });
-
-    const internalSwiper = new Swiper("#internal-content", {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      loop: true,
-    });
-
-    // Tab click handling
-    function showTab(contentToShow, rectToShow) {
-      // Hide all tabs
-      externalContent.classList.add('hidden');
-      internalContent.classList.add('hidden');
-      externalRect.classList.add('hidden');
-      internalRect.classList.add('hidden');
-
-      // Show selected tab
-      contentToShow.classList.remove('hidden');
-      rectToShow.classList.remove('hidden');
-    }
-
-    externalTab.addEventListener('click', () => {
-      showTab(externalContent, externalRect);
-    });
-
-    internalTab.addEventListener('click', () => {
-      showTab(internalContent, internalRect);
-    });
-
-    // Show external tab by default
-    showTab(externalContent, externalRect);
-  });
 </script>
