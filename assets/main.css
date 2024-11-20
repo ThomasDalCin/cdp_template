@@ -896,7 +896,7 @@ p, span{
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
   align-self: stretch;
-  border-radius: 9999px;
+  border-radius: 0.75rem;
   border-width: 1px;
   border-color: transparent;
   --tw-bg-opacity: 1;
@@ -1103,6 +1103,14 @@ p, span{
 
 .top-\[16px\] {
   top: 16px;
+}
+
+.bottom-\[20px\] {
+  bottom: 20px;
+}
+
+.-bottom-\[10px\] {
+  bottom: -10px;
 }
 
 .z-0 {
@@ -1448,6 +1456,10 @@ p, span{
 
 .max-h-\[423px\] {
   max-height: 423px;
+}
+
+.max-h-\[147px\] {
+  max-height: 147px;
 }
 
 .min-h-\[160px\] {
@@ -1806,6 +1818,10 @@ p, span{
 
 .snap-start {
   scroll-snap-align: start;
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }
 
 .list-disc {
@@ -2334,6 +2350,10 @@ p, span{
   padding-top: 136px;
 }
 
+.pl-14 {
+  padding-left: 3.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2457,6 +2477,10 @@ p, span{
 
 .leading-\[56px\] {
   line-height: 56px;
+}
+
+.leading-\[48px\] {
+  line-height: 48px;
 }
 
 .text-\[\#7A7A7A\] {

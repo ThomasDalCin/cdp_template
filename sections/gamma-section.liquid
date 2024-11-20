@@ -1,5 +1,5 @@
 <!--gamma section new -->
-<div class="w-full h-auto px-6 py-14 bg-[#A9A09E] overflow-x-hidden">
+<div class="w-full h-auto py-14 bg-[#A9A09E] overflow-x-hidden">
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
@@ -22,18 +22,20 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
             {% if collection.title != "Pardo approved" %}
-            <div class="magnetic-scroll gamma-scroll w-auto h-auto overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
+            <div class="magnetic-scroll gamma-scroll w-auto h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
                 data-collection="{{ collection.title }}" style="display: none;">
                 {% for product in collection.products %}
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll w-[320px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative"
+                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative"
                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
-                    <img class="w-full h-full object-contain pImage z-10" src="{{ model_image | img_url: 'master' }}"
+                    <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}">
-                    <p class="big-header-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] z-0">{{
-                        product.title | replace: 'Pardo', '' }}</p>
+                    <div class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
+                        <p class="text-[64px] leading-[48px]">{{
+                            product.title | replace: 'Pardo', '' }}</p>
+                    </div>
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -46,16 +48,13 @@
         <!--title + buttons-->
 
         <!--gamma content details section-->
-        <div class="w-full h-auto flex flex-col items-start justify-center">
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6">
             <!--product description content -->
             {% for collection in sorted_collections %}
             {% if collection.title != "Pardo approved" %}
             {% for product in collection.products %}
             <div class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content"
                 data-content="{{ product.title }}">
-                <div class="w-full h-auto flex items-start justify-center">
-                    <p class="text-[24px] text-balance leading-[30px]">{{ product.description }}</p>
-                </div>
                 <div class="w-full h-[56px]">
                     <a href="{{ product.url }}" class="w-full h-auto cta-black">{{ section.settings.cta_gamma_product |
                         default: "Discover" }}</a>
