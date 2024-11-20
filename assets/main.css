@@ -825,27 +825,6 @@ p, span{
   outline-offset: 2px;
 }
 
-.cta-delear {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 9999px;
-  border-width: 1px;
-  border-color: transparent;
-  background-color: var(--accent-dark-color);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .cta-blog {
   display: flex;
   min-width: 100px;
@@ -864,26 +843,6 @@ p, span{
   padding-bottom: 0.75rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.cta-brochure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 9999px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  background-color: transparent;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -926,34 +885,16 @@ p, span{
   outline-offset: 2px;
 }
 
-.cta-brochure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 9999px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  background-color: transparent;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .cta-choco {
   display: flex;
+  height: 56px;
+  min-height: 56px;
   align-items: center;
   justify-content: center;
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
   align-self: stretch;
-  border-radius: 9999px;
+  border-radius: 0.75rem;
   border-width: 1px;
   border-color: transparent;
   --tw-bg-opacity: 1;
@@ -1233,10 +1174,6 @@ p, span{
   margin-bottom: 1.5rem;
 }
 
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -1271,10 +1208,6 @@ p, span{
 
 .mt-\[50px\] {
   margin-top: 50px;
-}
-
-.mt-\[70px\] {
-  margin-top: 70px;
 }
 
 .box-border {
@@ -1332,10 +1265,6 @@ p, span{
 
 .h-\[112px\] {
   height: 112px;
-}
-
-.h-\[128px\] {
-  height: 128px;
 }
 
 .h-\[135px\] {
@@ -1466,6 +1395,10 @@ p, span{
   height: 620px;
 }
 
+.h-\[640px\] {
+  height: 640px;
+}
+
 .h-\[72px\] {
   height: 72px;
 }
@@ -1488,10 +1421,6 @@ p, span{
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[640px\] {
-  height: 640px;
 }
 
 .max-h-\[160px\] {
@@ -1656,10 +1585,6 @@ p, span{
 
 .w-\[129px\] {
   width: 129px;
-}
-
-.w-\[165px\] {
-  width: 165px;
 }
 
 .w-\[16px\] {
@@ -3011,10 +2936,6 @@ p, span{
     height: 100px;
   }
 
-  .lg\:h-\[160pxpx\] {
-    height: 160pxpx;
-  }
-
   .lg\:h-\[30px\] {
     height: 30px;
   }
@@ -3029,10 +2950,6 @@ p, span{
 
   .lg\:h-\[617px\] {
     height: 617px;
-  }
-
-  .lg\:h-\[878px\] {
-    height: 878px;
   }
 
   .lg\:h-\[942px\] {
@@ -3053,10 +2970,6 @@ p, span{
 
   .lg\:max-h-\[600px\] {
     max-height: 600px;
-  }
-
-  .lg\:max-h-none {
-    max-height: none;
   }
 
   .lg\:min-h-\[398px\] {
@@ -3085,10 +2998,6 @@ p, span{
 
   .lg\:w-\[220px\] {
     width: 220px;
-  }
-
-  .lg\:w-\[252px\] {
-    width: 252px;
   }
 
   .lg\:w-\[400px\] {
@@ -3203,10 +3112,6 @@ p, span{
     flex-wrap: wrap;
   }
 
-  .lg\:items-start {
-    align-items: flex-start;
-  }
-
   .lg\:items-center {
     align-items: center;
   }
@@ -3272,22 +3177,12 @@ p, span{
     row-gap: 0.5rem;
   }
 
-  .lg\:gap-y-3 {
-    row-gap: 0.75rem;
-  }
-
   .lg\:gap-y-5 {
     row-gap: 1.25rem;
   }
 
   .lg\:gap-y-6 {
     row-gap: 1.5rem;
-  }
-
-  .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0px * var(--tw-space-x-reverse));
-    margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .lg\:overflow-hidden {
@@ -3300,10 +3195,6 @@ p, span{
 
   .lg\:overflow-x-hidden {
     overflow-x: hidden;
-  }
-
-  .lg\:rounded {
-    border-radius: 0.25rem;
   }
 
   .lg\:rounded-lg {
