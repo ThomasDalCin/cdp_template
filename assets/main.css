@@ -1734,6 +1734,10 @@ p,
   min-width: 74px;
 }
 
+.min-w-\[51px\] {
+  min-width: 51px;
+}
+
 .max-w-\[343px\] {
   max-width: 343px;
 }
@@ -2303,6 +2307,11 @@ p,
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .pb-10 {
