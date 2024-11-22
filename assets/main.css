@@ -1771,6 +1771,10 @@ p,
   max-width: 99px;
 }
 
+.max-w-\[240px\] {
+  max-width: 240px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
