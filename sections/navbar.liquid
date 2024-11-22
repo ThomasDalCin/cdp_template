@@ -117,6 +117,15 @@
             {% endfor %}
         </div>
     </div>
+
+             <!--find delear button-->
+             <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px]">
+                <a href="pages/locate-delear">
+                  <div class="w-auto h-auto inline-flex cta-white-rounded">
+                    <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear |  default: "Find a delear" }}</p>
+                  </div>
+                </a>
+              </div>
 </div>
 
 
@@ -153,7 +162,7 @@
 
         <!-- horizontal scroll partnership menu container -->
         <div
-            class="w-[calc(100%+2rem)] px-2 -mx-2 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+            class="w-[calc(100%+4rem)] px-6 -mx-6 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
             {% if blogs['Partnership'] %}
             {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
             {% if partnershipArticles.size > 0 %}
@@ -179,6 +188,7 @@
             {% endif %}
         </div>
     </div>
+
 </div>
 
 
