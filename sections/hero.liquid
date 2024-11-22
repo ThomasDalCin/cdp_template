@@ -27,9 +27,9 @@
 
               <!-- Condition cta -->
               {% if section.settings[cta_check] or section.settings[cta_url] %}
-                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4">
+                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
                   <a href="{{ section.settings[cta_url] }}">
-                    <div class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold">
+                    <div class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
                       <p class="body-16">{{ section.settings[cta_text] }}</p>
                     </div>
                   </a>

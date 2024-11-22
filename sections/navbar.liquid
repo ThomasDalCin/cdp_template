@@ -1,7 +1,7 @@
 <!--navbar-new-->
 
 <!--navbar-container-->
-<div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50">
+<div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 lg:px-10 lg:pt-12">
     <div class="navbar-container w-full h-[72px] bg-[#EFEEED] rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
 
         <!--menu yatch cta-->
@@ -48,8 +48,8 @@
                     {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-reg leading-[20px]
                     lg:text-[24px] lg:leading-[24px]" }}
                     {% else %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg lg:text-[40px]
-                    lg:leading-[40px]" }}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg lg:text-[64px]
+                    lg:leading-[64px]" }}
                     {% endif %}
                     {% endif %}
                 </div>
@@ -95,24 +95,21 @@
         <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
             {% for link in linklists.yatch.links %}
             {% unless allLinksTitle contains link.title %}
-            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px] lg:text-[16px]
-            lg:leading-[22px] underline" }}
+            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px] lg:text-[24px]
+            lg:leading-[24px] underline" }}
             {% endunless %}
             {% endfor %}
         </div>
 
         <!-- boat image container on desktop -->
         <div
-            class="boat-image-container w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/4 -translate-y-1/2 z-30">
+            class="boat-image-container absolute right-20 bottom-10 w-[820px] h-[501px] z-30">
             {% for collection in collections %}
             {% for product in collection.products %}
-            {% assign boatImage = product.metafields.custom.boat_menu_image.value %}
-            {% if boatImage %}
             <a href="{{ product.url }}">
-                <img src="{{ boatImage | img_url: 'master' }}" alt="boat png image"
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image"
                     class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
             </a>
-            {% endif %}
             {% endfor %}
             {% endfor %}
         </div>
@@ -142,8 +139,8 @@
                 {% if link.title != "Privacy preferences" and link.title != "Privacy policy" %}
                 {% unless link.title == 'Press room' %}
                 <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
-                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px] tt-norms-pro-reg
-                    lg:leading-[40px]" }}
+                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px] tt-norms-pro-reg
+                    lg:leading-[64px]" }}
                 </li>
                 {% endunless %}
                 {% endif %}
@@ -154,7 +151,7 @@
                 {% for link in linklists.main-menu.links %}
                 {% if link.title == 'Press room' %}
                 {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px]
-                lg:text-[16px] lg:leading-[22px] underline" }}
+                lg:text-[24px] lg:leading-[24px] underline" }}
                 {% endif %}
                 {% endfor %}
             </div>
@@ -162,7 +159,7 @@
 
         <!-- horizontal scroll partnership menu container -->
         <div
-            class="w-[calc(100%+4rem)] px-6 -mx-6 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+            class="w-[calc(100%+4rem)] px-6 -mx-6 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:hidden">
             {% if blogs['Partnership'] %}
             {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
             {% if partnershipArticles.size > 0 %}

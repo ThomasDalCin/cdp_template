@@ -2,14 +2,14 @@
 <div class="w-full h-auto flex flex-col items-center justify-center">
 
   <!-- wrapper content section headings -->
-  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14">
+  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14 lg:px-20 lg:pt-20 lg:pb-[60px]">
     <h4 class="header-4 text-[#818181]">{{ section.settings.secondary_heading | upcase | default: "Shaped by the Sea" }}</h4>
     <h2 class="text-[48px] leading-[54px]">{{ section.settings.primary_heading | default: "Lorem Ipsum" }}</h2>
   </div>
   
   <!-- explore gallery wrapper -->
   <div class="w-full h-auto overflow-x-hidden mb-10 relative">
-    <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
+    <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x lg:h-[720px]">
       <!-- assign variables -->
       {% assign explore_images = "explore_image_one,explore_image_two,explore_image_three,explore_image_four" | split: "," %}
       {% assign total_images = explore_images.size %}

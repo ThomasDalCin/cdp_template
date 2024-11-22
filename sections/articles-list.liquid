@@ -3,15 +3,17 @@
 
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
-    <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-left-icon' %}
-    </button>
-    <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-10 h-10 rounded-full border border-black text-white">
-      {% render 'arrow-right-icon' %}
-    </button>
+    <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2">
+      <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+        {% render 'arrow-left-icon' %}
+      </button>
+      <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6  text-white">
+        {% render 'arrow-right-icon' %}
+      </button>
+    </div>
   </div>
 
-  <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-10 lg:pb-4">
+  <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-4 lg:p-0 lg:px-20 lg:pb-4">
     <!-- Assign liquid variables -->
     {% assign allBlogs = "News, " | split: "," %}
     {% assign article_count = 0 %}
@@ -26,7 +28,7 @@
           {% if articlesDivided == 0 %}
             
             <!-- Article for even index -->
-            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
 
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>
@@ -44,7 +46,7 @@
 
           {% else %}
             <!-- Article for odd index -->
-            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl lg:w-[400px] lg:min-w-[400px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
               
             <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>

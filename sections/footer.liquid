@@ -1,6 +1,8 @@
 <!-- Footer section -->
-<div class="footer w-full h-auto px-6 py-16 flex flex-col items-start justify-center lg:flex-row lg:flex-wrap lg:gap-x-4 lg:justify-start" style="background: linear-gradient(180deg, #262322 0%, #716A68 48.5%, #393332 100%);">
-  <div class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6 pb-10 lg:w-[calc(33.3%_-_1rem)] lg:p-4">
+<div class="footer w-full h-auto px-6 py-16 flex flex-col items-start justify-center lg:flex-row lg:flex-wrap lg:gap-x-4 lg:justify-start lg:px-20 lg:py-[120px]" style="background: linear-gradient(180deg, #262322 0%, #716A68 48.5%, #393332 100%);">
+
+<div class="w-full h-auto flex items-start justify-center flex-col lg:w-[calc(50%_-_80px)]">
+  <div class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6 pb-10 lg:p-4">
     <div class="newsletter-form w-full h-auto flex flex-col items-start justify-center gap-y-8">
       <!-- form section headings -->
       <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
@@ -104,6 +106,8 @@
       </div>
     </div>
   </div>
+</div>
+
 
 
   <!-- gamma footer container -->
@@ -112,8 +116,7 @@
     <!-- gamma list containers -->
     <div class="w-full h-auto flex items-center justify-start flex-col">
       <div class="w-full h-auto flex items-center justify-start py-4">
-        <p class="text-[32px] leading-[38px] tt-norms-pro-med text-white">{{ section.settings.gamma_title | default:
- "Pardo's gamma" }}</p>
+        <p class="text-[32px] leading-[38px] tt-norms-pro-med text-white">{{ section.settings.gamma_title | default:"Pardo's gamma" }}</p>
       </div>
       <div class="w-full h-auto flex items-start justify-center flex-col">
         {% assign collection_sorted = collections | sort: 'title' | reverse %}

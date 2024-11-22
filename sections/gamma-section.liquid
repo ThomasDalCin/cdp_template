@@ -1,17 +1,17 @@
 <!-- gamma section new -->
 <div class="w-full h-auto py-14 bg-[#A9A09E] overflow-x-hidden">
-    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:gap-y-20">
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center">
 
             <!-- tab wrapper -->
-            <div class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto">
+            <div class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:justify-center lg:inline-flex lg:w-auto">
                 <div class="w-auto max-w-[99px] h-auto tab-gamma" id="Models">
                     <p class="text-[18px] leading-[24px] satoshi text-nowrap tab-text">Models</p>
                 </div>
                 {% assign sorted_collections = collections | sort: 'published_at' %}
                 {% for collection in sorted_collections %}
                     {% if collection.title != "Pardo approved" %}
-                        <div class="w-auto max-w-[99px] h-auto tab-gamma" id="{{ collection.title }}">
+                        <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer" id="{{ collection.title }}">
                             <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text">{{ collection.title | capitalize }}</p>
                         </div>
                     {% endif %}
@@ -25,18 +25,18 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
-                    <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_4rem)] px-6 -mx-6 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
+                    <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_4rem)] px-6 -mx-6 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory lg:h-[386px] lg:min-h-[386px]"
                         data-collection="{{ collection.title }}" style="display: none; padding-left: 56px;">
                         {% for product in collection.products %}
                             {% assign product_images = product.images %}
                             {% if product_images.size > 0 %}
                                 {% assign model_image = product_images[0] %}
-                                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative"
+                                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
                                     <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                                         alt="{{ model_image.alt }}">
                                     <div class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
-                                        <p class="text-[64px] leading-[48px]">{{ product.title | replace: 'Pardo', '' }}</p>
+                                        <p class="text-[64px] leading-[48px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title | replace: 'Pardo', '' }}</p>
                                     </div>
                                 </div>
                             {% endif %}
@@ -47,7 +47,7 @@
             {% endfor %}
 
             <!-- model wrapper for "Models" -->
-            <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_56px)] px-14 -mx-14 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
+            <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_56px)] px-14 -mx-14 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory lg:h-[386px] lg:min-h-[386px]"
                 data-collection="Models" style="display: flex;">
                 {% for collection in sorted_collections %}
                     {% if collection.title != "Pardo approved" %}
@@ -55,12 +55,12 @@
                             {% assign product_images = product.images %}
                             {% if product_images.size > 0 %}
                                 {% assign model_image = product_images[0] %}
-                                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative"
+                                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                                     data-collection="Models" data-content="{{ product.title }}">
                                     <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                                         alt="{{ model_image.alt }}">
                                     <div class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
-                                        <p class="text-[64px] leading-[48px] tt-norms-pro-light">{{ product.title | replace: 'Pardo', '' }}</p>
+                                        <p class="text-[64px] leading-[48px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title | replace: 'Pardo', '' }}</p>
                                     </div>
                                 </div>
                             {% endif %}
@@ -73,19 +73,19 @@
         </div>
 
         <!--title + buttons-->
-        <div class="w-full h-auto flex flex-col items-start justify-center px-6">
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6 lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center lg:px-12 lg:py-12">
             <!--product description content -->
             {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
                     {% for product in collection.products %}
-                        <div class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content"
+                        <div class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center"
                             data-content="{{ product.title }}">
-                            <div class="w-full h-[56px]">
+                            <div class="w-full h-[56px] lg:w-[220px]">
                                 <a href="{{ product.url }}" class="w-full h-auto cta-black">{{ section.settings.cta_gamma_product |
                                     default: "Discover" }}</a>
                             </div>
-                            <div class="w-full h-[56px]">
-                                <a href="pages/delear" class="w-full h-auto cta-transparent">{{ section.settings.cta_gamma_delear |
+                            <div class="w-full h-[56px] lg:w-[220px]">
+                                <a href="pages/delear" class="w-full h-auto cta-transparent lg:bg-white lg:text-black lg:border-transparent">{{ section.settings.cta_gamma_delear |
                                     default: "Find a delear" }}</a>
                             </div>
                         </div>
