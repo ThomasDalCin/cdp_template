@@ -193,7 +193,7 @@
 
     <!--container horizontal chips-->
     <div
-        class="chips-horizontal-container w-[calc(100%+2rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-4 -mx-4 mb-3">
+        class="chips-horizontal-container w-[calc(100%+4rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-6 -mx-6 mb-3">
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
