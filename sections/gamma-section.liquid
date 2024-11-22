@@ -4,7 +4,7 @@
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
 
             <!-- tab wrapper -->
-            <div class="w-full h-auto flex flex-row items-center justify-start px-6 gap-x-6 relative wrap-content overflow-x-auto">
+            <div class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto">
                 <div class="w-auto max-w-[99px] h-auto tab-gamma" id="Models">
                     <p class="text-[18px] leading-[24px] satoshi text-nowrap tab-text">Models</p>
                 </div>
@@ -12,12 +12,12 @@
                 {% for collection in sorted_collections %}
                     {% if collection.title != "Pardo approved" %}
                         <div class="w-auto max-w-[99px] h-auto tab-gamma" id="{{ collection.title }}">
-                            <p class="text-[18px] leading-[24px] satoshi text-nowrap tab-text">{{ collection.title | capitalize }}</p>
+                            <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text">{{ collection.title | capitalize }}</p>
                         </div>
                     {% endif %}
                 {% endfor %}
                 <!-- union icon -->
-                <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in -top-4">
+                <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in top-1">
                     {% render 'union-icon' %}
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
-                    <div class="magnetic-scroll gamma-scroll w-auto h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
+                    <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_4rem)] px-6 -mx-6 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
                         data-collection="{{ collection.title }}" style="display: none; padding-left: 56px;">
                         {% for product in collection.products %}
                             {% assign product_images = product.images %}
@@ -47,8 +47,8 @@
             {% endfor %}
 
             <!-- model wrapper for "Models" -->
-            <div class="magnetic-scroll gamma-scroll w-auto h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
-                data-collection="Models" style="display: flex; padding-left: 56px;">
+            <div class="magnetic-scroll gamma-scroll w-[calc(100%_+_56px)] px-14 -mx-14 h-[147px] max-h-[147px] py-6 overflow-x-auto scroll-smooth flex flex-row justify-start items-center snap-x snap-mandatory"
+                data-collection="Models" style="display: flex;">
                 {% for collection in sorted_collections %}
                     {% if collection.title != "Pardo approved" %}
                         {% for product in collection.products %}
@@ -60,7 +60,7 @@
                                     <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                                         alt="{{ model_image.alt }}">
                                     <div class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
-                                        <p class="text-[64px] leading-[48px]">{{ product.title | replace: 'Pardo', '' }}</p>
+                                        <p class="text-[64px] leading-[48px] tt-norms-pro-light">{{ product.title | replace: 'Pardo', '' }}</p>
                                     </div>
                                 </div>
                             {% endif %}
