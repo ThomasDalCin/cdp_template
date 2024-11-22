@@ -1,123 +1,282 @@
 <!-- interior & exteriors pdp section -->
 
-<div class="w-full h-auto flex flex-col items-start justify-center">
-    <!-- container main title -->
-    <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-6">
-        <p class="text-[64px] leading-[56px]">{{ section.settings.main_title | default: "Design" }}</p>
+
+<div class="overlay hidden fixed z-50 inset-0 w-full h-dvh bg-[#EFEEED]">
+
+  <!-- container-closing-icon -->
+  <div class="w-auto h-auto bg-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay z-50 cursor-pointer">
+    {% render 'x-icon' %}
+  </div>
+
+  <!-- Swiper wrapper for external gallery -->
+  <div class="swiper swiper-container-overlay-external transition-all duration-200 ease-linear relative hidden">
+    <div class="swiper-wrapper swiper-wrapper-overlay">
+      {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
+      {% if externalBoat %}
+        {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+        {% for externalBoatImage in externalBoatImages %}
+          {% assign externalImage = externalBoat[externalBoatImage] %}
+          {% if externalImage %}
+            <div class="swiper-slide h-screen">
+              <img
+                src="{{ externalImage | img_url: 'master' }}"
+                alt="{{ externalImage.alt }}"
+                class="w-full h-full object-cover object-center">
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
 
-    <!-- container text exteriors text and images -->
-    <div class="w-full h-auto flex flex-col items-start justify-center">
-        <!-- container text -->
-        <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
-            <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default: "Exteriors" }}</p>
-            <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
-        </div>
+    <!-- Container swiper bullets -->
+    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+      <!-- Container bullets -->
+      <div class="w-auto h-auto">
+        <div class="swiper-pagination-overlay"></div>
+      </div>
+    </div>
+  </div>
 
-        <!-- container images -->
-        <!-- explore gallery wrapper -->
-        <div class="w-full h-auto overflow-x-hidden mb-10 relative">
-            <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
-                <!-- assign variables -->
-                {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
-                {% if externalBoat %}
-                    {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-                    {% assign total_images = externalBoatImages.size %}
-                    {% for externalBoatImage in externalBoatImages %}
-                        {% assign externalImage = externalBoat[externalBoatImage] %}
-                        {% if externalImage %}
-                            <!-- container explore section image -->
-                            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="externalImage_{{ forloop.index }}">
-                                <img class="w-full h-full object-cover object-center" src="{{ externalImage | img_url: 'master' }}" alt="{{ externalImage.alt }}">
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+  <!-- Swiper wrapper for internal gallery -->
+  <div class="swiper swiper-container-overlay-internal transition-all duration-200 ease-linear relative hidden">
+    <div class="swiper-wrapper swiper-wrapper-overlay">
+      {% assign internalBoat = product.metafields.custom.internal_boat.value %}
+      {% if internalBoat %}
+        {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+        {% for internalBoatImage in internalBoatImages %}
+          {% assign internalImage = internalBoat[internalBoatImage] %}
+          {% if internalImage %}
+            <div class="swiper-slide h-screen">
+              <img
+                src="{{ internalImage | img_url: 'master' }}"
+                alt="{{ internalImage.alt }}"
+                class="w-full h-full object-cover object-center">
             </div>
-
-            <!-- handle counter images during scroll -->
-            <div class="w-auto h-auto absolute left-4 bottom-4">
-                <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
-            </div>
-        </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
 
-    <!-- container text interiors text and images -->
-    <div class="w-full h-auto flex flex-col items-start justify-center">
-        <!-- container text -->
-        <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
-            <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors" }}</p>
-            <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
-        </div>
 
-        <!-- container images -->
-        <!-- explore gallery wrapper -->
-        <div class="w-full h-auto overflow-x-hidden mb-10 relative">
-            <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x-internal">
-                <!-- assign variables -->
-                {% assign internalBoat = product.metafields.custom.internal_boat.value %}
-                {% if internalBoat %}
-                    {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-                    {% assign total_images_internal = internalBoatImages.size %}
-                    {% for internalBoatImage in internalBoatImages %}
-                        {% assign internalImage = internalBoat[internalBoatImage] %}
-                        {% if internalImage %}
-                            <!-- container explore section image -->
-                            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="internalImage_{{ forloop.index }}">
-                                <img class="w-full h-full object-cover object-center" src="{{ internalImage | img_url: 'master' }}" alt="{{ internalImage.alt }}">
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-            </div>
-
-            <!-- handle counter images during scroll -->
-            <div class="w-auto h-auto absolute left-4 bottom-4">
-                <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0' }})</p>
-            </div>
-        </div>
+    <!-- Container swiper bullets -->
+    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+      <!-- Container bullets -->
+      <div class="w-auto h-auto">
+        <div class="swiper-pagination-overlay"></div>
+      </div>
     </div>
+  </div>
 </div>
 
 
+<div class="w-full h-auto flex flex-col items-start justify-center">
+  <!-- container main title -->
+  <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-6">
+    <p class="text-[64px] leading-[56px]">{{ section.settings.main_title | default: "Design" }}</p>
+  </div>
+
+  <!-- container text exteriors text and images -->
+  <div class="w-full h-auto flex flex-col items-start justify-center">
+    <!-- container text -->
+    <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
+      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default: "Exteriors" }}</p>
+      <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+
+      <!-- contianer cta full view -->
+      <div class="w-full h-auto flex flex-row items-center justify-end mb-8">
+        <div
+          class="cta-transparent-round h-[32px] lg:w-[220px] lg:px-4 lg:py-2"
+          data-target="external"
+          onclick="toggleGallery(this)">
+          <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Full exterior gallery" }}</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- container images -->
+    <!-- explore gallery wrapper -->
+    <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+      <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
+        <!-- assign variables -->
+        {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
+        {% if externalBoat %}
+          {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+          {% assign total_images = externalBoatImages.size %}
+          {% for externalBoatImage in externalBoatImages %}
+            {% assign externalImage = externalBoat[externalBoatImage] %}
+              {% if externalImage %}
+              <!-- container explore section image -->
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="externalImage_{{ forloop.index }}">
+                <img
+                  class="w-full h-full object-cover object-center"
+                  src="{{ externalImage | img_url: 'master' }}"
+                  alt="{{ externalImage.alt }}">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <!-- handle counter images during scroll -->
+      <div class="w-auto h-auto absolute left-4 bottom-4">
+        <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- container text interiors text and images -->
+  <div class="w-full h-auto flex flex-col items-start justify-center">
+    <!-- container text -->
+    <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
+      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors" }}</p>
+      <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+      <!-- contianer cta full view -->
+      <div class="w-full h-auto flex flex-row items-center justify-end mb-8">
+        <div
+          class="cta-transparent-round h-[32px] lg:w-[220px] lg:px-4 lg:py-2"
+          data-target="internal"
+          onclick="toggleGallery(this)">
+          <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Full interior gallery" }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- container images -->
+    <!-- explore gallery wrapper -->
+    <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+      <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x-internal">
+        <!-- assign variables -->
+        {% assign internalBoat = product.metafields.custom.internal_boat.value %}
+        {% if internalBoat %}
+          {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
+          {% assign total_images_internal = internalBoatImages.size %}
+          {% for internalBoatImage in internalBoatImages %}
+            {% assign internalImage = internalBoat[internalBoatImage] %}
+              {% if internalImage %}
+              <!-- container explore section image -->
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="internalImage_{{ forloop.index }}">
+                <img
+                  class="w-full h-full object-cover object-center"
+                  src="{{ internalImage | img_url: 'master' }}"
+                  alt="{{ internalImage.alt }}">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <!-- handle counter images during scroll -->
+      <div class="w-auto h-auto absolute left-4 bottom-4">
+        <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0' }})</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Swiper Custom Style -->
+<style>
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 24px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+  }
+  .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+  }
+
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const updateCounterOnScroll = (images, counterText, container) => {
+  
+  const overlay = document.querySelector('.overlay');
+  const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
+  const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
+  const closeOverlay = document.querySelector('.close-overlay');
+  let externalSwiper, internalSwiper;
+  
+  // Inizializza Swiper
+  externalSwiper = new Swiper('.swiper-container-overlay-external', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination-overlay',
+      clickable: true,
+    },
+  });
+  
+  internalSwiper = new Swiper('.swiper-container-overlay-internal', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination-overlay',
+      clickable: true,
+    },
+  });
+  
+  // Funzione per aprire l'overlay
+  window.toggleGallery = (button) => {
+    const target = button.getAttribute('data-target');
+  
+    overlay.classList.remove('hidden'); // Mostra l'overlay
+    externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
+    internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
+  
+    if (target === 'external') {
+      externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
+    } else if (target === 'internal') {
+      internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
+    }
+  };
+  
+  // Chiudi l'overlay
+  closeOverlay.addEventListener('click', () => {
+    overlay.classList.add('hidden'); // Nascondi l'overlay
+    externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
+    internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
+  });
+  
+  const updateCounterOnScroll = (images, counterText, container) => {
       const updateCounter = () => {
         let closestImageIndex = 0;
         let closestDistance = Infinity;
-
+  
         images.forEach((image, index) => {
           const rect = image.getBoundingClientRect();
           const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-
+  
           if (distanceFromCenter < closestDistance) {
             closestDistance = distanceFromCenter;
             closestImageIndex = index;
           }
         });
-
+  
         counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
       };
-
+  
       updateCounter(); // Initial update
       container.addEventListener('scroll', updateCounter);
     };
-
+  
     // Exteriors
     const externalCounterText = document.querySelector('.counter-items');
     const externalImages = document.querySelectorAll('[id^="externalImage_"]');
     const externalContainer = document.querySelector('.scroll-snap-type-x');
-
+  
     if (externalImages.length) {
       updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
     }
-
+  
     // Interiors
     const internalCounterText = document.querySelector('.counter-items-internal');
     const internalImages = document.querySelectorAll('[id^="internalImage_"]');
     const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
-
+  
     if (internalImages.length) {
       updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
     }
@@ -125,48 +284,46 @@
 </script>
 
 
-
 {% schema %}
-{
-  "name": "Int & Ent",
-  "settings": [
-    {
-      "type": "text",
-      "id": "main_title",
-      "label": "Main Title",
-      "default": "Design"
-    },
-    {
-      "type": "text",
-      "id": "exterior_text_title",
-      "label": "Exteriors Title",
-      "default": "Exteriors"
-    },
-    {
-      "type": "textarea",
-      "id": "exterior_text_content",
-      "label": "Exteriors Content",
-      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    },
-    {
-      "type": "text",
-      "id": "interior_text_title",
-      "label": "Interiors Title",
-      "default": "Interiors"
-    },
-    {
-      "type": "textarea",
-      "id": "interior_text_content",
-      "label": "Interiors Content",
-      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    }
-  ],
-  "presets": [
-    {
-      "name": "Interior & Exterior Design",
-      "category": "Custom"
-    }
-  ]
-}
+  {
+    "name": "Int & Ent",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main Title",
+        "default": "Design"
+      },
+      {
+        "type": "text",
+        "id": "exterior_text_title",
+        "label": "Exteriors Title",
+        "default": "Exteriors"
+      },
+      {
+        "type": "textarea",
+        "id": "exterior_text_content",
+        "label": "Exteriors Content",
+        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      },
+      {
+        "type": "text",
+        "id": "interior_text_title",
+        "label": "Interiors Title",
+        "default": "Interiors"
+      }, {
+        "type": "textarea",
+        "id": "interior_text_content",
+        "label": "Interiors Content",
+        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Interior & Exterior Design",
+        "category": "Custom"
+      }
+    ]
+  }
 
 {% endschema %}
