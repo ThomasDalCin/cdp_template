@@ -2,11 +2,11 @@
 
 <!--navbar-container-->
 <div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50">
-    <div class="navbar-container w-full h-[72px] bg-white rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
+    <div class="navbar-container w-full h-[72px] bg-[#EFEEED] rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
 
         <!--menu yatch cta-->
         <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] flex items-center justify-center">
-            <p class="body-14 chip-text">Yachts</p>
+            <p class="body-14 chip-text">Models</p>
         </div>
 
         <!--pardo logo container -->
@@ -489,19 +489,19 @@
                 chipText.innerHTML = 'Close';
                 document.body.classList.add('no-scroll');
             } else if (isSecondMenuOpen) {
-                chipText.innerHTML = 'Yachts';
+                chipText.innerHTML = 'Models';
                 secondMenu.classList.add('hidden');
                 secondMenu.classList.remove('flex');
                 // Hide the menu
                 menuYatch.classList.remove('flex');
                 menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Yachts';
+                chipText.innerHTML = 'Models';
                 document.body.classList.remove('no-scroll');
             } else {
                 // Hide the menu
                 menuYatch.classList.remove('flex');
                 menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Yachts';
+                chipText.innerHTML = 'Models';
                 document.body.classList.remove('no-scroll');
             }
         });
@@ -515,7 +515,7 @@
             if (menuYatch.classList.contains('flex')) {
                 menuYatch.classList.remove('flex');
                 menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Yachts';
+                chipText.innerHTML = 'Models';
             }
 
             if (isMenuMainHidden) {

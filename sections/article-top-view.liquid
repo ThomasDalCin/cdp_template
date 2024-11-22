@@ -6,15 +6,15 @@
       src="{{ article.image |  img_url: 'master'}}"
       alt="{{ article.image.alt }}">
     <a href="javascript:history.back()">
-      <div class="cta-back absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer">
+      <div class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
         {% render 'back-arrow-icon' %}
         <p class="body-14-medium ml-2">{{ section.settings.article_cta_text }}</p>
       </div>
     </a>
   </div>
-  <div class="article-top-view-content w-full h-auto flex flex-col gap-y-2 items-start justify-center p-4 mb-10 lg:px-20">
-    <p class="body-16-medium">{{ article.title | capitalize }}</p>
-    <p class="body-12">{{ article.content | capitalize }}</p>
+  <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-4 mb-10 lg:px-20">
+    <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title | capitalize }}</h1>
+    <p class="body-14">{{ article.content | capitalize }}</p>
   </div>
 </div>
 
