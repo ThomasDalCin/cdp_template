@@ -1,7 +1,7 @@
 {
   "sections": {
-    "page-title": {
-      "type": "page-title",
+    "collection-title": {
+      "type": "collection-title",
       "settings": {}
     },
     "top-view-collection": {
@@ -42,7 +42,7 @@
     }
   },
   "order": [
-    "page-title",
+    "collection-title",
     "top-view-collection",
     "emotional-text",
     "collection-oriz-scroll",

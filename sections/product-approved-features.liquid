@@ -4,7 +4,7 @@
 
 
     <div class="product-features-wrapper-content-heading w-full h-auto flex items-center justify-start">
-      <h2 class="text-[40px] leading-[40px]">{{ product.title }}</h2>
+      <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ product.title }}</h1>
     </div>
 
 
@@ -20,14 +20,14 @@
               {% if items_basics %}
                 {% for item in items_basics %}
                   <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-                    <span class="body-14 text-[#818181]">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
-                    <span class="body-14">{{ item }}</span>
+                    <span class="body-14 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                    <span class="body-14 tt-norms-pro-reg">{{ item }}</span>
                   </li>
                 {% endfor %}
               {% else %}
                 <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-                  <span class="body-14 text-[#818181]">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
-                  <span class="body-14">No data available</span>
+                  <span class="body-14 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                  <span class="body-14 tt-norms-pro-reg">No data available</span>
                 </li>
               {% endif %}
             {% endfor %}
@@ -37,7 +37,7 @@
     </div>
 
     <div class="product-consulent-wrapper w-full h-auto flex flex-col items-center justify-center gap-y-3 bg-[#EFEEED] rounded-2xl py-6">
-      <p class="body-16-medium">{{ section.settings.consulent_name }}</p>
+      <p class="body-16-medium tt-norms-pro-med">{{ section.settings.consulent_name }}</p>
       <a href="tel:{{ section.settings.consulent_phone }}">
         <p class="body-16 underline">{{ section.settings.consulent_phone }}</p>
       </a>
@@ -45,10 +45,10 @@
 
     <div class="product-features-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5 lg:flex-row lg:gap-x-3">
       <div class="cta-choco lg:flex-1 lg:px-4 lg:py-2">
-        <p class="body-14-medium">{{ section.settings.cta_details }}</p>
+        <p class="body-14-medium tt-norms-pro-reg">{{ section.settings.cta_details }}</p>
       </div>
       <div class="cta-transparent lg:flex-1 lg:px-4 lg:py-2">
-        <p class="body-14-medium">{{ section.settings.cta_preowned }}</p>
+        <p class="body-14-medium tt-norms-pro-reg">{{ section.settings.cta_preowned }}</p>
       </div>
     </div>
 

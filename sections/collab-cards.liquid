@@ -1,6 +1,6 @@
 <!--collab cards container-->
 <!-- Partnership collab cards -->
-<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6">
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10">
 
     <!-- Assign liquid variables -->
     {% assign allBlogs = "Collab, " | split: "," %}
@@ -19,7 +19,7 @@
         <div class="card-article-content w-full h-auto flex flex-col gap-y-6 items-start justify-start p-6">
 
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                <p class="text-[24px] leading-[24px]">{{ article.title }}</p>
+                <p class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title }}</p>
                 <p class="body-14">{{ article.content | truncate: 100 }}</p>
             </div>
 
@@ -27,7 +27,7 @@
             <div class="w-full h-auto flex flex-row items-start justify-end">
                 <!-- container button -->
                 <a href="">
-                    <div class="inline-flex cta-choco w-[129px] h-[32px]">
+                    <div class="inline-flex cta-choco-round w-[129px] h-[32px]">
                         <p class="body-14">{{ section.settings.cta_text | default: "Buy now" }}</p>
                     </div>
                 </a>

@@ -5,13 +5,13 @@
       <!-- form section headings -->
       <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
         {% if section.settings.section_title != blank %}
-          <label for="Email" class="text-[30px] leading-[30px] font-semibold text-white">{{ section.settings.section_title
- | escape }}</label>
+          <p class="text-[32px] leading-[38px] tt-norms-pro-light text-white">{{ section.settings.section_title | escape }}</label>
         {% endif %}
         {% if section.settings.subheading != blank %}
           <p class="body-16 text-white">{{ section.settings.subheading | escape }}</p>
         {% endif %}
       </div>
+
       <!-- form block -->
       {% form 'customer'
         , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
@@ -89,11 +89,11 @@
             {% if link.title != "Press room" %}
               <li class="list-none">
                 {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
-                  <a class="text-white font-light text-[16px] leading-[22px] lg:text-[16px] lg:leading-[22px]" href="{{ link.url }}">
+                  <a class="text-white body-12 tt-norms-pro-light" href="{{ link.url }}">
                     {{ link.title }}
                   </a>
                 {% else %}
-                  <a class="text-white text-[32px] leading-[32px]" href="{{ link.url }}">
+                  <a class="text-white body-16 tt-norms-pro-reg" href="{{ link.url }}">
                     {{ link.title }}
                   </a>
                 {% endif %}
@@ -112,7 +112,7 @@
     <!-- gamma list containers -->
     <div class="w-full h-auto flex items-center justify-start flex-col">
       <div class="w-full h-auto flex items-center justify-start py-4">
-        <p class="text-[32px] leading-[38px] font-semibold text-white">{{ section.settings.gamma_title | default:
+        <p class="text-[32px] leading-[38px] tt-norms-pro-med text-white">{{ section.settings.gamma_title | default:
  "Pardo's gamma" }}</p>
       </div>
       <div class="w-full h-auto flex items-start justify-center flex-col">
@@ -121,7 +121,7 @@
           {% if collection.title != "Pardo approved" %}
             <div class="w-full h-auto flex items-start justify-center flex-col overflow-hidden">
               <li class="w-full h-auto flex items-start justify-between py-6">
-                <span class="text-[20px] leading-[18px] text-white">{{ collection.title }}</span>
+                <span class="text-[20px] leading-[18px] tt-norms-pro-med text-white">{{ collection.title }}</span>
                 <!-- plus icon -->
                 <span class="w-auto h-auto flex items-center justify-center text-white dropdown-icon">
                   {% render 'plus-icon' %}
@@ -137,14 +137,14 @@
                   <div class="w-full h-auto flex items-center justify-start flex-row gap-x-6">
                     {% for product in collection.products %}
                       <a href="{{ product.url }}">
-                        <p class="body-14 text-white font-semibold">{{ product.title | replace: "Pardo", "" }}</p>
+                        <p class="body-14 text-white tt-norms-pro-med">{{ product.title | replace: "Pardo", "" }}</p>
                       </a>
                     {% endfor %}
                   </div>
                   <!-- discover gamma button -->
                   <div class="w-full h-auto flex items-center justify-end">
                     <a href="{{ collection.url }}">
-                      <div class="w-auto h-auto inline-flex cta-choco">
+                      <div class="w-auto h-auto inline-flex cta-choco-round">
                         <p class="text-white body-14">{{ section.settings.cta_gamma | append: '   ' | append: collection.title }}</p>
                       </div>
                     </a>
@@ -161,6 +161,15 @@
 
     <!-- right reserved container + icon pardo -->
     <div class="w-full h-auto flex items-start justify-center flex-col  gap-y-12">
+
+      <!--find delear button-->
+      <div class="w-full h-auto flex items-center justify-center">
+        <a href="pages/delear">
+          <div class="w-auto h-auto inline-flex cta-white-rounded">
+            <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear |  default: "Find a delear" }}</p>
+          </div>
+        </a>
+      </div>
 
       <!-- pardo logo container -->
       <div class="w-full h-auto flex items-center justify-center pardo-logo">
@@ -297,6 +306,13 @@
         "label": "Cta gamma",
         "default": "Discover",
         "info": "Set the cta gamma"
+      },
+      {
+        "type": "text",
+        "id": "cta_delear",
+        "label": "Cta delear",
+        "default": "Find a delear",
+        "info": "Cta delear"
       }
     ],
     "blocks": [

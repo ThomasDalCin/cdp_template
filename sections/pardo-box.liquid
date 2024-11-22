@@ -5,7 +5,7 @@
     <!-- Box Containers -->
     <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:flex-row lg:gap-x-4">
         <!--title-->
-        <p class="text-[40px] leading-[40px]">{{ section.settings.box_title | default: "Cantiere del Pardo" }}</p>
+        <p class="text-[40px] leading-[40px]  tt-norms-pro-med">{{ section.settings.box_title | default: "Cantiere del Pardo." }}</p>
         <!--description-->
         <p class="body-16">{{ section.settings.box_text | default: "Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad
@@ -15,7 +15,7 @@
             <!--cta-->
             <a href="{{ section.settings.cta_link }}" class="w-auto h-auto">
                 <div class="w-full h-[48px] min-h-[48px] cta-white">
-                    <p class="body-14">{{ section.settings.cta_text |  default: "Discover more" }}</p>
+                    <p class="body-14  tt-norms-pro-reg">{{ section.settings.cta_text |  default: "Discover more" }}</p>
                 </div>
             </a>
         </div>

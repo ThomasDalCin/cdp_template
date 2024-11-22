@@ -5,6 +5,10 @@
       "type": "page-title",
       "settings": {}
     },
+    "collab-top-page": {
+      "type": "collab-top-page",
+      "settings": {}
+    },
     "box-image": {
       "type": "box-image",
       "blocks": {
@@ -58,6 +62,7 @@
   },
   "order": [
     "page-title",
+    "collab-top-page",
     "box-image"
   ]
 }
