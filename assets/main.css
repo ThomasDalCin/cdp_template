@@ -496,12 +496,6 @@ p,
   line-height: var(--body-14-medium-height);
 }
 
-.header-1 {
-  font-weight: 400;
-  font-size: var(--header-1);
-  line-height: var(--header-1-height);
-}
-
 .body-16 {
   font-weight: 400;
   font-size: var(--body-16);
@@ -2094,10 +2088,6 @@ p,
 
 .border-\[1\.5px\] {
   border-width: 1.5px;
-}
-
-.border-\[var\(--secondary-background-color\)\] {
-  border-color: var(--secondary-background-color);
 }
 
 .border-\[var\(--secondary-neutral-color\)\] {

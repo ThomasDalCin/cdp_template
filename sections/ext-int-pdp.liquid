@@ -1,16 +1,16 @@
 <!-- interior & exteriors pdp section -->
 
 
-<div class="overlay hidden fixed z-50 inset-0 w-full h-dvh bg-[#EFEEED]">
+<div class="overlay-images hidden fixed z-50 inset-0 w-full h-dvh bg-[#EFEEED]">
 
   <!-- container-closing-icon -->
-  <div class="w-auto h-auto bg-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay z-50 cursor-pointer">
+  <div class="w-auto h-auto bg-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay-images z-50 cursor-pointer">
     {% render 'x-icon' %}
   </div>
 
   <!-- Swiper wrapper for external gallery -->
   <div class="swiper swiper-container-overlay-external transition-all duration-200 ease-linear relative hidden">
-    <div class="swiper-wrapper swiper-wrapper-overlay">
+    <div class="swiper-wrapper">
       {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
       {% if externalBoat %}
         {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
@@ -39,7 +39,7 @@
 
   <!-- Swiper wrapper for internal gallery -->
   <div class="swiper swiper-container-overlay-internal transition-all duration-200 ease-linear relative hidden">
-    <div class="swiper-wrapper swiper-wrapper-overlay">
+    <div class="swiper-wrapper">
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
       {% if internalBoat %}
         {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
@@ -196,10 +196,10 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   
-  const overlay = document.querySelector('.overlay');
+  const overlay = document.querySelector('.overlay-images');
   const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
   const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
-  const closeOverlay = document.querySelector('.close-overlay');
+  const closeOverlay = document.querySelector('.close-overlay-images');
   let externalSwiper, internalSwiper;
   
   // Inizializza Swiper
