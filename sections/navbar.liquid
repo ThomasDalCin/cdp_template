@@ -35,7 +35,7 @@
 
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-5">
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8">
-            {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all ranges" | split: ',' %}
+            {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all models" | split: ',' %}
             {% for link in linklists.yatch.links %}
             {% assign matching_collection = collections[link.object.handle] %}
             {% unless link.title == 'Pardo pre-owned' %}
@@ -44,11 +44,11 @@
 
                 <div class="relative inline-block">
                     {% if allLinksTitle contains link.title %}
-                    {% if link.title == 'View all ranges' %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] font-light leading-[20px]
+                    {% if link.title == 'View all models' %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-reg leading-[20px]
                     lg:text-[24px] lg:leading-[24px]" }}
                     {% else %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] lg:text-[40px]
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg lg:text-[40px]
                     lg:leading-[40px]" }}
                     {% endif %}
                     {% endif %}
@@ -56,7 +56,7 @@
 
                 <div
                     class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
-                    {% if link.title == "View all ranges" %}
+                    {% if link.title == "View all models" %}
                     <div
                         class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full my-4">
                         {% for collection in collections %}
@@ -95,7 +95,7 @@
         <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
             {% for link in linklists.yatch.links %}
             {% unless allLinksTitle contains link.title %}
-            {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px] lg:text-[16px]
+            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px] lg:text-[16px]
             lg:leading-[22px] underline" }}
             {% endunless %}
             {% endfor %}
@@ -133,7 +133,7 @@
                 {% if link.title != "Privacy preferences" and link.title != "Privacy policy" %}
                 {% unless link.title == 'Press room' %}
                 <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
-                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px]
+                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[40px] tt-norms-pro-reg
                     lg:leading-[40px]" }}
                 </li>
                 {% endunless %}
@@ -144,7 +144,7 @@
             <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
                 {% for link in linklists.main-menu.links %}
                 {% if link.title == 'Press room' %}
-                {{ link.title | link_to: link.url, class: "text-white font-light text-[16px] leading-[22px]
+                {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px]
                 lg:text-[16px] lg:leading-[22px] underline" }}
                 {% endif %}
                 {% endfor %}
@@ -197,7 +197,7 @@
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
-        <div class="chips-label flex items-center space-x-2 min-h-[40px] text-white">
+        <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
             <div class="chips-text text-nowrap body-14 text-white" id="collection-chips-title">{{ collection.title }}
             </div>
             {% render 'arrow-down-icon' %}
@@ -207,15 +207,15 @@
     </div>
 
     <!--container images products-->
-    <div class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52">
+    <div class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20">
         {% for collection in collections %}
         {% for product in collection.products %}
         {% assign productMainImg = product.images[0] %}
-        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center">
-            <li class="container-product-main-image w-full h-auto list-none relative"
+        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center relative">
+            <li class="container-product-main-image w-full h-auto list-none relative z-10"
                 data-product-collection="{{ collection.title }}">
                 <a href="{{ product.url }}" class="w-full h-auto">
-                    <img class="product-main-img w-full h-[172px] min-h-[172px] object-contain"
+                    <img class="product-main-img w-full h-[172px] min-h-[172px] object-cover"
                         src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}">
                 </a>
                 {% for tag in product.tags %}
@@ -227,7 +227,7 @@
                 {% endif %}
                 {% endfor %}
             </li>
-            <p class="header-1-medium text-white">{{ product.title | replace: "Pardo", "" }}</p>
+            <p class="text-[80px] leading-[80px] tt-norms-pro-light absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white">{{ product.title | replace: "Pardo", "" }}</p>
         </div>
         {% endfor %}
         {% endfor %}
@@ -569,7 +569,7 @@
 
                 resetScroll();
 
-                if (linkTarget === "View all ranges") {
+                if (linkTarget === "View all models") {
                     productCols.forEach((product) => {
                         if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
                             product.parentElement.classList.remove('hidden');

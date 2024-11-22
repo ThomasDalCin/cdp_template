@@ -712,6 +712,20 @@ p,
   padding-bottom: 0.5rem;
 }
 
+.chips-label-white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .chips-label-active {
   display: flex;
   width: auto;
@@ -1118,6 +1132,10 @@ p,
   top: 16px;
 }
 
+.-top-\[52px\] {
+  top: -52px;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1175,10 +1193,6 @@ p,
   margin-bottom: 3rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1221,10 +1235,6 @@ p,
 
 .mt-\[136px\] {
   margin-top: 136px;
-}
-
-.box-border {
-  box-sizing: border-box;
 }
 
 .block {
@@ -2248,6 +2258,11 @@ p,
   padding-right: 1.5rem;
 }
 
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -2306,11 +2321,6 @@ p,
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .pb-10 {
@@ -2373,6 +2383,10 @@ p,
   padding-top: 136px;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2420,6 +2434,10 @@ p,
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-\[80px\] {
+  font-size: 80px;
 }
 
 .font-bold {
@@ -2500,6 +2518,10 @@ p,
 
 .leading-\[56px\] {
   line-height: 56px;
+}
+
+.leading-\[80px\] {
+  line-height: 80px;
 }
 
 .text-\[\#7A7A7A\] {
@@ -2812,12 +2834,6 @@ p,
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-@media (min-width: 640px) {
-  .sm\:w-1\/2 {
-    width: 50%;
-  }
-}
-
 @media (min-width: 1024px) {
   .lg\:fixed {
     position: fixed;
@@ -2916,10 +2932,6 @@ p,
 
   .lg\:flex {
     display: flex;
-  }
-
-  .lg\:grid {
-    display: grid;
   }
 
   .lg\:hidden {
@@ -3056,10 +3068,6 @@ p,
 
   .lg\:flex-grow {
     flex-grow: 1;
-  }
-
-  .lg\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
