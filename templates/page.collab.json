@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "page-title": {
@@ -6,17 +15,55 @@
     },
     "collab-fimstrip": {
       "type": "collab-filmstrip",
+      "blocks": {
+        "card_NeQgFH": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/207afceb8eda7f1d3534e759537f1443.jpg",
+            "text": "Card description here."
+          }
+        },
+        "card_dALwyG": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/b3ceb364d46f0ca266c95b619d2dec6f.jpg",
+            "text": "Card description here."
+          }
+        },
+        "card_xCz8pQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3e96875638c5ed93e3a414e3f4b932fe.jpg",
+            "text": "Card description here."
+          }
+        },
+        "card_XdMdy7": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/d39e969a02d108683d79ec6bf4fe289e.jpg",
+            "text": "Card description here."
+          }
+        },
+        "card_nJMcRD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/6f8afa0287eb263964fbc8aacb62c4be.jpg",
+            "text": "Card description here."
+          }
+        }
+      },
+      "block_order": [
+        "card_NeQgFH",
+        "card_dALwyG",
+        "card_xCz8pQ",
+        "card_XdMdy7",
+        "card_nJMcRD"
+      ],
       "settings": {
-        "section_heading": "Falconeri X Pardo Yachts",
-        "image_one": "shopify:\/\/shop_images\/d7c86f2c1ac2acbbdf80f9f9a20b90f3.jpg",
-        "text_one": "Exclusive partnership on sea.",
-        "image_two": "shopify:\/\/shop_images\/a4ef2315e14c7a0e040f799d1b2a7cc5.jpg",
-        "text_two": "Blending fashion and craftsmanship.",
-        "image_three": "shopify:\/\/shop_images\/616e6b181ed7204f3a5ca7050e73e215.jpg",
-        "text_three": "Elegance and innovation."
+        "section_heading": "Falconeri X Pardo Yachts"
       }
     },
-    "collab-cards" : {
+    "collab-cards": {
       "type": "collab-cards",
       "settings": {}
     }
