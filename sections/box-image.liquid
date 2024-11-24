@@ -1,12 +1,12 @@
 <!-- Simple Box Image Text Section -->
-<div class="w-full h-auto flex flex-col gap-y-6 pb-14">
+<div class="w-full h-auto flex flex-col gap-y-6 pb-14 lg:px-20 lg:pt-[60px]">
   {% for block in section.blocks %}
   <div class="w-full h-auto flex items-start justify-center flex-col">
     <!-- Image -->
     <img 
       src="{{ block.settings.box_image | img_url: '720x' }}" 
       alt="" 
-      class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %}">
+      class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %} lg:h-[540px]">
     
     <!-- Content -->
     <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4">
@@ -21,8 +21,8 @@
     <!-- Box CTA -->
     {% if block.settings.show_cta %}
     <div class="w-full h-auto px-6">
-      <a href="" class="w-full h-auto">
-        <div class="w-full h-[48px] min-h-[48px] cta-choco">
+      <a href="" class="w-full h-auto lg:flex lg:items-center lg:justify-center lg:mt-[60px]">
+        <div class="w-full h-[48px] min-h-[48px] cta-choco lg:w-[220px]">
           <p class="body-14 tt-norms-pro-reg">{{ block.settings.cta_text }}</p>
         </div>
       </a>

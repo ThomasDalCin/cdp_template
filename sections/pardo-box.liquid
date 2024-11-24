@@ -1,58 +1,101 @@
 <!-- Pardo box -->
-<div
-    class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-14 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10">
+<div class="w-full h-auto flex flex-col items-start justify-center lg:px-20 lg:pt-[60px] lg:flex-row lg:items-start lg:justify-start lg:gap-x-4 lg:mb-[120px]">
+  <div class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-14 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10 lg:rounded-lg lg:min-h-[244px] lg:h-[244px]">
 
     <!-- Box Containers -->
-    <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:flex-row lg:gap-x-4">
-        <!--title-->
-        <p class="text-[40px] leading-[40px]  tt-norms-pro-med">{{ section.settings.box_title | default: "Cantiere del Pardo." }}</p>
-        <!--description-->
-        <p class="body-16">{{ section.settings.box_text | default: "Lorem ipsum dolor sit amet, consectetur adipiscing
+    <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:gap-x-4 lg:flex-col">
+      <!-- title -->
+      <p class="text-[40px] leading-[40px]  tt-norms-pro-med">{{ section.settings.box_title | default: "Cantiere del Pardo." }}</p>
+      <!-- description -->
+      <p class="body-16">{{ section.settings.box_text | default: "Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad
-            litora torquent per conubia nostra, per inceptos himenaeos."}}</p>
-        <!--container cta-->
-        <div class="w-full h-auto">
-            <!--cta-->
-            <a href="{{ section.settings.cta_link }}" class="w-auto h-auto">
-                <div class="w-full h-[48px] min-h-[48px] cta-white">
-                    <p class="body-14  tt-norms-pro-reg">{{ section.settings.cta_text |  default: "Discover more" }}</p>
-                </div>
-            </a>
-        </div>
+            litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+      <!-- container cta -->
+      <div class="w-full h-auto lg:w-[220px]">
+        <!-- cta -->
+        <a href="{{ section.settings.cta_link }}" class="w-auto h-auto">
+          <div class="w-full h-[48px] min-h-[48px] cta-white">
+            <p class="body-14  tt-norms-pro-reg">{{ section.settings.cta_text | default: "Discover more" }}</p>
+          </div>
+        </a>
+      </div>
 
     </div>
+  </div>
 
+  <!-- eco-modules -->
+  <!-- Box Containers -->
+  <div class="box-containers w-full h-auto flex flex-col gap-y-4 items-start justify-center p-6 mb-14 lg:mb-0 lg:flex-row lg:gap-x-4 lg:p-0">
 
+    <!-- Etic Code Container -->
+    <div class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col items-start justify-center gap-y-6 rounded-lg p-6 bg-[#EFEEED] lg:px-6 lg:pt-6 lg:pb-6 lg:min-h-[244px] lg:h-[244px]">
+      <p class="body-14">{{ section.settings.section_heading_etic }}</p>
+      <p class="body-16 italic">{{ section.settings.section_subheading_etic }}</p>
+      <p class="body-16">{{ section.settings.section_content_etic }}</p>
+      <div class="w-full h-auto flex items-center justify-end">
+        <a href="{{ section.settings.cta_link_etic }}" class="cta-choco-round h-[32px] flex-1 lg:px-4 lg:py-2 lg:flex-none">
+          <p class="body-14-medium">{{ section.settings.cta_text_etic }}</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
 </div>
 
+
 {% schema %}
-{
-  "name": "Pardo Box",
-  "settings": [
-    {
-      "type": "text",
-      "id": "box_title",
-      "label": "Box Title",
-      "default": "Cantiere del Pardo"
-    },
-    {
-      "type": "textarea",
-      "id": "box_text",
-      "label": "Box Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "CTA Text",
-      "default": "Discover more"
-    },
-    {
-      "type": "url",
-      "id": "cta_link",
-      "label": "CTA Link"
-    }
-  ]
-}
+  {
+    "name": "Pardo Box",
+    "settings": [
+      {
+        "type": "text",
+        "id": "box_title",
+        "label": "Box Title",
+        "default": "Cantiere del Pardo"
+      },
+      {
+        "type": "textarea",
+        "id": "box_text",
+        "label": "Box Description",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Discover more"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link"
+      }, {
+        "type": "text",
+        "id": "section_heading_etic",
+        "label": "Etic Section Heading",
+        "default": "Codice etico"
+      }, {
+        "type": "text",
+        "id": "section_subheading_etic",
+        "label": "Etic Section Subheading",
+        "default": "Progettare il lusso con un approccio ecologico"
+      }, {
+        "type": "textarea",
+        "id": "section_content_etic",
+        "label": "Etic Section Content",
+        "default": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+      }, {
+        "type": "text",
+        "id": "cta_text_etic",
+        "label": "CTA Text",
+        "default": "Scarica il codice etico"
+      }, {
+        "type": "url",
+        "id": "cta_link_etic",
+        "label": "CTA Link"
+
+      }
+    ]
+  }
 
 {% endschema %}

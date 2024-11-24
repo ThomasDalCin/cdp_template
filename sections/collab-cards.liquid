@@ -1,6 +1,6 @@
 <!--collab cards container-->
 <!-- Partnership collab cards -->
-<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10">
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start lg:px-20 lg:pt-[60px] lg:mb-[120px]">
 
     <!-- Assign liquid variables -->
     {% assign allBlogs = "Collab, " | split: "," %}
@@ -8,7 +8,7 @@
     {% for article in blogs[handle].articles %}
     {% unless article.tags contains "Past" %}
     <!-- Article wrap -->
-    <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED]">
+    <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_1rem)] lg:min-h-[440px]">
         <!--article image-->
         <div class="w-full h-[220px] min-h-[220px]">
             <img src="{{ article.image |  img_url: 'master'}}" alt="{{ article.title }}"

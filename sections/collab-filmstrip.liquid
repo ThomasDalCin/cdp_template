@@ -1,14 +1,23 @@
-<!-- collab filmstrip section -->
-<div class="falconeri-container w-full h-auto flex flex-col items-start justify-center gap-y-4 px-6 py-14 lg:gap-y-6 lg:p-10 overflow-x-hidden">  
-  <!-- Scrolling Images -->
-  <div class="innovation-container-scrolling w-[calc(100%+4rem)] px-6 -mx-6 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
-    {% assign sectionImages = "image_one,image_two,image_three" | split: "," %}
-    {% assign sectionTexts = "text_one,text_two,text_three" | split: "," %}
-    {% for sectionImage in sectionImages %}
-      {% assign image = section.settings[sectionImage] %}
-      {% assign text = section.settings[sectionTexts[forloop.index0]] %}
+<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center relative py-14">
+
+  <!-- arrows box -->
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
+    <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#A9A09E] px-4 py-2">
+      <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+        {% render 'arrow-left-icon' %}
+      </button>
+      <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-white">
+        {% render 'arrow-right-icon' %}
+      </button>
+    </div>
+  </div>
+
+  <div class="collab-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 lg:p-0 lg:px-20 lg:pb-4">
+    {% for block in section.blocks %}
+      {% assign image = block.settings.image %}
+      {% assign text = block.settings.text %}
       {% assign imageItems = forloop.index | modulo: 2 %}
-      
+
       {% if image %}
         {% if imageItems == 0 %}
           <!-- Card for even index -->
@@ -30,69 +39,154 @@
       {% endif %}
     {% endfor %}
   </div>
+
 </div>
 
-{% comment %} 
-  Section Schema Settings here; 
-{% endcomment %}
-{% schema %}
-{
-  "name": "collab filmstrip",
-  "settings": [
+<style>
+  .carousel-arrow.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Spazio ai lati durante lo scroll */
+  .innovation-container-scrolling {
+    scroll-padding-left: 5rem; /* aggiunge spazio a sinistra */
+    scroll-padding-right: 5rem; /* aggiunge spazio a destra */
+  }
+</style>
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const prevArrow = document.getElementById('prevArrow');
+  const nextArrow = document.getElementById('nextArrow');
+  const scrollContainer = document.querySelector('.collab-list-container');
+
+  if (!scrollContainer || !prevArrow || !nextArrow) {
+      console.error('Error: Scroll container or arrows not found.');
+      return;
+  }
+
+  // Rileva tutte le card
+  const cards = Array.from(scrollContainer.children);
+  if (cards.length === 0) {
+      console.error('Error: No cards found inside the scroll container.');
+      return;
+  }
+
+  // Calcola la larghezza di una singola card (inclusi margini)
+  const cardWidth = cards[0].offsetWidth;
+  const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
+  const scrollAmount = cardWidth + cardMarginRight;
+
+  // Funzione per aggiornare lo stato delle frecce
+  function updateArrows() {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+  }
+
+  // Funzione per gestire lo scroll
+  function scrollContainerBy(amount) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+      scrollContainer.scrollTo({
+          left: newScrollLeft,
+          behavior: 'smooth'
+      });
+
+      setTimeout(updateArrows, 300); // Aggiorna lo stato delle frecce dopo lo scroll
+  }
+
+  // Aggiungi gli event listener ai pulsanti
+  prevArrow.addEventListener('click', function () {
+      scrollContainerBy(-scrollAmount);
+  });
+
+  nextArrow.addEventListener('click', function () {
+      scrollContainerBy(scrollAmount);
+  });
+
+  // Aggiorna lo stato delle frecce all'inizio
+  updateArrows();
+  scrollContainer.addEventListener('scroll', updateArrows);
+});
+
+
+  </script>
+
+  {% comment %} 
+    Section Schema Settings here; 
+  {% endcomment %}
+  {% schema %}
     {
-      "type": "text",
-      "id": "section_heading",
-      "default": "Falconeri X Pardo Yachts",
-      "label": "Falconeri X Pardo Heading"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_one",
-      "label": "Collab filmstrip Image One"
-    },
-    {
-      "type": "text",
-      "id": "text_one",
-      "default": "Exclusive partnership on sea.",
-      "label": "Text for Image One"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_two",
-      "label": "Collab filmstrip Image Two"
-    },
-    {
-      "type": "text",
-      "id": "text_two",
-      "default": "Blending fashion and craftsmanship.",
-      "label": "Text for Image Two"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_three",
-      "label": "Collab filmstrip Image Three"
-    },
-    {
-      "type": "text",
-      "id": "text_three",
-      "default": "Elegance and innovation.",
-      "label": "Text for Image Three"
+      "name": "collab filmstrip",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_heading",
+          "default": "Falconeri X Pardo Yachts",
+          "label": "Falconeri X Pardo Heading"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "card",
+          "name": "Card",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "type": "text",
+              "id": "text",
+              "default": "Card description here.",
+              "label": "Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default Collab filmstrip Section",
+          "category": "Custom Sections",
+          "blocks": [
+            {
+              "type": "card",
+              "settings": {
+                "image": "shopify://shop_images/Rectangle_597.png",
+                "text": "Exclusive partnership on sea."
+              }
+            },
+            {
+              "type": "card",
+              "settings": {
+                "image": "shopify://shop_images/Rectangle_597.png",
+                "text": "Blending fashion and craftsmanship."
+              }
+            },
+            {
+              "type": "card",
+              "settings": {
+                "image": "shopify://shop_images/Rectangle_597.png",
+                "text": "Elegance and innovation."
+              }
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "presets": [
-    {
-      "name": "Default Collab filmstrip Section",
-      "category": "Custom Sections",
-      "settings": {
-        "section_heading": "Falconeri X Pardo Yachts Collaboration",
-        "image_one": "shopify://shop_images/Rectangle_597.png",
-        "text_one": "Exclusive partnership on sea.",
-        "image_two": "shopify://shop_images/Rectangle_597.png",
-        "text_two": "Blending fashion and craftsmanship.",
-        "image_three": "shopify://shop_images/Rectangle_597.png",
-        "text_three": "Elegance and innovation."
-      }
-    }
-  ]
-}
-{% endschema %}
+    {% endschema %}
+    
