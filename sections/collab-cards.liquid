@@ -1,5 +1,4 @@
-<!--collab cards container-->
-<!-- Partnership collab cards -->
+<!-- Collab Cards -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start lg:px-20 lg:pt-[60px] lg:mb-[120px]">
 
     <!-- Assign liquid variables -->
@@ -7,15 +6,16 @@
     {% for handle in allBlogs %}
     {% for article in blogs[handle].articles %}
     {% unless article.tags contains "Past" %}
-    <!-- Article wrap -->
+
+    <!-- Collab wrap -->
     <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_1rem)] lg:min-h-[440px]">
-        <!--article image-->
+        <!--Collab card image-->
         <div class="w-full h-[220px] min-h-[220px]">
             <img src="{{ article.image |  img_url: 'master'}}" alt="{{ article.title }}"
                 class="w-full h-full object-cover object-center rounded-t-2xl">
         </div>
 
-        <!--article wrap content-->
+        <!--Collab wrap content-->
         <div class="card-article-content w-full h-auto flex flex-col gap-y-6 items-start justify-start p-6">
 
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
@@ -23,9 +23,9 @@
                 <p class="body-14">{{ article.content | truncate: 100 }}</p>
             </div>
 
-            <!--article card button-->
+            <!--Collab card button-->
             <div class="w-full h-auto flex flex-row items-start justify-end">
-                <!-- container button -->
+                <!-- Container button -->
                 <a href="">
                     <div class="inline-flex cta-choco-round w-[129px] h-[32px]">
                         <p class="body-14">{{ section.settings.cta_text | default: "Buy now" }}</p>

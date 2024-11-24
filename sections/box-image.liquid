@@ -1,14 +1,15 @@
 <!-- Simple Box Image Text Section -->
 <div class="w-full h-auto flex flex-col gap-y-6 pb-14 lg:px-20 lg:pt-[60px]">
+
   {% for block in section.blocks %}
   <div class="w-full h-auto flex items-start justify-center flex-col">
-    <!-- Image -->
+    <!-- Card Image -->
     <img 
       src="{{ block.settings.box_image | img_url: '720x' }}" 
       alt="" 
       class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %} lg:h-[540px]">
     
-    <!-- Content -->
+    <!-- Card Content -->
     <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4">
       {% if block.settings.show_large_heading %}
       <p class="{% if block.settings.large_heading %}text-[40px] leading-[46px]{% else %}text-[24px] leading-[30px]{% endif %}  tt-norms-pro-med">
@@ -18,7 +19,7 @@
       <p class="body-14">{{ block.settings.box_text }}</p>
     </div>
     
-    <!-- Box CTA -->
+    <!-- Card Box CTA -->
     {% if block.settings.show_cta %}
     <div class="w-full h-auto px-6">
       <a href="" class="w-full h-auto lg:flex lg:items-center lg:justify-center lg:mt-[60px]">

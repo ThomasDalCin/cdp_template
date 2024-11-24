@@ -1,23 +1,25 @@
-<!-- explore section home page -->
+<!-- Orizontal images-scroll container -->
 <div class="w-full h-auto flex flex-col items-center justify-center">
 
-  <!-- explore gallery wrapper -->
+  <!-- Gallery wrapper -->
   <div class="w-full h-auto overflow-x-hidden relative">
     <div class="w-auto h-auto flex flex-row overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
-      <!-- assign variables -->
-      {% assign explore_images = "explore_image_one,explore_image_two,explore_image_three,explore_image_four" | split:
-      "," %}
-      {% assign total_images = explore_images.size %}
 
-      {% for explore_image in explore_images %}
-      {% assign explore_image_url = section.settings[explore_image] | img_url: 'master' %}
+      <!-- assign variables -->
+      {% assign oriz_images = "oriz_image_one,oriz_image_two,oriz_image_three,oriz_image_four" | split:
+      "," %}
+      {% assign total_images = oriz_images.size %}
+
+      {% for oriz_image in oriz_images %}
+      {% assign oriz_image_url = section.settings[oriz_image] | img_url: 'master' %}
+
       {% if explore_image_url %}
-      <!-- container explore section image -->
+      <!-- Container image -->
       <div
         class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start lg:h-[620px] lg:min-h-[620px]"
         id="{{ explore_image }}">
-        <img class="w-full h-full object-cover object-center" src="{{ explore_image_url }}"
-          alt="{{ explore_image.alt }}">
+        <img class="w-full h-full object-cover object-center" src="{{ oriz_image_url }}"
+          alt="{{ oriz_image.alt }}">
       </div>
       {% endif %}
       {% endfor %}
@@ -31,6 +33,7 @@
 {% comment %}
 Section Schema Settings here;
 {% endcomment %}
+
 {% schema %}
 {
 "name": "Oriz-scroll",
@@ -38,22 +41,22 @@ Section Schema Settings here;
 
 {
 "type": "image_picker",
-"id": "explore_image_one",
+"id": "oriz_image_one",
 "label": "Explore image"
 },
 {
 "type": "image_picker",
-"id": "explore_image_two",
+"id": "oriz_image_two",
 "label": "Explore image"
 },
 {
 "type": "image_picker",
-"id": "explore_image_three",
+"id": "oriz_image_three",
 "label": "Explore image"
 },
 {
 "type": "image_picker",
-"id": "explore_image_four",
+"id": "oriz_image_four",
 "label": "Explore image"
 }
 ]

@@ -1,3 +1,5 @@
+
+<!--Collab filmstrip-->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center relative py-14">
 
   <!-- arrows box -->
@@ -11,7 +13,8 @@
       </button>
     </div>
   </div>
-
+  
+  <!--Collab Scrolling list container-->
   <div class="collab-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 lg:p-0 lg:px-20 lg:pb-4">
     {% for block in section.blocks %}
       {% assign image = block.settings.image %}
@@ -53,11 +56,6 @@
     pointer-events: auto;
   }
 
-  /* Spazio ai lati durante lo scroll */
-  .innovation-container-scrolling {
-    scroll-padding-left: 5rem; /* aggiunge spazio a sinistra */
-    scroll-padding-right: 5rem; /* aggiunge spazio a destra */
-  }
 </style>
 
 
@@ -72,19 +70,18 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
   }
 
-  // Rileva tutte le card
+ 
   const cards = Array.from(scrollContainer.children);
   if (cards.length === 0) {
       console.error('Error: No cards found inside the scroll container.');
       return;
   }
 
-  // Calcola la larghezza di una singola card (inclusi margini)
+  
   const cardWidth = cards[0].offsetWidth;
   const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
   const scrollAmount = cardWidth + cardMarginRight;
 
-  // Funzione per aggiornare lo stato delle frecce
   function updateArrows() {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
@@ -93,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
   }
 
-  // Funzione per gestire lo scroll
   function scrollContainerBy(amount) {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
@@ -105,10 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
           behavior: 'smooth'
       });
 
-      setTimeout(updateArrows, 300); // Aggiorna lo stato delle frecce dopo lo scroll
+      setTimeout(updateArrows, 300); 
   }
 
-  // Aggiungi gli event listener ai pulsanti
   prevArrow.addEventListener('click', function () {
       scrollContainerBy(-scrollAmount);
   });
@@ -117,13 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
       scrollContainerBy(scrollAmount);
   });
 
-  // Aggiorna lo stato delle frecce all'inizio
   updateArrows();
   scrollContainer.addEventListener('scroll', updateArrows);
 });
 
 
-  </script>
+ </script>
+
+
 
   {% comment %} 
     Section Schema Settings here; 
