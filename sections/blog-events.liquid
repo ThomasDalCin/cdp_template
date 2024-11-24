@@ -1,4 +1,6 @@
-<!-- Articles with events tag -->
+<!-- Events Articles -->
+
+<!--Blog event container-->
 <div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-2 p-4 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
@@ -8,7 +10,7 @@
         {% assign eventDate = eventArticle.metafields.custom.when.value | default: "Date not provided" %}
         <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
           <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
-            <!-- events image -->
+            <!-- Events image Container -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
               <img
                 src="{{ eventArticle |  img_url: 'master' }}"
@@ -47,6 +49,8 @@
       {% endfor %}
     {% endif %}
   {% endif %}
+
+  <!--Events article added by blocks -->
   {% for block in section.blocks %}
     {% if block.type == "card-event" %}
       <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
@@ -180,15 +184,15 @@
   {% endif %}
 </div>
 
-<!-- Article list container past -->
+<!-- Past Articles Container -->
 <div class="w-full h-auto flex items-start justify-center flex-col hidden past-event">
 
-  <!-- title section here -->
+  <!-- Title section here -->
   <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-8">
     <p class="text-[48px] leading-[52px]">{{ section.settings.main_title | default: "Past events" }}</p>
   </div>
 
-  <!-- scroll past card container -->
+  <!-- Scroll Past Article Container -->
   <div class="w-full h-auto flex items-start justify-center flex-col py-4 px-4">
 
     <!-- Scrolling container -->
@@ -320,7 +324,6 @@
     articles.forEach((articleObj) => {
       const article = articleObj.node;
       
-      // Estrazione dei metafields "when" e "location"
       const whenMetafield = article.metafields.find(mf => mf.key === 'when');
       const locationMetafield = article.metafields.find(mf => mf.key === 'location');
   
@@ -338,12 +341,12 @@
         "mainEntityOfPage": `https://${shopifyStore}/articles/${article.id}`
       };
   
-      // Creazione dell'elemento script
+  
       const scriptEl = document.createElement('script');
       scriptEl.type = 'application/ld+json';
       scriptEl.textContent = JSON.stringify(jsonLd);
       
-      // Aggiunta dell'elemento al DOM
+
       jsonLdContainer.appendChild(scriptEl);
     });
   } else {
@@ -351,7 +354,7 @@
   }
   };
   
-  // Esegui la funzione per creare JSON-LD
+
   buildJsonLd();
   
   

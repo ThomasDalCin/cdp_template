@@ -1,4 +1,4 @@
-<!-- News Articles: Single Row Horizontal Scroll -->
+<!-- News Articles -->
 <div id="news-layout" class="blog-news-container w-full h-auto flex flex-col overflow-x-hidden px-6">
   {% if blogs.news %}
     {% assign newsArticles = blogs.news.articles %}
@@ -60,7 +60,7 @@
       <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4">
         {% for article in newsArticles %}
           {% if article.tags contains "Press Room" %}
-            <div class="blog-item-horizontal-view w-[363px] h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
 
               <!-- Article Image -->
               <div class="blog-item-image w-full h-auto">
@@ -126,7 +126,7 @@
       <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4">
         {% for article in newsArticles %}
           {% if article.tags contains "Awards" %}
-            <div class="blog-item-horizontal-view w-[363px] h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
 
               <div class="blog-item-image w-full h-auto">
                 <img

@@ -1197,6 +1197,10 @@ p,
   margin-bottom: 3rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1239,10 +1243,6 @@ p,
 
 .mt-\[136px\] {
   margin-top: 136px;
-}
-
-.mb-14 {
-  margin-bottom: 3.5rem;
 }
 
 .block {
@@ -1462,10 +1462,6 @@ p,
   height: 100vh;
 }
 
-.h-\[276px\] {
-  height: 276px;
-}
-
 .max-h-\[147px\] {
   max-height: 147px;
 }
@@ -1500,10 +1496,6 @@ p,
 
 .max-h-\[423px\] {
   max-height: 423px;
-}
-
-.max-h-\[276px\] {
-  max-height: 276px;
 }
 
 .min-h-\[160px\] {
@@ -2415,10 +2407,6 @@ p,
   padding-top: 1.5rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
-}
-
 .pt-\[136px\] {
   padding-top: 136px;
 }
@@ -2946,17 +2934,16 @@ p,
     margin-right: 0px;
   }
 
-  .lg\:-mx-20 {
-    margin-left: -5rem;
-    margin-right: -5rem;
-  }
-
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
 
   .lg\:mb-10 {
     margin-bottom: 2.5rem;
+  }
+
+  .lg\:mb-\[120px\] {
+    margin-bottom: 120px;
   }
 
   .lg\:mt-10 {
@@ -2967,24 +2954,16 @@ p,
     margin-top: 3.5rem;
   }
 
-  .lg\:mt-\[90px\] {
-    margin-top: 90px;
-  }
-
-  .lg\:mb-\[120px\] {
-    margin-bottom: 120px;
-  }
-
   .lg\:mt-\[154px\] {
     margin-top: 154px;
   }
 
-  .lg\:mt-\[196px\] {
-    margin-top: 196px;
-  }
-
   .lg\:mt-\[60px\] {
     margin-top: 60px;
+  }
+
+  .lg\:mt-\[90px\] {
+    margin-top: 90px;
   }
 
   .lg\:flex {
@@ -3003,6 +2982,10 @@ p,
     height: 100px;
   }
 
+  .lg\:h-\[244px\] {
+    height: 244px;
+  }
+
   .lg\:h-\[30px\] {
     height: 30px;
   }
@@ -3013,6 +2996,10 @@ p,
 
   .lg\:h-\[480px\] {
     height: 480px;
+  }
+
+  .lg\:h-\[540px\] {
+    height: 540px;
   }
 
   .lg\:h-\[617px\] {
@@ -3039,14 +3026,6 @@ p,
     height: 100%;
   }
 
-  .lg\:h-\[540px\] {
-    height: 540px;
-  }
-
-  .lg\:h-\[244px\] {
-    height: 244px;
-  }
-
   .lg\:max-h-\[600px\] {
     max-height: 600px;
   }
@@ -3055,8 +3034,20 @@ p,
     min-height: 200px;
   }
 
+  .lg\:min-h-\[244px\] {
+    min-height: 244px;
+  }
+
+  .lg\:min-h-\[276px\] {
+    min-height: 276px;
+  }
+
   .lg\:min-h-\[386px\] {
     min-height: 386px;
+  }
+
+  .lg\:min-h-\[440px\] {
+    min-height: 440px;
   }
 
   .lg\:min-h-\[480px\] {
@@ -3073,22 +3064,6 @@ p,
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
-  }
-
-  .lg\:min-h-\[276px\] {
-    min-height: 276px;
-  }
-
-  .lg\:min-h-\[244px\] {
-    min-height: 244px;
-  }
-
-  .lg\:min-h-\[440px\] {
-    min-height: 440px;
-  }
-
-  .lg\:min-h-\[320px\] {
-    min-height: 320px;
   }
 
   .lg\:w-1\/2 {
@@ -3109,6 +3084,14 @@ p,
 
   .lg\:w-\[220px\] {
     width: 220px;
+  }
+
+  .lg\:w-\[320px\] {
+    width: 320px;
+  }
+
+  .lg\:w-\[334px\] {
+    width: 334px;
   }
 
   .lg\:w-\[380px\] {
@@ -3159,18 +3142,6 @@ p,
     width: 100%;
   }
 
-  .lg\:w-\[320px\] {
-    width: 320px;
-  }
-
-  .lg\:w-\[334px\] {
-    width: 334px;
-  }
-
-  .lg\:w-\[calc\(100\%\+7rem\)\] {
-    width: calc(100% + 7rem);
-  }
-
   .lg\:min-w-0 {
     min-width: 0px;
   }
@@ -3213,11 +3184,6 @@ p,
 
   .lg\:cursor-pointer {
     cursor: pointer;
-  }
-
-  .lg\:scroll-px-20 {
-    scroll-padding-left: 5rem;
-    scroll-padding-right: 5rem;
   }
 
   .lg\:flex-row {
@@ -3442,11 +3408,6 @@ p,
     padding-bottom: 60px;
   }
 
-  .lg\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
@@ -3467,8 +3428,8 @@ p,
     padding-bottom: 60px;
   }
 
-  .lg\:pt-12 {
-    padding-top: 3rem;
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .lg\:pt-20 {
@@ -3481,10 +3442,6 @@ p,
 
   .lg\:pt-\[60px\] {
     padding-top: 60px;
-  }
-
-  .lg\:pt-10 {
-    padding-top: 2.5rem;
   }
 
   .lg\:text-\[128px\] {
