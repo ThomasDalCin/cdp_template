@@ -2817,6 +2817,11 @@ p,
 }
 
 @media (min-width: 1024px) {
+  .lg\:tt-norms-pro-light {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Light";
+  }
+
   .lg\:hover\:text-shadow:hover {
     text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.32);
   }
@@ -3030,6 +3035,14 @@ p,
     height: 100%;
   }
 
+  .lg\:h-\[496px\] {
+    height: 496px;
+  }
+
+  .lg\:h-\[860px\] {
+    height: 860px;
+  }
+
   .lg\:max-h-\[600px\] {
     max-height: 600px;
   }
@@ -3068,6 +3081,14 @@ p,
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
+  }
+
+  .lg\:min-h-\[860px\] {
+    min-height: 860px;
+  }
+
+  .lg\:min-h-\[496px\] {
+    min-height: 496px;
   }
 
   .lg\:w-1\/2 {
@@ -3146,6 +3167,10 @@ p,
     width: 100%;
   }
 
+  .lg\:w-\[calc\(33\.3\%_-_1rem\)\] {
+    width: calc(33.3% - 1rem);
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
@@ -3172,6 +3197,10 @@ p,
 
   .lg\:max-w-\[calc\(50\%-0\.75rem\)\] {
     max-width: calc(50% - 0.75rem);
+  }
+
+  .lg\:max-w-\[220px\] {
+    max-width: 220px;
   }
 
   .lg\:flex-1 {

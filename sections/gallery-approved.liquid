@@ -4,7 +4,7 @@
 {% assign internal_gallery = product.metafields.custom.internal_images_approved_boat.value %}
 
 <!-- Gallery Section -->
-<div class="w-full h-[640px] min-h-[640px] relative">
+<div class="w-full h-[640px] min-h-[640px] relative lg:min-h-[860px]">
     <div class="w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
         
         <!-- External Swiper -->
@@ -49,7 +49,7 @@
 </div>
 
 <!-- Tab section -->
-<div class="tab-section w-full h-auto flex flex-row items-center justify-start py-6 lg:absolute lg:justify-end lg:w-auto lg:top-[-32px] lg:right-0 z-20">
+<div class="tab-section w-full h-auto flex flex-row items-center justify-start py-6 lg:justify-end lg:px-20 lg:pt-[60px]">
     <div class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer lg:flex-none lg:w-[170px]" id="external-tab">
         <p class="body-14">{{ section.settings.tab_external }}</p>
         <div class="tab-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out"></div>

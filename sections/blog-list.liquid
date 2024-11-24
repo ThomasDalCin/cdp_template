@@ -57,10 +57,10 @@
     {% assign newsArticles = blogs.news.articles %}
       {% if newsArticles.size > 0 %}
       <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
         {% for article in newsArticles %}
           {% if article.tags contains "Press Room" %}
-            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]" data-tags="{{ article.tags | join: ',' }}">
 
               <!-- Article Image -->
               <div class="blog-item-image w-full h-auto">
@@ -123,10 +123,10 @@
     {% assign newsArticles = blogs.news.articles %}
       {% if newsArticles.size > 0 %}
       <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
         {% for article in newsArticles %}
           {% if article.tags contains "Awards" %}
-            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]" data-tags="{{ article.tags | join: ',' }}">
 
               <div class="blog-item-image w-full h-auto">
                 <img

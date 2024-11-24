@@ -4,7 +4,7 @@
   <!--Article Full Width Image-->
   <div class="article-top-view-image w-full h-auto relative">
     <img
-      class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto lg:h-[617px]"
+      class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto lg:h-[860px]"
       src="{{ article.image |  img_url: 'master'}}"
       alt="{{ article.image.alt }}">
     <a href="javascript:history.back()">
@@ -16,7 +16,7 @@
   </div>
 
   <!--Article Content-->
-  <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-6 mb-10 lg:px-20">
+  <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-6 mb-10 lg:px-20 lg:mb-[120px]">
     <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title | capitalize }}</h1>
     <p class="body-14">{{ article.content | capitalize }}</p>
   </div>
