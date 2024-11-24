@@ -1722,6 +1722,10 @@ p,
   width: 100%;
 }
 
+.w-\[353px\] {
+  width: 353px;
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }

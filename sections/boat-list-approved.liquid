@@ -1,13 +1,13 @@
 <!-- Layout Boat list Approved -->
 <div id="pressroom-layout" class="blogs-list-container press-room w-full h-auto flex flex-col gap-y-4 p-6 mb-10">
   <!-- list approved loop -->
-  <div class="flex flex-wrap gap-4 lg:p-10 lg:gap-10 justify-center lg:justify-start">
+  <div class="flex flex-wrap gap-4 lg:p-10 justify-center lg:justify-start">
 
     {% for collection in collections %}
       {% if collection.title == 'Pardo approved' %}
         {% assign pardoApproved = collection.products %}
         {% for product in pardoApproved %}
-          <div class="card-product-item-press-room w-full lg:w-[calc(50%_-1.25rem)] flex flex-col rounded-2xl lg:gap-y-0">
+          <div class="card-product-item-press-room w-full lg:w-[calc(50%_-_1rem)] flex flex-col rounded-2xl lg:gap-y-0">
 
             <img
               src="{{ product.featured_image | img_url: 'master' }}"
