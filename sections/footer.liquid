@@ -15,51 +15,62 @@
       </div>
 
       <!-- form block -->
-      {% form 'customer'
-        , class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
-        {{ form.errors | default_errors }}
-        {% if form.posted_successfully? %}
-          <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
-        {% else %}
-          <div class="newsletter-form-radio-containers w-full h-auto flex flex-row items-center justify-start gap-x-2">
-            <!-- radio one -->
-            <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
-              <input
-                class="appearance-none w-5 h-5 border-[1.5px] border-white rounded-full checked:bg-white"
-                type="radio"
-                id="visitor"
-                name="contact[role]"
-                value="visitor">
-              <label for="visitor" class="body-16  text-white">{{ section.settings.checkbox_2_label }}</label>
-            </div>
-            <!-- radio two -->
-            <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
-              <input
-                class="appearance-none w-5 h-5  border-[1.5px] border-white rounded-full checked:bg-white"
-                type="radio"
-                id="owner"
-                name="contact[role]"
-                value="owner">
-              <label for="owner" class="body-16  text-white">{{ section.settings.checkbox_1_label }}</label>
-            </div>
-          </div>
+     <!-- form block -->
+{% form 'customer', class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center gap-y-6" %}
+  {{ form.errors | default_errors }}
+  {% if form.posted_successfully? %}
+    <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+  {% else %}
+    <div class="newsletter-form-radio-containers w-full h-auto flex flex-row items-center justify-start gap-x-2">
+      <!-- radio one -->
+      <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
+        <input
+          class="appearance-none w-5 h-5 border-[1.5px] border-white rounded-full checked:bg-white"
+          type="radio"
+          id="visitor"
+          name="contact[role]"
+          value="visitor">
+        <label for="visitor" class="body-16 text-white">{{ section.settings.checkbox_2_label }}</label>
+      </div>
+      <!-- radio two -->
+      <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
+        <input
+          class="appearance-none w-5 h-5 border-[1.5px] border-white rounded-full checked:bg-white"
+          type="radio"
+          id="owner"
+          name="contact[role]"
+          value="owner">
+        <label for="owner" class="body-16 text-white">{{ section.settings.checkbox_1_label }}</label>
+      </div>
+    </div>
 
-          <!-- Hidden input to store the tag -->
-          <input
-            type="hidden"
-            name="contact[tags]"
-            id="user-tag"
-            value="newsletter">
+    <!-- Hidden input to store the tag -->
+    <input
+      type="hidden"
+      name="contact[tags]"
+      id="user-tag"
+      value="newsletter">
 
-          <input
-            class="w-full h-auto px-3 py-4 rounded-xl bg-white border-[0.5px] border-transparent text-white focus:outline-none focus:border-white  placeholder:text-black "
-            type="email"
-            name="contact[email]"
-            id="Email"
-            value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
-            placeholder="{{ section.settings.placeholder_text }}">
-        {% endif %}
-      {% endform %}
+    <!-- Email input with submit icon -->
+    <div class="relative w-full">
+      <input
+        class="w-full h-auto px-3 py-4 rounded-xl bg-white border-[0.5px] border-transparent text-black focus:outline-none focus:border-white placeholder:text-gray-500"
+        type="email"
+        name="contact[email]"
+        id="Email"
+        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+        placeholder="{{ section.settings.placeholder_text }}">
+
+      <!-- Submit Button (as icon) -->
+      <button
+        type="submit"
+        class="absolute top-1/2 right-3 -translate-y-1/2 w-auto h-auto flex items-center justify-center bg-transparent border-none cursor-pointer">
+        {% render 'arrow-right-icon' %}
+      </button>
+    </div>
+  {% endif %}
+{% endform %}
+
     </div>
   </div>
 
