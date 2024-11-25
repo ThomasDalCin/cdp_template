@@ -25,7 +25,7 @@
             <div
                 class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:justify-center lg:inline-flex lg:w-auto">
                 <div class="w-auto max-w-[99px] h-auto tab-gamma" id="Models">
-                    <p class="text-[18px] leading-[24px] satoshi text-nowrap tab-text">Models</p>
+                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text">Models</p>
                 </div>
                 {% assign sorted_collections = collections | sort: 'title' | reverse %}
                 {% for collection in sorted_collections %}
@@ -45,13 +45,13 @@
             <!-- model wrapper -->
             {% for collection in sorted_collections %}
             {% if collection.title != "Pardo approved" %}
-            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 min-h-[147px] overflow-x-auto items-center justify-start pl-14 scroll-pl-14 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4  lg:h-[386px] lg:min-h-[386px]"
+            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 min-h-[147px] overflow-x-auto items-center justify-start pl-12 scroll-pl-12 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4  lg:h-[386px] lg:min-h-[386px]"
                 data-collection="{{ collection.title }}" style="display: flex;">
                 {% for product in collection.products %}
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
+                <div class="image-scroll w-[340px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
                     <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}">
@@ -69,7 +69,7 @@
             {% endfor %}
 
             <!-- model wrapper for "Models" -->
-            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 min-h-[147px] overflow-x-auto items-center justify-start pl-14 scroll-pl-14 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4  lg:h-[386px] lg:min-h-[386px]"
+            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 min-h-[147px] overflow-x-auto items-center justify-start pl-12 scroll-pl-12 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4  lg:h-[386px] lg:min-h-[386px]"
                 data-collection="Models" style="display: flex;">
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
@@ -77,7 +77,7 @@
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll w-[320px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
+                <div class="image-scroll w-[340px] h-full flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                     data-collection="Models" data-content="{{ product.title }}">
                     <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}">
@@ -240,14 +240,19 @@
 
                 // Sposta l'icona della tab
                 updateUnionIconPosition(tab);
+
+                // Aggiungi la classe active-tab alla tab selezionata
+                tabs.forEach(t => t.classList.remove('active-tab')); // Rimuovi da tutte
+                tab.classList.add('active-tab'); // Aggiungi alla tab selezionata
             });
         });
 
         // Imposta il testo iniziale del pulsante CTA e l'href quando la pagina viene caricata
         if (tabs.length > 0) {
-            updateCtaButtonTextAndHref(tabs[0].innerText); // Impostiamo il testo e l'href in base alla prima tab
+            const firstTab = tabs[0];
+            updateCtaButtonTextAndHref(firstTab.innerText); // Impostiamo il testo e l'href in base alla prima tab
+            firstTab.classList.add('active-tab'); // Aggiungi la classe active-tab alla prima tab
         }
-
 
         gammaScrolls.forEach((gammaScroll) => {
             gammaScroll.addEventListener('scroll', () => {

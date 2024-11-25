@@ -1890,6 +1890,10 @@ p,
   scroll-padding-left: 3.5rem;
 }
 
+.scroll-pl-12 {
+  scroll-padding-left: 3rem;
+}
+
 .list-disc {
   list-style-type: disc;
 }
@@ -2429,6 +2433,10 @@ p,
 
 .pl-14 {
   padding-left: 3.5rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
 }
 
 .text-center {
