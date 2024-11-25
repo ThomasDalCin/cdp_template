@@ -57,19 +57,6 @@
 
 </div>
 
-<!-- Brochure Form -->
-
-<!-- Success Message -->
-{% if form.posted_successfully? %}
-<div id="form-success-message"
-    class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50">
-    {{ 'general.form.success_message' | t: default: "Richiesta inviata con successo! Ti contatteremo a breve." }}
-</div>
-{% endif %}
-
-<!-- Overlay Background -->
-<div id="overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-40"></div>
-
 <!-- Form Container -->
 <div id="form-container"
     class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-4 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out">
@@ -88,6 +75,14 @@
         <!-- Form Content -->
         <div class="form-appointment-content w-full flex flex-col items-start justify-center">
             {% form 'customer', class: "w-full h-full flex flex-col items-start justify-center gap-y-4 mt-4 mb-4" %}
+            
+            <!-- Success Message -->
+            {% if form.posted_successfully? %}
+                <div id="form-success-message"
+                    class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50">
+                    {{ 'general.form.success_message' | t: default: "Richiesta inviata con successo! Ti contatteremo a breve." }}
+                </div>
+            {% endif %}
 
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
@@ -127,7 +122,7 @@
 
             <!-- Checkbox Profilazione -->
             <div class="form-group w-full flex flex-row gap-x-2 items-center">
-                <input type="checkbox" id="profilazione" name="customer[profilazione]"
+                <input type="checkbox" id="profilazione" name="customer[tags]" value="profilazione"
                     class="w-4 h-4 border-gray-300 rounded">
                 <label for="profilazione" class="text-sm text-gray-700">
                     {{ 'general.form.profilazione' | t }}*
@@ -147,6 +142,17 @@
         </div>
     </div>
 </div>
+
+
+<style>
+    #overlay {
+        backdrop-filter: blur(8px);
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -184,14 +190,3 @@
     });
 </script>
 
-<style>
-    /* Overlay for blur effect */
-    #overlay {
-        backdrop-filter: blur(8px);
-    }
-
-    /* Prevent scrolling when form is open */
-    body.no-scroll {
-        overflow: hidden;
-    }
-</style>
