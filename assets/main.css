@@ -1650,6 +1650,10 @@ p,
   min-height: 640px;
 }
 
+.min-h-\[52px\] {
+  min-height: 52px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -2232,6 +2236,11 @@ p,
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-\[\#F2EDED\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(242 237 237 / var(--tw-border-opacity));
 }
 
 .bg-\[\#8B7E7A\] {
