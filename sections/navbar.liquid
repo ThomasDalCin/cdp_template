@@ -63,7 +63,7 @@
                         class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full my-4">
                         {% for collection in collections %}
                         {% for product in collection.products %}
-                        {% unless collection.title == 'Pardo pre-owned' %}
+                        {% unless collection.title == 'Pardo approved' %}
                         <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
                             <a href="{{ product.url }}">
                                 {{ product.title | replace: 'Pardo', '' }}
