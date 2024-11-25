@@ -1654,6 +1654,10 @@ p,
   min-height: 52px;
 }
 
+.min-h-\[72px\] {
+  min-height: 72px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -2501,6 +2505,10 @@ p,
 
 .pt-\[136px\] {
   padding-top: 136px;
+}
+
+.pt-\[120px\] {
+  padding-top: 120px;
 }
 
 .text-center {

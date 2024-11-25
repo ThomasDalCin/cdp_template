@@ -1,12 +1,14 @@
 <!--navbar-new-->
 
 <!--navbar-container-->
-<div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 lg:px-10 lg:pt-10 lg:static">
+<div
+    class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center gap-y-6 lg:px-10 lg:pt-10 lg:static">
     <div
         class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
         <!--menu yatch cta-->
-        <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
+        <div
+            class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
             <p class="body-14 chip-text">Models</p>
         </div>
 
@@ -28,6 +30,9 @@
             <div class="line line2"></div>
         </div>
     </div>
+
+    <!--page title -->
+
 </div>
 
 <!-- Yatch Menu Container -->
@@ -231,22 +236,24 @@
 
 
 <!-- Second level Menu Container -->
-<div class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[136px] hidden"
+<div class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] hidden"
     style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
 
     <!--back arrow container-->
-    <div class="back-nav-container flex items-center justify-start py-4 text-white">
+    <div class="back-nav-container w-full h-auto flex items-center justify-start py-4 text-white relative">
         {% render 'back-arrow-icon' %}
+        <p class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tt-norms-pro-reg text-white">Fleet</p>
     </div>
 
     <!--container horizontal chips-->
     <div
-        class="chips-horizontal-container w-[calc(100%+4rem)] min-h-[40px] h-[40px] flex gap-x-2 overflow-x-auto px-6 -mx-6 mb-3">
+        class="chips-horizontal-container w-[calc(100%+4rem)] h-auto min-h-[72px] flex gap-x-2 overflow-x-auto p-6 -mx-6 mb-3">
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
         <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
-            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{ collection.title }}
+            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
+                collection.title }}
             </div>
             {% render 'arrow-down-icon' %}
         </div>
