@@ -35,7 +35,8 @@
 
             <!--emotional text container-->
             <div class="w-full h-auto flex items-center justify-center px-6 py-14">
-                <p class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance">{{ section.settings.ispirational_text |
+                <p class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance">{{
+                    section.settings.ispirational_text |
                     default: "Lorem ipsum dolor sit,
                     consectutor adipis mar tiss partiem." }}</p>
             </div>
@@ -46,11 +47,151 @@
                 <div class="cta-choco lg:w-[220px] lg:px-4 lg:py-2">
                     <p class="body-14-medium">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
                 </div>
-                <div class="cta-transparent lg:w-[220px] lg:px-4 lg:py-2">
+                <div class="cta-transparent lg:w-[220px] lg:px-4 lg:py-2 cta-brochure">
                     <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
                     {% render 'download-icon' %}
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+<!-- Brochure Form -->
+
+<!-- Success Message -->
+{% if form.posted_successfully? %}
+<div id="form-success-message"
+    class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50">
+    {{ 'general.form.success_message' | t: default: "Richiesta inviata con successo! Ti contatteremo a breve." }}
+</div>
+{% endif %}
+
+<!-- Overlay Background -->
+<div id="overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-40"></div>
+
+<!-- Form Container -->
+<div id="form-container"
+    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-4 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out">
+    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:max-h-[600px]">
+
+        <!-- Form Header -->
+        <div class="form-appointment-headers w-full flex items-center justify-between relative">
+            <p class="body-14-medium events-name">{{ section.settings.form_title }}</p>
+
+            <!-- Close Icon -->
+            <div class="icon-content cursor-pointer close-form">
+                {% render 'x-icon' %}
+            </div>
+        </div>
+
+        <!-- Form Content -->
+        <div class="form-appointment-content w-full flex flex-col items-start justify-center">
+            {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-4 mt-4 mb-4" %}
+
+            <!-- Form Errors -->
+            {{ form.errors | default_errors }}
+
+            <!-- First Name -->
+            <div class="form-group w-full">
+                <input type="text" name="contact[first_name]"
+                    class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
+                    value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
+                    placeholder="{{ 'general.form.first_name' | t }}" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group w-full">
+                <input type="text" name="contact[last_name]"
+                    class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
+                    value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
+                    placeholder="{{ 'general.form.last_name' | t }}" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group w-full">
+                <input type="email" name="contact[email]"
+                    class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
+                    value="{% if form.email != blank %}{{ form.email }}{% endif %}"
+                    placeholder="{{ 'general.form.email' | t }}" required>
+            </div>
+
+            <!-- Checkbox Marketing -->
+            <div class="form-group w-full flex flex-row gap-x-2 items-center">
+                <input type="checkbox" id="direct_marketing" name="contact[accepts_marketing]"
+                    class="w-4 h-4 border-gray-300 rounded">
+                <label for="direct_marketing" class="text-sm text-gray-700">
+                    {{ 'general.form.direct_marketing' | t }}*
+                </label>
+            </div>
+
+            <!-- Checkbox Profilazione -->
+            <div class="form-group w-full flex flex-row gap-x-2 items-center">
+                <input type="checkbox" id="profilazione" name="contact[profilazione]"
+                    class="w-4 h-4 border-gray-300 rounded">
+                <label for="profilazione" class="text-sm text-gray-700">
+                    {{ 'general.form.profilazione' | t }}*
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="cta-accent w-full flex items-center justify-center">
+                <button type="submit" id="Subscribe"
+                    class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                    {{ 'general.form.submit' | t }}
+                </button>
+                {% render 'cta-icon' %}
+            </div>
+
+            {% endform %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctaBrochure = document.querySelectorAll('.cta-brochure');
+        const formContainer = document.getElementById('form-container');
+        const overlay = document.getElementById('overlay');
+        const closeForm = document.querySelector('.close-form');
+
+        // Open form logic
+        ctaBrochure.forEach(cta => {
+            cta.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Show the form and overlay
+                formContainer.classList.remove('translate-y-full');
+                formContainer.classList.add('translate-y-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('no-scroll');
+            });
+        });
+
+        // Close form logic
+        closeForm.addEventListener('click', function () {
+            // Hide the form and overlay
+            formContainer.classList.remove('translate-y-0');
+            formContainer.classList.add('translate-y-full');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        });
+
+        // Close form when clicking on overlay
+        overlay.addEventListener('click', function () {
+            closeForm.click();
+        });
+    });
+</script>
+
+<style>
+    /* Overlay for blur effect */
+    #overlay {
+        backdrop-filter: blur(8px);
+    }
+
+    /* Prevent scrolling when form is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+</style>
