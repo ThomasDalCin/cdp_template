@@ -2,7 +2,8 @@
 
 <!--navbar-container-->
 <div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 lg:px-10 lg:pt-10">
-    <div class="navbar-container w-full h-[72px] bg-[#EFEEED] rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
+    <div
+        class="navbar-container w-full h-[72px] bg-[#EFEEED] rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
 
         <!--menu yatch cta-->
         <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] flex items-center justify-center">
@@ -30,11 +31,11 @@
 </div>
 
 <!-- Yatch Menu Container -->
-<div class="yatch-menu-container fixed z-30 inset-0 w-full h-screen flex-col gap-y-10 hidden px-6 pt-[136px] lg:mb-10"
+<div class="yatch-menu-container fixed z-30 inset-0 w-full h-screen flex-col gap-y-10 hidden px-6 pt-[136px] lg:mb-10 lg:px-20 lg:pt-[220px]"
     style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
 
-    <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-5">
-        <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8">
+    <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-10">
+        <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-10">
             {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all models" | split: ',' %}
             {% for link in linklists.yatch.links %}
             {% assign matching_collection = collections[link.object.handle] %}
@@ -46,9 +47,10 @@
                     {% if allLinksTitle contains link.title %}
                     {% if link.title == 'View all models' %}
                     {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-reg leading-[20px]
-                    lg:text-[24px] lg:leading-[24px]" }}
+                    lg:text-[40px] lg:leading-[40px]" }}
                     {% else %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg lg:text-[64px]
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg
+                    lg:text-[64px]
                     lg:leading-[64px]" }}
                     {% endif %}
                     {% endif %}
@@ -95,51 +97,67 @@
         <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
             {% for link in linklists.yatch.links %}
             {% unless allLinksTitle contains link.title %}
-            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px] lg:text-[24px]
+            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px]
+            lg:text-[24px]
             lg:leading-[24px] underline" }}
             {% endunless %}
             {% endfor %}
         </div>
 
         <!-- boat image container on desktop -->
-        <div
-            class="boat-image-container absolute right-20 bottom-10 w-[820px] h-[501px] z-30">
+        <div class="boat-image-container absolute right-20 bottom-10 w-[820px] h-[501px] z-30">
+            {% for collection in collections %}
+            {% for product in collection.products %}
+            <!-- Title of the product inside the boat image container -->
+            <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
+                <p class="tt-norms-pro-light text-[128px] leading-[128px] text-white boat-title"
+                    data-title="{{ product.title }}">
+                    {{ product.title | replace: "Pardo", "" }}
+                </p>
+            </div>
+            {% endfor %}
+            {% endfor %}
+
+
+            <!-- Boat image within the same container -->
             {% for collection in collections %}
             {% for product in collection.products %}
             <a href="{{ product.url }}">
                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image"
-                    class="boat-image w-auto h-auto object-contain" data-image="{{ product.title }}">
+                    class="boat-image w-auto h-auto object-contain z-10" data-image="{{ product.title }}">
             </a>
             {% endfor %}
             {% endfor %}
         </div>
+
     </div>
 
-             <!--find delear button-->
-             <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px]">
-                <a href="pages/locate-delear">
-                  <div class="w-auto h-auto inline-flex cta-white-rounded">
-                    <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear |  default: "Find a delear" }}</p>
-                  </div>
-                </a>
-              </div>
+    <!--find delear button-->
+    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px]">
+        <a href="pages/locate-delear">
+            <div class="w-auto h-auto inline-flex cta-white-rounded">
+                <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+            </div>
+        </a>
+    </div>
 </div>
 
 
 <!-- Main Menu Container -->
-<div class="main-menu-container w-full fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mb-10"
+<div class="main-menu-container w-full fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mb-10 lg:px-20 lg:pt-[220px]"
     style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);">
 
     <div class="w-full h-full flex flex-col items-start justify-between">
 
         <!-- links menu container -->
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-10">
-            <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center">
+            <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center lg:gap-y-10">
                 {% for link in linklists.main-menu.links %}
                 {% if link.title != "Privacy preferences" and link.title != "Privacy policy" %}
                 {% unless link.title == 'Press room' %}
                 <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
-                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px] tt-norms-pro-reg
+                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px]
+                    tt-norms-pro-reg
                     lg:leading-[64px]" }}
                 </li>
                 {% endunless %}
@@ -214,7 +232,8 @@
     </div>
 
     <!--container images products-->
-    <div class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20">
+    <div
+        class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20">
         {% for collection in collections %}
         {% for product in collection.products %}
         {% assign productMainImg = product.images[0] %}
@@ -234,7 +253,9 @@
                 {% endif %}
                 {% endfor %}
             </li>
-            <p class="text-[80px] leading-[80px] tt-norms-pro-light absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white">{{ product.title | replace: "Pardo", "" }}</p>
+            <p
+                class="text-[80px] leading-[80px] tt-norms-pro-light absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white">
+                {{ product.title | replace: "Pardo", "" }}</p>
         </div>
         {% endfor %}
         {% endfor %}
@@ -323,8 +344,8 @@
 
         function updateNavBackground() {
             if (isProductPage) {
-               navBg.classList.remove('bg-white');
-               navBg.classList.add('bg-blur-opacity');
+                navBg.classList.remove('bg-white');
+                navBg.classList.add('bg-blur-opacity');
             }
         }
 
@@ -366,10 +387,15 @@
                         const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
                         const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
                         const boatImages = document.querySelectorAll('.boat-image');
+                        const boatTitles = document.querySelectorAll('.boat-title');
 
                         //hide each boat images to prevent them visibility
                         boatImages.forEach(boatImage => {
                             boatImage.style.display = 'none';
+                        });
+
+                        boatTitles.forEach(boatTitle => {
+                            boatTitle.style.display = 'none';
                         });
 
                         //set style on badge product
@@ -410,6 +436,11 @@
                                 boatImage.style.display = 'block';
                             }
                         });
+                        boatTitles.forEach(boatTitle => {
+                            if (boatTitle.getAttribute('data-title') === targetImage) {
+                                boatTitle.style.display = 'block';
+                            }
+                        });
 
                         const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
                         allCollectionMenuItems.forEach(item => {
@@ -441,6 +472,7 @@
             const boatDesktopContainer = document.querySelector('.boat-image-container');
             const badges = document.querySelectorAll('.badge-product');
             const images = document.querySelectorAll('.boat-image-container img');
+            const titles = document.querySelectorAll('.boat-title');
 
             //hide all this elements on mobile
             if (screenSize <= 625) {
@@ -462,15 +494,25 @@
                     image.style.display = 'none';
                 });
 
+                titles.forEach(title => {
+                    title.style.display = 'none'
+                })
+
                 badges.forEach(badge => {
                     badge.addEventListener('mouseover', function () {
                         const target = badge.getAttribute('data-target');
+
                         images.forEach(image => {
                             image.style.display = 'none';
                         });
+                        titles.forEach(title => {
+                            title.style.display = 'none'
+                        })
+                        const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`)
                         const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
-                        if (selectedImage) {
+                        if (selectedImage && selectedText) {
                             selectedImage.style.display = 'block';
+                            selectedText.style.display = 'block';
                         }
                     });
                 });
