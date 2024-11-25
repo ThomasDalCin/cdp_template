@@ -57,6 +57,7 @@
 
 </div>
 
+
 <!-- Form Container -->
 <div id="form-container"
     class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-4 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out">
@@ -73,17 +74,8 @@
         </div>
 
         <!-- Form Content -->
-        <div class="form-appointment-content w-full flex flex-col items-start justify-center">
-            {% form 'customer', class: "w-full h-full flex flex-col items-start justify-center gap-y-4 mt-4 mb-4" %}
-            
-            <!-- Success Message -->
-            {% if form.posted_successfully? %}
-                <div id="form-success-message"
-                    class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50">
-                    {{ 'general.form.success_message' | t: default: "Richiesta inviata con successo! Ti contatteremo a breve." }}
-                </div>
-            {% endif %}
 
+        {% form 'customer' %}
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
 
@@ -92,7 +84,7 @@
                 <input type="text" name="customer[first_name]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                    placeholder="{{ 'general.form.first_name' | t }}" required>
+                    placeholder="{{ section.settings.first_name_placeholder }}" required>
             </div>
 
             <!-- Last Name -->
@@ -100,7 +92,7 @@
                 <input type="text" name="customer[last_name]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                    placeholder="{{ 'general.form.last_name' | t }}" required>
+                    placeholder="{{ section.settings.last_name_placeholder }}" required>
             </div>
 
             <!-- Email -->
@@ -108,46 +100,26 @@
                 <input type="email" name="customer[email]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                    placeholder="{{ 'general.form.email' | t }}" required>
+                    placeholder="{{ section.settings.email_placeholder }}" required>
             </div>
 
-            <!-- Checkbox Marketing -->
-            <div class="form-group w-full flex flex-row gap-x-2 items-center">
-                <input type="checkbox" id="direct_marketing" name="customer[accepts_marketing]"
-                    class="w-4 h-4 border-gray-300 rounded">
-                <label for="direct_marketing" class="text-sm text-gray-700">
-                    {{ 'general.form.direct_marketing' | t }}*
-                </label>
-            </div>
-
-            <!-- Checkbox Profilazione -->
-            <div class="form-group w-full flex flex-row gap-x-2 items-center">
-                <input type="checkbox" id="profilazione" name="customer[tags]" value="profilazione"
-                    class="w-4 h-4 border-gray-300 rounded">
-                <label for="profilazione" class="text-sm text-gray-700">
-                    {{ 'general.form.profilazione' | t }}*
-                </label>
-            </div>
 
             <!-- Submit Button -->
             <div class="cta-accent w-full flex items-center justify-center">
-                <button type="submit" id="Subscribe" value="Sign up"
+                <input type="submit" id="Subscribe" value="Sign up"
                     class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                    {{ 'general.form.submit' | t }}
-                </button>
+                    {{ section.settings.submit_button }}
+                </input>
                 {% render 'cta-icon' %}
             </div>
 
-            {% endform %}
-        </div>
+        {% endform %}
     </div>
 </div>
 
-<style>
-    #overlay {
-        backdrop-filter: blur(8px);
-    }
 
+
+<style>
     body.no-scroll {
         overflow: hidden;
     }
@@ -182,10 +154,5 @@
             document.body.classList.remove('no-scroll');
         });
 
-        // Close form when clicking on overlay
-        overlay.addEventListener('click', function () {
-            closeForm.click();
-        });
     });
 </script>
-
