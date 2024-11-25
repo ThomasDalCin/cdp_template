@@ -87,14 +87,14 @@
 
         <!-- Form Content -->
         <div class="form-appointment-content w-full flex flex-col items-start justify-center">
-            {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-4 mt-4 mb-4" %}
+            {% form 'customer', class: "w-full h-full flex flex-col items-start justify-center gap-y-4 mt-4 mb-4" %}
 
             <!-- Form Errors -->
             {{ form.errors | default_errors }}
 
             <!-- First Name -->
             <div class="form-group w-full">
-                <input type="text" name="contact[first_name]"
+                <input type="text" name="customer[first_name]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
                     placeholder="{{ 'general.form.first_name' | t }}" required>
@@ -102,7 +102,7 @@
 
             <!-- Last Name -->
             <div class="form-group w-full">
-                <input type="text" name="contact[last_name]"
+                <input type="text" name="customer[last_name]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
                     placeholder="{{ 'general.form.last_name' | t }}" required>
@@ -110,7 +110,7 @@
 
             <!-- Email -->
             <div class="form-group w-full">
-                <input type="email" name="contact[email]"
+                <input type="email" name="customer[email]"
                     class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border border-gray-300 focus:ring focus:ring-blue-500"
                     value="{% if form.email != blank %}{{ form.email }}{% endif %}"
                     placeholder="{{ 'general.form.email' | t }}" required>
@@ -118,7 +118,7 @@
 
             <!-- Checkbox Marketing -->
             <div class="form-group w-full flex flex-row gap-x-2 items-center">
-                <input type="checkbox" id="direct_marketing" name="contact[accepts_marketing]"
+                <input type="checkbox" id="direct_marketing" name="customer[accepts_marketing]"
                     class="w-4 h-4 border-gray-300 rounded">
                 <label for="direct_marketing" class="text-sm text-gray-700">
                     {{ 'general.form.direct_marketing' | t }}*
@@ -127,7 +127,7 @@
 
             <!-- Checkbox Profilazione -->
             <div class="form-group w-full flex flex-row gap-x-2 items-center">
-                <input type="checkbox" id="profilazione" name="contact[profilazione]"
+                <input type="checkbox" id="profilazione" name="customer[profilazione]"
                     class="w-4 h-4 border-gray-300 rounded">
                 <label for="profilazione" class="text-sm text-gray-700">
                     {{ 'general.form.profilazione' | t }}*
