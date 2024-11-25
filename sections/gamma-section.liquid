@@ -27,15 +27,15 @@
 
             <!-- tab wrapper -->
             <div
-                class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:justify-center lg:inline-flex lg:w-auto">
-                <div class="w-auto max-w-[99px] h-auto tab-gamma cursor-pointer" id="Models">
-                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text">Models</p>
+                class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
+                <div class="w-auto max-w-[99px] h-auto tab-gamma cursor-pointer lg:max-w-none" id="Models">
+                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">Models</p>
                 </div>
                 {% assign sorted_collections = collections | sort: 'title' | reverse %}
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
-                <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer" id="{{ collection.title }}">
-                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text">{{ collection.title |
+                <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none" id="{{ collection.title }}">
+                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">{{ collection.title |
                         capitalize }}</p>
                 </div>
                 {% endif %}

@@ -3231,6 +3231,10 @@ p,
     max-width: calc(50% - 0.75rem);
   }
 
+  .lg\:max-w-none {
+    max-width: none;
+  }
+
   .lg\:flex-1 {
     flex: 1 1 0%;
   }
@@ -3534,6 +3538,10 @@ p,
     font-size: 96px;
   }
 
+  .lg\:text-\[40px\] {
+    font-size: 40px;
+  }
+
   .lg\:leading-\[128px\] {
     line-height: 128px;
   }
@@ -3548,6 +3556,10 @@ p,
 
   .lg\:leading-\[96px\] {
     line-height: 96px;
+  }
+
+  .lg\:leading-\[40px\] {
+    line-height: 40px;
   }
 
   .lg\:text-black {
