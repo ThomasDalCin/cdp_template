@@ -76,6 +76,13 @@
         <!-- Form Content -->
 
         {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6" %}
+
+        {% if form.posted_successfully? %}
+            <div class="w-full h-[60px] fixed left-0 right-0 bottom-0 bg-white">
+                <p class="body-16 text-white">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
+            </div>
+        {% else %}
+        
         <!-- Form Errors -->
         {{ form.errors | default_errors }}
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">

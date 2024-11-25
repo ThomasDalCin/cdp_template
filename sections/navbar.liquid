@@ -3,10 +3,10 @@
 <!--navbar-container-->
 <div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 lg:px-10 lg:pt-10 lg:static">
     <div
-        class="navbar-container w-full h-[72px] bg-[#EFEEED] rounded-lg flex flex-row items-center justify-between px-4 py-5 relative">
+        class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
         <!--menu yatch cta-->
-        <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] flex items-center justify-center">
+        <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
             <p class="body-14 chip-text">Models</p>
         </div>
 
@@ -143,7 +143,7 @@
                         <p class="body-16 text-[var(--hover-color)] tt-norms-pro-reg">
                             {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
                         </p>
-                        <p class="body-16 text-nowrap tt-norms-pro-reg">{{ metafieldCustom |  upcase }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-reg">{{ metafieldCustom | upcase }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -200,7 +200,7 @@
 
         <!-- horizontal scroll partnership menu container -->
         <div
-            class="w-[calc(100%+4rem)] px-6 -mx-6 h-auto flex flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:hidden">
+            class="w-[calc(100%+4rem)] hidden px-6 -mx-6 h-auto flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:hidden">
             {% if blogs['Partnership'] %}
             {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
             {% if partnershipArticles.size > 0 %}
@@ -246,7 +246,7 @@
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
         <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
-            <div class="chips-text text-nowrap body-14 text-white" id="collection-chips-title">{{ collection.title }}
+            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{ collection.title }}
             </div>
             {% render 'arrow-down-icon' %}
         </div>
@@ -270,14 +270,14 @@
                 {% for tag in product.tags %}
                 {% if tag != "" %}
                 <span
-                    class="inline-flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-[2px] items-center justify-center bg-white rounded-[48px] body-12 font-bold">
+                    class="inline-flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-[2px] items-center justify-center bg-white rounded-[48px] body-12 tt-norms-pro-reg">
                     {{ tag }}
                 </span>
                 {% endif %}
                 {% endfor %}
             </li>
             <p
-                class="text-[80px] leading-[80px] tt-norms-pro-light absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white">
+                class="text-[80px] leading-[80px] tt-norms-pro-extra-light absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white">
                 {{ product.title | replace: "Pardo", "" }}</p>
         </div>
         {% endfor %}
@@ -344,7 +344,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         //get current page and others
-        const hadScrolled = window.scrollY;
         const currentPage = window.location.pathname;
         const isNotHomepage = currentPage !== '/';
         const isProductPage = currentPage.startsWith('/products/');
@@ -366,13 +365,21 @@
         handleSecondMenuLevel();
 
         function updateNavBackground() {
-            if (isProductPage) {
-                navBg.classList.remove('bg-white');
+            const hadScrolled = window.scrollY;
+            const viewportHeight = window.innerHeight;
+
+            if (hadScrolled >= viewportHeight) {
+                navBg.classList.remove('bg-[#EFEEED]');
                 navBg.classList.add('bg-blur-opacity');
+            } else {
+                navBg.classList.add('bg-[#EFEEED]');
+                navBg.classList.remove('bg-blur-opacity');
             }
         }
 
-        updateNavBackground();
+        window.addEventListener('scroll', () => {
+            updateNavBackground();
+        });
 
 
         // Handle second menu
