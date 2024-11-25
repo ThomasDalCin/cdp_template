@@ -128,6 +128,29 @@
             </a>
             {% endfor %}
             {% endfor %}
+
+            <!-- Container main features -->
+            <div class="w-full h-auto absolute left-0 bottom-0 right-0 product-details-container">
+                {% for collection in collections %}
+                {% for product in collection.products %}
+                <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-4"
+                    data-content="{{ product.title }}">
+                    {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
+                    {% for productMetafieldsValue in productMetafieldsValues %}
+                    {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
+                    <div
+                        class="flex min-w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px] lg:flex-1">
+                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-reg">
+                            {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
+                        </p>
+                        <p class="body-16 text-nowrap tt-norms-pro-reg">{{ metafieldCustom |  upcase }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+
         </div>
 
     </div>
@@ -388,6 +411,7 @@
                         const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
                         const boatImages = document.querySelectorAll('.boat-image');
                         const boatTitles = document.querySelectorAll('.boat-title');
+                        const boatBadges = document.querySelectorAll('.product-details-badge');
 
                         //hide each boat images to prevent them visibility
                         boatImages.forEach(boatImage => {
@@ -396,6 +420,10 @@
 
                         boatTitles.forEach(boatTitle => {
                             boatTitle.style.display = 'none';
+                        });
+
+                        boatBadges.forEach(boatBadge => {
+                            boatBadge.style.display = 'none';
                         });
 
                         //set style on badge product
@@ -431,16 +459,25 @@
 
                         //display boat image when over on badge product
                         const targetImage = lastBadge.getAttribute('data-target');
+
                         boatImages.forEach(boatImage => {
                             if (boatImage.getAttribute('data-image') === targetImage) {
                                 boatImage.style.display = 'block';
                             }
                         });
+
                         boatTitles.forEach(boatTitle => {
                             if (boatTitle.getAttribute('data-title') === targetImage) {
                                 boatTitle.style.display = 'block';
                             }
                         });
+
+                        boatBadges.forEach(boatBadge => {
+                            if (boatBadge.getAttribute('data-content') === targetImage) {
+                                boatBadge.style.display = 'flex';
+                            }
+                        });
+
 
                         const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
                         allCollectionMenuItems.forEach(item => {
@@ -473,6 +510,7 @@
             const badges = document.querySelectorAll('.badge-product');
             const images = document.querySelectorAll('.boat-image-container img');
             const titles = document.querySelectorAll('.boat-title');
+            const contents = document.querySelectorAll('.product-details-badge');
 
             //hide all this elements on mobile
             if (screenSize <= 625) {
@@ -495,7 +533,11 @@
                 });
 
                 titles.forEach(title => {
-                    title.style.display = 'none'
+                    title.style.display = 'none';
+                })
+
+                contents.forEach(content => {
+                    content.style.display = 'none';
                 })
 
                 badges.forEach(badge => {
@@ -505,14 +547,23 @@
                         images.forEach(image => {
                             image.style.display = 'none';
                         });
+
                         titles.forEach(title => {
                             title.style.display = 'none'
-                        })
-                        const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`)
+                        });
+
+                        contents.forEach(content => {
+                            content.style.display = 'none';
+                        });
+
+                        const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`);
                         const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
+                        const selectedContent = document.querySelector(`.boat-image-container .product-details-container .product-details-badge[data-content="${target}"]`);
+
                         if (selectedImage && selectedText) {
                             selectedImage.style.display = 'block';
                             selectedText.style.display = 'block';
+                            selectedContent.style.display = 'flex';
                         }
                     });
                 });
