@@ -1,11 +1,11 @@
 <!-- Features Container -->
-<div class="features-container w-full h-auto flex flex-col px-6 mb-[40px] lg:px-0">
+<div class="features-container w-full h-auto flex flex-col px-6 mb-[40px] lg:p-20 lg:flex-row lg:flex-wrap">
 
   <!-- Basics Information -->
   {% assign productBasics = product.metafields.custom.basics.value %}
   {% if productBasics %}
     {% assign basicFields = "year,make,model,series,lenght,fuel_type,hull_material" | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
         <p class="specification-heading text-[48px] leading-[52px] tt-norms-pro-light">{{ section.settings.product_basics }}</p>
@@ -43,7 +43,7 @@
   {% assign productDimensions = product.metafields.custom.dimensions.value %}
   {% if productDimensions %}
     {% assign dimensionFields = "lenght_over_all,max_draft,beam," | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
         <p class="specification-heading text-[48px] leading-[52px] tt-norms-pro-light">{{ section.settings.technical_features | default: "Technical Feature" }}</p>
@@ -81,7 +81,7 @@
   {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
   {% if productSpeedDistance %}
     {% assign speedFields = "engine_make,engine_model" | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="speed-distance">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.speed_dropdown_title | default: "Speed & Distance" }}</p>
@@ -115,7 +115,7 @@
   {% assign productWeights = product.metafields.custom.weights.value %}
   {% if productWeights %}
     {% assign weightFields = "dry_weight" | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="weights">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.weights_dropdown_title | default: "Weights" }}</p>
@@ -149,7 +149,7 @@
   {% assign productTanks = product.metafields.custom.tanks.value %}
   {% if productTanks %}
     {% assign tankFields = "fuel_tank,fresh_water_tank,holding_tank," | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="tanks">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.tanks_dropdown_title | default: "Tanks" }}</p>
@@ -183,7 +183,7 @@
   {% assign productAccommodations = product.metafields.custom.accomodations.value %}
   {% if productAccommodations %}
     {% assign accommodationFields = "cabins,bathrooms," | split: "," %}
-    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10">
+    <div class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="accommodations">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.accommodations_dropdown_title | default: "Accommodations" }}</p>
@@ -261,7 +261,7 @@
 
 
 {% comment %} 
-      Section Schema Settings here; 
+        Section Schema Settings here; 
   {% endcomment %}
 {% schema %}
   {
