@@ -1582,6 +1582,10 @@ p,
   min-height: 147px;
 }
 
+.min-h-\[56px\] {
+  min-height: 56px;
+}
+
 .w-0 {
   width: 0px;
 }

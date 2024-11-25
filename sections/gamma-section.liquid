@@ -101,13 +101,13 @@
             class="w-full h-auto flex flex-col items-start justify-center px-6 lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center lg:px-12 lg:py-12">
             <div
                 class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center">
-                <div class="w-full h-[56px] lg:w-[220px]">
-                    <a href="#" class="w-full h-auto cta-black" id="cta-button">{{
+                <div class="w-full h-[56px] min-h-[56px] lg:w-[220px]">
+                    <a href="#" class="w-full h-full cta-black" id="cta-button">{{
                         section.settings.cta_gamma_product | default: "Discover" }}</a>
                 </div>
-                <div class="w-full h-[56px] lg:w-[220px]">
+                <div class="w-full h-[56px] min-h-[56px] lg:w-[220px]">
                     <a href="pages/delear"
-                        class="w-full h-auto cta-transparent lg:bg-white lg:text-black lg:border-transparent">{{
+                        class="w-full h-full cta-transparent lg:bg-white lg:text-black lg:border-transparent">{{
                         section.settings.cta_gamma_delear | default: "Find a dealer" }}</a>
                 </div>
             </div>
@@ -248,23 +248,6 @@
             updateCtaButtonTextAndHref(tabs[0].innerText); // Impostiamo il testo e l'href in base alla prima tab
         }
 
-        // Mostra dettagli per l'immagine visibile
-        function showDetailsContentForVisibleImage() {
-            imageScroll.forEach((image) => {
-                const imageData = image.getAttribute('data-content');
-                const imageRect = image.getBoundingClientRect();
-
-                if (imageRect.left == mainWrapRect.left) {
-                    detailsWrap.forEach(content => {
-                        if (content.getAttribute('data-content') === imageData) {
-                            content.style.display = 'flex';
-                        } else {
-                            content.style.display = 'none';
-                        }
-                    });
-                }
-            });
-        }
 
         gammaScrolls.forEach((gammaScroll) => {
             gammaScroll.addEventListener('scroll', () => {
