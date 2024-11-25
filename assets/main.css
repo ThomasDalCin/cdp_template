@@ -1462,6 +1462,10 @@ p,
   height: 100vh;
 }
 
+.h-14 {
+  height: 3.5rem;
+}
+
 .max-h-\[147px\] {
   max-height: 147px;
 }
@@ -1728,6 +1732,10 @@ p,
 
 .w-full {
   width: 100%;
+}
+
+.w-14 {
+  width: 3.5rem;
 }
 
 .min-w-\[124px\] {
@@ -2944,12 +2952,24 @@ p,
     right: 0px;
   }
 
+  .lg\:left-\[42px\] {
+    left: 42px;
+  }
+
+  .lg\:right-\[42px\] {
+    right: 42px;
+  }
+
   .lg\:z-50 {
     z-index: 50;
   }
 
   .lg\:z-20 {
     z-index: 20;
+  }
+
+  .lg\:z-30 {
+    z-index: 30;
   }
 
   .lg\:-mx-0 {
