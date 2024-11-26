@@ -51,9 +51,16 @@
         </div>
       </div>
 
-      <div class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+      <div class="w-auto h-auto hidden lg:block">
+        <div
+          class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+        </div>
       </div>
-      <div class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+      <div class="w-auto h-auto hidden lg:block">
+
+        <div
+          class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+        </div>
       </div>
     </div>
   </div>
@@ -93,10 +100,11 @@
     border-radius: 2px !important;
     background-color: white !important;
   }
+
   .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 14px;
-    }
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
 </style>
 
 {% comment %}

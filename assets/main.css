@@ -3081,6 +3081,10 @@ p,
     margin-top: 60px;
   }
 
+  .lg\:block {
+    display: block;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -3143,6 +3147,10 @@ p,
 
   .lg\:h-full {
     height: 100%;
+  }
+
+  .lg\:h-\[52px\] {
+    height: 52px;
   }
 
   .lg\:max-h-\[600px\] {
@@ -3267,6 +3275,10 @@ p,
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[52px\] {
+    width: 52px;
   }
 
   .lg\:min-w-0 {
@@ -3451,6 +3463,10 @@ p,
     border-radius: 32px;
   }
 
+  .lg\:rounded-full {
+    border-radius: 9999px;
+  }
+
   .lg\:border-b-\[1px\] {
     border-bottom-width: 1px;
   }
@@ -3484,6 +3500,10 @@ p,
   .lg\:bg-\[\#F7F7F7\] {
     --tw-bg-opacity: 1;
     background-color: rgb(247 247 247 / var(--tw-bg-opacity));
+  }
+
+  .lg\:bg-\[rgba\(0\2c 0\2c 0\2c 0\.20\)\] {
+    background-color: rgba(0,0,0,0.20);
   }
 
   .lg\:bg-55\% {
@@ -3678,6 +3698,12 @@ p,
 
   .lg\:backdrop-blur-md {
     --tw-backdrop-blur: blur(12px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  }
+
+  .lg\:backdrop-blur-xl {
+    --tw-backdrop-blur: blur(24px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   }
