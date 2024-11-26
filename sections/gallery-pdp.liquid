@@ -8,13 +8,14 @@
 
                 <!-- assign variables -->
                 {% for image in product.images %}
-                    {% if forloop.index > 1 %}
-                        <div class="swiper-slide relative">
-                            <img src="{{ image | img_url: 'master' }}" alt="Slide {{ forloop.index }}" class="swiper-img w-full h-full object-cover">
-                        </div>
-                    {% endif %}
+                {% if forloop.index > 1 %}
+                <div class="swiper-slide relative">
+                    <img src="{{ image | img_url: 'master' }}" alt="Slide {{ forloop.index }}"
+                        class="swiper-img w-full h-full object-cover">
+                </div>
+                {% endif %}
                 {% endfor %}
-                    
+
             </div>
 
             <!-- Container swiper bullets -->
@@ -25,6 +26,13 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
+
+            <div
+                class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+            </div>
+            <div
+                class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+            </div>
         </div>
     </div>
 </div>
@@ -32,16 +40,21 @@
 
 <!-- Initialize Swiper -->
 <script>
-var swiper = new Swiper(".mySwiper", {
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-    },
-});
+    var swiper = new Swiper(".mySwiper", {
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        loop: true,
+    });
 
 </script>
 
@@ -59,5 +72,10 @@ var swiper = new Swiper(".mySwiper", {
         height: 2px !important;
         border-radius: 2px !important;
         background-color: white !important;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 14px;
     }
 </style>

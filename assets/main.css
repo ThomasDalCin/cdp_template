@@ -1505,6 +1505,10 @@ p,
   height: 100px;
 }
 
+.h-\[52px\] {
+  height: 52px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1767,6 +1771,10 @@ p,
 
 .w-full {
   width: 100%;
+}
+
+.w-\[52px\] {
+  width: 52px;
 }
 
 .min-w-\[124px\] {

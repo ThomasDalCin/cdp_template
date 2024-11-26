@@ -14,39 +14,46 @@
         {% assign max_index = swiper_images.size | minus: 1 %}
 
         {% for i in (0..max_index) %}
-          {% assign swiper_image = swiper_images[i] %}
-          {% assign cta_text = cta_texts[i] %}
-          {% assign cta_url = cta_urls[i] %}
-          {% assign cta_check = cta_enabled[i] %}
-          {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
+        {% assign swiper_image = swiper_images[i] %}
+        {% assign cta_text = cta_texts[i] %}
+        {% assign cta_url = cta_urls[i] %}
+        {% assign cta_check = cta_enabled[i] %}
+        {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
 
-          {% if image_url %}
-            <!-- Swiper slide -->
-            <div class="swiper-slide relative">
-              <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+        {% if image_url %}
+        <!-- Swiper slide -->
+        <div class="swiper-slide relative">
+          <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
 
-              <!-- Condition cta -->
-              {% if section.settings[cta_check] or section.settings[cta_url] %}
-                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
-                  <a href="{{ section.settings[cta_url] }}">
-                    <div class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
-                      <p class="body-16">{{ section.settings[cta_text] }}</p>
-                    </div>
-                  </a>
-                </div>
-              {% endif %}
-            </div>
+          <!-- Condition cta -->
+          {% if section.settings[cta_check] or section.settings[cta_url] %}
+          <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
+            <a href="{{ section.settings[cta_url] }}">
+              <div
+                class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                <p class="body-16">{{ section.settings[cta_text] }}</p>
+              </div>
+            </a>
+          </div>
           {% endif %}
+        </div>
+        {% endif %}
         {% endfor %}
       </div>
 
       <!-- Container swiper bullets -->
-      <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+      <div
+        class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
         <!-- Container bullets -->
         <div class="w-auto h-auto">
           <div class="swiper-pagination">
           </div>
         </div>
+      </div>
+
+      <div class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
+      </div>
+      <div class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white">
       </div>
     </div>
   </div>
@@ -63,7 +70,11 @@
       el: ".swiper-pagination",
       clickable: true
     },
-    loop: true
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
   });
 </script>
 
@@ -75,13 +86,17 @@
     border-radius: 2px !important;
     background-color: white !important;
   }
+
   .swiper-pagination-bullet {
     width: 8px !important;
     height: 2px !important;
     border-radius: 2px !important;
     background-color: white !important;
   }
-
+  .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 14px;
+    }
 </style>
 
 {% comment %}
@@ -89,100 +104,100 @@ Section Schema Settings here
 {% endcomment %}
 {% schema %}
 {
-  "name": "hero-section",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "swiper_image_1",
-      "label": "Swiper Image 1",
-      "info": "Choose the Swiper Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_2",
-      "label": "Swiper Image 2",
-      "info": "Choose the Swiper Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_3",
-      "label": "Swiper Image 3",
-      "info": "Choose the Swiper Image"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta_1",
-      "label": "Enable CTA for Slide 1",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "cta_text_1",
-      "label": "CTA Text 1",
-      "info": "Text for CTA of Slide 1"
-    },
-    {
-      "type": "url",
-      "id": "cta_url_1",
-      "label": "CTA URL 1",
-      "info": "URL for CTA of Slide 1"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta_2",
-      "label": "Enable CTA for Slide 2",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "cta_text_2",
-      "label": "CTA Text 2",
-      "info": "Text for CTA of Slide 2"
-    },
-    {
-      "type": "url",
-      "id": "cta_url_2",
-      "label": "CTA URL 2",
-      "info": "URL for CTA of Slide 2"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta_3",
-      "label": "Enable CTA for Slide 3",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "cta_text_3",
-      "label": "CTA Text 3",
-      "info": "Text for CTA of Slide 3"
-    },
-    {
-      "type": "url",
-      "id": "cta_url_3",
-      "label": "CTA URL 3",
-      "info": "URL for CTA of Slide 3"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero Section",
-      "category": "Custom Sections",
-      "settings": {
-        "swiper_image_1": "shopify://shop_images/swiper_1.jpg",
-        "swiper_image_2": "shopify://shop_images/swiper_2.jpg",
-        "swiper_image_3": "shopify://shop_images/swiper_3.jpg",
-        "enable_cta_1": true,
-        "cta_text_1": "Learn More",
-        "cta_url_1": "https://example.com/slide1",
-        "enable_cta_2": true,
-        "cta_text_2": "Shop Now",
-        "cta_url_2": "https://example.com/slide2",
-        "enable_cta_3": true,
-        "cta_text_3": "Discover More",
-        "cta_url_3": "https://example.com/slide3"
-      }
-    }
-  ]
+"name": "hero-section",
+"settings": [
+{
+"type": "image_picker",
+"id": "swiper_image_1",
+"label": "Swiper Image 1",
+"info": "Choose the Swiper Image"
+},
+{
+"type": "image_picker",
+"id": "swiper_image_2",
+"label": "Swiper Image 2",
+"info": "Choose the Swiper Image"
+},
+{
+"type": "image_picker",
+"id": "swiper_image_3",
+"label": "Swiper Image 3",
+"info": "Choose the Swiper Image"
+},
+{
+"type": "checkbox",
+"id": "enable_cta_1",
+"label": "Enable CTA for Slide 1",
+"default": true
+},
+{
+"type": "text",
+"id": "cta_text_1",
+"label": "CTA Text 1",
+"info": "Text for CTA of Slide 1"
+},
+{
+"type": "url",
+"id": "cta_url_1",
+"label": "CTA URL 1",
+"info": "URL for CTA of Slide 1"
+},
+{
+"type": "checkbox",
+"id": "enable_cta_2",
+"label": "Enable CTA for Slide 2",
+"default": true
+},
+{
+"type": "text",
+"id": "cta_text_2",
+"label": "CTA Text 2",
+"info": "Text for CTA of Slide 2"
+},
+{
+"type": "url",
+"id": "cta_url_2",
+"label": "CTA URL 2",
+"info": "URL for CTA of Slide 2"
+},
+{
+"type": "checkbox",
+"id": "enable_cta_3",
+"label": "Enable CTA for Slide 3",
+"default": true
+},
+{
+"type": "text",
+"id": "cta_text_3",
+"label": "CTA Text 3",
+"info": "Text for CTA of Slide 3"
+},
+{
+"type": "url",
+"id": "cta_url_3",
+"label": "CTA URL 3",
+"info": "URL for CTA of Slide 3"
+}
+],
+"presets": [
+{
+"name": "Hero Section",
+"category": "Custom Sections",
+"settings": {
+"swiper_image_1": "shopify://shop_images/swiper_1.jpg",
+"swiper_image_2": "shopify://shop_images/swiper_2.jpg",
+"swiper_image_3": "shopify://shop_images/swiper_3.jpg",
+"enable_cta_1": true,
+"cta_text_1": "Learn More",
+"cta_url_1": "https://example.com/slide1",
+"enable_cta_2": true,
+"cta_text_2": "Shop Now",
+"cta_url_2": "https://example.com/slide2",
+"enable_cta_3": true,
+"cta_text_3": "Discover More",
+"cta_url_3": "https://example.com/slide3"
+}
+}
+]
 }
 {% endschema %}
