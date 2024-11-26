@@ -121,7 +121,7 @@
               <input
                 type="text"
                 name="contact[first_name]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
                 value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
                 placeholder="{{ section.settings.form_first_name }}">
             </div>
@@ -131,7 +131,7 @@
               <input
                 type="text"
                 name="contact[last_name]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
                 value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
                 placeholder="{{ section.settings.form_last_name }}">
             </div>
@@ -142,7 +142,7 @@
                 type="email"
                 name="contact[email]"
                 value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
                 placeholder="{{ section.settings.form_email }}"
                 required>
             </div>
@@ -151,7 +151,7 @@
             <div class="form-group w-full h-auto flex flex-col items-start justify-center">
               <textarea
                 name="contact[message]"
-                class="w-full h-auto px-4 py-3 rounded-lg bg-[var(--primary-background-color)]"
+                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
                 placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
             </div>
 
@@ -172,9 +172,8 @@
             <p class="caption text-[#7A7A7A]">{{ section.settings.form_privacy }}</p>
 
             <!-- Submit Button -->
-            <div class="cta-accent">
+            <div class="cta-choco">
               <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
-              {% render 'cta-icon' %}
             </div>
 
           {% endform %}
