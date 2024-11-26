@@ -4,7 +4,7 @@
 <div class="overlay-images hidden fixed z-50 inset-0 w-full h-dvh bg-[#EFEEED]">
 
   <!-- container-closing-icon -->
-  <div class="w-auto h-auto bg-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay-images z-50 cursor-pointer">
+  <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
     {% render 'x-icon' %}
   </div>
 
@@ -33,6 +33,14 @@
       <!-- Container bullets -->
       <div class="w-auto h-auto">
         <div class="swiper-pagination-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Container turn into landspace -->
+    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+      <div class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-button">
+        <p class="body-14 tt-norms-pro-reg text-white">{{ section.settings.turn_landscape | default: "Turn into
+          landscape" }}</p>
       </div>
     </div>
   </div>
@@ -65,6 +73,14 @@
         <div class="swiper-pagination-overlay"></div>
       </div>
     </div>
+
+    <!-- Container turn into landspace -->
+    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+      <div class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-button">
+        <p class="body-14 tt-norms-pro-reg text-white">{{ section.settings.turn_landscape | default: "Turn into
+          landscape" }}</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -79,8 +95,11 @@
   <div class="w-full h-auto flex flex-col items-start justify-center">
     <!-- container text -->
     <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
-      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default: "Exteriors" |  upcase }}</p>
-      <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default:
+ "Exteriors" | upcase }}</p>
+      <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet,
+        consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
 
       <!-- contianer cta full view -->
       <div class="w-full h-auto flex flex-row items-center justify-end mb-8">
@@ -127,8 +146,11 @@
 
   <!-- container text exteriors -->
   <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3">
-    <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ section.settings.interior_content_text | default: "Lorem Ipsum dolor sit" }}</p>
-    <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+    <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ section.settings.interior_content_text | default: "Lorem
+      Ipsum dolor sit" }}</p>
+    <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet,
+      consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti
+      sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
     <div class="w-full h-auto inline-flex">
       <a href="">
         <p class="body-14-medium underline">{{ section.settings.cta_content_text | default: "Read more" }}</p>
@@ -140,8 +162,11 @@
   <div class="w-full h-auto flex flex-col items-start justify-center">
     <!-- container text -->
     <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-14 pb-6 gap-y-6">
-      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors" |  upcase }}</p>
-      <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default:
+ "Interiors" | upcase }}</p>
+      <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet,
+        consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
       <!-- contianer cta full view -->
       <div class="w-full h-auto flex flex-row items-center justify-end mb-8">
         <div
@@ -180,14 +205,18 @@
 
       <!-- handle counter images during scroll -->
       <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg px-2 py-1">
-        <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0' }})</p>
+        <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0'
+}})</p>
       </div>
     </div>
   </div>
   <!-- container text interiors -->
   <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 mb-6">
-    <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ section.settings.interior_content_text | default: "Lorem Ipsum dolor sit" }}</p>
-    <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+    <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ section.settings.interior_content_text | default: "Lorem
+      Ipsum dolor sit" }}</p>
+    <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet,
+      consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti
+      sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
     <div class="w-full h-auto inline-flex">
       <a href="">
         <p class="body-14-medium underline">{{ section.settings.cta_content_text | default: "Read more" }}</p>
@@ -205,64 +234,64 @@
     border-radius: 2px !important;
     background-color: white !important;
   }
+
   .swiper-pagination-bullet {
     width: 8px !important;
     height: 2px !important;
     border-radius: 2px !important;
     background-color: white !important;
   }
-
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   
-  const overlay = document.querySelector('.overlay-images');
-  const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
-  const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
-  const closeOverlay = document.querySelector('.close-overlay-images');
-  let externalSwiper, internalSwiper;
+    const overlay = document.querySelector('.overlay-images');
+    const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
+    const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
+    const closeOverlay = document.querySelector('.close-overlay-images');
+    let externalSwiper, internalSwiper;
   
-  // Inizializza Swiper
-  externalSwiper = new Swiper('.swiper-container-overlay-external', {
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination-overlay',
-      clickable: true,
-    },
-  });
+    // Inizializza Swiper
+    externalSwiper = new Swiper('.swiper-container-overlay-external', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination-overlay',
+        clickable: true,
+      },
+    });
   
-  internalSwiper = new Swiper('.swiper-container-overlay-internal', {
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination-overlay',
-      clickable: true,
-    },
-  });
+    internalSwiper = new Swiper('.swiper-container-overlay-internal', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination-overlay',
+        clickable: true,
+      },
+    });
   
-  // Funzione per aprire l'overlay
-  window.toggleGallery = (button) => {
-    const target = button.getAttribute('data-target');
+    // Funzione per aprire l'overlay
+    window.toggleGallery = (button) => {
+      const target = button.getAttribute('data-target');
   
-    overlay.classList.remove('hidden'); // Mostra l'overlay
-    externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
-    internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
+      overlay.classList.remove('hidden'); // Mostra l'overlay
+      externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
+      internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
   
-    if (target === 'external') {
-      externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
-    } else if (target === 'internal') {
-      internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
-    }
-  };
+      if (target === 'external') {
+        externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
+      } else if (target === 'internal') {
+        internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
+      }
+    };
   
-  // Chiudi l'overlay
-  closeOverlay.addEventListener('click', () => {
-    overlay.classList.add('hidden'); // Nascondi l'overlay
-    externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
-    internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
-  });
+    // Chiudi l'overlay
+    closeOverlay.addEventListener('click', () => {
+      overlay.classList.add('hidden'); // Nascondi l'overlay
+      externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
+      internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
+    });
   
-  const updateCounterOnScroll = (images, counterText, container) => {
+    const updateCounterOnScroll = (images, counterText, container) => {
       const updateCounter = () => {
         let closestImageIndex = 0;
         let closestDistance = Infinity;
@@ -301,6 +330,24 @@
     if (internalImages.length) {
       updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
     }
+  
+    function handleOrientationChange() {
+      const turnButton = document.querySelector('.turn-button');
+  
+      if (window.matchMedia("(orientation: landscape)").matches) {
+        if (turnButton) {
+          turnButton.classList.add('hidden');
+        }
+      } else {
+        if (turnButton) {
+          turnButton.classList.remove('hidden');
+        }
+      }
+    }
+  
+    window.addEventListener('resize', handleOrientationChange);
+  
+    handleOrientationChange();
   });
 </script>
 
@@ -332,38 +379,32 @@
         "id": "cta_brochure",
         "label": "CTA Button Text (Exterior)",
         "default": "Full exterior gallery"
-      },
-      {
+      }, {
         "type": "text",
         "id": "interior_text_title",
         "label": "Interiors Title",
         "default": "Interiors"
-      },
-      {
+      }, {
         "type": "textarea",
         "id": "interior_text_content",
         "label": "Interiors Content",
         "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-      },
-      {
+      }, {
         "type": "text",
         "id": "cta_brochure_interior",
         "label": "CTA Button Text (Interior)",
         "default": "Full interior gallery"
-      },
-      {
+      }, {
         "type": "text",
         "id": "cta_content_text",
         "label": "CTA Text for Content (Read More)",
         "default": "Read more"
-      },
-      {
+      }, {
         "type": "textarea",
         "id": "interior_content_text",
         "label": "Interior Content Text",
         "default": "Lorem Ipsum dolor sit"
-      },
-      {
+      }, {
         "type": "textarea",
         "id": "exterior_content_text",
         "label": "Exterior Content Text",
