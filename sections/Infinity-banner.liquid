@@ -108,15 +108,20 @@
 
     const container = document.querySelector('.banner');
 
+    // Aggiungi un easing più morbido e dinamico
     gsap.to(container, {
-        x: 200,
-        ease: "power2.inOut",
+        x: () => {
+            // La distanza varia in base alla posizione dello scroll
+            return (container.scrollWidth - window.innerWidth) * 0.2;  // Adatta il moltiplicatore (0.5) per la velocità
+        },
+        ease: "power2.inOut",  // Aggiunge un easing per fluidità
         scrollTrigger: {
             trigger: container,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
+            start: "top bottom",  // Inizia l'animazione quando la parte superiore della sezione entra nel viewport
+            end: "bottom top",    // Termina l'animazione quando la parte inferiore della sezione esce dal viewport
+            scrub: 0.5,           // Riduce la latenza e rende il movimento più fluido
         }
     });
 </script>
+
 
