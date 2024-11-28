@@ -3141,6 +3141,22 @@ p,
     top: calc(820px + 1rem);
   }
 
+  .lg\:left-1\/2 {
+    left: 50%;
+  }
+
+  .lg\:top-1\/2 {
+    top: 50%;
+  }
+
+  .lg\:right-6 {
+    right: 1.5rem;
+  }
+
+  .lg\:top-6 {
+    top: 1.5rem;
+  }
+
   .lg\:z-30 {
     z-index: 30;
   }
@@ -3388,6 +3404,10 @@ p,
     width: 1024px;
   }
 
+  .lg\:w-\[430px\] {
+    width: 430px;
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
@@ -3438,6 +3458,21 @@ p,
 
   .lg\:flex-grow {
     flex-grow: 1;
+  }
+
+  .lg\:-translate-x-1\/2 {
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:-translate-y-\[1000px\] {
+    --tw-translate-y: -1000px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .lg\:cursor-pointer {
