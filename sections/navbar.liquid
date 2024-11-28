@@ -290,20 +290,18 @@
     <!--container horizontal chips-->
     <div
         class="chips-horizontal-container w-[calc(100%_+_4rem)] h-[72px] flex flex-row items-center justify-start gap-x-2 overflow-x-auto px-6 -mx-6 scroll-px-6">
-        <div class="w-full h-auto flex flex-row items-center justify-start gap-x-3 py-4">
-            {% assign collectionSorted = collections | sort : 'title' | reverse %}
-            {% for collection in collectionSorted %}
-            {% unless collection.title == 'Pardo approved' %}
-        
-            <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
-                <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
-                    collection.title }}
-                </div>
-                {% render 'arrow-down-icon' %}
+        {% assign collectionSorted = collections | sort : 'title' | reverse %}
+        {% for collection in collectionSorted %}
+        {% unless collection.title == 'Pardo approved' %}
+    
+        <div class="chips-label-white flex items-center h-[40px] min-h-[40px] text-white">
+            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
+                collection.title }}
             </div>
-            {% endunless %}
-            {% endfor %}
+            {% render 'arrow-down-icon' %}
         </div>
+        {% endunless %}
+        {% endfor %}
     </div>
 
     <!--container images products-->
