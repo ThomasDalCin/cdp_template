@@ -3416,6 +3416,10 @@ p,
     width: 430px;
   }
 
+  .lg\:w-\[132px\] {
+    width: 132px;
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
@@ -3442,6 +3446,10 @@ p,
 
   .lg\:min-w-\[1024px\] {
     min-width: 1024px;
+  }
+
+  .lg\:min-w-\[132px\] {
+    min-width: 132px;
   }
 
   .lg\:max-w-\[220px\] {
@@ -3750,6 +3758,11 @@ p,
     padding-bottom: 60px;
   }
 
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
   .lg\:pb-10 {
     padding-bottom: 2.5rem;
   }
@@ -3796,6 +3809,10 @@ p,
 
   .lg\:pt-\[60px\] {
     padding-top: 60px;
+  }
+
+  .lg\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .lg\:text-\[128px\] {
