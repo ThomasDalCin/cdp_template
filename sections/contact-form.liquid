@@ -1,6 +1,6 @@
-<div class="contact-card-container w-full p-4 flex flex-col lg:flex-row-reverse gap-4 mt-[194px] lg:px-10 lg:gap-x-10">
+<div class="contact-card-container w-full p-6 flex flex-col lg:flex-row-reverse gap-4 mt-[194px] lg:px-10 lg:gap-x-10">
   <!-- Card Location Container -->
-  <div class="card-loc-container w-[calc(100%_+_2rem)] px-4 -mx-4 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-1/2 lg:mx-0 lg:gap-4">
+  <div class="card-loc-container w-[calc(100%_+_4rem)] px-6 -mx-6 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-1/2 lg:mx-0 lg:gap-4">
     {% for block in section.blocks %}
       {% if block.type == "card-location-default" %}
         <div class="card-loc-item flex-shrink-0 w-[220px] min-h-[310px] h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-1/2 lg:min-h-[518px]">
@@ -69,7 +69,7 @@
                 name="contact[first_name]"
                 id="first_name"
                 value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder="{{ section.settings.form_name }}"
                 required>
             </div>
@@ -81,7 +81,7 @@
                 name="contact[last_name]"
                 id="last_name"
                 value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder="{{ section.settings.form_lastname }}"
                 required>
             </div>
@@ -93,7 +93,7 @@
                 name="contact[email]"
                 id="email"
                 value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder="{{ section.settings.form_email }}"
                 required>
             </div>
@@ -105,7 +105,7 @@
                 name="contact[phone]"
                 id="phone"
                 value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder="{{ section.settings.form_phone }}">
             </div>
 
@@ -117,8 +117,8 @@
 
             <!-- Models -->
             <div class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
-              <div id="dropdown-toggle" class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer text-black">
-                <span id="placeholder-text" class="placeholder body-14 text-black">Models</span>
+              <div id="dropdown-toggle" class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer text-[#818181]">
+                <span id="placeholder-text" class="placeholder body-14 text-[#818181]">Models</span>
                 <!-- Dropdown icon -->
                 <svg
                   id="dropdown-arrow"
@@ -144,7 +144,7 @@
                   {% for collection in collections %}
                     {% if collection.title != 'Pardo approved' %}
                       {% for product in collection.products %}
-                        <div class="badge-product min-w-[51px]" data-value="{{ product.title | replace: 'Pardo', '' }}">
+                        <div class="badge-product min-w-[51px] text-[14px] leading-[20px] tt-norms-pro-reg px-3 py-2 flex items-center justify-center" data-value="{{ product.title | replace: 'Pardo', '' }}">
                           {{ product.title | replace: 'Pardo', '' }}
                         </div>
                       {% endfor %}
@@ -161,10 +161,10 @@
                 name="contact[port]"
                 id="port"
                 value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder=" "
                 required>
-              <label for="port" class="floating-label absolute left-4 top-2 body-14 text-black transition-all text-sm">
+              <label for="port" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
                 {{ section.settings.form_port }}
               </label>
             </div>
@@ -176,10 +176,10 @@
                 name="contact[boat_registration]"
                 id="boat_registration"
                 value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                class="floating-input w-full h-[80px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder=" "
                 required>
-              <label for="boat_registration" class="floating-label absolute left-4 top-2 body-14 text-black transition-all text-sm">
+              <label for="boat_registration" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
                 {{ section.settings.form_boat }}
               </label>
             </div>
@@ -189,7 +189,7 @@
               <textarea
                 name="contact[message]"
                 id="message"
-                class="floating-input w-full h-[150px] px-4 pt-6 pb-2 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                 placeholder=" "
                 maxlength="230"
                 oninput="updateCharCount()"
@@ -197,16 +197,16 @@
                 {% if form.message != blank %}
                   {{ form.message }}{% endif %}
               </textarea>
-              <label for="message" class="floating-label absolute left-4 top-2 body-14 text-black transition-all text-sm">
+              <label for="message" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
                 {{ section.settings.form_message }}
               </label>
-              <div class="char-counter absolute right-[10px] bottom-[10px] body-12 text-black">
+              <div class="char-counter absolute right-[10px] bottom-[10px] body-12 text-[#818181]">
                 <span id="charCount">0</span>/230
               </div>
             </div>
 
 
-            <div class="w-full h-auto flex items-start justify-center gap-y-6 bg-[var(--primary-background-color)] rounded-lg flex-col p-4">
+            <div class="w-full h-auto flex items-start justify-center gap-y-6 bg-[var(--primary-background-color)] rounded-lg flex-col p-6">
               <!-- Primary Info -->
               <div class="info-bullet-points-container w-full h-auto flex flex-col items-start justify-center">
                 <p class="body-12">{{ section.settings.form_info_primary_list }}</p>
@@ -218,20 +218,22 @@
               </div>
 
               <!-- Privacy Policy -->
+              <!-- Privacy Policy -->
               <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start">
                 <input
                   type="checkbox"
                   id="privacy_policy"
                   name="contact[privacy]"
-                  class="w-4 h-4 border-gray-300 rounded focus:ring-0 focus:bg-black focus:border-transparent placeholder:body-14 placeholder:text-black"
+                  class="w-4 h-4 appearance-none border border-gray-300 rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0"
                   required>
-                <label for="privacy_policy" class="text-sm text-black">
+                <label for="privacy_policy" class="text-sm text-[#818181]">
                   Privacy Policy*
                 </label>
               </div>
 
+
               <!-- Secondary Info -->
-              <p class="caption text-black">{{ section.settings.form_info_secondary }}</p>
+              <p class="caption text-[#818181]">{{ section.settings.form_info_secondary }}</p>
 
               <!-- Submit Button -->
               <div class="cta-choco cta-submit" id="contact-cta">
@@ -292,12 +294,14 @@
           // Deselect if already selected
           selectedModels = selectedModels.filter(model => model !== value);
           this.classList.remove('chips-label-active');
-          this.classList.remove('border-transparent');
+          this.classList.remove('border-transparent'); 
+          this.classList.remove('tt-norms-pro-med');
         } else {
           // Select the badge
           selectedModels.push(value);
           this.classList.add('chips-label-active'); // Select styling
           this.classList.add('border-transparent');
+          this.classList.add('tt-norms-pro-med');
         }
   
         // Update hidden input value with selected models
@@ -345,7 +349,7 @@
 
 
 {% comment %} 
-      Section Schema Settings here; 
+          Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
