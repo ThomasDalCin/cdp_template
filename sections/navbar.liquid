@@ -126,7 +126,7 @@
                         {% for product in matching_collection.products %}
                         <div class="badge-product border-white cursor-pointer mt-4 mb-4"
                             data-target="{{ product.title }}">
-                            <a href="{{ product.url }}">
+                            <a href="{{ product.url }}" class="tt-norms-pro-reg">
                                 {{ product.title | replace: 'Pardo', '' }}
                             </a>
                         </div>

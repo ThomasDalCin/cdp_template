@@ -7,7 +7,7 @@
       <div class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
         {% for article in newsArticles %}
           {% if article.tags contains "News" %}
-            <div class="blog-item-horizontal-view w-[353px] h-auto flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-[353px] h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] flex-shrink-0" data-tags="{{ article.tags | join: ',' }}">
 
               <div class="blog-item-image w-full h-auto">
                 <img

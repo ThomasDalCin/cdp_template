@@ -1557,6 +1557,10 @@ p,
   height: 100svh;
 }
 
+.h-\[418px\] {
+  height: 418px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1687,6 +1691,10 @@ p,
 
 .min-h-\[640px\] {
   min-height: 640px;
+}
+
+.min-h-\[418px\] {
+  min-height: 418px;
 }
 
 .w-0 {
