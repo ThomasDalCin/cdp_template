@@ -93,10 +93,10 @@
                 <div class="relative inline-block">
                     {% if allLinksTitle contains link.title %}
                     {% if link.title == 'View all models' %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-reg leading-[20px]
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px]   tt-norms-pro-light leading-[20px]
                     lg:text-[40px] lg:leading-[40px]" }}
                     {% else %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-reg
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light
                     lg:text-[64px]
                     lg:leading-[64px]" }}
                     {% endif %}
@@ -144,11 +144,20 @@
         <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
             {% for link in linklists.yatch.links %}
             {% unless allLinksTitle contains link.title %}
-            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-reg text-[16px] leading-[22px]
-            lg:text-[24px]
+            {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-light text-[16px] leading-[22px]
+            lg:text-[24px] hover:font-['TT-Norms-Pro-Regular']
             lg:leading-[24px] underline" }}
             {% endunless %}
             {% endfor %}
+        </div>
+
+        <!--find delear button-->
+        <div class="w-full h-auto items-center justify-start hidden lg:flex mt-4">
+            <a href="pages/locate-delear">
+                <div class="w-auto h-auto inline-flex cta-white-rounded">
+                    <p class="body-14 tt-norms-pro-light">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                </div>
+            </a>
         </div>
 
         <!-- boat image container on desktop -->
@@ -187,7 +196,7 @@
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
                         class="flex min-w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px] lg:flex-1">
-                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-reg">
+                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-light">
                             {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
                         </p>
                         <p class="body-16 text-nowrap tt-norms-pro-reg">{{ metafieldCustom | upcase }}</p>
@@ -203,7 +212,7 @@
     </div>
 
     <!--find delear button-->
-    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px]">
+    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px] lg:hidden">
         <a href="pages/locate-delear">
             <div class="w-auto h-auto inline-flex cta-white-rounded">
                 <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
@@ -225,9 +234,9 @@
                 {% for link in linklists.main-menu.links %}
                 {% if link.title != "Privacy preferences" and link.title != "Privacy policy" %}
                 {% unless link.title == 'Press room' or link.title == 'Work with us' %}
-                <li class="header-1-medium text-white list-none inline-flex items-center relative lg:hover:text-shadow">
-                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px]
-                    tt-norms-pro-reg
+                <li class="header-1-medium text-white list-none inline-flex items-center relative" >
+                    {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px] 
+                    tt-norms-pro-light hover:font-['TT-Norms-Pro-Regular']
                     lg:leading-[64px]" }}
                 </li>
                 {% endunless %}
@@ -235,10 +244,11 @@
                 {% endfor %}
             </div>
 
-            <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
+            <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-6">
                 {% for link in linklists.main-menu.links %}
                 {% if link.title == 'Press room' or link.title == 'Work with us' %}
-                {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-extra-light text-[16px] leading-[22px]
+                {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-extra-light text-[16px]
+                leading-[22px] hover:font-['TT-Norms-Pro-Regular']
                 lg:text-[24px] lg:leading-[24px] underline" }}
                 {% endif %}
                 {% endfor %}
@@ -293,7 +303,7 @@
         {% assign collectionSorted = collections | sort : 'title' | reverse %}
         {% for collection in collectionSorted %}
         {% unless collection.title == 'Pardo approved' %}
-    
+
         <div class="chips-label-white flex items-center h-[40px] min-h-[40px] text-white">
             <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
                 collection.title }}
@@ -491,11 +501,11 @@
                 else {
                     //set hover on each link
                     link.addEventListener('mouseover', (e) => {
-                        e.currentTarget.classList.add('text-shadow');
+                        e.currentTarget.classList.add('tt-norms-pro-reg');
                     });
 
                     link.addEventListener('mouseout', (e) => {
-                        e.currentTarget.classList.remove('text-shadow');
+                        e.currentTarget.classList.remove('tt-norms-pro-reg');
                     });
                     //set click on each link
                     link.addEventListener('click', (e) => {
@@ -688,7 +698,7 @@
 
                 // Nascondi il pageTitleContainer
                 const pageTitleContainers = document.querySelector('.page-title-container');
-                if(pageTitleContainers){
+                if (pageTitleContainers) {
 
                 }
                 pageTitleContainer.classList.add('hidden');
