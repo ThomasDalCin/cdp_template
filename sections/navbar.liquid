@@ -289,18 +289,21 @@
 
     <!--container horizontal chips-->
     <div
-        class="chips-horizontal-container w-[calc(100%_+_4rem)] h-[72px] flex gap-x-2 overflow-x-auto px-6 -mx-6 py-4 scroll-px-6">
-        {% assign collectionSorted = collections | sort : 'title' | reverse %}
-        {% for collection in collectionSorted %}
-        {% unless collection.title == 'Pardo approved' %}
-        <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
-            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
-                collection.title }}
+        class="chips-horizontal-container w-[calc(100%_+_4rem)] h-[72px] flex flex-row items-center justify-start gap-x-2 overflow-x-auto px-6 -mx-6 scroll-px-6">
+        <div class="w-full h-auto flex flex-row items-center justify-start gap-x-3 py-4">
+            {% assign collectionSorted = collections | sort : 'title' | reverse %}
+            {% for collection in collectionSorted %}
+            {% unless collection.title == 'Pardo approved' %}
+        
+            <div class="chips-label-white flex items-center space-x-2 min-h-[40px] text-white">
+                <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
+                    collection.title }}
+                </div>
+                {% render 'arrow-down-icon' %}
             </div>
-            {% render 'arrow-down-icon' %}
+            {% endunless %}
+            {% endfor %}
         </div>
-        {% endunless %}
-        {% endfor %}
     </div>
 
     <!--container images products-->
@@ -686,10 +689,16 @@
                 chipText.innerHTML = 'Close';
 
                 // Nascondi il pageTitleContainer
+                const pageTitleContainers = document.querySelector('.page-title-container');
+                if(pageTitleContainers){
+
+                }
                 pageTitleContainer.classList.add('hidden');
                 pageTitleContainer.classList.remove('flex');
 
                 navbar.classList.remove('bg-blur-opacity');
+                document.body.classList.add('no-scroll');
+
                 breadcrumbsContent.classList.add('hidden');
 
             } else if (isSecondMenuOpen) {
