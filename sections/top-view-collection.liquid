@@ -4,7 +4,8 @@
         class="badge-container w-auto h-auto bg-[#EFEEED] rounded-full flex flex-row items-center justify-start gap-x-2 p-1 relative">
         {% for product in collection.products %}
         <div class="w-[61px] min-w-[61px] h-[38px] min-h-[38px] flex items-center justify-center p-badge z-10"
-            data-attribute="{{ product.title }}" data-index="{{ forloop.index0 }}" onclick="selectBadge({{ forloop.index0 }})">
+            data-attribute="{{ product.title }}" data-index="{{ forloop.index0 }}"
+            onclick="selectBadge({{ forloop.index0 }})">
             <p class="body-16">{{ product.title | replace: "Pardo", ""}}</p>
         </div>
         {% endfor %}
@@ -19,17 +20,18 @@
     {% for product in collection.products %}
     {% if product.images.size > 0 %}
     {% assign firstImage = product.images[0] %}
-    <div class="w-full h-[268px] min-h-[268px] relative product-image z-10 lg:h-[720px]" data-index="{{ forloop.index0 }}"
+    <div class="w-full h-[268px] min-h-[268px] relative product-image z-10 lg:h-[720px]"
+        data-index="{{ forloop.index0 }}"
         style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
-        <img src="{{ firstImage | img_url: 'master' }}" alt="{{ product.title }}"
-            class="w-full h-full object-contain object-center" data-attribute="{{ product.title }}">
+        <img src="{{ firstImage | img_url: 'master' }}" alt="{{ product.title }} "
+            class="w-full h-full object-contain object-center" data-attribute="{{ product.title }} ">
     </div>
     {% endif %}
     {% endfor %}
 
     <!--layer blur-->
     <div
-        class="w-[372px] h-[135px] rounded-[372px] bg-[#A9A09E] blur-[150px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-full lg:h-[524px]">
+        class="w-[372px] h-[135px] rounded-[372px] bg-[#A9A09E] blur-[180px] lg:blur-[150px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-full lg:h-[524px]">
     </div>
     <!--square white-->
     <div class="w-full h-[205px] bg-white absolute left-0 top-1/2 z-0 lg:h-[524px] lg:overflow-y-hidden"></div>
@@ -40,41 +42,43 @@
         <a href="{{ product.url }}" class="product-cta" data-index="{{ forloop.index0 }}"
             style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
             <div class="cta-transparent-round w-[113px] h-auto max-h-[36px]">
-                <p class="body-14 tt-norms-pro-reg">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
+                <p class="body-14 tt-norms-pro-reg">{{ section.settings.product_cta | default: "Discover " }} {{
+                    product.title | replace: "Pardo", ""}}</p>
             </div>
         </a>
         {% endfor %}
     </div>
+    
+    <div class="arrow-left-content hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-40 -mt-[100px] cursor-pointer">
+        <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center" onclick="changeImage(-1)">
+            {% render 'arrow-left-icon' %}
+        </div>
+    </div>
+    <div class="arrow-right-content hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-40 -mt-[100px] cursor-pointer">
+        <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center" onclick="changeImage(1)">
+            {% render 'arrow-right-icon' %}
+        </div>
+    </div>
 </div>
 
 <!--scroll-info-collection-->
-<div class="w-full h-auto flex items-center justify-center flex-col gap-y-4 relative z-20 overflow-x-hidden">
-    <!--scroll info heading container-->
+<div class="w-full h-auto flex items-center justify-center flex-col gap-y-4 relative px-4 z-20 overflow-x-hidden">
     <div class="auto h-auto flex flex-col items-center justify-center gap-y-4">
-        <p class="text-[24px] leading-[40px] lg:text-[64px] lg:leading-[64px]">{{ section.settings.scroll_info_little_title | default: "Open the world"
-            }}</p>
-        <p class="text-[40px] leading-[40px] lg:text-[96px] lg:leading-[96px]">{{ section.settings.scroll_info_main_title | default: "Adventure & Ocean"
-            }}</p>
+        <p class="text-[24px] leading-[40px] lg:text-[64px] lg:leading-[64px]">{{ section.settings.scroll_info_little_title | default: "Open the world" }}</p>
+        <p class="text-[40px] leading-[40px] lg:text-[96px] lg:leading-[96px]">{{ section.settings.scroll_info_main_title | default: "Adventure & Ocean" }}</p>
     </div>
 
-    <!--scroll info container badges-->
-    <div
-        class="product-details-magnetic-scroll w-[calc(100%+2rem)] px-6 py-6 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full lg:px-[120px]">
+    <div class="product-details-magnetic-scroll w-[calc(100%+2rem)] px-4 -mx-4 py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto lg:w-full lg:px-[120px]">
         {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
         {% for productMetafieldsValue in productMetafieldsValues %}
         {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-        <div
-            class="details-badge flex min-w-[127px] h-auto p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
+        <div class="details-badge flex min-w-[127px] h-auto p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
             <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
-            <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue | replace: '_', ' ' | upcase
-                }}
-            </p>
+            <p class="body-12 text-[#818181]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
         </div>
         {% endfor %}
     </div>
-
 </div>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -82,6 +86,10 @@
         const productImages = document.querySelectorAll('.product-image');
         const productCtas = document.querySelectorAll('.product-cta');
         const movingBadge = document.querySelector('.badge-container .z-0');
+
+        let currentIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         // Calcola il gap tra i badge
         function calculateBadgeGap() {
@@ -113,38 +121,54 @@
             const badgeRect = selectedBadge.getBoundingClientRect();
             const containerRect = badgeContainer.getBoundingClientRect();
 
-            // Calcola l'offset X
-            const offsetX =
-                badgeRect.left -
-                containerRect.left +
-                selectedBadge.offsetWidth / 2 -
-                movingBadge.offsetWidth / 2 -
-                badgeGap / 2;
+            const offsetX = badgeRect.left - containerRect.left + selectedBadge.offsetWidth / 2 - movingBadge.offsetWidth / 2 - badgeGap / 2;
 
-            // Anima il movimento del badge
             requestAnimationFrame(() => {
                 movingBadge.style.transform = `translate(${offsetX}px)`;
                 movingBadge.style.transition = "transform 0.3s ease";
             });
         }
 
-        // Inizializza badge, immagini e CTA
-        function initialize() {
-            badges.forEach((badge, index) => {
-                badge.addEventListener('click', () => {
-                    showProductImage(index);
-                    showProductCta(index);
-                    moveBadge(index);
-                });
-            });
-
-            // Mostra il primo prodotto e il suo CTA di default
-            showProductImage(0);
-            showProductCta(0);
-            moveBadge(0);
+        // Funzione per cambiare l'immagine in base all'indice
+        window.changeImage = function (direction) {
+            currentIndex = (currentIndex + direction + productImages.length) % productImages.length;
+            showProductImage(currentIndex);
+            showProductCta(currentIndex);
+            moveBadge(currentIndex);
         }
 
-        initialize();
+        // Funzione per selezionare il badge
+        window.selectBadge = function (index) {
+            showProductImage(index);
+            showProductCta(index);
+            moveBadge(index);
+            currentIndex = index;
+        }
+
+        // Funzioni touch per dispositivi mobili
+        productImages.forEach((image) => {
+            image.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;  // Memorizza la posizione iniziale del tocco
+            });
+
+            image.addEventListener('touchmove', (e) => {
+                touchEndX = e.changedTouches[0].screenX;  // Aggiorna la posizione finale del tocco
+            });
+
+            image.addEventListener('touchend', () => {
+                if (touchStartX - touchEndX > 50) {
+                    // Swipe verso sinistra (passa al prossimo prodotto)
+                    changeImage(1);
+                } else if (touchEndX - touchStartX > 50) {
+                    // Swipe verso destra (passa al prodotto precedente)
+                    changeImage(-1);
+                }
+            });
+        });
+
+        // Inizializza il primo prodotto e il relativo CTA
+        showProductImage(0);
+        showProductCta(0);
+        moveBadge(0);
     });
 </script>
-

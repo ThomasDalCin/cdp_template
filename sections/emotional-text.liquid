@@ -1,9 +1,63 @@
-<!-- home ispirational text -->
-
-<!-- hero ispirational text container -->
-<div class="w-full h-auto flex items-center justify-center px-6 pt-6 pb-14 lg:px-[120px] lg:py-[120px]">
-  <p class="text-[24px] leading-[30px] text-center text-balance lg:text-[40px] lg:leading-[46px]">{{ section.settings.ispirational_text }}</p>
+<!-- hero inspirational text container -->
+<div class="w-full h-auto flex items-center justify-center px-6 pt-6 pb-14 lg:px-[120px] lg:py-[120px]" id="textSection">
+  <p id="ispirationalText" class="text-[24px] leading-[30px] text-center text-balance lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
+    {{ section.settings.ispirational_text }}
+  </p>
 </div>
+
+<script>
+// Wait for the document to be fully loaded before applying the logic
+document.addEventListener('DOMContentLoaded', () => {
+    const paragraph = document.querySelector('#ispirationalText');
+    
+    // Save original classes and text content
+    const originalClasses = paragraph.className;
+    const textContent = paragraph.textContent;
+
+    // Wrap each character in a <span> tag while preserving the classes from the <p> tag
+    if (paragraph) {
+        let htmlString = '';
+        let pArray = textContent.split('');
+        
+        // Wrap each character in a <span> tag with the same classes as the parent <p>
+        for (let i = 0; i < pArray.length; i++) {
+            htmlString += `<span class="${originalClasses}" style="display:inline-block; color: #818181">${pArray[i]}</span>`;
+        }
+        
+        paragraph.innerHTML = htmlString; // Replace paragraph content with wrapped spans
+    }
+
+    // Select all the newly created spans
+    const spans = [...document.querySelectorAll('#ispirationalText span')];
+
+    // Initialize GSAP ScrollTrigger for the animation
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Use ScrollTrigger to animate the color change when the section is scrolled into view
+    ScrollTrigger.create({
+        trigger: '#textSection', // Target the section with the text
+        start: 'top bottom', // Trigger the animation when the top of the section reaches the bottom of the viewport
+        end: 'center center', // End the animation when the bottom of the section is 200px before the center of the viewport
+        scrub: true, // Synchronize the animation with the scroll position
+        onUpdate: (self) => { // Update animation based on scroll position
+            const progress = self.progress; // Get the scroll progress (0 to 1)
+
+            // Animate the color of each span based on scroll progress
+            spans.forEach((span, index) => {
+                const colorProgress = Math.min(1, Math.max(0, (progress - (index / spans.length)) * 10 )); // Create staggered color change effect
+
+                // Calculate the color transition from #818181 to #000000
+                const r = Math.round(129 + (colorProgress * (0 - 129)));  // From #818181 (129) to #000000 (0)
+                const g = Math.round(129 + (colorProgress * (0 - 129)));  // From #818181 (129) to #000000 (0)
+                const b = Math.round(129 + (colorProgress * (0 - 129)));  // From #818181 (129) to #000000 (0)
+
+                span.style.color = `rgb(${r}, ${g}, ${b})`; // Apply the new color
+            });
+        }
+    });
+});
+</script>
+
 
 {% schema %}
   {
