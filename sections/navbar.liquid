@@ -694,7 +694,6 @@
                 menuIcon.classList.remove('active');
             }
 
-
             const isMenuYatchHidden = menuYatch.classList.contains('hidden');
             const isSecondMenuOpen = secondMenu.classList.contains('flex');
 
@@ -704,14 +703,12 @@
                 menuYatch.classList.add('flex');
                 chipText.innerHTML = 'Close';
 
-                // Nascondi il pageTitleContainer
-                const pageTitleContainers = document.querySelector('.page-title-container');
-                if (pageTitleContainers) {
-
+                // Check if pageTitleContainer exists before modifying
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.add('hidden');
+                    pageTitleContainer.classList.remove('flex');
                 }
-
-                pageTitleContainer.classList.add('hidden');
-                pageTitleContainer.classList.remove('flex');
 
                 navbar.classList.remove('bg-blur-opacity');
                 document.body.classList.add('no-scroll');
@@ -723,24 +720,30 @@
                 secondMenu.classList.add('hidden');
                 secondMenu.classList.remove('flex');
 
-                // Nascondi il menu
+                // Hide the menu
                 menuYatch.classList.remove('flex');
                 menuYatch.classList.add('hidden');
 
-                // Mostra il pageTitleContainer
-                pageTitleContainer.classList.remove('hidden');
-                pageTitleContainer.classList.add('flex');
+                // Check if pageTitleContainer exists before modifying
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.remove('hidden');
+                    pageTitleContainer.classList.add('flex');
+                }
 
                 document.body.classList.remove('no-scroll');
             } else {
-                // Nascondi il menu
+                // Hide the menu
                 menuYatch.classList.remove('flex');
                 menuYatch.classList.add('hidden');
                 chipText.innerHTML = 'Models';
 
-                // Mostra il pageTitleContainer
-                pageTitleContainer.classList.remove('hidden');
-                pageTitleContainer.classList.add('flex');
+                // Check if pageTitleContainer exists before modifying
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.remove('hidden');
+                    pageTitleContainer.classList.add('flex');
+                }
 
                 navbar.classList.add('bg-blur-opacity');
                 document.body.classList.remove('no-scroll');
@@ -751,6 +754,8 @@
 
 
 
+
+        // handle click on menu icon
         // handle click on menu icon
         menuIcon.addEventListener('click', () => {
 
@@ -768,8 +773,13 @@
                 document.body.classList.add('no-scroll');
                 menuIcon.classList.add('active');
 
-                pageTitleContainer.classList.add('hidden');
-                pageTitleContainer.classList.remove('flex');
+                // Check if pageTitleContainer exists before modifying
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.add('hidden');
+                    pageTitleContainer.classList.remove('flex');
+                }
+
                 navbar.classList.remove('bg-blur-opacity');
 
                 breadcrumbsContent.classList.add('hidden');
@@ -780,13 +790,19 @@
                 document.body.classList.remove('no-scroll');
                 menuIcon.classList.remove('active');
 
-                pageTitleContainer.classList.remove('hidden');
-                pageTitleContainer.classList.add('flex');
+                // Check if pageTitleContainer exists before modifying
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.remove('hidden');
+                    pageTitleContainer.classList.add('flex');
+                }
+
                 navbar.classList.add('bg-blur-opacity');
 
                 breadcrumbsContent.classList.remove('hidden');
             }
         });
+
 
 
         // Hide the second-level menu and show the main menu when the back arrow is clicked
