@@ -111,7 +111,7 @@
                 </div>
                 <div class="w-full h-[56px] min-h-[56px] lg:w-[220px]">
                     <a href="pages/locate-delear"
-                        class="w-full h-full cta-transparent lg:bg-white lg:text-black lg:border-transparent">{{
+                        class="w-full h-full cta-transparent lg:bg-white lg:text-black lg:border-transparent cta-delear">{{
                         section.settings.cta_gamma_delear | default: "Find a dealer" }}</a>
                 </div>
             </div>
@@ -229,38 +229,39 @@
     }
 
     tabs.forEach(tab => {
-        tab.addEventListener('click', function () {
-            const collectionId = tab.id;
+    tab.addEventListener('click', function () {
+        const collectionId = tab.id;
 
-            // Mostra solo il contenitore corrispondente alla tab selezionata
-            gammaScrolls.forEach(container => {
-                if (container.getAttribute('data-collection') === collectionId) {
-                    container.style.display = 'flex'; // Mostra il contenitore della tab selezionata
-                } else {
-                    container.style.display = 'none'; // Nascondi gli altri contenitori
-                }
-            });
-
-            // Cambia il testo e l'href del pulsante CTA in base alla tab selezionata
-            updateCtaButtonTextAndHref(tab.innerText);
-
-            // Mostra solo il pulsante "Find a dealer" quando "Models" è selezionato
-            if (tab.innerText === "Models") {
-                ctaButton.style.display = "none"; // Nascondi "Discover" button
-                ctaDealerButton.forEach(btn => btn.style.display = "flex"); // Mostra "Find a dealer"
+        // Mostra solo il contenitore corrispondente alla tab selezionata
+        gammaScrolls.forEach(container => {
+            if (container.getAttribute('data-collection') === collectionId) {
+                container.style.display = 'flex'; // Mostra il contenitore della tab selezionata
             } else {
-                ctaButton.style.display = "flex"; // Mostra "Discover" button
-                ctaDealerButton.forEach(btn => btn.style.display = "none"); // Nascondi "Find a dealer"
+                container.style.display = 'none'; // Nascondi gli altri contenitori
             }
-
-            // Sposta l'icona della tab
-            updateUnionIconPosition(tab);
-
-            // Aggiungi la classe active-tab alla tab selezionata
-            tabs.forEach(t => t.classList.remove('active-tab')); // Rimuovi da tutte
-            tab.classList.add('active-tab'); // Aggiungi alla tab selezionata
         });
+
+        // Cambia il testo e l'href del pulsante CTA in base alla tab selezionata
+        updateCtaButtonTextAndHref(tab.innerText);
+
+        // Controlla se la tab "Models" è selezionata
+        if (tab.innerText === "Models") {
+            ctaButton.style.display = "none"; // Nascondi "Discover" button
+            ctaDealerButton.forEach(btn => btn.style.display = "flex"); // Mostra "Find a dealer"
+        } else {
+            ctaButton.style.display = "flex"; // Mostra "Discover" button
+            ctaDealerButton.forEach(btn => btn.style.display = "flex"); // Mostra "Find a dealer"
+        }
+
+        // Sposta l'icona della tab
+        updateUnionIconPosition(tab);
+
+        // Aggiungi la classe active-tab alla tab selezionata
+        tabs.forEach(t => t.classList.remove('active-tab')); // Rimuovi da tutte
+        tab.classList.add('active-tab'); // Aggiungi alla tab selezionata
     });
+});
+
 
     // Imposta il testo iniziale del pulsante CTA e l'href quando la pagina viene caricata
     if (tabs.length > 0) {
