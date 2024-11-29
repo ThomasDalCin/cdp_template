@@ -2750,6 +2750,10 @@ p,
   text-decoration-line: underline;
 }
 
+.decoration-\[\.5px\] {
+  text-decoration-thickness: .5px;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -3044,6 +3048,10 @@ p,
 
 .hover\:font-\[\'TT-Norms-Pro-Regular\'\]:hover {
   font-family: 'TT-Norms-Pro-Regular';
+}
+
+.hover\:decoration-\[1px\]:hover {
+  text-decoration-thickness: 1px;
 }
 
 .focus\:border-black:focus {
