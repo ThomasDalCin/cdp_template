@@ -1582,6 +1582,10 @@ p,
   height: 100svh;
 }
 
+.h-\[286px\] {
+  height: 286px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1620,6 +1624,10 @@ p,
 
 .max-h-\[423px\] {
   max-height: 423px;
+}
+
+.max-h-\[286px\] {
+  max-height: 286px;
 }
 
 .min-h-\[147px\] {
