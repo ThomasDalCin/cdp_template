@@ -3037,6 +3037,11 @@ p,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-\[\#A9A09E\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(169 160 158 / var(--tw-bg-opacity));
+}
+
 .hover\:font-\[\'TT-Norms-Pro-Regular\'\]:hover {
   font-family: 'TT-Norms-Pro-Regular';
 }
@@ -3187,6 +3192,14 @@ p,
     margin-top: 60px;
   }
 
+  .lg\:mt-\[194px\] {
+    margin-top: 194px;
+  }
+
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -3257,6 +3270,14 @@ p,
 
   .lg\:h-full {
     height: 100%;
+  }
+
+  .lg\:h-auto {
+    height: auto;
+  }
+
+  .lg\:h-\[48px\] {
+    height: 48px;
   }
 
   .lg\:max-h-\[600px\] {
@@ -3393,6 +3414,38 @@ p,
 
   .lg\:w-\[calc\(50\%_-_1\.5rem\)\] {
     width: calc(50% - 1.5rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_40px\)\] {
+    width: calc(33.3% - 40px);
+  }
+
+  .lg\:w-\[calc\(50\%_-_40px\)\] {
+    width: calc(50% - 40px);
+  }
+
+  .lg\:w-\[calc\(66\.7\%_-_40px\)\] {
+    width: calc(66.7% - 40px);
+  }
+
+  .lg\:w-\[calc\(33\.3333\%_-_40px\)\] {
+    width: calc(33.3333% - 40px);
+  }
+
+  .lg\:w-\[calc\(66\.66666\%_-_40px\)\] {
+    width: calc(66.66666% - 40px);
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .lg\:w-\[calc\(33\.3333\%_-_2\.5rem\)\] {
+    width: calc(33.3333% - 2.5rem);
+  }
+
+  .lg\:w-\[calc\(66\.66666\%_-_2\.5rem\)\] {
+    width: calc(66.66666% - 2.5rem);
   }
 
   .lg\:min-w-0 {
@@ -3607,6 +3660,14 @@ p,
     border-radius: 0px;
   }
 
+  .lg\:rounded-br-\[32px\] {
+    border-bottom-right-radius: 32px;
+  }
+
+  .lg\:rounded-tr-\[32px\] {
+    border-top-right-radius: 32px;
+  }
+
   .lg\:border-b {
     border-bottom-width: 1px;
   }
@@ -3669,6 +3730,10 @@ p,
 
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-12 {
+    padding: 3rem;
   }
 
   .lg\:px-0 {
@@ -3791,6 +3856,18 @@ p,
 
   .lg\:pt-\[60px\] {
     padding-top: 60px;
+  }
+
+  .lg\:pb-\[120px\] {
+    padding-bottom: 120px;
+  }
+
+  .lg\:pl-20 {
+    padding-left: 5rem;
+  }
+
+  .lg\:pr-20 {
+    padding-right: 5rem;
   }
 
   .lg\:text-\[128px\] {
