@@ -299,7 +299,7 @@
 
     <!--container horizontal chips-->
     <div
-    class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
+    class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mt-4 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
     {% assign collectionSorted = collections | sort : 'title' | reverse %}
     {% for collection in collectionSorted %}
     {% unless collection.title == 'Pardo approved' %}
