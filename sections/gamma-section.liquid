@@ -100,7 +100,7 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll('.tab-gamma');
     const imageScrolls = document.querySelectorAll('.image-scroll');
     const magneticScroll = document.querySelector('.magnetic-scroll');
@@ -108,14 +108,17 @@
     const wrapContent = document.querySelector('.wrap-content');
     const ctaButton = document.getElementById('cta-button-collection');
 
+    // Funzione per gestire il click sulla tab
     function handleTabClick(event) {
         const clickedTab = event.currentTarget;
         const selectedTabId = clickedTab.id;
         const selectedTabName = clickedTab.textContent.trim();
 
+        // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
         tabs.forEach(tab => tab.classList.remove('active-tab'));
         clickedTab.classList.add('active-tab');
 
+        // Gestisci la visibilità delle immagini in base alla tab selezionata
         imageScrolls.forEach(image => {
             const collection = image.getAttribute('data-collection');
             if (selectedTabId === 'All Models' || selectedTabId === collection) {
@@ -125,8 +128,13 @@
             }
         });
 
+        // Calcola e sposta l'icona per centrarla sulla tab selezionata prima di fare lo scroll
         moveUnionIcon(clickedTab);
 
+        // Fai scrollare 'wrapContent' per centrare la tab selezionata in modo fluido
+        scrollToTab(clickedTab);
+
+        // Cambia il comportamento del bottone CTA in base alla tab selezionata
         if (selectedTabId === 'All Models') {
             ctaButton.parentElement.style.display = 'none';
         } else {
@@ -135,19 +143,39 @@
             ctaButton.innerHTML = `Discover ${selectedTabName}`;
         }
 
-        magneticScroll.scrollTo({left: 0, behavior: "smooth"});
+        // Riporta lo scroll del contenitore magnetico all'inizio
+        magneticScroll.scrollTo({ left: 0, behavior: "smooth" });
     }
 
+    // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata in modo fluido
+    function scrollToTab(target) {
+        const targetRect = target.getBoundingClientRect();
+        const containerRect = wrapContent.getBoundingClientRect();
+        const containerWidth = containerRect.width;
+        const targetCenterX = targetRect.left + targetRect.width / 2;
+        const containerCenterX = containerRect.left + containerWidth / 2;
+        const offset = targetCenterX - containerCenterX;
+
+        // Fai scrollare il contenitore in modo fluido
+        wrapContent.scrollTo({
+            left: wrapContent.scrollLeft + offset,
+            behavior: 'smooth'  // Aggiungi il comportamento fluido
+        });
+    }
+
+    // Funzione per spostare l'icona in base alla tab selezionata
     function moveUnionIcon(target) {
         const targetRect = target.getBoundingClientRect();
         const containerRect = wrapContent.getBoundingClientRect();
         const unionIconWidth = unionIcon.offsetWidth;
 
-        // Calcola la posizione orizzontale del target rispetto al contenitore
+        // Calcola la posizione orizzontale della tab selezionata rispetto al contenitore
         const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2);
-        const offsetX = tabCenterX - (unionIconWidth / 2);
 
-        // Muovi l'icona in base alla posizione calcolata
+        // Calcola la posizione dell'icona considerando lo scroll di wrapContent
+        const offsetX = tabCenterX - (unionIconWidth / 2) - wrapContent.scrollLeft;
+
+        // Muovi l'icona nella posizione calcolata con una transizione fluida
         unionIcon.style.transform = `translateX(${offsetX}px)`;
         unionIcon.style.transition = "transform 0.3s ease";
     }
@@ -157,12 +185,14 @@
         tab.addEventListener('click', handleTabClick);
     });
 
+    // Seleziona la tab "All Models" come predefinita al caricamento della pagina
     const modelsTab = document.getElementById('All Models');
     if (modelsTab) {
         modelsTab.classList.add('active-tab');
-        moveUnionIcon(modelsTab);
+        moveUnionIcon(modelsTab);  // Centra l'icona sulla tab "All Models" al caricamento
     }
 
+    // Imposta la visibilità delle immagini inizialmente
     imageScrolls.forEach(image => image.style.display = 'flex');
     ctaButton.parentElement.style.display = 'none';
 });
