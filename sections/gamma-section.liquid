@@ -142,157 +142,157 @@
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const prevArrow = document.getElementById("prevArrow");
-        const nextArrow = document.getElementById("nextArrow");
-        const magneticScrolls = document.querySelectorAll(".magnetic-scroll");
+  document.addEventListener("DOMContentLoaded", function () {
+    const prevArrow = document.getElementById("prevArrow");
+    const nextArrow = document.getElementById("nextArrow");
+    const magneticScrolls = document.querySelectorAll(".magnetic-scroll");
 
-        const ctaButton = document.getElementById('cta-button');
+    const ctaButton = document.getElementById('cta-button');
+    const ctaDealerButton = document.querySelectorAll('.cta-transparent'); // Bottone "Find a dealer"
 
-        // Funzione per centrare un elemento visibile
-        function centerElement(scrollContainer, targetElement) {
-            const containerRect = scrollContainer.getBoundingClientRect();
-            const elementRect = targetElement.getBoundingClientRect();
-            const offset = elementRect.left - containerRect.left;
-            const scrollAmount = offset - (containerRect.width / 2) + (elementRect.width / 2);
+    // Funzione per centrare un elemento visibile
+    function centerElement(scrollContainer, targetElement) {
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const elementRect = targetElement.getBoundingClientRect();
+        const offset = elementRect.left - containerRect.left;
+        const scrollAmount = offset - (containerRect.width / 2) + (elementRect.width / 2);
 
-            scrollContainer.scrollBy({
-                top: 0,
-                left: scrollAmount,
-                behavior: "smooth",
-            });
-        }
-
-        function findVisibleImage(scrollContainer, direction) {
-            const images = scrollContainer.querySelectorAll(".image-scroll");
-            const containerRect = scrollContainer.getBoundingClientRect();
-
-            let closestImage = null;
-            let minDistance = Infinity;
-
-            images.forEach((image) => {
-                const imageRect = image.getBoundingClientRect();
-                const imageCenter = imageRect.left + imageRect.width / 2;
-                const containerCenter = containerRect.left + containerRect.width / 2;
-
-                const distance = Math.abs(imageCenter - containerCenter);
-
-                if (
-                    (direction === "next" && imageCenter > containerCenter && distance < minDistance) ||
-                    (direction === "prev" && imageCenter < containerCenter && distance < minDistance)
-                ) {
-                    closestImage = image;
-                    minDistance = distance;
-                }
-            });
-
-            return closestImage;
-        }
-
-        nextArrow.addEventListener("click", () => {
-            magneticScrolls.forEach((scrollContainer) => {
-                if (scrollContainer.style.display === "flex") {
-                    const nextImage = findVisibleImage(scrollContainer, "next");
-                    if (nextImage) {
-                        centerElement(scrollContainer, nextImage);
-                    }
-                }
-            });
+        scrollContainer.scrollBy({
+            top: 0,
+            left: scrollAmount,
+            behavior: "smooth",
         });
+    }
 
-        prevArrow.addEventListener("click", () => {
-            magneticScrolls.forEach((scrollContainer) => {
-                if (scrollContainer.style.display === "flex") {
-                    const prevImage = findVisibleImage(scrollContainer, "prev");
-                    if (prevImage) {
-                        centerElement(scrollContainer, prevImage);
-                    }
-                }
-            });
-        });
+    function findVisibleImage(scrollContainer, direction) {
+        const images = scrollContainer.querySelectorAll(".image-scroll");
+        const containerRect = scrollContainer.getBoundingClientRect();
 
-        const tabs = document.querySelectorAll('.tab-gamma');
-        const gammaScrolls = document.querySelectorAll('.gamma-scroll');
-        const unionIcon = document.querySelector('.union-icon');
-        const detailsWrap = document.querySelectorAll('.details-content');
-        const imageScroll = document.querySelectorAll('.image-scroll');
-        const mainWrap = document.querySelector('.wrap-content');
+        let closestImage = null;
+        let minDistance = Infinity;
 
-        const mainWrapRect = mainWrap.getBoundingClientRect();
+        images.forEach((image) => {
+            const imageRect = image.getBoundingClientRect();
+            const imageCenter = imageRect.left + imageRect.width / 2;
+            const containerCenter = containerRect.left + containerRect.width / 2;
 
-        // Funzione per cambiare il testo del pulsante cta-black in base alla tab selezionata
-        function updateCtaButtonTextAndHref(collectionTitle) {
-            ctaButton.innerText = `Discover ${collectionTitle}`;
-            // Aggiornare l'href del cta-button
-            ctaButton.setAttribute('href', `/collections/${collectionTitle}`);
-        }
+            const distance = Math.abs(imageCenter - containerCenter);
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                const collectionId = tab.id;
-
-                // Mostra solo il contenitore corrispondente alla tab selezionata
-                gammaScrolls.forEach(container => {
-                    if (container.getAttribute('data-collection') === collectionId) {
-                        container.style.display = 'flex'; // Mostra il contenitore della tab selezionata
-                    } else {
-                        container.style.display = 'none'; // Nascondi gli altri contenitori
-                    }
-                });
-
-                // Cambia il testo e l'href del pulsante CTA in base alla tab selezionata
-                updateCtaButtonTextAndHref(tab.innerText);
-                
-                if(tab.innerText == "Models"){
-                    ctaButton.style.display = "none";
-                    ctaButton.parentElement.style.display = "none";
-                } else {
-                    ctaButton.style.display = "flex";
-                    ctaButton.parentElement.style.display = "flex";
-                }
-
-                // Sposta l'icona della tab
-                updateUnionIconPosition(tab);
-
-                // Aggiungi la classe active-tab alla tab selezionata
-                tabs.forEach(t => t.classList.remove('active-tab')); // Rimuovi da tutte
-                tab.classList.add('active-tab'); // Aggiungi alla tab selezionata
-            });
-        });
-
-        // Imposta il testo iniziale del pulsante CTA e l'href quando la pagina viene caricata
-        if (tabs.length > 0) {
-            const firstTab = tabs[0];
-            ctaButton.style.display = "none";
-            ctaButton.parentElement.style.display = "flex";
-            firstTab.classList.add('active-tab'); // Aggiungi la classe active-tab alla prima tab
-        }
-
-
-
-        // Funzione per gestire il movimento dell'icona tra le tabs
-        function updateUnionIconPosition(tab) {
-            const tabRect = tab.getBoundingClientRect();
-            const wrapperRect = tab.parentElement.getBoundingClientRect();
-            const iconOffset = (tabRect.left - wrapperRect.left) + (tab.offsetWidth / 2 - unionIcon.offsetWidth / 2);
-
-            // Sposta l'icona
-            if (unionIcon.offsetWidth) {
-                unionIcon.style.left = `${iconOffset}px`;
+            if (
+                (direction === "next" && imageCenter > containerCenter && distance < minDistance) ||
+                (direction === "prev" && imageCenter < containerCenter && distance < minDistance)
+            ) {
+                closestImage = image;
+                minDistance = distance;
             }
-        }
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                // Sposta l'icona
-                updateUnionIconPosition(tab);
-            });
         });
 
-        if (tabs.length > 0) {
-            tabs[0].click(); // Impostiamo la prima tab come selezionata inizialmente
-            updateUnionIconPosition(tabs[0]); // Impostiamo la posizione iniziale dell'icona
-        }
+        return closestImage;
+    }
+
+    nextArrow.addEventListener("click", () => {
+        magneticScrolls.forEach((scrollContainer) => {
+            if (scrollContainer.style.display === "flex") {
+                const nextImage = findVisibleImage(scrollContainer, "next");
+                if (nextImage) {
+                    centerElement(scrollContainer, nextImage);
+                }
+            }
+        });
     });
+
+    prevArrow.addEventListener("click", () => {
+        magneticScrolls.forEach((scrollContainer) => {
+            if (scrollContainer.style.display === "flex") {
+                const prevImage = findVisibleImage(scrollContainer, "prev");
+                if (prevImage) {
+                    centerElement(scrollContainer, prevImage);
+                }
+            }
+        });
+    });
+
+    const tabs = document.querySelectorAll('.tab-gamma');
+    const gammaScrolls = document.querySelectorAll('.gamma-scroll');
+    const unionIcon = document.querySelector('.union-icon');
+    const detailsWrap = document.querySelectorAll('.details-content');
+    const imageScroll = document.querySelectorAll('.image-scroll');
+    const mainWrap = document.querySelector('.wrap-content');
+
+    const mainWrapRect = mainWrap.getBoundingClientRect();
+
+    // Funzione per cambiare il testo del pulsante cta-black in base alla tab selezionata
+    function updateCtaButtonTextAndHref(collectionTitle) {
+        ctaButton.innerText = `Discover ${collectionTitle}`;
+        // Aggiornare l'href del cta-button
+        ctaButton.setAttribute('href', `/collections/${collectionTitle}`);
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const collectionId = tab.id;
+
+            // Mostra solo il contenitore corrispondente alla tab selezionata
+            gammaScrolls.forEach(container => {
+                if (container.getAttribute('data-collection') === collectionId) {
+                    container.style.display = 'flex'; // Mostra il contenitore della tab selezionata
+                } else {
+                    container.style.display = 'none'; // Nascondi gli altri contenitori
+                }
+            });
+
+            // Cambia il testo e l'href del pulsante CTA in base alla tab selezionata
+            updateCtaButtonTextAndHref(tab.innerText);
+
+            // Mostra solo il pulsante "Find a dealer" quando "Models" è selezionato
+            if (tab.innerText === "Models") {
+                ctaButton.style.display = "none"; // Nascondi "Discover" button
+                ctaDealerButton.forEach(btn => btn.style.display = "flex"); // Mostra "Find a dealer"
+            } else {
+                ctaButton.style.display = "flex"; // Mostra "Discover" button
+                ctaDealerButton.forEach(btn => btn.style.display = "none"); // Nascondi "Find a dealer"
+            }
+
+            // Sposta l'icona della tab
+            updateUnionIconPosition(tab);
+
+            // Aggiungi la classe active-tab alla tab selezionata
+            tabs.forEach(t => t.classList.remove('active-tab')); // Rimuovi da tutte
+            tab.classList.add('active-tab'); // Aggiungi alla tab selezionata
+        });
+    });
+
+    // Imposta il testo iniziale del pulsante CTA e l'href quando la pagina viene caricata
+    if (tabs.length > 0) {
+        const firstTab = tabs[0];
+        ctaButton.style.display = "none"; // Nascondi il "Discover" all'inizio
+        ctaDealerButton.forEach(btn => btn.style.display = "flex"); // Mostra "Find a dealer"
+        firstTab.classList.add('active-tab'); // Aggiungi la classe active-tab alla prima tab
+    }
+
+    // Funzione per gestire il movimento dell'icona tra le tabs
+    function updateUnionIconPosition(tab) {
+        const tabRect = tab.getBoundingClientRect();
+        const wrapperRect = tab.parentElement.getBoundingClientRect();
+        const iconOffset = (tabRect.left - wrapperRect.left) + (tab.offsetWidth / 2 - unionIcon.offsetWidth / 2);
+
+        // Sposta l'icona
+        if (unionIcon.offsetWidth) {
+            unionIcon.style.left = `${iconOffset}px`;
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            // Sposta l'icona
+            updateUnionIconPosition(tab);
+        });
+    });
+
+    if (tabs.length > 0) {
+        tabs[0].click(); // Impostiamo la prima tab come selezionata inizialmente
+        updateUnionIconPosition(tabs[0]); // Impostiamo la posizione iniziale dell'icona
+    }
+});
 
 </script>
