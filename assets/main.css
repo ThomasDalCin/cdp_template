@@ -1065,6 +1065,10 @@ p,
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1580,6 +1584,10 @@ p,
 
 .h-svh {
   height: 100svh;
+}
+
+.h-\[147px\] {
+  height: 147px;
 }
 
 .max-h-\[160px\] {
