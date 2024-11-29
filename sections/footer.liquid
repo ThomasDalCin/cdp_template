@@ -47,14 +47,14 @@
         <!-- Email input with submit icon -->
         <div class="relative w-full">
           <input
-            class="w-full h-auto px-3 py-4 rounded-xl bg-white border-[0.5px] border-transparent text-black focus:outline-none focus:border-white placeholder:text-gray-500"
+            class="w-full h-auto px-6 py-4 rounded-xl bg-white border-[0.5px] border-transparent text-black focus:outline-none focus:border-white placeholder:text-gray-500"
             type="email" name="contact[email]" id="Email"
             value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
             placeholder="{{ section.settings.placeholder_text }}">
 
           <!-- Submit Button (as icon) -->
           <button type="submit"
-            class="absolute top-1/2 right-3 -translate-y-1/2 w-auto h-auto flex items-center justify-center bg-transparent border-none cursor-pointer">
+            class="absolute top-1/2 right-6 -translate-y-1/2 w-auto h-auto flex items-center justify-center bg-transparent border-none cursor-pointer">
             {% render 'arrow-left-footer' %}
           </button>
         </div>
