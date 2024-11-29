@@ -2761,6 +2761,10 @@ p,
   letter-spacing: -2px;
 }
 
+.-tracking-\[0\.2px\] {
+  letter-spacing: -0.2px;
+}
+
 .text-\[\#7A7A7A\] {
   --tw-text-opacity: 1;
   color: rgb(122 122 122 / var(--tw-text-opacity));
