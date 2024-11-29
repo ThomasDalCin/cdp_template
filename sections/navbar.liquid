@@ -146,7 +146,7 @@
             {% unless allLinksTitle contains link.title %}
             {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-light text-[16px] leading-[22px]
             lg:text-[24px] hover:font-['TT-Norms-Pro-Regular']
-            lg:leading-[24px] underline" }}
+            lg:leading-[24px] underline underline decoration-[.5px] hover:decoration-[1px]" }}
             {% endunless %}
             {% endfor %}
         </div>
