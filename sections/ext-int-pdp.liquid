@@ -116,7 +116,7 @@
     <!-- container images -->
     <!-- explore gallery wrapper -->
     <div class="w-full h-auto overflow-x-hidden mb-10 relative">
-      <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x" id="Gallery">
+      <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
         <!-- assign variables -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
         {% if externalBoat %}
@@ -173,7 +173,7 @@
           class="cta-transparent-round h-[32px] lg:w-[220px] lg:px-4 lg:py-2"
           data-target="internal"
           onclick="toggleGallery(this)">
-          <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Full interior gallery" }}</p>
+          <p class="body-14-medium">{{ section.settings.cta_brochure_interior | default: "Full interior gallery" }}</p>
         </div>
 
       </div>
@@ -244,111 +244,124 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  
-    const overlay = document.querySelector('.overlay-images');
-    const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
-    const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
-    const closeOverlay = document.querySelector('.close-overlay-images');
-    let externalSwiper, internalSwiper;
-  
-    // Inizializza Swiper
-    externalSwiper = new Swiper('.swiper-container-overlay-external', {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination-overlay',
-        clickable: true,
-      },
-    });
-  
-    internalSwiper = new Swiper('.swiper-container-overlay-internal', {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination-overlay',
-        clickable: true,
-      },
-    });
-  
-    // Funzione per aprire l'overlay
-    window.toggleGallery = (button) => {
-      const target = button.getAttribute('data-target');
-  
-      overlay.classList.remove('hidden'); // Mostra l'overlay
-      externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
-      internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
-  
-      if (target === 'external') {
-        externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
-      } else if (target === 'internal') {
-        internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
+ document.addEventListener('DOMContentLoaded', () => {
+
+const overlay = document.querySelector('.overlay-images');
+const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
+const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
+const closeOverlay = document.querySelector('.close-overlay-images');
+let externalSwiper, internalSwiper;
+
+// Inizializza Swiper
+externalSwiper = new Swiper('.swiper-container-overlay-external', {
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination-overlay',
+    clickable: true,
+  },
+});
+
+internalSwiper = new Swiper('.swiper-container-overlay-internal', {
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination-overlay',
+    clickable: true,
+  },
+});
+
+// Funzione per aprire l'overlay
+window.toggleGallery = (button) => {
+  const target = button.getAttribute('data-target');
+
+  overlay.classList.remove('hidden'); // Mostra l'overlay
+  externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
+  internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
+
+  if (target === 'external') {
+    externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
+  } else if (target === 'internal') {
+    internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
+  }
+};
+
+// Chiudi l'overlay
+closeOverlay.addEventListener('click', () => {
+  overlay.classList.add('hidden'); // Nascondi l'overlay
+  externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
+  internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
+});
+
+const updateCounterOnScroll = (images, counterText, container) => {
+  const updateCounter = () => {
+    let closestImageIndex = 0;
+    let closestDistance = Infinity;
+
+    images.forEach((image, index) => {
+      const rect = image.getBoundingClientRect();
+      const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+
+      if (distanceFromCenter < closestDistance) {
+        closestDistance = distanceFromCenter;
+        closestImageIndex = index;
       }
-    };
-  
-    // Chiudi l'overlay
-    closeOverlay.addEventListener('click', () => {
-      overlay.classList.add('hidden'); // Nascondi l'overlay
-      externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
-      internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
     });
-  
-    const updateCounterOnScroll = (images, counterText, container) => {
-      const updateCounter = () => {
-        let closestImageIndex = 0;
-        let closestDistance = Infinity;
-  
-        images.forEach((image, index) => {
-          const rect = image.getBoundingClientRect();
-          const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-  
-          if (distanceFromCenter < closestDistance) {
-            closestDistance = distanceFromCenter;
-            closestImageIndex = index;
-          }
-        });
-  
-        counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
-      };
-  
-      updateCounter(); // Initial update
-      container.addEventListener('scroll', updateCounter);
-    };
-  
-    // Exteriors
-    const externalCounterText = document.querySelector('.counter-items');
-    const externalImages = document.querySelectorAll('[id^="externalImage_"]');
-    const externalContainer = document.querySelector('.scroll-snap-type-x');
-  
-    if (externalImages.length) {
-      updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
-    }
-  
-    // Interiors
-    const internalCounterText = document.querySelector('.counter-items-internal');
-    const internalImages = document.querySelectorAll('[id^="internalImage_"]');
-    const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
-  
-    if (internalImages.length) {
-      updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
-    }
-  
-    function handleOrientationChange() {
-      const turnButton = document.querySelector('.turn-button');
-  
-      if (window.matchMedia("(orientation: landscape)").matches) {
-        if (turnButton) {
-          turnButton.classList.add('hidden');
-        }
-      } else {
-        if (turnButton) {
-          turnButton.classList.remove('hidden');
-        }
-      }
-    }
-  
-    window.addEventListener('resize', handleOrientationChange);
-  
-    handleOrientationChange();
+
+    counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
+  };
+
+  updateCounter(); // Initial update
+  container.addEventListener('scroll', updateCounter);
+};
+
+// Exteriors
+const externalCounterText = document.querySelector('.counter-items');
+const externalImages = document.querySelectorAll('[id^="externalImage_"]');
+const externalContainer = document.querySelector('.scroll-snap-type-x');
+
+if (externalImages.length) {
+  updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
+
+  // Add event listener to the first external image to open the full view
+  const firstExternalImage = externalImages[0];
+  firstExternalImage.addEventListener('click', () => {
+    window.toggleGallery({ getAttribute: () => 'external' }); // Open external gallery on click of the first image
   });
+}
+
+// Interiors
+const internalCounterText = document.querySelector('.counter-items-internal');
+const internalImages = document.querySelectorAll('[id^="internalImage_"]');
+const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
+
+if (internalImages.length) {
+  updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
+
+  // Add event listener to the first internal image to open the full view
+  const firstInternalImage = internalImages[0];
+  firstInternalImage.addEventListener('click', () => {
+    window.toggleGallery({ getAttribute: () => 'internal' }); // Open internal gallery on click of the first image
+  });
+}
+
+function handleOrientationChange() {
+  const turnButton = document.querySelector('.turn-button');
+
+  if (window.matchMedia("(orientation: landscape)").matches) {
+    if (turnButton) {
+      turnButton.classList.add('hidden');
+    }
+  } else {
+    if (turnButton) {
+      turnButton.classList.remove('hidden');
+    }
+  }
+}
+
+window.addEventListener('resize', handleOrientationChange);
+
+handleOrientationChange();
+});
+
 </script>
 
 
