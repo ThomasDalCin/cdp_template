@@ -268,11 +268,7 @@
             firstTab.classList.add('active-tab'); // Aggiungi la classe active-tab alla prima tab
         }
 
-        gammaScrolls.forEach((gammaScroll) => {
-            gammaScroll.addEventListener('scroll', () => {
-                showDetailsContentForVisibleImage();
-            });
-        });
+
 
         // Funzione per gestire il movimento dell'icona tra le tabs
         function updateUnionIconPosition(tab) {
@@ -297,8 +293,6 @@
             tabs[0].click(); // Impostiamo la prima tab come selezionata inizialmente
             updateUnionIconPosition(tabs[0]); // Impostiamo la posizione iniziale dell'icona
         }
-
-        showDetailsContentForVisibleImage();
     });
 
 </script>
