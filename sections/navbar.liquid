@@ -249,7 +249,7 @@
                 {% if link.title == 'Press room' or link.title == 'Work with us' %}
                 {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-extra-light text-[16px]
                 leading-[22px] hover:font-['TT-Norms-Pro-Regular']
-                lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]",}}
+                lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]"}}
                 {% endif %}
                 {% endfor %}
             </div>
@@ -299,20 +299,24 @@
 
     <!--container horizontal chips-->
     <div
-        class="chips-horizontal-container w-[calc(100%_+_4rem)] h-[72px] flex flex-row items-center justify-start gap-x-2 overflow-x-auto px-6 py-4 -mx-6 scroll-px-6">
-        {% assign collectionSorted = collections | sort : 'title' | reverse %}
-        {% for collection in collectionSorted %}
-        {% unless collection.title == 'Pardo approved' %}
+    class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
+    {% assign collectionSorted = collections | sort : 'title' | reverse %}
+    {% for collection in collectionSorted %}
+    {% unless collection.title == 'Pardo approved' %}
 
-        <div class="chips-label-white flex items-center h-[40px] min-h-[40px] text-white">
-            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">{{
-                collection.title }}
-            </div>
-            {% render 'arrow-down-icon' %}
+    <div class="chips-label-white flex flex-row items-center justify-start gap-x-2 h-[40px] min-h-[40px] text-white flex-shrink-0">
+        <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">
+            {{ collection.title }}
         </div>
-        {% endunless %}
-        {% endfor %}
+        {% render 'arrow-down-icon' %}
     </div>
+
+    {% endunless %}
+    {% endfor %}
+</div>
+
+
+
 
     <!--container images products-->
     <div
@@ -701,6 +705,7 @@
                 if (pageTitleContainers) {
 
                 }
+
                 pageTitleContainer.classList.add('hidden');
                 pageTitleContainer.classList.remove('flex');
 
