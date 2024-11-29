@@ -126,7 +126,7 @@
             {% assign externalImage = externalBoat[externalBoatImage] %}
               {% if externalImage %}
               <!-- container explore section image -->
-              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="externalImage_{{ forloop.index }}">
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start" id="externalImage_{{ forloop.index }}">
                 <img
                   class="w-full h-full object-cover object-center"
                   src="{{ externalImage | img_url: 'master' }}"
@@ -139,7 +139,7 @@
 
       <!-- handle counter images during scroll -->
       <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg px-2 py-1">
-        <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
+        <p class="body-small text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
       </div>
     </div>
   </div>
@@ -192,7 +192,7 @@
             {% assign internalImage = internalBoat[internalBoatImage] %}
               {% if internalImage %}
               <!-- container explore section image -->
-              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[3] snap-start" id="internalImage_{{ forloop.index }}">
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear  lg:w-[1024px] lg:min-w-[1024px] snap-start" id="internalImage_{{ forloop.index }}">
                 <img
                   class="w-full h-full object-cover object-center"
                   src="{{ internalImage | img_url: 'master' }}"
@@ -205,7 +205,7 @@
 
       <!-- handle counter images during scroll -->
       <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg px-2 py-1">
-        <p class="body-small text-white counter-items-internal lg:hidden">(01/{{ total_images_internal | prepend: '0'
+        <p class="body-small text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0'
 }})</p>
       </div>
     </div>
