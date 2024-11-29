@@ -1177,10 +1177,6 @@ p,
   right: 5rem;
 }
 
-.right-3 {
-  right: 0.75rem;
-}
-
 .right-4 {
   right: 1rem;
 }
@@ -1722,10 +1718,6 @@ p,
   min-height: 640px;
 }
 
-.min-h-\[155px\] {
-  min-height: 155px;
-}
-
 .w-0 {
   width: 0px;
 }
@@ -1772,6 +1764,10 @@ p,
 
 .w-\[129px\] {
   width: 129px;
+}
+
+.w-\[155px\] {
+  width: 155px;
 }
 
 .w-\[16px\] {
@@ -1868,10 +1864,6 @@ p,
 
 .w-full {
   width: 100%;
-}
-
-.w-\[155px\] {
-  width: 155px;
 }
 
 .min-w-\[124px\] {
@@ -2452,11 +2444,6 @@ p,
   padding: 1.5rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -2616,6 +2603,10 @@ p,
   font-size: 128px;
 }
 
+.text-\[12px\] {
+  font-size: 12px;
+}
+
 .text-\[14px\] {
   font-size: 14px;
 }
@@ -2667,10 +2658,6 @@ p,
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
 }
 
 .font-bold {
@@ -2755,18 +2742,6 @@ p,
 
 .leading-\[80px\] {
   line-height: 80px;
-}
-
-.tracking-\[-2px\] {
-  letter-spacing: -2px;
-}
-
-.tracking-\[-2\%\] {
-  letter-spacing: -2%;
-}
-
-.-tracking-\[2px\] {
-  letter-spacing: -2px;
 }
 
 .-tracking-\[0\.2px\] {

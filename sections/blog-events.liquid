@@ -1,42 +1,56 @@
 <!-- Events Articles -->
 
 <!--Blog event container-->
-<div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-2 p-4 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
+<div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-4 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
       {% for eventArticle in eventsArticles %}
-        {% assign eventLocation = eventArticle.metafields.custom.location.value | default: "Location not provided" %}
-        {% assign eventDate = eventArticle.metafields.custom.when.value | default: "Date not provided" %}
         <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
           <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
             <!-- Events image Container -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
               <img
                 src="{{ eventArticle |  img_url: 'master' }}"
-                alt="{{ article.title }}"
+                alt="{{ eventsArticles.title }}"
                 class="w-full h-full object-cover object-center rounded-t-2xl">
             </div>
 
-            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6 ">
-              <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
-                <p class="article-title body-16-medium">{{ eventArticle.title }}</p>
-                <p class="article-content body-14">{{ eventArticle.published_at }}</p>
-              </div>
-              <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-                <a href="{{ section.settings.redirect_google_url }}">
-                  <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                    <p class="body-14 underline">{{ section.settings.redirect_google }}</p>
-                    {% render 'cta-icon' %}
+            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
+
+              <div class="events-details-primary w-full h-auto flex flex-col px-4 gap-y-6">
+                <!--top content details-->
+                <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+                  <p class="article-title text-[24px] leading-[24px] tt-norms-pro-med">{{ eventArticle.title }}</p>
+                  {% assign articleDate = eventArticle.metafields.custom.range_date.value %}
+                  {% assign articleLocation = eventArticle.metafields.custom.article_location.value %}
+                  {% if articleDate %}
+                  <div class="w-auto h-auto bg-white px-4 py-1 rounded-full">
+                    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleDate }}</p>
                   </div>
-                </a>
-                <a href="{{ section.settings.redirect_calendar }}">
-                  <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                    <p class="body-14 underline">{{ section.settings.redirect_calendar }}</p>
-                    {% render 'calendar-icon' %}
-                  </div>
-                </a>
+                  {% endif %}
+                  {% if articleLocation %}
+                    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleLocation }}</p>
+                  {% endif %}
+                </div>
+                <!--content-cta-->
+                <div class="w-full h-auto flex flex-col items-start justify-center">
+                  <a href="{{ section.settings.redirect_google_url }}">
+                    <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_google }}</p>
+                      {% render 'cta-icon' %}
+                    </div>
+                  </a>
+                  <a href="{{ section.settings.redirect_calendar }}">
+                    <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_calendar }}</p>
+                      {% render 'calendar-icon' %}
+                    </div>
+                  </a>
+                </div>
               </div>
+
+              <!--content cta-->
               <div class="events-cta lg:w-full lg:flex lg:justify-end">
                 <div class="cta-choco-round h-[32px] min-w-[208px] book-appointment inline-flex">
                   <p class="body-14">{{ section.settings.cta_appointment }}</p>
