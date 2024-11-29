@@ -224,7 +224,7 @@
         function updateCtaButtonTextAndHref(collectionTitle) {
             ctaButton.innerText = `Discover ${collectionTitle}`;
             // Aggiornare l'href del cta-button
-            ctaButton.setAttribute('href', `/collections/${collectionTitle.toLowerCase()}`);
+            ctaButton.setAttribute('href', `/collections/${collectionTitle}`);
         }
 
         tabs.forEach(tab => {
