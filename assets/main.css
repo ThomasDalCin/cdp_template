@@ -3304,6 +3304,10 @@ p,
     height: 418px;
   }
 
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
   .lg\:max-h-\[600px\] {
     max-height: 600px;
   }

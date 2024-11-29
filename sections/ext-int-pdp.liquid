@@ -1,7 +1,7 @@
 <!-- interior & exteriors pdp section -->
 
 
-<div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED]">
+<div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
   <!-- container-closing-icon -->
   <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
@@ -21,7 +21,7 @@
               <img
                 src="{{ externalImage | img_url: 'master' }}"
                 alt="{{ externalImage.alt }}"
-                class="w-full h-svh object-cover object-center">
+                class="w-full h-full object-cover object-center">
             </div>
           {% endif %}
         {% endfor %}
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Container swiper bullets -->
-    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
       <!-- Container bullets -->
       <div class="w-auto h-auto">
         <div class="swiper-pagination-overlay"></div>
@@ -58,7 +58,7 @@
               <img
                 src="{{ internalImage | img_url: 'master' }}"
                 alt="{{ internalImage.alt }}"
-                class="w-full h-svh object-cover object-center">
+                class="w-full h-full object-cover object-center">
             </div>
           {% endif %}
         {% endfor %}
@@ -67,7 +67,7 @@
 
 
     <!-- Container swiper bullets -->
-    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
       <!-- Container bullets -->
       <div class="w-auto h-auto">
         <div class="swiper-pagination-overlay"></div>
