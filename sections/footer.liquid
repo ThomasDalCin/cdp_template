@@ -108,6 +108,14 @@
         </div>
       </div>
 
+      <!--language container-->
+      <div class="w-full h-auto flex flex-col items-start justify-center py-6">
+        <div class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1">
+          <p class="body-16 tt-norms-pro-med">{{ section.settings.language_text |  default: "Language" |  upcase }}</p>
+          {% render 'gb-icon' %}
+        </div>
+      </div>
+
 
     </div>
 

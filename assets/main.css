@@ -1722,6 +1722,10 @@ p,
   min-height: 640px;
 }
 
+.min-h-\[155px\] {
+  min-height: 155px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -1864,6 +1868,10 @@ p,
 
 .w-full {
   width: 100%;
+}
+
+.w-\[155px\] {
+  width: 155px;
 }
 
 .min-w-\[124px\] {
