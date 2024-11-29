@@ -4,7 +4,7 @@
 <div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
   <!-- container-closing-icon -->
-  <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-16 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
+  <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-6 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
     {% render 'x-icon' %}
   </div>
 
@@ -39,7 +39,7 @@
     <!-- Container turn into landspace -->
     <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
       <div class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-button">
-        <p class="body-14 tt-norms-pro-reg text-white">{{ section.settings.turn_landscape | default: "Turn into
+        <p class="body-14 tt-norms-pro-med text-white">{{ section.settings.turn_landscape | default: "Turn into
           landscape" }}</p>
       </div>
     </div>
@@ -107,7 +107,7 @@
           class="cta-transparent-round h-[32px] lg:w-[220px] lg:px-4 lg:py-2"
           data-target="external"
           onclick="toggleGallery(this)">
-          <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Full exterior gallery" }}</p>
+          <p class="body-14 tt-norms-pro-med -tracking-[2px]">{{ section.settings.cta_brochure | default: "Full exterior gallery" }}</p>
         </div>
       </div>
     </div>
@@ -138,8 +138,8 @@
       </div>
 
       <!-- handle counter images during scroll -->
-      <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg px-2 py-1">
-        <p class="body-small text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
+      <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+        <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@
           class="cta-transparent-round h-[32px] lg:w-[220px] lg:px-4 lg:py-2"
           data-target="internal"
           onclick="toggleGallery(this)">
-          <p class="body-14-medium">{{ section.settings.cta_brochure_interior | default: "Full interior gallery" }}</p>
+          <p class="body-14  tt-norms-pro-med -tracking-[2px]">{{ section.settings.cta_brochure_interior | default: "Full interior gallery" }}</p>
         </div>
 
       </div>
@@ -204,8 +204,8 @@
       </div>
 
       <!-- handle counter images during scroll -->
-      <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg px-2 py-1">
-        <p class="body-small text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0'
+      <div class="w-auto h-auto absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+        <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0'
 }})</p>
       </div>
     </div>
