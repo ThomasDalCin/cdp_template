@@ -3257,6 +3257,10 @@ p,
     margin-top: 0px;
   }
 
+  .lg\:mt-\[192px\] {
+    margin-top: 192px;
+  }
+
   .lg\:block {
     display: block;
   }
