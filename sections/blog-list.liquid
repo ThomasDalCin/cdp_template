@@ -1,246 +1,190 @@
 <!-- News Articles -->
-<div id="news-layout" class="blog-news-container w-full h-auto flex-col overflow-x-hidden px-6 hidden">
+<div id="news-layout" class="blog-news-container w-full flex h-auto flex-col overflow-x-hidden px-6">
   {% if blogs.news %}
-    {% assign newsArticles = blogs.news.articles %}
-      {% if newsArticles.size > 0 %}
-      <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
-        {% for article in newsArticles %}
-          {% if article.tags contains "News" %}
-            <div class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]" data-tags="{{ article.tags | join: ',' }}">
+  {% assign newsArticles = blogs.news.articles %}
+  {% if newsArticles.size > 0 %}
+  <!-- Horizontal Scroll Row -->
+  <div
+    class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
+    {% for article in newsArticles %}
+    {% if article.tags contains "News" %}
+    <div
+      class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
+      data-tags="{{ article.tags | join: ',' }}">
 
-              <div class="blog-item-image w-full h-auto">
-                <img
-                  src="{{ article.image | img_url: 'master' }}"
-                  class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
-                  alt="{{ article.image.alt }}">
-              </div>
-
-              <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
-
-                {% assign articleDate = article.metafields.custom.article_date.value %}
-                {% assign articleLocation = article.metafields.custom.article_location.value %}
-
-                <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
-                  {% if articleDate and articleLocation %}
-                    <p class="body-12">{{ articleLocation }}</p>
-                    <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
-                  {% endif %}
-                </div>
-                <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                  <p class="body-12">{{ article.content | truncate: 100 }}</p>
-                </div>
-                <div class="blog-item-cta w-full h-auto flex items-center justify-end">
-                  <a href="{{ article.url }}" class="cta-choco-round">
-                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          {% endif %}
-        {% endfor %}
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ article.image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          alt="{{ article.image.alt }}">
       </div>
-    {% else %}
-      <!-- No Articles Found Message -->
-      <p class="text-center body-12">No articles found under the "News" tag.</p>
+
+      <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
+
+        {% assign articleDate = article.metafields.custom.article_date.value %}
+        {% assign articleLocation = article.metafields.custom.article_location.value %}
+
+        <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
+          {% if articleDate and articleLocation %}
+          <p class="body-12">{{ articleLocation }}</p>
+          <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
+          {% endif %}
+        </div>
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+          <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+          <p class="body-12">{{ article.content | truncate: 100 }}</p>
+        </div>
+        <div class="blog-item-cta w-full h-auto flex items-center justify-end">
+          <a href="{{ article.url }}" class="cta-choco-round">
+            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
     {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- No Articles Found Message -->
+  <p class="text-center body-12">No articles found under the "News" tag.</p>
+  {% endif %}
   {% endif %}
 </div>
 
 
 <!-- News Articles: Pressroom -->
-<div id="pressroom-layout" class="blog-pressroom-container w-full h-auto flex flex-col items-start justify-center px-6 py-10 hidden">
+<div id="pressroom-layout"
+  class="blog-pressroom-container w-full h-auto flex flex-col items-start justify-center px-6 py-10 hidden">
 
   {% if blogs.news %}
-    {% assign newsArticles = blogs.news.articles %}
-      {% if newsArticles.size > 0 %}
-      <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
-        {% for article in newsArticles %}
-          {% if article.tags contains "Press Room" %}
-            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]" data-tags="{{ article.tags | join: ',' }}">
+  {% assign newsArticles = blogs.news.articles %}
+  {% if newsArticles.size > 0 %}
+  <!-- Horizontal Scroll Row -->
+  <div
+    class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
+    {% for article in newsArticles %}
+    {% if article.tags contains "Press Room" %}
+    <div
+      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]"
+      data-tags="{{ article.tags | join: ',' }}">
 
-              <!-- Article Image -->
-              <div class="blog-item-image w-full h-auto">
-                <img
-                  src="{{ article.image | img_url: 'master' }}"
-                  class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
-                  alt="{{ article.image.alt }}">
-              </div>
-
-              <!-- Article Info Container -->
-              <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
-
-                <!-- Optional Article Flags -->
-                {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
-                {% assign articleCountry = article.metafields.custom.press_room_location.value %}
-
-                {% if articleFlag and articleCountry %}
-                  <div class="product-item-main-primary w-full h-auto flex flex-row items-center justify-start gap-x-2">
-                    <img
-                      src="{{ articleFlag | img_url: 'master' }}"
-                      alt="{{ articleFlag.alt }}"
-                      class="w-5 h-4 object-cover object-center">
-                    <p class="caption">{{ articleCountry }}</p>
-                  </div>
-                {% endif %}
-
-                <!-- Article Title and Content -->
-                <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                  <p class="body-14">{{ article.content | truncate: 100 }}</p>
-                </div>
-
-                <!-- Call-to-Actions -->
-                <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end">
-                  <a href="{{ article.url }}" class="cta-transparent-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom | default: "Read more" }}</p>
-                  </a>
-                  <a href="{{ article.url }}" class="cta-choco-round text-white h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_download | default: "Download" }}</p>
-                    {% render 'download-icon' %}
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+      <!-- Article Image -->
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ article.image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          alt="{{ article.image.alt }}">
       </div>
-    {% else %}
-      <!-- No Articles Found Message -->
-      <p class="text-center body-12">No articles found under the "Pressroom" tag.</p>
+
+      <!-- Article Info Container -->
+      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
+
+        <!-- Optional Article Flags -->
+        {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
+        {% assign articleCountry = article.metafields.custom.press_room_location.value %}
+
+        {% if articleFlag and articleCountry %}
+        <div class="product-item-main-primary w-full h-auto flex flex-row items-center justify-start gap-x-2">
+          <img src="{{ articleFlag | img_url: 'master' }}" alt="{{ articleFlag.alt }}"
+            class="w-5 h-4 object-cover object-center">
+          <p class="caption">{{ articleCountry }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Article Title and Content -->
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+          <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+          <p class="body-14">{{ article.content | truncate: 100 }}</p>
+        </div>
+
+        <!-- Call-to-Actions -->
+        <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end">
+          <a href="{{ article.url }}" class="cta-transparent-round h-[32px]">
+            <p class="body-14-medium">{{ section.settings.article_cta_pressroom | default: "Read more" }}</p>
+          </a>
+          <a href="{{ article.url }}" class="cta-choco-round text-white h-[32px]">
+            <p class="body-14-medium">{{ section.settings.article_cta_pressroom_download | default: "Download" }}</p>
+            {% render 'download-icon' %}
+          </a>
+        </div>
+
+      </div>
+    </div>
     {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- No Articles Found Message -->
+  <p class="text-center body-12">No articles found under the "Pressroom" tag.</p>
+  {% endif %}
   {% endif %}
 </div>
 
 
 <!-- News Articles: Awards -->
-<div id="awards-layout" class="blog-awards-container w-full h-auto flex flex-col items-start justify-center px-6 py-10  hidden">
+<div id="awards-layout"
+  class="blog-awards-container w-full h-auto flex flex-col items-start justify-center px-6 py-10  hidden">
   {% if blogs.news %}
-    {% assign newsArticles = blogs.news.articles %}
-      {% if newsArticles.size > 0 %}
-      <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
-        {% for article in newsArticles %}
-          {% if article.tags contains "Awards" %}
-            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]" data-tags="{{ article.tags | join: ',' }}">
+  {% assign newsArticles = blogs.news.articles %}
+  {% if newsArticles.size > 0 %}
+  <!-- Horizontal Scroll Row -->
+  <div
+    class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
+    {% for article in newsArticles %}
+    {% if article.tags contains "Awards" %}
+    <div
+      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]"
+      data-tags="{{ article.tags | join: ',' }}">
 
-              <div class="blog-item-image w-full h-auto">
-                <img
-                  src="{{ article.image | img_url: 'master' }}"
-                  class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
-                  alt="{{ article.image.alt }}">
-              </div>
-
-              <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
-                <div class="blog-item-date w-full h-auto">
-                  <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
-                </div>
-                <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                  <p class="body-14">{{ article.content | truncate: 100 }}</p>
-                </div>
-                <div class="blog-item-cta w-full h-auto flex items-center justify-end">
-                  <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          {% endif %}
-        {% endfor %}
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ article.image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          alt="{{ article.image.alt }}">
       </div>
-    {% else %}
-      <!-- No Articles Found Message -->
-      <p class="text-center body-12">No articles found under the "Pressroom" tag.</p>
+
+      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
+        <div class="blog-item-date w-full h-auto">
+          <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
+        </div>
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+          <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+          <p class="body-14">{{ article.content | truncate: 100 }}</p>
+        </div>
+        <div class="blog-item-cta w-full h-auto flex items-center justify-end">
+          <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
+            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
     {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- No Articles Found Message -->
+  <p class="text-center body-12">No articles found under the "Pressroom" tag.</p>
   {% endif %}
-</div></div>
+  {% endif %}
+</div>
+</div>
 
 
 <style>
-.carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  .carousel-arrow.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto;
-}</style>
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
 
 
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    //get elements I need
-    const chips = document.querySelectorAll('.chips-label');
-    const newsLayout = document.getElementById('news-layout');
-    const pressRoomLayout = document.getElementById('pressroom-layout');
-    const awardsLayout = document.getElementById('awards-layout');
-    //set active chip
-    let activeChip = null;
-    //handle click on each chip
-    chips.forEach(chip => {
-      chip.addEventListener('click', function () {
-        const tag = chip.getAttribute('data-tag');
-        newsLayout.classList.add('hidden');
-        pressRoomLayout.classList.add('hidden');
-        awardsLayout.classList.add('hidden');
-
-        //check tag value
-        if (tag === 'News') {
-          newsLayout.classList.remove('hidden');
-        } else if (tag === 'Press Room') {
-          pressRoomLayout.classList.remove('hidden');
-        } else if (tag === 'Awards') {
-          awardsLayout.classList.remove('hidden');
-        }
-
-        if (activeChip) {
-          const previousIcon = activeChip.querySelector('.chips-text svg');
-          if (previousIcon) {
-            previousIcon.classList.remove('-rotate-0');
-            previousIcon.classList.add('-rotate-45');
-          }
-        }
-
-        chips.forEach(chip => {
-          chip.classList.remove('chips-blog-active');
-        });
-
-        chip.classList.add('chips-blog-active');
-
-        const currentIcon = chip.querySelector('.chips-text svg');
-
-        if (currentIcon) {
-          currentIcon.classList.remove('-rotate-45');
-          currentIcon.classList.add('-rotate-0');
-        }
-        //set the chip clicked as active
-        activeChip = chip;
-      });
-    });
-
-
-    //handle default active chip
-    const defaultChip = document.querySelector('.chips-label[data-tag="News"]');
-    if (defaultChip) {
-      defaultChip.classList.add('chips-blog-active');
-      newsLayout.classList.remove('hidden');
-      const defaultIcon = defaultChip.querySelector('svg');
-      if (defaultIcon) {
-        defaultIcon.classList.remove('-rotate-45');
-        defaultIcon.classList.add('-rotate-0');
-      }
-
-      activeChip = defaultChip;
-    }
-
     // handle scroll articles containers here
     const prevArrowSecond = document.getElementById('prevArrowSecond');
     const nextArrowSecond = document.getElementById('nextArrowSecond');
@@ -327,26 +271,26 @@
 
 
 
-{% comment %} 
-    Section Schema Settings here; 
+{% comment %}
+Section Schema Settings here;
 {% endcomment %}
 
 {% schema %}
 {
-  "name": "blog-list",
-  "settings": [
-    {
-      "type": "text",
-      "id": "article_download_cta",
-      "default": "Download",
-      "label": "Article Download Cta",
-      "info": "Set the cta text"
-    }, {
-      "type": "text",
-      "id": "article_cta",
-      "default": "Read More",
-      "label": "Article Cta",
-      "info": "Set the cta text"
-    }
-  ]
+"name": "blog-list",
+"settings": [
+{
+"type": "text",
+"id": "article_download_cta",
+"default": "Download",
+"label": "Article Download Cta",
+"info": "Set the cta text"
+}, {
+"type": "text",
+"id": "article_cta",
+"default": "Read More",
+"label": "Article Cta",
+"info": "Set the cta text"
+}
+]
 }{% endschema %}
