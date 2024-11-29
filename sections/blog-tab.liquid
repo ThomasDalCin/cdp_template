@@ -33,8 +33,7 @@
   {% endfor %}
   {% assign tags_array = all_tags | split: ',' %}
   {% assign tags_array = tags_array | sort : 'title'  %}
-  {% assign tags_array = tags_array | reverse %}
-
+  
   <!-- Dynamic Tags -->
   {% for tag in tags_array %}
   {% if tag != '' %}
