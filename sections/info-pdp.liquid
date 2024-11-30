@@ -2,23 +2,27 @@
 <div class="w-full h-auto flex items-start justify-center flex-col">
     <!--product title container-->
     <div class="w-full h-auto flex items-center justify-start px-6 pt-10 lg:px-20 lg:py-12">
-        <h1 class="text-[64px] leading-[56px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title }}</h1>
+        <h1 class="text-[64px] leading-[56px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title }}
+        </h1>
     </div>
     <!--product info box container-->
     <!-- Product details section -->
     <div class="w-full h-auto overflow-x-hidden lg:px-20 ">
-        <div class="product-details-component w-full h-auto px-6 flex flex-col gap-y-2 lg:pb-[40px] lg:px-0 lg:gap-y-16 lg:border-b lg:border-[#A9A09E]">
-            <div class="w-full h-auto flex items-start justify-center flex-col lg:flex-row-reverse lg:items-center lg:justify-start lg:gap-x-20">
+        <div
+            class="product-details-component w-full h-auto px-6 flex flex-col gap-y-2 lg:pb-[40px] lg:px-0 lg:gap-y-16 lg:border-b lg:border-[#A9A09E]">
+            <div
+                class="w-full h-auto flex items-start justify-center flex-col lg:flex-row-reverse lg:items-center lg:justify-start lg:gap-x-20">
                 <!--box container -->
                 <div
-                    class="product-details-magnetic-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-6 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto lg:w-full">
+                    class="product-details-magnetic-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto lg:w-full">
                     {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
                     {% for productMetafieldsValue in productMetafieldsValues %}
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
-                        class="details-badge flex min-w-[127px] h-[100px] p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
-                        <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
-                        <p class="body-12 text-[var(--hover-color)]">{{ productMetafieldsValue | replace: '_', ' ' |
+                        class="details-badge flex min-w-[127px] h-[78px] p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
+                        <p class="body-14 text-nowrap tt-norms-pro-med">{{ metafieldCustom }}</p>
+                        <p class="body-12 text-[#818181] tt-norms-pro-med">{{ productMetafieldsValue | replace: '_', ' '
+                            |
                             upcase
                             }}
                         </p>
@@ -37,7 +41,9 @@
 
             <!--emotional text container-->
             <div class="w-full h-auto flex items-center justify-center px-6 py-14 lg:bg-[#F7F7F7] lg:rounded-[32px]">
-                <p class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">{{
+                <p
+                    class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">
+                    {{
                     section.settings.ispirational_text |
                     default: "Lorem ipsum dolor sit,
                     consectutor adipis mar tiss partiem." }}</p>
@@ -47,7 +53,9 @@
             <div
                 class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 lg:flex-row lg:gap-x-3 lg:justify-center">
                 <div class="cta-choco lg:w-[220px] h-[48px] min-h-[48px] lg:px-4 lg:py-2">
-                    <p class="body-14-medium">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                    <a href="/pages/locate-delear">
+                        <p class="body-14-medium">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                    </a>
                 </div>
                 <div class="cta-transparent h-[48px] min-h-[48px] lg:w-[220px]  lg:px-4 lg:py-2 cta-brochure">
                     <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
