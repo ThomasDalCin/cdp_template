@@ -3,9 +3,9 @@
 
   <!-- video container -->
   <div class="w-full h-full absolute inset-0 z-0 overflow-hidden">
-    <video class="w-full h-full object-cover object-center" id="player" controls muted
-      data-poster="{{ video_cover_image |  img_url: 'master' }}">
-      <source src="{{ section.settings.source |  video_tag: "master" }}" />
+    <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
+      data-poster="{{ section.settings.video_cover_image | img_url: 'master' }}">
+      <source src="{{ section.settings.source | video_tag }}" />
     </video>
   </div>
 
@@ -16,23 +16,11 @@
   </div>
 
   <!-- draggable content icon -->
-  <div
-    class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
+  <div class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
     <p class="body-16 text-white text-center text-nowrap overlay-text">{{ section.settings.draggable_text }}</p>
     <div class="w-auto h-auto draggable-icon">
       {% render 'fab-icon' %}
     </div>
-  </div>
-
-  <!-- Switch button -->
-  <div class="w-auto h-auto absolute right-4 bottom-[68px] z-0">
-    <label class="switch">
-      <input type="checkbox" id="muteSwitch">
-      <span class="slider">
-          {% render 'mute-off-icon' %}
-      </span>
-    </label>
-
   </div>
 
 </div>
@@ -52,7 +40,7 @@
     object-position: center;
   }
 
-  /* Stili per lo switch button */
+  /* Stili per lo switch button (rimosso in questa versione) */
   .switch {
     position: relative;
     display: inline-block;
@@ -97,40 +85,24 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    //Gsap plugin
+    // Gsap plugin
     gsap.registerPlugin(Draggable);
     const timeline = gsap.timeline();
-    //get elements
+
+    // Get elements
     const draggableIcon = document.querySelector('.draggable-icon');
     const overlayVideoWrap = document.querySelector('.overlay-video-wrap');
     const overlayText = document.querySelector('.overlay-text');
 
-    //get elements
+    // Get video element
     const videoPlayer = document.getElementById('player');
-    const muteSwitch = document.getElementById('muteSwitch');
-    const muteIcon = document.querySelector('.slider');
 
-    //inzialize plyr
+    // Initialize Plyr
     const plyr = new Plyr(videoPlayer, {
       controls: ['play', 'progress', 'current-time', 'duration', 'fullscreen', 'duration']
     });
 
-    //toggle on off video
-    function toggleMute() {
-      videoPlayer.muted = !videoPlayer.muted;
-
-      //set icons
-      if (videoPlayer.muted) {
-        muteIcon.innerHTML = `{% render 'mute-off-icon' %}`;
-      } else {
-        muteIcon.innerHTML = `{% render 'mute-on-icon' %}`;
-      }
-    }
-
-
-    muteSwitch.addEventListener('change', toggleMute);
-
-    //gsap draggable
+    // Gsap draggable
     const draggableIconRect = draggableIcon.getBoundingClientRect();
     const overlayRect = overlayVideoWrap.getBoundingClientRect();
     const startingPosition = overlayRect.bottom - draggableIconRect.bottom;
@@ -141,7 +113,7 @@
     Draggable.create(draggableIcon, {
       type: "y",
       inertia: true,
-      bounds: {minY: 0, maxY: overlayOffsetY},
+      bounds: { minY: 0, maxY: overlayOffsetY },
 
       onDrag: function () {
         if (this.y === overlayOffsetY) {
@@ -153,41 +125,40 @@
             }
           });
           timeline
-            .to(overlayText, {opacity: 0, duration: 0.4})
-            .to(overlayVideoWrap, {opacity: 0, duration: 0.4})
-            .to(overlayVideoWrap, {display: "none"});
+            .to(overlayText, { opacity: 0, duration: 0.4 })
+            .to(overlayVideoWrap, { opacity: 0, duration: 0.4 })
+            .to(overlayVideoWrap, { display: "none" });
 
           this.disable();
         }
       },
     });
   });
-
 </script>
-
 
 {% schema %}
 {
-"name": "video-home",
-"settings": [
-{
-
-"type": "image_picker",
-"id": "video_cover_image",
-"label": "Video Cover Image",
-"info": "Choose The Video Cover Image"
-}, {
-"type": "video",
-"id": "source",
-"label": "Video HomePage",
-"info": "Choose The Video Source"
-}, {
-"type": "text",
-"id": "draggable_text",
-"label": "draggable text",
-"info": "Set the draggable text",
-"default": "Trascina per sbloccare un sogno"
-}
-]
+  "name": "video-home",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "video_cover_image",
+      "label": "Video Cover Image",
+      "info": "Choose The Video Cover Image"
+    },
+    {
+      "type": "video",
+      "id": "source",
+      "label": "Video HomePage",
+      "info": "Choose The Video Source"
+    },
+    {
+      "type": "text",
+      "id": "draggable_text",
+      "label": "Draggable Text",
+      "info": "Set the draggable text",
+      "default": "Trascina per sbloccare un sogno"
+    }
+  ]
 }
 {% endschema %}
