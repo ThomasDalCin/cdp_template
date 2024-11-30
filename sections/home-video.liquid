@@ -5,7 +5,7 @@
   <div class="w-full h-full absolute inset-0 z-0 overflow-hidden">
     <video class="w-full h-full object-cover object-center" id="player" controls muted
       data-poster="{{ video_cover_image |  img_url: 'master' }}">
-      <source src="{{ section.settings.source | video_tag }}" />
+      <source src="{{ section.settings.source |  video_tag: "master" }}" />
     </video>
   </div>
 
