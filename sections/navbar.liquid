@@ -83,7 +83,7 @@
 
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-10">
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-10">
-            {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all models" | split: ',' %}
+            {% assign allLinksTitle = "Walkaround,Grand Touring,Endurance,View all models" | split: ',' %}
             {% for link in linklists.yatch.links %}
             {% assign matching_collection = collections[link.object.handle] %}
             {% unless link.title == 'Pardo pre-owned' %}
