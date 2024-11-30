@@ -4,7 +4,7 @@
   <!-- video container -->
   <div class="w-full h-full absolute inset-0 z-0 overflow-hidden">
     <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
-      data-poster="{{ section.settings.video_cover_image | img_url: 'master' }}">
+      data-poster="{{ section.settings.video_cover_image | img_url: 'master'}}">
       <source src="https://cdn.shopify.com/videos/c/o/v/1e91aeabdb1e40eaa6686b18cee80b64.mp4" type="video/mp4" />
     </video>
   </div>
@@ -49,6 +49,13 @@
   .plyr {
     width: 100% !important;
     height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .plyr__poster{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
