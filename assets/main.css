@@ -1434,10 +1434,6 @@ p,
   height: 220px;
 }
 
-.h-\[228px\] {
-  height: 228px;
-}
-
 .h-\[23px\] {
   height: 23px;
 }
@@ -1456,6 +1452,10 @@ p,
 
 .h-\[276px\] {
   height: 276px;
+}
+
+.h-\[286px\] {
+  height: 286px;
 }
 
 .h-\[2px\] {
@@ -1582,10 +1582,6 @@ p,
   height: 100svh;
 }
 
-.h-\[286px\] {
-  height: 286px;
-}
-
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1598,16 +1594,16 @@ p,
   max-height: 220px;
 }
 
-.max-h-\[228px\] {
-  max-height: 228px;
-}
-
 .max-h-\[242px\] {
   max-height: 242px;
 }
 
 .max-h-\[276px\] {
   max-height: 276px;
+}
+
+.max-h-\[286px\] {
+  max-height: 286px;
 }
 
 .max-h-\[352px\] {
@@ -1624,10 +1620,6 @@ p,
 
 .max-h-\[423px\] {
   max-height: 423px;
-}
-
-.max-h-\[286px\] {
-  max-height: 286px;
 }
 
 .min-h-\[147px\] {
@@ -1985,11 +1977,6 @@ p,
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.-rotate-0 {
-  --tw-rotate: -0deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .-rotate-45 {
   --tw-rotate: -45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2007,11 +1994,6 @@ p,
 
 .rotate-90 {
   --tw-rotate: 90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-45 {
-  --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2679,10 +2661,6 @@ p,
 
 .font-light {
   font-weight: 300;
-}
-
-.font-medium {
-  font-weight: 500;
 }
 
 .font-semibold {

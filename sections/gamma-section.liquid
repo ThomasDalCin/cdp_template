@@ -1,5 +1,6 @@
 <div class="w-full h-auto py-10 bg-[#A9A09E] overflow-x-hidden relative">
-    <div class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:left-[42px] lg:top-0 lg:z-30">
+    <div
+        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:left-[42px] lg:top-0 lg:z-30">
         <div class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center">
             <button id="prevArrow" class="carousel-arrow left-arrow">
                 {% render 'arrow-left-icon' %}
@@ -7,7 +8,8 @@
         </div>
     </div>
 
-    <div class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:right-[42px] lg:top-0 lg:z-30">
+    <div
+        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:right-[42px] lg:top-0 lg:z-30">
         <div class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center">
             <button id="nextArrow" class="carousel-arrow right-arrow">
                 {% render 'arrow-right-icon' %}
@@ -17,36 +19,47 @@
 
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:gap-y-20">
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center">
-            <div class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
-                <div class="w-auto max-w-[99px] h-auto tab-gamma cursor-pointer lg:max-w-none" id="All Models">
-                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">
-                        All Models</p>
-                </div>
-                {% assign sorted_collections = collections | sort: 'title' | reverse %}
-                {% for collection in sorted_collections %}
-                {% if collection.title != "Pardo approved" %}
-                <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none" id="{{ collection.title }}">
-                    <p class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">
-                        {{ collection.title }}</p>
-                </div>
-                {% endif %}
-                {% endfor %}
-                <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in top-1">
-                    {% render 'union-icon' %}
+            <div class="wrap-container w-full h-auto">
+                <div
+                    class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
+                    <div class="w-auto max-w-[99px] h-auto tab-gamma cursor-pointer lg:max-w-none" id="All Models">
+                        <p
+                            class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">
+                            All Models</p>
+                    </div>
+                    {% assign sorted_collections = collections | sort: 'title' | reverse %}
+                    {% for collection in sorted_collections %}
+                    {% if collection.title != "Pardo approved" %}
+                    <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none"
+                        id="{{ collection.title }}">
+                        <p
+                            class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">
+                            {{ collection.title }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in top-1">
+                        {% render 'union-icon' %}
+                    </div>
                 </div>
             </div>
 
-            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6 pl-10 scroll-pl-10 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4 lg:h-[386px] lg:min-h-[386px]" data-collection="{{ collection.title }}" style="display: flex;">
+            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6 pl-10 scroll-pl-10 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4 lg:h-[386px] lg:min-h-[386px]"
+                data-collection="{{ collection.title }}" style="display: flex;">
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
                 {% for product in collection.products %}
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll w-[340px] min-h-[147px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full" data-collection="{{ collection.title }}" data-content="{{ product.title }}">
-                    <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}" alt="{{ model_image.alt }}">
-                    <div class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
-                        <p class="text-[40px] leading-[46px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title | replace: 'Pardo', '' }}</p>
+                <div class="image-scroll w-[340px] min-h-[147px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
+                    data-collection="{{ collection.title }}" data-content="{{ product.title }}">
+                    <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
+                        alt="{{ model_image.alt }}">
+                    <div
+                        class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
+                        <p class="text-[40px] leading-[46px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{
+                            product.title | replace: 'Pardo', '' }}</p>
                     </div>
                 </div>
                 {% endif %}
@@ -55,13 +68,18 @@
                 {% endfor %}
             </div>
 
-            <div class="w-full h-auto flex flex-col items-start justify-center px-6 lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center lg:px-12 lg:py-12">
-                <div class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center">
+            <div
+                class="w-full h-auto flex flex-col items-start justify-center px-6 lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center lg:px-12 lg:py-12">
+                <div
+                    class="w-full h-auto flex items-start justify-center gap-y-4 flex-col details-content lg:flex-row lg:gap-x-4 lg:items-center lg:justify-center">
                     <div class="w-full h-[56px] min-h-[56px] lg:w-[220px]">
-                        <a href="#" class="w-full h-full cta-black" id="cta-button-collection">{{ section.settings.cta_gamma_product | default: "Discover" }}</a>
+                        <a href="#" class="w-full h-full cta-black" id="cta-button-collection">{{
+                            section.settings.cta_gamma_product | default: "Discover" }}</a>
                     </div>
                     <div class="w-full h-[56px] min-h-[56px] lg:w-[220px]">
-                        <a href="pages/locate-delear" class="w-full h-full cta-transparent lg:bg-white lg:text-black lg:border-transparent" id="cta-delear">{{ section.settings.cta_gamma_delear | default: "Find a dealer" }}</a>
+                        <a href="pages/locate-delear"
+                            class="w-full h-full cta-transparent lg:bg-white lg:text-black lg:border-transparent"
+                            id="cta-delear">{{ section.settings.cta_gamma_delear | default: "Find a dealer" }}</a>
                     </div>
                 </div>
             </div>
@@ -100,101 +118,103 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll('.tab-gamma');
-    const imageScrolls = document.querySelectorAll('.image-scroll');
-    const magneticScroll = document.querySelector('.magnetic-scroll');
-    const unionIcon = document.querySelector('.union-icon');
-    const wrapContent = document.querySelector('.wrap-content');
-    const ctaButton = document.getElementById('cta-button-collection');
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll('.tab-gamma');
+        const imageScrolls = document.querySelectorAll('.image-scroll');
+        const magneticScroll = document.querySelector('.magnetic-scroll');
+        const unionIcon = document.querySelector('.union-icon');
+        const wrapContent = document.querySelector('.wrap-content');
+        const ctaButton = document.getElementById('cta-button-collection');
+        const wrapContainer = document.querySelector('.wrap-container');
 
-    // Funzione per gestire il click sulla tab
-    function handleTabClick(event) {
-        const clickedTab = event.currentTarget;
-        const selectedTabId = clickedTab.id;
-        const selectedTabName = clickedTab.textContent.trim();
+        // Funzione per gestire il click sulla tab
+        function handleTabClick(event) {
+            const clickedTab = event.currentTarget;
+            const selectedTabId = clickedTab.id;
+            const selectedTabName = clickedTab.textContent.trim();
 
-        // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-        clickedTab.classList.add('active-tab');
+            // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            clickedTab.classList.add('active-tab');
 
-        // Gestisci la visibilità delle immagini in base alla tab selezionata
-        imageScrolls.forEach(image => {
-            const collection = image.getAttribute('data-collection');
-            if (selectedTabId === 'All Models' || selectedTabId === collection) {
-                image.style.display = 'flex';
+            // Gestisci la visibilità delle immagini in base alla tab selezionata
+            imageScrolls.forEach(image => {
+                const collection = image.getAttribute('data-collection');
+                if (selectedTabId === 'All Models' || selectedTabId === collection) {
+                    image.style.display = 'flex';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+
+            // Fai scrollare 'wrapContent' per centrare la tab selezionata
+            scrollToTab(clickedTab);
+
+            // Cambia il comportamento del bottone CTA in base alla tab selezionata
+            if (selectedTabId === 'All Models') {
+                ctaButton.parentElement.style.display = 'none';
             } else {
-                image.style.display = 'none';
+                ctaButton.parentElement.style.display = 'flex';
+                ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
+                ctaButton.innerHTML = `Discover ${selectedTabName}`;
             }
-        });
 
-        // Calcola e sposta l'icona per centrarla sulla tab selezionata prima di fare lo scroll
-        moveUnionIcon(clickedTab);
+            // Riporta lo scroll del contenitore magnetico all'inizio
+            magneticScroll.scrollTo({left: 0, behavior: "smooth"});
 
-        // Fai scrollare 'wrapContent' per centrare la tab selezionata in modo fluido
-        scrollToTab(clickedTab);
-
-        // Cambia il comportamento del bottone CTA in base alla tab selezionata
-        if (selectedTabId === 'All Models') {
-            ctaButton.parentElement.style.display = 'none';
-        } else {
-            ctaButton.parentElement.style.display = 'flex';
-            ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
-            ctaButton.innerHTML = `Discover ${selectedTabName}`;
+            // Aggiorna la posizione dell'icona per centrarla sopra la nuova tab
+            updateUnionIconPosition(clickedTab);
         }
 
-        // Riporta lo scroll del contenitore magnetico all'inizio
-        magneticScroll.scrollTo({ left: 0, behavior: "smooth" });
-    }
+        // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata
+        function scrollToTab(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContent.getBoundingClientRect();
+            const containerWidth = containerRect.width;
+            const targetCenterX = targetRect.left + targetRect.width / 2;
+            const containerCenterX = containerRect.left + containerWidth / 2;
+            const offset = targetCenterX - containerCenterX;
 
-    // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata in modo fluido
-    function scrollToTab(target) {
-        const targetRect = target.getBoundingClientRect();
-        const containerRect = wrapContent.getBoundingClientRect();
-        const containerWidth = containerRect.width;
-        const targetCenterX = targetRect.left + targetRect.width / 2;
-        const containerCenterX = containerRect.left + containerWidth / 2;
-        const offset = targetCenterX - containerCenterX;
+            // Fai scrollare il contenitore in modo fluido
+            wrapContent.scrollTo({
+                left: wrapContent.scrollLeft + offset,
+                behavior: 'smooth'
+            });
+        }
 
-        // Fai scrollare il contenitore in modo fluido
-        wrapContent.scrollTo({
-            left: wrapContent.scrollLeft + offset,
-            behavior: 'smooth'  // Aggiungi il comportamento fluido
+        // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
+        function updateUnionIconPosition(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContainer.getBoundingClientRect();
+            const unionIconWidth = unionIcon.offsetWidth;
+
+            // Considera lo scroll di wrapContent nel calcolo
+            const scrollOffset = wrapContent.scrollLeft;
+
+            // Calcola la posizione centrale della tab selezionata rispetto al contenitore
+            const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
+
+            // Muovi l'icona nella posizione calcolata
+            unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
+            unionIcon.style.transition = "transform 0.3s ease";
+        }
+
+        // Esegui il posizionamento iniziale al caricamento della pagina
+        const modelsTab = document.getElementById('All Models');
+        if (modelsTab) {
+            modelsTab.classList.add('active-tab');
+            updateUnionIconPosition(modelsTab); // Centra l'icona sulla tab "All Models" al caricamento
+        }
+
+        // Aggiungi l'evento di clic su ogni tab
+        tabs.forEach(tab => {
+            tab.addEventListener('click', handleTabClick);
         });
-    }
 
-    // Funzione per spostare l'icona in base alla tab selezionata
-    function moveUnionIcon(target) {
-        const targetRect = target.getBoundingClientRect();
-        const containerRect = wrapContent.getBoundingClientRect();
-        const unionIconWidth = unionIcon.offsetWidth;
-
-        // Calcola la posizione orizzontale della tab selezionata rispetto al contenitore
-        const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2);
-
-        // Calcola la posizione dell'icona considerando lo scroll di wrapContent
-        const offsetX = tabCenterX - (unionIconWidth / 2) - wrapContent.scrollLeft;
-
-        // Muovi l'icona nella posizione calcolata con una transizione fluida
-        unionIcon.style.transform = `translateX(${offsetX}px)`;
-        unionIcon.style.transition = "transform 0.3s ease";
-    }
-
-    // Aggiungi l'evento di clic su ogni tab
-    tabs.forEach(tab => {
-        tab.addEventListener('click', handleTabClick);
+        // Imposta la visibilità delle immagini inizialmente
+        imageScrolls.forEach(image => image.style.display = 'flex');
+        ctaButton.parentElement.style.display = 'none';
     });
 
-    // Seleziona la tab "All Models" come predefinita al caricamento della pagina
-    const modelsTab = document.getElementById('All Models');
-    if (modelsTab) {
-        modelsTab.classList.add('active-tab');
-        moveUnionIcon(modelsTab);  // Centra l'icona sulla tab "All Models" al caricamento
-    }
-
-    // Imposta la visibilità delle immagini inizialmente
-    imageScrolls.forEach(image => image.style.display = 'flex');
-    ctaButton.parentElement.style.display = 'none';
-});
 
 </script>
