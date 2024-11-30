@@ -5,7 +5,7 @@
   <div class="w-full h-full absolute inset-0 z-0 overflow-hidden">
     <video class="w-full h-full object-cover object-center" id="player" playsinline controls muted
       data-poster="{{ section.settings.video_cover_image | img_url: 'master' }}">
-      <source src="https://cdn.shopify.com/videos/c/o/v/1e91aeabdb1e40eaa6686b18cee80b64.mp4" type="video/mp4"/>
+      <source src="https://cdn.shopify.com/videos/c/o/v/1e91aeabdb1e40eaa6686b18cee80b64.mp4" type="video/mp4" />
     </video>
   </div>
 
@@ -16,7 +16,8 @@
   </div>
 
   <!-- draggable content icon -->
-  <div class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
+  <div
+    class="w-auto h-auto absolute left-1/2 bottom-10 -translate-x-1/2 -translate-y-10 z-20 flex flex-col items-center justify-center gap-y-6">
     <p class="body-16 text-white text-center text-nowrap overlay-text">{{ section.settings.draggable_text }}</p>
     <div class="w-auto h-auto draggable-icon">
       {% render 'fab-icon' %}
@@ -32,6 +33,17 @@
     --plyr-range-track-height: 2px;
     --plyr-video-controls-background: transparent;
     --plyr-video-control-background-hover: transparent;
+  }
+
+  video {
+    object-fit: cover;
+    /* Assicura che l'immagine copra tutta l'area */
+    object-position: center center;
+    /* Centra l'immagine */
+    width: 100%;
+    /* L'immagine copre tutta la larghezza */
+    height: 100%;
+    /* L'immagine copre tutta l'altezza */
   }
 
   .plyr {
@@ -114,7 +126,7 @@
     Draggable.create(draggableIcon, {
       type: "y",
       inertia: true,
-      bounds: { minY: 0, maxY: overlayOffsetY },
+      bounds: {minY: 0, maxY: overlayOffsetY},
 
       onDrag: function () {
         if (this.y === overlayOffsetY) {
@@ -126,9 +138,9 @@
             }
           });
           timeline
-            .to(overlayText, { opacity: 0, duration: 0.4 })
-            .to(overlayVideoWrap, { opacity: 0, duration: 0.4 })
-            .to(overlayVideoWrap, { display: "none" });
+            .to(overlayText, {opacity: 0, duration: 0.4})
+            .to(overlayVideoWrap, {opacity: 0, duration: 0.4})
+            .to(overlayVideoWrap, {display: "none"});
 
           this.disable();
         }
@@ -139,21 +151,21 @@
 
 {% schema %}
 {
-  "name": "video-home",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "video_cover_image",
-      "label": "Video Cover Image",
-      "info": "Choose The Video Cover Image"
-    },
-    {
-      "type": "text",
-      "id": "draggable_text",
-      "label": "Draggable Text",
-      "info": "Set the draggable text",
-      "default": "Trascina per sbloccare un sogno"
-    }
-  ]
+"name": "video-home",
+"settings": [
+{
+"type": "image_picker",
+"id": "video_cover_image",
+"label": "Video Cover Image",
+"info": "Choose The Video Cover Image"
+},
+{
+"type": "text",
+"id": "draggable_text",
+"label": "Draggable Text",
+"info": "Set the draggable text",
+"default": "Trascina per sbloccare un sogno"
+}
+]
 }
 {% endschema %}
