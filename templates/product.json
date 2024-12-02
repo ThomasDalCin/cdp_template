@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "gallery-pdp": {
@@ -10,15 +19,119 @@
     },
     "ext-int-pdp": {
       "type": "ext-int-pdp",
-      "settings": {}
-    },
-    "features-pdp": {
-      "type": "features-pdp",
-      "settings": {}
+      "blocks": {
+        "text_under_images_L9qcVM": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": true
+          }
+        },
+        "text_under_images_DCqJnW": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": true
+          }
+        },
+        "text_under_images_7j4Vp4": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": true
+          }
+        },
+        "text_under_images_Lj9ehq": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": true
+          }
+        },
+        "text_under_images_7tTQke": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": false
+          }
+        },
+        "text_under_images_wnccLL": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": false
+          }
+        },
+        "text_under_images_LEqtFb": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": false
+          }
+        },
+        "text_under_images_Vb6BJe": {
+          "type": "text_under_images",
+          "settings": {
+            "text_image": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "image_text_title": "Lorem ipsum dolor sit",
+            "more_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "more_text_visible": false
+          }
+        }
+      },
+      "block_order": [
+        "text_under_images_L9qcVM",
+        "text_under_images_DCqJnW",
+        "text_under_images_7j4Vp4",
+        "text_under_images_Lj9ehq",
+        "text_under_images_7tTQke",
+        "text_under_images_wnccLL",
+        "text_under_images_LEqtFb",
+        "text_under_images_Vb6BJe"
+      ],
+      "settings": {
+        "main_title": "Design",
+        "exterior_text_title": "Exteriors",
+        "exterior_text_content": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "cta_brochure": "Full exterior gallery",
+        "interior_text_title": "Interiors",
+        "interior_text_content": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "cta_brochure_interior": "Full interior gallery",
+        "cta_content_text": "Read more",
+        "interior_content_text": "Lorem Ipsum dolor sit",
+        "exterior_content_text": "Lorem Ipsum dolor sit"
+      }
     },
     "top-view-pdp": {
       "type": "top-view-pdp",
       "settings": {}
+    },
+    "features-pdp": {
+      "type": "features-pdp",
+      "settings": {
+        "product_basics": "Basics",
+        "basics_dropdown_title": "Basic Boat Details",
+        "technical_features": "Technical Feature",
+        "dimensions_dropdown_title": "Dimensions",
+        "speed_dropdown_title": "Speed & Distance",
+        "weights_dropdown_title": "Weights",
+        "tanks_dropdown_title": "Tanks",
+        "accommodations_dropdown_title": "Accommodations"
+      }
     },
     "overview-pdp": {
       "type": "overview-pdp",
@@ -28,7 +141,7 @@
       "type": "find-delear",
       "settings": {
         "section_title": "Time to find a dealer",
-        "section_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+        "section_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg",
         "section_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
         "cta_text": "Find a dealer"
       }
