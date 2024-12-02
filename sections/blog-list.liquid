@@ -1,57 +1,102 @@
 <!-- News Articles -->
-<div id="news-layout" class="blog-news-container w-full flex h-auto flex-col overflow-x-hidden px-6">
+<div id="news-layout" class="blog-news-container w-full flex flex-col overflow-x-hidden px-6">
   {% if blogs.news %}
   {% assign newsArticles = blogs.news.articles %}
-  {% if newsArticles.size > 0 %}
-  <!-- Horizontal Scroll Row -->
-  <div
-    class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
+  {% assign articleCount = newsArticles.size %} <!-- Numero totale di articoli -->
+
+  {% if articleCount > 0 %}
+
+  <!-- Creiamo prima i layout per gli articoli -->
+  <div class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-6 -mx-6 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
     {% for article in newsArticles %}
-    {% if article.tags contains "News" %}
-    <div
-      class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
-      data-tags="{{ article.tags | join: ',' }}">
+      {% assign modResult = forloop.index0 | modulo: 2 %}
+      
+      {% if article.tags contains "News" and modResult == 0 %}
+        <!-- Layout Orizzontale (pari) -->
+        <div
+          class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
+          data-tags="{{ article.tags | join: ',' }}">
 
-      <div class="blog-item-image w-full h-auto">
-        <img src="{{ article.image | img_url: 'master' }}"
-          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
-          alt="{{ article.image.alt }}">
-      </div>
+          <div class="blog-item-image w-full h-auto">
+            <img src="{{ article.image | img_url: 'master' }}"
+              class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+              alt="{{ article.image.alt }}">
+          </div>
 
-      <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl relative">
+          <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl relative">
+            {% assign articleDate = article.metafields.custom.article_date.value %}
+            {% assign articleLocation = article.metafields.custom.article_location.value %}
 
-        {% assign articleDate = article.metafields.custom.article_date.value %}
-        {% assign articleLocation = article.metafields.custom.article_location.value %}
+            <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
+              {% if articleDate and articleLocation %}
+              <p class="body-12">{{ articleLocation }}</p>
+              <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
+              {% endif %}
+            </div>
+            <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+              <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+              <p class="body-12">{{ article.content | truncate: 100 }}</p>
+            </div>
 
-        <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
-          {% if articleDate and articleLocation %}
-          <p class="body-12">{{ articleLocation }}</p>
-          <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
-          {% endif %}
+            <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
+              <a href="{{ article.url }}" class="cta-choco-round">
+                <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-          <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-          <p class="body-12">{{ article.content | truncate: 100 }}</p>
-        </div>
-
-        <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
-          <a href="{{ article.url }}" class="cta-choco-round">
-            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-          </a>
-        </div>
-      </div>
-
-    </div>
-    {% endif %}
+      {% endif %}
     {% endfor %}
   </div>
+
+  <!-- Layout Verticale per gli indici dispari -->
+  <div class="blog-item-column-layout w-full flex flex-col gap-y-6 px-6 lg:px-10">
+    {% for article in newsArticles %}
+      {% assign modResult = forloop.index0 | modulo: 2 %}
+      
+      {% if article.tags contains "News" and modResult != 0 %}
+        <!-- Layout Verticale (dispari) -->
+        <div
+          class="blog-item-vertical-view w-full flex flex-col gap-y-4 items-start justify-start lg:flex-row lg:gap-x-6"
+          data-tags="{{ article.tags | join: ',' }}">
+
+          <div class="blog-item-image w-full lg:w-[30%]">
+            <img src="{{ article.image | img_url: 'master' }}"
+              class="w-full h-auto rounded-xl object-cover lg:h-[200px]"
+              alt="{{ article.image.alt }}">
+          </div>
+
+          <div class="blog-item-info w-full flex flex-col gap-y-3 lg:w-[70%]">
+            {% assign articleDate = article.metafields.custom.article_date.value %}
+            {% assign articleLocation = article.metafields.custom.article_location.value %}
+
+            <div class="blog-item-date w-full flex flex-row items-center justify-between">
+              {% if articleDate and articleLocation %}
+              <p class="body-12">{{ articleLocation }}</p>
+              <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
+              {% endif %}
+            </div>
+
+            <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+            <p class="body-12">{{ article.content | truncate: 200 }}</p>
+
+            <div class="blog-item-cta w-full">
+              <a href="{{ article.url }}" class="cta-choco-round">
+                <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
   {% else %}
   <!-- No Articles Found Message -->
   <p class="text-center body-12">No articles found under the "News" tag.</p>
   {% endif %}
   {% endif %}
 </div>
-
 
 <!-- News Articles: Pressroom -->
 <div id="pressroom-layout"

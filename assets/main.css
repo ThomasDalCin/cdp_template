@@ -3384,6 +3384,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[200px\] {
+    height: 200px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -3526,6 +3530,14 @@ html {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[30\%\] {
+    width: 30%;
+  }
+
+  .lg\:w-\[70\%\] {
+    width: 70%;
   }
 
   .lg\:min-w-0 {
