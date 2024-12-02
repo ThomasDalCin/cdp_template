@@ -1209,6 +1209,26 @@ p,
   top: 1.5rem;
 }
 
+.top-\[620px\] {
+  top: 620px;
+}
+
+.top-\[490px\] {
+  top: 490px;
+}
+
+.top-\[474px\] {
+  top: 474px;
+}
+
+.top-\[464px\] {
+  top: 464px;
+}
+
+.top-\[454px\] {
+  top: 454px;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -1319,6 +1339,10 @@ p,
 
 .mt-\[194px\] {
   margin-top: 194px;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .box-border {
