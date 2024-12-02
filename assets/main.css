@@ -1229,6 +1229,26 @@ p,
   top: 454px;
 }
 
+.top-\[606px\] {
+  top: 606px;
+}
+
+.top-\[600px\] {
+  top: 600px;
+}
+
+.top-\[596px\] {
+  top: 596px;
+}
+
+.top-\[586px\] {
+  top: 586px;
+}
+
+.top-\[576px\] {
+  top: 576px;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -1940,6 +1960,10 @@ p,
 
 .min-w-\[74px\] {
   min-width: 74px;
+}
+
+.min-w-\[148px\] {
+  min-width: 148px;
 }
 
 .max-w-\[240px\] {
