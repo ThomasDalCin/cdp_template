@@ -452,6 +452,31 @@
             const hadScrolled = window.scrollY;
             const viewportHeight = window.innerHeight;
 
+            // Selettore del breadcrumbsContainer
+            const breadcrumbsContainer = document.querySelector('.breadcrumbs');
+
+            // Funzione per nascondere il breadcrumbs
+            const hideBreadcrumbs = () => {
+                if (breadcrumbsContainer) {
+                    breadcrumbsContainer.classList.add('hidden');
+                    breadcrumbsContainer.classList.remove('flex');
+                }
+            };
+
+            // Funzione per mostrare il breadcrumbs
+            const showBreadcrumbs = () => {
+                if (breadcrumbsContainer) {
+                    breadcrumbsContainer.classList.remove('hidden');
+                    breadcrumbsContainer.classList.add('flex');
+                }
+            };
+
+            if (hadScrolled > 0 && isNotHomepage) {
+                hideBreadcrumbs();
+            } else {
+                showBreadcrumbs();
+            }
+
             if (hadScrolled >= viewportHeight && !isNotHomepage) {
                 navBg.classList.remove('bg-[#EFEEED]');
                 navBg.classList.add('bg-blur-opacity');
@@ -459,7 +484,6 @@
                 lineIconMenu.forEach((line) => {
                     line.style.backgroundColor = "white";
                 });
-
             } else if (isProductPage) {
                 navBg.classList.remove('bg-[#EFEEED]');
                 navBg.classList.add('bg-blur-opacity');
@@ -468,8 +492,7 @@
                     line.style.backgroundColor = "white";
                 });
                 breadcrumbsContent.classList.add('text-white');
-
-            } else if (hadScrolled && !isProductPage && isNotHomepage) {
+            } else if (hadScrolled > 0 && !isProductPage && isNotHomepage) {
                 navbar.classList.add("bg-blur-opacity");
             } else {
                 navBg.classList.add('bg-[#EFEEED]');
@@ -483,6 +506,7 @@
                 breadcrumbsContent.classList.remove('hidden');
             }
         }
+
 
         updateNavBackground();
         window.addEventListener('scroll', () => {
@@ -696,6 +720,9 @@
 
             const isMenuYatchHidden = menuYatch.classList.contains('hidden');
             const isSecondMenuOpen = secondMenu.classList.contains('flex');
+            const currentPage = window.location.pathname;
+            const isNotHomepage = currentPage !== '/';
+            const isProductPage = currentPage.startsWith('/products/');
 
             if (isMenuYatchHidden) {
                 // Show the menu
@@ -744,8 +771,11 @@
                     pageTitleContainer.classList.remove('hidden');
                     pageTitleContainer.classList.add('flex');
                 }
+                
+                if(isNotHomepage && !isProductPage){
+                    navbar.classList.add('bg-blur-opacity');
+                }
 
-                navbar.classList.add('bg-blur-opacity');
                 document.body.classList.remove('no-scroll');
 
                 breadcrumbsContent.classList.remove('hidden');
@@ -760,6 +790,9 @@
         menuIcon.addEventListener('click', () => {
 
             const isMenuMainHidden = mainMenu.classList.contains('hidden');
+            const currentPage = window.location.pathname;
+            const isNotHomepage = currentPage !== '/';
+            const isProductPage = currentPage.startsWith('/products/');
 
             if (menuYatch.classList.contains('flex')) {
                 menuYatch.classList.remove('flex');
@@ -796,8 +829,10 @@
                     pageTitleContainer.classList.remove('hidden');
                     pageTitleContainer.classList.add('flex');
                 }
-
-                navbar.classList.add('bg-blur-opacity');
+                
+                if(isNotHomepage && !isProductPage){
+                    navbar.classList.add('bg-blur-opacity');
+                }
 
                 breadcrumbsContent.classList.remove('hidden');
             }
