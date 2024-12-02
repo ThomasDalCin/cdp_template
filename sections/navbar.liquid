@@ -771,8 +771,8 @@
                     pageTitleContainer.classList.remove('hidden');
                     pageTitleContainer.classList.add('flex');
                 }
-                
-                if(isNotHomepage && !isProductPage){
+
+                if (isNotHomepage && !isProductPage) {
                     navbar.classList.add('bg-blur-opacity');
                 }
 
@@ -788,64 +788,64 @@
         // handle click on menu icon
         menuIcon.addEventListener('click', () => {
 
-    const isMenuMainHidden = mainMenu.classList.contains('hidden');
-    const currentPage = window.location.pathname;
-    const isNotHomepage = currentPage !== '/';
-    const isProductPage = currentPage.startsWith('/products/');
-    const isSecondMenuOpen = secondMenu.classList.contains('flex');
+            const isMenuMainHidden = mainMenu.classList.contains('hidden');
+            const currentPage = window.location.pathname;
+            const isNotHomepage = currentPage !== '/';
+            const isProductPage = currentPage.startsWith('/products/');
+            const isSecondMenuOpen = secondMenu.classList.contains('flex');
 
-    // Se il menu Yatch è aperto, lo nascondiamo e resettiamo il testo del chip
-    if (menuYatch.classList.contains('flex')) {
-        menuYatch.classList.remove('flex');
-        menuYatch.classList.add('hidden');
-        chipText.innerHTML = 'Models';
-    }
+            // Se il menu Yatch è aperto, lo nascondiamo e resettiamo il testo del chip
+            if (menuYatch.classList.contains('flex')) {
+                menuYatch.classList.remove('flex');
+                menuYatch.classList.add('hidden');
+                chipText.innerHTML = 'Models';
+            }
 
-    // Se il secondo menu è aperto, lo chiudiamo prima di aprire il primo menu
-    if (isSecondMenuOpen) {
-        secondMenu.classList.add('hidden');
-        secondMenu.classList.remove('flex');
-    }
+            // Se il secondo menu è aperto, lo chiudiamo prima di aprire il primo menu
+            if (isSecondMenuOpen) {
+                secondMenu.classList.add('hidden');
+                secondMenu.classList.remove('flex');
+            }
 
-    // Se il menu principale è nascosto, lo mostriamo
-    if (isMenuMainHidden) {
-        mainMenu.classList.remove('hidden');
-        mainMenu.classList.add('flex');
-        document.body.classList.add('no-scroll');
-        menuIcon.classList.add('active');
+            // Se il menu principale è nascosto, lo mostriamo
+            if (isMenuMainHidden) {
+                mainMenu.classList.remove('hidden');
+                mainMenu.classList.add('flex');
+                document.body.classList.add('no-scroll');
+                menuIcon.classList.add('active');
 
-        // Se esiste, nascondiamo la pageTitleContainer
-        const pageTitleContainer = document.querySelector('.page-title-container');
-        if (pageTitleContainer) {
-            pageTitleContainer.classList.add('hidden');
-            pageTitleContainer.classList.remove('flex');
-        }
+                // Se esiste, nascondiamo la pageTitleContainer
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.add('hidden');
+                    pageTitleContainer.classList.remove('flex');
+                }
 
-        navbar.classList.remove('bg-blur-opacity');
-        breadcrumbsContent.classList.add('hidden');
+                navbar.classList.remove('bg-blur-opacity');
+                breadcrumbsContent.classList.add('hidden');
 
-    } else {
-        // Se il menu principale è già aperto, lo nascondiamo
-        mainMenu.classList.remove('flex');
-        mainMenu.classList.add('hidden');
-        document.body.classList.remove('no-scroll');
-        menuIcon.classList.remove('active');
+            } else {
+                // Se il menu principale è già aperto, lo nascondiamo
+                mainMenu.classList.remove('flex');
+                mainMenu.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+                menuIcon.classList.remove('active');
 
-        // Se esiste, mostriamo la pageTitleContainer
-        const pageTitleContainer = document.querySelector('.page-title-container');
-        if (pageTitleContainer) {
-            pageTitleContainer.classList.remove('hidden');
-            pageTitleContainer.classList.add('flex');
-        }
+                // Se esiste, mostriamo la pageTitleContainer
+                const pageTitleContainer = document.querySelector('.page-title-container');
+                if (pageTitleContainer) {
+                    pageTitleContainer.classList.remove('hidden');
+                    pageTitleContainer.classList.add('flex');
+                }
 
-        // Se non siamo nella homepage o nella pagina del prodotto, applichiamo il blur al navbar
-        if (isNotHomepage && !isProductPage) {
-            navbar.classList.add('bg-blur-opacity');
-        }
+                // Se non siamo nella homepage o nella pagina del prodotto, applichiamo il blur al navbar
+                if (isNotHomepage && !isProductPage) {
+                    navbar.classList.add('bg-blur-opacity');
+                }
 
-        breadcrumbsContent.classList.remove('hidden');
-    }
-});
+                breadcrumbsContent.classList.remove('hidden');
+            }
+        });
 
 
 
