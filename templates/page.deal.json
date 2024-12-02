@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "delear-top-view": {
+            "type": "delear-top",
+            "settings": {}
+        }
+    },
+    "order": [
+        "delear-top-view"
+    ]
+}

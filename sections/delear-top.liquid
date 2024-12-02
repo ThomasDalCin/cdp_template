@@ -1,0 +1,71 @@
+<!-- Page Single Delear -->
+<div class="delear-top-view w-full h-auto flex flex-col gap-y-12">
+
+    <!--Delear Full Width Image-->
+    <div class="delear-top-view-image w-full h-auto relative">
+        <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto lg:h-[860px]"
+            src="" alt="">
+        <a href="javascript:history.back()">
+            <div
+                class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
+                {% render 'back-arrow-icon' %}
+                <p class="body-14-medium ml-2">{{ section.settings.delear_cta_text | default: "Back" }}</p>
+            </div>
+        </a>
+    </div>
+
+    <!--Delear Content-->
+    <div
+        class="delear-top-view-content w-full h-auto flex flex-col gap-y-4 items-start justify-center p-6 mb-10 lg:px-20 lg:mb-[120px]">
+
+        <div class="w-full h-auto flex items-start justify-center bg-[#EFEEED] rounded-2xl gap-y-4">
+            <div class="w-full h-auto flex items-start justify-center flex-col">
+                <p class="text-[24px] leading-[30px] tt-norms-pro-med delear-title"></p>
+            </div>
+            <!--contact section-->
+            <div class="w-full h-auto flex items-start justify-center flex-col">
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg text-[#646464]">{{ section.settings.contact_title
+                    | default: "Contact" }}</p>
+                <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:
+                    "Phone" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-mobile"></span></p>
+                <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:
+                    "E-mail" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-email"></span></p>
+            </div>
+        </div>
+
+
+        <div class="w-full h-auto flex items-start justify-center bg-[#EFEEED] rounded-2xl">
+            <div class="w-full h-auto flex flex-row items-center justify-between">
+                <p class="text-[20px] leading-[20px] tt-norms-pro-med">{{ section.settings.about_us_text | default:
+                    "About us" }}</p>
+                {% render 'plus-icon' %}
+            </div>
+            <div class="w-full h-0 overflow-y-hidden flex flex-col items-start justify-center">
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg delear-description"></p>
+            </div>
+        </div>
+
+        <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title | capitalize }}</h1>
+        <p class="body-14">{{ article.content | capitalize }}</p>
+    </div>
+
+</div>
+
+
+{% comment %}
+Schema Section Settings Here
+{% endcomment %}
+{% schema %}
+{
+"name": "delear-content",
+"settings": [
+{
+"type": "text",
+"id": "delear_cta_text",
+"default": "Back",
+"label": "Delear Text Cta",
+"info": "Set the text inside your Cta"
+}
+]
+}
+{% endschema %}

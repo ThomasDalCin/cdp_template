@@ -180,49 +180,72 @@
 
     //Function to create Cards
     async function createCard() {
-      try {
-        const data = await getDelearData();
+    try {
+      const data = await getDelearData();
 
-        data.forEach((delear) => {
-          const card = document.createElement('div');
-          card.classList.add('card');
-          card.classList.add('lg:w-[calc(50%_-_1rem)]');
-          card.dataset.area = delear.Area.trim();
+      data.forEach((delear) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('lg:w-[calc(50%_-_1rem)]');
+        card.dataset.area = delear.Area.trim();
 
-          card.innerHTML = `
-            <div class="w-[300px] h-[344px] flex flex-col gap-y-4 p-4 rounded-lg bg-[var(--primary-background-color)] lg:w-full">
-              <div class="w-auto h-auto flex flex-col gap-y-2 items-start justify-center">
-                <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
+        card.innerHTML = `
+          <div class="w-[300px] h-[344px] flex flex-col gap-y-4 p-4 rounded-lg bg-[var(--primary-background-color)] relative lg:w-full">
+            <div class="w-auto h-auto flex flex-col gap-y-2 items-start justify-center">
+              <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
                 <p class="font-14-medium">${delear.Dealer}</p>
                 <p class="font-12">${delear.Indirizzo}</p>
-                </div>
-                <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
+              </div>
+              <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
                 <p class="font-12 text-[var(--hover-gray)]">{{ section.settings.manager_sales }}</p>
                 <p class="font-12">${delear['Manager Vendite']}</p>
-                </div>
-                <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
+              </div>
+              <div class="w-auto h-auto flex flex-col gap-y-1 items-start justify-center">
                 <p class="font-12 text-[var(--hover-gray)]">{{ section.settings.card_contact }}</p>
                 <p class="font-12">${delear['Mobile:']}</p>
                 <p class="font-12">${delear['E: Mail']}</p>
-                </div>
-              </div>
-              <div class="w-auto h-auto flex flex-col gap-y-2 items-start justify-center">
-                <a href=${delear['Sito Web']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
-                  <p class="font-14">Visita il sito web</p>
-                  {% render 'website-icon' %}
-                </a>
               </div>
             </div>
-          `;
+            <div class="w-auto h-auto flex flex-col gap-y-2 items-start justify-center">
+              <a href=${delear['Sito Web']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
+                <p class="font-14">Visita il sito web</p>
+                {% render 'website-icon' %}
+              </a>
+            </div>
+            <div class="w-auto h-auto flex items-center justify-center absolute right-6 bottom-6 cta-choco-round h-[32px] w-[124px] min-w-[124px] cta-open-delear">
+              <a href="#">
+                <p class="font-14">Scopri</p>
+              </a>
+            </div>
+          </div>
+        `;
 
-          cardContainer.appendChild(card);
+        // Aggiungi evento click al bottone "cta-open-delear"
+        const ctaButton = card.querySelector('.cta-open-delear a');
+        ctaButton.addEventListener('click', () => {
 
+          const cardData = {
+            dealer: delear.Dealer,
+            indirizzo: delear.Indirizzo,
+            manager: delear['Manager Vendite'],
+            mobile: delear['Mobile:'],
+            email: delear['E: Mail'],
+            sitoWeb: delear['Sito Web'],
+          };
+
+          // Salva i dati nel localStorage
+          localStorage.setItem('selectedDelear', JSON.stringify(cardData));
+
+          console.log('Dati salvati nel localStorage:', cardData);
         });
 
-      } catch (error) {
-        console.log(error);
-      }
+        cardContainer.appendChild(card);
+      });
+
+    } catch (error) {
+      console.log(error);
     }
+  }
 
     function filterCards(area) {
       const cards = document.querySelectorAll('.card');
