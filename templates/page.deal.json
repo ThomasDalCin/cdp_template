@@ -1,11 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "delear-top-view": {
-            "type": "delear-top",
-            "settings": {}
-        }
-    },
-    "order": [
-        "delear-top-view"
-    ]
+  "sections": {
+    "delear-top-view": {
+      "type": "delear-top",
+      "settings": {
+        "delear_cta_text": "Back",
+        "delear_image": "shopify://shop_images/ea078c2236caa3f569403f6cf355c094.jpg"
+      }
+    }
+  },
+  "order": [
+    "delear-top-view"
+  ]
 }
