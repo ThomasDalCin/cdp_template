@@ -205,6 +205,9 @@
                 <p class="font-12">${delear['Mobile:']}</p>
                 <p class="font-12">${delear['E: Mail']}</p>
               </div>
+              <div class="hidden card-description">
+                <p class="font-12">Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+              </div>
             </div>
             <div class="w-auto h-auto flex flex-col gap-y-2 items-start justify-center">
               <a href=${delear['Sito Web']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
@@ -213,7 +216,7 @@
               </a>
             </div>
             <div class="w-auto h-auto flex items-center justify-center absolute right-6 bottom-6 cta-choco-round h-[32px] w-[124px] min-w-[124px] cta-open-delear">
-              <a href="#">
+              <a href="/pages/delear">
                 <p class="font-14">Scopri</p>
               </a>
             </div>
@@ -223,6 +226,7 @@
         // Aggiungi evento click al bottone "cta-open-delear"
         const ctaButton = card.querySelector('.cta-open-delear a');
         ctaButton.addEventListener('click', () => {
+          const cardDescription = card.querySelector('.card-description').innerText.trim();
 
           const cardData = {
             dealer: delear.Dealer,
@@ -231,6 +235,7 @@
             mobile: delear['Mobile:'],
             email: delear['E: Mail'],
             sitoWeb: delear['Sito Web'],
+            description: cardDescription
           };
 
           // Salva i dati nel localStorage

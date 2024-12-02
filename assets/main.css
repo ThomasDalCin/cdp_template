@@ -1722,6 +1722,10 @@ p,
   min-height: 640px;
 }
 
+.min-h-\[376px\] {
+  min-height: 376px;
+}
+
 .w-0 {
   width: 0px;
 }
