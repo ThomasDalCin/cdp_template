@@ -1586,6 +1586,10 @@ p,
   height: 100svh;
 }
 
+.h-\[235px\] {
+  height: 235px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
