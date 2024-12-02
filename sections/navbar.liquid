@@ -786,57 +786,67 @@
 
 
         // handle click on menu icon
-        // handle click on menu icon
         menuIcon.addEventListener('click', () => {
 
-            const isMenuMainHidden = mainMenu.classList.contains('hidden');
-            const currentPage = window.location.pathname;
-            const isNotHomepage = currentPage !== '/';
-            const isProductPage = currentPage.startsWith('/products/');
+    const isMenuMainHidden = mainMenu.classList.contains('hidden');
+    const currentPage = window.location.pathname;
+    const isNotHomepage = currentPage !== '/';
+    const isProductPage = currentPage.startsWith('/products/');
+    const isSecondMenuOpen = secondMenu.classList.contains('flex');
 
-            if (menuYatch.classList.contains('flex')) {
-                menuYatch.classList.remove('flex');
-                menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Models';
-            }
+    // Se il menu Yatch è aperto, lo nascondiamo e resettiamo il testo del chip
+    if (menuYatch.classList.contains('flex')) {
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Models';
+    }
 
-            if (isMenuMainHidden) {
-                mainMenu.classList.remove('hidden');
-                mainMenu.classList.add('flex');
-                document.body.classList.add('no-scroll');
-                menuIcon.classList.add('active');
+    // Se il secondo menu è aperto, lo chiudiamo prima di aprire il primo menu
+    if (isSecondMenuOpen) {
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+    }
 
-                // Check if pageTitleContainer exists before modifying
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.add('hidden');
-                    pageTitleContainer.classList.remove('flex');
-                }
+    // Se il menu principale è nascosto, lo mostriamo
+    if (isMenuMainHidden) {
+        mainMenu.classList.remove('hidden');
+        mainMenu.classList.add('flex');
+        document.body.classList.add('no-scroll');
+        menuIcon.classList.add('active');
 
-                navbar.classList.remove('bg-blur-opacity');
+        // Se esiste, nascondiamo la pageTitleContainer
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+            pageTitleContainer.classList.add('hidden');
+            pageTitleContainer.classList.remove('flex');
+        }
 
-                breadcrumbsContent.classList.add('hidden');
+        navbar.classList.remove('bg-blur-opacity');
+        breadcrumbsContent.classList.add('hidden');
 
-            } else {
-                mainMenu.classList.remove('flex');
-                mainMenu.classList.add('hidden');
-                document.body.classList.remove('no-scroll');
-                menuIcon.classList.remove('active');
+    } else {
+        // Se il menu principale è già aperto, lo nascondiamo
+        mainMenu.classList.remove('flex');
+        mainMenu.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+        menuIcon.classList.remove('active');
 
-                // Check if pageTitleContainer exists before modifying
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.remove('hidden');
-                    pageTitleContainer.classList.add('flex');
-                }
-                
-                if(isNotHomepage && !isProductPage){
-                    navbar.classList.add('bg-blur-opacity');
-                }
+        // Se esiste, mostriamo la pageTitleContainer
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+            pageTitleContainer.classList.remove('hidden');
+            pageTitleContainer.classList.add('flex');
+        }
 
-                breadcrumbsContent.classList.remove('hidden');
-            }
-        });
+        // Se non siamo nella homepage o nella pagina del prodotto, applichiamo il blur al navbar
+        if (isNotHomepage && !isProductPage) {
+            navbar.classList.add('bg-blur-opacity');
+        }
+
+        breadcrumbsContent.classList.remove('hidden');
+    }
+});
+
 
 
 
