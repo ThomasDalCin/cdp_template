@@ -74,8 +74,8 @@
     <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:max-h-[600px]">
 
         <!-- Form Header -->
-        <div class="form-appointment-headers w-full flex items-center justify-between relative">
-            <p class="body-14-medium events-name">{{ section.settings.form_title | default: "Get the brochure" }}</p>
+        <div class="form-appointment-headers w-full flex items-center justify-end relative">
+            <p class="body-14-medium events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{ section.settings.form_title | default: "Get the brochure" }}</p>
 
             <!-- Close Icon -->
             <div class="icon-content cursor-pointer close-form">
@@ -101,7 +101,7 @@
             <!-- First Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[first_name]"
-                    class=" w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                    class=" w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px]  border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
                     placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}" required>
             </div>
@@ -109,7 +109,7 @@
             <!-- Last Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[last_name]"
-                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
                     placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}" required>
             </div>
@@ -117,7 +117,7 @@
             <!-- Email -->
             <div class="form-group w-full">
                 <input type="email" name="contact[email]"
-                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.email != blank %}{{ form.email }}{% endif %}"
                     placeholder="{{ section.settings.email_placeholder |  default: " Email" }}" required>
             </div>
@@ -129,7 +129,7 @@
             <!-- Marketing Consent Checkbox -->
             <div class="form-group w-full flex items-center gap-2">
                 <input type="checkbox" id="marketingConsent" name="contact[marketing_consent]"
-                    class="w-5 h-5 border-transparent rounded-md focus:ring-black">
+                    class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0">
                 <label for="marketingConsent">
                     {{ section.settings.marketing_consent_label | default: "Direct Marketing" }}
                 </label>
@@ -138,7 +138,7 @@
             <!-- Profiling Consent Checkbox -->
             <div class="form-group w-full flex items-center gap-2">
                 <input type="checkbox" id="profilingConsent" name="contact[profiling_consent]"
-                    class="w-5 h-5 border-transparent rounded-md focus:ring-black">
+                    class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0">
                 <label for="profilingConsent">
                     {{ section.settings.profiling_consent_label | default: "Profilazione" }}
                 </label>
@@ -149,7 +149,7 @@
         <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
 
         <!-- Submit Button -->
-        <div class="cta-transparent w-full flex items-center justify-center">
+        <div class="cta-transparent w-full flex items-center justify-center submit-cta">
             <button type="submit" id="Subscribe" class="px-6 py-3">
                 {{ section.settings.submit_button | default: "Get the brochure" }}
             </button>
@@ -166,55 +166,83 @@
     body.no-scroll {
         overflow: hidden;
     }
+
+    .cta-transparent button:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const ctaBrochure = document.querySelectorAll('.cta-brochure');
-        const formContainer = document.getElementById('form-container');
-        const overlay = document.getElementById('overlay');
-        const closeForm = document.querySelector('.close-form');
+document.addEventListener("DOMContentLoaded", function () {
+    const ctaBrochure = document.querySelectorAll('.cta-brochure');
+    const formContainer = document.getElementById('form-container');
+    const overlay = document.getElementById('overlay');
+    const closeForm = document.querySelector('.close-form');
 
-        // Open form logic
-        ctaBrochure.forEach(cta => {
-            cta.addEventListener('click', function (e) {
-                e.preventDefault();
+    const submitButton = document.querySelector('.submit-cta');
+    const formInputs = document.querySelectorAll('input[required]');
+    const marketingCheckbox = document.getElementById('marketingConsent');
+    const profilingCheckbox = document.getElementById('profilingConsent');
+    const additionalTagsInput = document.getElementById('additionalTags');
 
-                // Show the form and overlay
-                formContainer.classList.remove('translate-y-full');
-                formContainer.classList.add('translate-y-0');
-                overlay.classList.remove('hidden');
-                document.body.classList.add('no-scroll');
-            });
-        });
+    // Function to update submit button state
+    const updateSubmitButtonState = () => {
+        const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
+        if (allFieldsFilled) {
+            submitButton.style.opacity = '1';
+            submitButton.disabled = false;
+        } else {
+            submitButton.style.opacity = '.2';
+            submitButton.disabled = true;
+        }
+    };
 
-        // Close form logic
-        closeForm.addEventListener('click', function () {
-            // Hide the form and overlay
-            formContainer.classList.remove('translate-y-0');
-            formContainer.classList.add('translate-y-full');
-            overlay.classList.add('hidden');
-            document.body.classList.remove('no-scroll');
-        });
+    // Initialize button state on load
+    updateSubmitButtonState();
 
-        const marketingCheckbox = document.getElementById('marketingConsent');
-        const profilingCheckbox = document.getElementById('profilingConsent');
-        const additionalTagsInput = document.getElementById('additionalTags');
-
-        // Funzione per aggiornare i tag
-        const updateTags = () => {
-            const tags = ['brochure']; // Tag statico
-            if (marketingCheckbox.checked) tags.push('marketing');
-            if (profilingCheckbox.checked) tags.push('profilazione');
-            additionalTagsInput.value = tags.join(',');
-        };
-
-        // Event listener per i checkbox
-        marketingCheckbox.addEventListener('change', updateTags);
-        profilingCheckbox.addEventListener('change', updateTags);
-
-        // Inizializza i tag al caricamento
-        updateTags();
-
+    // Add event listeners to all inputs
+    formInputs.forEach(input => {
+        input.addEventListener('input', updateSubmitButtonState);
     });
+
+    // Open form logic
+    ctaBrochure.forEach(cta => {
+        cta.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Show the form and overlay
+            formContainer.classList.remove('translate-y-full');
+            formContainer.classList.add('translate-y-0');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('no-scroll');
+        });
+    });
+
+    // Close form logic
+    closeForm.addEventListener('click', function () {
+        // Hide the form and overlay
+        formContainer.classList.remove('translate-y-0');
+        formContainer.classList.add('translate-y-full');
+        overlay.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+    });
+
+    // Update tags function
+    const updateTags = () => {
+        const tags = ['brochure']; // Static tag
+        if (marketingCheckbox.checked) tags.push('marketing');
+        if (profilingCheckbox.checked) tags.push('profilazione');
+        additionalTagsInput.value = tags.join(',');
+    };
+
+    // Event listener for checkboxes
+    marketingCheckbox.addEventListener('change', updateTags);
+    profilingCheckbox.addEventListener('change', updateTags);
+
+    // Initialize tags on load
+    updateTags();
+});
+
 </script>
