@@ -303,10 +303,12 @@
     <!--container horizontal chips-->
     <div
         class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
-        {% assign collectionSorted = collections | sort : 'title' | reverse %}
-        {% for collection in collectionSorted %}
-        {% unless collection.title == 'Pardo approved' %}
+        {% assign collectionOrder = 'walkaround,endurance,grand-touring' | split: ',' %}
 
+        {% for collectionHandle in collectionOrder %}
+        {% assign collection = collections[collectionHandle] %}
+
+        {% if collection %}
         <div
             class="chips-label-white flex flex-row items-center justify-start gap-x-2 h-[40px] min-h-[40px] text-white flex-shrink-0">
             <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">
@@ -314,10 +316,11 @@
             </div>
             {% render 'arrow-down-icon' %}
         </div>
-
-        {% endunless %}
+        {% endif %}
         {% endfor %}
     </div>
+
+
 
 
 

@@ -127,9 +127,10 @@
           default:"Pardo's gamma" }}</p>
       </div>
       <div class="w-full h-auto flex items-start justify-center flex-col">
-        {% assign collection_sorted = collections | sort: 'title' | reverse %}
-        {% for collection in collection_sorted %}
-        {% if collection.title != "Pardo approved" %}
+        {% assign collectionOrder = 'walkaround,endurance,grand-touring' | split: ',' %}
+        {% for collectionHandle in collectionOrder %}
+        {% assign collection = collections[collectionHandle] %}
+        {% if collection %}
         <div class="w-full h-auto flex items-start justify-center flex-col overflow-hidden">
           <li class="w-full h-auto flex items-start justify-between py-6">
             <span class="text-[20px] leading-[18px] tt-norms-pro-med text-white">{{ collection.title }}</span>
