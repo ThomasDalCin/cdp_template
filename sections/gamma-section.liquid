@@ -28,8 +28,10 @@
                             All Models</p>
                     </div>
                     {% assign sorted_collections = collections | sort: 'title' | reverse %}
-                    {% for collection in sorted_collections %}
-                    {% if collection.title != "Pardo approved" %}
+                    {% assign collectionOrder= 'walkaround,endurance,grand-touring' | split: ',' %}
+                    {% for collectionHandle in collectionOrder %}
+                    {% assign collection = collections[collectionHandle] %}
+                    {% if collection %}
                     <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none"
                         id="{{ collection.title }}">
                         <p
