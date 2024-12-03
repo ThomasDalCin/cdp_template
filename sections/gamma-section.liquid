@@ -56,8 +56,10 @@
                 {% assign model_image = product_images[0] %}
                 <div class="image-scroll w-[340px] min-h-[147px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
-                    <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
+                    <a href="{{ product.url }}">
+                        <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
                         alt="{{ model_image.alt }}">
+                    </a>
                     <div
                         class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
                         <p class="text-[40px] leading-[46px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{
