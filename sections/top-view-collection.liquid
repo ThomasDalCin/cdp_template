@@ -82,13 +82,13 @@
         <p class="text-[40px] leading-[40px] lg:text-[96px] lg:leading-[96px]">{{ section.settings.scroll_info_main_title | default: "Adventure & Ocean" }}</p>
     </div>
 
-    <div class="product-details-magnetic-scroll w-[calc(100%+2rem)] px-4 -mx-4 py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto lg:w-full lg:px-[120px]">
+    <div class="product-details-magnetic-scroll w-full py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto lg:w-full lg:px-[120px]">
         {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
         {% for productMetafieldsValue in productMetafieldsValues %}
         {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-        <div class="details-badge flex min-w-[127px] h-auto p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
-            <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
+        <div class="details-badge flex flex-1 min-w-[120px] h-[64px] p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
             <p class="body-12 text-[#818181]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
+            <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
         </div>
         {% endfor %}
     </div>
