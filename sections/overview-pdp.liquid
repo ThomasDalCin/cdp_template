@@ -36,36 +36,44 @@
 </div>
 
 <script>
- document.addEventListener('DOMContentLoaded', () => {
-    // Ottieni gli elementi
+document.addEventListener('DOMContentLoaded', () => {
     const containerLinks = document.querySelector('.container-ancor-links');
     const closingIcon = document.querySelector('.closing-icon');
     const badgeOverlay = document.querySelector('.badge-overlay');
+    const allLinks = document.querySelectorAll('.ancor-link'); // Seleziona tutti i link all'interno del menu
 
-    // Funzione per aprire il menu
     const openMenu = () => {
-        if (window.innerWidth >= 1024) { // Se la larghezza della finestra è maggiore di 1024px (lg)
-            containerLinks.classList.remove('lg:hidden'); // Rimuovi 'hidden' per lg
+        if (window.innerWidth >= 1024) {
+            containerLinks.classList.remove('lg:hidden');
         } else {
-            containerLinks.classList.remove('translate-y-[1000px]'); // Rimuovi la classe di traslazione per sm/md
+            containerLinks.classList.remove('translate-y-[1000px]');
         }
-        badgeOverlay.classList.add('hidden'); // Nascondi il badge
+        badgeOverlay.classList.add('hidden');
+        document.addEventListener('click', handleOutsideClick);
     };
 
-    // Funzione per chiudere il menu
     const closeMenu = () => {
-        if (window.innerWidth >= 1024) { // Se la larghezza della finestra è maggiore di 1024px (lg)
-            containerLinks.classList.add('lg:hidden'); // Aggiungi 'hidden' per lg
+        if (window.innerWidth >= 1024) {
+            containerLinks.classList.add('lg:hidden');
         } else {
-            containerLinks.classList.add('translate-y-[1000px]'); // Aggiungi la classe di traslazione per sm/md
+            containerLinks.classList.add('translate-y-[1000px]');
         }
-        badgeOverlay.classList.remove('hidden'); // Mostra il badge
+        badgeOverlay.classList.remove('hidden');
+        document.removeEventListener('click', handleOutsideClick);
     };
 
-    // Evento clic sul badge per aprire il menu
-    badgeOverlay.addEventListener('click', openMenu);
+    const handleOutsideClick = (event) => {
+        if (!containerLinks.contains(event.target) && !badgeOverlay.contains(event.target)) {
+            closeMenu();
+        }
+    };
 
-    // Evento clic sull'icona di chiusura per chiudere il menu
+    badgeOverlay.addEventListener('click', openMenu);
     closingIcon.addEventListener('click', closeMenu);
+
+    allLinks.forEach((link) => {
+        link.addEventListener('click', closeMenu);
+    });
 });
+
 </script>
