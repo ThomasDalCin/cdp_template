@@ -25,11 +25,13 @@
         </div>
 
         <!--container button more info-->
-        <div
-            class="w-full h-auto flex items-center justify-center absolute z-50 left-0 right-0 bottom-16 overlay-button">
-            <div class="w-auto h-auto px-4 py-2 rounded-3xl bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white">{{ section.settings.more_info_cta | default:
-                "More
-                info" }}</div>
+        <div class="w-full h-auto flex items-center justify-center absolute z-50 left-0 right-0 bottom-16">
+            <div class="w-auto h-auto px-4 py-2 rounded-3xl bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white">
+                <p class="overlay-button text-[14px] leading-[20px] tt-norms-pro-med">{{
+                    section.settings.more_info_cta | default:
+                    "More
+                    info" }}</p>
+            </div>
         </div>
     </div>
 
@@ -42,8 +44,10 @@
         {% assign topViewGalleyUpText = product.metafields.custom.top_view_galley_up_description.value %}
         {% assign topViewGalleyDownText = product.metafields.custom.top_view_galley_down_description.value %}
         {% assign topViewInteriorGalleyUpText = product.metafields.custom.interiori_view_galley_up_description.value %}
-        {% assign topViewInteriorGalleyDownText = product.metafields.custom.interior_view_galley_down_description.value
-        %}
+        {% assign topViewInteriorGalleyDownText =
+        product.metafields.custom.interior_view_galley_down_description.value%}
+        {% assign topViewLowerDeckText = product.metafields.custom.interior_view_galley_down_description.value%}
+        {% assign topViewFlyBridgeText = product.metafields.custom.interior_view_galley_down_description.value%}
 
 
         <!--container more info text-->
@@ -77,6 +81,22 @@
                 <p class="body-14">{{ topViewInteriorGalleyDownText }}</p>
             </div>
         </div>
+
+        <!--container more info text-->
+        <div class="w-full h-0 bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-interior-galley-down">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ overlay-lower-deck }}</p>
+            </div>
+        </div>
+
+        <!--container more info text-->
+        <div class="w-full h-0 bg-white flex items-start justify-center overflow-y-hidden overlay-description transition-all duration-200 ease-linear"
+            data-overlay="overlay-fly-bridge">
+            <div class="w-auto h-auto p-6">
+                <p class="body-14">{{ topViewFlyBridgeText }}</p>
+            </div>
+        </div>
     </div>
 
 
@@ -84,12 +104,34 @@
 
 
 <!-- Top View Galley Section -->
-<div
-    class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] overflow-x-hidden bg-[#A9A09E] lg:px-10" id="Topview">
+<div class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] overflow-x-hidden bg-[#A9A09E] lg:px-10"
+    id="Topview">
 
     <!-- Main Title Content -->
     <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start pt-14 pb-6 lg:hidden">
         <h2 class="header-2">{{ section.settings.main_title | default: "Top view" }}</h2>
+    </div>
+
+    <!-- Tab container -->
+    <div class="wrap-container w-full h-auto">
+        <div
+            class="w-full h-auto flex flex-row items-center justify-start py-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
+
+            {% assign categoriesTabs = "Main deck, Lower Deck, Fly Bridge" | split: "," %}
+            {% for tabItem in categoriesTabs %}
+            <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none tab-categories"
+                id="{{ tabItem | strip }}">
+                <p
+                    class="text-[18px] leading-[24px] tt-norms-pro-light text-nowrap tab-text lg:text-[40px] lg:leading-[40px]">
+                    {{ tabItem | strip }}</p>
+            </div>
+            {% endfor %}
+
+            <div class="union-icon w-auto h-auto absolute transition-all duration-200 ease-in top-1">
+                {% render 'union-icon' %}
+            </div>
+
+        </div>
     </div>
 
     <!-- Horizontal Container Scrolling -->
@@ -101,6 +143,8 @@
         {% assign topViewGalleyDown = product.metafields.custom.top_view_galley_down.value %}
         {% assign interiorViewGalleyUp = product.metafields.custom.interior_view_galley_up.value %}
         {% assign interiorViewGalleyDown = product.metafields.custom.interior_view_galley_down.value %}
+        {% assign topViewLowerDeck = product.metafields.custom.top_view_lower_deck.value %}
+        {% assign topViewFlyBridge = product.metafields.custom.top_view_fly_bridge.value %}
 
         <!-- Galley Up Section -->
         {% if topViewGalleyUp %}
@@ -112,14 +156,33 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-galley-up"
-                data-image="{{ image_item | img_url: 'master' }}">
+                data-image="main-deck">
+
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
             </div>
-            <div class="flex items-center justify-center w-full h-auto">
-                <p class="body-16">Top View | Galley-up</p>
-            </div>
+
         </div>
         {% endif %}
         {% endif %}
@@ -147,12 +210,27 @@
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center relative flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="overlay-galley-down">
-            </div>
-            <div class="flex items-center justify-center w-full h-auto">
-                <p class="body-16">Top View | Galley-down</p>
+                data-overlay="overlay-galley-down" data-image="main-deck">
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
             </div>
         </div>
         {% endif %}
@@ -181,12 +259,27 @@
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
                 data-overlay="overlay-interior-galley-up">
-            </div>
-            <div class="flex items-center justify-center w-full h-auto" data-overlay="overlay-interior-galley-up">
-                <p class="body-16">Interior View | Galley-up</p>
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
             </div>
         </div>
         {% endif %}
@@ -194,7 +287,7 @@
         {% endfor %}
 
         <!-- Hidden Images for Interior Galley Up -->
-        <div class="hidden-images-container" style="display: none;">
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-interior-galley-up">
             {% for image_key in interiorViewGalleyUp_images %}
             {% assign image_item = interiorViewGalleyUp[image_key] %}
             {% if image_item %}
@@ -215,12 +308,27 @@
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[186px] h-[439px] bg-[#F2EDED] bg-cover bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
                 data-overlay="overlay-interior-galley-down">
-            </div>
-            <div class="flex items-center justify-center w-full h-auto">
-                <p class="body-16">Interior View | Galley-down</p>
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
             </div>
         </div>
         {% endif %}
@@ -238,8 +346,136 @@
         </div>
         {% endif %}
 
+        <!--Lower deck Section -->
+        {% if topViewLowerDeck %}
+        {% assign topViewLowerDeck_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        <!-- Loop Through Galley Up Images and Render Only the First Image -->
+        {% for image_key in topViewLowerDeck_images %}
+        {% assign image_item = topViewLowerDeck[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-lower-deck"
+                data-image="lower-deck">
+
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images for Lower deck -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-lower-deck">
+            {% for image_key in topViewLowerDeck_images %}
+            {% assign image_item = topViewLowerDeck[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!--fly bridge Section -->
+        {% if topViewFlyBridge %}
+        {% assign topViewFlyBridge_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        <!-- Loop Through Galley Up Images and Render Only the First Image -->
+        {% for image_key in topViewFlyBridge_images %}
+        {% assign image_item = topViewFlyBridge[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-fly-bridge"
+                data-image="fly-bridge">
+
+
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images|
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- Hidden Images fly bridge -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="overlay-fly-bridge">
+            {% for image_key in topViewFlyBridge_images %}
+            {% assign image_item = topViewFlyBridge[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
     </div>
 </div>
+
+<style>
+    .tab-categories {
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .tab-categories.active-tab>p {
+        color: black;
+        font-family: "TT-Norms-Pro-Regular";
+    }
+
+    .tab-gamma:hover>p {
+        color: #000;
+    }
+
+    .union-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+</style>
 
 
 <script>
@@ -250,6 +486,11 @@
         const overlayButton = document.querySelector('.overlay-button');
         const overlayDescriptions = document.querySelectorAll('.overlay-description');
 
+        const unionIcon = document.querySelector('.union-icon');
+        const wrapContent = document.querySelector('.wrap-content');
+        const tabs = document.querySelectorAll('.tab-categories');
+
+        const imageContainers = document.querySelectorAll('.top-view-scroll-img');
         let swiperOverlay;
 
         function openOverlay(images) {
@@ -299,29 +540,96 @@
             const descriptionHeight = overlayDescription.scrollHeight;
             overlayDescription.style.height = `${descriptionHeight}px`;
 
+            // Cambia il testo del pulsante da "Read More" a "Less Info"
+            overlayButton.textContent = 'Less Info';
+
+            // Aggiustiamo l'altezza di swiperContainer per fare spazio alla descrizione
             const swiperHeight = swiperContainer.clientHeight;
             const adjustedHeight = swiperHeight - descriptionHeight;
             swiperContainer.style.height = `${Math.max(adjustedHeight, 0)}px`;
+
+            // Aggiungi un event listener per nascondere di nuovo il testo
+            overlayButton.removeEventListener('click', openOverlayText); // Rimuovi eventuali precedenti event listener
+            overlayButton.addEventListener('click', function () {
+                // Nascondi il testo
+                overlayDescription.style.height = '0';
+
+                // Cambia il testo del pulsante
+                overlayButton.textContent = 'Read More';
+
+                // Ripristina l'altezza di swiperContainer
+                swiperContainer.style.height = '100%'; // Ripristina l'altezza predefinita
+
+                // Aggiungi un nuovo event listener per mostrarlo di nuovo
+                overlayButton.removeEventListener('click', arguments.callee); // Rimuovi l'event listener precedente
+                overlayButton.addEventListener('click', function () {
+                    openOverlayText(overlayDescription); // Riapri il testo
+                });
+            });
         }
 
-        // Gestione del click sulle immagini principali
-        const imageContainers = document.querySelectorAll('.top-view-scroll-img');
+        // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
+        function updateUnionIconPosition(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContent.getBoundingClientRect();
+            const unionIconWidth = unionIcon.offsetWidth;
 
+            // Considera lo scroll di wrapContent nel calcolo
+            const scrollOffset = wrapContent.scrollLeft;
+
+            // Calcola la posizione centrale della tab selezionata rispetto al contenitore
+            const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
+
+            // Muovi l'icona nella posizione calcolata
+            unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
+            unionIcon.style.transition = "transform 0.3s ease";
+        }
+
+        // Funzione per convertire l'ID della tab in un formato compatibile con data-image
+        function convertIdToDataImage(tabId) {
+            return tabId.toLowerCase().replace(/\s+/g, '-'); // Minuscolo e sostituisce gli spazi con trattini
+        }
+
+        // Funzione per gestire il click sulla tab
+        function handleTabClick(event) {
+            const clickedTab = event.currentTarget;
+
+            // Aggiorna la tab attiva
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            clickedTab.classList.add('active-tab');
+
+            // Aggiorna la posizione dell'icona
+            updateUnionIconPosition(clickedTab);
+
+            // Ottieni l'ID della tab cliccata e convertilo in formato data-image
+            const tabId = clickedTab.textContent.trim();
+            const dataImageValue = convertIdToDataImage(tabId);
+
+            // Mostra solo i container delle immagini corrispondenti
+            imageContainers.forEach(container => {
+                const imageType = container.getAttribute('data-image');
+                if (imageType === dataImageValue) {
+                    container.classList.remove('hidden');
+                } else {
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        // Gestione del click sulle immagini principali per aprire l'overlay
         imageContainers.forEach(container => {
             container.addEventListener('click', function () {
-                // Ottieni tutte le immagini nascoste
                 const overlayType = container.getAttribute('data-overlay');
                 let images = [];
 
+                // Ottieni tutte le immagini del container cliccato
                 const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
                 const hiddenDescription = document.querySelector(`.overlay-description[data-overlay="${overlayType}"]`);
 
-                // Aggiungi le immagini all'array
                 hiddenImages.forEach(hiddenImage => {
                     images.push(hiddenImage.getAttribute('data-image'));
                 });
 
-                // Gestisci il click del bottone "More Info"
                 overlayButton.addEventListener('click', () => {
                     if (hiddenDescription) {
                         openOverlayText(hiddenDescription);
@@ -333,28 +641,46 @@
             });
         });
 
-        // Gestione della chiusura dell'overlay con il pulsante "x"
+        // Gestione della chiusura dell'overlay
         const closeButton = document.querySelector('.close-overlay');
         if (closeButton) {
             closeButton.addEventListener('click', function () {
                 if (swiperOverlay) {
-                    // Distruggi Swiper e svuota il contenuto del wrapper
                     swiperOverlay.destroy(true, true);
                     swiperWrapper.innerHTML = '';
                 }
-
-                // Nascondi l'overlay e abilita lo scroll del corpo
                 overlay.classList.add('hidden');
                 document.body.classList.remove('no-scroll');
-
-                // Resetta tutte le descrizioni
                 overlayDescriptions.forEach((overlayDescription) => {
                     overlayDescription.style.height = '0';
                 });
-
-                // Resetta l'altezza dello swiper container
-                swiperContainer.style.height = '100%';
+                swiperContainer.style.height = '100%'; // Ripristina l'altezza predefinita di swiperContainer
             });
         }
+
+        // Aggiungi l'evento di clic alle tab
+        tabs.forEach(tab => {
+            tab.addEventListener('click', handleTabClick);
+        });
+
+        // Imposta la tab iniziale come attiva
+        tabs.forEach((tab, index) => {
+            if (index === 0) {
+                tab.classList.add('active-tab');
+                updateUnionIconPosition(tab);
+
+                // Mostra inizialmente solo le immagini della prima tab
+                const tabId = tab.textContent.trim();
+                const dataImageValue = convertIdToDataImage(tabId);
+                imageContainers.forEach(container => {
+                    if (container.getAttribute('data-image') === dataImageValue) {
+                        container.classList.remove('hidden');
+                    } else {
+                        container.classList.add('hidden');
+                    }
+                });
+            }
+        });
     });
+
 </script>
