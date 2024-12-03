@@ -1265,6 +1265,16 @@ p,
   margin-bottom: 1rem;
 }
 
+.-mx-7 {
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
+}
+
+.-mx-8 {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
 .-mt-\[100px\] {
   margin-top: -100px;
 }
@@ -1874,6 +1884,10 @@ p,
   width: 100%;
 }
 
+.w-\[calc\(100\%_\+_3rem\)\] {
+  width: calc(100% + 3rem);
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
@@ -2027,6 +2041,11 @@ p,
 
 .snap-start {
   scroll-snap-align: start;
+}
+
+.scroll-px-10 {
+  scroll-padding-left: 2.5rem;
+  scroll-padding-right: 2.5rem;
 }
 
 .scroll-pl-10 {
@@ -2512,6 +2531,11 @@ p,
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .pb-10 {
