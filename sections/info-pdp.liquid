@@ -19,13 +19,13 @@
                     {% for productMetafieldsValue in productMetafieldsValues %}
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
-                        class="details-badge flex flex-1 h-[78px] p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
-                        <p class="body-14 text-nowrap tt-norms-pro-med">{{ metafieldCustom }}</p>
+                        class="details-badge flex flex-1 min-w-[120px] h-[64px] p-4 flex-col items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] lg:h-[100px] lg:flex-1">
                         <p class="body-12 text-[#818181] tt-norms-pro-med">{{ productMetafieldsValue | replace: '_', ' '
                             |
                             upcase
                             }}
                         </p>
+                        <p class="body-14 text-nowrap tt-norms-pro-med">{{ metafieldCustom }}</p>
                     </div>
                     {% endfor %}
                 </div>
