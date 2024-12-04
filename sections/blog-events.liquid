@@ -140,7 +140,7 @@
         <!-- First Name -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
           <input type="text" name="contact[first_name]"
-            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
             value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
             placeholder="{{ section.settings.form_first_name }}">
         </div>
@@ -148,7 +148,7 @@
         <!-- Last Name -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
           <input type="text" name="contact[last_name]"
-            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
             value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
             placeholder="{{ section.settings.form_last_name }}">
         </div>
@@ -156,7 +156,7 @@
         <!-- Email -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
           <input type="email" name="contact[email]" value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
             placeholder="{{ section.settings.form_email }}" required>
         </div>
 
@@ -168,7 +168,7 @@
           </div>
           <input datepicker id="default-datepicker" datepicker-autohide data-picker-orientation="left bottom" name="contact[date]"
             type="text"
-            class="block w-full rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            class="block w-full rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none ring-black focus:ring-0 focus:border-transparent placeholder:body-14 placeholder:text-black"
             placeholder="Select date">
         </div>
 
@@ -177,7 +177,7 @@
         <!-- Message -->
         <div class="form-group w-full h-auto flex flex-col items-start justify-center">
           <textarea name="contact[message]"
-            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] ring-black focus:ring-0 border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
             placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
         </div>
 
@@ -266,6 +266,13 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+
+  const datapicker = document.getElementById('default-datepicker');
+  var dateToday = new Date();
+
+  const dataPicker = new Datepicker(datapicker, {
+   'startDate': dateToday
+  });
 
     const appointmentButtons = document.querySelectorAll('.book-appointment');
     const formContainer = document.querySelector('.form-container');
