@@ -281,6 +281,7 @@
         formContainer.classList.remove('hidden');
         formContainer.classList.remove('translate-y-full');
         formContainer.classList.add('translate-y-0');
+        document.body.classList.add('no-scroll');
         if (window.innerWidth <= 435) {
           const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
           window.scrollTo({
@@ -293,6 +294,7 @@
 
     closeIcon.addEventListener('click', function () {
       formContainer.classList.add('translate-y-full');
+      document.body.classList.remove('no-scroll');
       setTimeout(() => {
         formContainer.classList.add('hidden');
       }, 300);
