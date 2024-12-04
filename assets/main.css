@@ -1249,6 +1249,10 @@ p,
   z-index: 99999;
 }
 
+.m-10 {
+  margin: 2.5rem;
+}
+
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
