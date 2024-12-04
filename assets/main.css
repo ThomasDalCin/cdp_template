@@ -2033,6 +2033,10 @@ p,
   scroll-snap-align: start;
 }
 
+.snap-center {
+  scroll-snap-align: center;
+}
+
 .scroll-pl-10 {
   scroll-padding-left: 2.5rem;
 }
@@ -2820,6 +2824,10 @@ p,
 
 .underline {
   text-decoration-line: underline;
+}
+
+.no-underline {
+  text-decoration-line: none;
 }
 
 .decoration-\[\.5px\] {
