@@ -27,7 +27,7 @@
 <!--container product image-->
 <div class="w-full h-auto relative">
     <!--layer blur (posizionato una sola volta fuori dal ciclo)-->
-    <div class="w-[372px] h-[135px] rounded-[372px] bg-[#A9A09E] blur-[150px] lg:blur-[150px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-full lg:h-[524px]">
+    <div class="w-full h-[135px] rounded-[372px] bg-[#A9A09E] blur-[150px] lg:blur-[150px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-full lg:h-[524px]">
     </div>
 
     <!--square white-->
@@ -86,13 +86,63 @@
         {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
         {% for productMetafieldsValue in productMetafieldsValues %}
         {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-        <div class="details-badge flex flex-1 min-w-[120px] h-[64px] p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
-            <p class="body-12 text-[#818181]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
+        <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[100px] lg:flex-1">
+            <p class="body-12 text-[#818181] text-nowrap">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
             <p class="body-14 text-nowrap">{{ metafieldCustom }}</p>
         </div>
         {% endfor %}
     </div>
 </div>
+
+<style>
+    
+    @media screen and (max-width: 440px) {
+        .details-badge {
+            width: 129.953px;
+            max-width: 129.953px;
+            padding: 16.372px;
+            height: 79.814px;
+        }
+    }
+
+    @media screen and (max-width: 430px) {
+        .details-badge {
+            width: 127px;
+            max-width: 127px;
+            padding: 16px;
+            height: 78px;
+        }
+
+    }
+
+    @media screen and (max-width: 393px) {
+        .details-badge {
+            width: 116.072px;
+            max-width: 116.072px;
+            padding: 14.623px;
+            height: 71.288px;
+        }
+ 
+    }
+
+    @media screen and (max-width: 375px) {
+        .details-badge {
+            width: 110.756px;
+            max-width: 110.756px;
+            padding: 13.953px;
+            height: 68.023px;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        .details-badge {
+            width: 94.512px;
+            max-width: 94.512px;
+            padding: 11.907px;
+            height: 58.047px;
+        }
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
