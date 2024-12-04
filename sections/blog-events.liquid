@@ -1,99 +1,102 @@
 <!-- Events Articles -->
 
 <!--Blog event container-->
-<div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-6 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
+<div
+  class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-6 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:p-10">
   {% if blogs['events'] %}
-    {% assign eventsArticles = blogs['events'].articles %}
-    {% if eventsArticles.size > 0 %}
-      {% for eventArticle in eventsArticles %}
-        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
-          <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
-            <!-- Events image Container -->
-            <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
-              <img
-                src="{{ eventArticle |  img_url: 'master' }}"
-                alt="{{ eventsArticles.title }}"
-                class="w-full h-full object-cover object-center rounded-t-2xl">
+  {% assign eventsArticles = blogs['events'].articles %}
+  {% if eventsArticles.size > 0 %}
+  {% for eventArticle in eventsArticles %}
+  <div
+    class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
+    <div
+      class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
+      <!-- Events image Container -->
+      <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
+        <img src="{{ eventArticle |  img_url: 'master' }}" alt="{{ eventsArticles.title }}"
+          class="w-full h-full object-cover object-center rounded-t-2xl">
+      </div>
+
+      <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
+
+        <div class="events-details-primary w-full h-auto flex flex-col px-4 gap-y-6">
+          <!--top content details-->
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+            <p class="article-title text-[24px] leading-[24px] tt-norms-pro-med">{{ eventArticle.title }}</p>
+            {% assign articleDate = eventArticle.metafields.custom.range_date.value %}
+            {% assign articleLocation = eventArticle.metafields.custom.article_location.value %}
+            {% if articleDate %}
+            <div class="w-auto h-auto bg-white px-4 py-1 rounded-full">
+              <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleDate }}</p>
             </div>
-
-            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
-
-              <div class="events-details-primary w-full h-auto flex flex-col px-4 gap-y-6">
-                <!--top content details-->
-                <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <p class="article-title text-[24px] leading-[24px] tt-norms-pro-med">{{ eventArticle.title }}</p>
-                  {% assign articleDate = eventArticle.metafields.custom.range_date.value %}
-                  {% assign articleLocation = eventArticle.metafields.custom.article_location.value %}
-                  {% if articleDate %}
-                  <div class="w-auto h-auto bg-white px-4 py-1 rounded-full">
-                    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleDate }}</p>
-                  </div>
-                  {% endif %}
-                  {% if articleLocation %}
-                    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleLocation }}</p>
-                  {% endif %}
-                </div>
-                <!--content-cta-->
-                <div class="w-full h-auto flex flex-col items-start justify-center">
-                  <a href="{{ section.settings.redirect_google_url }}">
-                    <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_google }}</p>
-                      {% render 'cta-icon' %}
-                    </div>
-                  </a>
-                  <a href="{{ section.settings.redirect_calendar }}">
-                    <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_calendar }}</p>
-                      {% render 'calendar-icon' %}
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <!--content cta-->
-              <div class="events-cta lg:w-full lg:flex lg:justify-end">
-                <div class="cta-choco-round h-[32px] min-w-[208px] book-appointment inline-flex">
-                  <p class="body-14">{{ section.settings.cta_appointment }}</p>
-                </div>
-              </div>
-            </div>
-
+            {% endif %}
+            {% if articleLocation %}
+            <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleLocation }}</p>
+            {% endif %}
           </div>
-        </div>
-      {% endfor %}
-    {% endif %}
-  {% endif %}
-
-  <!--Events article added by blocks -->
-  {% for block in section.blocks %}
-    {% if block.type == "card-event" %}
-      <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
-        <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
-          <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
-            <p class="article-title body-16-medium">{{ block.settings.card_event_title }}</p>
-          </div>
-          <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-            <a href="{{ block.settings.card_redirect_google_url }}">
+          <!--content-cta-->
+          <div class="w-full h-auto flex flex-col items-start justify-center">
+            <a href="{{ section.settings.redirect_google_url }}">
               <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">{{ block.settings.card_redirect_google }}</p>
+                <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_google }}</p>
                 {% render 'cta-icon' %}
               </div>
             </a>
-            <a href="{{ block.settings.card_redirect_google_calendar_url }}">
+            <a href="{{ section.settings.redirect_calendar }}">
               <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">{{ block.settings.card_redirect_calendar }}</p>
+                <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_calendar }}</p>
                 {% render 'calendar-icon' %}
               </div>
             </a>
           </div>
-          <div class="events-cta lg:w-full lg:flex lg:justify-end">
-            <div class="cta-choco min-w-[208px] book-appointment inline-flex">
-              <p class="body-14">{{ block.settings.card_cta_appointment }}</p>
-            </div>
+        </div>
+
+        <!--content cta-->
+        <div class="events-cta lg:w-full lg:flex lg:justify-end">
+          <div class="cta-choco-round h-[32px] min-w-[208px] book-appointment inline-flex">
+            <p class="body-14">{{ section.settings.cta_appointment }}</p>
           </div>
         </div>
       </div>
-    {% endif %}
+
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+
+  <!--Events article added by blocks -->
+  {% for block in section.blocks %}
+  {% if block.type == "card-event" %}
+  <div
+    class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
+    <div
+      class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
+      <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
+        <p class="article-title body-16-medium">{{ block.settings.card_event_title }}</p>
+      </div>
+      <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
+        <a href="{{ block.settings.card_redirect_google_url }}">
+          <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+            <p class="body-14 underline">{{ block.settings.card_redirect_google }}</p>
+            {% render 'cta-icon' %}
+          </div>
+        </a>
+        <a href="{{ block.settings.card_redirect_google_calendar_url }}">
+          <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
+            <p class="body-14 underline">{{ block.settings.card_redirect_calendar }}</p>
+            {% render 'calendar-icon' %}
+          </div>
+        </a>
+      </div>
+      <div class="events-cta lg:w-full lg:flex lg:justify-end">
+        <div class="cta-choco min-w-[208px] book-appointment inline-flex">
+          <p class="body-14">{{ block.settings.card_cta_appointment }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
   {% endfor %}
 
   <div class="json-ld-container hidden">
@@ -101,100 +104,105 @@
   </div>
 
   <!-- Book appointment Form -->
-    <!-- Form container -->
-    <div class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-30 transform translate-y-full transition-transform duration-300 ease-in-out hidden lg:flex lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
-      <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:bg-white lg:w-[640px] lg:max-h-[600px] lg:rounded-lg lg:p-4">
+  <!-- Form container -->
+  <div
+    class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-50 transform translate-y-full transition-transform duration-300 ease-in-out hidden lg:flex lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
+    <div
+      class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:bg-white lg:w-[640px] lg:max-h-[600px] lg:rounded-lg lg:p-4">
 
-        <!-- Form Header -->
-        <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
-          <p class="body-14-medium events-name"></p>
+      <!-- Form Header -->
+      <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
+        <p class="body-14-medium events-name"></p>
 
-          <!-- Close Icon -->
-          <div class="icon-content absolute right-0 top-0 cursor-pointer">
-            {% render 'x-icon' %}
-          </div>
-        </div>
-
-        <!-- Form Content -->
-        <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
-          {% form 'contact'
-            , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
-
-            {% if form.posted_successfully? %}
-              <!-- Confirm pop-up -->
-              <div class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black bg-white hidden transition-opacity duration-300 ease-in-out">
-                {% render 'check-icon' %}
-                <p class="body-12">{{ section.settings.confirm_message }}</p>
-              </div>
-            {% else %}
-
-            <!-- Form Errors -->
-            {{ form.errors | default_errors }}
-
-            <!-- First Name -->
-            <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-              <input
-                type="text"
-                name="contact[first_name]"
-                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
-                value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                placeholder="{{ section.settings.form_first_name }}">
-            </div>
-
-            <!-- Last Name -->
-            <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-              <input
-                type="text"
-                name="contact[last_name]"
-                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
-                value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                placeholder="{{ section.settings.form_last_name }}">
-            </div>
-
-            <!-- Email -->
-<div class="form-group w-full h-auto flex flex-col items-start justify-center">
-  <input
-    type="email"
-    name="contact[email]"
-    value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-    class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
-    placeholder="{{ section.settings.form_email }}"
-    required>
-</div>
-
-            <!-- Message -->
-            <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-              <textarea
-                name="contact[message]"
-                class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
-                placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
-            </div>
-
-            <!-- Privacy Policy -->
-            <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start mt-6">
-              <input
-                type="checkbox"
-                id="privacy_policy"
-                name="contact[privacy]"
-                class="w-4 h-4 appearance-none border border-gray-300 rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0"
-                required>
-              <label for="privacy_policy" class="text-sm text-gray-700">
-                Privacy Policy*
-              </label>
-            </div>
-
-            <!-- Secondary Info -->
-            <p class="caption text-[#7A7A7A]">{{ section.settings.form_privacy }}</p>
-
-            <!-- Submit Button -->
-            <div class="cta-choco">
-              <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
-            </div>
-          {% endif %}
-          {% endform %}
+        <!-- Close Icon -->
+        <div class="icon-content absolute right-0 top-0 cursor-pointer">
+          {% render 'x-icon' %}
         </div>
       </div>
+
+      <!-- Form Content -->
+      <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
+        {% form 'contact'
+        , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
+
+        {% if form.posted_successfully? %}
+        <!-- Confirm pop-up -->
+        <div
+          class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black bg-white hidden transition-opacity duration-300 ease-in-out">
+          {% render 'check-icon' %}
+          <p class="body-12">{{ section.settings.confirm_message }}</p>
+        </div>
+        {% else %}
+
+        <!-- Form Errors -->
+        {{ form.errors | default_errors }}
+
+        <!-- First Name -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+          <input type="text" name="contact[first_name]"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
+            placeholder="{{ section.settings.form_first_name }}">
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+          <input type="text" name="contact[last_name]"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
+            placeholder="{{ section.settings.form_last_name }}">
+        </div>
+
+        <!-- Email -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+          <input type="email" name="contact[email]" value="{% if form.email != blank %}{{ form.email }}{% endif %}"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            placeholder="{{ section.settings.form_email }}" required>
+        </div>
+
+        <!--calendar-->
+
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center relative">
+          <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4 pointer-events-none">
+            {% render 'calendar-icon' %}
+          </div>
+          <input datepicker id="default-datepicker" datepicker-autohide data-picker-orientation="left bottom" name="contact[date]"
+            type="text"
+            class="block w-full rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            placeholder="Select date">
+        </div>
+
+
+
+        <!-- Message -->
+        <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+          <textarea name="contact[message]"
+            class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:border-transparent placeholder:body-14 placeholder:text-black"
+            placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="form-group w-full flex flex-row gap-x-1 items-center justify-start mt-6">
+          <input type="checkbox" id="privacy_policy" name="contact[privacy]"
+            class="w-4 h-4 appearance-none border border-gray-300 rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0"
+            required>
+          <label for="privacy_policy" class="text-sm text-gray-700">
+            Privacy Policy*
+          </label>
+        </div>
+
+        <!-- Secondary Info -->
+        <p class="caption text-[#7A7A7A]">{{ section.settings.form_privacy }}</p>
+
+        <!-- Submit Button -->
+        <div class="cta-choco">
+          <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+        </div>
+        {% endif %}
+        {% endform %}
+      </div>
     </div>
+  </div>
 
 </div>
 
@@ -210,49 +218,62 @@
   <div class="w-full h-auto flex items-start justify-center flex-col py-4 px-4">
 
     <!-- Scrolling container -->
-    <div class="w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+    <div
+      class="w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
       {% assign allBlogs = "Events, " | split: "," %}
       {% for handle in allBlogs %}
-        {% for article in blogs[handle].articles %}
-          {% if article.tags contains 'Past' %}
-            {% assign articleDate = article.metafields.custom.range_date.value %}
-            {% assign articleLocation = article.metafields.custom.article_location.value %}
-            {% assign is_even = forloop.index | modulo: 2 %}
-              <div class="{% if is_even == 0 %}bg-[#A9A09E] text-black{% else %}bg-black text-white{% endif %} w-[247px] min-w-[247px] h-[286px] max-h-[286px] p-6 rounded-2xl flex flex-col items-start justify-start gap-y-6 relative">
-              <!-- Card Content -->
-              <div class="w-full h-auto flex items-start justify-center flex-col gap-y-4">
-                <p class="text-[12px] leading-[18px] tt-norms-pro-reg {% if is_even == 0 %}text-white{% else %}bg-black text-[#818181]{% endif %}">{{ articleDate |  upcase }}</p>
-                <p class="text-[24px] leading-[30px]">{{ article.title }}</p>
-                <p class="text-[12px] leading-[18px] tt-norms-pro-reg {% if is_even == 0 %}text-black{% else %}bg-black text-white{% endif %}">{{ articleLocation }}</p>
-                <p class="body-14">{{ article.content | truncate: 100 }}</p>
-              </div>
-              <!-- button content -->
-              <div class="w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
-                <!-- container arrow button -->
-                <a href="{{ article.url }}">
-                  <div class="inline-flex p-2 rounded-xl bg-white items-center justify-center">
-                    {% render 'arrow-right-icon' %}
-                  </div>
-                </a>
-              </div>
+      {% for article in blogs[handle].articles %}
+      {% if article.tags contains 'Past' %}
+      {% assign articleDate = article.metafields.custom.range_date.value %}
+      {% assign articleLocation = article.metafields.custom.article_location.value %}
+      {% assign is_even = forloop.index | modulo: 2 %}
+      <div
+        class="{% if is_even == 0 %}bg-[#A9A09E] text-black{% else %}bg-black text-white{% endif %} w-[247px] min-w-[247px] h-[286px] max-h-[286px] p-6 rounded-2xl flex flex-col items-start justify-start gap-y-6 relative">
+        <!-- Card Content -->
+        <div class="w-full h-auto flex items-start justify-center flex-col gap-y-4">
+          <p
+            class="text-[12px] leading-[18px] tt-norms-pro-reg {% if is_even == 0 %}text-white{% else %}bg-black text-[#818181]{% endif %}">
+            {{ articleDate | upcase }}</p>
+          <p class="text-[24px] leading-[30px]">{{ article.title }}</p>
+          <p
+            class="text-[12px] leading-[18px] tt-norms-pro-reg {% if is_even == 0 %}text-black{% else %}bg-black text-white{% endif %}">
+            {{ articleLocation }}</p>
+          <p class="body-14">{{ article.content | truncate: 100 }}</p>
+        </div>
+        <!-- button content -->
+        <div class="w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
+          <!-- container arrow button -->
+          <a href="{{ article.url }}">
+            <div class="inline-flex p-2 rounded-xl bg-white items-center justify-center">
+              {% render 'arrow-right-icon' %}
             </div>
-          {% endif %}
-        {% endfor %}
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
       {% endfor %}
     </div>
   </div>
 </div>
 
+<style>
+  .datepicker-cell.selected {
+    background-color: black !important;
+  }
+</style>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+
     const appointmentButtons = document.querySelectorAll('.book-appointment');
     const formContainer = document.querySelector('.form-container');
     const eventNameElement = formContainer.querySelector('.events-name');
     const confirmPopup = document.querySelector('.confirm-pop-up');
     const closeIcon = formContainer.querySelector('.icon-content');
     const jsonLdContainer = document.querySelector('.json-ld-container');
-  
+
     appointmentButtons.forEach(button => {
       button.addEventListener('click', function () {
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
@@ -269,22 +290,22 @@
         }
       });
     });
-  
+
     closeIcon.addEventListener('click', function () {
       formContainer.classList.add('translate-y-full');
       setTimeout(() => {
         formContainer.classList.add('hidden');
       }, 300);
     });
-  
-  //handle json ld for Google
-  const shopifyStore = 'cantiere-del-pardo';
-  const apiVersion = '2023-01';
-  const storeFrontaccessToken = 'c1e0c954c3a0d709e18e96774f3e04b2';
-  const handle = 'events';
-  
-  // GraphQL query
-  const query = `
+
+    //handle json ld for Google
+    const shopifyStore = 'cantiere-del-pardo';
+    const apiVersion = '2023-01';
+    const storeFrontaccessToken = 'c1e0c954c3a0d709e18e96774f3e04b2';
+    const handle = 'events';
+
+    // GraphQL query
+    const query = `
   {
   blogByHandle(handle: "${handle}") {
     id
@@ -309,207 +330,207 @@
   }
   }
   `;
-  
-  const fetchBlog = async () => {
-  const baseUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
-  
-  try {
-    const response = await fetch(baseUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': storeFrontaccessToken
-      },
-      body: JSON.stringify({ query })
-    });
-  
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
-  
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching blog:', error);
-  }
-  };
-  
-  const buildJsonLd = async () => {
-  const data = await fetchBlog();
-  if (data && data.data && data.data.blogByHandle) {
-    const articles = data.data.blogByHandle.articles.edges;
-    
-    articles.forEach((articleObj) => {
-      const article = articleObj.node;
-      
-      const whenMetafield = article.metafields.find(mf => mf.key === 'when');
-      const locationMetafield = article.metafields.find(mf => mf.key === 'location');
-  
-      const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": article.title,
-        "description": article.contentHtml,
-        "startDate": whenMetafield ? whenMetafield.value : null,
-        "location": {
-          "@type": "Place",
-          "name": locationMetafield ? locationMetafield.value : null
-        },
-        "datePublished": article.publishedAt,
-        "mainEntityOfPage": `https://${shopifyStore}/articles/${article.id}`
-      };
-  
-  
-      const scriptEl = document.createElement('script');
-      scriptEl.type = 'application/ld+json';
-      scriptEl.textContent = JSON.stringify(jsonLd);
-      
 
-      jsonLdContainer.appendChild(scriptEl);
-    });
-  } else {
-    console.error('No blog or articles found.');
-  }
-  };
-  
+    const fetchBlog = async () => {
+      const baseUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
 
-  buildJsonLd();
-  
-  
+      try {
+        const response = await fetch(baseUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Shopify-Storefront-Access-Token': storeFrontaccessToken
+          },
+          body: JSON.stringify({query})
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching blog:', error);
+      }
+    };
+
+    const buildJsonLd = async () => {
+      const data = await fetchBlog();
+      if (data && data.data && data.data.blogByHandle) {
+        const articles = data.data.blogByHandle.articles.edges;
+
+        articles.forEach((articleObj) => {
+          const article = articleObj.node;
+
+          const whenMetafield = article.metafields.find(mf => mf.key === 'when');
+          const locationMetafield = article.metafields.find(mf => mf.key === 'location');
+
+          const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": article.title,
+            "description": article.contentHtml,
+            "startDate": whenMetafield ? whenMetafield.value : null,
+            "location": {
+              "@type": "Place",
+              "name": locationMetafield ? locationMetafield.value : null
+            },
+            "datePublished": article.publishedAt,
+            "mainEntityOfPage": `https://${shopifyStore}/articles/${article.id}`
+          };
+
+
+          const scriptEl = document.createElement('script');
+          scriptEl.type = 'application/ld+json';
+          scriptEl.textContent = JSON.stringify(jsonLd);
+
+
+          jsonLdContainer.appendChild(scriptEl);
+        });
+      } else {
+        console.error('No blog or articles found.');
+      }
+    };
+
+
+    buildJsonLd();
+
+
   });
 </script>
 
 
-{% comment %} 
-          Schema Section Settings here 
+{% comment %}
+Schema Section Settings here
 {% endcomment %}
 {% schema %}
-  {
-    "name": "contact-form",
-    "settings": [
-      {
-        "type": "text",
-        "id": "redirect_google",
-        "label": "Google Maps",
-        "default": "Show on Google maps",
-        "info": "Set the text of google maps cta"
-      },
-      {
-        "type": "url",
-        "id": "redirect_google_url",
-        "label": "Google Maps Url",
-        "info": "Set the correct google maps url"
-      },
-      {
-        "type": "text",
-        "id": "redirect_calendar",
-        "label": "Google Calendar",
-        "default": "Open Google Calendar",
-        "info": "Set the text of google calendar cta"
-      },
-      {
-        "type": "text",
-        "id": "cta_appointment",
-        "label": "Cta Appointment",
-        "default": "Book appointment",
-        "info": "Set the text of the appointment cta"
-      }, {
-        "type": "url",
-        "id": "redirect_google_calendar",
-        "label": "Google Calendar Url",
-        "info": "Set the correct google calendar url"
-      }, {
-        "type": "text",
-        "id": "confirm_message",
-        "label": "Confirm form message",
-        "default": "Request sent",
-        "info": "Set the input placeholder"
-      }, {
-        "type": "text",
-        "id": "form_first_name",
-        "label": "Form Name",
-        "default": "Name",
-        "info": "Set the input placeholder"
-      }, {
-        "type": "text",
-        "id": "form_last_name",
-        "label": "Last Name",
-        "default": "Last Name",
-        "info": "Set the input placeholder"
-      }, {
-        "type": "text",
-        "id": "form_email",
-        "label": "Email",
-        "default": "Email*",
-        "info": "Set the input placeholder"
-      }, {
-        "type": "text",
-        "id": "form_content",
-        "label": "Message",
-        "default": "Message",
-        "info": "Set the input placeholder"
-      }, {
-        "type": "textarea",
-        "id": "form_privacy",
-        "label": "Secondary Info",
-        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience.",
-        "info": "Set the privacy text directly here"
-      }, {
-        "type": "text",
-        "id": "form_cta",
-        "label": "CTA Text",
-        "default": "Send",
-        "info": "Set the Text of the Cta's Form"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "card-event",
-        "type": "card-event",
-        "settings": [
+{
+"name": "contact-form",
+"settings": [
+{
+"type": "text",
+"id": "redirect_google",
+"label": "Google Maps",
+"default": "Show on Google maps",
+"info": "Set the text of google maps cta"
+},
+{
+"type": "url",
+"id": "redirect_google_url",
+"label": "Google Maps Url",
+"info": "Set the correct google maps url"
+},
+{
+"type": "text",
+"id": "redirect_calendar",
+"label": "Google Calendar",
+"default": "Open Google Calendar",
+"info": "Set the text of google calendar cta"
+},
+{
+"type": "text",
+"id": "cta_appointment",
+"label": "Cta Appointment",
+"default": "Book appointment",
+"info": "Set the text of the appointment cta"
+}, {
+"type": "url",
+"id": "redirect_google_calendar",
+"label": "Google Calendar Url",
+"info": "Set the correct google calendar url"
+}, {
+"type": "text",
+"id": "confirm_message",
+"label": "Confirm form message",
+"default": "Request sent",
+"info": "Set the input placeholder"
+}, {
+"type": "text",
+"id": "form_first_name",
+"label": "Form Name",
+"default": "Name",
+"info": "Set the input placeholder"
+}, {
+"type": "text",
+"id": "form_last_name",
+"label": "Last Name",
+"default": "Last Name",
+"info": "Set the input placeholder"
+}, {
+"type": "text",
+"id": "form_email",
+"label": "Email",
+"default": "Email*",
+"info": "Set the input placeholder"
+}, {
+"type": "text",
+"id": "form_content",
+"label": "Message",
+"default": "Message",
+"info": "Set the input placeholder"
+}, {
+"type": "textarea",
+"id": "form_privacy",
+"label": "Secondary Info",
+"default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience.",
+"info": "Set the privacy text directly here"
+}, {
+"type": "text",
+"id": "form_cta",
+"label": "CTA Text",
+"default": "Send",
+"info": "Set the Text of the Cta's Form"
+}
+],
+"blocks": [
+{
+"name": "card-event",
+"type": "card-event",
+"settings": [
 
-          {
-            "type": "text",
-            "id": "card_event_title",
-            "label": "Card Event Title",
-            "default": "Custom Event",
-            "info": "Set the event title"
-          },
-          {
-            "type": "text",
-            "id": "card_redirect_google",
-            "label": "Google Maps",
-            "default": "Show on Google maps",
-            "info": "Set the text of google maps cta"
-          },
-          {
-            "type": "url",
-            "id": "card_redirect_google_url",
-            "label": "Google Maps Url",
-            "info": "Set the correct google maps url"
-          },
-          {
-            "type": "text",
-            "id": "card_redirect_calendar",
-            "label": "Google Calendar",
-            "default": "Show on Google Calendar",
-            "info": "Set the text of google calendar cta"
-          }, {
-            "type": "url",
-            "id": "card_redirect_google_calendar_url",
-            "label": "Google calendar Url",
-            "info": "Set the correct google maps url"
-          }, {
-            "type": "text",
-            "id": "card_cta_appointment",
-            "label": "Cta Appointment",
-            "default": "Book appointment",
-            "info": "Set the cta text of the card event"
-          }
+{
+"type": "text",
+"id": "card_event_title",
+"label": "Card Event Title",
+"default": "Custom Event",
+"info": "Set the event title"
+},
+{
+"type": "text",
+"id": "card_redirect_google",
+"label": "Google Maps",
+"default": "Show on Google maps",
+"info": "Set the text of google maps cta"
+},
+{
+"type": "url",
+"id": "card_redirect_google_url",
+"label": "Google Maps Url",
+"info": "Set the correct google maps url"
+},
+{
+"type": "text",
+"id": "card_redirect_calendar",
+"label": "Google Calendar",
+"default": "Show on Google Calendar",
+"info": "Set the text of google calendar cta"
+}, {
+"type": "url",
+"id": "card_redirect_google_calendar_url",
+"label": "Google calendar Url",
+"info": "Set the correct google maps url"
+}, {
+"type": "text",
+"id": "card_cta_appointment",
+"label": "Cta Appointment",
+"default": "Book appointment",
+"info": "Set the cta text of the card event"
+}
 
-        ]
-      }
-    ],
-    "max_blocks": 5
-  }
+]
+}
+],
+"max_blocks": 5
+}
 {% endschema %}
