@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6 pl-10 scroll-pl-10 snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4 lg:h-[386px] lg:min-h-[386px]"
+            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6  snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4 lg:h-[386px] lg:min-h-[386px]"
                 data-collection="{{ collection.title }}" style="display: flex;">
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
@@ -54,11 +54,11 @@
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll w-[340px] min-h-[147px] h-[147px] flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
+                <div class="image-scroll flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
                     <a href="{{ product.url }}">
                         <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
-                        alt="{{ model_image.alt }}">
+                            alt="{{ model_image.alt }}">
                     </a>
                     <div
                         class="w-full h-auto flex items-center justify-center left-0 -bottom-[10px] right-0 absolute z-20">
@@ -118,6 +118,68 @@
         top: 0;
         left: 0;
         transition: transform 0.3s ease;
+    }
+
+    @media screen and (max-width: 440px) {
+        .magnetic-scroll {
+            padding-left: 56.28px;
+            scroll-padding-left: 56.28px;
+        }
+
+        .image-scroll {
+            width: 327.442px;
+            height: 150.419px;
+        }
+    }
+
+    @media screen and (max-width: 430px) {
+        .magnetic-scroll {
+            padding-left: 55px;
+            scroll-padding-left: 55px;
+        }
+
+
+        .image-scroll {
+            width: 320px;
+            height: 147px;
+        }
+    }
+
+    @media screen and (max-width: 393px) {
+        .magnetic-scroll {
+            padding-left: 50.27px;
+            scroll-padding-left: 50.27px;
+        }
+
+        .image-scroll {
+            width: 292.465px;
+            height: 134.351px;
+        }
+
+    }
+
+    @media screen and (max-width: 375px) {
+        .magnetic-scroll {
+            padding-left: 47.97px;
+            scroll-padding-left: 47.97px;
+        }
+
+        .image-scroll {
+            width: 279.07px;
+            height: 128.198px;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        .magnetic-scroll {
+            padding-left: 40.9px;
+            scroll-padding-left: 40.9px;
+        }
+
+        .image-scroll {
+            width: 238.14px;
+            height: 109.395px;
+        }
     }
 </style>
 
