@@ -19,13 +19,13 @@
                     {% for productMetafieldsValue in productMetafieldsValues %}
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
-                        class="details-badge flex flex-1 min-w-[120px] h-[64px] p-4 flex-col items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] lg:h-[100px] lg:flex-1">
-                        <p class="body-12 text-[#818181] tt-norms-pro-med">{{ productMetafieldsValue | replace: '_', ' '
+                        class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] lg:h-[100px] lg:flex-1">
+                        <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ productMetafieldsValue | replace: '_', ' '
                             |
                             upcase
                             }}
                         </p>
-                        <p class="body-14 text-nowrap tt-norms-pro-med">{{ metafieldCustom }}</p>
+                        <p class="body-14 text-nowrap tt-norms-pro-med badge-value">{{ metafieldCustom }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -75,7 +75,8 @@
 
         <!-- Form Header -->
         <div class="form-appointment-headers w-full flex items-center justify-end relative">
-            <p class="body-14-medium events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{ section.settings.form_title | default: "Get the brochure" }}</p>
+            <p class="body-14-medium events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{
+                section.settings.form_title | default: "Get the brochure" }}</p>
 
             <!-- Close Icon -->
             <div class="icon-content cursor-pointer close-form">
@@ -168,81 +169,146 @@
     }
 
     .cta-transparent button:disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-}
+        opacity: 0.2;
+        cursor: not-allowed;
+    }
 
+    @media screen and (max-width: 440px) {
+        .details-badge {
+            width: 129.953px;
+            max-width: 129.953px;
+            padding: 16.372px;
+        }
+    }
+
+    @media screen and (max-width: 430px) {
+        .details-badge {
+            width: 127px;
+            max-width: 127px;
+            padding: 16px;
+        }
+
+    }
+
+    @media screen and (max-width: 393px) {
+        .details-badge {
+            width: 116.072px;
+            max-width: 116.072px;
+            padding: 14.623px;
+        }
+        .badge-text{
+            font-size: 12.795px;
+        }
+
+        .badge-value{
+            font-size: 10.967px;
+        }
+
+
+    }
+
+    @media screen and (max-width: 375px) {
+        .details-badge {
+            width: 110.756px;
+            max-width: 110.756px;
+            padding: 13.953px;
+        }
+
+        .badge-text{
+            font-size: 12.209px;
+        }
+
+        .badge-value{
+            font-size: 10.465px;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        .details-badge {
+            width: 94.512px;
+            max-width: 94.512px;
+            padding: 11.907px;
+        }
+
+        .badge-text{
+            font-size: 10.414px;
+        }
+
+        .badge-value{
+            font-size: 8.93px;;
+        }
+    }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const ctaBrochure = document.querySelectorAll('.cta-brochure');
-    const formContainer = document.getElementById('form-container');
-    const overlay = document.getElementById('overlay');
-    const closeForm = document.querySelector('.close-form');
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctaBrochure = document.querySelectorAll('.cta-brochure');
+        const formContainer = document.getElementById('form-container');
+        const overlay = document.getElementById('overlay');
+        const closeForm = document.querySelector('.close-form');
 
-    const submitButton = document.querySelector('.submit-cta');
-    const formInputs = document.querySelectorAll('input[required]');
-    const marketingCheckbox = document.getElementById('marketingConsent');
-    const profilingCheckbox = document.getElementById('profilingConsent');
-    const additionalTagsInput = document.getElementById('additionalTags');
+        const submitButton = document.querySelector('.submit-cta');
+        const formInputs = document.querySelectorAll('input[required]');
+        const marketingCheckbox = document.getElementById('marketingConsent');
+        const profilingCheckbox = document.getElementById('profilingConsent');
+        const additionalTagsInput = document.getElementById('additionalTags');
 
-    // Function to update submit button state
-    const updateSubmitButtonState = () => {
-        const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
-        if (allFieldsFilled) {
-            submitButton.style.opacity = '1';
-            submitButton.disabled = false;
-        } else {
-            submitButton.style.opacity = '.2';
-            submitButton.disabled = true;
-        }
-    };
+        // Function to update submit button state
+        const updateSubmitButtonState = () => {
+            const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
+            if (allFieldsFilled) {
+                submitButton.style.opacity = '1';
+                submitButton.disabled = false;
+            } else {
+                submitButton.style.opacity = '.2';
+                submitButton.disabled = true;
+            }
+        };
 
-    // Initialize button state on load
-    updateSubmitButtonState();
+        // Initialize button state on load
+        updateSubmitButtonState();
 
-    // Add event listeners to all inputs
-    formInputs.forEach(input => {
-        input.addEventListener('input', updateSubmitButtonState);
-    });
-
-    // Open form logic
-    ctaBrochure.forEach(cta => {
-        cta.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            // Show the form and overlay
-            formContainer.classList.remove('translate-y-full');
-            formContainer.classList.add('translate-y-0');
-            overlay.classList.remove('hidden');
-            document.body.classList.add('no-scroll');
+        // Add event listeners to all inputs
+        formInputs.forEach(input => {
+            input.addEventListener('input', updateSubmitButtonState);
         });
+
+        // Open form logic
+        ctaBrochure.forEach(cta => {
+            cta.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Show the form and overlay
+                formContainer.classList.remove('translate-y-full');
+                formContainer.classList.add('translate-y-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('no-scroll');
+            });
+        });
+
+        // Close form logic
+        closeForm.addEventListener('click', function () {
+            // Hide the form and overlay
+            formContainer.classList.remove('translate-y-0');
+            formContainer.classList.add('translate-y-full');
+            overlay.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        });
+
+        // Update tags function
+        const updateTags = () => {
+            const tags = ['brochure']; // Static tag
+            if (marketingCheckbox.checked) tags.push('marketing');
+            if (profilingCheckbox.checked) tags.push('profilazione');
+            additionalTagsInput.value = tags.join(',');
+        };
+
+        // Event listener for checkboxes
+        marketingCheckbox.addEventListener('change', updateTags);
+        profilingCheckbox.addEventListener('change', updateTags);
+
+        // Initialize tags on load
+        updateTags();
     });
-
-    // Close form logic
-    closeForm.addEventListener('click', function () {
-        // Hide the form and overlay
-        formContainer.classList.remove('translate-y-0');
-        formContainer.classList.add('translate-y-full');
-        overlay.classList.add('hidden');
-        document.body.classList.remove('no-scroll');
-    });
-
-    // Update tags function
-    const updateTags = () => {
-        const tags = ['brochure']; // Static tag
-        if (marketingCheckbox.checked) tags.push('marketing');
-        if (profilingCheckbox.checked) tags.push('profilazione');
-        additionalTagsInput.value = tags.join(',');
-    };
-
-    // Event listener for checkboxes
-    marketingCheckbox.addEventListener('change', updateTags);
-    profilingCheckbox.addEventListener('change', updateTags);
-
-    // Initialize tags on load
-    updateTags();
-});
 
 </script>
