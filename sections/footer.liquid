@@ -6,7 +6,8 @@
   <div
     class="w-full h-auto flex items-start justify-center flex-col lg:w-full lg:gap-y-10 lg:flex-wrap lg:flex-row lg:gap-x-6 lg:items-start">
 
-    <div class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:p-0 lg:w-[calc(50%_-_1.5rem)]">
+    <div
+      class="footer-container w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:p-0 lg:w-[calc(50%_-_1.5rem)]">
       <div class="newsletter-form w-full h-auto flex flex-col items-start justify-center gap-y-8">
         <!-- form section headings -->
         <div class="newsletter-form-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
@@ -87,31 +88,40 @@
           class="footer-menu w-full h-auto flex flex-col gap-y-5 items-start justify-start lg:flex-row lg:gap-x-4 lg:p-0">
           <div class="discover-menu-container w-full h-auto flex flex-col gap-y-5">
             <div
-              class="discover-links-container flex flex-col gap-y-3 items-start justify-center w-full h-auto lg:flex-row lg:items-center lg:justify-start lg:flex-wrap lg:gap-x-10 lg:gap-y-6">
-              {% for link in linklists.main-menu.links %}
-              {% if link.title != "Press room" %}
-              <li class="list-none lg:w-[132px] lg:min-w-[132px]">
-                {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
-                <a class="text-white body-12 tt-norms-pro-light" href="{{ link.url }}">
-                  {{ link.title }}
-                </a>
-                {% else %}
-                <a class="text-white body-16 tt-norms-pro-reg" href="{{ link.url }}">
-                  {{ link.title }}
-                </a>
+              class="discover-links-container flex flex-col gap-y-4 py-4 items-start justify-center w-full h-auto lg:flex-row lg:items-center lg:justify-start lg:flex-wrap lg:gap-x-10 lg:gap-y-6">
+              <div class="w-full h-auto flex flex-wrap items-center gap-x-8 gap-y-4 justify-start">
+                {% for link in linklists.main-menu.links %}
+                {% if link.title != "Privacy preferences" and link.title != "Privacy policy" and link.title != "Work with us" and link.title != "Press room" %}
+                <li class="list-none lg:min-w-[132px] lg:max-w-[132px] w-[calc(50%_-_2rem)]">
+                  <a class="text-white text-[20px] leading-[26px] tt-norms-pro-reg block text-left" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
                 {% endif %}
-              </li>
-              {% endif %}
-              {% endfor %}
+                {% endfor %}
+              </div>
+              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-2">
+                {% for link in linklists.main-menu.links %}
+                {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
+                <li class="list-none lg:min-w-[132px] lg:max-w-[132px]">
+                  <a class="text-white text-[14px] leading-[20px] tt-norms-pro-light text-center block underline" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+
+
       <!--language container-->
       <div class="w-full h-auto flex flex-col items-start justify-center py-6">
         <div class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1">
-          <p class="body-16 tt-norms-pro-med">{{ section.settings.language_text |  default: "Language" |  upcase }}</p>
+          <p class="body-16 tt-norms-pro-med">{{ section.settings.language_text | default: "Language" | upcase }}</p>
           {% render 'gb-icon' %}
         </div>
       </div>
@@ -135,7 +145,8 @@
           <li class="w-full h-auto flex items-start justify-between py-6">
             <span class="text-[20px] leading-[18px] tt-norms-pro-med text-white">{{ collection.title }}</span>
             <!-- plus icon -->
-            <span class="w-auto h-auto flex items-center justify-center text-white dropdown-icon transition-all duration-200 ease-in cursor-pointer">
+            <span
+              class="w-auto h-auto flex items-center justify-center text-white dropdown-icon transition-all duration-200 ease-in cursor-pointer">
               {% render 'plus-icon' %}
             </span>
           </li>
