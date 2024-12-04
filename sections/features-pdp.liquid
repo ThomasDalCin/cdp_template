@@ -6,7 +6,7 @@
   {% if productBasics %}
   {% assign basicFields = "year,make,model,series,lenght,fuel_type,hull_material" | split: "," %}
   <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:px-10 lg:w-[calc(50%_-_1rem)]"
+    class="specifiactions-list-row w-full flex flex-col  lg:flex-row lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:px-10 lg:w-[calc(50%_-_1rem)]"
     id="General">
 
     <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
@@ -16,7 +16,7 @@
 
     <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
       data-dropdown-target="basics">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.basics_dropdown_title | default: "Basic
+      <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.basics_dropdown_title | default: "Basic
         boat details" }}</p>
       {% render "plus-icon" %}
     </div>
@@ -29,9 +29,9 @@
         {% for item in items_basics %}
         <li
           class="list-feature min-h-[52px] flex justify-between items-center rounded border px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize
+          <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ basicField | replace: '_', ' ' | capitalize
             }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
+          <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
         </li>
         {% endfor %}
         {% else %}
@@ -52,7 +52,7 @@
   {% if productDimensions %}
   {% assign dimensionFields = "lenght_over_all,max_draft,beam," | split: "," %}
   <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]"
+    class="specifiactions-list-row w-full flex flex-col  lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]"
     id="Tech">
 
     <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
@@ -62,7 +62,7 @@
 
     <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
       data-dropdown-target="dimensions">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.dimensions_dropdown_title | default:
+      <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.dimensions_dropdown_title | default:
         "Dimensions" }}</p>
       {% render "plus-icon" %}
     </div>
@@ -75,9 +75,9 @@
         {% for item in items_dimensions %}
         <li
           class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ dimensionField | replace: '_', ' ' |
+          <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ dimensionField | replace: '_', ' ' |
             capitalize }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
+          <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
         </li>
         {% endfor %}
         {% else %}
@@ -90,174 +90,179 @@
         {% endfor %}
       </ul>
     </div>
+
+    <!-- Speed & Distance -->
+    {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
+    {% if productSpeedDistance %}
+    {% assign speedFields = "engine_make,engine_model" | split: "," %}
+    <div
+      class="specifiactions-list-row w-full flex flex-col  lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
+
+      <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
+        data-dropdown-target="speed-distance">
+        <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.speed_dropdown_title | default:
+          "Speed
+          & Distance" }}</p>
+        {% render "plus-icon" %}
+      </div>
+
+      <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content speed-distance">
+        <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
+          {% for speedField in speedFields %}
+          {% assign items_speeds = productSpeedDistance[speedField] %}
+          {% if items_speeds %}
+          {% for item in items_speeds %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ speedField | replace: '_', ' ' | capitalize
+              }}:</span>
+            <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
+          </li>
+          {% endfor %}
+          {% else %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="font-bold">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
+            <span>No data available</span>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Weights -->
+    {% assign productWeights = product.metafields.custom.weights.value %}
+    {% if productWeights %}
+    {% assign weightFields = "dry_weight" | split: "," %}
+    <div
+      class="specifiactions-list-row w-full flex flex-col  lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
+
+      <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
+        data-dropdown-target="weights">
+        <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.weights_dropdown_title | default:
+          "Weights" }}</p>
+        {% render "plus-icon" %}
+      </div>
+
+      <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content weights">
+        <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
+          {% for weightField in weightFields %}
+          {% assign items_weights = productWeights[weightField] %}
+          {% if items_weights %}
+          {% for item in items_weights %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ weightField | replace: '_', ' ' | capitalize
+              }}:</span>
+            <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
+          </li>
+          {% endfor %}
+          {% else %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="font-bold">{{ weightField | replace: '_', ' ' | capitalize }}:</span>
+            <span>No data available</span>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Tanks -->
+    {% assign productTanks = product.metafields.custom.tanks.value %}
+    {% if productTanks %}
+    {% assign tankFields = "fuel_tank,fresh_water_tank,holding_tank," | split: "," %}
+    <div
+      class="specifiactions-list-row w-full flex flex-col  lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
+
+      <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
+        data-dropdown-target="tanks">
+        <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.tanks_dropdown_title | default:
+          "Tanks"
+          }}</p>
+        {% render "plus-icon" %}
+      </div>
+
+      <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content tanks">
+        <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
+          {% for tankField in tankFields %}
+          {% assign items_tanks = productTanks[tankField] %}
+          {% if items_tanks %}
+          {% for item in items_tanks %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ tankField | replace: '_', ' ' | capitalize
+              }}:</span>
+            <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
+          </li>
+          {% endfor %}
+          {% else %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="font-bold">{{ tankField | replace: '_', ' ' | capitalize }}:</span>
+            <span>No data available</span>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Accommodations -->
+    {% assign productAccommodations = product.metafields.custom.accomodations.value %}
+    {% if productAccommodations %}
+    {% assign accommodationFields = "cabins,bathrooms," | split: "," %}
+    <div
+      class="specifiactions-list-row w-full flex flex-col  lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
+
+      <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
+        <p class="specification-heading text-[48px] leading-[52px] tt-norms-pro-light">{{
+          section.settings.general_features | default: "General arrangement" }}</p>
+      </div>
+
+
+
+      <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
+        data-dropdown-target="accommodations">
+        <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.accommodations_dropdown_title |
+          default: "Accommodations" }}</p>
+        {% render "plus-icon" %}
+      </div>
+
+      <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content accommodations">
+        <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
+          {% for accommodationField in accommodationFields %}
+          {% assign items_accommodations = productAccommodations[accommodationField] %}
+          {% if items_accommodations %}
+          {% for item in items_accommodations %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ accommodationField | replace: '_', ' ' |
+              capitalize }}:</span>
+            <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
+          </li>
+          {% endfor %}
+          {% else %}
+          <li
+            class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
+            <span class="tt-norms-pro-med">{{ accommodationField | replace: '_', ' ' | capitalize }}:</span>
+            <span>No data available</span>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
   </div>
   {% endif %}
 
-  <!-- Speed & Distance -->
-  {% assign productSpeedDistance = product.metafields.custom.speed_distance.value %}
-  {% if productSpeedDistance %}
-  {% assign speedFields = "engine_make,engine_model" | split: "," %}
-  <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
 
-    <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
-      data-dropdown-target="speed-distance">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.speed_dropdown_title | default: "Speed
-        & Distance" }}</p>
-      {% render "plus-icon" %}
-    </div>
-
-    <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content speed-distance">
-      <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
-        {% for speedField in speedFields %}
-        {% assign items_speeds = productSpeedDistance[speedField] %}
-        {% if items_speeds %}
-        {% for item in items_speeds %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ speedField | replace: '_', ' ' | capitalize
-            }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
-        </li>
-        {% endfor %}
-        {% else %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="font-bold">{{ speedField | replace: '_', ' ' | capitalize }}:</span>
-          <span>No data available</span>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- Weights -->
-  {% assign productWeights = product.metafields.custom.weights.value %}
-  {% if productWeights %}
-  {% assign weightFields = "dry_weight" | split: "," %}
-  <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
-
-    <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
-      data-dropdown-target="weights">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.weights_dropdown_title | default:
-        "Weights" }}</p>
-      {% render "plus-icon" %}
-    </div>
-
-    <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content weights">
-      <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
-        {% for weightField in weightFields %}
-        {% assign items_weights = productWeights[weightField] %}
-        {% if items_weights %}
-        {% for item in items_weights %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ weightField | replace: '_', ' ' | capitalize
-            }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
-        </li>
-        {% endfor %}
-        {% else %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="font-bold">{{ weightField | replace: '_', ' ' | capitalize }}:</span>
-          <span>No data available</span>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- Tanks -->
-  {% assign productTanks = product.metafields.custom.tanks.value %}
-  {% if productTanks %}
-  {% assign tankFields = "fuel_tank,fresh_water_tank,holding_tank," | split: "," %}
-  <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
-
-    <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
-      data-dropdown-target="tanks">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.tanks_dropdown_title | default: "Tanks"
-        }}</p>
-      {% render "plus-icon" %}
-    </div>
-
-    <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content tanks">
-      <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
-        {% for tankField in tankFields %}
-        {% assign items_tanks = productTanks[tankField] %}
-        {% if items_tanks %}
-        {% for item in items_tanks %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ tankField | replace: '_', ' ' | capitalize
-            }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
-        </li>
-        {% endfor %}
-        {% else %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="font-bold">{{ tankField | replace: '_', ' ' | capitalize }}:</span>
-          <span>No data available</span>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- Accommodations -->
-  {% assign productAccommodations = product.metafields.custom.accomodations.value %}
-  {% if productAccommodations %}
-  {% assign accommodationFields = "cabins,bathrooms," | split: "," %}
-  <div
-    class="specifiactions-list-row w-full flex flex-col gap-6 lg:flex-col lg:border-b-[1px] lg:border-color-[var(--hover-accent-color)] lg:pb-10 lg:gap-x-5 lg:px-10 lg:w-[calc(50%_-_1rem)]">
-
-    <div class="specification-container-heading w-auto h-auto lg:w-auto lg:min-w-[323px] pt-14 pb-8">
-      <p class="specification-heading text-[48px] leading-[52px] tt-norms-pro-light">{{
-        section.settings.general_features | default: "General arrangement" }}</p>
-    </div>
-
-
-
-    <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
-      data-dropdown-target="accommodations">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-reg">{{ section.settings.accommodations_dropdown_title |
-        default: "Accommodations" }}</p>
-      {% render "plus-icon" %}
-    </div>
-
-    <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content accommodations">
-      <ul class="list-features w-full h-auto flex flex-col gap-y-2 lg:flex-wrap lg:gap-x-3 lg:flex-row">
-        {% for accommodationField in accommodationFields %}
-        {% assign items_accommodations = productAccommodations[accommodationField] %}
-        {% if items_accommodations %}
-        {% for item in items_accommodations %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-reg">{{ accommodationField | replace: '_', ' ' |
-            capitalize }}:</span>
-          <span class="font-12-medium tt-norms-pro-reg">{{ item }}</span>
-        </li>
-        {% endfor %}
-        {% else %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-          <span class="font-bold">{{ accommodationField | replace: '_', ' ' | capitalize }}:</span>
-          <span>No data available</span>
-        </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
   {% endif %}
 </div>
 
