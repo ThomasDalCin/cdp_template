@@ -3479,6 +3479,10 @@ html {
     height: 92px;
   }
 
+  .lg\:h-\[314px\] {
+    height: 314px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
