@@ -63,17 +63,17 @@
     {% endfor %}
   </div>
 
-  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap">
+  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4">
     {% for article in newsArticles %}
       {% assign modResult = forloop.index0 | modulo: 2 %}
       
       {% if article.tags contains "News" and modResult != 0 %}
         <!--  Vertical Layout -->
         <div
-          class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col"
+          class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)]"
           data-tags="{{ article.tags | join: ',' }}">
 
-          <div class="blog-item-image w-full lg:w-[30%]">
+          <div class="blog-item-image w-full lg:w-full">
             <img src="{{ article.image | img_url: 'master' }}"
               class="w-full h-[220px] min-h-[220px] rounded-t-xl object-cover lg:h-[200px]"
               alt="{{ article.image.alt }}">
