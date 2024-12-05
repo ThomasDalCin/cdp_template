@@ -63,7 +63,7 @@
     {% endfor %}
   </div>
 
-  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-start lg:justify-center">
+  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-start lg:justify-center lg:py-10">
     {% for article in newsArticles %}
       {% assign modResult = forloop.index0 | modulo: 2 %}
       
