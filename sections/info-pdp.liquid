@@ -103,7 +103,7 @@
             <!-- First Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[first_name]"
-                    class=" w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px]  border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
                     placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}" required>
             </div>
@@ -111,7 +111,7 @@
             <!-- Last Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[last_name]"
-                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
                     placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}" required>
             </div>
@@ -119,7 +119,7 @@
             <!-- Email -->
             <div class="form-group w-full">
                 <input type="email" name="contact[email]"
-                    class=" w-full p-3  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
                     value="{% if form.email != blank %}{{ form.email }}{% endif %}"
                     placeholder="{{ section.settings.email_placeholder |  default: " Email" }}" required>
             </div>
