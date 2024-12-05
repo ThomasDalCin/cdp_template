@@ -276,19 +276,17 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
   }
 
-  // Calcolo della larghezza totale di ogni card (larghezza + margine destro)
+  // Calcolo della larghezza di ogni card
   const cardWidth = cards[0].offsetWidth;
-  const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
-  const scrollAmount = cardWidth + cardMarginRight;
-
   console.log('Card width:', cardWidth);  // Verifica la larghezza della card
-  console.log('Card margin right:', cardMarginRight);  // Verifica il margine destro della card
-  console.log('Scroll amount:', scrollAmount);  // Verifica la quantità di scroll
 
   // Funzione per aggiornare lo stato delle frecce
   function updateArrows() {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      console.log('Current scroll left:', currentScrollLeft);
+      console.log('Max scroll left:', maxScrollLeft);
 
       // Disabilita o abilita le frecce in base alla posizione dello scroll
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
@@ -300,8 +298,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
+      console.log('Scroll before:', currentScrollLeft); // Verifica la posizione prima dello scroll
+
       // Calcolo del nuovo valore di scroll
       let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+      console.log('Scroll after:', newScrollLeft); // Verifica la posizione dopo lo scroll
 
       scrollContainer.scrollTo({
           left: newScrollLeft,
@@ -314,12 +316,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener per il click sulla freccia sinistra
   prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-scrollAmount);
+      scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
   });
 
   // Event listener per il click sulla freccia destra
   nextArrow.addEventListener('click', function () {
-      scrollContainerBy(scrollAmount);
+      scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
   });
 
   // Inizializza lo stato delle frecce
