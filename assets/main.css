@@ -2356,6 +2356,11 @@ p,
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[\#BEBEBE\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(190 190 190 / var(--tw-border-opacity));
+}
+
 .bg-\[\#423C3B\] {
   --tw-bg-opacity: 1;
   background-color: rgb(66 60 59 / var(--tw-bg-opacity));
