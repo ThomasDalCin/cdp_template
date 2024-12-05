@@ -63,14 +63,14 @@
     {% endfor %}
   </div>
 
-  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
+  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-start lg:justify-center">
     {% for article in newsArticles %}
       {% assign modResult = forloop.index0 | modulo: 2 %}
       
       {% if article.tags contains "News" and modResult != 0 %}
         <!--  Vertical Layout -->
         <div
-          class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)]"
+          class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)] lg:h-[526px] lg:min-h-[526px]"
           data-tags="{{ article.tags | join: ',' }}">
 
           <div class="blog-item-image w-full lg:w-full">
@@ -79,7 +79,7 @@
               alt="{{ article.image.alt }}">
           </div>
 
-          <div class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-full">
+          <div class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-full lg:relative lg:h-full">
             {% assign articleDate = article.metafields.custom.range_date.value %}
             {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
             {% assign articleLocation = article.metafields.custom.article_location.value %}
@@ -107,7 +107,7 @@
               {% endif %}
             </div>
 
-            <div class="blog-item-cta w-full flex items-center justify-end">
+            <div class="blog-item-cta w-full flex items-center justify-end lg:absolute lg:right-6 lg:bottom-6">
               <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
                 <p class="body-14-medium">{{ section.settings.article_cta }}</p>
               </a>

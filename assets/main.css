@@ -3275,6 +3275,10 @@ html {
     top: calc(820px + 1rem);
   }
 
+  .lg\:bottom-6 {
+    bottom: 1.5rem;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -3426,6 +3430,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[526px\] {
+    height: 526px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -3476,6 +3484,10 @@ html {
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
+  }
+
+  .lg\:min-h-\[526px\] {
+    min-height: 526px;
   }
 
   .lg\:w-1\/2 {
