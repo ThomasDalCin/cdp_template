@@ -21,7 +21,7 @@
 
   {% if articleCount > 0 %}
 
-  <div class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10">
+  <div class="blog-item-horizontal-scroll w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+6rem)] lg:px-10">
     {% for article in newsArticles %}
       {% assign modResult = forloop.index0 | modulo: 2 %}
       
