@@ -274,10 +274,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
   }
 
-  // Calcolo della larghezza totale di ogni card (larghezza + margine destro)
-  const cardWidth = cards[0].offsetWidth;
-  const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
-  const scrollAmount = cardWidth + cardMarginRight;
+  // Calcolo della larghezza di ogni card senza complicazioni
+  const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
 
   // Funzione per aggiornare lo stato delle frecce
   function updateArrows() {
@@ -308,18 +306,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener per il click sulla freccia sinistra
   prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-scrollAmount);
+      scrollContainerBy(-cardWidth);
   });
 
   // Event listener per il click sulla freccia destra
   nextArrow.addEventListener('click', function () {
-      scrollContainerBy(scrollAmount);
+      scrollContainerBy(cardWidth);
   });
 
   // Inizializza lo stato delle frecce
   updateArrows();
   scrollContainer.addEventListener('scroll', updateArrows);
 });
+
 
 </script>
 
