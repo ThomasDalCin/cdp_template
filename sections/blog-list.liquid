@@ -63,7 +63,7 @@
     {% endfor %}
   </div>
 
-  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4">
+  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
     {% for article in newsArticles %}
       {% assign modResult = forloop.index0 | modulo: 2 %}
       
@@ -79,7 +79,7 @@
               alt="{{ article.image.alt }}">
           </div>
 
-          <div class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-[70%]">
+          <div class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-full">
             {% assign articleDate = article.metafields.custom.range_date.value %}
             {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
             {% assign articleLocation = article.metafields.custom.article_location.value %}
