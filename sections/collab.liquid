@@ -3,8 +3,8 @@
   <!-- handle card blocks here choosed by user -->
   {% for block in section.blocks %}
     {% if block.type == "collab-card" %}
-      <a href="{{ block.settings.collab_custom_collab_url }}" class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:flex-1 lg:h-[480px] lg:min-h-[480px] lg:px-10 no-underline">
-        <p class="text-[32px] leading-[38px] text-white">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
+      <a href="{{ block.settings.collab_custom_collab_url }}" class="w-full h-[480px] collab-container p-6 bg-[#8B7E7A] flex flex-col items-start justify-between relative lg:flex-1 lg:h-[480px] lg:min-h-[480px] lg:p-10 no-underline">
+        <p class="text-[32px] leading-[38px] text-white tt-norms-pro-reg lg:font-['TT-Norms-Pro-Medium']">{{ block.settings.collab_custom_collab_heading | default: "Collaboration" }}</p>
         <img
           src="{{ block.settings.collab_custom_collab_image | img_url: 'master' }}"
           class="w-[260px] h-auto object-contain lg:h-[30px] lg:object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
@@ -20,8 +20,8 @@
   {% endfor %}
 
   <!-- default card here -->
-  <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative lg:flex-1 lg:h-[480px] lg:min-h-[480px] lg:px-10 no-underline" style="background-image: url('{{ section.settings.collab_custom_collab_image | img_url: 'master' }}'); background-size: cover;">
-    <p class="text-[32px] leading-[38px]">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
+  <a href="{{ section.settings.collab_custom_collab_cta_text_url }}" class="w-full h-[480px] collab-container p-6 flex flex-col items-start justify-between relative lg:flex-1 lg:h-[480px] lg:min-h-[480px] lg:p-10 no-underline" style="background-image: url('{{ section.settings.collab_custom_collab_image | img_url: 'master' }}'); background-size: cover;">
+    <p class="text-[32px] leading-[38px] tt-norms-pro-reg lg:font-['TT-Norms-Pro-Medium']">{{ section.settings.collab_custom_collab_heading | default: "Connect on Instagram" }}</p>
     <div class="w-full h-auto flex flex-row items-center justify-end">
       <div class="w-auto h-auto inline-flex flex-row items-start justify-center bg-white rounded-full px-4 py-2">
         <p class="body-16 tt-norms-pro-med">{{ section.settings.collab_custom_collab_cta_text | default: "Follow us" }}</p>

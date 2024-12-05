@@ -3152,6 +3152,11 @@ html {
     /* General font settings */
     font-family: "TT-Norms-Pro-Light";
   }
+
+  .lg\:tt-norms-pro-med {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Medium";
+  }
 }
 
 .placeholder\:text-\[\#818181\]::-moz-placeholder {
@@ -4048,6 +4053,10 @@ html {
 
   .lg\:pt-\[60px\] {
     padding-top: 60px;
+  }
+
+  .lg\:font-\[\'TT-Norms-Pro-Medium\'\] {
+    font-family: 'TT-Norms-Pro-Medium';
   }
 
   .lg\:text-\[128px\] {

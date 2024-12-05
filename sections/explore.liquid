@@ -33,13 +33,13 @@
       <p class="body-small text-white counter-items lg:hidden">(01/{{ total_images | prepend: '0' }})</p>
     </div>
 
-    <div class="arrow-left-content-explore hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-40  cursor-pointer">
-      <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center" onclick="changeImage(-1)">
+    <div class="arrow-left-content-explore hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-40">
+      <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer" onclick="changeImage(-1)">
         {% render 'arrow-left-icon' %}
       </div>
     </div>
-    <div class="arrow-right-content-explore hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-40  cursor-pointer">
-      <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center" onclick="changeImage(1)">
+    <div class="arrow-right-content-explore hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-40">
+      <div class="container-arrow w-[56px] h-[56px] bg-white rounded-full flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer" onclick="changeImage(1)">
         {% render 'arrow-right-icon' %}
       </div>
     </div>
