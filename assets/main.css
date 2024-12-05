@@ -4076,6 +4076,10 @@ html {
     padding-top: 60px;
   }
 
+  .lg\:pl-12 {
+    padding-left: 3rem;
+  }
+
   .lg\:font-\[\'TT-Norms-Pro-Medium\'\] {
     font-family: 'TT-Norms-Pro-Medium';
   }
