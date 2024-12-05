@@ -264,7 +264,7 @@
 
 
 <script>
- document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const prevArrow = document.getElementById('prev-news-Arrow');
     const nextArrow = document.getElementById('next-news-Arrow');
     const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
@@ -274,75 +274,67 @@
       return;
     }
 
-    // Funzione per calcolare la larghezza delle card
-    function calculateCardWidth() {
-      const cards = Array.from(scrollContainer.children);
-      console.log('Cards found:', cards);
+    // Recupera tutte le card presenti nel contenitore
+    const cards = Array.from(scrollContainer.children);
+    console.log('Cards found:', cards);  // Aggiunto per verificare se le card sono state trovate
 
-      if (cards.length === 0) {
-        console.error('Error: No cards found inside the scroll container.');
-        return;
-      }
-
-      // Calcolo della larghezza di ogni card
-      const cardWidth = cards[0].offsetWidth;
-      console.log('Card width:', cardWidth);  // Verifica la larghezza della card
-
-      return cardWidth;
+    if (cards.length === 0) {
+      console.error('Error: No cards found inside the scroll container.');
+      return;
     }
 
-    // Ritardiamo il calcolo della larghezza usando setTimeout o requestAnimationFrame
-    setTimeout(() => {
-      const cardWidth = calculateCardWidth();
+    // Calcolo della larghezza di ogni card
+    const cardWidth = cards[0].offsetWidth;
+    console.log('Card width:', cardWidth);  // Verifica la larghezza della card
 
-      if (!cardWidth) {
-        console.error('Error: Unable to determine card width');
-        return;
-      }
+    // Funzione per aggiornare lo stato delle frecce
+    function updateArrows() {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      // Funzione per aggiornare lo stato delle frecce
-      function updateArrows() {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      console.log('Current scroll left:', currentScrollLeft);
+      console.log('Max scroll left:', maxScrollLeft);
 
-        console.log('Current scroll left:', currentScrollLeft);
-        console.log('Max scroll left:', maxScrollLeft);
+      // Disabilita o abilita le frecce in base alla posizione dello scroll
+      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+    }
 
-        // Disabilita o abilita le frecce in base alla posizione dello scroll
-        prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-        nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-      }
+    // Funzione per eseguire lo scroll del contenitore
+    function scrollContainerBy(amount) {
+      const currentScrollLeft = scrollContainer.scrollLeft;
+      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      // Funzione per eseguire lo scroll del contenitore
-      function scrollContainerBy(amount) {
-        const currentScrollLeft = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      console.log('Scroll before:', currentScrollLeft); // Verifica la posizione prima dello scroll
 
-        let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+      // Calcolo del nuovo valore di scroll
+      let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
 
-        scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth'
-        });
+      console.log('Scroll after:', newScrollLeft); // Verifica la posizione dopo lo scroll
 
-        setTimeout(updateArrows, 300);
-      }
-
-      // Event listener per il click sulla freccia sinistra
-      prevArrow.addEventListener('click', function () {
-        scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
+      scrollContainer.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
       });
 
-      // Event listener per il click sulla freccia destra
-      nextArrow.addEventListener('click', function () {
-        scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
-      });
+      // Aggiorna lo stato delle frecce dopo un breve delay
+      setTimeout(updateArrows, 300);
+    }
 
-      // Inizializza lo stato delle frecce
-      updateArrows();
-      scrollContainer.addEventListener('scroll', updateArrows);
-    }, 200); // Ritardo di 100ms per garantire che il DOM sia stato aggiornato
-});
+    // Event listener per il click sulla freccia sinistra
+    prevArrow.addEventListener('click', function () {
+      scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
+    });
+
+    // Event listener per il click sulla freccia destra
+    nextArrow.addEventListener('click', function () {
+      scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
+    });
+
+    // Inizializza lo stato delle frecce
+    updateArrows();
+    scrollContainer.addEventListener('scroll', updateArrows);
+  });
 
 
 </script>
