@@ -30,8 +30,8 @@
           <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
             <a href="{{ section.settings[cta_url] }}">
               <div
-                class="w-full h-[56px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
-                <p class="body-16">{{ section.settings[cta_text] }}</p>
+                class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px]">{{ section.settings[cta_text] }}</p>
               </div>
             </a>
           </div>
@@ -43,7 +43,7 @@
 
       <!-- Container swiper bullets -->
       <div
-        class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
+        class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
         <!-- Container bullets -->
         <div class="w-auto h-auto">
           <div class="swiper-pagination">
@@ -80,7 +80,8 @@
     loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
+      hideOnClick: true
     }
   });
 </script>

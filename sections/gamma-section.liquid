@@ -1,25 +1,27 @@
-<div class="w-full h-auto py-10 bg-[#A9A09E] overflow-x-hidden relative">
+<div class="w-full h-auto py-14 bg-[#A9A09E] overflow-x-hidden relative">
     <div
-        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:left-[42px] lg:top-0 lg:z-30">
-        <div class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center">
-            <button id="prevArrow" class="carousel-arrow left-arrow">
+        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:left-[42px] lg:top-0 lg:z-10">
+        <div
+            class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer">
+            <button id="prev-Arrow" class="carousel-arrow left-arrow">
                 {% render 'arrow-left-icon' %}
             </button>
         </div>
     </div>
 
     <div
-        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:right-[42px] lg:top-0 lg:z-30">
-        <div class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center">
-            <button id="nextArrow" class="carousel-arrow right-arrow">
+        class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:right-[42px] lg:top-0 lg:z-10">
+        <div
+            class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer">
+            <button id="next-Arrow" class="carousel-arrow right-arrow">
                 {% render 'arrow-right-icon' %}
             </button>
         </div>
     </div>
 
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:gap-y-20">
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center">
-            <div class="wrap-container w-full h-auto">
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center lg:gap-y-20">
+            <div class="wrap-container w-full h-auto lg:flex lg:items-center lg:justify-center">
                 <div
                     class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
                     <div class="w-auto max-w-[99px] h-auto tab-gamma cursor-pointer lg:max-w-none" id="All Models">
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6  snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:pb-4 lg:h-[386px] lg:min-h-[386px]"
+            <div class="magnetic-scroll gamma-scroll w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start py-6  snap-x snap-mandatory lg:pl-[319px] lg:scroll-pl-[319px] lg:p-0 lg:px-20 lg:h-[368px] lg:min-h-[368px]"
                 data-collection="{{ collection.title }}" style="display: flex;">
                 {% for collection in sorted_collections %}
                 {% if collection.title != "Pardo approved" %}
