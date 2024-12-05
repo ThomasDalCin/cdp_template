@@ -264,19 +264,20 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const prevArrow = document.getElementById('prev-news-Arrow');
-  const nextArrow = document.getElementById('next-news-Arrow');
-  const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
+  document.addEventListener('DOMContentLoaded', function () {
+    const prevArrow = document.getElementById('prev-news-Arrow');
+    const nextArrow = document.getElementById('next-news-Arrow');
+    const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
 
-  if (!scrollContainer || !prevArrow || !nextArrow) {
-    console.error('Error: Scroll container or arrows not found.');
-    return;
-  }
+    if (!scrollContainer || !prevArrow || !nextArrow) {
+      console.error('Error: Scroll container or arrows not found.');
+      return;
+    }
 
-  // Funzione per aggiornare la larghezza delle card e abilitare/disabilitare le frecce
-  function updateCardWidthAndArrows() {
+    // Recupera tutte le card presenti nel contenitore
     const cards = Array.from(scrollContainer.children);
+    console.log('Cards found:', cards);  // Aggiunto per verificare se le card sono state trovate
+
     if (cards.length === 0) {
       console.error('Error: No cards found inside the scroll container.');
       return;
@@ -291,6 +292,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
+      console.log('Current scroll left:', currentScrollLeft);
+      console.log('Max scroll left:', maxScrollLeft);
+
+      // Disabilita o abilita le frecce in base alla posizione dello scroll
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
     }
@@ -300,13 +305,19 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
+      console.log('Scroll before:', currentScrollLeft); // Verifica la posizione prima dello scroll
+
+      // Calcolo del nuovo valore di scroll
       let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+      console.log('Scroll after:', newScrollLeft); // Verifica la posizione dopo lo scroll
 
       scrollContainer.scrollTo({
         left: newScrollLeft,
         behavior: 'smooth'
       });
 
+      // Aggiorna lo stato delle frecce dopo un breve delay
       setTimeout(updateArrows, 300);
     }
 
@@ -320,24 +331,10 @@ document.addEventListener('DOMContentLoaded', function () {
       scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
     });
 
+    // Inizializza lo stato delle frecce
     updateArrows();
     scrollContainer.addEventListener('scroll', updateArrows);
-  }
-
-  // Usare un MutationObserver per osservare l'aggiunta delle card nel DOM
-  const observer = new MutationObserver(function(mutationsList, observer) {
-    // Quando le card vengono aggiunte o modificate, aggiorna la larghezza e lo stato delle frecce
-    updateCardWidthAndArrows();
   });
-
-  // Configurazione dell'observer: osserva il contenitore per modifiche nei figli (l'aggiunta di card)
-  observer.observe(scrollContainer, {
-    childList: true,    // Osserva aggiunte o rimozioni di figli
-    subtree: true       // Osserva anche i figli di livello inferiore
-  });
-});
-
-
 
 
 </script>
