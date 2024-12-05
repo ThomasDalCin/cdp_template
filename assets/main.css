@@ -1278,6 +1278,11 @@ p,
   margin-bottom: 1rem;
 }
 
+.-mx-8 {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
 .-mt-\[100px\] {
   margin-top: -100px;
 }
@@ -2526,6 +2531,11 @@ p,
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pb-10 {
