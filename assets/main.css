@@ -1257,6 +1257,14 @@ p,
   z-index: 99999;
 }
 
+.z-\[60\] {
+  z-index: 60;
+}
+
+.z-\[100\] {
+  z-index: 100;
+}
+
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
