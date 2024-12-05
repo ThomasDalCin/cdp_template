@@ -269,13 +269,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Recupera tutte le card presenti nel contenitore
   const cards = Array.from(scrollContainer.children);
+  console.log('Cards found:', cards);  // Aggiunto per verificare se le card sono state trovate
+
   if (cards.length === 0) {
       console.error('Error: No cards found inside the scroll container.');
       return;
   }
 
-  // Calcolo della larghezza di ogni card senza complicazioni
-  const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
+  // Calcolo della larghezza totale di ogni card (larghezza + margine destro)
+  const cardWidth = cards[0].offsetWidth;
+  const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
+  const scrollAmount = cardWidth + cardMarginRight;
+
+  console.log('Card width:', cardWidth);  // Verifica la larghezza della card
+  console.log('Card margin right:', cardMarginRight);  // Verifica il margine destro della card
+  console.log('Scroll amount:', scrollAmount);  // Verifica la quantità di scroll
 
   // Funzione per aggiornare lo stato delle frecce
   function updateArrows() {
@@ -306,18 +314,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener per il click sulla freccia sinistra
   prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-cardWidth);
+      scrollContainerBy(-scrollAmount);
   });
 
   // Event listener per il click sulla freccia destra
   nextArrow.addEventListener('click', function () {
-      scrollContainerBy(cardWidth);
+      scrollContainerBy(scrollAmount);
   });
 
   // Inizializza lo stato delle frecce
   updateArrows();
   scrollContainer.addEventListener('scroll', updateArrows);
 });
+
 
 
 </script>
