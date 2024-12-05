@@ -243,13 +243,15 @@
 
 
 <style>
-  .carousel-arrow.disabled {
-    opacity: 0.5;
-  }
+ .carousel-arrow.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
-  .carousel-arrow:not(.disabled) {
-    opacity: 1;
-  }
+.carousel-arrow:not(.disabled) {
+  opacity: 1;
+  pointer-events: auto;
+}
 </style>
 
 
