@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "page-loading": {
@@ -15,7 +23,7 @@
         "swiper_image_3": "shopify://shop_images/Pardo-Yachts-Ownership-SHIPPING.jpg",
         "enable_cta_1": true,
         "cta_text_1": "Discover more",
-        "cta_url_1": "",
+        "cta_url_1": "shopify://products/gt75",
         "enable_cta_2": false,
         "cta_text_2": "Discover more",
         "cta_url_2": "",
