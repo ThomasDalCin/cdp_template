@@ -27,8 +27,7 @@
       
       {% if article.tags contains "News" and modResult == 0 %}
         <!-- Horizontal Layout -->
-        <div
-          class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
+        <div class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
           data-tags="{{ article.tags | join: ',' }}">
 
           <div class="blog-item-image w-full h-auto">
@@ -303,7 +302,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-scrollAmount);
+    console.log('Prev arrow clicked');
+    scrollContainerBy(-scrollAmount);
   });
 
   nextArrow.addEventListener('click', function () {
