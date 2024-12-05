@@ -256,60 +256,66 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const prevArrow = document.getElementById('prev-news-Arrow');
-  const nextArrow = document.getElementById('next-news-Arrow');
-  const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
+    const prevArrow = document.getElementById('prev-news-Arrow');
+    const nextArrow = document.getElementById('next-news-Arrow');
+    const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
 
-  if (!scrollContainer || !prevArrow || !nextArrow) {
-      console.error('Error: Scroll container or arrows not found.');
-      return;
-  }
+    if (!scrollContainer || !prevArrow || !nextArrow) {
+        console.error('Error: Scroll container or arrows not found.');
+        return;
+    }
 
- 
-  const cards = Array.from(scrollContainer.children);
-  if (cards.length === 0) {
-      console.error('Error: No cards found inside the scroll container.');
-      return;
-  }
+    // Determina la dimensione degli elementi per il calcolo dello scorrimento
+    const cards = Array.from(scrollContainer.children);
+    if (cards.length === 0) {
+        console.error('Error: No cards found inside the scroll container.');
+        return;
+    }
 
-  
-  const cardWidth = cards[0].offsetWidth;
-  const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
-  const scrollAmount = cardWidth + cardMarginRight;
+    const cardWidth = cards[0].offsetWidth;
+    const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight || '0', 10);
+    const scrollAmount = cardWidth + cardMarginRight;
 
-  function updateArrows() {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    function updateArrows() {
+        const currentScrollLeft = scrollContainer.scrollLeft;
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-  }
+        prevArrow.classList.toggle('disabled', currentScrollLeft <= 0);
+        nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+    }
 
-  function scrollContainerBy(amount) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    function scrollContainerBy(amount) {
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+        // Calcola il nuovo valore di scroll
+        let newScrollLeft = Math.min(Math.max(scrollContainer.scrollLeft + amount, 0), maxScrollLeft);
 
-      scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth'
-      });
+        // Esegui lo scorrimento
+        scrollContainer.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth',
+        });
 
-      setTimeout(updateArrows, 300); 
-  }
+        // Aggiorna lo stato delle frecce
+        setTimeout(updateArrows, 300); // Aspetta che lo scorrimento avvenga
+    }
 
-  prevArrow.addEventListener('click', function () {
-    console.log('Prev arrow clicked');
-    scrollContainerBy(-scrollAmount);
-  });
+    // Aggiungi gli eventi click
+    prevArrow.addEventListener('click', function () {
+        console.log('Prev arrow clicked');
+        scrollContainerBy(-scrollAmount);
+    });
 
-  nextArrow.addEventListener('click', function () {
-      scrollContainerBy(scrollAmount);
-  });
+    nextArrow.addEventListener('click', function () {
+        console.log('Next arrow clicked');
+        scrollContainerBy(scrollAmount);
+    });
 
-  updateArrows();
-  scrollContainer.addEventListener('scroll', updateArrows);
+    // Aggiorna lo stato delle frecce inizialmente
+    updateArrows();
+
+    // Aggiorna le frecce al momento dello scorrimento manuale
+    scrollContainer.addEventListener('scroll', updateArrows);
 });
 
 </script>
