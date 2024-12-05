@@ -3594,6 +3594,10 @@ html {
     width: calc(100% + 6rem);
   }
 
+  .lg\:w-\[calc\(100\%\+5\.5rem\)\] {
+    width: calc(100% + 5.5rem);
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
