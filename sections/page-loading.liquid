@@ -1,47 +1,64 @@
 <!-- page loading section -->
-<div
-    class="loading-wrapper w-full h-dvh fixed inset-0 z-[99999] transition-all linear duration-300" style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);;">
+<div class="loading-wrapper w-full h-dvh fixed inset-0 z-[99999] transition-all linear duration-300"
+    style="background: linear-gradient(180deg, #393332 0%, #A9A09E 100%);;">
     <div class="loading-wrapper-container w-full h-full flex items-center justify-center">
-        <div
-            class="container-loading-logo w-[102px] h-auto flex flex-col items-center justify-center gap-y-3 overflow-hidden">
-            <div class="loading-logo w-full h-auto text-white">
-                {% render 'pardo-icon' %}
-            </div>
-            <div
-                class="loading-bar-container w-full h-auto flex flex-col gap-3 items-center justify-center -translate-y-28 transition-all ease-in-out duration-700">
-                <div class="loading-yatch-logo w-auto h-auto">
-                    {% render 'pardo-yatch' %}
+
+        <!--container logo-->
+        <div class="container-loading-logo w-[102px] h-[40px]">
+
+            <div class="main-logo w-full h-full relative flex flex-row items-start justify-center">
+
+                <!--pa svg-->
+                <div class="pa-svg w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    {% render 'pa-svg' %}
                 </div>
-                <div class="loading-bar w-full h-[2px] rounded-sm bg-[var(--secondary-background-color)] relative">
-                    <div
-                        class="loading-progress-bar w-0 h-full bg-[var(--accent-color)] absolute left-0 top-0 transition-all ease-in duration-1000">
-                    </div>
+                <!--rdo svg-->
+                <div
+                    class="rdo-svg w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 opacity-0">
+                    {% render 'rdo-svg' %}
+                </div>
+
+                <!--yatch svg-->
+                <div
+                    class="yatch-svg w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 opacity-0">
+                    {% render 'yatch-svg' %}
                 </div>
             </div>
+
+
         </div>
+
+
     </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        //get elements
+        // Get elements
+        const paLogo = document.querySelector('.pa-svg');
+        const rdoLogo = document.querySelector('.rdo-svg');
+        const yatchLogo = document.querySelector('.yatch-svg');
         const loadingWrap = document.querySelector('.loading-wrapper');
-        const loadingBarContainer = document.querySelector('.loading-bar-container');
-        const progressBar = document.querySelector('.loading-progress-bar');
 
-        setTimeout(() => {
-            loadingBarContainer.classList.add('translate-y-0');
-            loadingBarContainer.addEventListener('transitionend', () => {
-                progressBar.classList.add('w-full');
-                progressBar.addEventListener('transitionend', () => {
+        const tl = gsap.timeline({delay: 0.5});
+
+        tl.to(paLogo, {left: 0, xPercent: 0, duration: 1}, 0)
+            .fromTo(rdoLogo, {opacity: 0}, {opacity: 1, right: 0, xPercent: -15,duration: 1}, 0)
+            .to(yatchLogo, {y: 15, opacity: 1, yPercent: 0, duration: 1}, 0)
+            .to(loadingWrap, {
+                opacity: 0,
+                duration: 0.2,
+                onUpdate: () => {
+                    paLogo.style.opacity = 0;
+                    rdoLogo.style.opacity = 0;
+                    yatchLogo.style.opacity = 0;
+                },
+                onComplete: () => {
                     setTimeout(() => {
-                        loadingWrap.classList.add('opacity-0');
-                        loadingWrap.addEventListener('transitionend', () => {
-                            loadingWrap.style.display = 'none';
-                        }, {once: true});
-                    }, 1000);
-                }, {once: true});
-            }, {once: true});
-        }, 200);
+                        loadingWrap.style.display = "none";
+                    }, 500)
+                }
+            }, 2);
     });
+
 </script>
