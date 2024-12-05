@@ -1,0 +1,42 @@
+<!-- profilation pop up -->
+ <div class="w-full h-screen fixed inset-0  hidden items-center justify-center z-50 pop-up-profilation px-6" style="background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(40px);">
+  <div class="w-[382px] h-auto  flex flex-col items-start justify-center bg-white rounded-[32px] border-[0.2px] border-black">
+
+  <!-- profilation title pop-up -->
+  <div class="w-full h-auto flex items-center justify-center py-6 relative">
+    <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.profilation_pop_up_title | default: "Consent to direct profilation" }}</p>
+
+    <div class="w-auto h-auto absolute right-6 top-6 closing-pop-up" data-attribute="profilation">
+      {% render 'x-icon' %}
+    </div>
+
+  </div>
+
+  <!-- profilation text container -->
+  <div class="w-full h-auto flex items-start justify-center p-4">
+    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ section.settings.profilation_pop_up_content }}</p>
+  </div>
+
+</div>
+ </div>
+
+
+
+{% schema %}
+  {
+    "name": "profilation-pop-up",
+    "settings": [
+      {
+        "type": "text",
+        "id": "profilation_pop_up_title",
+        "default": "Consent to direct profilation",
+        "label": "profilation pop up title"
+      }, {
+        "type": "textarea",
+        "id": "profilation_pop_up_content",
+        "default": "By checking this box, we will send personalized (profiled) commercial communications. For this purpose, we will use the data relating to the «Pardo Yachts» boats that you have purchased or for which you have requested information, your country of origin, your personal data, your interactions with us through our website, through the Apps - which may be developed by us or by third parties - and through our social channels: we will thus send you personalized communications and we will be able to develop products and services consistent with the preferences of our customers. Furthermore, your profile may be enriched with information acquired lawfully from third parties and made available to Cantiere del Pardo. The data will be kept for 5 years from the date of collection. The Data Controller is Cantiere del Pardo Spa. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy.",
+        "label": "profilation pop up content"
+      }
+    ]
+  }
+{% endschema %}

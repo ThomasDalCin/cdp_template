@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "gallery-pdp": {
@@ -15,6 +6,14 @@
     },
     "info-pdp": {
       "type": "info-pdp",
+      "settings": {}
+    },
+    "marketing-pop-up": {
+      "type": "marketing-pop-up",
+      "settings": {}
+    },
+    "profilation-pop-up": {
+      "type": "profilation-pop-up",
       "settings": {}
     },
     "ext-int-pdp": {
@@ -150,6 +149,8 @@
   "order": [
     "gallery-pdp",
     "info-pdp",
+    "marketing-pop-up",
+    "profilation-pop-up",
     "ext-int-pdp",
     "top-view-pdp",
     "features-pdp",

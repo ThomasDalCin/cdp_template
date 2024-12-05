@@ -1,0 +1,39 @@
+<!-- marketing pop up -->
+ <div class="w-full h-screen fixed inset-0  hidden items-center justify-center z-50 pop-up-marketing px-6" style="background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(40px);">
+  <div class="w-[382px] h-auto  flex flex-col items-start justify-center bg-white rounded-[32px] border-[0.2px] border-black">
+  <!-- closing icon pop up -->
+  <div class="w-full h-auto flex items-center justify-center py-6 relative">
+    <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.marketing_pop_up_title | default: "Consent to direct marketing" }}</p>
+
+    <div class="w-auto h-auto absolute right-6 top-6 closing-pop-up" data-attribute="marketing">
+      {% render 'x-icon' %}
+    </div>
+    
+  </div>
+  <!-- marketing text container -->
+  <div class="w-full h-auto flex items-start justify-center p-4">
+    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ section.settings.marketing_pop_up_content }}</p>
+  </div>
+
+</div>
+
+ </div>
+
+{% schema %}
+  {
+    "name": "marketing-pop-up",
+    "settings": [
+      {
+        "type": "text",
+        "id": "marketing_pop_up_title",
+        "default": "Consent to direct marketing",
+        "label": "marketing pop up title"
+      }, {
+        "type": "text",
+        "id": "marketing_pop_up_content",
+        "default": "By selecting this box you give your consent to receive commercial communications and to participate in market research and activities to measure your level of satisfaction, regarding Pardo Yachts products and services, via e-mail and/or SMS, telephone and traditional paper mail. For this purpose we will use the personal and contact data that you have communicated to us (e.g. name, surname, address, e-mail, mobile number, etc.). The data collected will be stored until a request to withdraw consent is received from you. The Data Controller is Cantiere Del Pardo SpA. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy.",
+        "label": "marketing pop up content"
+      }
+    ]
+  }
+{% endschema %}
