@@ -1,120 +1,127 @@
 <!-- News Articles -->
 <div id="news-layout" class="blog-news-container w-full flex flex-col overflow-x-hidden px-6 mb-14 lg:px-10">
 
-  <!--container arrow carousel-->
-   <!-- arrows box -->
-   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
-    <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full  bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
-      <button id="prev-news-Arrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+  <!-- container arrow carousel-->
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
+    <div
+      class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
+      <button id="prev-news-Arrow"
+        class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
         {% render 'arrow-left-icon' %}
       </button>
-      <button id="next-news-Arrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-white">
+      <button id="next-news-Arrow"
+        class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-white">
         {% render 'arrow-right-icon' %}
       </button>
     </div>
   </div>
-
 
   {% if blogs.news %}
   {% assign newsArticles = blogs.news.articles %}
   {% assign articleCount = newsArticles.size %}
 
   {% if articleCount > 0 %}
-
-  <div class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5.5rem)] lg:px-10">
+  <div id="blog-item-scroll-container"
+    class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5.5rem)] lg:px-10">
     {% for article in newsArticles %}
-      {% assign modResult = forloop.index0 | modulo: 2 %}
-      
-      {% if article.tags contains "News" and modResult == 0 %}
-        <!-- Horizontal Layout -->
-        <div class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
-          data-tags="{{ article.tags | join: ',' }}">
+    {% assign modResult = forloop.index0 | modulo: 2 %}
 
-          <div class="blog-item-image w-full h-auto">
-            <img src="{{ article.image | img_url: 'master' }}"
-              class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
-              alt="{{ article.image.alt }}">
-          </div>
+    {% if article.tags contains "News" and modResult == 0 %}
+    <!-- Horizontal Layout -->
+    <div
+      class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
+      data-tags="{{ article.tags | join: ',' }}">
 
-          <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl relative">
-            {% assign articleDate = article.metafields.custom.article_date.value %}
-            {% assign articleLocation = article.metafields.custom.article_location.value %}
+      <div class="blog-item-image w-full h-auto">
+        <img src="{{ article.image | img_url: 'master' }}"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          alt="{{ article.image.alt }}">
+      </div>
 
-            <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
-              {% if articleDate and articleLocation %}
-              <p class="body-12">{{ articleLocation }}</p>
-              <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
-              {% endif %}
-            </div>
-            <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-              <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-              <p class="body-12">{{ article.content | truncate: 100 }}</p>
-            </div>
+      <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl relative">
+        {% assign articleDate = article.metafields.custom.article_date.value %}
+        {% assign articleLocation = article.metafields.custom.article_location.value %}
 
-            <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
-              <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-              </a>
-            </div>
-          </div>
+        <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
+          {% if articleDate and articleLocation %}
+          <p class="body-12">{{ articleLocation }}</p>
+          <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
+          {% endif %}
         </div>
-      {% endif %}
+        <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+          <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+          <p class="body-12">{{ article.content | truncate: 100 }}</p>
+        </div>
+
+        <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
+          <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
+            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
+  {% endif %}
+  {% endif %}
 
-  <div class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-start lg:justify-center lg:py-10">
+
+  <div
+    class="blog-item-column-layout w-full flex flex-col gap-y-4 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-start lg:justify-center lg:py-10">
     {% for article in newsArticles %}
-      {% assign modResult = forloop.index0 | modulo: 2 %}
-      
-      {% if article.tags contains "News" and modResult != 0 %}
-        <!--  Vertical Layout -->
-        <div
-          class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)] lg:h-[526px] lg:min-h-[526px]"
-          data-tags="{{ article.tags | join: ',' }}">
+    {% assign modResult = forloop.index0 | modulo: 2 %}
 
-          <div class="blog-item-image w-full lg:w-full">
-            <img src="{{ article.image | img_url: 'master' }}"
-              class="w-full h-[220px] min-h-[220px] rounded-t-xl object-cover lg:h-[200px]"
-              alt="{{ article.image.alt }}">
+    {% if article.tags contains "News" and modResult != 0 %}
+    <!--  Vertical Layout -->
+    <div
+      class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)] lg:h-[526px] lg:min-h-[526px]"
+      data-tags="{{ article.tags | join: ',' }}">
+
+      <div class="blog-item-image w-full lg:w-full">
+        <img src="{{ article.image | img_url: 'master' }}"
+          class="w-full h-[220px] min-h-[220px] rounded-t-xl object-cover lg:h-[200px]" alt="{{ article.image.alt }}">
+      </div>
+
+      <div
+        class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-full lg:relative lg:h-full">
+        {% assign articleDate = article.metafields.custom.range_date.value %}
+        {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
+        {% assign articleLocation = article.metafields.custom.article_location.value %}
+
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-2">
+
+          <div class="blog-item-date w-full flex flex-row gap-x-2 items-center justify-start gap-y-3">
+            {% if articleFlag and articleLocation %}
+            <img src="{{ articleFlag |  img_url: 'master' }}" alt="{{ article.title }}">
+            <p class="body-12">{{ articleLocation }}</p>
+            {% endif %}
           </div>
 
-          <div class="blog-item-info w-full flex flex-col gap-y-6 p-6 bg-[#EFEEED] rounded-b-xl lg:w-full lg:relative lg:h-full">
-            {% assign articleDate = article.metafields.custom.range_date.value %}
-            {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
-            {% assign articleLocation = article.metafields.custom.article_location.value %}
-             
-            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-2">
-
-              <div class="blog-item-date w-full flex flex-row gap-x-2 items-center justify-start gap-y-3">
-                {% if articleFlag and articleLocation %}
-                <img src="{{ articleFlag |  img_url: 'master' }}" alt="{{ article.title }}">
-                <p class="body-12">{{ articleLocation }}</p>
-                {% endif %}
-              </div>
-              
-              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1">
-                <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                <p class="body-12">{{ article.content | truncate: 200 }}</p>
-              </div>
-            </div>
-
-            <div class="w-full h-auto flex items-start justify-center">
-              {% if articleDate %}
-                <div class="w-full h-auto flex flex-row items-center justify-start rounded-xl bg-white p-4">
-                  <span class="mr-1">&bull;</span><p class="text-[10px] leading-[16px]">{{ articleDate }}</p>
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="blog-item-cta w-full flex items-center justify-end lg:absolute lg:right-6 lg:bottom-6">
-              <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                <p class="body-14-medium">{{ section.settings.article_cta }}</p>
-              </a>
-            </div>
-
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1">
+            <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+            <p class="body-12">{{ article.content | truncate: 200 }}</p>
           </div>
         </div>
-      {% endif %}
+
+        <div class="w-full h-auto flex items-start justify-center">
+          {% if articleDate %}
+          <div class="w-full h-auto flex flex-row items-center justify-start rounded-xl bg-white p-4">
+            <span class="mr-1">&bull;</span>
+            <p class="text-[10px] leading-[16px]">{{ articleDate }}</p>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="blog-item-cta w-full flex items-center justify-end lg:absolute lg:right-6 lg:bottom-6">
+          <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
+            <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
 
@@ -242,96 +249,145 @@
 </div>
 
 
-<style>
- .carousel-arrow.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+<!-- container arrow carousel-->
+<div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
+  <div
+    class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
+    <button id="prev-news-Arrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+      {% render 'arrow-left-icon' %}
+    </button>
+    <button id="next-news-Arrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-white">
+      {% render 'arrow-right-icon' %}
+    </button>
+  </div>
+</div>
 
-.carousel-arrow:not(.disabled) {
-  opacity: 1;
-  pointer-events: auto;
-}
-</style>
+{% if blogs.news %}
+{% assign newsArticles = blogs.news.articles %}
+{% assign articleCount = newsArticles.size %}
 
+{% if articleCount > 0 %}
+<div id="blog-item-scroll-container"
+  class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5.5rem)] lg:px-10">
+  {% for article in newsArticles %}
+  {% assign modResult = forloop.index0 | modulo: 2 %}
 
+  {% if article.tags contains "News" and modResult == 0 %}
+  <!-- Horizontal Layout -->
+  <div
+    class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]"
+    data-tags="{{ article.tags | join: ',' }}">
 
+    <div class="blog-item-image w-full h-auto">
+      <img src="{{ article.image | img_url: 'master' }}"
+        class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+        alt="{{ article.image.alt }}">
+    </div>
+
+    <div class="blog-item-info-container w-full h-full p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl relative">
+      {% assign articleDate = article.metafields.custom.article_date.value %}
+      {% assign articleLocation = article.metafields.custom.article_location.value %}
+
+      <div class="blog-item-date w-full h-auto flex flex-row items-center justify-between">
+        {% if articleDate and articleLocation %}
+        <p class="body-12">{{ articleLocation }}</p>
+        <p class="body-12">{{ articleDate | date: '%B %d, %Y' }}</p>
+        {% endif %}
+      </div>
+      <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
+        <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+        <p class="body-12">{{ article.content | truncate: 100 }}</p>
+      </div>
+
+      <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
+        <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
+          <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
+{% endif %}
+
+<!-- Script to handle carousel scrolling -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const prevArrow = document.getElementById('prev-news-Arrow');
-  const nextArrow = document.getElementById('next-news-Arrow');
-  const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
+  document.addEventListener('DOMContentLoaded', function () {
+    const prevArrow = document.getElementById('prev-news-Arrow');
+    const nextArrow = document.getElementById('next-news-Arrow');
+    const scrollContainer = document.getElementById('blog-item-scroll-container');
+    const images = Array.from(scrollContainer.querySelectorAll('.blog-item-horizontal-view'));
 
-  if (!scrollContainer || !prevArrow || !nextArrow) {
-      console.error('Error: Scroll container or arrows not found.');
-      return;
-  }
+    // Calcolare la larghezza totale delle card (inclusi margini e padding)
+    const totalImageWidth = images.map((image) => {
+      const width = image.offsetWidth; // Larghezza della card
+      const marginRight = parseInt(getComputedStyle(image).marginRight); // Margine destro
+      return width + marginRight;
+    }).reduce((acc, width) => acc + width, 0);
 
-  // Recupera tutte le card presenti nel contenitore
-  const cards = Array.from(scrollContainer.children);
-  console.log('Cards found:', cards);  // Aggiunto per verificare se le card sono state trovate
+    const scrollAmount = totalImageWidth / images.length;
 
-  if (cards.length === 0) {
-      console.error('Error: No cards found inside the scroll container.');
-      return;
-  }
-
-  // Calcolo della larghezza di ogni card
-  const cardWidth = cards[0].offsetWidth;
-  console.log('Card width:', cardWidth);  // Verifica la larghezza della card
-
-  // Funzione per aggiornare lo stato delle frecce
-  function updateArrows() {
+    // Funzione per aggiornare lo stato delle frecce
+    function updateArrows() {
       const currentScrollLeft = scrollContainer.scrollLeft;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      console.log('Current scroll left:', currentScrollLeft);
-      console.log('Max scroll left:', maxScrollLeft);
-
-      // Disabilita o abilita le frecce in base alla posizione dello scroll
       prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
       nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-  }
+    }
 
-  // Funzione per eseguire lo scroll del contenitore
-  function scrollContainerBy(amount) {
+    // Funzione per far scorrere il contenitore di una quantità specificata
+    function scrollContainerBy(amount) {
       const currentScrollLeft = scrollContainer.scrollLeft;
+      let newScrollLeft = currentScrollLeft + amount;
       const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-      console.log('Scroll before:', currentScrollLeft); // Verifica la posizione prima dello scroll
-
-      // Calcolo del nuovo valore di scroll
-      let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
-
-      console.log('Scroll after:', newScrollLeft); // Verifica la posizione dopo lo scroll
+      if (newScrollLeft < 0) {
+        newScrollLeft = 0;
+      } else if (newScrollLeft > maxScrollLeft) {
+        newScrollLeft = maxScrollLeft;
+      }
 
       scrollContainer.scrollTo({
-          left: newScrollLeft,
-          behavior: 'smooth'
+        left: newScrollLeft,
+        behavior: 'smooth'
       });
 
-      // Aggiorna lo stato delle frecce dopo un breve delay
-      setTimeout(updateArrows, 300); 
+      // Aggiorna lo stato delle frecce
+      setTimeout(updateArrows, 300);
+    }
+
+    // Gestisci clic sulle frecce
+    if (prevArrow && nextArrow && scrollContainer) {
+      prevArrow.addEventListener('click', function () {
+        scrollContainerBy(-scrollAmount); // Scorri indietro
+      });
+
+      nextArrow.addEventListener('click', function () {
+        scrollContainerBy(scrollAmount); // Scorri avanti
+      });
+
+      // Aggiorna lo stato delle frecce inizialmente
+      updateArrows();
+
+      // Aggiorna lo stato delle frecce durante lo scroll
+      scrollContainer.addEventListener('scroll', updateArrows);
+    }
+  });
+</script>
+
+<style>
+  .carousel-arrow.disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 
-  // Event listener per il click sulla freccia sinistra
-  prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
-  });
-
-  // Event listener per il click sulla freccia destra
-  nextArrow.addEventListener('click', function () {
-      scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
-  });
-
-  // Inizializza lo stato delle frecce
-  updateArrows();
-  scrollContainer.addEventListener('scroll', updateArrows);
-});
-
-
-
-</script>
+  .carousel-arrow:not(.disabled) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
 
 
 
