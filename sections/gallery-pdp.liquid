@@ -16,8 +16,8 @@
             {% for media in product.media %}
             {% if media.media_type == 'video' %}
             <div class="swiper-slide relative h-svh">
-                <!--pause-icon-->
-                <div class="w-auto h-auto hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[100]">
+                {% comment %}
+                            <div class="w-auto h-auto hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[100]">
                     <div class="w-[56px] h-[56px] bg-[rgba(0,0,0,0.20)] flex items-center justify-center backdrop-blur-xl  p-3 cursor-pointer text-white rounded-full"
                         id="pause-icon">
                         {% render 'pause-icon' %}
@@ -31,6 +31,8 @@
                         {% render 'play-icon' %}
                     </div>
                 </div>
+                {% endcomment %}
+                <!--pause-icon-->
                 {{ media | video_tag: autoplay: true, loop: true, muted: true, class: 'swiper-video w-full h-full
                 object-cover', controls: true }}
 
@@ -183,35 +185,6 @@
                 const totalTimeElement = controls.querySelector('.total-time');
                 const progressBar = controls.querySelector('.progress-video-bar');
                 const progressContainer = controls.querySelector('.progress-bar-container');
-                const playIcon = document.querySelector('#play-icon');
-                const pauseIcon = document.querySelector('#pause-icon');
-
-                // Poiché il video parte automaticamente, mostra l'icona di pausa
-                playIcon.classList.add('hidden');  // Nascondi l'icona play all'apertura
-                pauseIcon.classList.remove('hidden'); // Mostra l'icona pause all'apertura
-
-                // Gestione play/pause
-                playIcon.addEventListener('click', () => {
-                    video.play();
-                    playIcon.classList.add('hidden'); // Nasconde l'icona play
-                    pauseIcon.classList.remove('hidden'); // Mostra l'icona pause
-                });
-
-                pauseIcon.addEventListener('click', () => {
-                    video.pause();
-                    pauseIcon.classList.add('hidden'); // Nasconde l'icona pause
-                    playIcon.classList.remove('hidden'); // Mostra l'icona play
-                });
-
-                // Aggiorna i tempi durante la riproduzione
-                video.addEventListener('timeupdate', () => {
-                    updateVideoTime(video, currentTimeElement, totalTimeElement, progressBar);
-                });
-
-                // Imposta il tempo totale all'inizio
-                video.addEventListener('loadedmetadata', () => {
-                    totalTimeElement.textContent = formatTime(video.duration);
-                });
 
                 // Permetti di saltare tramite la progress bar
                 progressContainer.addEventListener('click', (e) => {
@@ -228,10 +201,6 @@
                         }
                     }
                 });
-
-                // Mostra i controlli personalizzati su hover
-                video.addEventListener('mouseenter', () => controls.classList.remove('hidden'));
-                video.addEventListener('mouseleave', () => controls.classList.add('hidden'));
             });
         };
 
