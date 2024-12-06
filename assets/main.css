@@ -1600,6 +1600,10 @@ p,
   height: 100svh;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1894,6 +1898,10 @@ p,
 
 .w-full {
   width: 100%;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .min-w-\[124px\] {
@@ -3294,6 +3302,30 @@ html {
 
   .lg\:bottom-0 {
     bottom: 0px;
+  }
+
+  .lg\:bottom-14 {
+    bottom: 3.5rem;
+  }
+
+  .lg\:bottom-20 {
+    bottom: 5rem;
+  }
+
+  .lg\:bottom-\[120px\] {
+    bottom: 120px;
+  }
+
+  .lg\:bottom-\[140px\] {
+    bottom: 140px;
+  }
+
+  .lg\:bottom-16 {
+    bottom: 4rem;
+  }
+
+  .lg\:bottom-\[10px\] {
+    bottom: 10px;
   }
 
   .lg\:z-10 {
