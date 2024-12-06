@@ -1,7 +1,7 @@
-<!-- Overlay content -->
+<!--overlay content-->
 <div class="overlay-gallery-pdp hidden fixed z-50 inset-0 w-full h-svh lg:h-screen">
 
-    <!-- Container closing icon -->
+    <!-- container-closing-icon -->
     <div
         class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-6 close-overlay-gallery-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
         {% render 'x-icon' %}
@@ -10,30 +10,11 @@
     <!-- Swiper wrapper container -->
     <div class="swiper swiper-container-gallery-pdp transition-all duration-200 ease-linear relative">
 
-        <!-- Swiper wrapper slides -->
+        <!-- swiper wrapper slides-->
         <div class="swiper-wrapper">
-            <!-- Videos -->
-            {% for media in product.media %}
-            {% if media.media_type == 'video' %}
-            <div class="swiper-slide relative h-svh">
-                {{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'swiper-video w-full h-full
-                object-cover' }}
-                <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-12 px-4">
-                    <div class="w-full h-auto p-4 rounded-lg bg-[rgba(0,0,0,0.20)] backdrop-blur-xl gap-y-2">
-                        <div class="w-full h-auto flex flex-rpw items-center justify-between">
-                            <p class="current-time text-[12px] leading-[18px] text-white tt-norms-pro-light"></p>
-                            <p class="total-time text-[12px] leading-[18px] text-white tt-norms-pro-light"></p>
-                        </div>
-                        <!--progress bar-->
-                        <div class="w-full h-[2px] relative bg-[#818181] rounded-full progress-bar-container">
-                            <div class="w-0 h-full bg-white absolute inset-0 progress-video-bar"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-            <!-- Images -->
+
+            <!--each slides-->
+            <!-- assign variables -->
             {% for image in product.images %}
             {% if forloop.index > 1 %}
             <div class="swiper-slide relative h-svh">
@@ -42,19 +23,20 @@
             </div>
             {% endif %}
             {% endfor %}
+
         </div>
 
         <!-- Container swiper bullets -->
         <div
             class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
+            <!-- Container bullets -->
             <div class="w-auto h-auto">
                 <div class="swiper-pagination-gallery-pdp"></div>
             </div>
         </div>
 
-        <!-- Landscape orientation button -->
-        <div
-            class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden turn-gallery-button-container">
+        <!-- Container turn into landspace -->
+        <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
             <div
                 class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-gallery-button">
                 <p class="body-14 tt-norms-pro-med text-white">{{ section.settings.turn_landscape | default: "Turn into
@@ -62,18 +44,20 @@
             </div>
         </div>
 
-        <!-- Navigation buttons -->
         <div class="w-auto h-auto hidden lg:block">
             <div
                 class="swiper-button-next-gallery-pdp bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  mr-10">
             </div>
         </div>
         <div class="w-auto h-auto hidden lg:block">
+
             <div
                 class="swiper-button-prev-gallery-pdp bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  ml-10">
             </div>
         </div>
     </div>
+
+
 </div>
 
 <!--gallery pdp section-->
@@ -85,14 +69,6 @@
             <div class="swiper-wrapper">
 
                 <!-- assign variables -->
-                {% for media in product.media %}
-                {% if media.media_type == 'video' %}
-                <div class="swiper-slide relative">
-                    {{ media | video_tag: autoplay: true, loop: true, muted: true, class: 'swiper-video w-full h-full
-                    object-cover', controls: false }}
-                </div>
-                {% endif %}
-                {% endfor %}
                 {% for image in product.images %}
                 {% if forloop.index > 1 %}
                 <div class="swiper-slide relative">
@@ -106,7 +82,7 @@
 
             <!-- Container swiper bullets -->
             <div
-                class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
+                class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center lg:left-6 lg:top-[150px] lg:flex lg:flex-col lg:gap-y-6 lg:items-center lg:justify-center">
                 <!-- Container bullets -->
                 <div class="w-auto h-auto">
                     <div class="swiper-pagination"></div>
@@ -134,127 +110,36 @@
     document.addEventListener('DOMContentLoaded', () => {
         let swiperGallery = null;
         const galleryPdpImages = document.querySelectorAll('.gallery-pdp-images');
-        const galleryPdpVideos = document.querySelectorAll('.swiper-video');
         const overlayGallery = document.querySelector('.overlay-gallery-pdp');
         const closeOverlayGallery = document.querySelector('.close-overlay-gallery-images');
-        const landscapeButtonContainer = document.querySelector('.turn-gallery-button'); 
 
-        // Funzione per formattare il tempo in formato mm:ss
-        const formatTime = (timeInSeconds) => {
-            const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = Math.floor(timeInSeconds % 60);
-            return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-        };
-
-        // Funzione per aggiornare il tempo corrente e totale del video
-        const updateVideoTime = (video, currentTimeElement, totalTimeElement, progressBar) => {
-            currentTimeElement.textContent = formatTime(video.currentTime);
-            totalTimeElement.textContent = formatTime(video.duration);
-            const progress = (video.currentTime / video.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-        };
-
-        // Funzione per inizializzare i controlli del video
-        const initializeVideoControls = () => {
-            const overlayVideos = overlayGallery.querySelectorAll('.swiper-video');
-
-            overlayVideos.forEach(video => {
-                // Rimuovi i controlli nativi
-                video.removeAttribute('controls');
-
-                const controls = video.nextElementSibling; // Trova il contenitore dei controlli
-                const currentTimeElement = controls.querySelector('.current-time');
-                const totalTimeElement = controls.querySelector('.total-time');
-                const progressBar = controls.querySelector('.progress-video-bar');
-                const progressContainer = controls.querySelector('.progress-bar-container');
-
-                // Aggiorna i tempi durante la riproduzione
-                video.addEventListener('timeupdate', () => {
-                    updateVideoTime(video, currentTimeElement, totalTimeElement, progressBar);
-                });
-
-                // Imposta il tempo totale all'inizio
-                video.addEventListener('loadedmetadata', () => {
-                    totalTimeElement.textContent = formatTime(video.duration);
-                });
-
-                // Permetti di saltare tramite la progress bar
-                progressContainer.addEventListener('click', (e) => {
-                    const rect = progressContainer.getBoundingClientRect();
-                    const offsetX = e.clientX - rect.left;
-                    const progressContainerWidth = progressContainer.offsetWidth;
-
-                    // Aggiungi il controllo per evitare valori non validi
-                    if (progressContainerWidth > 0) {
-                        const newTime = (offsetX / progressContainerWidth) * video.duration;
-                        // Verifica che newTime sia un valore valido (non NaN, non infinito)
-                        if (isFinite(newTime) && newTime >= 0 && newTime <= video.duration) {
-                            video.currentTime = newTime;
-                        }
-                    }
-                });
-
-                // Mostra i controlli personalizzati su hover
-                video.addEventListener('mouseenter', () => controls.classList.remove('hidden'));
-                video.addEventListener('mouseleave', () => controls.classList.add('hidden'));
-            });
-        };
-
-        // Funzione per aprire l'overlay
-        function openOverlay(contentType) {
-            if (overlayGallery) {
-                overlayGallery.classList.remove('hidden');
-                document.body.classList.add('no-scroll');
-            }
-
-            if (swiperGallery) {
-                swiperGallery.destroy(true, true);
-            }
-
-            // Modifica la posizione del pulsante a seconda del tipo di contenuto (video o immagine)
-            if (landscapeButtonContainer) {
-                if (contentType === 'video') {
-                    landscapeButtonContainer.style.bottom = '122px';  // Imposta bottom a 122px se è un video
-                } else {
-                    landscapeButtonContainer.style.bottom = '46px';  // Imposta bottom a 46px per altre slide (immagini)
-                }
-            }
-
-            // Inizializza lo swiper nell'overlay
-            swiperGallery = new Swiper(".swiper-container-gallery-pdp", {
-                pagination: {
-                    el: ".swiper-pagination-gallery-pdp",
-                    clickable: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next-gallery-pdp",
-                    prevEl: ".swiper-button-prev-gallery-pdp"
-                },
-                loop: true,
-            });
-
-            initializeVideoControls(); // Inizializza i controlli video
-        }
-
-        // Assegna evento click per le immagini
         if (galleryPdpImages.length > 0) {
             galleryPdpImages.forEach((image) => {
                 image.addEventListener('click', function () {
-                    openOverlay('image');  // Passa 'image' quando si apre l'overlay per un'immagine
+                    if (overlayGallery) {
+                        overlayGallery.classList.remove('hidden');
+                        document.body.classList.add('no-scroll');
+                    }
+
+                    if (swiperGallery) {
+                        swiperGallery.destroy(true, true);
+                    }
+
+                    swiperGallery = new Swiper(".swiper-container-gallery-pdp", {
+                        pagination: {
+                            el: ".swiper-pagination-gallery-pdp",
+                            clickable: true
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next-gallery-pdp",
+                            prevEl: ".swiper-button-prev-gallery-pdp"
+                        },
+                        loop: true,
+                    });
                 });
             });
         }
 
-        // Assegna evento click per i video
-        if (galleryPdpVideos.length > 0) {
-            galleryPdpVideos.forEach((video) => {
-                video.addEventListener('click', function () {
-                    openOverlay('video');  // Passa 'video' quando si apre l'overlay per un video
-                });
-            });
-        }
-
-        // Assegna evento per chiudere l'overlay
         if (closeOverlayGallery) {
             closeOverlayGallery.addEventListener('click', function () {
                 if (overlayGallery) {
@@ -266,15 +151,9 @@
                     swiperGallery.destroy(true, true);
                     swiperGallery = null;
                 }
-
-                // Ripristina la posizione del pulsante quando l'overlay viene chiuso
-                if (landscapeButtonContainer) {
-                    landscapeButtonContainer.style.bottom = '46px';
-                }
             });
         }
 
-        // Inizializza lo swiper principale
         var swiperMain = new Swiper(".mySwiper", {
             effect: 'fade',
             fadeEffect: {
@@ -291,7 +170,6 @@
             loop: true,
         });
 
-        // Funzione per gestire il cambio di orientamento
         function handleOrientationGalleryPdp() {
             const turnGalleryPdpButton = document.querySelector('.turn-gallery-button');
 
@@ -309,7 +187,6 @@
         window.addEventListener('resize', handleOrientationGalleryPdp);
         handleOrientationGalleryPdp();
     });
-
 
 </script>
 
@@ -331,10 +208,6 @@
 
     .swiper-button-next::after,
     .swiper-button-prev::after {
-        font-size: 14px;
-    }
-
-    .swiper-button-prev-gallery-pdp::after,.swiper-button-next-gallery-pdp::after{
         font-size: 14px;
     }
 </style>
