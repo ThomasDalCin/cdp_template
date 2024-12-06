@@ -143,7 +143,7 @@
         const formatTime = (timeInSeconds) => {
             const minutes = Math.floor(timeInSeconds / 60);
             const seconds = Math.floor(timeInSeconds % 60);
-            return ${minutes}:${seconds < 10 ? '0' + seconds : seconds};
+            return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
         };
 
         // Funzione per aggiornare il tempo corrente e totale del video
@@ -151,7 +151,7 @@
             currentTimeElement.textContent = formatTime(video.currentTime);
             totalTimeElement.textContent = formatTime(video.duration);
             const progress = (video.currentTime / video.duration) * 100;
-            progressBar.style.width = ${progress}%;
+            progressBar.style.width = `${progress}%`;
         };
 
         // Funzione per inizializzare i controlli del video
