@@ -1,5 +1,5 @@
 <!-- Collab Cards -->
-<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start lg:px-20 lg:pt-[60px] lg:mb-[120px]">
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 p-6 mb-10 lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:pb-0 lg:justify-start lg:px-20 lg:pt-10 lg:mb-[120px]">
 
     <!-- Assign liquid variables -->
     {% assign allBlogs = "Collab, " | split: "," %}
@@ -8,7 +8,7 @@
     {% unless article.tags contains "Past" %}
 
     <!-- Collab wrap -->
-    <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_1rem)] lg:min-h-[440px]">
+    <div class="card-article w-full h-auto flex flex-col items-start justify-start relative rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_0.5rem)] lg:min-h-[440px]">
         <!--Collab card image-->
         <div class="w-full h-[220px] min-h-[220px]">
             <img src="{{ article.image |  img_url: 'master'}}" alt="{{ article.title }}"
@@ -24,7 +24,7 @@
             </div>
 
             <!--Collab card button-->
-            <div class="w-full h-auto flex flex-row items-start justify-end">
+            <div class="w-full h-auto flex flex-row items-start justify-end lg:absolute lg:right-6 lg:bottom-6">
                 <!-- Container button -->
                 <a href="">
                     <div class="inline-flex cta-choco-round w-[129px] h-[32px]">

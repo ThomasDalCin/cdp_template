@@ -3317,6 +3317,10 @@ html {
     margin-top: 60px;
   }
 
+  .lg\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .lg\:block {
     display: block;
   }
