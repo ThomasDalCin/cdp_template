@@ -16,23 +16,6 @@
             {% for media in product.media %}
             {% if media.media_type == 'video' %}
             <div class="swiper-slide relative h-svh">
-                {% comment %}
-                            <div class="w-auto h-auto hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[100]">
-                    <div class="w-[56px] h-[56px] bg-[rgba(0,0,0,0.20)] flex items-center justify-center backdrop-blur-xl  p-3 cursor-pointer text-white rounded-full"
-                        id="pause-icon">
-                        {% render 'pause-icon' %}
-                    </div>
-                </div>
-
-                <!--play-icon-->
-                <div class="w-auto h-auto hidden lg:block  absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  z-[100]">
-                    <div class="w-[56px] h-[56px] flex items-center justify-center bg-[rgba(0,0,0,0.20)] backdrop-blur-xl  p-3 cursor-pointer text-white  rounded-full"
-                        id="play-icon">
-                        {% render 'play-icon' %}
-                    </div>
-                </div>
-                {% endcomment %}
-                <!--pause-icon-->
                 {{ media | video_tag: autoplay: true, loop: true, muted: true, class: 'swiper-video w-full h-full
                 object-cover', controls: true }}
 
