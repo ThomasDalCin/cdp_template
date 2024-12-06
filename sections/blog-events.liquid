@@ -1,12 +1,12 @@
 <!-- Events Articles -->
 
 <!-- Blog event container -->
-<div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-6 mb-12 justify-center lg:flex-wrap lg:gap-10 lg:flex-row lg:justify-start relative overflow-hidden lg:px-20">
+<div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-6 mb-12 justify-center lg:flex-wrap lg:flex-row lg:justify-start relative lg:gap-4 overflow-hidden lg:px-20">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
       {% for eventArticle in eventsArticles %}
-        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
+        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_0.67rem)]">
           <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
             <!-- Events image Container -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
@@ -227,10 +227,10 @@
     <!-- Arrows box -->
     <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10 lg:mb-10">
       <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
-        <button id="prev-Arrow-past" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+        <button id="prev-Arrow-past" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-black">
           {% render 'arrow-left-icon' %}
         </button>
-        <button id="next-Arrow-past" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6  text-white">
+        <button id="next-Arrow-past" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6  text-black">
           {% render 'arrow-right-icon' %}
         </button>
       </div>

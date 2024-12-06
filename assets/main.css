@@ -3629,6 +3629,18 @@ html {
     width: calc(33.3% - 0.67rem);
   }
 
+  .lg\:w-\[calc\(33\.3\%_-_0\.66rem\)\] {
+    width: calc(33.3% - 0.66rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.68rem\)\] {
+    width: calc(33.3% - 0.68rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.69rem\)\] {
+    width: calc(33.3% - 0.69rem);
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
