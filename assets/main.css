@@ -4114,6 +4114,10 @@ html {
     flex-grow: 6;
   }
 
+  .lg\:hover\:border:hover {
+    border-width: 1px;
+  }
+
   .lg\:hover\:border-black:hover {
     --tw-border-opacity: 1;
     border-color: rgb(0 0 0 / var(--tw-border-opacity));
