@@ -2170,6 +2170,10 @@ p,
   row-gap: 2rem;
 }
 
+.gap-y-14 {
+  row-gap: 3.5rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -3202,6 +3206,11 @@ html {
   --tw-ring-color: transparent;
 }
 
+.focus\:ring-white:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
+}
+
 @media (min-width: 1024px) {
   .lg\:fixed {
     position: fixed;
@@ -3279,6 +3288,10 @@ html {
     top: calc(820px + 1rem);
   }
 
+  .lg\:right-0 {
+    right: 0px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -3337,6 +3350,10 @@ html {
 
   .lg\:mt-\[60px\] {
     margin-top: 60px;
+  }
+
+  .lg\:mt-\[130px\] {
+    margin-top: 130px;
   }
 
   .lg\:block {
@@ -3701,6 +3718,10 @@ html {
     align-items: flex-start;
   }
 
+  .lg\:items-end {
+    align-items: flex-end;
+  }
+
   .lg\:items-center {
     align-items: center;
   }
@@ -4044,6 +4065,18 @@ html {
     padding-right: 1.5rem;
   }
 
+  .lg\:pt-1 {
+    padding-top: 0.25rem;
+  }
+
+  .lg\:pt-\[2px\] {
+    padding-top: 2px;
+  }
+
+  .lg\:pt-\[3px\] {
+    padding-top: 3px;
+  }
+
   .lg\:font-\[\'TT-Norms-Pro-Medium\'\] {
     font-family: 'TT-Norms-Pro-Medium';
   }
@@ -4095,6 +4128,10 @@ html {
   .lg\:text-black {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+
+  .lg\:no-underline {
+    text-decoration-line: none;
   }
 
   .lg\:blur-\[150px\] {
