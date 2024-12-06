@@ -96,7 +96,8 @@
   <div class="w-full h-auto flex flex-col items-start justify-center">
     <!-- container text -->
     <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 lg:px-12 lg:py-14">
-      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default: "Exteriors" | upcase }}</p>
+      <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.exterior_text_title | default:
+ "Exteriors" | upcase }}</p>
 
       <p class="body-16 text-balance">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet,
         consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
@@ -118,7 +119,20 @@
     <!-- container images -->
     <!-- explore gallery wrapper -->
     <div class="w-full h-auto overflow-x-hidden mb-10 relative">
-      <div class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x">
+
+      <div class="arrow-left-external hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
+        <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white transition-all duration-150 ease-in cursor-pointer" onclick="changeImageExternal(-1)>
+          {% render 'arrow-left-icon' %}
+        </div>
+      </div>
+      <div class="arrow-right-external hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
+        <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white transition-all duration-150 ease-in cursor-pointer" onclick="changeImageExternal(-1)>
+          {% render 'arrow-right-icon' %}
+        </div>
+      </div>
+
+
+      <div class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-x-external snap-mandatory scroll-snap-type-x">
         <!-- assegna variabili -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
         {% if externalBoat %}
@@ -160,10 +174,10 @@
           {% endfor %}
         {% endif %}
       </div>
-                 <!-- handle counter images during scroll -->
-    <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
-      <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
-    </div>
+      <!-- handle counter images during scroll -->
+      <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+        <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
+      </div>
     </div>
   </div>
 </div>
@@ -173,7 +187,8 @@
 <div class="w-full h-auto flex flex-col items-start justify-center">
   <!-- container text -->
   <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-5 pb-6 gap-y-6 lg:px-12 lg:py-14">
-    <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors" | upcase }}</p>
+    <p class="text-[24px] leading-[30px] text-[#818181]">{{ section.settings.interior_text_title | default: "Interiors"
+ | upcase }}</p>
 
     <p class="body-16 text-balance">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet,
       consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
@@ -185,7 +200,8 @@
         class="cta-transparent-round h-[32px] lg:w-[220px] px-6 lg:px-4 lg:py-2"
         data-target="internal"
         onclick="toggleGallery(this)">
-        <p class="body-14  tt-norms-pro-med -tracking-[0.2px]">{{ section.settings.cta_brochure_interior | default: "Full interior gallery" }}</p>
+        <p class="body-14  tt-norms-pro-med -tracking-[0.2px]">{{ section.settings.cta_brochure_interior | default:
+ "Full interior gallery" }}</p>
       </div>
 
     </div>
@@ -193,6 +209,18 @@
 
   <!-- explore gallery wrapper -->
   <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+
+    <div class="arrow-left-content-explore hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
+      <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white transition-all duration-150 ease-in cursor-pointer">
+        {% render 'arrow-left-icon' %}
+      </div>
+    </div>
+    <div class="arrow-right-content-explore hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
+      <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg text-white transition-all duration-150 ease-in cursor-pointer">
+        {% render 'arrow-right-icon' %}
+      </div>
+    </div>
+
     <div class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x-internal">
       <!-- assign variables -->
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
@@ -232,43 +260,73 @@
         {% endfor %}
       {% endif %}
     </div>
-          <!-- handle counter images during scroll -->
-          <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
-            <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0' }})</p>
-          </div>
+    <!-- handle counter images during scroll -->
+    <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+      <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend:
+ '0' }})</p>
+    </div>
   </div>
 </div>
 
 
 <!-- Swiper Custom Style -->
 <style>
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  width: 24px !important;
-  height: 2px !important;
-  border-radius: 2px !important;
-  background-color: white !important;
-}
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 24px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+  }
 
-.swiper-pagination-bullet {
-  width: 8px !important;
-  height: 2px !important;
-  border-radius: 2px !important;
-  background-color: white !important;
-}
+  .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+  }
 
-.visibility-more-text {
-  transition: height 0.3s ease;
-}</style><script>
-
-
+  .visibility-more-text {
+    transition: height 0.3s ease;
+  }
+</style>
+<script>
+  
+  
   document.addEventListener('DOMContentLoaded', () => {
-
+  
+  
+    const changeImageExternal = (direction) => {
+      const container = document.querySelector('.snap-x-external');
+      const exploreImages = document.querySelectorAll('[id^="explore_image"]');
+      if (!container || exploreImages.length === 0) return;
+  
+      const imageWidth = exploreImages[0].offsetWidth + 1; // Considera anche il gap
+      const currentScrollLeft = container.scrollLeft;
+      const targetScrollLeft = currentScrollLeft + direction * imageWidth;
+  
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth'
+      });
+    };
+  
+    if (arrowLeftExternal) {
+      arrowLeft.addEventListener('click', () => changeImage(-1));
+    }
+    if (arrowRightExternal) {
+      arrowRight.addEventListener('click', () => changeImage(1));
+    }
+  
+    window.changeImage = changeImageExternal;
+  
     const overlay = document.querySelector('.overlay-images');
     const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
     const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
     const closeOverlay = document.querySelector('.close-overlay-images');
+    const arrowLeftExternal = document.querySelector('.arrow-left-external');
+    const arrowRightExternal = document.querySelector('.arrow-right-external');
     let externalSwiper, internalSwiper;
-
+  
     // Inizializza Swiper
     externalSwiper = new Swiper('.swiper-container-overlay-external', {
       loop: true,
@@ -277,7 +335,7 @@
         clickable: true,
       },
     });
-
+  
     internalSwiper = new Swiper('.swiper-container-overlay-internal', {
       loop: true,
       pagination: {
@@ -285,84 +343,84 @@
         clickable: true,
       },
     });
-
+  
     // Funzione per aprire l'overlay
     window.toggleGallery = (button) => {
       const target = button.getAttribute('data-target');
-
+  
       overlay.classList.remove('hidden'); // Mostra l'overlay
       externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
       internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
-
+  
       if (target === 'external') {
         externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
       } else if (target === 'internal') {
         internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
       }
     };
-
+  
     // Chiudi l'overlay
     closeOverlay.addEventListener('click', () => {
       overlay.classList.add('hidden'); // Nascondi l'overlay
       externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
       internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
     });
-
+  
     const updateCounterOnScroll = (images, counterText, container) => {
       const updateCounter = () => {
         let closestImageIndex = 0;
         let closestDistance = Infinity;
-
+  
         images.forEach((image, index) => {
           const rect = image.getBoundingClientRect();
           const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-
+  
           if (distanceFromCenter < closestDistance) {
             closestDistance = distanceFromCenter;
             closestImageIndex = index;
           }
         });
-
+  
         counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
       };
-
+  
       updateCounter(); // Initial update
       container.addEventListener('scroll', updateCounter);
     };
-
+  
     // Exteriors
     const externalCounterText = document.querySelector('.counter-items');
     const externalImages = document.querySelectorAll('[id^="externalImage_"]');
     const externalContainer = document.querySelector('.scroll-snap-type-x');
-
+  
     if (externalImages.length) {
       updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
-
+  
       // Add event listener to the first external image to open the full view
       const firstExternalImage = externalImages[0];
       firstExternalImage.addEventListener('click', () => {
         window.toggleGallery({getAttribute: () => 'external'}); // Open external gallery on click of the first image
       });
     }
-
+  
     // Interiors
     const internalCounterText = document.querySelector('.counter-items-internal');
     const internalImages = document.querySelectorAll('[id^="internalImage_"]');
     const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
-
+  
     if (internalImages.length) {
       updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
-
+  
       // Add event listener to the first internal image to open the full view
       const firstInternalImage = internalImages[0];
       firstInternalImage.addEventListener('click', () => {
         window.toggleGallery({getAttribute: () => 'internal'}); // Open internal gallery on click of the first image
       });
     }
-
+  
     function handleOrientationChange() {
       const turnButton = document.querySelector('.turn-button');
-
+  
       if (window.matchMedia("(orientation: landscape)").matches) {
         if (turnButton) {
           turnButton.classList.add('hidden');
@@ -373,22 +431,22 @@
         }
       }
     }
-
+  
     window.addEventListener('resize', handleOrientationChange);
-
+  
     handleOrientationChange();
-
+  
     const readMoreButtons = document.querySelectorAll(".read-more-btn");
-
+  
     readMoreButtons.forEach(button => {
       button.addEventListener("click", () => {
         const targetId = button.getAttribute("data-target");
         const targetElement = document.getElementById(targetId);
-
+  
         if (targetElement) {
           // Controlla se è già espanso
           const isExpanded = targetElement.style.height && targetElement.style.height !== "0px";
-
+  
           if (isExpanded) {
             // Nascondi il testo
             targetElement.style.height = "0px";
@@ -402,102 +460,106 @@
       });
     });
   });
-</script>{% schema %}
-{
-  "name": "Interior & Exterior",
-  "settings": [
-    {
-      "type": "text",
-      "id": "main_title",
-      "label": "Main Title",
-      "default": "Design"
-    },
-    {
-      "type": "text",
-      "id": "exterior_text_title",
-      "label": "Exteriors Title",
-      "default": "Exteriors"
-    },
-    {
-      "type": "textarea",
-      "id": "exterior_text_content",
-      "label": "Exteriors Content",
-      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    },
-    {
-      "type": "text",
-      "id": "cta_brochure",
-      "label": "CTA Button Text (Exterior)",
-      "default": "Full exterior gallery"
-    }, {
-      "type": "text",
-      "id": "interior_text_title",
-      "label": "Interiors Title",
-      "default": "Interiors"
-    }, {
-      "type": "textarea",
-      "id": "interior_text_content",
-      "label": "Interiors Content",
-      "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    }, {
-      "type": "text",
-      "id": "cta_brochure_interior",
-      "label": "CTA Button Text (Interior)",
-      "default": "Full interior gallery"
-    }, {
-      "type": "text",
-      "id": "cta_content_text",
-      "label": "CTA Text for Content (Read More)",
-      "default": "Read more"
-    }, {
-      "type": "textarea",
-      "id": "interior_content_text",
-      "label": "Interior Content Text",
-      "default": "Lorem Ipsum dolor sit"
-    }, {
-      "type": "textarea",
-      "id": "exterior_content_text",
-      "label": "Exterior Content Text",
-      "default": "Lorem Ipsum dolor sit"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "Text images",
-      "type": "text_under_images",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "text_image",
-          "label": "Text under image",
-          "info": "Type text you want under image",
-          "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-        }, {
-          "type": "text",
-          "id": "image_text_title",
-          "label": "Text Title image",
-          "info": "Type Title you want under image",
-          "default": "Lorem ipsum dolor sit"
-        }, {
-          "type": "textarea",
-          "id": "more_text",
-          "label": "More text",
-          "info": "Type more text you want under image",
-          "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-        }, {
-          "type": "checkbox",
-          "id": "more_text_visible",
-          "label": "Choose more text visibility",
-          "default": false
-        }
-      ]
-    }
-  ],
-  "max_blocks": 8,
-  "presets": [
-    {
-      "name": "Interior & Exterior Design",
-      "category": "Custom"
-    }
-  ]
-}{% endschema %}
+</script>
+
+
+{% schema %}
+  {
+    "name": "Interior & Exterior",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main Title",
+        "default": "Design"
+      },
+      {
+        "type": "text",
+        "id": "exterior_text_title",
+        "label": "Exteriors Title",
+        "default": "Exteriors"
+      },
+      {
+        "type": "textarea",
+        "id": "exterior_text_content",
+        "label": "Exteriors Content",
+        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      },
+      {
+        "type": "text",
+        "id": "cta_brochure",
+        "label": "CTA Button Text (Exterior)",
+        "default": "Full exterior gallery"
+      }, {
+        "type": "text",
+        "id": "interior_text_title",
+        "label": "Interiors Title",
+        "default": "Interiors"
+      }, {
+        "type": "textarea",
+        "id": "interior_text_content",
+        "label": "Interiors Content",
+        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      }, {
+        "type": "text",
+        "id": "cta_brochure_interior",
+        "label": "CTA Button Text (Interior)",
+        "default": "Full interior gallery"
+      }, {
+        "type": "text",
+        "id": "cta_content_text",
+        "label": "CTA Text for Content (Read More)",
+        "default": "Read more"
+      }, {
+        "type": "textarea",
+        "id": "interior_content_text",
+        "label": "Interior Content Text",
+        "default": "Lorem Ipsum dolor sit"
+      }, {
+        "type": "textarea",
+        "id": "exterior_content_text",
+        "label": "Exterior Content Text",
+        "default": "Lorem Ipsum dolor sit"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Text images",
+        "type": "text_under_images",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "text_image",
+            "label": "Text under image",
+            "info": "Type text you want under image",
+            "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }, {
+            "type": "text",
+            "id": "image_text_title",
+            "label": "Text Title image",
+            "info": "Type Title you want under image",
+            "default": "Lorem ipsum dolor sit"
+          }, {
+            "type": "textarea",
+            "id": "more_text",
+            "label": "More text",
+            "info": "Type more text you want under image",
+            "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }, {
+            "type": "checkbox",
+            "id": "more_text_visible",
+            "label": "Choose more text visibility",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "max_blocks": 8,
+    "presets": [
+      {
+        "name": "Interior & Exterior Design",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

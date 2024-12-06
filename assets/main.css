@@ -1351,6 +1351,14 @@ p,
   margin-top: 194px;
 }
 
+.-mt-\[50px\] {
+  margin-top: -50px;
+}
+
+.-mt-\[70px\] {
+  margin-top: -70px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
