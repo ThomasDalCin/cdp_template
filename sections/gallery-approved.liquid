@@ -79,6 +79,10 @@
         background-color: white !important;
     }
 
+    .swiper-pagination{
+        padding-bottom: 46px;
+    }
+
     #external-content.hidden,
     #internal-content.hidden {
         display: none;
@@ -113,30 +117,37 @@
         });
 
         // Tab click handling
-        function showTab(contentToShow, rectToShow) {
-            // Hide all tabs
+        function showTab(contentToShow, rectToShow, activeTab, inactiveTab) {
+            // Hide all content
             externalContent.classList.add('hidden');
             internalContent.classList.add('hidden');
             externalRect.classList.add('hidden');
             internalRect.classList.add('hidden');
 
-            // Show selected tab
+            // Show selected content
             contentToShow.classList.remove('hidden');
             rectToShow.classList.remove('hidden');
+
+            // Update tab classes
+            activeTab.classList.add('tt-norms-pro-med');
+            activeTab.classList.remove('tt-norms-pro-light');
+            inactiveTab.classList.add('tt-norms-pro-light');
+            inactiveTab.classList.remove('tt-norms-pro-med');
         }
 
         externalTab.addEventListener('click', () => {
-            showTab(externalContent, externalRect);
+            showTab(externalContent, externalRect, externalTab, internalTab);
         });
 
         internalTab.addEventListener('click', () => {
-            showTab(internalContent, internalRect);
+            showTab(internalContent, internalRect, internalTab, externalTab);
         });
 
         // Show external tab by default
-        showTab(externalContent, externalRect);
+        showTab(externalContent, externalRect, externalTab, internalTab);
     });
 </script>
+
 
 {% comment %}
   Section Schema Settings here;

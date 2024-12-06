@@ -3321,6 +3321,10 @@ html {
     margin-top: 3rem;
   }
 
+  .lg\:mt-\[13px\] {
+    margin-top: 13px;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -4012,6 +4016,10 @@ html {
 
   .lg\:pt-\[60px\] {
     padding-top: 60px;
+  }
+
+  .lg\:pb-12 {
+    padding-bottom: 3rem;
   }
 
   .lg\:font-\[\'TT-Norms-Pro-Medium\'\] {
