@@ -3292,6 +3292,10 @@ html {
     right: 0px;
   }
 
+  .lg\:bottom-0 {
+    bottom: 0px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
