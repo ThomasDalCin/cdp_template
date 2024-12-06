@@ -3262,6 +3262,10 @@ html {
     top: calc(820px + 1rem);
   }
 
+  .lg\:right-0 {
+    right: 0px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -3475,6 +3479,14 @@ html {
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
+  }
+
+  .lg\:min-h-\[524px\] {
+    min-height: 524px;
+  }
+
+  .lg\:min-h-full {
+    min-height: 100%;
   }
 
   .lg\:w-1\/2 {
