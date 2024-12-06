@@ -8,7 +8,7 @@
       {% unless article.tags contains "Past" %}
 
         <!-- Article wrap -->
-        <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_1rem)]">
+        <div class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_0.5rem)]">
           <!-- Article image -->
           <div class="w-full h-[220px] min-h-[220px]">
             <img
@@ -48,17 +48,17 @@
 <div class="w-full h-auto flex items-start justify-center flex-col mb-10 lg:mb-[120px]">
 
   <!-- Card Title Section -->
-  <div class="w-full h-auto flex items-start justify-center px-6 pt-14 pb-8 lg:px-20 lg:py-[60px] lg:justify-start">
+  <div class="w-full h-auto flex items-start justify-center px-6 pt-14 pb-8 lg:pl-20 lg:pr-6 lg:pb-10 lg:py-[60px] lg:justify-start">
     <p class="text-[48px] leading-[52px] tt-norms-pro-light">{{ section.settings.main_title | default: "Previous partnership" }}</p>
   </div>
 
   <!-- Arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10 lg:mb-10">
     <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
-      <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+      <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-black">
         {% render 'arrow-left-icon' %}
       </button>
-      <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6  text-white">
+      <button id="nextArrow" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6  text-black">
         {% render 'arrow-right-icon' %}
       </button>
     </div>
@@ -68,7 +68,7 @@
   <div class="article-list-container w-full h-auto flex items-start justify-center flex-col py-4 px-6 lg:py-0">
 
     <!-- Scrolling container -->
-    <div class="w-[calc(100%+4rem)] px-8 -mx-8 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:px-20 lg:gap-x-4">
+    <div class="w-[calc(100%+4rem)] px-8 -mx-8 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:mb-0 lg:px-20 lg:gap-x-4">
       {% assign allBlogs = "Partnership, " | split: "," %}
       {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
