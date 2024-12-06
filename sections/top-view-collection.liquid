@@ -85,13 +85,21 @@
     <div class="product-details-magnetic-scroll w-full py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto lg:w-full lg:px-[166px] lg:gap-x-10 lg:py-0">
         {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
         {% for productMetafieldsValue in productMetafieldsValues %}
-        {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
-        <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[180px] lg:flex-1">
-            <p class="body-14 text-nowrap lg:text-[24px] lg:leading-[30px]">{{ metafieldCustom }}</p>
-            <p class="body-12 text-[#818181] text-nowrap lg:text-[32px] lg:leading-[38px]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
-          
-        </div>
-        {% endfor %}
+            {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
+            {% if forloop.first %}
+                <!-- Layout per il primo elemento -->
+                <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[180px] lg:flex-1">
+                    <p class="body-14 text-nowrap lg:text-[24px] lg:leading-[30px]">{{ metafieldCustom }}</p>
+                    <p class="body-12 text-[#818181] text-nowrap lg:text-[32px] lg:leading-[38px]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
+                </div>
+            {% else %}
+                <!-- Layout per gli altri elementi -->
+                <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 lg:h-[180px] lg:flex-1">
+                    <p class="body-12 text-[#818181] text-nowrap lg:text-[24px] lg:leading-[30px]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
+                    <p class="body-14 text-nowrap lg:text-[32px] lg:leading-[38px]">{{ metafieldCustom }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}        
     </div>
 </div>
 

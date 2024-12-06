@@ -1,7 +1,7 @@
 <!-- time to find delear section -->
-<div class="w-full h-auto flex items-start justify-center flex-col gap-y-2 bg-[#F7F7F7] lg:p-20">
+<div class="w-full h-auto flex items-start justify-center flex-col gap-y-2 bg-[#F7F7F7] lg:p-20 lg:gap-y-0">
   <!-- section title -->
-  <div class="w-full h-auto flex items-start justify-center px-6 pt-14 pb-6 lg:justify-start lg:px-0">
+  <div class="w-full h-auto flex items-start justify-center px-6 pt-14 pb-6 lg:justify-start lg:px-0 lg:pt-14 lg:pb-10">
     <p class="text-[48px] leading-[54px]  tt-norms-pro-light">{{ section.settings.section_title | default: "Time to find a delear" }}</p>
   </div>
   <!-- container image + text -->
@@ -14,7 +14,7 @@
         class="w-full h-[242px] max-h-[242px] object-cover object-center lg:h-[460px] lg:min-h-[460px]">
     </div>
     <!-- container text -->
-    <div class="w-full h-auto p-6 flex flex-col items-start justify-center lg:px-0">
+    <div class="w-full h-auto p-6 flex flex-col items-start justify-center lg:px-0 lg:py-10">
       <p class="body-16">{{ section.settings.section_text | default: "Korem ipsum dolor sit amet, consectetur
                 adipiscing elit.
                 Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora
@@ -22,9 +22,9 @@
     </div>
   </div>
   <!-- container button -->
-  <div class="w-full h-[112px] flex flex-row items-start justify-end p-6 lg:px-0">
+  <div class="w-full h-[112px] flex flex-row items-start justify-end p-6 lg:px-0 lg:py-0 lg:justify-center lg:h-auto">
     <!-- container button -->
-    <div class="inline-flex cta-choco-round h-[32px]">
+    <div class="inline-flex cta-choco-round h-[32px] lg:flex">
       <a href="/pages/locate-delear">
         <p class="body-14">{{ section.settings.cta_text | default: "Find a delear" }}</p>
       </a>
