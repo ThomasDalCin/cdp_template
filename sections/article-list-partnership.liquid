@@ -53,7 +53,7 @@
   </div>
 
   <!-- Arrows box -->
-  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
+  <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10 lg:mb-10">
     <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
       <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
         {% render 'arrow-left-icon' %}
@@ -65,20 +65,31 @@
   </div>
 
   <!-- Scrolling Past Articles Container -->
-  <div class="article-list-container w-full h-auto flex items-start justify-center flex-col py-4 px-4 lg:px-20 lg:pb-4">
+  <div class="article-list-container w-full h-auto flex items-start justify-center flex-col py-4 px-6 lg:py-0">
 
     <!-- Scrolling container -->
-    <div class="w-[calc(100%+2rem)] px-4 -mx-4 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+    <div class="w-[calc(100%+4rem)] px-8 -mx-8 overflow-x-auto h-auto flex flex-row items-center justify-start gap-x-2 p-0 mb-8 lg:px-20 lg:gap-x-4">
       {% assign allBlogs = "Partnership, " | split: "," %}
       {% for handle in allBlogs %}
         {% for article in blogs[handle].articles %}
+          {% assign cardColorsValue = "#908987,#000000,#423C3B,#908987,#A9A09E" | split: "," %}
+          {% assign article_Id = article.id %}
+          {% assign colorIndex = article_Id | modulo: cardColorsValue.size %}
+          {% assign cardColor = cardColorsValue[colorIndex] %}
+
+          {% if cardColor == '#423C3B' or cardColor == '#000000' %}
+            {% assign textColorClass = 'text-white' %}
+          {% else %}
+            {% assign textColorClass = 'text-black' %}
+          {% endif %}
+          
           {% if article.tags contains 'Past' %}
             {% assign is_even = forloop.index | modulo: 2 %}
-              <div class="{% if is_even == 0 %}bg-[#A9A09E] text-black{% else %}bg-black text-white{% endif %} w-[247px] min-w-[247px] h-[228px] max-h-[228px] p-6 rounded-2xl flex flex-col items-start justify-start gap-y-6 lg:w-[320px] lg:min-h-[276px] relative">
+              <div class="w-[247px] min-w-[247px] h-[286px] max-h-[286px] p-6 rounded-2xl flex flex-col items-start justify-start gap-y-6 relative lg:w-[320px] lg:min-w-[320px]" style="background-color: {{ cardColor }};">
               <!-- Card Content -->
               <div class="w-full h-auto flex items-start justify-center flex-col gap-y-4">
-                <p class="text-[24px] leading-[30px] tt-norms-pro-reg">{{ article.title }}</p>
-                <p class="body-14">{{ article.content | truncate: 100 }}</p>
+                <p class="text-[24px] leading-[30px] tt-norms-pro-reg {{ textColorClass }}">{{ article.title }}</p>
+                <p class="body-14 {{ textColorClass }}">{{ article.content | truncate: 100 }}</p>
               </div>
               <!-- Button content -->
               <div class="w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
