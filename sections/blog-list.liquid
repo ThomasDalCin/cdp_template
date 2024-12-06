@@ -7,11 +7,11 @@
     <div
       class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full  bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
       <button id="prev-news-Arrow"
-        class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-white">
+        class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6 text-black">
         {% render 'arrow-left-icon' %}
       </button>
       <button id="next-news-Arrow"
-        class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-white">
+        class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6 text-black">
         {% render 'arrow-right-icon' %}
       </button>
     </div>
@@ -25,7 +25,7 @@
   {% if articleCount > 0 %}
 
   <div
-    class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5.5rem)] lg:px-10">
+    class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
     {% for article in newsArticles %}
     {% assign modResult = forloop.index0 | modulo: 2 %}
 
@@ -75,7 +75,7 @@
     {% if article.tags contains "News" and modResult != 0 %}
     <!--  Vertical Layout -->
     <div
-      class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_1rem)] lg:h-[526px] lg:min-h-[526px]"
+      class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_0.67rem)] lg:h-[526px] lg:min-h-[526px]"
       data-tags="{{ article.tags | join: ',' }}">
 
       <div class="blog-item-image w-full lg:w-full">
@@ -134,29 +134,29 @@
 
 <!-- News Articles: Pressroom -->
 <div id="pressroom-layout"
-  class="blog-pressroom-container w-full h-auto flex flex-col items-start justify-center px-6 py-10 hidden">
+  class="blog-pressroom-container w-full h-auto flex flex-col items-start justify-center px-6 py-10 hidden lg:px-20 lg:py-24">
 
   {% if blogs.news %}
   {% assign newsArticles = blogs.news.articles %}
   {% if newsArticles.size > 0 %}
   <!-- Horizontal Scroll Row -->
   <div
-    class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
+    class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-start lg:justify-start lg:gap-x-4">
     {% for article in newsArticles %}
     {% if article.tags contains "Press Room" %}
     <div
-      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]"
+      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px]"
       data-tags="{{ article.tags | join: ',' }}">
 
       <!-- Article Image -->
       <div class="blog-item-image w-full h-auto">
         <img src="{{ article.image | img_url: 'master' }}"
-          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[220px]"
           alt="{{ article.image.alt }}">
       </div>
 
       <!-- Article Info Container -->
-      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
+      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl lg:h-full relative">
 
         <!-- Optional Article Flags -->
         {% assign articleFlag = article.metafields.custom.press_room_flag.value %}
@@ -177,7 +177,7 @@
         </div>
 
         <!-- Call-to-Actions -->
-        <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end">
+        <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
           <a href="{{ article.url }}" class="cta-transparent-round h-[32px]">
             <p class="body-14-medium">{{ section.settings.article_cta_pressroom | default: "Read more" }}</p>
           </a>
@@ -202,7 +202,7 @@
 
 <!-- News Articles: Awards -->
 <div id="awards-layout"
-  class="blog-awards-container w-full h-auto flex flex-col items-start justify-center px-6 py-10  hidden">
+  class="blog-awards-container w-full h-auto flex flex-col items-start justify-center px-6 py-10  hidden lg:px-20 lg:py-24">
   {% if blogs.news %}
   {% assign newsArticles = blogs.news.articles %}
   {% if newsArticles.size > 0 %}
@@ -212,16 +212,16 @@
     {% for article in newsArticles %}
     {% if article.tags contains "Awards" %}
     <div
-      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_1rem)]"
+      class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px]"
       data-tags="{{ article.tags | join: ',' }}">
 
       <div class="blog-item-image w-full h-auto">
         <img src="{{ article.image | img_url: 'master' }}"
-          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[200px]"
+          class="w-full h-auto min-h-[160px] max-h-[160px] object-cover rounded-t-xl lg:min-h-[220px]"
           alt="{{ article.image.alt }}">
       </div>
 
-      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl">
+      <div class="blog-item-info-container w-full h-auto p-6 bg-[#F7F7F7] flex flex-col gap-y-6 rounded-b-xl lg:h-full relative">
         <div class="blog-item-date w-full h-auto">
           <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
         </div>
@@ -229,7 +229,7 @@
           <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
           <p class="body-14">{{ article.content | truncate: 100 }}</p>
         </div>
-        <div class="blog-item-cta w-full h-auto flex items-center justify-end">
+        <div class="blog-item-cta w-full h-auto flex items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
           <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
             <p class="body-14-medium">{{ section.settings.article_cta }}</p>
           </a>

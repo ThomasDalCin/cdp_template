@@ -3441,6 +3441,10 @@ html {
     height: 180px;
   }
 
+  .lg\:h-\[496px\] {
+    height: 496px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -3499,6 +3503,14 @@ html {
 
   .lg\:min-h-full {
     min-height: 100%;
+  }
+
+  .lg\:min-h-\[496px\] {
+    min-height: 496px;
+  }
+
+  .lg\:min-h-\[220px\] {
+    min-height: 220px;
   }
 
   .lg\:w-1\/2 {
@@ -3599,6 +3611,22 @@ html {
 
   .lg\:w-\[calc\(50\%_-_0\.5rem\)\] {
     width: calc(50% - 0.5rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.5rem\)\] {
+    width: calc(33.3% - 0.5rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.64rem\)\] {
+    width: calc(33.3% - 0.64rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.65rem\)\] {
+    width: calc(33.3% - 0.65rem);
+  }
+
+  .lg\:w-\[calc\(33\.3\%_-_0\.67rem\)\] {
+    width: calc(33.3% - 0.67rem);
   }
 
   .lg\:min-w-0 {
@@ -3973,6 +4001,11 @@ html {
   .lg\:px-\[166px\] {
     padding-left: 166px;
     padding-right: 166px;
+  }
+
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .lg\:pb-0 {
