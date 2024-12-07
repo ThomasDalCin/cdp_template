@@ -220,9 +220,9 @@
                       class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
                     <label for="marketingConsent" class="text-[12px] leading-[18px]  tt-norms-pro-reg">
                       {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
-                                          commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
-                                          market research in order to evaluate your level of satisfaction with our products and services." }}
-                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy"}}</span>
+                                                                                          commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
+                                                                                          market research in order to evaluate your level of satisfaction with our products and services." }}
+                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy" }}</span>
                     </label>
                   </div>
 
@@ -235,17 +235,24 @@
                       class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
                     <label for="profilingConsent" class="text-[12px] leading-[18px] tt-norms-pro-reg">
                       {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
-                                          send you personalized commercial communications based on your purchasing habits and, in general,
-                                          based on your interests, your requests and your interactions with us." }}
-                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy"}}</span>
+                                                                                          send you personalized commercial communications based on your purchasing habits and, in general,
+                                                                                          based on your interests, your requests and your interactions with us." }}
+                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy" }}</span>
                     </label>
                   </div>
 
                 </div>
 
+                <!-- cta-privacy-page -->
+                <div class="w-full h-auto flex flex-col items-start justify-center">
+                  <a href="{{ section.settings.cta_privacy_page_redirect }}">
+                    <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | default: "Privacy Policy" }}</p>
+                  </a>
+                </div>
+
                 <!-- Submit Button -->
                 <div class="w-full h-auto flex items-start justify-center lg:justify-end">
-                  <div class="w-full cta-transparent opacity-20 lg:inline-flex lg:h-[48px] lg:max-w-[220px]" id="contact-cta">
+                  <div class="w-full cta-transparent opacity-20 lg:inline-flex lg:h-[48px]" id="contact-cta">
                     <button type="submit">
                       {{ section.settings.form_cta }}
                     </button>
@@ -276,6 +283,11 @@
     const dropdownToggle = document.getElementById('dropdown-toggle');
     const dropdownContainer = document.getElementById('dropdown-container');
     const dropdownArrow = document.getElementById('dropdown-arrow');
+  
+    const marketingCheckbox = document.getElementById('marketingConsent'); // Checkbox Marketing
+    const profilingCheckbox = document.getElementById('profilingConsent'); // Checkbox Profiling
+    const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
+  
   
     // Toggle the dropdown when the header is clicked
     dropdownToggle.addEventListener('click', function () {
@@ -336,10 +348,6 @@
           allFilled = false;
         }
   
-        //if the filed is a checkbox check if is selected
-        if (input.type === 'checkbox' && !input.checked) {
-          allFilled = false;
-        }
       });
   
       //change the cta color base on fields
@@ -361,12 +369,71 @@
   
     //handle the function after page loading
     checkFormCompletion();
+  
+    const updateProfilingState = () => {
+            if (marketingCheckbox.checked) {
+                profilingContainer.style.opacity = '1';
+                profilingCheckbox.disabled = false;
+            } else {
+                profilingContainer.style.opacity = '0.3';
+                profilingCheckbox.disabled = true;
+                profilingCheckbox.checked = false; // Deseleziona Profiling se Marketing non è selezionato
+            }
+    };
+  
+      // Event listeners per le checkbox
+      marketingCheckbox.addEventListener('change', () => {
+            updateProfilingState();
+        });
+  
+  
+    updateProfilingState();
+  
+  
+    const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
+        const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
+        const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
+        const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
+  
+        linksToPopUp.forEach((link) => {
+            const linkReference = link.getAttribute('data-attribute');
+            link.addEventListener('click', () => {
+                if (linkReference === "marketing") {
+                    openPopUp(marketingPopUpContainer);
+                } else if (linkReference === "profilation") {
+                    openPopUp(profilationPopUpContainer);
+                }
+            });
+        });
+  
+        closingPopUpIcon.forEach((icon) => {
+            const iconReference = icon.getAttribute('data-attribute');
+            icon.addEventListener('click', () => {
+                if (iconReference === "marketing") {
+                    closePopUp(marketingPopUpContainer);
+                } else if (iconReference === "profilation") {
+                    closePopUp(profilationPopUpContainer);
+                }
+            });
+        });
+  
+        function openPopUp(elementToOpen) {
+            elementToOpen.classList.remove('hidden');
+            elementToOpen.classList.add('flex');
+        }
+  
+        function closePopUp(elementToClose) {
+            elementToClose.classList.add('hidden');
+            elementToClose.classList.remove('flex');
+        }
+  
+  
   });
 </script>
 
 
 {% comment %} 
-            Section Schema Settings here; 
+                Section Schema Settings here; 
 {% endcomment %}
 {% schema %}
   {
@@ -465,6 +532,15 @@
         "id": "form_cta",
         "label": "CTA Text",
         "default": "Send"
+      }, {
+        "type": "text",
+        "id": "cta_privacy_page",
+        "label": "CTA Text",
+        "default": "Privacy Policy"
+      }, {
+        "type": "url",
+        "id": "cta_privacy_page_redirect",
+        "label": "CTA Url"
       }
     ],
     "blocks": [

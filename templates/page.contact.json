@@ -1,5 +1,13 @@
 {
   "sections": {
+    "marketing-pop-up": {
+      "type": "marketing-pop-up",
+      "settings": {}
+    },
+    "profilation-pop-up": {
+      "type": "profilation-pop-up",
+      "settings": {}
+    },
     "contact": {
       "type": "contact-form",
       "blocks": {
@@ -42,6 +50,8 @@
     }
   },
   "order": [
-    "contact"
+    "contact",
+    "marketing-pop-up",
+    "profilation-pop-up"
   ]
 }
