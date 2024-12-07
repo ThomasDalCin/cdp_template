@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "top-view-collection": {
@@ -14,15 +22,18 @@
     "collection-oriz-scroll": {
       "type": "collection-oriz-scroll",
       "settings": {
-        "explore_image_one": "shopify:\/\/shop_images\/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_two": "shopify:\/\/shop_images\/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "explore_image_three": "shopify:\/\/shop_images\/25194cb11459cc4c349d1fa39e37a83c.png",
-        "explore_image_four": "shopify:\/\/shop_images\/c0df3a782758c01a8ce3daca8d2d3b50.jpg"
+        "oriz_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
+        "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
+        "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
+        "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
       }
     },
     "oriz-scroll-text": {
       "type": "oriz-scroll-text",
-      "settings": {}
+      "settings": {
+        "main_title": "DiscoverWalkaround",
+        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
+      }
     },
     "articles-list": {
       "type": "articles-list",
@@ -32,7 +43,7 @@
       "type": "find-delear",
       "settings": {
         "section_title": "Time to find a dealer",
-        "section_image": "shopify:\/\/shop_images\/ab94c9bd7d1a9f21b531a986901666f6.jpg",
+        "section_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg",
         "section_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
         "cta_text": "Find a dealer"
       }
