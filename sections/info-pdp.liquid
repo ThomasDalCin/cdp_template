@@ -71,8 +71,8 @@
 
 <!-- Form Container -->
 <div id="form-container"
-    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out">
-    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:max-h-[600px]">
+    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:flex lg:backdrop-blur-lg">
+    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:max-h-[600px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
 
         <!-- Form Header -->
         <div class="form-appointment-headers w-full flex items-center justify-end relative">
@@ -87,7 +87,7 @@
 
         <!-- Form Content -->
 
-        {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6" %}
+        {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px]" %}
 
         {% if form.posted_successfully? %}
         <div
@@ -157,6 +157,13 @@
             </div>
 
         </div>
+
+            <!-- cta-privacy-page -->
+            <div class="w-full h-auto flex flex-col items-start justify-center">
+                <a href="{{ section.settings.cta_privacy_page_redirect }}">
+                  <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | default: "Privacy Policy" }}</p>
+                </a>
+              </div>
         
         <!-- Hidden Input for Brochure Tag -->
         <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
