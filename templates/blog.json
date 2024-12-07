@@ -11,9 +11,19 @@
     "blog-events": {
       "type": "blog-events",
       "settings": {}
+    },
+    "marketing-pop-up": {
+      "type": "marketing-pop-up",
+      "settings": {}
+    },
+    "profilation-pop-up": {
+      "type": "profilation-pop-up",
+      "settings": {}
     }
   },
   "order": [
+    "marketing-pop-up",
+    "profilation-pop-up",
     "blog-tab",
     "blog-list",
     "blog-events"
