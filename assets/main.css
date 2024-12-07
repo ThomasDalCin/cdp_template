@@ -3182,6 +3182,10 @@ html {
 }
 
 @media (min-width: 1024px) {
+  .lg\:static {
+    position: static;
+  }
+
   .lg\:fixed {
     position: fixed;
   }
@@ -3501,6 +3505,10 @@ html {
     min-height: 960px;
   }
 
+  .lg\:min-h-\[344px\] {
+    min-height: 344px;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -3605,6 +3613,18 @@ html {
     width: 482px;
   }
 
+  .lg\:w-\[124px\] {
+    width: 124px;
+  }
+
+  .lg\:w-\[calc\(50\%_-_40px\)\] {
+    width: calc(50% - 40px);
+  }
+
+  .lg\:w-\[calc\(50\%_-_20px\)\] {
+    width: calc(50% - 20px);
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
@@ -3706,6 +3726,10 @@ html {
 
   .lg\:items-start {
     align-items: flex-start;
+  }
+
+  .lg\:items-end {
+    align-items: flex-end;
   }
 
   .lg\:items-center {
@@ -3812,8 +3836,16 @@ html {
     overflow-x: auto;
   }
 
+  .lg\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
   .lg\:overflow-y-hidden {
     overflow-y: hidden;
+  }
+
+  .lg\:overflow-y-scroll {
+    overflow-y: scroll;
   }
 
   .lg\:rounded-\[32px\] {
