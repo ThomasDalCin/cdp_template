@@ -187,103 +187,142 @@
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll('.tab-gamma');
-        const imageScrolls = document.querySelectorAll('.image-scroll');
-        const magneticScroll = document.querySelector('.magnetic-scroll');
-        const unionIcon = document.querySelector('.union-icon');
-        const wrapContent = document.querySelector('.wrap-content');
-        const ctaButton = document.getElementById('cta-button-collection');
-        const wrapContainer = document.querySelector('.wrap-container');
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll('.tab-gamma');
+    const imageScrolls = document.querySelectorAll('.image-scroll');
+    const magneticScroll = document.querySelector('.magnetic-scroll');
+    const unionIcon = document.querySelector('.union-icon');
+    const wrapContent = document.querySelector('.wrap-content');
+    const ctaButton = document.getElementById('cta-button-collection');
+    const wrapContainer = document.querySelector('.wrap-container');
 
-        // Funzione per gestire il click sulla tab
-        function handleTabClick(event) {
-            const clickedTab = event.currentTarget;
-            const selectedTabId = clickedTab.id;
-            const selectedTabName = clickedTab.textContent.trim();
+    // Funzione per calcolare e impostare il padding-right dinamico per il magnetic-scroll
+    function adjustScrollPadding() {
+        const lastRealItem = imageScrolls[imageScrolls.length - 1]; // Ultimo elemento reale
+        if (lastRealItem) {
+            const magneticScrollRect = magneticScroll.getBoundingClientRect();
+            const lastItemRect = lastRealItem.getBoundingClientRect();
 
-            // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
-            tabs.forEach(tab => tab.classList.remove('active-tab'));
-            clickedTab.classList.add('active-tab');
+            // Calcolo dello spazio necessario per far entrare l'ultimo elemento
+            const extraSpace = lastItemRect.width - (magneticScrollRect.right - lastItemRect.left);
+            const paddingRight = Math.max(0, extraSpace + 40); // Aggiungi un margine extra opzionale (es. 20px)
 
-            // Gestisci la visibilità delle immagini in base alla tab selezionata
-            imageScrolls.forEach(image => {
-                const collection = image.getAttribute('data-collection');
-                if (selectedTabId === 'All Models' || selectedTabId === collection) {
-                    image.style.display = 'flex';
-                } else {
-                    image.style.display = 'none';
-                }
-            });
+            magneticScroll.style.paddingRight = `${paddingRight}px`;
+        }
+    }
 
-            // Fai scrollare 'wrapContent' per centrare la tab selezionata
-            scrollToTab(clickedTab);
+    // Funzione per gestire il click sulla tab
+    function handleTabClick(event) {
+        const clickedTab = event.currentTarget;
+        const selectedTabId = clickedTab.id;
+        const selectedTabName = clickedTab.textContent.trim();
 
-            // Cambia il comportamento del bottone CTA in base alla tab selezionata
-            if (selectedTabId === 'All Models') {
-                ctaButton.parentElement.style.display = 'none';
+        // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
+        tabs.forEach(tab => tab.classList.remove('active-tab'));
+        clickedTab.classList.add('active-tab');
+
+        // Gestisci la visibilità delle immagini in base alla tab selezionata
+        imageScrolls.forEach(image => {
+            const collection = image.getAttribute('data-collection');
+            if (selectedTabId === 'All Models' || selectedTabId === collection) {
+                image.style.display = 'flex';
             } else {
-                ctaButton.parentElement.style.display = 'flex';
-                ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
-                ctaButton.innerHTML = `Discover ${selectedTabName}`;
+                image.style.display = 'none';
             }
-
-            // Riporta lo scroll del contenitore magnetico all'inizio
-            magneticScroll.scrollTo({left: 0, behavior: "smooth"});
-
-            // Aggiorna la posizione dell'icona per centrarla sopra la nuova tab
-            updateUnionIconPosition(clickedTab);
-        }
-
-        // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata
-        function scrollToTab(target) {
-            const targetRect = target.getBoundingClientRect();
-            const containerRect = wrapContent.getBoundingClientRect();
-            const containerWidth = containerRect.width;
-            const targetCenterX = targetRect.left + targetRect.width / 2;
-            const containerCenterX = containerRect.left + containerWidth / 2;
-            const offset = targetCenterX - containerCenterX;
-
-            // Fai scrollare il contenitore in modo fluido
-            wrapContent.scrollTo({
-                left: wrapContent.scrollLeft + offset,
-                behavior: 'smooth'
-            });
-        }
-
-        // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
-        function updateUnionIconPosition(target) {
-            const targetRect = target.getBoundingClientRect();
-            const containerRect = wrapContainer.getBoundingClientRect();
-            const unionIconWidth = unionIcon.offsetWidth;
-
-            // Considera lo scroll di wrapContent nel calcolo
-            const scrollOffset = wrapContent.scrollLeft;
-
-            // Calcola la posizione centrale della tab selezionata rispetto al contenitore
-            const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
-
-            // Muovi l'icona nella posizione calcolata
-            unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
-            unionIcon.style.transition = "transform 0.3s ease";
-        }
-
-        // Esegui il posizionamento iniziale al caricamento della pagina
-        const modelsTab = document.getElementById('All Models');
-        if (modelsTab) {
-            modelsTab.classList.add('active-tab');
-            updateUnionIconPosition(modelsTab); // Centra l'icona sulla tab "All Models" al caricamento
-        }
-
-        // Aggiungi l'evento di clic su ogni tab
-        tabs.forEach(tab => {
-            tab.addEventListener('click', handleTabClick);
         });
 
-        // Imposta la visibilità delle immagini inizialmente
-        imageScrolls.forEach(image => image.style.display = 'flex');
-        ctaButton.parentElement.style.display = 'none';
+        // Fai scrollare 'wrapContent' per centrare la tab selezionata
+        scrollToTab(clickedTab);
+
+        // Cambia il comportamento del bottone CTA in base alla tab selezionata
+        if (selectedTabId === 'All Models') {
+            ctaButton.parentElement.style.display = 'none';
+        } else {
+            ctaButton.parentElement.style.display = 'flex';
+            ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
+            ctaButton.innerHTML = `Discover ${selectedTabName}`;
+        }
+
+        // Riporta lo scroll del contenitore magnetico all'inizio
+        magneticScroll.scrollTo({ left: 0, behavior: "smooth" });
+
+        // Aggiorna la posizione dell'icona per centrarla sopra la nuova tab
+        updateUnionIconPosition(clickedTab);
+    }
+
+    // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata
+    function scrollToTab(target) {
+        const targetRect = target.getBoundingClientRect();
+        const containerRect = wrapContent.getBoundingClientRect();
+        const containerWidth = containerRect.width;
+        const targetCenterX = targetRect.left + targetRect.width / 2;
+        const containerCenterX = containerRect.left + containerWidth / 2;
+        const offset = targetCenterX - containerCenterX;
+
+        // Fai scrollare il contenitore in modo fluido
+        wrapContent.scrollTo({
+            left: wrapContent.scrollLeft + offset,
+            behavior: 'smooth'
+        });
+    }
+
+    // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
+  // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
+function updateUnionIconPosition(target) {
+    const targetRect = target.getBoundingClientRect();
+    const containerRect = wrapContainer.getBoundingClientRect();
+    const unionIconWidth = unionIcon.offsetWidth;
+
+    // Considera lo scroll di wrapContent nel calcolo
+    const scrollOffset = wrapContent.scrollLeft;
+
+    // Verifica se il layout è desktop o mobile
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    let tabCenterX;
+
+    if (isDesktop) {
+        // Per desktop, considera l'allineamento centrale di wrapContent
+        const wrapContentRect = wrapContent.getBoundingClientRect();
+        const wrapContentCenterX = wrapContentRect.left + wrapContentRect.width / 2;
+        
+        // Calcoliamo la posizione rispetto al centro di wrap-content
+        tabCenterX = targetRect.left + targetRect.width / 2 - (wrapContentCenterX - containerRect.left) + scrollOffset;
+    } else {
+        // Per mobile, calcolo normale
+        tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
+    }
+
+    // Muovi l'icona nella posizione calcolata
+    unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
+    unionIcon.style.transition = "transform 0.3s ease";
+}
+
+
+    // Esegui il posizionamento iniziale al caricamento della pagina
+    const modelsTab = document.getElementById('All Models');
+    if (modelsTab) {
+        modelsTab.classList.add('active-tab');
+        updateUnionIconPosition(modelsTab); // Centra l'icona sulla tab "All Models" al caricamento
+    }
+
+    // Aggiungi l'evento di clic su ogni tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', handleTabClick);
     });
+
+    // Imposta la visibilità delle immagini inizialmente
+    imageScrolls.forEach(image => image.style.display = 'flex');
+    ctaButton.parentElement.style.display = 'none';
+
+    // Calcola il padding-right per far entrare l'ultimo elemento
+    adjustScrollPadding();
+
+    // Ricalcola il padding-right al ridimensionamento della finestra
+    window.addEventListener('resize', adjustScrollPadding);
+
+    
+});
 
 
 </script>
