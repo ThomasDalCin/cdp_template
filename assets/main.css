@@ -3618,6 +3618,10 @@ html {
     width: 100%;
   }
 
+  .lg\:w-\[calc\(50\%_-_2\.5rem\)\] {
+    width: calc(50% - 2.5rem);
+  }
+
   .lg\:min-w-0 {
     min-width: 0px;
   }
