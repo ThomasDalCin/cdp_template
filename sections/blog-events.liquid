@@ -5,21 +5,23 @@
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
     {% if eventsArticles.size > 0 %}
+      {% assign max_articles = 6 %}
+      {% assign total_articles = eventsArticles.size %}
       {% for eventArticle in eventsArticles %}
-        <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_0.67rem)]">
+        <div
+          class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_0.67rem)] event-item"
+          data-index="{{ forloop.index0 }}"
+          style="display: {% if forloop.index0 < max_articles %}flex{% else %}none{% endif %};">
           <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
             <!-- Events image Container -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
               <img
-                src="{{ eventArticle |  img_url: 'master' }}"
-                alt="{{ eventsArticles.title }}"
+                src="{{ eventArticle | img_url: 'master' }}"
+                alt="{{ eventArticle.title }}"
                 class="w-full h-full object-cover object-center rounded-t-2xl">
             </div>
-
             <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
-
-              <div class="events-details-primary w-full h-auto flex flex-col  gap-y-6">
-                <!-- top content details -->
+              <div class="events-details-primary w-full h-auto flex flex-col gap-y-6">
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
                   <p class="article-title text-[24px] leading-[24px] tt-norms-pro-med">{{ eventArticle.title }}</p>
                   {% assign articleDate = eventArticle.metafields.custom.range_date.value %}
@@ -33,7 +35,6 @@
                     <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ articleLocation }}</p>
                   {% endif %}
                 </div>
-                <!-- content-cta -->
                 <div class="w-full h-auto flex flex-col items-start justify-center">
                   <a href="{{ section.settings.redirect_google_url }}">
                     <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
@@ -49,20 +50,27 @@
                   </a>
                 </div>
               </div>
-
-              <!-- content cta -->
               <div class="events-cta lg:w-full lg:flex lg:justify-end">
                 <div class="cta-choco-round h-[32px] min-w-[208px] book-appointment inline-flex">
                   <p class="body-14">{{ section.settings.cta_appointment }}</p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       {% endfor %}
     {% endif %}
   {% endif %}
+
+  <!-- container load more cta -->
+  <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 lg:mt-11">
+    <!-- cta load more -->
+    <div class="w-auto h-auto max-w-[118px] flex items-center justify-center self-center cta-choco-round px-4 py-2 load-more-cta">
+      <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.load_more_cta | default: "Load 6 more" }}</p>
+    </div>
+    <!-- current item of total item -->
+    <p class="text-[14px] leading-[20px] tt-norms-pro-reg current-items"></p>
+  </div>  
 
   <!-- Events article added by blocks -->
   {% for block in section.blocks %}
@@ -199,8 +207,8 @@
                   class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
                 <label for="marketingConsent" class="text-[12px] leading-[18px]  tt-norms-pro-reg">
                   {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
-                                      commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
-                                      market research in order to evaluate your level of satisfaction with our products and services." }}
+                                                          commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
+                                                          market research in order to evaluate your level of satisfaction with our products and services." }}
                   <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy" }}</span>
                 </label>
               </div>
@@ -214,8 +222,8 @@
                   class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
                 <label for="profilingConsent" class="text-[12px] leading-[18px] tt-norms-pro-reg">
                   {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
-                                      send you personalized commercial communications based on your purchasing habits and, in general,
-                                      based on your interests, your requests and your interactions with us." }}
+                                                          send you personalized commercial communications based on your purchasing habits and, in general,
+                                                          based on your interests, your requests and your interactions with us." }}
                   <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy" }}</span>
                 </label>
               </div>
@@ -332,21 +340,21 @@
   }
 
   .submit-cta button:disabled {
-        opacity: 0.2;
-        cursor: not-allowed;
-    }
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
 </style>
 
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-
+  
   const marketingCheckbox = document.getElementById('marketingConsent'); // Checkbox Marketing
   const profilingCheckbox = document.getElementById('profilingConsent'); // Checkbox Profiling
   const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
   const formInputs = document.querySelectorAll('input[required]'); // Input obbligatori
   const submitButton = document.querySelector('.submit-cta'); // Bottone di submit
-
+  
    // Funzione per aggiornare lo stato del pulsante submit
    const updateSubmitButtonState = () => {
             const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
@@ -358,15 +366,15 @@
                 submitButton.disabled = true;
             }
         };
-
+  
         // Inizializza lo stato del pulsante al caricamento
         updateSubmitButtonState();
-
+  
              // Aggiungi event listeners a tutti gli input obbligatori
              formInputs.forEach(input => {
             input.addEventListener('input', updateSubmitButtonState);
         });
-
+  
              // Logica per aggiornare lo stato della checkbox Profiling
              const updateProfilingState = () => {
             if (marketingCheckbox.checked) {
@@ -378,19 +386,19 @@
                 profilingCheckbox.checked = false; // Deseleziona Profiling se Marketing non è selezionato
             }
         };
-
+  
         marketingCheckbox.addEventListener('change', () => {
             updateProfilingState();
         });
-
+  
         updateProfilingState();
-
+  
            // Gestione pop-up privacy
            const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
         const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
         const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
         const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
-
+  
         linksToPopUp.forEach((link) => {
             const linkReference = link.getAttribute('data-attribute');
             link.addEventListener('click', () => {
@@ -401,7 +409,7 @@
                 }
             });
         });
-
+  
         closingPopUpIcon.forEach((icon) => {
             const iconReference = icon.getAttribute('data-attribute');
             icon.addEventListener('click', () => {
@@ -412,12 +420,12 @@
                 }
             });
         });
-
+  
         function openPopUp(elementToOpen) {
             elementToOpen.classList.remove('hidden');
             elementToOpen.classList.add('flex');
         }
-
+  
         function closePopUp(elementToClose) {
             elementToClose.classList.add('hidden');
             elementToClose.classList.remove('flex');
@@ -609,12 +617,46 @@
     scrollContainer.addEventListener('scroll', updateArrows);
   
   
+  const articles = document.querySelectorAll(".event-item");
+  const loadMoreButton = document.querySelector(".load-more-cta");
+  const currentItemsDisplay = document.querySelector(".current-items");
+  let visibleCount = 6; 
+  const maxToShow = 6;
+  const totalItems = articles.length;
+  
+
+  const updateVisibleArticles = () => {
+    articles.forEach((article, index) => {
+      if (index < visibleCount) {
+        article.style.display = "flex"; 
+      } else {
+        article.style.display = "none";
+      }
+    });
+  
+  
+    currentItemsDisplay.textContent = `${Math.min(visibleCount, totalItems)} of ${totalItems}`;
+  
+    if (visibleCount >= totalItems) {
+      loadMoreButton.style.display = "none";
+      currentItemsDisplay.style.display= "none";
+    }
+  };
+  
+  updateVisibleArticles();
+  
+  loadMoreButton.addEventListener("click", function () {
+    visibleCount += maxToShow;
+    updateVisibleArticles();
+  });
+  
+  
   });
 </script>
 
 
 {% comment %} 
-    Schema Section Settings here 
+      Schema Section Settings here 
 {% endcomment %}
 {% schema %}
   {
