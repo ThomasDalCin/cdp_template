@@ -264,7 +264,7 @@
 </div>
 
 <style>
-/* Default styles for the dropdown */
+
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
@@ -274,15 +274,15 @@
   transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
-/* When the dropdown is open */
+
 .dropdown-content.open {
   visibility: visible;
   opacity: 1;
-  height: auto;  /* Allow dynamic height */
-  max-height: 500px; /* This value can be adjusted depending on your content size */
+  height: auto;
+  max-height: 1000px; 
 }
 
-/* Icon rotation for toggle */
+
 .dropdown-header svg {
   transition: transform 0.3s ease-in-out;
 }
@@ -305,23 +305,20 @@ document.addEventListener('DOMContentLoaded', function () {
       if (dropdownContent) {
         const isOpen = dropdownContent.classList.contains('open');
 
-        // Reset max-height to auto for smooth transition on mobile
+    
         dropdownContent.style.transition = 'max-height 0.3s ease-in-out, height 0.3s ease-in-out';
 
-        // If dropdown is open, we need to close it
         if (isOpen) {
           dropdownContent.style.maxHeight = '0px';
-          dropdownContent.style.height = '0';  // Ensure the height is 0 for a smooth close
+          dropdownContent.style.height = '0'; 
         } else {
-          // Calculate the scrollHeight dynamically for the open state
-          dropdownContent.style.maxHeight = `${dropdownContent.scrollHeight + 20}px`;
-          dropdownContent.style.height = 'auto';  // Allow auto height when open
+          dropdownContent.style.maxHeight = `${dropdownContent.scrollHeight + 40}px`;
+          dropdownContent.style.height = 'auto'; 
         }
 
-        // Toggle the "open" class for managing its state
+       
         dropdownContent.classList.toggle('open', !isOpen);
 
-        // Animate the icon rotation
         icon.style.transition = 'transform 0.3s ease-in-out';
         icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
       }
