@@ -164,7 +164,7 @@
         </div>
 
         <!-- boat image container on desktop -->
-        <div class="boat-image-container absolute right-20 bottom-10 w-[820px] h-[501px] z-30">
+        <div class="boat-image-container absolute right-20 bottom-[130px] w-[820px] h-[501px] z-30">
             {% for collection in collections %}
             {% for product in collection.products %}
             <!-- Title of the product inside the boat image container -->
@@ -188,21 +188,37 @@
             {% endfor %}
             {% endfor %}
 
+            <!--container product tag-->
+            {% for collection in collections %}
+                {% for product in collection.products %}
+                    <div class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container" data-tags="{{ product.title }}">
+                        {% for tag in product.tags %}
+                            {% if tag != "" %}
+                            <span
+                                class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
+                                {{ tag }}
+                            </span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
             <!-- Container main features -->
             <div class="w-full h-auto absolute left-0 bottom-0 right-0 product-details-container">
                 {% for collection in collections %}
                 {% for product in collection.products %}
-                <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-4"
+                <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2"
                     data-content="{{ product.title }}">
                     {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
                     {% for productMetafieldsValue in productMetafieldsValues %}
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
                         class="flex min-w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px] lg:flex-1">
-                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-light">
+                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med">
                             {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
                         </p>
-                        <p class="body-16 text-nowrap tt-norms-pro-reg">{{ metafieldCustom | upcase }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-med">{{ metafieldCustom | upcase }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -542,6 +558,7 @@
                     link.addEventListener('mouseout', (e) => {
                         e.currentTarget.classList.remove('tt-norms-pro-reg');
                     });
+
                     //set click on each link
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -554,6 +571,7 @@
                         const boatImages = document.querySelectorAll('.boat-image');
                         const boatTitles = document.querySelectorAll('.boat-title');
                         const boatBadges = document.querySelectorAll('.product-details-badge');
+                        const tagsBadges = document.querySelectorAll('.product-tags-container');
 
                         //hide each boat images to prevent them visibility
                         boatImages.forEach(boatImage => {
@@ -568,6 +586,10 @@
                             boatBadge.style.display = 'none';
                         });
 
+                        tagsBadges.forEach(tag => {
+                            tag.style.display = 'none';
+                        });
+
                         //set style on badge product
                         badgesProduct.forEach(badge => {
                             badge.classList.remove('text-black', 'bg-white');
@@ -575,6 +597,7 @@
 
                         //handle the style of first badge product when click on link
                         let lastBadge;
+
                         if (badgesProduct.length === 1) {
                             lastBadge = badgesProduct[0];
                         } else {
@@ -585,6 +608,7 @@
 
                         badgesProduct.forEach((badge) => {
                             badge.addEventListener('mouseover', (e) => {
+
                                 badgesProduct.forEach(badge => {
                                     badge.classList.remove('text-black', 'bg-white');
                                 });
@@ -617,6 +641,12 @@
                         boatBadges.forEach(boatBadge => {
                             if (boatBadge.getAttribute('data-content') === targetImage) {
                                 boatBadge.style.display = 'flex';
+                            }
+                        });
+
+                        tagsBadges.forEach(tag => {
+                            if (tag.getAttribute('data-tags') === targetImage) {
+                                tag.style.display = 'flex';
                             }
                         });
 
@@ -653,6 +683,7 @@
             const images = document.querySelectorAll('.boat-image-container img');
             const titles = document.querySelectorAll('.boat-title');
             const contents = document.querySelectorAll('.product-details-badge');
+            const tagsContainers = document.querySelectorAll('.product-tags-container')
 
             //hide all this elements on mobile
             if (screenSize <= 625) {
@@ -682,6 +713,10 @@
                     content.style.display = 'none';
                 })
 
+                tagsContainers.forEach(tagsContent => {
+                    tagsContent.style.display = 'none';
+                })
+
                 badges.forEach(badge => {
                     badge.addEventListener('mouseover', function () {
                         const target = badge.getAttribute('data-target');
@@ -698,14 +733,20 @@
                             content.style.display = 'none';
                         });
 
+                        tagsContainers.forEach(tagsContent => {
+                    tagsContent.style.display = 'none';
+                })
+
                         const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`);
                         const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
                         const selectedContent = document.querySelector(`.boat-image-container .product-details-container .product-details-badge[data-content="${target}"]`);
+                        const selectedContainerTags = document.querySelector(`.boat-image-container .product-tags-container[data-tags="${target}"]`);
 
-                        if (selectedImage && selectedText) {
+                        if (selectedImage && selectedText && selectedContent && selectedContainerTags) {
                             selectedImage.style.display = 'block';
                             selectedText.style.display = 'block';
                             selectedContent.style.display = 'flex';
+                            selectedContainerTags.style.display = 'flex';
                         }
                     });
                 });

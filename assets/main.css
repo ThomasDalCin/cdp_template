@@ -1221,6 +1221,18 @@ p,
   top: 576px;
 }
 
+.bottom-\[160px\] {
+  bottom: 160px;
+}
+
+.bottom-\[130px\] {
+  bottom: 130px;
+}
+
+.bottom-\[157px\] {
+  bottom: 157px;
+}
+
 .-z-10 {
   z-index: -10;
 }
