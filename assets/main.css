@@ -2829,6 +2829,10 @@ p,
   text-decoration-thickness: .5px;
 }
 
+.underline-offset-\[2px\] {
+  text-underline-offset: 2px;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -3142,6 +3146,10 @@ html {
 
 .hover\:font-\[\'TT-Norms-Pro-Regular\'\]:hover {
   font-family: 'TT-Norms-Pro-Regular';
+}
+
+.hover\:font-\[\'TT-Norms-Pro-Light\'\]:hover {
+  font-family: 'TT-Norms-Pro-Light';
 }
 
 .hover\:decoration-\[1px\]:hover {
