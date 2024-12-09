@@ -3,7 +3,7 @@
         class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:left-[42px] lg:top-0 lg:z-10">
         <div
             class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer">
-            <button id="prev-Arrow" class="carousel-arrow left-arrow">
+            <button id="prev-Arrow-gamma" class="carousel-arrow-gamma left-arrow-gamma">
                 {% render 'arrow-left-black' %}
             </button>
         </div>
@@ -13,14 +13,15 @@
         class="w-auto h-full hidden lg:flex lg:items-center lg:justify-center lg:absolute lg:right-[42px] lg:top-0 lg:z-10">
         <div
             class="w-14 h-14 rounded-full p-4 bg-white flex items-center justify-center lg:hover:w-[72px] transition-all duration-150 ease-in cursor-pointer">
-            <button id="next-Arrow" class="carousel-arrow right-arrow">
+            <button id="next-Arrow-gamma" class="carousel-arrow-gamma right-arrow-gamma">
                 {% render 'arrow-right-black' %}
             </button>
         </div>
     </div>
 
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:gap-y-20">
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center lg:gap-y-20">
+        <div
+            class="w-full h-auto flex flex-col items-start justify-center gap-y-10 lg:items-center lg:justify-center lg:gap-y-20">
             <div class="wrap-container w-full h-auto lg:flex lg:items-center lg:justify-center">
                 <div
                     class="w-full h-auto flex flex-row items-center justify-start p-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
@@ -56,7 +57,7 @@
                 {% assign product_images = product.images %}
                 {% if product_images.size > 0 %}
                 {% assign model_image = product_images[0] %}
-                <div class="image-scroll flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"
+                <div class="image-scroll flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full lg:last-of-type:mr-[300px]"
                     data-collection="{{ collection.title }}" data-content="{{ product.title }}">
                     <a href="{{ product.url }}">
                         <img class="w-full h-full object-cover pImage z-10" src="{{ model_image | img_url: 'master' }}"
@@ -72,7 +73,6 @@
                 {% endfor %}
                 {% endif %}
                 {% endfor %}
-                <div class="additional-div flex-shrink-0 flex flex-col items-center justify-center snap-start relative lg:w-[800px] lg:h-full"></div>
             </div>
 
             <div
@@ -184,145 +184,226 @@
             height: 109.395px;
         }
     }
+
+    .carousel-arrow-gamma.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .carousel-arrow-gamma:not(.disabled) {
+        opacity: 1;
+        pointer-events: auto;
+    }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll('.tab-gamma');
-    const imageScrolls = document.querySelectorAll('.image-scroll');
-    const magneticScroll = document.querySelector('.magnetic-scroll');
-    const unionIcon = document.querySelector('.union-icon');
-    const wrapContent = document.querySelector('.wrap-content');
-    const ctaButton = document.getElementById('cta-button-collection');
-    const wrapContainer = document.querySelector('.wrap-container');
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll('.tab-gamma');
+        const imageScrolls = document.querySelectorAll('.image-scroll');
+        const magneticScroll = document.querySelector('.magnetic-scroll');
+        const unionIcon = document.querySelector('.union-icon');
+        const wrapContent = document.querySelector('.wrap-content');
+        const ctaButton = document.getElementById('cta-button-collection');
+        const wrapContainer = document.querySelector('.wrap-container');
+        const prevArrow = document.getElementById('prev-Arrow-gamma');
+        const nextArrow = document.getElementById('next-Arrow-gamma');
 
-    // Funzione per calcolare e impostare il padding-right dinamico per il magnetic-scroll
-    function adjustScrollPadding() {
-        const lastRealItem = imageScrolls[imageScrolls.length - 1]; // Ultimo elemento reale
-        if (lastRealItem) {
-            const magneticScrollRect = magneticScroll.getBoundingClientRect();
-            const lastItemRect = lastRealItem.getBoundingClientRect();
-
-            // Calcolo dello spazio necessario per far entrare l'ultimo elemento
-            const extraSpace = lastItemRect.width - (magneticScrollRect.right - lastItemRect.left);
-            const paddingRight = Math.max(0, extraSpace + 40); // Aggiungi un margine extra opzionale (es. 20px)
-
-            magneticScroll.style.paddingRight = `${paddingRight}px`;
+        if (!magneticScroll || !prevArrow || !nextArrow) {
+            console.error('Error: Scroll container or arrows not found.');
+            return;
         }
-    }
 
-    // Funzione per gestire il click sulla tab
-    function handleTabClick(event) {
-        const clickedTab = event.currentTarget;
-        const selectedTabId = clickedTab.id;
-        const selectedTabName = clickedTab.textContent.trim();
+        const items = Array.from(magneticScroll.children);
+        if (items.length === 0) {
+            console.error('Error: No items found inside the scroll container.');
+            return;
+        }
 
-        // Rimuovi la classe 'active-tab' da tutte le tabs e aggiungila alla tab selezionata
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-        clickedTab.classList.add('active-tab');
+        const itemWidth = items[0].offsetWidth;
+        const itemMarginRight = parseInt(getComputedStyle(items[0]).marginRight || '0', 10);
+        const scrollAmount = itemWidth + itemMarginRight;
 
-        // Gestisci la visibilità delle immagini in base alla tab selezionata
-        imageScrolls.forEach(image => {
-            const collection = image.getAttribute('data-collection');
-            if (selectedTabId === 'All Models' || selectedTabId === collection) {
-                image.style.display = 'flex';
+
+        function updateArrows() {
+            const currentScrollLeft = magneticScroll.scrollLeft;
+            const maxScrollLeft = magneticScroll.scrollWidth - magneticScroll.clientWidth;
+
+            prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+            nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+        }
+
+
+        function scrollContainerBy(amount) {
+            const currentScrollLeft = magneticScroll.scrollLeft;
+            const maxScrollLeft = magneticScroll.scrollWidth - magneticScroll.clientWidth;
+
+            let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+            magneticScroll.scrollTo({
+                left: newScrollLeft,
+                behavior: 'smooth'
+            });
+
+            setTimeout(updateArrows, 300);
+        }
+
+
+        prevArrow.addEventListener('click', function () {
+            scrollContainerBy(-scrollAmount);
+        });
+
+        nextArrow.addEventListener('click', function () {
+            scrollContainerBy(scrollAmount);
+        });
+
+        updateArrows();
+
+        magneticScroll.addEventListener('scroll', updateArrows);
+
+        function handleTabClick(event) {
+            const clickedTab = event.currentTarget;
+            const selectedTabId = clickedTab.id;
+            const selectedTabName = clickedTab.textContent.trim();
+
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+            clickedTab.classList.add('active-tab');
+
+
+            imageScrolls.forEach(image => {
+                const collection = image.getAttribute('data-collection');
+                if (selectedTabId === 'All Models' || selectedTabId === collection) {
+                    image.style.display = 'flex';
+                } else {
+                    image.style.display = 'none';
+                }
+            });
+
+
+            if (selectedTabId === 'All Models') {
+                ctaButton.parentElement.style.display = 'none';
             } else {
-                image.style.display = 'none';
+                ctaButton.parentElement.style.display = 'flex';
+                ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
+                ctaButton.innerHTML = `Discover ${selectedTabName}`;
+            }
+
+            magneticScroll.scrollTo({left: 0, behavior: "smooth"});
+
+            if (window.innerWidth <= 1024) {
+                updateUnionIconPositionMobile(clickedTab);
+                scrollTabsIntoView(clickedTab);
+            } else {
+                updateUnionIconPositionDesktop(clickedTab);
+            }
+
+            removeMarginFromImages();
+            addMarginToLastImage(selectedTabId);
+        }
+
+        function removeMarginFromImages() {
+            imageScrolls.forEach(image => {
+                image.style.marginRight = '';
+            });
+        }
+
+        function addMarginToLastImage(tabId) {
+
+            const visibleImages = Array.from(imageScrolls).filter(image => {
+                const collection = image.getAttribute('data-collection');
+                return (tabId === 'All Models' || tabId === collection) && image.style.display !== 'none';
+            });
+
+            const lastImage = visibleImages[visibleImages.length - 1];
+
+            if (lastImage) {
+                if (tabId === 'All Models') {
+                    if (window.innerWidth <= 1024) {
+                        lastImage.style.marginRight = '100px';
+                    } else {
+                        lastImage.style.marginRight = '300px';
+                    }
+                } else {
+                    if (window.innerWidth <= 1024) {
+                        lastImage.style.marginRight = '100px';
+                    } else {
+                        lastImage.style.marginRight = '300px';
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('resize', function () {
+            const activeTab = document.querySelector('.tab-gamma.active-tab');
+            if (activeTab) {
+                removeMarginFromImages();
+                addMarginToLastImage(activeTab.id);
             }
         });
 
-        // Fai scrollare 'wrapContent' per centrare la tab selezionata
-        scrollToTab(clickedTab);
-
-        // Cambia il comportamento del bottone CTA in base alla tab selezionata
-        if (selectedTabId === 'All Models') {
-            ctaButton.parentElement.style.display = 'none';
-        } else {
-            ctaButton.parentElement.style.display = 'flex';
-            ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
-            ctaButton.innerHTML = `Discover ${selectedTabName}`;
+        const modelsTab = document.getElementById('All Models');
+        if (modelsTab) {
+            modelsTab.classList.add('active-tab');
+            if (window.innerWidth <= 1024) {
+                updateUnionIconPositionMobile(modelsTab);
+            } else {
+                updateUnionIconPositionDesktop(modelsTab);
+            }
         }
 
-        // Riporta lo scroll del contenitore magnetico all'inizio
-        magneticScroll.scrollTo({ left: 0, behavior: "smooth" });
 
-        // Aggiorna la posizione dell'icona per centrarla sopra la nuova tab
-        updateUnionIconPosition(clickedTab);
-    }
-
-    // Funzione per fare scrollare 'wrapContent' per centrare la tab selezionata
-    function scrollToTab(target) {
-        const targetRect = target.getBoundingClientRect();
-        const containerRect = wrapContent.getBoundingClientRect();
-        const containerWidth = containerRect.width;
-        const targetCenterX = targetRect.left + targetRect.width / 2;
-        const containerCenterX = containerRect.left + containerWidth / 2;
-        const offset = targetCenterX - containerCenterX;
-
-        // Fai scrollare il contenitore in modo fluido
-        wrapContent.scrollTo({
-            left: wrapContent.scrollLeft + offset,
-            behavior: 'smooth'
+        tabs.forEach(tab => {
+            tab.addEventListener('click', handleTabClick);
         });
-    }
 
-    // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
-  // Funzione per aggiornare la posizione dell'icona rispetto a wrapContainer
-function updateUnionIconPosition(target) {
-    const targetRect = target.getBoundingClientRect();
-    const containerRect = wrapContainer.getBoundingClientRect();
-    const unionIconWidth = unionIcon.offsetWidth;
+        imageScrolls.forEach(image => image.style.display = 'flex');
+        ctaButton.parentElement.style.display = 'none';
 
-    // Considera lo scroll di wrapContent nel calcolo
-    const scrollOffset = wrapContent.scrollLeft;
+        const initialTab = document.querySelector('.tab-gamma.active-tab');
+        if (initialTab) {
+            addMarginToLastImage(initialTab.id);
+        }
 
-    // Verifica se il layout è desktop o mobile
-    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+        function updateUnionIconPositionMobile(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContent.getBoundingClientRect();
+            const unionIconWidth = unionIcon.offsetWidth;
 
-    let tabCenterX;
-
-    if (isDesktop) {
-        // Per desktop, considera l'allineamento centrale di wrapContent
-        const wrapContentRect = wrapContent.getBoundingClientRect();
-        const wrapContentCenterX = wrapContentRect.left + wrapContentRect.width / 2;
-        
-        // Calcoliamo la posizione rispetto al centro di wrap-content
-        tabCenterX = targetRect.left + targetRect.width / 2 - (wrapContentCenterX - containerRect.left) + scrollOffset;
-    } else {
-        // Per mobile, calcolo normale
-        tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
-    }
-
-    // Muovi l'icona nella posizione calcolata
-    unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
-    unionIcon.style.transition = "transform 0.3s ease";
-}
+            const scrollOffset = wrapContent.scrollLeft;
 
 
-    // Esegui il posizionamento iniziale al caricamento della pagina
-    const modelsTab = document.getElementById('All Models');
-    if (modelsTab) {
-        modelsTab.classList.add('active-tab');
-        updateUnionIconPosition(modelsTab); // Centra l'icona sulla tab "All Models" al caricamento
-    }
+            const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2) + scrollOffset;
 
-    // Aggiungi l'evento di clic su ogni tab
-    tabs.forEach(tab => {
-        tab.addEventListener('click', handleTabClick);
+            unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
+            unionIcon.style.transition = "transform 0.3s ease";
+        }
+
+
+        function updateUnionIconPositionDesktop(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContent.getBoundingClientRect();
+            const unionIconWidth = unionIcon.offsetWidth;
+
+
+            const tabCenterX = targetRect.left - containerRect.left + (targetRect.width / 2);
+
+            unionIcon.style.transform = `translateX(${tabCenterX - unionIconWidth / 2}px)`;
+            unionIcon.style.transition = "transform 0.3s ease";
+        }
+
+
+        function scrollTabsIntoView(target) {
+            const targetRect = target.getBoundingClientRect();
+            const containerRect = wrapContent.getBoundingClientRect();
+
+
+            const targetOffset = targetRect.left - containerRect.left;
+            const targetWidth = target.offsetWidth;
+            const containerWidth = wrapContent.offsetWidth;
+
+            const scrollTo = targetOffset - (containerWidth - targetWidth) / 2;
+
+            wrapContent.scrollTo({left: scrollTo, behavior: "smooth"});
+        }
     });
-
-    // Imposta la visibilità delle immagini inizialmente
-    imageScrolls.forEach(image => image.style.display = 'flex');
-    ctaButton.parentElement.style.display = 'none';
-
-    // Calcola il padding-right per far entrare l'ultimo elemento
-    adjustScrollPadding();
-
-    // Ricalcola il padding-right al ridimensionamento della finestra
-    window.addEventListener('resize', adjustScrollPadding);
-
-    
-});
-
 
 </script>
