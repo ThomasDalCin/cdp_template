@@ -2769,6 +2769,10 @@ p,
   line-height: 80px;
 }
 
+.leading-\[14px\] {
+  line-height: 14px;
+}
+
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }
@@ -3288,6 +3292,11 @@ html {
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   .lg\:mb-0 {
@@ -4019,6 +4028,11 @@ html {
   .lg\:py-\[60px\] {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .lg\:pb-0 {
