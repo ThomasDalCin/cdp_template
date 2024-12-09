@@ -1359,6 +1359,10 @@ p,
   margin-top: 227px;
 }
 
+.mb-\[9px\] {
+  margin-bottom: 9px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -4033,6 +4037,11 @@ html {
   .lg\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .lg\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .lg\:pb-0 {
