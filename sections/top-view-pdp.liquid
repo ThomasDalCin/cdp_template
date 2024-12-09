@@ -104,16 +104,16 @@
 
 
 <!-- Top View Galley Section -->
-<div class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] overflow-x-hidden bg-[#A9A09E] lg:px-10"
+<div class="top-view-horizontal-scroll w-full h-auto px-6 flex flex-col mb-[40px] overflow-x-hidden bg-[#A9A09E] lg:px-20 lg:mb-0"
     id="Topview">
 
     <!-- Main Title Content -->
-    <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start pt-14 pb-6 lg:hidden">
-        <h2 class="header-2">{{ section.settings.main_title | default: "Top view" }}</h2>
+    <div class="top-view-horizontal-scroll-heading w-full h-auto flex items-center justify-start pt-14 pb-6 lg:pt-20 lg:pb-0">
+        <h2 class="header-2 lg:text-[64px] lg:leading-[70px] tt-norms-pro-reg">{{ section.settings.main_title | default: "Top view" }}</h2>
     </div>
 
     <!-- Tab container -->
-    <div class="wrap-container w-full h-auto">
+    <div class="wrap-container w-full h-auto lg:py-[60px] lg:flex lg:items-center lg:justify-center">
         <div
             class="w-full h-auto flex flex-row items-center justify-start py-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
 
@@ -136,7 +136,7 @@
 
     <!-- Horizontal Container Scrolling -->
     <div
-        class="horizontal-magnetic-scroll-container w-[calc(100%_+_3rem)] px-6 -mx-6 py-14 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-10 lg:-mx-10">
+        class="horizontal-magnetic-scroll-container w-[calc(100%_+_3rem)] px-6 -mx-6 py-14 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-0 lg:py-[60px] lg:mb-[60px]">
 
         <!-- Metafield Assignment for Galley Up, Galley Down, Interior view up, Interior view down -->
         {% assign topViewGalleyUp = product.metafields.custom.top_view_galley_up.value %}
@@ -156,9 +156,9 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-galley-up"
                 data-image="main-deck">
 
@@ -209,8 +209,8 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center relative flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center relative flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
                 data-overlay="overlay-galley-down" data-image="main-deck">
 
@@ -258,8 +258,8 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
                 data-overlay="overlay-interior-galley-up">
 
@@ -307,8 +307,8 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[942px] lg:flex-1">
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain relative bg-center flex-shrink-0 lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');"
                 data-overlay="overlay-interior-galley-down">
 
@@ -355,9 +355,9 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-lower-deck"
                 data-image="lower-deck">
 
@@ -407,9 +407,9 @@
         {% if image_item %}
         {% if forloop.first %}
         <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[942px] lg:flex-1">
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55%"
+            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="overlay-fly-bridge"
                 data-image="fly-bridge">
 

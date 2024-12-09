@@ -1936,8 +1936,8 @@ p,
   min-width: 74px;
 }
 
-.min-w-\[118px\] {
-  min-width: 118px;
+.max-w-\[118px\] {
+  max-width: 118px;
 }
 
 .max-w-\[343px\] {
@@ -1946,10 +1946,6 @@ p,
 
 .max-w-\[99px\] {
   max-width: 99px;
-}
-
-.max-w-\[118px\] {
-  max-width: 118px;
 }
 
 .flex-1 {
@@ -3310,6 +3306,10 @@ html {
     margin-top: 0px;
   }
 
+  .lg\:mt-11 {
+    margin-top: 2.75rem;
+  }
+
   .lg\:mt-12 {
     margin-top: 3rem;
   }
@@ -3326,8 +3326,8 @@ html {
     margin-top: 60px;
   }
 
-  .lg\:mt-11 {
-    margin-top: 2.75rem;
+  .lg\:mb-\[60px\] {
+    margin-bottom: 60px;
   }
 
   .lg\:block {
@@ -3438,12 +3438,20 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[560px\] {
+    height: 560px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
 
   .lg\:max-h-\[600px\] {
     max-height: 600px;
+  }
+
+  .lg\:max-h-\[560px\] {
+    max-height: 560px;
   }
 
   .lg\:min-h-\[200px\] {
@@ -3598,8 +3606,8 @@ html {
     width: calc(50% - 1.5rem);
   }
 
-  .lg\:w-\[calc\(50\%_-_1rem\)\] {
-    width: calc(50% - 1rem);
+  .lg\:w-\[calc\(50\%_-_2\.5rem\)\] {
+    width: calc(50% - 2.5rem);
   }
 
   .lg\:w-\[calc\(50\%_-_20px\)\] {
@@ -3616,10 +3624,6 @@ html {
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-\[calc\(50\%_-_2\.5rem\)\] {
-    width: calc(50% - 2.5rem);
   }
 
   .lg\:min-w-0 {
@@ -3694,10 +3698,6 @@ html {
 
   .lg\:cursor-pointer {
     cursor: pointer;
-  }
-
-  .lg\:snap-center {
-    scroll-snap-align: center;
   }
 
   .lg\:scroll-pl-\[319px\] {
@@ -3868,10 +3868,6 @@ html {
     border-bottom-width: 1px;
   }
 
-  .lg\:border-b-\[1px\] {
-    border-bottom-width: 1px;
-  }
-
   .lg\:border-\[\#A9A09E\] {
     --tw-border-opacity: 1;
     border-color: rgb(169 160 158 / var(--tw-border-opacity));
@@ -3897,6 +3893,10 @@ html {
   .lg\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  .lg\:bg-100\% {
+    background-size: 100%;
   }
 
   .lg\:bg-55\% {
@@ -4155,6 +4155,10 @@ html {
 
   .lg\:leading-\[64px\] {
     line-height: 64px;
+  }
+
+  .lg\:leading-\[70px\] {
+    line-height: 70px;
   }
 
   .lg\:leading-\[96px\] {
