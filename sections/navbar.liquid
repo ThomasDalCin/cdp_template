@@ -190,18 +190,18 @@
 
             <!--container product tag-->
             {% for collection in collections %}
-                {% for product in collection.products %}
-                    <div class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container" data-tags="{{ product.title }}">
-                        {% for tag in product.tags %}
-                            {% if tag != "" %}
-                            <span
-                                class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
-                                {{ tag }}
-                            </span>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+            {% for product in collection.products %}
+            <div class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container"
+                data-tags="{{ product.title }}">
+                {% for tag in product.tags %}
+                {% if tag != "" %}
+                <span class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
+                    {{ tag }}
+                </span>
+                {% endif %}
                 {% endfor %}
+            </div>
+            {% endfor %}
             {% endfor %}
 
             <!-- Container main features -->
@@ -268,7 +268,8 @@
                 {% if link.title == 'Press room' or link.title == 'Work with us' %}
                 {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-extra-light text-[16px]
                 leading-[22px] hover:font-['TT-Norms-Pro-Regular']
-                lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px] underline-offset-[2px]"}}
+                lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]
+                underline-offset-[2px]"}}
                 {% endif %}
                 {% endfor %}
             </div>
@@ -535,7 +536,6 @@
 
         // Handle second menu
         function handleSecondMenuLevel() {
-
             const screenSize = window.innerWidth;
             let lastBadge;
 
@@ -546,10 +546,8 @@
                         e.preventDefault();
                         secondMenu.classList.remove('hidden');
                         secondMenu.classList.add('flex');
-
                     });
-                }
-                else {
+                } else {
                     //set hover on each link
                     link.addEventListener('mouseover', (e) => {
                         e.currentTarget.classList.add('tt-norms-pro-reg');
@@ -596,19 +594,12 @@
                         });
 
                         //handle the style of first badge product when click on link
-                        let lastBadge;
-
-                        if (badgesProduct.length === 1) {
-                            lastBadge = badgesProduct[0];
-                        } else {
-                            lastBadge = badgesProduct[badgesProduct.length - 1];
-                        }
+                        lastBadge = badgesProduct[0]; // Seleziona il primo badge come attivo
 
                         lastBadge.classList.add('text-black', 'bg-white');
 
                         badgesProduct.forEach((badge) => {
                             badge.addEventListener('mouseover', (e) => {
-
                                 badgesProduct.forEach(badge => {
                                     badge.classList.remove('text-black', 'bg-white');
                                 });
@@ -650,7 +641,6 @@
                             }
                         });
 
-
                         const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
                         allCollectionMenuItems.forEach(item => {
                             if (item !== collectionMenuItem) {
@@ -662,13 +652,13 @@
                             }
                         });
 
-
                         collectionInfoContainer.classList.remove('overflow-hidden', 'h-0');
                         collectionInfoContainer.classList.add('overflow-auto', 'h-auto');
                     });
                 }
             });
         }
+
 
         //check device on resize event
         window.addEventListener('resize', checkDevice);
@@ -734,8 +724,8 @@
                         });
 
                         tagsContainers.forEach(tagsContent => {
-                    tagsContent.style.display = 'none';
-                })
+                            tagsContent.style.display = 'none';
+                        })
 
                         const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`);
                         const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
