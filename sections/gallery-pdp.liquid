@@ -34,11 +34,37 @@
 
                 <!-- Container progrss bar-->
                 <div
-                    class="w-full h-auto hidden lg:flex items-center flex-col justify-center absolute left-0 right-0 bottom-[90px] lg:bottom-[60px] z-10 px-6 controls-container">
+                    class="w-full h-auto hidden lg:flex items-center flex-col justify-center absolute left-0 right-0 bottom-[90px] lg:bottom-[60px] z-10 px-6 gap-y-4">
                     <!--container progress bar-->
 
+                    <!-- Container on/off switch for audio -->
+                    <div class="w-full h-auto flex items-center justify-end mb-4">
+                        <label for="audioSwitch" class="flex items-center cursor-pointer">
+                            <!-- Label for the switch -->
+                            <div class="relative">
+                                <!-- Switch -->
+                                <input type="checkbox" id="audioSwitch" class="hidden" />
+                                <div class="w-20 h-10 bg-[#EFEEED] rounded-full px-1"></div>
+                                <div
+                                    class="dot absolute top-0 left-0 bottom-0 w-10 h-full bg-white rounded-full flex items-center justify-center transition-all duration-150 ease-in p-1">
+                                    <!-- Icona audio spento (visibile quando il checkbox non è selezionato) -->
+                                    <div id="sound-off-icon" class="sound-off-icon">
+                                        {% render 'sound-off-icon' %}
+                                    </div>
+                                    <!-- Icona audio acceso (visibile quando il checkbox è selezionato) -->
+                                    <div id="sound-on-icon" class="sound-on-icon hidden">
+                                        {% render 'sound-on-icon' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+
+
+
                     <div
-                        class="w-full h-auto flex items-start justify-center flex-col bg-[rgba(0,0,0,0.20)] backdrop-blur-lg gap-y-3 p-4 rounded-lg">
+                        class="w-full h-auto flex items-start justify-center flex-col bg-[rgba(0,0,0,0.20)] backdrop-blur-lg gap-y-3 p-4 rounded-lg controls-container ">
                         <!--container current & total duration-->
                         <div class="w-full h-auto flex flex-row justify-between">
                             <p class="current-time body-12 text-white"></p>
@@ -50,6 +76,9 @@
                             <div class="w-0 h-full absolute left-0 top-0 right-0 bg-white"></div>
                         </div>
                     </div>
+
+
+
                 </div>
 
 
@@ -162,10 +191,52 @@
     </div>
 </div>
 
+<!-- Swiper Custom Style -->
+<style>
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 24px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 14px;
+    }
+</style>
+
+
 
 <!-- Initialize Swiper -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        const audioSwitch = document.getElementById('audioSwitch');
+        const soundOffIcon = document.getElementById('sound-off-icon');
+        const soundOnIcon = document.getElementById('sound-on-icon');
+        const dot = document.querySelector('.dot');
+
+        audioSwitch.addEventListener('change', function () {
+            if (audioSwitch.checked) {
+                // Quando il checkbox è selezionato (audio acceso)
+                soundOffIcon.classList.add('hidden');
+                soundOnIcon.classList.remove('hidden');
+                dot.classList.add('translate-x-full');  // Sposta il dot a destra
+            } else {
+                // Quando il checkbox non è selezionato (audio spento)
+                soundOffIcon.classList.remove('hidden');
+                soundOnIcon.classList.add('hidden');
+                dot.classList.remove('translate-x-full');  // Sposta il dot a sinistra
+            }
+        });
+
         let activeVideo = null;
         let swiperOverlay = null;
         const galleryPdpImages = document.querySelectorAll('.gallery-pdp-images');
@@ -251,7 +322,7 @@
                 overlayGallery.classList.remove('hidden');
                 document.body.classList.add('no-scroll');
             }
-            destroyOverlaySwiper(); // Assicurati di distruggere sempre lo swiper precedente
+            destroyOverlaySwiper();
             initializeOverlaySwiper();
 
             const overlayVideos = overlayGallery.querySelectorAll('.swiper-video');
@@ -398,28 +469,3 @@
     });
 
 </script>
-
-
-
-
-<!-- Swiper Custom Style -->
-<style>
-    .swiper-pagination-bullet.swiper-pagination-bullet-active {
-        width: 24px !important;
-        height: 2px !important;
-        border-radius: 2px !important;
-        background-color: white !important;
-    }
-
-    .swiper-pagination-bullet {
-        width: 8px !important;
-        height: 2px !important;
-        border-radius: 2px !important;
-        background-color: white !important;
-    }
-
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        font-size: 14px;
-    }
-</style>
