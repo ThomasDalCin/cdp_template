@@ -374,22 +374,22 @@
             }
         });
 
-          
-    function handleOrientationChange() {
-      const turnButton = document.querySelector('.turn-gallery-button');
-  
-      if (window.matchMedia("(orientation: landscape)").matches) {
-        if (turnButton) {
-          turnButton.classList.add('hidden');
-        }
-      } else {
-        if (turnButton) {
-          turnButton.classList.remove('hidden');
-        }
-      }
-    }
 
-    handleOrientationChange();
+        function handleOrientationChange() {
+            const turnButton = document.querySelector('.turn-gallery-button');
+
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                if (turnButton) {
+                    turnButton.classList.add('hidden');
+                }
+            } else {
+                if (turnButton) {
+                    turnButton.classList.remove('hidden');
+                }
+            }
+        }
+
+        handleOrientationChange();
     });
 
 </script>
