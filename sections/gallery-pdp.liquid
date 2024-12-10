@@ -126,36 +126,48 @@
 
 <!-- Initialize Swiper -->
 <script>
+  
     document.addEventListener('DOMContentLoaded', () => {
         let swiperGallery = null;
         const galleryPdpImages = document.querySelectorAll('.gallery-pdp-images');
+        const galleryPdpVideos = document.querySelectorAll('.swiper-video'); // Aggiunto
         const overlayGallery = document.querySelector('.overlay-gallery-pdp');
         const closeOverlayGallery = document.querySelector('.close-overlay-gallery-images');
 
+        function openOverlay() {
+            if (overlayGallery) {
+                overlayGallery.classList.remove('hidden');
+                document.body.classList.add('no-scroll');
+            }
+
+            if (swiperGallery) {
+                swiperGallery.destroy(true, true);
+            }
+
+            swiperGallery = new Swiper(".swiper-container-gallery-pdp", {
+                pagination: {
+                    el: ".swiper-pagination-gallery-pdp",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next-gallery-pdp",
+                    prevEl: ".swiper-button-prev-gallery-pdp"
+                },
+                loop: true,
+            });
+        }
+
+        // Gestisci clic sulle immagini
         if (galleryPdpImages.length > 0) {
             galleryPdpImages.forEach((image) => {
-                image.addEventListener('click', function () {
-                    if (overlayGallery) {
-                        overlayGallery.classList.remove('hidden');
-                        document.body.classList.add('no-scroll');
-                    }
+                image.addEventListener('click', openOverlay);
+            });
+        }
 
-                    if (swiperGallery) {
-                        swiperGallery.destroy(true, true);
-                    }
-
-                    swiperGallery = new Swiper(".swiper-container-gallery-pdp", {
-                        pagination: {
-                            el: ".swiper-pagination-gallery-pdp",
-                            clickable: true
-                        },
-                        navigation: {
-                            nextEl: ".swiper-button-next-gallery-pdp",
-                            prevEl: ".swiper-button-prev-gallery-pdp"
-                        },
-                        loop: true,
-                    });
-                });
+        // Gestisci clic sui video
+        if (galleryPdpVideos.length > 0) {
+            galleryPdpVideos.forEach((video) => {
+                video.addEventListener('click', openOverlay); // Aggiunto
             });
         }
 
@@ -206,8 +218,9 @@
         window.addEventListener('resize', handleOrientationGalleryPdp);
         handleOrientationGalleryPdp();
     });
-
 </script>
+
+
 
 <!-- Swiper Custom Style -->
 <style>
