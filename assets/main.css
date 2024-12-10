@@ -1924,6 +1924,14 @@ p,
   width: 88px;
 }
 
+.w-\[180px\] {
+  width: 180px;
+}
+
+.w-\[calc\(50\%_-_1\.5rem\)\] {
+  width: calc(50% - 1.5rem);
+}
+
 .min-w-\[124px\] {
   min-width: 124px;
 }
@@ -1974,6 +1982,10 @@ p,
 
 .min-w-\[74px\] {
   min-width: 74px;
+}
+
+.min-w-\[180px\] {
+  min-width: 180px;
 }
 
 .max-w-\[118px\] {
