@@ -389,7 +389,12 @@
             }
         }
 
+        // Chiama la funzione una volta durante il caricamento
         handleOrientationChange();
+
+        // Aggiungi un listener per il cambio di orientamento in tempo reale
+        window.addEventListener('resize', handleOrientationChange);
+        window.addEventListener('orientationchange', handleOrientationChange);
     });
 
 </script>
