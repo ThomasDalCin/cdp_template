@@ -143,24 +143,18 @@
         <!--standard-->
         {% assign staOneCabOneBath = product.metafields.custom.standard_one_cab_one_bath.value %}
         {% assign stTwoCabOneBath = product.metafields.custom.standard_two_cabs_one_bath.value %}
-        {% assign stUpThreeCabsThreeBathsOneCrew =
-        product.metafields.custom.galley_up_three_cabs_three_baths_one_crew.value %}
-        {% assign stUpThreeCabsTwoBathsOneCrew = product.metafields.custom.galley_up_three_cabs_two_baths_one_crew.value
-        %}
-        {% assign stUpThreeCabsThreeBathsOneVp =
-        product.metafields.custom.galley_up_three_cabs_three_baths_one_vip_db.value %}
+        {% assign stUpThreeCabsThreeBathsOneCrew = product.metafields.custom.galley_up_three_cabs_three_baths_one_crew.value %}
+        {% assign stUpThreeCabsTwoBathsOneCrew = product.metafields.custom.galley_up_three_cabs_two_baths_one_crew.value %}
+        {% assign stUpThreeCabsThreeBathsOneVp = product.metafields.custom.galley_up_three_cabs_three_baths_one_vip_db.value %}
         {% assign stUpFourCabsFiveBaths = product.metafields.custom.galley_up_four_cabs_five_bath.value %}
 
         <!--optional-->
         {% assign otOneCabOneBath = product.metafields.custom.optional_two_cabs_one_bath.value %}
         {% assign otUpTwoCabsTwoBathsOneCrew = product.metafields.custom.optional_two_cabs_two_bath_one_crew.value %}
         {% assign otUpTwoCabsThreeBaths = product.metafields.custom.optional_galley_up_two_cabs_three_baths.value %}
-        {% assign otUpThreeCabsThreeBaths =
-        product.metafields.custom.optional_galley_down_three_cabs_three_baths.value%}
-        {% assign otUpThreeCabsFourBaths = product.metafields.custom.optional_galley_up_four_three_cabs_four_baths.value
-        %}
-        {% assign otUpThreeCabsThreeBathsTwoVp =
-        product.metafields.custom.optional_galley_up_three_cabs_three_baths_vip2_single.value %}
+        {% assign otUpThreeCabsThreeBaths = product.metafields.custom.optional_galley_down_three_cabs_three_baths.value%}
+        {% assign otUpThreeCabsFourBaths = product.metafields.custom.optional_galley_up_four_three_cabs_four_baths.value %}
+        {% assign otUpThreeCabsThreeBathsTwoVp = product.metafields.custom.optional_galley_up_three_cabs_three_baths_vip2_single.value %}
         {% assign otUpOneBathOneCrew = product.metafields.custom.optional_one_cabin_crew_one_bath.value %}
 
 
@@ -176,7 +170,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="staOneCabOneBath"
                 data-image="main-deck">
 
@@ -227,7 +221,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stTwoCabOneBath"
                 data-image="main-deck">
 
@@ -277,7 +271,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpThreeCabsThreeBathsOneCrew"
                 data-image="main-deck">
 
@@ -327,7 +321,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpThreeCabsThreeBathsOneVp"
                 data-image="main-deck">
 
@@ -377,7 +371,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpFourCabsFiveBaths"
                 data-image="main-deck">
 
@@ -428,7 +422,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otOneCabOneBath"
                 data-image="main-deck">
 
@@ -480,7 +474,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpTwoCabsTwoBathsOneCrew"
                 data-image="main-deck">
 
@@ -532,7 +526,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpTwoCabsThreeBaths"
                 data-image="main-deck">
 
@@ -583,9 +577,9 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsThreeBaths"
-                data-image="main-deck">
+                data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
@@ -636,7 +630,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsFourBaths"
                 data-image="main-deck">
 
@@ -686,7 +680,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsThreeBathsTwoVp"
                 data-image="main-deck">
 
@@ -736,7 +730,7 @@
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
                 style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpOneBathOneCrew"
                 data-image="main-deck">
 
@@ -934,8 +928,10 @@
             imageContainers.forEach(container => {
                 const imageType = container.getAttribute('data-image');
                 if (imageType === dataImageValue) {
+                    container.parentElement.classList.remove('hidden');
                     container.classList.remove('hidden');
                 } else {
+                    container.parentElement.classList.add('hidden');
                     container.classList.add('hidden');
                 }
             });
@@ -999,8 +995,10 @@
                 const dataImageValue = convertIdToDataImage(tabId);
                 imageContainers.forEach(container => {
                     if (container.getAttribute('data-image') === dataImageValue) {
+                        container.parentElement.classList.remove('hidden');
                         container.classList.remove('hidden');
                     } else {
+                        container.parentElement.classList.add('hidden');
                         container.classList.add('hidden');
                     }
                 });
