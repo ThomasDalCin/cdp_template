@@ -546,6 +546,13 @@ p,
   font-family: "TT-Norms-Pro-Medium";
 }
 
+.tt-norms-pro-bold {
+  /* General font settings */
+  font-family: "TT-Norms-Pro-Bold";
+  /* General font settings */
+  font-family: "TT-Norms-Pro-Black";
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
