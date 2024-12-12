@@ -2724,6 +2724,10 @@ p,
   line-height: 1.25rem;
 }
 
+.text-\[36px\] {
+  font-size: 36px;
+}
+
 .font-light {
   font-weight: 300;
 }
@@ -2810,6 +2814,14 @@ p,
 
 .leading-\[80px\] {
   line-height: 80px;
+}
+
+.leading-\[44px\] {
+  line-height: 44px;
+}
+
+.leading-\[4px\] {
+  line-height: 4px;
 }
 
 .-tracking-\[0\.2px\] {

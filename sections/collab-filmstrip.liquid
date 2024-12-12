@@ -1,6 +1,12 @@
 
 <!--Collab filmstrip-->
-<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center relative mt-[194px]">
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center relative">
+
+    <!-- Title Section -->
+    <div
+        class="w-full h-auto flex items-start flex-col justify-center px-6 pt-14 pb-8 lg:pl-20 lg:pr-6 lg:pb-10 lg:py-[60px] lg:justify-start">
+        <p class="text-[36px] leading-[40px] tt-norms-pro-light">{{ section.settings.section_heading | default: "Collaborations" |  upcase}}</p>
+    </div>
 
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10 lg:mt-12">
@@ -138,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           "type": "text",
           "id": "section_heading",
-          "default": "Falconeri X Pardo Yachts",
-          "label": "Falconeri X Pardo Heading"
+          "default": "Collaborations",
+          "label": "Your Section Title"
         }
       ],
       "blocks": [

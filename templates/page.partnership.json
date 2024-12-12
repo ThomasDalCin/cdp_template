@@ -1,12 +1,21 @@
 {
-    "sections": {
-      "article-list": {
-        "type": "article-list-partnership",
-        "settings": {}
-      }
+  "sections": {
+    "article-list": {
+      "type": "article-list-partnership",
+      "settings": {}
     },
-    "order": [
-      "article-list"
-    ]
-  }
-  
+    "collab-filmstrip": {
+      "type": "collab-filmstrip",
+      "settings": {}
+    },
+    "past-parntership-filmstrip": {
+      "type": "past-parntership-filmstrip",
+      "settings": {}
+    }
+  },
+  "order": [
+    "article-list",
+    "collab-filmstrip",
+    "past-parntership-filmstrip"
+  ]
+}
