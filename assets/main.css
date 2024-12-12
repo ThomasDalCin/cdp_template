@@ -553,6 +553,11 @@ p,
   font-family: "TT-Norms-Pro-Black";
 }
 
+.tt-norms-thin {
+  /* General font settings */
+  font-family: "TT-Norms-Pro-Thin";
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -2710,6 +2715,10 @@ p,
   font-size: 32px;
 }
 
+.text-\[36px\] {
+  font-size: 36px;
+}
+
 .text-\[40px\] {
   font-size: 40px;
 }
@@ -2722,17 +2731,9 @@ p,
   font-size: 64px;
 }
 
-.text-\[80px\] {
-  font-size: 80px;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-\[36px\] {
-  font-size: 36px;
 }
 
 .font-light {
@@ -2819,18 +2820,6 @@ p,
   line-height: 56px;
 }
 
-.leading-\[80px\] {
-  line-height: 80px;
-}
-
-.leading-\[44px\] {
-  line-height: 44px;
-}
-
-.leading-\[4px\] {
-  line-height: 4px;
-}
-
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }
@@ -2855,10 +2844,6 @@ p,
 
 .text-\[var\(--hover-color\)\] {
   color: var(--hover-color);
-}
-
-.text-\[var\(--hover-gray\)\] {
-  color: var(--hover-gray);
 }
 
 .text-black {
@@ -3122,6 +3107,12 @@ html {
   font-family: "TT-Norms-Pro-Extra-Light";
 
   src: url("../assets/TT\ Norms\ Pro\ ExtraLight.otf");
+}
+
+@font-face {
+  font-family: "TT-Norms-Pro-Thin";
+
+  src: url("../assets/TT\ Norms\ Pro\ Thin.otf");
 }
 
 .placeholder\:body-14::-moz-placeholder {
