@@ -15,6 +15,10 @@ module.exports = {
       backgroundSize:{
         '55%': '55%',
         '100%': '100%'
+      },
+      backgroundImage: {
+        'custom-gradient-mobile': 'linear-gradient(180deg, #393332 0%, #A9A09E 100%)',
+        'custom-gradient-desktop': 'linear-gradient(90deg, #433C3B 0%, #A29997 100%)', 
       }
     },
   },

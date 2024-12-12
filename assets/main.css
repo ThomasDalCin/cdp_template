@@ -2439,6 +2439,10 @@ p,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-custom-gradient-mobile {
+  background-image: linear-gradient(180deg, #393332 0%, #A9A09E 100%);
+}
+
 .bg-contain {
   background-size: contain;
 }
@@ -3950,6 +3954,10 @@ html {
   .lg\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  .lg\:bg-custom-gradient-desktop {
+    background-image: linear-gradient(90deg, #433C3B 0%, #A29997 100%);
   }
 
   .lg\:bg-55\% {
