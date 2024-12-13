@@ -1,6 +1,6 @@
 <!-- Pardo box -->
-<div class="w-full h-auto flex flex-col items-start justify-center lg:px-20 lg:pt-[60px] lg:flex-row lg:items-start lg:justify-start lg:gap-x-4 lg:mb-[120px]">
-  <div class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-14 bg-[#A9A09E] lg:items-center lg:mb-0 lg:px-10 lg:rounded-lg lg:min-h-[244px] lg:h-[244px]">
+<div class="w-full h-auto flex flex-col items-start justify-center lg:px-20 lg:pt-1 lg:flex-row lg:items-start lg:justify-start lg:gap-x-4 lg:mb-[120px]">
+  <div class="eco-container w-full h-auto flex flex-col items-start justify-center px-6 py-14 bg-[#A9A09E] lg:items-center lg:mb-0 lg:p-6 lg:rounded-lg lg:min-h-[244px] lg:h-[244px]">
 
     <!-- Box Containers -->
     <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center lg:gap-x-4 lg:flex-col">
@@ -15,7 +15,7 @@
         <!-- cta -->
         <a href="{{ section.settings.cta_link }}" class="w-auto h-auto">
           <div class="w-full h-[48px] min-h-[48px] cta-white">
-            <p class="body-14  tt-norms-pro-reg">{{ section.settings.cta_text | default: "Discover more" }}</p>
+            <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_text | default: "Discover more" }}</p>
           </div>
         </a>
       </div>
@@ -29,12 +29,12 @@
 
     <!-- Etic Code Container -->
     <div class="innovation-container-primary w-full h-auto min-h-[230px] flex flex-col items-start justify-center gap-y-6 rounded-lg p-6 bg-[#EFEEED] lg:px-6 lg:pt-6 lg:pb-6 lg:min-h-[244px] lg:h-[244px]">
-      <p class="body-14">{{ section.settings.section_heading_etic }}</p>
-      <p class="body-16 italic">{{ section.settings.section_subheading_etic }}</p>
+      <p class="body-14 lg:text-[24px] lg:leading-[30px] tt-norms-pro-med">{{ section.settings.section_heading_etic }}</p>
+      <p class="body-16 italic tt-norms-pro-reg">{{ section.settings.section_subheading_etic }}</p>
       <p class="body-16">{{ section.settings.section_content_etic }}</p>
       <div class="w-full h-auto flex items-center justify-end">
         <a href="{{ section.settings.cta_link_etic }}" class="cta-choco-round h-[32px] flex-1 lg:px-4 lg:py-2 lg:flex-none">
-          <p class="body-14-medium">{{ section.settings.cta_text_etic }}</p>
+          <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_text_etic }}</p>
         </a>
       </div>
     </div>
