@@ -1,5 +1,8 @@
 <!-- interior & exteriors pdp section -->
 
+<!--variables-->
+{% assign internal_section_images_text = product.metafields.custom.internal_images_section_text.value %}
+{% assign external_section_images_text = product.metafields.custom.external_images_section_text.value %}
 
 <div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
@@ -98,10 +101,13 @@
     <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 lg:px-12 lg:py-[60px]">
       <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.exterior_text_title | default:
  "Exteriors" | upcase }}</p>
+       
+ {% if external_section_images_text %}
+  <p class="body-16 text-balance tt-norms-pro-reg">{{ external_section_images_text | default: "Korem ipsum dolor sit amet,
+    consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+ {% endif %}
 
-      <p class="body-16 text-balance tt-norms-pro-reg">{{ section.settings.exterior_text_content | default: "Korem ipsum dolor sit amet,
-        consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
-        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
 
       <!-- contianer cta full view -->
       <div class="w-full h-auto flex flex-row items-center justify-end my-10 lg:my-0">
@@ -190,9 +196,12 @@
     <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.interior_text_title | default: "Interior"
  | upcase }}</p>
 
-    <p class="body-16 text-balance tt-norms-pro-reg">{{ section.settings.interior_text_content | default: "Korem ipsum dolor sit amet,
-      consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
-      taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+           
+ {% if internal_section_images_text %}
+  <p class="body-16 text-balance tt-norms-pro-reg">{{ internal_section_images_text | default: "Korem ipsum dolor sit amet,
+    consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+ {% endif %}
 
     <!-- contianer cta full view -->
     <div class="w-full h-auto flex flex-row items-center justify-end my-10 lg:my-0">
@@ -512,12 +521,6 @@
         "default": "Exteriors"
       },
       {
-        "type": "textarea",
-        "id": "exterior_text_content",
-        "label": "Exteriors Content",
-        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-      },
-      {
         "type": "text",
         "id": "cta_brochure",
         "label": "CTA Button Text (Exterior)",
@@ -527,11 +530,6 @@
         "id": "interior_text_title",
         "label": "Interiors Title",
         "default": "Interiors"
-      }, {
-        "type": "textarea",
-        "id": "interior_text_content",
-        "label": "Interiors Content",
-        "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
       }, {
         "type": "text",
         "id": "cta_brochure_interior",
