@@ -78,7 +78,8 @@
 </div>
 
 <!-- Yatch Menu Container -->
-<div class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+    class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
@@ -107,15 +108,15 @@
 
 
                 <div
-                    class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 ease-linear overflow-hidden h-0">
+                    class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 opacity-0 ease-linear overflow-hidden h-0 max-h-[1000px]">
                     {% if link.title == "View all models" %}
                     <div
-                        class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full my-4">
+                        class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
                         {% for collection in collections %}
                         {% for product in collection.products %}
                         {% unless collection.title == 'Pardo approved' %}
                         <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
-                            <a href="{{ product.url }}">
+                            <a href="{{ product.url }}" class="tt-norms-pro-light">
                                 {{ product.title | replace: 'Pardo', '' }}
                             </a>
                         </div>
@@ -125,10 +126,9 @@
                     </div>
                     {% endif %}
 
-                    <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center">
+                    <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center mt-4">
                         {% for product in matching_collection.products %}
-                        <div class="badge-product border-white cursor-pointer mt-4 mb-4"
-                            data-target="{{ product.title }}">
+                        <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
                             <a href="{{ product.url }}" class="tt-norms-pro-reg">
                                 {{ product.title | replace: 'Pardo', '' }}
                             </a>
@@ -158,19 +158,19 @@
         <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
             <a href="/pages/locate-delear">
                 <div class="w-auto h-auto inline-flex cta-white-rounded">
-                    <p class="body-14 tt-norms-pro-light">{{ section.settings.cta_delear | default: "Find a delear" }}
+                    <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- boat image container on desktop -->
-        <div class="boat-image-container absolute right-20 bottom-[100px] w-[820px] h-[501px] z-30">
+        <div class="boat-image-container absolute right-20 bottom-[120px] w-[890px] h-[501px] z-30">
             {% for collection in collections %}
             {% for product in collection.products %}
             <!-- Title of the product inside the boat image container -->
             <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
-                <p class="tt-norms-pro-light text-[128px] leading-[128px] text-white boat-title"
+                <p class="tt-norms-thin text-[96px] leading-[128px] text-white boat-title"
                     data-title="{{ product.title }}">
                     {{ product.title | replace: "Pardo", "" }}
                 </p>
@@ -182,9 +182,9 @@
             <!-- Boat image within the same container -->
             {% for collection in collections %}
             {% for product in collection.products %}
-            <a href="{{ product.url }}">
+            <a href="{{ product.url }}" class="w-full h-full">
                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image"
-                    class="boat-image w-auto h-auto object-contain z-10" data-image="{{ product.title }}">
+                    class="boat-image w-full h-full object-contain z-10" data-image="{{ product.title }}">
             </a>
             {% endfor %}
             {% endfor %}
@@ -206,7 +206,7 @@
             {% endfor %}
 
             <!-- Container main features -->
-            <div class="w-full h-auto absolute left-0 bottom-0 right-0 product-details-container">
+            <div class="w-full h-auto absolute left-0 -bottom-[20px] right-0 product-details-container">
                 {% for collection in collections %}
                 {% for product in collection.products %}
                 <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2"
@@ -215,7 +215,7 @@
                     {% for productMetafieldsValue in productMetafieldsValues %}
                     {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
                     <div
-                        class="flex min-w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px] lg:flex-1">
+                        class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
                         <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med">
                             {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
                         </p>
@@ -243,7 +243,8 @@
 
 
 <!-- Main Menu Container -->
-<div class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+    class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <div class="w-full h-full flex flex-col items-start justify-between">
 
@@ -304,7 +305,7 @@
         </div>
     </div>
 
-    
+
     <!--find delear button-->
     <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px] lg:hidden">
         <a href="/pages/locate-delear">
@@ -318,7 +319,8 @@
 
 
 <!-- Second level Menu Container -->
-<div class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+    class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <!--back arrow container-->
     <div class="back-nav-container w-full h-auto items-center justify-start py-4 text-white relative hidden">
@@ -580,7 +582,7 @@
                         const boatBadges = document.querySelectorAll('.product-details-badge');
                         const tagsBadges = document.querySelectorAll('.product-tags-container');
 
-                        //hide each boat images to prevent them visibility
+                        // Nascondi tutte le immagini delle barche e altre informazioni
                         boatImages.forEach(boatImage => {
                             boatImage.style.display = 'none';
                         });
@@ -597,16 +599,16 @@
                             tag.style.display = 'none';
                         });
 
-                        //set style on badge product
+                        // Rimuovi il background dai badge
                         badgesProduct.forEach(badge => {
                             badge.classList.remove('text-black', 'bg-white');
                         });
 
-                        //handle the style of first badge product when click on link
-                        lastBadge = badgesProduct[0]; // Seleziona il primo badge come attivo
-
+                        // Imposta lo stile del primo badge
+                        lastBadge = badgesProduct[0];
                         lastBadge.classList.add('text-black', 'bg-white');
 
+                        // Gestione del mouseover sui badge
                         badgesProduct.forEach((badge) => {
                             badge.addEventListener('mouseover', (e) => {
                                 badgesProduct.forEach(badge => {
@@ -623,9 +625,8 @@
                             });
                         });
 
-                        //display boat image when over on badge product
+                        // Mostra l'immagine della barca associata al badge
                         const targetImage = lastBadge.getAttribute('data-target');
-
                         boatImages.forEach(boatImage => {
                             if (boatImage.getAttribute('data-image') === targetImage) {
                                 boatImage.style.display = 'block';
@@ -655,15 +656,23 @@
                             if (item !== collectionMenuItem) {
                                 const otherCollectionInfoContainer = item.querySelector('.collection-info-container');
                                 if (otherCollectionInfoContainer) {
-                                    otherCollectionInfoContainer.classList.remove('overflow-auto', 'h-auto');
-                                    otherCollectionInfoContainer.classList.add('overflow-hidden', 'h-0');
+                                    otherCollectionInfoContainer.classList.remove('overflow-auto');
+                                    otherCollectionInfoContainer.classList.add('overflow-hidden');
+                                    otherCollectionInfoContainer.style.height = '0'; // Nascondi in modo istantaneo
+                                    otherCollectionInfoContainer.style.opacity = '0'; // Nascondi anche l'opacità
                                 }
                             }
                         });
 
-                        collectionInfoContainer.classList.remove('overflow-hidden', 'h-0');
-                        collectionInfoContainer.classList.add('overflow-auto', 'h-auto');
+                        // Impostiamo l'altezza e opacità dinamica per il container selezionato
+                        collectionInfoContainer.classList.remove('overflow-hidden');
+                        collectionInfoContainer.classList.add('overflow-auto');
+                        collectionInfoContainer.style.height = `${collectionInfoContainer.scrollHeight}px`; // Usa scrollHeight per l'altezza dinamica
+                        collectionInfoContainer.style.opacity = '1'; // Rendi il contenuto visibile
+
                     });
+
+
                 }
             });
         }
