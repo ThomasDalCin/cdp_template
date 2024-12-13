@@ -1980,16 +1980,16 @@ p,
   max-width: 118px;
 }
 
+.max-w-\[320px\] {
+  max-width: 320px;
+}
+
 .max-w-\[343px\] {
   max-width: 343px;
 }
 
 .max-w-\[99px\] {
   max-width: 99px;
-}
-
-.max-w-\[320px\] {
-  max-width: 320px;
 }
 
 .flex-1 {
