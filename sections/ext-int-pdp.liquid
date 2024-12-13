@@ -1,10 +1,18 @@
 <!-- interior & exteriors pdp section -->
 
-<!--variables-->
+<!-- variables -->
 {% assign internal_section_images_text = product.metafields.custom.internal_images_section_text.value %}
 {% assign external_section_images_text = product.metafields.custom.external_images_section_text.value %}
 
-<div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
+{% assign external_images_text = product.metafields.custom.external_images_text.value %}
+{% assign internal_images_text = product.metafields.custom.internal_images_text.value %}
+
+
+{% assign additional_external_images_text = product.metafields.custom.additionional_external_images_text.value %}
+{% assign additionional_internal_images_text = product.metafields.custom.additionional_internal_images_text.value %}
+
+
+  <div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
   <!-- container-closing-icon -->
   <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-6 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
@@ -101,12 +109,12 @@
     <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 lg:px-12 lg:py-[60px]">
       <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.exterior_text_title | default:
  "Exteriors" | upcase }}</p>
-       
- {% if external_section_images_text %}
-  <p class="body-16 text-balance tt-norms-pro-reg">{{ external_section_images_text | default: "Korem ipsum dolor sit amet,
+
+      {% if external_section_images_text %}
+        <p class="body-16 text-balance tt-norms-pro-reg">{{ external_section_images_text | default: "Korem ipsum dolor sit amet,
     consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
     taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
- {% endif %}
+      {% endif %}
 
 
       <!-- contianer cta full view -->
@@ -139,19 +147,20 @@
 
 
       <div class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-x-external snap-mandatory scroll-snap-type-x">
-        <!-- assegna variabili -->
+        <!-- assign variables -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
         {% if externalBoat %}
           {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-          {% assign total_images = externalBoatImages.size %}
-          {% assign blocks = section.blocks | slice: 0, total_images %}
+          {% assign external_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
+          {% assign additional_external_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
 
           {% for externalBoatImage in externalBoatImages %}
             {% assign externalImage = externalBoat[externalBoatImage] %}
-            {% assign block = blocks[forloop.index0] %}
+            {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
+            {% assign additional_external_text_value = additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
 
               {% if externalImage %}
-              <!-- container per sezione immagine -->
+              <!-- container for external section image -->
               <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start flex flex-col items-start justify-center">
                 <img
                   class="w-full h-[620px] object-cover object-center"
@@ -159,20 +168,21 @@
                   id="externalImage_{{ forloop.index }}"
                   alt="{{ externalImage.alt }}">
 
-                <!-- Associa blocco -->
-                {% if block.type == "text_under_images" %}
+                <!-- external text under images -->
+                {% if external_text_value %}
                   <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
                     <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ block.settings.image_text_title }}</p>
-                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.text_image }}</p>
+                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
+                  </div>
+                {% endif %}
 
-                    {% if block.settings.more_text_visible %}
-                      <div class="w-full h-auto flex flex-col items-start justify-center">
-                        <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
-                          <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.more_text }}</p>
-                        </div>
-                        <p class="text-[14px] leading-[20px] tt-norms-pro-light underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
-                      </div>
-                    {% endif %}
+                <!-- additional text under images -->
+                {% if additional_external_text_value %}
+                  <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+                    <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
+                      <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
+                    </div>
+                    <p class="text-[14px] leading-[20px] tt-norms-pro-light underline read-more-btn mt-1" data-target="more-text-external-{{ forloop.index }}">Read more</p>
                   </div>
                 {% endif %}
               </div>
@@ -180,6 +190,8 @@
           {% endfor %}
         {% endif %}
       </div>
+
+
       <!-- handle counter images during scroll -->
       <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
         <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
@@ -196,12 +208,12 @@
     <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.interior_text_title | default: "Interior"
  | upcase }}</p>
 
-           
- {% if internal_section_images_text %}
-  <p class="body-16 text-balance tt-norms-pro-reg">{{ internal_section_images_text | default: "Korem ipsum dolor sit amet,
+
+    {% if internal_section_images_text %}
+      <p class="body-16 text-balance tt-norms-pro-reg">{{ internal_section_images_text | default: "Korem ipsum dolor sit amet,
     consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
     taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
- {% endif %}
+    {% endif %}
 
     <!-- contianer cta full view -->
     <div class="w-full h-auto flex flex-row items-center justify-end my-10 lg:my-0">
@@ -235,33 +247,38 @@
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
       {% if internalBoat %}
         {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-        {% assign total_images_internal = internalBoatImages.size %}
-        {% assign blocks = section.blocks | slice: 4, 4 %}
+        {% assign internal_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
+        {% assign additional_internal_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
+
         {% for internalBoatImage in internalBoatImages %}
           {% assign internalImage = internalBoat[internalBoatImage] %}
-          {% assign block = blocks[forloop.index0] %}
+          {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
+          {% assign additional_text_value = additionional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
+
             {% if internalImage %}
             <!-- container explore section image -->
-            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear  lg:w-[1024px] lg:min-w-[1024px] snap-start flex flex-col items-start justify-center">
+            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start flex flex-col items-start justify-start">
               <img
                 class="w-full h-[620px] object-cover object-center"
                 src="{{ internalImage | img_url: 'master' }}"
                 id="internalImage_{{ forloop.index }}"
                 alt="{{ internalImage.alt }}">
-              <!-- Associa blocco -->
-              {% if block.type == "text_under_images" %}
-                <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
-                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ block.settings.image_text_title }}</p>
-                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.text_image }}</p>
 
-                  {% if block.settings.more_text_visible %}
-                    <div class="w-full h-auto flex flex-col items-start justify-center">
-                      <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
-                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.more_text }}</p>
-                      </div>
-                      <p class="text-[14px] leading-[20px] tt-norms-pro-light underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
-                    </div>
-                  {% endif %}
+              <!-- external text under images -->
+              {% if internal_text_value %}
+                <div class="w-full h-auto flex flex-col items-start justify-start p-6 gap-y-3 lg:pl-12">
+                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ block.settings.image_text_title }}</p>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
+                </div>
+              {% endif %}
+
+              <!-- additional text under images -->
+              {% if additional_text_value %}
+                <div class="w-full h-auto flex flex-col items-start justify-start px-6 gap-y-3 lg:pl-12">
+                  <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
+                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
+                  </div>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-light underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
                 </div>
               {% endif %}
             </div>
@@ -269,10 +286,11 @@
         {% endfor %}
       {% endif %}
     </div>
+
+
     <!-- handle counter images during scroll -->
     <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
-      <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend:
- '0' }})</p>
+      <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0' }})</p>
     </div>
   </div>
 </div>
@@ -525,7 +543,8 @@
         "id": "cta_brochure",
         "label": "CTA Button Text (Exterior)",
         "default": "Full exterior gallery"
-      }, {
+      },
+      {
         "type": "text",
         "id": "interior_text_title",
         "label": "Interiors Title",
@@ -552,39 +571,6 @@
         "default": "Lorem Ipsum dolor sit"
       }
     ],
-    "blocks": [
-      {
-        "name": "Text images",
-        "type": "text_under_images",
-        "settings": [
-          {
-            "type": "textarea",
-            "id": "text_image",
-            "label": "Text under image",
-            "info": "Type text you want under image",
-            "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-          }, {
-            "type": "text",
-            "id": "image_text_title",
-            "label": "Text Title image",
-            "info": "Type Title you want under image",
-            "default": "Lorem ipsum dolor sit"
-          }, {
-            "type": "textarea",
-            "id": "more_text",
-            "label": "More text",
-            "info": "Type more text you want under image",
-            "default": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-          }, {
-            "type": "checkbox",
-            "id": "more_text_visible",
-            "label": "Choose more text visibility",
-            "default": false
-          }
-        ]
-      }
-    ],
-    "max_blocks": 8,
     "presets": [
       {
         "name": "Interior & Exterior Design",

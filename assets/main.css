@@ -1383,6 +1383,10 @@ p,
   margin-top: 227px;
 }
 
+.mt-\[16px\] {
+  margin-top: 16px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -3399,6 +3403,14 @@ html {
     margin-top: 60px;
   }
 
+  .lg\:mt-\[16px\] {
+    margin-top: 16px;
+  }
+
+  .lg\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -3893,6 +3905,14 @@ html {
     row-gap: 70px;
   }
 
+  .lg\:gap-y-4 {
+    row-gap: 1rem;
+  }
+
+  .lg\:gap-y-8 {
+    row-gap: 2rem;
+  }
+
   .lg\:overflow-x-auto {
     overflow-x: auto;
   }
@@ -4257,6 +4277,10 @@ html {
 
   .lg\:last-of-type\:mr-\[300px\]:last-of-type {
     margin-right: 300px;
+  }
+
+  .lg\:last-of-type\:mt-4:last-of-type {
+    margin-top: 1rem;
   }
 
   .lg\:hover\:w-\[72px\]:hover {
