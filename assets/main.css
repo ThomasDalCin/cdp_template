@@ -1394,6 +1394,10 @@ p,
   margin-top: 0.5rem;
 }
 
+.mt-\[22px\] {
+  margin-top: 22px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -3429,6 +3433,10 @@ html {
 
   .lg\:mt-\[60px\] {
     margin-top: 60px;
+  }
+
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .lg\:block {

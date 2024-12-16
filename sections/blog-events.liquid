@@ -115,7 +115,7 @@
 
       <!-- Form Header -->
       <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
-        <p class="body-14-medium events-name"></p>
+        <p class="body-14 tt-norms-pro-med events-name"></p>
 
         <!-- Close Icon -->
         <div class="icon-content absolute right-0 top-0 cursor-pointer">
@@ -126,7 +126,7 @@
       <!-- Form Content -->
       <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
         {% form 'contact'
-          , class: "w-full h-full flex flex-col items-start justify-center gap-y-3 mt-4 mb-4" %}
+          , class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
 
           {% if form.posted_successfully? %}
             <!-- Confirm pop-up -->
@@ -240,7 +240,7 @@
 
 
             <!-- Submit Button -->
-            <div class="cta-choco submit-cta">
+            <div class="cta-choco submit-cta mt-[22px]">
               <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
             </div>
           {% endif %}
