@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "article-list": {
@@ -6,11 +15,64 @@
     },
     "collab-filmstrip": {
       "type": "collab-filmstrip",
-      "settings": {}
+      "blocks": {
+        "card_KaifqC": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/207afceb8eda7f1d3534e759537f1443.jpg",
+            "text": "Card description here.",
+            "cta_filmstrip_card_text_visible": true,
+            "cta_filmstrip_card_text": "Buy now",
+            "cta_filmstrip_card_url": ""
+          }
+        },
+        "card_a7wybQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/5bf19131e64b745b7b93240edf87ffb8.jpg",
+            "text": "Card description here.",
+            "cta_filmstrip_card_text_visible": true,
+            "cta_filmstrip_card_text": "Buy now",
+            "cta_filmstrip_card_url": ""
+          }
+        },
+        "card_xyyfxi": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/b3ceb364d46f0ca266c95b619d2dec6f.jpg",
+            "text": "Card description here.",
+            "cta_filmstrip_card_text_visible": true,
+            "cta_filmstrip_card_text": "Buy now",
+            "cta_filmstrip_card_url": ""
+          }
+        },
+        "card_idzFWL": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/e72db9f9fb169795c65de58b7b22fced.jpg",
+            "text": "Card description here.",
+            "cta_filmstrip_card_text_visible": true,
+            "cta_filmstrip_card_text": "Buy now",
+            "cta_filmstrip_card_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_KaifqC",
+        "card_a7wybQ",
+        "card_xyyfxi",
+        "card_idzFWL"
+      ],
+      "settings": {
+        "section_heading": "Collaborations"
+      }
     },
     "past-parntership-filmstrip": {
       "type": "past-parntership-filmstrip",
-      "settings": {}
+      "settings": {
+        "cta_text": "Discover more",
+        "main_title": "Previous Partnerships"
+      }
     }
   },
   "order": [
