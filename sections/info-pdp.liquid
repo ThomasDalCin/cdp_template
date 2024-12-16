@@ -71,12 +71,12 @@
 
 <!-- Form Container -->
 <div id="form-container"
-    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-lg shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:flex lg:backdrop-blur-lg">
-    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:max-h-[600px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
+    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:flex lg:backdrop-blur-lg">
+    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
 
         <!-- Form Header -->
         <div class="form-appointment-headers w-full flex items-center justify-end relative">
-            <p class="body-14-medium events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{
+            <p class="body-14 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{
                 section.settings.form_title | default: "Get the brochure" }}</p>
 
             <!-- Close Icon -->
@@ -169,7 +169,7 @@
         <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
 
         <!-- Submit Button -->
-        <div class="cta-transparent w-full flex items-center justify-center submit-cta">
+        <div class="cta-transparent w-full flex items-center justify-center submit-cta mt-2">
             <button type="submit" id="Subscribe" class="px-6 py-3">
                 {{ section.settings.submit_button | default: "Get the brochure" }}
             </button>

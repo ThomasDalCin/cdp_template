@@ -1390,6 +1390,10 @@ p,
   margin-top: 227px;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
