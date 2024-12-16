@@ -68,7 +68,7 @@
 
             {% if article.tags contains "News" and modResult != 0 %}
             <!-- Vertical Layout -->
-            <div class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_0.67rem)] lg:h-[526px] lg:min-h-[526px]" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-vertical-view w-full flex flex-col items-start justify-start lg:gap-x-6 lg:flex-col lg:w-[calc(33.3%_-_0.67rem)] lg:h-[526px] lg:min-h-[526px] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer rounded-xl" data-tags="{{ article.tags | join: ',' }}">
 
               <div class="blog-item-image w-full lg:w-full">
                 <img
@@ -134,11 +134,11 @@
       {% assign max_articles = 6 %}
       {% assign total_articles = eventsArticles.size %}
       <!-- Horizontal Scroll Row -->
-      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-start lg:justify-start lg:gap-x-4">
+      <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-start lg:justify-start lg:gap-x-4 ">
         {% for article in newsArticles %}
           {% if article.tags contains "Press Room" %}
             <div
-              class="press-room-item blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px]"
+              class="press-room-item blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer rounded-xl"
               data-tags="{{ article.tags | join: ',' }}"
               data-index="{{ forloop.index0 }}"
               style="display: {% if forloop.index0 < max_articles %}flex{% else %}none{% endif %};">
@@ -217,7 +217,7 @@
       <div class="blog-item-horizontal-scroll w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-4">
         {% for article in newsArticles %}
           {% if article.tags contains "Awards" %}
-            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px]" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view w-full h-auto flex flex-col items-start justify-start rounded-b-xl flex-shrink-0 lg:w-[calc(33.3%_-_0.64rem)] lg:min-h-[496px] lg:h-[496px] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer rounded-xl" data-tags="{{ article.tags | join: ',' }}">
 
               <div class="blog-item-image w-full h-auto">
                 <img
