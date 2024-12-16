@@ -110,7 +110,7 @@
 
   <!-- Book appointment Form -->
   <!-- Form container -->
-  <div class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-50 transform translate-y-full transition-transform duration-300 ease-in-out hidden lg:flex lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
+  <div class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-50  hidden lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
     <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:bg-white lg:w-[640px] lg:h-auto lg:rounded-[32px] lg:p-10">
 
       <!-- Form Header -->
@@ -443,8 +443,7 @@
         const articleTitle = this.closest('.events-container').querySelector('.article-title').innerText;
         eventNameElement.textContent = articleTitle;
         formContainer.classList.remove('hidden');
-        formContainer.classList.remove('translate-y-full');
-        formContainer.classList.add('translate-y-0');
+        formContainer.classList.add('flex');
         document.body.classList.add('no-scroll');
         if (window.innerWidth <= 435) {
           const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
@@ -457,11 +456,8 @@
     });
   
     closeIcon.addEventListener('click', function () {
-      formContainer.classList.add('translate-y-full');
+      formContainer.classList.add('hidden');
       document.body.classList.remove('no-scroll');
-      setTimeout(() => {
-        formContainer.classList.add('hidden');
-      }, 300);
     });
   
     //handle json ld for Google
