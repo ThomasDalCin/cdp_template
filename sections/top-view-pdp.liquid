@@ -44,7 +44,8 @@
         {% assign topViewGalleyUpText = product.metafields.custom.top_view_galley_up_description.value %}
         {% assign topViewGalleyDownText = product.metafields.custom.top_view_galley_down_description.value %}
         {% assign topViewInteriorGalleyUpText = product.metafields.custom.interiori_view_galley_up_description.value %}
-        {% assign topViewInteriorGalleyDownText = product.metafields.custom.interior_view_galley_down_description.value%}
+        {% assign topViewInteriorGalleyDownText =
+        product.metafields.custom.interior_view_galley_down_description.value%}
         {% assign topViewLowerDeckText = product.metafields.custom.interior_view_galley_down_description.value%}
         {% assign topViewFlyBridgeText = product.metafields.custom.interior_view_galley_down_description.value%}
 
@@ -143,18 +144,24 @@
         <!--standard-->
         {% assign staOneCabOneBath = product.metafields.custom.standard_one_cab_one_bath.value %}
         {% assign stTwoCabOneBath = product.metafields.custom.standard_two_cabs_one_bath.value %}
-        {% assign stUpThreeCabsThreeBathsOneCrew = product.metafields.custom.galley_up_three_cabs_three_baths_one_crew.value %}
-        {% assign stUpThreeCabsTwoBathsOneCrew = product.metafields.custom.galley_up_three_cabs_two_baths_one_crew.value %}
-        {% assign stUpThreeCabsThreeBathsOneVp = product.metafields.custom.galley_up_three_cabs_three_baths_one_vip_db.value %}
+        {% assign stUpThreeCabsThreeBathsOneCrew =
+        product.metafields.custom.galley_up_three_cabs_three_baths_one_crew.value %}
+        {% assign stUpThreeCabsTwoBathsOneCrew = product.metafields.custom.galley_up_three_cabs_two_baths_one_crew.value
+        %}
+        {% assign stUpThreeCabsThreeBathsOneVp =
+        product.metafields.custom.galley_up_three_cabs_three_baths_one_vip_db.value %}
         {% assign stUpFourCabsFiveBaths = product.metafields.custom.galley_up_four_cabs_five_bath.value %}
 
         <!--optional-->
         {% assign otOneCabOneBath = product.metafields.custom.optional_two_cabs_one_bath.value %}
         {% assign otUpTwoCabsTwoBathsOneCrew = product.metafields.custom.optional_two_cabs_two_bath_one_crew.value %}
         {% assign otUpTwoCabsThreeBaths = product.metafields.custom.optional_galley_up_two_cabs_three_baths.value %}
-        {% assign otUpThreeCabsThreeBaths = product.metafields.custom.optional_galley_down_three_cabs_three_baths.value%}
-        {% assign otUpThreeCabsFourBaths = product.metafields.custom.optional_galley_up_four_three_cabs_four_baths.value %}
-        {% assign otUpThreeCabsThreeBathsTwoVp = product.metafields.custom.optional_galley_up_three_cabs_three_baths_vip2_single.value %}
+        {% assign otUpThreeCabsThreeBaths =
+        product.metafields.custom.optional_galley_down_three_cabs_three_baths.value%}
+        {% assign otUpThreeCabsFourBaths = product.metafields.custom.optional_galley_up_four_three_cabs_four_baths.value
+        %}
+        {% assign otUpThreeCabsThreeBathsTwoVp =
+        product.metafields.custom.optional_galley_up_three_cabs_three_baths_vip2_single.value %}
         {% assign otUpOneBathOneCrew = product.metafields.custom.optional_one_cabin_crew_one_bath.value %}
 
 
@@ -179,7 +186,8 @@
                 <!--container standard badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
                             default: "Standard" | upcase }}</p>
                     </div>
                 </div>
@@ -228,7 +236,8 @@
                 <!--container standard badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
                             default: "Standard" | upcase }}</p>
                     </div>
                 </div>
@@ -272,13 +281,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpThreeCabsThreeBathsOneCrew"
-                data-image="main-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="stUpThreeCabsThreeBathsOneCrew" data-image="main-deck">
 
                 <!--container standard badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
                             default: "Standard" | upcase }}</p>
                     </div>
                 </div>
@@ -322,13 +332,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpThreeCabsThreeBathsOneVp"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="stUpThreeCabsThreeBathsOneVp" data-image="lower-deck">
 
                 <!--container standard badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
                             default: "Standard" | upcase }}</p>
                     </div>
                 </div>
@@ -372,13 +383,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stUpFourCabsFiveBaths"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="stUpFourCabsFiveBaths" data-image="lower-deck">
 
                 <!--container standard badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.standard_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
                             default: "Standard" | upcase }}</p>
                     </div>
                 </div>
@@ -429,7 +441,8 @@
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -475,13 +488,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpTwoCabsTwoBathsOneCrew"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="otUpTwoCabsTwoBathsOneCrew" data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -527,13 +541,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpTwoCabsThreeBaths"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="otUpTwoCabsThreeBaths" data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -578,13 +593,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsThreeBaths"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="otUpThreeCabsThreeBaths" data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -631,13 +647,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsFourBaths"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="otUpThreeCabsFourBaths" data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -681,13 +698,14 @@
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
             <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpThreeCabsThreeBathsTwoVp"
-                data-image="lower-deck">
+                style="background-image: url('{{ image_item | img_url: 'master' }}');"
+                data-overlay="otUpThreeCabsThreeBathsTwoVp" data-image="lower-deck">
 
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -737,7 +755,8 @@
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med">{{ section.settings.optional_badge_text |
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -812,12 +831,30 @@
         const imageContainers = document.querySelectorAll('.top-view-scroll-img');
         let swiperOverlay;
 
-        function openOverlay(images) {
+        function openOverlay(images, layoutTypeText) {
             // Svuota il contenuto del wrapper prima di creare le slide
             swiperWrapper.innerHTML = '';
 
+            const existingBadge = overlay.querySelector('.layout-badge');
+            if (existingBadge) {
+                existingBadge.remove();
+            }
+
+
             // Classi da aggiungere ad ogni slide
             const slideClasses = ["h-screen", "flex", "items-center", "justify-center"];
+            const badgeElClasses = ["layout-badge","absolute", "left-6", "top-16", "w-auto", "h-auto", "rounded-[48px]", "bg-white", "px-4", "py-[2px]", "text-[12px]", "leading-[20px]", "tt-norms-pro-med"];
+
+            // Crea badge se layoutTypeText è presente
+            if (layoutTypeText) {
+                const layoutBadgeEl = document.createElement('div');
+                layoutBadgeEl.innerText = layoutTypeText;
+                badgeElClasses.forEach((cls) => {
+                    layoutBadgeEl.classList.add(cls);
+                });
+                overlay.appendChild(layoutBadgeEl);
+            }
+
 
             // Aggiungi le immagini al wrapper
             images.forEach(imageUrl => {
@@ -947,6 +984,11 @@
                 const hiddenImages = document.querySelectorAll(`.hidden-images-container[data-overlay="${overlayType}"] .hidden-image`);
                 const hiddenDescription = document.querySelector(`.overlay-description[data-overlay="${overlayType}"]`);
 
+                //get badge value
+                const layoutType = container.querySelector('.layout-type');
+                const layoutTypeText = layoutType ? layoutType.textContent.trim() : "";
+                console.log(layoutType)
+
                 hiddenImages.forEach(hiddenImage => {
                     images.push(hiddenImage.getAttribute('data-image'));
                 });
@@ -958,7 +1000,7 @@
                 });
 
                 // Apri l'overlay con Swiper inizializzato
-                openOverlay(images);
+                openOverlay(images, layoutTypeText);
             });
         });
 
