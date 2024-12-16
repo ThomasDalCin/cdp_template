@@ -3210,6 +3210,11 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.valid\:bg-white:valid {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-\[\#A9A09E\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(169 160 158 / var(--tw-bg-opacity));

@@ -71,12 +71,15 @@
 
 <!-- Form Container -->
 <div id="form-container"
-    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 translate-y-full transition-transform duration-300 ease-in-out lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:flex lg:backdrop-blur-lg">
-    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
+    class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 hidden lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:backdrop-blur-lg">
+    <div
+        class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
 
         <!-- Form Header -->
         <div class="form-appointment-headers w-full flex items-center justify-end relative">
-            <p class="body-14 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">{{
+            <p
+                class="body-14 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                {{
                 section.settings.form_title | default: "Get the brochure" }}</p>
 
             <!-- Close Icon -->
@@ -158,13 +161,14 @@
 
         </div>
 
-          <!-- cta-privacy-page -->
-          <div class="w-full h-auto flex flex-col items-start justify-center">
+        <!-- cta-privacy-page -->
+        <div class="w-full h-auto flex flex-col items-start justify-center">
             <a href="{{ section.settings.cta_privacy_page_redirect }}">
-              <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | default: "Privacy Policy" }}</p>
+                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
+                    default: "Privacy Policy" }}</p>
             </a>
-          </div>
-        
+        </div>
+
         <!-- Hidden Input for Brochure Tag -->
         <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
 
@@ -265,6 +269,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         const ctaBrochure = document.querySelectorAll('.cta-brochure');
         const formContainer = document.getElementById('form-container');
+        const wrapForm = document.querySelector('.wrapper-form-appointment');
         const closeForm = document.querySelector('.close-form');
 
         const submitButton = document.querySelector('.submit-cta'); // Bottone di submit
@@ -294,25 +299,41 @@
             input.addEventListener('input', updateSubmitButtonState);
         });
 
-        // Logica per aprire il form
+
+        // Funzione per aprire il form
         ctaBrochure.forEach(cta => {
             cta.addEventListener('click', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Preveniamo il comportamento predefinito (ad esempio il redirect)
+                e.stopPropagation(); // Impediamo che l'evento venga propagato al document
 
                 // Mostra il form
-                formContainer.classList.remove('translate-y-full');
-                formContainer.classList.add('translate-y-0');
+                formContainer.classList.remove('hidden');
+                formContainer.classList.add('flex');
                 document.body.classList.add('no-scroll');
             });
         });
 
-        // Logica per chiudere il form
+        // Logica per chiudere il form cliccando sull'icona di chiusura o all'esterno
+        document.addEventListener('click', function (e) {
+            // Se l'elemento cliccato non è né il form né l'icona di chiusura
+            if (!wrapForm.contains(e.target) && e.target !== closeForm) {
+                // Nascondi il form
+                formContainer.classList.remove('flex');
+                formContainer.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+
+        // Event listener per il click sull'icona di chiusura
         closeForm.addEventListener('click', function () {
-            // Nascondi il form
-            formContainer.classList.remove('translate-y-0');
-            formContainer.classList.add('translate-y-full');
+            formContainer.classList.remove('flex');
+            formContainer.classList.add('hidden');
             document.body.classList.remove('no-scroll');
         });
+
+
+
+
 
         // Funzione per aggiornare i tag
         const updateTags = () => {
