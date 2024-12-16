@@ -126,43 +126,43 @@
     </div>
     {% endif %}
 
-    <!-- Engine details -->
-    {% assign productEnginesDetails = product.metafields.custom.engines.value %}
-    {% if productEnginesDetails %}
-    {% assign enginesFields = "standard_engines,optional_engines" | split: "," %}
+<!-- Engine details -->
+{% assign productEnginesDetails = product.metafields.custom.engines.value %}
+{% if productEnginesDetails %}
+  {% assign enginesFields = "standard_engines,optional_engines" | split: "," %}
 
-    <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
-      data-dropdown-target="engines">
-      <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.engine_dropdown_title | default:
-        "Engines" }}</p>
-      {% render "plus-icon" %}
-    </div>
+  <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header"
+       data-dropdown-target="engines">
+    <p class="text-[20px] leading-[18px] tt-norms-pro-med">
+      {{ section.settings.engine_dropdown_title | default: "Engines" }}
+    </p>
+    {% render "plus-icon" %}
+  </div>
 
-    <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content engines">
-      <ul class="list-features w-full h-auto flex flex-col gap-y-2">
-        {% for enginesField in enginesFields %}
+  <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content engines">
+    <ul class="list-features w-full h-auto flex flex-col gap-y-2">
+      {% for enginesField in enginesFields %}
         {% assign items_engine = productEnginesDetails[enginesField] %}
         {% if items_engine %}
-        {% for item in enginesFields %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ enginesField | replace: '_', ' ' | capitalize
-            }}:</span>
-          <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
-        </li>
-        {% endfor %}
+            <li class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1">
+              <span class="body-12-medium text-[#818181] tt-norms-pro-med">
+                {{ enginesField | replace: '_', ' ' | capitalize }}:
+              </span>
+              <span class="font-12-medium tt-norms-pro-med w-1/2 lg:w-auto">{{ items_engine }}</span>
+            </li>
         {% else %}
-        <li
-          class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1">
-          <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ enginesField | replace: '_', ' ' | capitalize
-            }}:</span>
-          <span class="font-12-medium tt-norms-pro-med">No data available</span>
-        </li>
+          <li class="list-feature min-h-[52px] flex justify-between items-center rounded border border-[#F2EDED] px-4 py-[10px] lg:flex-1">
+            <span class="body-12-medium text-[#818181] tt-norms-pro-med">
+              {{ enginesField | replace: '_', ' ' | capitalize }}:
+            </span>
+            <span class="font-12-medium tt-norms-pro-med">No data available</span>
+          </li>
         {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
 
 
   </div>
