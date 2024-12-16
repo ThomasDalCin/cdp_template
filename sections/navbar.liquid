@@ -549,6 +549,7 @@
         function handleSecondMenuLevel() {
             const screenSize = window.innerWidth;
             let lastBadge;
+            let activeLink = null; // Variabile per tenere traccia del link attivo
 
             //handle each links inside second menu level
             document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
@@ -559,18 +560,29 @@
                         secondMenu.classList.add('flex');
                     });
                 } else {
-                    //set hover on each link
+                    // Hover per aggiungere temporaneamente il font
                     link.addEventListener('mouseover', (e) => {
                         e.currentTarget.classList.add('tt-norms-pro-reg');
                     });
 
                     link.addEventListener('mouseout', (e) => {
-                        e.currentTarget.classList.remove('tt-norms-pro-reg');
+                        // Rimuovi il font durante il mouseout solo se non è il link attivo
+                        if (e.currentTarget !== activeLink) {
+                            e.currentTarget.classList.remove('tt-norms-pro-reg');
+                        }
                     });
 
-                    //set click on each link
+                    // Clic per applicare il font in modo permanente
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
+
+                        // Cambia il font solo per il link cliccato
+                        if (activeLink) {
+                            activeLink.classList.remove('tt-norms-pro-reg'); // Rimuovi il font dal link precedente
+                        }
+
+                        link.classList.add('tt-norms-pro-reg'); // Imposta il font per il link cliccato
+                        activeLink = link; // Aggiorna la variabile activeLink con il link cliccato
 
                         navbar.classList.add('linear-gradient');
 
@@ -671,11 +683,10 @@
                         collectionInfoContainer.style.opacity = '1'; // Rendi il contenuto visibile
 
                     });
-
-
                 }
             });
         }
+
 
 
         //check device on resize event
