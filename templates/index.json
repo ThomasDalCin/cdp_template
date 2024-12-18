@@ -77,10 +77,10 @@
     "collection-oriz-scroll": {
       "type": "collection-oriz-scroll",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
-        "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
+        "oriz_image_one": "shopify://shop_images/PY_HOME002.jpg",
+        "oriz_image_two": "shopify://shop_images/PY_HOME003.jpg",
+        "oriz_image_three": "shopify://shop_images/PY_HOME004.jpg",
+        "oriz_image_four": "shopify://shop_images/PY_HOME001.jpg"
       }
     },
     "collab-section": {
