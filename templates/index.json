@@ -1,6 +1,15 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "page-loading":{
+    "page-loading": {
       "type": "page-loading",
       "settings": {}
     },
@@ -24,7 +33,7 @@
     "home-text": {
       "type": "home-text",
       "settings": {
-        "ispirational_text": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem."
+        "ispirational_text": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem. Testo nuovo"
       }
     },
     "gamma-section-new": {
