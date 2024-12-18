@@ -32,13 +32,21 @@
     },
     "home-text": {
       "type": "home-text",
+      "custom_css": [],
       "settings": {
-        "ispirational_text": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem. Testo nuovo"
+        "ispirational_text": "Shaping together your sea story"
       }
     },
     "gamma-section-new": {
       "type": "gamma-section",
       "settings": {}
+    },
+    "oriz-scroll-text": {
+      "type": "oriz-scroll-text",
+      "settings": {
+        "main_title": "Inspiring freedom, exploring waves.",
+        "paragraph_text": "Il mare è libertà, un invito a esplorare senza limiti. Ogni onda è un’opportunità, ogni navigazione un viaggio verso l’ignoto. Non si tratta solo di un design, ma di una filosofia che unisce eleganza e funzionalità, per vivere il mare come una parte di sé. Ogni yacht è pensato per farti sentire a casa tra le onde, in perfetto equilibrio tra innovazione e tradizione. Naviga con il vento, senza paura, in cerca di nuove emozioni."
+      }
     },
     "home-video": {
       "type": "home-video",
@@ -73,13 +81,6 @@
         "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
         "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
         "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
-      }
-    },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
-      "settings": {
-        "main_title": "DiscoverWalkaround",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
       }
     },
     "collab-section": {
@@ -122,12 +123,12 @@
     "hero-section",
     "home-text",
     "gamma-section-new",
+    "oriz-scroll-text",
     "home-video",
     "explore-section",
     "articles-list",
     "infinity-banner",
     "collection-oriz-scroll",
-    "oriz-scroll-text",
     "collab-section"
   ]
 }
