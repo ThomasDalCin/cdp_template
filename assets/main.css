@@ -1149,10 +1149,6 @@ p,
   bottom: 2rem;
 }
 
-.bottom-\[100px\] {
-  bottom: 100px;
-}
-
 .bottom-\[10px\] {
   bottom: 10px;
 }
@@ -1247,14 +1243,6 @@ p,
 
 .top-\[576px\] {
   top: 576px;
-}
-
-.left-\[26px\] {
-  left: 26px;
-}
-
-.top-\[24px\] {
-  top: 24px;
 }
 
 .-z-10 {
@@ -1374,6 +1362,10 @@ p,
   margin-top: 0.25rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1388,10 +1380,6 @@ p,
 
 .mt-\[227px\] {
   margin-top: 227px;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .mt-\[22px\] {
@@ -1779,6 +1767,10 @@ p,
   width: 0px;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1947,10 +1939,6 @@ p,
   width: 100%;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .min-w-\[124px\] {
   min-width: 124px;
 }
@@ -2047,18 +2035,8 @@ p,
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.translate-y-0 {
-  --tw-translate-y: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .translate-y-\[1000px\] {
   --tw-translate-y: 1000px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-full {
-  --tw-translate-y: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -3214,11 +3192,6 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.valid\:bg-white:valid {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-\[\#A9A09E\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(169 160 158 / var(--tw-bg-opacity));
@@ -3415,10 +3388,6 @@ html {
     margin-top: 2.75rem;
   }
 
-  .lg\:mt-12 {
-    margin-top: 3rem;
-  }
-
   .lg\:mt-2 {
     margin-top: 0.5rem;
   }
@@ -3433,10 +3402,6 @@ html {
 
   .lg\:mt-\[60px\] {
     margin-top: 60px;
-  }
-
-  .lg\:mt-10 {
-    margin-top: 2.5rem;
   }
 
   .lg\:mt-\[\] {
@@ -3557,10 +3522,6 @@ html {
 
   .lg\:max-h-\[560px\] {
     max-height: 560px;
-  }
-
-  .lg\:max-h-\[600px\] {
-    max-height: 600px;
   }
 
   .lg\:min-h-\[200px\] {

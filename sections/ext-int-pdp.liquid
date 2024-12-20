@@ -151,10 +151,10 @@
         <!-- assign variables -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
         {% if externalBoat %}
-          {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-          {% assign external_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
-          {% assign additional_external_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
-          {% assign external_images_text_title = 'title_one,title_two,title_three,title_four' | split: "," %}
+          {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
+          {% assign external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
+          {% assign additional_external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
+          {% assign external_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten' | split: "," %}
 
           {% for externalBoatImage in externalBoatImages %}
             {% assign externalImage = externalBoat[externalBoatImage] %}
@@ -249,10 +249,10 @@
       <!-- assign variables -->
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
       {% if internalBoat %}
-        {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-        {% assign internal_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
-        {% assign additional_internal_images_text_properties = 'text_one,text_two,text_three,text_four' | split: ',' %}
-        {% assign internal_images_text_title = 'title_one,title_two,title_three,title_four' | split: "," %}
+        {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
+        {% assign internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
+        {% assign additional_internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
+        {% assign internal_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten' | split: "," %}
 
         {% for internalBoatImage in internalBoatImages %}
           {% assign internalImage = internalBoat[internalBoatImage] %}
