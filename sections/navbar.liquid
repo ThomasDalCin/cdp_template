@@ -946,7 +946,13 @@
 
         allSecondLinksMenu.forEach((link) => {
             link.addEventListener('click', (e) => {
-                const linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
+                let linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
+
+                // Transform "GT" into "Grand Touring"
+                if (linkTarget === "GT") {
+                    linkTarget = "Grand Touring";
+                }
+
 
                 resetScroll();
 
