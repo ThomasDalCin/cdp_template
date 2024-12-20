@@ -3256,6 +3256,10 @@ html {
     position: relative;
   }
 
+  .lg\:sticky {
+    position: sticky;
+  }
+
   .lg\:inset-0 {
     inset: 0px;
   }
@@ -3330,6 +3334,10 @@ html {
 
   .lg\:top-\[calc\(820px_\+_1rem\)\] {
     top: calc(820px + 1rem);
+  }
+
+  .lg\:top-1\/4 {
+    top: 25%;
   }
 
   .lg\:z-10 {
