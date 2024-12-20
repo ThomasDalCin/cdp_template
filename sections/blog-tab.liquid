@@ -32,8 +32,8 @@
   {% endfor %}
   {% endfor %}
   {% assign tags_array = all_tags | split: ',' %}
-  {% assign tags_array = tags_array | sort : 'title'  %}
-  
+  {% assign tags_array = tags_array | sort: 'title' %}
+
   <!-- Dynamic Tags -->
   {% for tag in tags_array %}
   {% if tag != '' %}
@@ -54,183 +54,239 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const eventsTab = document.getElementById('events-tab');
-  const newsTab = document.getElementById('news-tab');
-  const blogChips = document.getElementById('blog-chips');
-  const eventsContent = document.querySelectorAll('.blog-events-container');
-  const pastEvents = document.querySelector('.past-event');
-  const newsContent = document.querySelector('.blog-news-container');
-  const pressRoomContent = document.querySelector('.blog-pressroom-container');
-  const awardsContent = document.querySelector('.blog-awards-container');
-  const newsRect = document.querySelector('.tab-news-rect');
-  const eventsRect = document.querySelector('.tab-events-rect');
-  const chipsLabels = document.querySelectorAll('.chips-label');
+  document.addEventListener('DOMContentLoaded', function () {
+    const eventsTab = document.getElementById('events-tab');
+    const newsTab = document.getElementById('news-tab');
+    const blogChips = document.getElementById('blog-chips');
+    const eventsContent = document.querySelectorAll('.blog-events-container');
+    const pastEvents = document.querySelector('.past-event');
+    const newsContent = document.querySelector('.blog-news-container');
+    const pressRoomContent = document.querySelector('.blog-pressroom-container');
+    const awardsContent = document.querySelector('.blog-awards-container');
+    const newsRect = document.querySelector('.tab-news-rect');
+    const eventsRect = document.querySelector('.tab-events-rect');
+    const chipsLabels = document.querySelectorAll('.chips-label');
 
-  const eventsTabText = eventsTab.firstElementChild;
-  const newsTabText = newsTab.firstElementChild;
+    const eventsTabText = eventsTab.firstElementChild;
+    const newsTabText = newsTab.firstElementChild;
 
-  // Utility function to hide all content
-  function hideAllContent() {
-    if (newsContent) {
-      newsContent.classList.add('hidden');
-      newsContent.classList.remove('flex');
-    }
-    if (pressRoomContent) {
-      pressRoomContent.classList.add('hidden');
-      pressRoomContent.classList.remove('flex');
-    }
-    if (awardsContent) {
-      awardsContent.classList.add('hidden');
-      awardsContent.classList.remove('flex');
-    }
-    eventsContent.forEach((event) => {
-      event.classList.add('hidden');
-      event.classList.remove('flex');
-    });
-    if (pastEvents) {
-      pastEvents.classList.add('hidden');
-      pastEvents.classList.remove('flex');
-    }
-  }
-
-  // Default state: Events tab active
-  function activateEventsTab() {
-    blogChips.classList.add('hidden'); // Nascondi i tag
-    eventsRect.classList.add('flex');
-    eventsRect.classList.remove('hidden');
-    newsRect.classList.remove('flex');
-    newsRect.classList.add('hidden');
-
-    // Apply the correct font classes
-    eventsTabText.classList.add('tt-norms-pro-med');
-    eventsTabText.classList.remove('tt-norms-pro-light');
-    newsTabText.classList.add('tt-norms-pro-light');
-    newsTabText.classList.remove('tt-norms-pro-med');
-
-    hideAllContent(); // Nascondi tutti i contenuti
-    eventsContent.forEach((event) => {
-      event.classList.add('flex'); // Mostra i contenuti Events
-      event.classList.remove('hidden');
-    });
-
-    if (pastEvents) {
-      pastEvents.classList.add('flex');
-      pastEvents.classList.remove('hidden');
-    }
-
-    // Nascondi il contenuto News quando Events è attivo
-    if (newsContent) {
-      newsContent.classList.add('hidden');
-      newsContent.classList.remove('flex');
-    }
-
-    // Ripristina la posizione originale delle icone delle chips (se non sono attive)
-    chipsLabels.forEach((chip) => {
-      const icon = chip.querySelector('.chips-text svg');
-      if (icon) {
-        icon.classList.remove('rotate-0'); // Ripristina la posizione di rotazione
-        icon.classList.add('-rotate-45'); // Ruota le icone non selezionate
+    // Utility function to hide all content
+    function hideAllContent() {
+      if (newsContent) {
+        newsContent.classList.add('hidden');
+        newsContent.classList.remove('flex');
       }
-    });
-  }
-
-  // Activate News tab with default content
-  function activateNewsTab() {
-    blogChips.classList.remove('hidden'); // Mostra i tag
-    eventsRect.classList.add('hidden');
-    newsRect.classList.remove('hidden');
-
-    // Apply the correct font classes
-    eventsTabText.classList.add('tt-norms-pro-light');
-    eventsTabText.classList.remove('tt-norms-pro-med');
-    newsTabText.classList.add('tt-norms-pro-med');
-    newsTabText.classList.remove('tt-norms-pro-light');
-
-    hideAllContent(); // Nascondi tutti i contenuti
-    if (newsContent) {
-      newsContent.classList.remove('hidden'); // Mostra solo News Content
-      newsContent.classList.add('flex');
+      if (pressRoomContent) {
+        pressRoomContent.classList.add('hidden');
+        pressRoomContent.classList.remove('flex');
+      }
+      if (awardsContent) {
+        awardsContent.classList.add('hidden');
+        awardsContent.classList.remove('flex');
+      }
+      eventsContent.forEach((event) => {
+        event.classList.add('hidden');
+        event.classList.remove('flex');
+      });
+      if (pastEvents) {
+        pastEvents.classList.add('hidden');
+        pastEvents.classList.remove('flex');
+      }
     }
 
-    // Attiva la chip News e lascia l'icona a 0 gradi
-    chipsLabels.forEach((chip) => {
-      const icon = chip.querySelector('.chips-text svg');
-      if (chip.dataset.tag === 'News') {
-        chip.classList.add('chips-blog-active'); // Marca la chip News come attiva
+    // Default state: Events tab active
+    function activateEventsTab() {
+      blogChips.classList.add('hidden'); // Nascondi i tag
+      eventsRect.classList.add('flex');
+      eventsRect.classList.remove('hidden');
+      newsRect.classList.remove('flex');
+      newsRect.classList.add('hidden');
+
+      // Apply the correct font classes
+      eventsTabText.classList.add('tt-norms-pro-med');
+      eventsTabText.classList.remove('tt-norms-pro-light');
+      newsTabText.classList.add('tt-norms-pro-light');
+      newsTabText.classList.remove('tt-norms-pro-med');
+
+      hideAllContent(); // Nascondi tutti i contenuti
+      eventsContent.forEach((event) => {
+        event.classList.add('flex'); // Mostra i contenuti Events
+        event.classList.remove('hidden');
+      });
+
+      if (pastEvents) {
+        pastEvents.classList.add('flex');
+        pastEvents.classList.remove('hidden');
+      }
+
+      // Nascondi il contenuto News quando Events è attivo
+      if (newsContent) {
+        newsContent.classList.add('hidden');
+        newsContent.classList.remove('flex');
+      }
+
+      // Ripristina la posizione originale delle icone delle chips (se non sono attive)
+      chipsLabels.forEach((chip) => {
+        const icon = chip.querySelector('.chips-text svg');
         if (icon) {
-          icon.classList.remove('-rotate-45'); // Posizione non ruotata per News
-          icon.classList.add('rotate-0'); // Posizione originale
+          icon.classList.remove('rotate-0'); // Ripristina la posizione di rotazione
+          icon.classList.add('-rotate-45'); // Ruota le icone non selezionate
         }
-      } else {
+      });
+    }
+
+    // Activate News tab with default content
+    function activateNewsTab() {
+      blogChips.classList.remove('hidden'); // Mostra i tag
+      eventsRect.classList.add('hidden');
+      newsRect.classList.remove('hidden');
+
+      // Apply the correct font classes
+      eventsTabText.classList.add('tt-norms-pro-light');
+      eventsTabText.classList.remove('tt-norms-pro-med');
+      newsTabText.classList.add('tt-norms-pro-med');
+      newsTabText.classList.remove('tt-norms-pro-light');
+
+      hideAllContent(); // Nascondi tutti i contenuti
+
+      if (newsContent) {
+        newsContent.classList.remove('hidden'); // Mostra solo News Content
+        newsContent.classList.add('flex');
+
+        
+        const prevArrow = document.getElementById('prev-news-Arrow');
+        const nextArrow = document.getElementById('next-news-Arrow');
+        const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
+
+        if (!scrollContainer || !prevArrow || !nextArrow) {
+          console.error('Error: Scroll container or arrows not found.');
+          return;
+        }
+
+        const cards = document.querySelectorAll('.card-horiz-news');
+
+        if (cards.length === 0) {
+          console.error('Error: No cards found inside the scroll container.');
+          return;
+        }
+
+        // Calcola la larghezza effettiva della card
+        const cardWidth = cards[0].getBoundingClientRect().width;
+
+        // Funzione per aggiornare lo stato delle frecce
+        function updateArrows() {
+          const currentScrollLeft = scrollContainer.scrollLeft;
+          const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+
+          prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+          nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+        }
+
+        // Funzione per eseguire lo scroll del contenitore
+        function scrollContainerBy(amount) {
+          const currentScrollLeft = scrollContainer.scrollLeft;
+          const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+          let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
+
+          scrollContainer.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth'
+          });
+
+          updateArrows();
+        }
+
+        prevArrow.addEventListener('click', function () {
+          scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
+        });
+
+        nextArrow.addEventListener('click', function () {
+          scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
+        });
+
+        updateArrows();
+        scrollContainer.addEventListener('scroll', updateArrows);
+      }
+
+      // Attiva la chip News e lascia l'icona a 0 gradi
+      chipsLabels.forEach((chip) => {
+        const icon = chip.querySelector('.chips-text svg');
+        if (chip.dataset.tag === 'News') {
+          chip.classList.add('chips-blog-active'); // Marca la chip News come attiva
+          if (icon) {
+            icon.classList.remove('-rotate-45'); // Posizione non ruotata per News
+            icon.classList.add('rotate-0'); // Posizione originale
+          }
+        } else {
+          chip.classList.remove('chips-blog-active');
+          if (icon) {
+            icon.classList.remove('rotate-0'); // Posizione non ruotata per le altre chips
+            icon.classList.add('-rotate-45'); // Ruota di 45 gradi
+          }
+        }
+      });
+    }
+
+    // Handle chips click to filter content
+    function handleChipClick(tag) {
+      hideAllContent(); // Nascondi tutti i contenuti
+      blogChips.classList.remove('hidden'); // I tag devono restare visibili
+
+      // Rimuovi lo stato attivo da tutti i chip
+      chipsLabels.forEach((chip) => {
         chip.classList.remove('chips-blog-active');
+        const icon = chip.querySelector('.chips-text svg');
         if (icon) {
-          icon.classList.remove('rotate-0'); // Posizione non ruotata per le altre chips
-          icon.classList.add('-rotate-45'); // Ruota di 45 gradi
+          icon.classList.remove('rotate-0');
+          icon.classList.add('-rotate-45'); // Ruota le icone non selezionate
         }
+      });
+
+      // Marca il chip selezionato come attivo
+      const selectedChip = document.querySelector(`[data-tag="${tag}"]`);
+      selectedChip.classList.add('chips-blog-active');
+      const currentIcon = selectedChip.querySelector('.chips-text svg');
+      if (currentIcon) {
+        currentIcon.classList.remove('-rotate-45');
+        currentIcon.classList.add('rotate-0'); // Riporta l'icona selezionata alla posizione originale
       }
-    });
-  }
 
-  // Handle chips click to filter content
-  function handleChipClick(tag) {
-    hideAllContent(); // Nascondi tutti i contenuti
-    blogChips.classList.remove('hidden'); // I tag devono restare visibili
+      // Mostra i contenuti filtrati in base al tag
+      if (tag === 'News' && newsContent) {
+        newsContent.classList.add('flex');
+        newsContent.classList.remove('hidden');
+      } else if (tag === 'Press Room' && pressRoomContent) {
+        pressRoomContent.classList.add('flex');
+        pressRoomContent.classList.remove('hidden');
+      } else if (tag === 'Awards' && awardsContent) {
+        awardsContent.classList.add('flex');
+        awardsContent.classList.remove('hidden');
+      }
+    }
 
-    // Rimuovi lo stato attivo da tutti i chip
+    // Attach click handlers to chips
     chipsLabels.forEach((chip) => {
-      chip.classList.remove('chips-blog-active');
-      const icon = chip.querySelector('.chips-text svg');
-      if (icon) {
-        icon.classList.remove('rotate-0');
-        icon.classList.add('-rotate-45'); // Ruota le icone non selezionate
-      }
+      chip.addEventListener('click', () => {
+        const tag = chip.dataset.tag;
+        handleChipClick(tag); // Passa il tag selezionato alla funzione
+      });
     });
 
-    // Marca il chip selezionato come attivo
-    const selectedChip = document.querySelector(`[data-tag="${tag}"]`);
-    selectedChip.classList.add('chips-blog-active');
-    const currentIcon = selectedChip.querySelector('.chips-text svg');
-    if (currentIcon) {
-      currentIcon.classList.remove('-rotate-45');
-      currentIcon.classList.add('rotate-0'); // Riporta l'icona selezionata alla posizione originale
-    }
+    // Event listeners for tab clicks
+    eventsTab.addEventListener('click', activateEventsTab);
+    newsTab.addEventListener('click', activateNewsTab);
 
-    // Mostra i contenuti filtrati in base al tag
-    if (tag === 'News' && newsContent) {
-      newsContent.classList.add('flex');
-      newsContent.classList.remove('hidden');
-    } else if (tag === 'Press Room' && pressRoomContent) {
-      pressRoomContent.classList.add('flex');
-      pressRoomContent.classList.remove('hidden');
-    } else if (tag === 'Awards' && awardsContent) {
-      awardsContent.classList.add('flex');
-      awardsContent.classList.remove('hidden');
-    }
-  }
+    // Set default active tab: Events (and hide News content by default)
+    activateEventsTab();
 
-  // Attach click handlers to chips
-  chipsLabels.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const tag = chip.dataset.tag;
-      handleChipClick(tag); // Passa il tag selezionato alla funzione
-    });
+    // Inizializzazione: Nascondi newsContent al caricamento della pagina
+    if (newsContent) {
+      newsContent.classList.add('hidden');
+      newsContent.classList.remove('flex');
+    }
   });
-
-  // Event listeners for tab clicks
-  eventsTab.addEventListener('click', activateEventsTab);
-  newsTab.addEventListener('click', activateNewsTab);
-
-  // Set default active tab: Events (and hide News content by default)
-  activateEventsTab();
-
-  // Inizializzazione: Nascondi newsContent al caricamento della pagina
-  if (newsContent) {
-    newsContent.classList.add('hidden');
-    newsContent.classList.remove('flex');
-  }
-});
-
 </script>
 
 {% schema %}

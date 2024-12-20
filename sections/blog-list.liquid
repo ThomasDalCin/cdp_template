@@ -27,7 +27,7 @@
 
             {% if article.tags contains "News" and modResult == 0 %}
             <!-- Horizontal Layout -->
-            <div class="blog-item-horizontal-view w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]" data-tags="{{ article.tags | join: ',' }}">
+            <div class="blog-item-horizontal-view card-horiz-news w-[353px] min-w-[353px] h-[418px] max-h-[418px] flex flex-col items-start justify-start rounded-b-xl lg:w-[400px] lg:min-w-[400px] lg:min-h-[418px] lg:max-h-[418px]" data-tags="{{ article.tags | join: ',' }}" style="width: 353px;">
 
               <div class="blog-item-image w-full h-auto">
                 <img
@@ -250,7 +250,11 @@
       <p class="text-center body-12">No articles found under the "Pressroom" tag.</p>
     {% endif %}
   {% endif %}
-</div></div><style>
+</div></div>
+
+
+
+<style>
 .carousel-arrow.disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -259,89 +263,23 @@
 .carousel-arrow:not(.disabled) {
   opacity: 1;
   pointer-events: auto;
-}</style><script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const prevArrow = document.getElementById('prev-news-Arrow');
-    const nextArrow = document.getElementById('next-news-Arrow');
-    const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
+}
+</style>
 
-    if (!scrollContainer || !prevArrow || !nextArrow) {
-      console.error('Error: Scroll container or arrows not found.');
-      return;
-    }
 
-    // Recupera tutte le card presenti nel contenitore
-    const cards = Array.from(scrollContainer.children);
-    console.log('Cards found:', cards);  // Aggiunto per verificare se le card sono state trovate
 
-    if (cards.length === 0) {
-      console.error('Error: No cards found inside the scroll container.');
-      return;
-    }
+<script>
 
-    // Calcolo della larghezza di ogni card
-    const cardWidth = cards[0].offsetWidth;
-    console.log('Card width:', cardWidth);  // Verifica la larghezza della card
-
-    // Funzione per aggiornare lo stato delle frecce
-    function updateArrows() {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      console.log('Current scroll left:', currentScrollLeft);
-      console.log('Max scroll left:', maxScrollLeft);
-
-      // Disabilita o abilita le frecce in base alla posizione dello scroll
-      prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
-      nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
-    }
-
-    // Funzione per eseguire lo scroll del contenitore
-    function scrollContainerBy(amount) {
-      const currentScrollLeft = scrollContainer.scrollLeft;
-      const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      console.log('Scroll before:', currentScrollLeft); // Verifica la posizione prima dello scroll
-
-      // Calcolo del nuovo valore di scroll
-      let newScrollLeft = Math.min(Math.max(currentScrollLeft + amount, 0), maxScrollLeft);
-
-      console.log('Scroll after:', newScrollLeft); // Verifica la posizione dopo lo scroll
-
-      scrollContainer.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth'
-      });
-
-      // Aggiorna lo stato delle frecce dopo un breve delay
-      setTimeout(updateArrows, 300);
-    }
-
-    // Event listener per il click sulla freccia sinistra
-    prevArrow.addEventListener('click', function () {
-      scrollContainerBy(-cardWidth);  // Scrolla in base alla larghezza della card
-    });
-
-    // Event listener per il click sulla freccia destra
-    nextArrow.addEventListener('click', function () {
-      scrollContainerBy(cardWidth);  // Scrolla in base alla larghezza della card
-    });
-
-    // Inizializza lo stato delle frecce
-    updateArrows();
-    scrollContainer.addEventListener('scroll', updateArrows);
-  });
-
-  const pressroomArticles = document.querySelectorAll(".press-room-item");
-  const loadMorePressRoomButton = document.querySelector(".load-more-cta-pressroom");
-  const currentItemsDisplayPressRoom = document.querySelector(".current-items-pressroom");
-  let visibleCountPressRoom = 6;
-  const maxToShow = 6;
-  const totalItems = pressroomArticles.length;
+document.addEventListener('DOMContentLoaded', function () {
+const pressroomArticles = document.querySelectorAll(".press-room-item");
+const loadMorePressRoomButton = document.querySelector(".load-more-cta-pressroom");
+const currentItemsDisplayPressRoom = document.querySelector(".current-items-pressroom");
+let visibleCountPressRoom = 6;
+const maxToShow = 6;
+const totalItems = pressroomArticles.length;
   
-
-  const updateVisibleArticles = () => {
-    pressroomArticles.forEach((article, index) => {
+const updateVisibleArticles = () => {
+  pressroomArticles.forEach((article, index) => {
       if (index < visibleCountPressRoom) {
         article.style.display = "flex";
       } else {
@@ -349,7 +287,7 @@
       }
     });
   
-    currentItemsDisplayPressRoom.textContent = `${Math.min(visibleCountPressRoom, totalItems)} of ${totalItems}`;
+  currentItemsDisplayPressRoom.textContent = `${Math.min(visibleCountPressRoom, totalItems)} of ${totalItems}`;
   
     if (visibleCountPressRoom >= totalItems) {
       loadMorePressRoomButton.style.display = "none";
@@ -363,9 +301,16 @@
     visibleCountPressRoom += maxToShow;
     updateVisibleArticles();
   });
-</script>{% comment %} 
+
+});
+</script>
+
+
+
+
+{% comment %} 
     Section Schema Settings here; 
-  {% endcomment %}
+{% endcomment %}
 
 {% schema %}
 {
