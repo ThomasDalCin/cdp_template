@@ -1,269 +1,243 @@
-<div class="w-full h-auto flex flex-col items-start justify-center lg:items-start lg:justify-end lg:flex-row-reverse lg:mt-[194px] lg:gap-x-10 lg:pt-20 lg:pb-[120px] lg:pr-20">
+<div
+  class="w-full h-auto flex flex-col items-start justify-center lg:items-start lg:justify-end lg:flex-row-reverse lg:mt-[194px] lg:gap-x-10 lg:pt-20 lg:pb-[120px] lg:pr-20">
 
-  <div class="contact-card-container w-full p-4 flex flex-col gap-4 mt-[194px] lg:mt-0 lg:gap-x-10 lg:w-[calc(33.3333%_-_2.5rem)] lg:px-0 lg:py-0 lg:sticky lg:top-1/4">
+  <div
+    class="contact-card-container w-full p-4 flex flex-col gap-4 mt-[194px] lg:mt-0 lg:gap-x-10 lg:w-[calc(33.3333%_-_2.5rem)] lg:px-0 lg:py-0 lg:sticky lg:top-1/4">
     <!-- Card Location Container -->
-    <div class="card-loc-container w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-full lg:mx-0 lg:gap-4 lg:flex-col lg:gap-y-10 lg:mb-0">
+    <div
+      class="card-loc-container w-[calc(100%+2rem)] px-4 -mx-4 h-auto flex flex-row z-10 overflow-x-auto items-start justify-start gap-2 mb-10 lg:justify-between lg:w-full lg:mx-0 lg:gap-4 lg:flex-col lg:gap-y-10 lg:mb-0">
       {% for block in section.blocks %}
-        {% if block.type == "card-location-default" %}
-          <div class="card-loc-item flex-shrink-0 w-[220px]  h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-full lg:h-auto lg:p-12">
-            <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
-              <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_default_heading }}</p>
-            </div>
-            <div class="card-loc-address-container w-full h-auto flex items-center justify-start">
-              <p class="body-14">{{ block.settings.card_loc_default_address }}</p>
-            </div>
-            <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
-              <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
-                <a class="underline body-14 tt-norms-pro-med" href="/">Show on Google Maps</a>
-                {% render 'cta-icon' %}
-              </li>
-            </div>
-            <div class="card-loc-email-container w-full h-auto flex items-center justify-start">
-              <p class="body-14">{{ block.settings.card_loc_default_email }}</p>
-            </div>
-            <div class="card-loc-phonedetails-container w-full h-auto flex items-center justify-start">
-              <p class="body-14">{{ block.settings.card_loc_default_phone }}</p>
-            </div>
-          </div>
-        {% elsif block.type == "card-location-additional" %}
-          <div class="card-loc-item flex-shrink-0 w-[220px]  h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-full lg:h-auto  lg:p-12">
-            <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
-              <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_additional_heading }}</p>
-            </div>
-            <div class="card-loc-content-container w-full h-auto flex items-center justify-start">
-              <p class="body-14">{{ block.settings.card_loc_additional_content }}</p>
-            </div>
-            <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
-              <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
-                <a class="underline body-14 tt-norms-pro-med" href="/">{{ section.settings.delear_cta }}</a>
-                {% render 'cta-icon' %}
-              </li>
-            </div>
-          </div>
-        {% endif %}
+      {% if block.type == "card-location-default" %}
+      <div
+        class="card-loc-item flex-shrink-0 w-[220px]  h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-full lg:h-auto lg:p-12">
+        <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
+          <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_default_heading }}</p>
+        </div>
+        <div class="card-loc-address-container w-full h-auto flex items-center justify-start">
+          <p class="body-14">{{ block.settings.card_loc_default_address }}</p>
+        </div>
+        <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
+          <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
+            <a class="underline body-14 tt-norms-pro-med" href="/">Show on Google Maps</a>
+            {% render 'cta-icon' %}
+          </li>
+        </div>
+        <div class="card-loc-email-container w-full h-auto flex items-center justify-start">
+          <p class="body-14">{{ block.settings.card_loc_default_email }}</p>
+        </div>
+        <div class="card-loc-phonedetails-container w-full h-auto flex items-center justify-start">
+          <p class="body-14">{{ block.settings.card_loc_default_phone }}</p>
+        </div>
+      </div>
+      {% elsif block.type == "card-location-additional" %}
+      <div
+        class="card-loc-item flex-shrink-0 w-[220px]  h-auto flex flex-col items-center justify-start gap-y-4 bg-[#F7F7F7] rounded-lg p-4 lg:w-full lg:h-auto  lg:p-12">
+        <div class="card-loc-heading-container w-full h-auto flex items-center justify-start">
+          <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_additional_heading }}</p>
+        </div>
+        <div class="card-loc-content-container w-full h-auto flex items-center justify-start">
+          <p class="body-14">{{ block.settings.card_loc_additional_content }}</p>
+        </div>
+        <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
+          <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
+            <a class="underline body-14 tt-norms-pro-med" href="/">{{ section.settings.delear_cta }}</a>
+            {% render 'cta-icon' %}
+          </li>
+        </div>
+      </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
 
   <!-- Contact Form -->
-  <div class="w-full h-auto flex items-start justify-center px-6 py-12 bg-[#908987] lg:w-[calc(66.66666%_-_2.5rem)] lg:rounded-tr-[32px] lg:rounded-br-[32px]">
-    <div class="contact-form-container w-full  h-auto flex flex-col items-start justify-center gap-y-6 lg:w-full lg:px-20 lg:py-[120px]">
+  <div
+    class="w-full h-auto flex items-start justify-center px-6 py-12 bg-[#908987] lg:w-[calc(66.66666%_-_2.5rem)] lg:rounded-tr-[32px] lg:rounded-br-[32px]">
+    <div
+      class="contact-form-container w-full  h-auto flex flex-col items-start justify-center gap-y-6 lg:w-full lg:px-20 lg:py-[120px]">
       {% if form.posted_successfully? %}
-        <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+      <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
       {% else %}
-        <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
-          <p class="text-[24px] leading-[30px] tt-norms-pro-med text-white">{{ section.settings.form_heading }}</p>
-          <p class="body-12 tt-norms-pro-reg text-white">{{ section.settings.alert_form_message }}</p>
-        </div>
+      <div class="contact-form-container-heading w-full h-auto flex flex-col items-start justify-center gap-y-8">
+        <p class="text-[24px] leading-[30px] tt-norms-pro-med text-white">{{ section.settings.form_heading }}</p>
+        <p class="body-12 tt-norms-pro-reg text-white">{{ section.settings.alert_form_message }}</p>
+      </div>
 
-        <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
-          {% form 'contact'
-            , class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
-            {{ form.errors | default_errors }}
+      <div class="form-container w-full h-auto flex flex-col items-start justify-center gap-y-4">
+        {% form 'contact'
+        , class: "form-contact w-full h-auto flex flex-col items-start justify-center gap-y-4" %}
+        {{ form.errors | default_errors }}
 
-            <!-- Form Content -->
-            <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
+        <!-- Form Content -->
+        <div class="contact-form-content w-full h-auto flex flex-col items-start justify-center gap-y-5">
 
-              <!-- First Name -->
-              <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-                <input
-                  type="text"
-                  name="contact[first_name]"
-                  id="first_name"
-                  value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-                  class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent  font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder="{{ section.settings.form_name }}"
-                  required>
-              </div>
+          <!-- First Name -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="text" name="contact[first_name]" id="first_name"
+              value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent  font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder="{{ section.settings.form_name }}" required>
+          </div>
 
-              <!-- Last Name -->
-              <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-                <input
-                  type="text"
-                  name="contact[last_name]"
-                  id="last_name"
-                  value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-                  class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder="{{ section.settings.form_lastname }}"
-                  required>
-              </div>
+          <!-- Last Name -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="text" name="contact[last_name]" id="last_name"
+              value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder="{{ section.settings.form_lastname }}" required>
+          </div>
 
-              <!-- Email -->
-              <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-                <input
-                  type="email"
-                  name="contact[email]"
-                  id="email"
-                  value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-                  class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder="{{ section.settings.form_email }}"
-                  required>
-              </div>
+          <!-- Email -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="email" name="contact[email]" id="email"
+              value="{% if form.email != blank %}{{ form.email }}{% endif %}"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder="{{ section.settings.form_email }}" required>
+          </div>
 
-              <!-- Phone -->
-              <div class="form-group w-full h-auto flex flex-col items-start justify-center">
-                <input
-                  type="tel"
-                  name="contact[phone]"
-                  id="phone"
-                  value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-                  class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder="{{ section.settings.form_phone }}">
-              </div>
+          <!-- Phone -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input type="tel" name="contact[phone]" id="phone"
+              value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder="{{ section.settings.form_phone }}">
+          </div>
 
-              <!-- Models hidden -->
-              <input
-                type="hidden"
-                name="contact[models]"
-                id="selected-models">
+          <!-- Models hidden -->
+          <input type="hidden" name="contact[models]" id="selected-models">
 
-              <!-- Models -->
-              <div class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
-                <div id="dropdown-toggle" class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer focus:ring-black text-black">
-                  <span id="placeholder-text" class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">Models</span>
-                  <!-- Dropdown icon -->
-                  <svg
-                    id="dropdown-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    class="relative transition-transform duration-300"
-                    stroke="currentColor">
-                    <path
-                      d="M19 9l-7 7-7-7"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+          <!-- Models -->
+          <div
+            class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
+            <div id="dropdown-toggle"
+              class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer focus:ring-black text-black">
+              <span id="placeholder-text"
+                class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">Models</span>
+              <!-- Dropdown icon -->
+              <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" class="relative transition-transform duration-300" stroke="currentColor">
+                <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+
+            <!-- Dropdown container (initially collapsed) -->
+            <div id="dropdown-container" class="w-full h-0 overflow-hidden transition-all duration-300 ease-in-out">
+              <div
+                class="container-boat-label w-full h-auto flex flex-row flex-wrap items-center justify-start p-4 gap-2">
+                {% for collection in collections %}
+                {% if collection.title != 'Pardo approved' %}
+                {% for product in collection.products %}
+                <div
+                  class="badge-product min-w-[51px] text-[14px] leading-[20px] tt-norms-pro-reg px-3 py-2 flex items-center justify-center"
+                  data-value="{{ product.title | replace: 'Pardo', '' }}">
+                  {{ product.title | replace: 'Pardo', '' }}
                 </div>
-
-                <!-- Dropdown container (initially collapsed) -->
-                <div id="dropdown-container" class="w-full h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div class="container-boat-label w-full h-auto flex flex-row flex-wrap items-center justify-start p-4 gap-2">
-                    {% for collection in collections %}
-                      {% if collection.title != 'Pardo approved' %}
-                        {% for product in collection.products %}
-                          <div class="badge-product min-w-[51px] text-[14px] leading-[20px] tt-norms-pro-reg px-3 py-2 flex items-center justify-center" data-value="{{ product.title | replace: 'Pardo', '' }}">
-                            {{ product.title | replace: 'Pardo', '' }}
-                          </div>
-                        {% endfor %}
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                </div>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
               </div>
+            </div>
+          </div>
 
-              <!-- Port register -->
-              <div class="form-group w-full relative">
-                <input
-                  type="text"
-                  name="contact[port]"
-                  id="port"
-                  value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-                  class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder=" "
-                  required>
-                <label for="port" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
-                  {{ section.settings.form_port }}
-                </label>
-              </div>
+          <!-- Port register -->
+          <div class="form-group w-full relative">
+            <input type="text" name="contact[port]" id="port"
+              value="{% if form.port != blank %}{{ form.port }}{% endif %}"
+              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder=" " required>
+            <label for="port"
+              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              {{ section.settings.form_port }}
+            </label>
+          </div>
 
-              <!-- Boat number -->
-              <div class="form-group w-full relative">
-                <input
-                  type="text"
-                  name="contact[boat_registration]"
-                  id="boat_registration"
-                  value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-                  class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder=" "
-                  required>
-                <label for="boat_registration" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
-                  {{ section.settings.form_boat }}
-                </label>
-              </div>
+          <!-- Boat number -->
+          <div class="form-group w-full relative">
+            <input type="text" name="contact[boat_registration]" id="boat_registration"
+              value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
+              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder=" " required>
+            <label for="boat_registration"
+              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              {{ section.settings.form_boat }}
+            </label>
+          </div>
 
-              <!-- Message -->
-              <div class="form-group w-full relative">
-                <textarea
-                  name="contact[message]"
-                  id="message"
-                  class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-                  placeholder=" "
-                  maxlength="230"
-                  oninput="updateCharCount()"
-                  required>
+          <!-- Message -->
+          <div class="form-group w-full relative">
+            <textarea name="contact[message]" id="message"
+              class="floating-input w-full h-[150px] px-4 py-3 text-left rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder=" " maxlength="230" oninput="updateCharCount()" onchange="updateCharCount()" required>
                   {% if form.message != blank %}
                     {{ form.message }}{% endif %}
                 </textarea>
-                <label for="message" class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
-                  {{ section.settings.form_message }}
+            <label for="message"
+              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              {{ section.settings.form_message }}
+            </label>
+            <div class="char-counter absolute right-[16px] bottom-[16px] body-12 text-[#818181]">
+              <span id="charCount">0</span>/230
+            </div>
+          </div>
+
+
+          <div
+            class="w-full h-auto flex items-start justify-center gap-y-6 bg-[var(--primary-background-color)] rounded-lg flex-col p-6 lg:p-10">
+            <!-- container checkbox -->
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+              <!-- Marketing Consent Checkbox -->
+              <div class="form-group w-full flex items-center gap-2">
+                <input type="checkbox" id="marketingConsent" name="contact[marketing_consent]"
+                  class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+                <label for="marketingConsent" class="text-[12px] leading-[18px]  tt-norms-pro-reg">
+                  {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
+                  commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
+                  market research in order to evaluate your level of satisfaction with our products and services." }}
+                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"
+                    data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy"
+                    }}</span>
                 </label>
-                <div class="char-counter absolute right-[16px] bottom-[16px] body-12 text-[#818181]">
-                  <span id="charCount">0</span>/230
-                </div>
               </div>
 
-
-              <div class="w-full h-auto flex items-start justify-center gap-y-6 bg-[var(--primary-background-color)] rounded-lg flex-col p-6 lg:p-10">
-                <!-- container checkbox -->
-                <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <!-- Marketing Consent Checkbox -->
-                  <div class="form-group w-full flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="marketingConsent"
-                      name="contact[marketing_consent]"
-                      class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
-                    <label for="marketingConsent" class="text-[12px] leading-[18px]  tt-norms-pro-reg">
-                      {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
-                                                                                          commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
-                                                                                          market research in order to evaluate your level of satisfaction with our products and services." }}
-                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy" }}</span>
-                    </label>
-                  </div>
-
-                  <!-- Profiling Consent Checkbox -->
-                  <div class="form-group w-full flex items-center gap-2 opacity-30">
-                    <input
-                      type="checkbox"
-                      id="profilingConsent"
-                      name="contact[profiling_consent]"
-                      class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
-                    <label for="profilingConsent" class="text-[12px] leading-[18px] tt-norms-pro-reg">
-                      {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
-                                                                                          send you personalized commercial communications based on your purchasing habits and, in general,
-                                                                                          based on your interests, your requests and your interactions with us." }}
-                      <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy" }}</span>
-                    </label>
-                  </div>
-
-                </div>
-
-                <!-- cta-privacy-page -->
-                <div class="w-full h-auto flex flex-col items-start justify-center">
-                  <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                    <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | default: "Privacy Policy" }}</p>
-                  </a>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="w-full h-auto flex items-start justify-center lg:justify-end">
-                  <div class="w-full cta-transparent opacity-20 lg:inline-flex lg:h-[48px]" id="contact-cta">
-                    <button type="submit">
-                      {{ section.settings.form_cta }}
-                    </button>
-                  </div>
-                </div>
+              <!-- Profiling Consent Checkbox -->
+              <div class="form-group w-full flex items-center gap-2 opacity-30">
+                <input type="checkbox" id="profilingConsent" name="contact[profiling_consent]"
+                  class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+                <label for="profilingConsent" class="text-[12px] leading-[18px] tt-norms-pro-reg">
+                  {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
+                  send you personalized commercial communications based on your purchasing habits and, in general,
+                  based on your interests, your requests and your interactions with us." }}
+                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"
+                    data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy"
+                    }}</span>
+                </label>
               </div>
-
 
             </div>
-          {% endform %}
+
+            <!-- cta-privacy-page -->
+            <div class="w-full h-auto flex flex-col items-start justify-center">
+              <a href="{{ section.settings.cta_privacy_page_redirect }}">
+                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
+                  default: "Privacy Policy" }}</p>
+              </a>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="w-full h-auto flex items-start justify-center lg:justify-end">
+              <div class="w-full cta-transparent opacity-20 lg:inline-flex lg:h-[48px]" id="contact-cta">
+                <button type="submit">
+                  {{ section.settings.form_cta }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+        {% endform %}
+      </div>
       {% endif %}
     </div>
   </div>
@@ -277,22 +251,49 @@
     let charCount = document.getElementById("charCount");
     charCount.textContent = textarea.value.length;
   }
-  
+
   // Handle dropdown container
   document.addEventListener('DOMContentLoaded', function () {
     const dropdownToggle = document.getElementById('dropdown-toggle');
     const dropdownContainer = document.getElementById('dropdown-container');
     const dropdownArrow = document.getElementById('dropdown-arrow');
-  
+
     const marketingCheckbox = document.getElementById('marketingConsent'); // Checkbox Marketing
     const profilingCheckbox = document.getElementById('profilingConsent'); // Checkbox Profiling
     const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
-  
-  
+
+
+    // Seleziona tutti gli input e le textarea
+    const inputsFloating = document.querySelectorAll('.floating-input');
+
+    // Funzione per gestire la visibilità della label
+    function toggleLabelVisibility(event) {
+      const input = event.target;
+      const label = input.nextElementSibling; // La label si trova subito dopo l'input
+      if (input.value.trim() !== "" || input === document.activeElement) {
+        label.style.display = 'none'; // Nasconde la label se c'è del testo o l'input è in focus
+      } else {
+        label.style.display = 'block'; // Mostra la label se l'input è vuoto
+      }
+    }
+
+    // Aggiungi l'evento `input` per ogni input e textarea
+    inputsFloating.forEach(input => {
+      input.addEventListener('input', toggleLabelVisibility);
+      input.addEventListener('focus', toggleLabelVisibility); // Nascondi la label quando l'input è in focus
+      input.addEventListener('blur', toggleLabelVisibility);  // Mostra la label quando l'input perde il focus
+    });
+
+    // Gestione del valore iniziale per gli input già precompilati
+    inputsFloating.forEach(input => {
+      toggleLabelVisibility({target: input});
+    });
+
+
     // Toggle the dropdown when the header is clicked
     dropdownToggle.addEventListener('click', function () {
       const isExpanded = dropdownContainer.style.height !== '0px' && dropdownContainer.style.height !== '';
-  
+
       if (isExpanded) {
         // Collapse the dropdown
         dropdownContainer.style.height = '0px';
@@ -304,22 +305,22 @@
         dropdownArrow.classList.add('rotate-180');
       }
     });
-  
+
     dropdownContainer.style.height = '0px';
-  
+
     const badges = document.querySelectorAll('.badge-product');
     const selectedModelsInput = document.getElementById('selected-models');
     let selectedModels = [];
-  
+
     badges.forEach(badge => {
       badge.addEventListener('click', function () {
         const value = this.getAttribute('data-value');
-  
+
         if (selectedModels.includes(value)) {
           // Deselect if already selected
           selectedModels = selectedModels.filter(model => model !== value);
           this.classList.remove('chips-label-active');
-          this.classList.remove('border-transparent'); 
+          this.classList.remove('border-transparent');
           this.classList.remove('tt-norms-pro-med');
         } else {
           // Select the badge
@@ -328,28 +329,28 @@
           this.classList.add('border-transparent');
           this.classList.add('tt-norms-pro-med');
         }
-  
+
         // Update hidden input value with selected models
         selectedModelsInput.value = selectedModels.join(', ');
       });
     });
-  
+
     const submitButton = document.getElementById('contact-cta');
     const form = document.querySelector('form');
     const inputs = form.querySelectorAll('input, textarea');
-  
+
     //check if all fields are not empty
     function checkFormCompletion() {
       let allFilled = true;
-  
+
       inputs.forEach(input => {
         //if one field is empty
         if (input.type !== 'checkbox' && !input.value.trim()) {
           allFilled = false;
         }
-  
+
       });
-  
+
       //change the cta color base on fields
       if (allFilled) {
         submitButton.classList.remove('opacity-20');
@@ -361,251 +362,251 @@
         submitButton.classList.add('opacity-20');  // Colore grigio disabilitato
       }
     }
-  
+
     //add listner to check the fields
     inputs.forEach(input => {
       input.addEventListener('input', checkFormCompletion);
     });
-  
+
     //handle the function after page loading
     checkFormCompletion();
-  
+
     const updateProfilingState = () => {
-            if (marketingCheckbox.checked) {
-                profilingContainer.style.opacity = '1';
-                profilingCheckbox.disabled = false;
-            } else {
-                profilingContainer.style.opacity = '0.3';
-                profilingCheckbox.disabled = true;
-                profilingCheckbox.checked = false; // Deseleziona Profiling se Marketing non è selezionato
-            }
+      if (marketingCheckbox.checked) {
+        profilingContainer.style.opacity = '1';
+        profilingCheckbox.disabled = false;
+      } else {
+        profilingContainer.style.opacity = '0.3';
+        profilingCheckbox.disabled = true;
+        profilingCheckbox.checked = false; // Deseleziona Profiling se Marketing non è selezionato
+      }
     };
-  
-      // Event listeners per le checkbox
-      marketingCheckbox.addEventListener('change', () => {
-            updateProfilingState();
-        });
-  
-  
+
+    // Event listeners per le checkbox
+    marketingCheckbox.addEventListener('change', () => {
+      updateProfilingState();
+    });
+
+
     updateProfilingState();
-  
-  
+
+
     const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
-        const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
-        const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
-        const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
-  
-        linksToPopUp.forEach((link) => {
-            const linkReference = link.getAttribute('data-attribute');
-            link.addEventListener('click', () => {
-                if (linkReference === "marketing") {
-                    openPopUp(marketingPopUpContainer);
-                } else if (linkReference === "profilation") {
-                    openPopUp(profilationPopUpContainer);
-                }
-            });
-        });
-  
-        closingPopUpIcon.forEach((icon) => {
-            const iconReference = icon.getAttribute('data-attribute');
-            icon.addEventListener('click', () => {
-                if (iconReference === "marketing") {
-                    closePopUp(marketingPopUpContainer);
-                } else if (iconReference === "profilation") {
-                    closePopUp(profilationPopUpContainer);
-                }
-            });
-        });
-  
-        function openPopUp(elementToOpen) {
-            elementToOpen.classList.remove('hidden');
-            elementToOpen.classList.add('flex');
+    const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
+    const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
+    const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
+
+    linksToPopUp.forEach((link) => {
+      const linkReference = link.getAttribute('data-attribute');
+      link.addEventListener('click', () => {
+        if (linkReference === "marketing") {
+          openPopUp(marketingPopUpContainer);
+        } else if (linkReference === "profilation") {
+          openPopUp(profilationPopUpContainer);
         }
-  
-        function closePopUp(elementToClose) {
-            elementToClose.classList.add('hidden');
-            elementToClose.classList.remove('flex');
+      });
+    });
+
+    closingPopUpIcon.forEach((icon) => {
+      const iconReference = icon.getAttribute('data-attribute');
+      icon.addEventListener('click', () => {
+        if (iconReference === "marketing") {
+          closePopUp(marketingPopUpContainer);
+        } else if (iconReference === "profilation") {
+          closePopUp(profilationPopUpContainer);
         }
-  
-  
+      });
+    });
+
+    function openPopUp(elementToOpen) {
+      elementToOpen.classList.remove('hidden');
+      elementToOpen.classList.add('flex');
+    }
+
+    function closePopUp(elementToClose) {
+      elementToClose.classList.add('hidden');
+      elementToClose.classList.remove('flex');
+    }
+
+
   });
 </script>
 
 
-{% comment %} 
-                Section Schema Settings here; 
+{% comment %}
+Section Schema Settings here;
 {% endcomment %}
 {% schema %}
-  {
-    "name": "contact-form",
-    "settings": [
-      {
-        "type": "text",
-        "id": "delear_cta",
-        "label": "Delear Cta",
-        "default": "Locate a Delear"
-      },
-      {
-        "type": "text",
-        "id": "form_heading",
-        "label": "Form Heading",
-        "default": "Ask us, we will be happy to assist you."
-      },
-      {
-        "type": "text",
-        "id": "alert_form_message",
-        "label": "Alert Message",
-        "default": "Fields Required*"
-      },
-      {
-        "type": "text",
-        "id": "thankyou_message",
-        "label": "Thank You Message",
-        "default": "Thank you"
-      }, {
-        "type": "text",
-        "id": "form_name",
-        "label": "Form Name",
-        "default": "Name*"
-      }, {
-        "type": "text",
-        "id": "form_lastname",
-        "label": "Last Name",
-        "default": "Last Name*"
-      }, {
-        "type": "text",
-        "id": "form_email",
-        "label": "Email",
-        "default": "Email*"
-      }, {
-        "type": "text",
-        "id": "form_phone",
-        "label": "Phone",
-        "default": "Phone*"
-      }, {
-        "type": "text",
-        "id": "form_models",
-        "label": "Models",
-        "default": "Models"
-      }, {
-        "type": "text",
-        "id": "form_port",
-        "label": "Port",
-        "default": "Port"
-      }, {
-        "type": "text",
-        "id": "form_boat",
-        "label": "Boat",
-        "default": "Boat"
-      }, {
-        "type": "textarea",
-        "id": "form_message",
-        "label": "Message",
-        "default": "Message"
-      }, {
-        "type": "textarea",
-        "id": "form_info_primary_list",
-        "label": "Primary Info Bullet Points",
-        "default": "Keep me informed, so I can receive:"
-      }, {
-        "type": "textarea",
-        "id": "bullet_list_one",
-        "label": "Bullet Points First",
-        "default": "Information about products and services of interest to me."
-      }, {
-        "type": "textarea",
-        "id": "bullet_list_two",
-        "label": "Bullet Points Second",
-        "default": "Personalized communications delivered in the way that suits me best."
-      }, {
-        "type": "textarea",
-        "id": "bullet_list_three",
-        "label": "Bullet Points Third",
-        "default": "Unique opportunities to have my say and help shape the future of Pardo Yachts."
-      }, {
-        "type": "textarea",
-        "id": "form_info_secondary",
-        "label": "Secondary Info",
-        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience"
-      }, {
-        "type": "text",
-        "id": "form_cta",
-        "label": "CTA Text",
-        "default": "Send"
-      }, {
-        "type": "text",
-        "id": "cta_privacy_page",
-        "label": "CTA Text",
-        "default": "Privacy Policy"
-      }, {
-        "type": "url",
-        "id": "cta_privacy_page_redirect",
-        "label": "CTA Url"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "card-location-default",
-        "type": "card-location-default",
-        "settings": [
-          {
-            "type": "text",
-            "id": "card_loc_default_heading",
-            "label": "Card Heading",
-            "default": "Headquarters"
-          }, {
-            "type": "text",
-            "id": "card_loc_default_address",
-            "label": "Card Address",
-            "default": "Address: Via F.II Lumière, 34 47122 Forlì (FC)"
-          }, {
-            "type": "text",
-            "id": "card_loc_default_email",
-            "label": "Card Email",
-            "default": "Email: info@pardoyachts.com"
-          }, {
-            "type": "text",
-            "id": "card_loc_default_phone",
-            "label": "Card Phone",
-            "default": "Phone: +39 0543 782404"
-          }
-        ]
-      }, {
-        "name": "card-location-additional",
-        "type": "card-location-additional",
-        "settings": [
-          {
-            "type": "text",
-            "id": "card_loc_additional_heading",
-            "label": "Card Heading",
-            "default": "Bespoke since always"
-          }, {
-            "type": "textarea",
-            "id": "card_loc_additional_content",
-            "label": "Card Content",
-            "default": "A passionate, experienced, and highly skilled team can assist you on your journey to purchasing Pardo Yachts; by sharing your preferences, we will create the solution that best suits you."
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Default Location Card",
-        "category": "Card",
-        "blocks": [
-          {
-            "type": "card-location-default"
-          }
-        ]
-      }, {
-        "name": "Additional Location Card",
-        "category": "Card",
-        "blocks": [
-          {
-            "type": "card-location-additional"
-          }
-        ]
-      }
-    ]
-  }
+{
+"name": "contact-form",
+"settings": [
+{
+"type": "text",
+"id": "delear_cta",
+"label": "Delear Cta",
+"default": "Locate a Delear"
+},
+{
+"type": "text",
+"id": "form_heading",
+"label": "Form Heading",
+"default": "Ask us, we will be happy to assist you."
+},
+{
+"type": "text",
+"id": "alert_form_message",
+"label": "Alert Message",
+"default": "Fields Required*"
+},
+{
+"type": "text",
+"id": "thankyou_message",
+"label": "Thank You Message",
+"default": "Thank you"
+}, {
+"type": "text",
+"id": "form_name",
+"label": "Form Name",
+"default": "Name*"
+}, {
+"type": "text",
+"id": "form_lastname",
+"label": "Last Name",
+"default": "Last Name*"
+}, {
+"type": "text",
+"id": "form_email",
+"label": "Email",
+"default": "Email*"
+}, {
+"type": "text",
+"id": "form_phone",
+"label": "Phone",
+"default": "Phone*"
+}, {
+"type": "text",
+"id": "form_models",
+"label": "Models",
+"default": "Models"
+}, {
+"type": "text",
+"id": "form_port",
+"label": "Port",
+"default": "Port"
+}, {
+"type": "text",
+"id": "form_boat",
+"label": "Boat",
+"default": "Boat"
+}, {
+"type": "textarea",
+"id": "form_message",
+"label": "Message",
+"default": "Message"
+}, {
+"type": "textarea",
+"id": "form_info_primary_list",
+"label": "Primary Info Bullet Points",
+"default": "Keep me informed, so I can receive:"
+}, {
+"type": "textarea",
+"id": "bullet_list_one",
+"label": "Bullet Points First",
+"default": "Information about products and services of interest to me."
+}, {
+"type": "textarea",
+"id": "bullet_list_two",
+"label": "Bullet Points Second",
+"default": "Personalized communications delivered in the way that suits me best."
+}, {
+"type": "textarea",
+"id": "bullet_list_three",
+"label": "Bullet Points Third",
+"default": "Unique opportunities to have my say and help shape the future of Pardo Yachts."
+}, {
+"type": "textarea",
+"id": "form_info_secondary",
+"label": "Secondary Info",
+"default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience"
+}, {
+"type": "text",
+"id": "form_cta",
+"label": "CTA Text",
+"default": "Send"
+}, {
+"type": "text",
+"id": "cta_privacy_page",
+"label": "CTA Text",
+"default": "Privacy Policy"
+}, {
+"type": "url",
+"id": "cta_privacy_page_redirect",
+"label": "CTA Url"
+}
+],
+"blocks": [
+{
+"name": "card-location-default",
+"type": "card-location-default",
+"settings": [
+{
+"type": "text",
+"id": "card_loc_default_heading",
+"label": "Card Heading",
+"default": "Headquarters"
+}, {
+"type": "text",
+"id": "card_loc_default_address",
+"label": "Card Address",
+"default": "Address: Via F.II Lumière, 34 47122 Forlì (FC)"
+}, {
+"type": "text",
+"id": "card_loc_default_email",
+"label": "Card Email",
+"default": "Email: info@pardoyachts.com"
+}, {
+"type": "text",
+"id": "card_loc_default_phone",
+"label": "Card Phone",
+"default": "Phone: +39 0543 782404"
+}
+]
+}, {
+"name": "card-location-additional",
+"type": "card-location-additional",
+"settings": [
+{
+"type": "text",
+"id": "card_loc_additional_heading",
+"label": "Card Heading",
+"default": "Bespoke since always"
+}, {
+"type": "textarea",
+"id": "card_loc_additional_content",
+"label": "Card Content",
+"default": "A passionate, experienced, and highly skilled team can assist you on your journey to purchasing Pardo Yachts; by sharing your preferences, we will create the solution that best suits you."
+}
+]
+}
+],
+"presets": [
+{
+"name": "Default Location Card",
+"category": "Card",
+"blocks": [
+{
+"type": "card-location-default"
+}
+]
+}, {
+"name": "Additional Location Card",
+"category": "Card",
+"blocks": [
+{
+"type": "card-location-additional"
+}
+]
+}
+]
+}
 {% endschema %}
