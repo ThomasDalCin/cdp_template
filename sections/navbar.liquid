@@ -90,18 +90,21 @@
             <li class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item lg:last-of-type:mt-4"
                 data-collection="{{ link.object.handle }}">
 
-            
-        <div class="relative inline-block">
-            {% if allLinksTitle contains link.title %}
-                {% if link.title == 'Grand Touring' %}
-                    {{ 'GT' | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
-                {% elsif link.title == 'View all models' %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
-                {% else %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
-                {% endif %}
-            {% endif %}
-        </div>
+
+                <div class="relative inline-block">
+                    {% if allLinksTitle contains link.title %}
+                    {% if link.title == 'Grand Touring' %}
+                    {{ 'GT' | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light
+                    lg:text-[64px] lg:leading-[70px]" }}
+                    {% elsif link.title == 'View all models' %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
+                    leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
+                    {% else %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
+                    tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
+                    {% endif %}
+                    {% endif %}
+                </div>
 
 
 
