@@ -114,10 +114,8 @@
               <span id="placeholder-text"
                 class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">Models</span>
               <!-- Dropdown icon -->
-              <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" class="relative transition-transform duration-300" stroke="currentColor">
-                <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
+              <svg xmlns="http://www.w3.org/2000/svg"  id="dropdown-arrow"  width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4.88056 8.17719C4.55561 7.84728 4 8.08094 4 8.5475C4 8.68703 4.05484 8.82078 4.15236 8.9191L10.5858 15.4053C11.3668 16.1982 12.6332 16.1982 13.4142 15.4053L19.8535 8.86761C19.9473 8.7724 20 8.64326 20 8.50862C20 8.05638 19.4614 7.82992 19.1464 8.1497L12.7071 14.6874C12.3166 15.0839 11.6834 15.0839 11.2929 14.6874L4.88056 8.17719Z" fill="black"/>
               </svg>
             </div>
 
@@ -167,8 +165,8 @@
           <!-- Message -->
           <div class="form-group w-full relative">
             <textarea name="contact[message]" id="message"
-              class="floating-input w-full h-[150px] px-4 py-3 text-left rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
-              placeholder=" " maxlength="230" oninput="updateCharCount()" onchange="updateCharCount()" required>
+              class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              placeholder=" " maxlength="230" oninput="updateCharCount()" required>
                   {% if form.message != blank %}
                     {{ form.message }}{% endif %}
                 </textarea>
