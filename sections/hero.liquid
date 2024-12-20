@@ -1,74 +1,135 @@
-<!-- Hero wrapper section -->
-<div class="hero-wrapper w-full h-svh relative">
+<!-- Hero Wrapper Section for Mobile -->
+<div class="hero-wrapper w-full h-svh relative lg:hidden">
   <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
 
-    <!-- Swiper slider start here -->
-    <div class="swiper mySwiper w-full h-full relative">
+    <!-- Swiper Slider for Mobile -->
+    <div class="swiper mySwiper swiper-mobile w-full h-full relative">
       <div class="swiper-wrapper">
 
-        <!-- assign variables -->
-        {% assign swiper_images = "swiper_video,swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
-        {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
-        {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
-        {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3" | split: "," %}
-        {% assign max_index = swiper_images.size | minus: 1 %}
+        <!-- Swiper Slide for Mobile -->
+        {% assign swiper_images_mobile = "swiper_video_mobile,swiper_image_1_mobile,swiper_image_2_mobile,swiper_image_3_mobile" | split: "," %}
+        {% assign cta_texts_mobile = "cta_text_1_mobile,cta_text_2_mobile,cta_text_3_mobile" | split: "," %}
+        {% assign cta_urls_mobile = "cta_url_1_mobile,cta_url_2_mobile,cta_url_3_mobile" | split: "," %}
+        {% assign cta_enabled_mobile = "enable_cta_1_mobile,enable_cta_2_mobile,enable_cta_3_mobile" | split: "," %}
+        {% assign max_index_mobile = swiper_images_mobile.size | minus: 1 %}
 
-        {% for i in (0..max_index) %}
-        {% assign swiper_image = swiper_images[i] %}
-        {% assign cta_text = cta_texts[i] %}
-        {% assign cta_url = cta_urls[i] %}
-        {% assign cta_check = cta_enabled[i] %}
-        {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
+        {% for i in (0..max_index_mobile) %}
+          {% assign swiper_image_mobile = swiper_images_mobile[i] %}
+          {% assign cta_text_mobile = cta_texts_mobile[i] %}
+          {% assign cta_url_mobile = cta_urls_mobile[i] %}
+          {% assign cta_check_mobile = cta_enabled_mobile[i] %}
+          {% assign image_url_mobile = section.settings[swiper_image_mobile] | img_url: "master" %}
 
-        <!-- Check for video -->
-        {% if swiper_image == "swiper_video" and section.settings[swiper_image] %}
-        <div class="swiper-slide relative">
-          <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
-            <source src="{{ section.settings[swiper_image] }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        {% elsif image_url %}
-        <!-- Swiper slide -->
-        <div class="swiper-slide relative">
-          <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+          <!-- Check for Video -->
+          {% if swiper_image_mobile == "swiper_video_mobile" and section.settings[swiper_image_mobile] %}
+            <div class="swiper-slide relative">
+              <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
+                <source src="{{ section.settings[swiper_image_mobile] }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          {% elsif image_url_mobile %}
+            <!-- Swiper Image Slide for Mobile -->
+            <div class="swiper-slide relative">
+              <img src="{{ image_url_mobile }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
 
-          <!-- Condition cta -->
-          {% if section.settings[cta_check] or section.settings[cta_url] %}
-          <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
-            <a href="{{ section.settings[cta_url] }}">
-              <div
-                class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
-                <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px]">{{ section.settings[cta_text] }}</p>
-              </div>
-            </a>
-          </div>
+              <!-- Check for CTA -->
+              {% if section.settings[cta_check_mobile] or section.settings[cta_url_mobile] %}
+                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
+                  <a href="{{ section.settings[cta_url_mobile] }}">
+                    <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                      <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px]">{{ section.settings[cta_text_mobile] }}</p>
+                    </div>
+                  </a>
+                </div>
+              {% endif %}
+            </div>
           {% endif %}
-        </div>
-        {% endif %}
         {% endfor %}
       </div>
 
-      <!-- Container swiper bullets -->
-      <div
-        class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
-        <!-- Container bullets -->
+      <!-- Swiper Pagination for Mobile -->
+      <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
         <div class="w-auto h-auto">
-          <div class="swiper-pagination">
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
 
+      <!-- Navigation for Mobile -->
       <div class="w-auto h-auto hidden lg:block">
-        <div
-          class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white mr-10">
-        </div>
+        <div class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white mr-10"></div>
       </div>
       <div class="w-auto h-auto hidden lg:block">
+        <div class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white ml-10"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div
-          class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white ml-10">
+
+<!-- Hero Wrapper Section for Desktop -->
+<div class="hero-wrapper w-full h-svh relative hidden lg:block">
+  <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
+
+    <!-- Swiper Slider for Desktop -->
+    <div class="swiper mySwiper swiper-desktop w-full h-full relative">
+      <div class="swiper-wrapper">
+
+        <!-- Swiper Slide for Desktop -->
+        {% assign swiper_images_desktop = "swiper_video_desktop,swiper_image_1_desktop,swiper_image_2_desktop,swiper_image_3_desktop" | split: "," %}
+        {% assign cta_texts_desktop = "cta_text_1_desktop,cta_text_2_desktop,cta_text_3_desktop" | split: "," %}
+        {% assign cta_urls_desktop = "cta_url_1_desktop,cta_url_2_desktop,cta_url_3_desktop" | split: "," %}
+        {% assign cta_enabled_desktop = "enable_cta_1_desktop,enable_cta_2_desktop,enable_cta_3_desktop" | split: "," %}
+        {% assign max_index_desktop = swiper_images_desktop.size | minus: 1 %}
+
+        {% for i in (0..max_index_desktop) %}
+          {% assign swiper_image_desktop = swiper_images_desktop[i] %}
+          {% assign cta_text_desktop = cta_texts_desktop[i] %}
+          {% assign cta_url_desktop = cta_urls_desktop[i] %}
+          {% assign cta_check_desktop = cta_enabled_desktop[i] %}
+          {% assign image_url_desktop = section.settings[swiper_image_desktop] | img_url: "master" %}
+
+          <!-- Check for Video -->
+          {% if swiper_image_desktop == "swiper_video_desktop" and section.settings[swiper_image_desktop] %}
+            <div class="swiper-slide relative">
+              <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
+                <source src="{{ section.settings[swiper_image_desktop] }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          {% elsif image_url_desktop %}
+            <!-- Swiper Image Slide for Desktop -->
+            <div class="swiper-slide relative">
+              <img src="{{ image_url_desktop }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+
+              <!-- Check for CTA -->
+              {% if section.settings[cta_check_desktop] or section.settings[cta_url_desktop] %}
+                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
+                  <a href="{{ section.settings[cta_url_desktop] }}">
+                    <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                      <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px]">{{ section.settings[cta_text_desktop] }}</p>
+                    </div>
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Swiper Pagination for Desktop -->
+      <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
+        <div class="w-auto h-auto">
+          <div class="swiper-pagination"></div>
         </div>
+      </div>
+
+      <!-- Navigation for Desktop -->
+      <div class="w-auto h-auto hidden lg:block">
+        <div class="swiper-button-next bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white mr-10"></div>
+      </div>
+      <div class="w-auto h-auto hidden lg:block">
+        <div class="swiper-button-prev bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white ml-10"></div>
       </div>
     </div>
   </div>
@@ -77,23 +138,29 @@
 
 <!-- Initialize Swiper -->
 <script>
-  var swiper = new Swiper(".mySwiper", {
+  var desktopSwiper = new Swiper(".swiper-desktop", {
     effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
+    fadeEffect: { crossFade: true },
+    pagination: { el: ".swiper-pagination", clickable: true },
     loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-      hideOnClick: true
+      prevEl: ".swiper-button-prev"
+    }
+  });
+
+  var mobileSwiper = new Swiper(".swiper-mobile", {
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
     }
   });
 </script>
+
 
 <!-- Swiper Custom Style -->
 <style>
@@ -122,107 +189,113 @@ Section Schema Settings here
 {% endcomment %}
 {% schema %}
 {
-"name": "hero-section",
-"settings": [
+  "name": "hero-section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "swiper_video_desktop",
+      "label": "Swiper Video (Desktop)",
+      "info": "Choose the Swiper Video for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_1_desktop",
+      "label": "Swiper Image 1 (Desktop)",
+      "info": "Choose the Swiper Image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_2_desktop",
+      "label": "Swiper Image 2 (Desktop)",
+      "info": "Choose the Swiper Image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_3_desktop",
+      "label": "Swiper Image 3 (Desktop)",
+      "info": "Choose the Swiper Image for Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_cta_1_desktop",
+      "label": "Enable CTA for Slide 1 (Desktop)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text_1_desktop",
+      "label": "CTA Text 1 (Desktop)",
+      "info": "Text for CTA of Slide 1 (Desktop)"
+    },
+    {
+      "type": "url",
+      "id": "cta_url_1_desktop",
+      "label": "CTA URL 1 (Desktop)",
+      "info": "URL for CTA of Slide 1 (Desktop)"
+    },
+    {
+      "type": "url",
+      "id": "swiper_video_mobile",
+      "label": "Swiper Video (Mobile)",
+      "info": "Choose the Swiper Video for Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_1_mobile",
+      "label": "Swiper Image 1 (Mobile)",
+      "info": "Choose the Swiper Image for Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_2_mobile",
+      "label": "Swiper Image 2 (Mobile)",
+      "info": "Choose the Swiper Image for Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "swiper_image_3_mobile",
+      "label": "Swiper Image 3 (Mobile)",
+      "info": "Choose the Swiper Image for Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_cta_1_mobile",
+      "label": "Enable CTA for Slide 1 (Mobile)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text_1_mobile",
+      "label": "CTA Text 1 (Mobile)",
+      "info": "Text for CTA of Slide 1 (Mobile)"
+    },
+    {
+      "type": "url",
+      "id": "cta_url_1_mobile",
+      "label": "CTA URL 1 (Mobile)",
+      "info": "URL for CTA of Slide 1 (Mobile)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Custom Sections",
+      "settings": {
+        "swiper_image_1_desktop": "shopify://shop_images/desktop_swiper_1.jpg",
+        "swiper_image_2_desktop": "shopify://shop_images/desktop_swiper_2.jpg",
+        "swiper_image_3_desktop": "shopify://shop_images/desktop_swiper_3.jpg",
+        "enable_cta_1_desktop": true,
+        "cta_text_1_desktop": "Learn More",
+        "cta_url_1_desktop": "https://example.com/desktop-slide1",
+        "swiper_image_1_mobile": "shopify://shop_images/mobile_swiper_1.jpg",
+        "swiper_image_2_mobile": "shopify://shop_images/mobile_swiper_2.jpg",
+        "swiper_image_3_mobile": "shopify://shop_images/mobile_swiper_3.jpg",
+        "enable_cta_1_mobile": true,
+        "cta_text_1_mobile": "Shop Now",
+        "cta_url_1_mobile": "https://example.com/mobile-slide1"
+      }
+    }
+  ]
+}
 
-{
-"type": "url",
-"id": "swiper_video",
-"label": "Swiper Video",
-"info": "Choose the Swiper Video"
-},
-{
-"type": "image_picker",
-"id": "swiper_image_1",
-"label": "Swiper Image 1",
-"info": "Choose the Swiper Image"
-},
-{
-"type": "image_picker",
-"id": "swiper_image_2",
-"label": "Swiper Image 2",
-"info": "Choose the Swiper Image"
-},
-{
-"type": "image_picker",
-"id": "swiper_image_3",
-"label": "Swiper Image 3",
-"info": "Choose the Swiper Image"
-},
-{
-"type": "checkbox",
-"id": "enable_cta_1",
-"label": "Enable CTA for Slide 1",
-"default": true
-},
-{
-"type": "text",
-"id": "cta_text_1",
-"label": "CTA Text 1",
-"info": "Text for CTA of Slide 1"
-},
-{
-"type": "url",
-"id": "cta_url_1",
-"label": "CTA URL 1",
-"info": "URL for CTA of Slide 1"
-},
-{
-"type": "checkbox",
-"id": "enable_cta_2",
-"label": "Enable CTA for Slide 2",
-"default": true
-},
-{
-"type": "text",
-"id": "cta_text_2",
-"label": "CTA Text 2",
-"info": "Text for CTA of Slide 2"
-},
-{
-"type": "url",
-"id": "cta_url_2",
-"label": "CTA URL 2",
-"info": "URL for CTA of Slide 2"
-},
-{
-"type": "checkbox",
-"id": "enable_cta_3",
-"label": "Enable CTA for Slide 3",
-"default": true
-},
-{
-"type": "text",
-"id": "cta_text_3",
-"label": "CTA Text 3",
-"info": "Text for CTA of Slide 3"
-},
-{
-"type": "url",
-"id": "cta_url_3",
-"label": "CTA URL 3",
-"info": "URL for CTA of Slide 3"
-}
-],
-"presets": [
-{
-"name": "Hero Section",
-"category": "Custom Sections",
-"settings": {
-"swiper_image_1": "shopify://shop_images/swiper_1.jpg",
-"swiper_image_2": "shopify://shop_images/swiper_2.jpg",
-"swiper_image_3": "shopify://shop_images/swiper_3.jpg",
-"enable_cta_1": true,
-"cta_text_1": "Learn More",
-"cta_url_1": "https://example.com/slide1",
-"enable_cta_2": true,
-"cta_text_2": "Shop Now",
-"cta_url_2": "https://example.com/slide2",
-"enable_cta_3": true,
-"cta_text_3": "Discover More",
-"cta_url_3": "https://example.com/slide3"
-}
-}
-]
-}
 {% endschema %}
