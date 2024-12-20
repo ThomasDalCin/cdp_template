@@ -15,18 +15,20 @@
                 <!--box container -->
                 <div
                     class="product-details-magnetic-scroll w-full  py-6 h-auto flex flex-row items-center justify-start gap-x-2 lg:w-full lg:py-0">
-                    {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
-                    {% for productMetafieldsValue in productMetafieldsValues %}
-                    {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
+                    {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
+                    {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
+
+                    {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
+                    {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' |  split: ',' %}
+
+                    {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
+                    {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
+                    {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
+    
                     <div
                         class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] lg:h-[100px] lg:flex-1">
-                        <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{
-                            productMetafieldsValue | replace: '_', ' '
-                            |
-                            upcase
-                            }}
-                        </p>
-                        <p class="body-14 text-nowrap tt-norms-pro-med badge-value">{{ metafieldCustom }}</p>
+                        <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue |  upcase }}</p>
+                        <p class="body-14 text-nowrap tt-norms-pro-med badge-value">{{ infoValue }}</p>
                     </div>
                     {% endfor %}
                 </div>
