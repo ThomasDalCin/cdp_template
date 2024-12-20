@@ -1,15 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "page-loading":{
+    "page-loading": {
       "type": "page-loading",
       "settings": {}
     },
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_image_1": "shopify://shop_images/5b3bf7d32d9dae0b3aa3f895e1bb9e42.jpg",
-        "swiper_image_2": "shopify://shop_images/c0df3a782758c01a8ce3daca8d2d3b50.jpg",
-        "swiper_image_3": "shopify://shop_images/Pardo-Yachts-Ownership-SHIPPING.jpg",
+        "swiper_image_1": "shopify://shop_images/PY_HOME004.jpg",
+        "swiper_image_2": "shopify://shop_images/PY_HOME003.jpg",
+        "swiper_image_3": "shopify://shop_images/PY_HOME005.jpg",
         "enable_cta_1": true,
         "cta_text_1": "Discover more",
         "cta_url_1": "shopify://products/gt75",
@@ -23,13 +32,21 @@
     },
     "home-text": {
       "type": "home-text",
+      "custom_css": [],
       "settings": {
-        "ispirational_text": "Lorem ipsum dolor sit consectutor adipis mar tiss partiem."
+        "ispirational_text": "Shaping together your sea story"
       }
     },
     "gamma-section-new": {
       "type": "gamma-section",
       "settings": {}
+    },
+    "oriz-scroll-text": {
+      "type": "oriz-scroll-text",
+      "settings": {
+        "main_title": "Inspiring freedom, exploring waves.",
+        "paragraph_text": "Il mare è libertà, un invito a esplorare senza limiti. Ogni onda è un’opportunità, ogni navigazione un viaggio verso l’ignoto. Non si tratta solo di un design, ma di una filosofia che unisce eleganza e funzionalità, per vivere il mare come una parte di sé. Ogni yacht è pensato per farti sentire a casa tra le onde, in perfetto equilibrio tra innovazione e tradizione. Naviga con il vento, senza paura, in cerca di nuove emozioni."
+      }
     },
     "home-video": {
       "type": "home-video",
@@ -43,10 +60,10 @@
       "settings": {
         "secondary_heading": "Shaped by the Sea",
         "primary_heading": "Lorem Ipsum",
-        "explore_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "explore_image_three": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "explore_image_four": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png"
+        "explore_image_one": "shopify://shop_images/PY_HOME002.jpg",
+        "explore_image_two": "shopify://shop_images/PY_HOME001.jpg",
+        "explore_image_three": "shopify://shop_images/PY_HOME003.jpg",
+        "explore_image_four": "shopify://shop_images/PY_HOME004.jpg"
       }
     },
     "articles-list": {
@@ -60,27 +77,29 @@
     "collection-oriz-scroll": {
       "type": "collection-oriz-scroll",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
-        "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
-      }
-    },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
-      "settings": {
-        "main_title": "DiscoverWalkaround",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
+        "oriz_image_one": "shopify://shop_images/PY_HOME002.jpg",
+        "oriz_image_two": "shopify://shop_images/PY_HOME003.jpg",
+        "oriz_image_three": "shopify://shop_images/PY_HOME004.jpg",
+        "oriz_image_four": "shopify://shop_images/PY_HOME001.jpg"
       }
     },
     "collab-section": {
       "type": "collab",
       "blocks": {
-        "collab_card_nw9qf8": {
+        "collab_card_9TkDVh": {
           "type": "collab-card",
           "settings": {
             "collab_custom_collab_heading": "",
             "collab_custom_collab_cta_text": "",
+            "collab_custom_collab_cta_text_url": "",
+            "collab_custom_collab_url": ""
+          }
+        },
+        "collab_card_nw9qf8": {
+          "type": "collab-card",
+          "settings": {
+            "collab_custom_collab_heading": "Testo 01",
+            "collab_custom_collab_cta_text": "Scopri",
             "collab_custom_collab_cta_text_url": "shopify://pages/pardo-yatch-x-falconeri",
             "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
             "collab_custom_collab_url": "shopify://pages/pardo-yatch-x-falconeri"
@@ -88,6 +107,7 @@
         }
       },
       "block_order": [
+        "collab_card_9TkDVh",
         "collab_card_nw9qf8"
       ],
       "settings": {
@@ -103,12 +123,12 @@
     "hero-section",
     "home-text",
     "gamma-section-new",
+    "oriz-scroll-text",
     "home-video",
     "explore-section",
     "articles-list",
     "infinity-banner",
     "collection-oriz-scroll",
-    "oriz-scroll-text",
     "collab-section"
   ]
 }
