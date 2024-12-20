@@ -7,7 +7,7 @@
       <div class="swiper-wrapper">
 
         <!-- assign variables -->
-        {% assign swiper_images = "swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
+        {% assign swiper_images = "swiper_video,swiper_image_1,swiper_image_2,swiper_image_3" | split: "," %}
         {% assign cta_texts = "cta_text_1,cta_text_2,cta_text_3" | split: "," %}
         {% assign cta_urls = "cta_url_1,cta_url_2,cta_url_3" | split: "," %}
         {% assign cta_enabled = "enable_cta_1,enable_cta_2,enable_cta_3" | split: "," %}
@@ -20,7 +20,15 @@
         {% assign cta_check = cta_enabled[i] %}
         {% assign image_url = section.settings[swiper_image] | img_url: "master" %}
 
-        {% if image_url %}
+        <!-- Check for video -->
+        {% if swiper_image == "swiper_video" and section.settings[swiper_image] %}
+        <div class="swiper-slide relative">
+          <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
+            <source src="{{ section.settings[swiper_image] }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        {% elsif image_url %}
         <!-- Swiper slide -->
         <div class="swiper-slide relative">
           <img src="{{ image_url }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
@@ -65,6 +73,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Initialize Swiper -->
 <script>
@@ -115,6 +124,13 @@ Section Schema Settings here
 {
 "name": "hero-section",
 "settings": [
+
+{
+"type": "url",
+"id": "swiper_video",
+"label": "Swiper Video",
+"info": "Choose the Swiper Video"
+},
 {
 "type": "image_picker",
 "id": "swiper_image_1",
