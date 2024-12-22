@@ -44,12 +44,22 @@
 
             <!--emotional text container-->
             <div class="w-full h-auto flex items-center justify-center px-6 py-14 lg:bg-[#F7F7F7] lg:rounded-[32px]">
-                <p
+                {% assign pdpHighLightText = product.metafields.custom.highlight_text.value %}
+                {% if pdpHighLightText %}
+                    <p
+                    class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">
+                    {{
+                    pdpHighLightText |
+                    default: "Lorem ipsum dolor sit,
+                    consectutor adipis mar tiss partiem." }}</p>
+                    {% else %}
+                    <p
                     class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">
                     {{
                     section.settings.ispirational_text |
                     default: "Lorem ipsum dolor sit,
-                    consectutor adipis mar tiss partiem." }}</p>
+                    consectutor adipis mar tiss partiem." }}</p>   
+                {% endif %}
             </div>
 
             <!--product cta container-->
