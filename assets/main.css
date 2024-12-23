@@ -3358,6 +3358,10 @@ html {
     width: 50%;
   }
 
+  .md\:w-\[calc\(100\%\+6rem\)\] {
+    width: calc(100% + 6rem);
+  }
+
   .md\:min-w-\[380px\] {
     min-width: 380px;
   }
@@ -3445,6 +3449,11 @@ html {
   .md\:py-\[60px\] {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .md\:pb-0 {

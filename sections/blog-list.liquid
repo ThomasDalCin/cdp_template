@@ -1,5 +1,5 @@
 <!-- News Articles -->
-<div id="news-layout" class="blog-news-container w-full flex flex-col overflow-x-hidden px-6 mb-14 lg:px-10">
+<div id="news-layout" class="blog-news-container w-full flex flex-col overflow-x-hidden px-6 mb-14 md:px-0 lg:px-10">
 
   <!-- container arrow carousel -->
   <!-- arrows box -->
@@ -21,7 +21,7 @@
 
     {% if articleCount > 0 %}
 
-      <div class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
+      <div class="blog-item-horizontal-scroll-news w-[calc(100%+4rem)] px-8 -mx-8 py-10 h-auto overflow-x-auto flex flex-row gap-x-4 md:px-12 md:py-10  md:w-[calc(100%+6rem)] lg:w-[calc(100%+5rem)] lg:px-10 lg:-mx-10">
         {% for article in newsArticles %}
           {% assign modResult = forloop.index0 | modulo: 2 %}
 
