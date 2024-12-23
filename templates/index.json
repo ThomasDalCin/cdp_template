@@ -34,9 +34,11 @@
     },
     "home-text": {
       "type": "home-text",
-      "custom_css": [],
+      "custom_css": [
+        "h2 {font-size: 60px}"
+      ],
       "settings": {
-        "ispirational_text": "Shaping together your sea story"
+        "ispirational_text": "Shaping together<br>your sea story"
       }
     },
     "gamma-section-new": {
