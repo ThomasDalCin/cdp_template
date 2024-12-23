@@ -1947,6 +1947,10 @@ p,
   min-width: 1480x;
 }
 
+.min-w-\[148px\] {
+  min-width: 148px;
+}
+
 .min-w-\[185px\] {
   min-width: 185px;
 }
@@ -1989,10 +1993,6 @@ p,
 
 .min-w-\[74px\] {
   min-width: 74px;
-}
-
-.min-w-\[148px\] {
-  min-width: 148px;
 }
 
 .max-w-\[118px\] {
@@ -3251,23 +3251,12 @@ html {
 }
 
 @media (min-width: 768px) {
-  .md\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .md\:-mx-12 {
-    margin-left: -3rem;
-    margin-right: -3rem;
-  }
-
-  .md\:mx-12 {
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
-
   .md\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .md\:mb-10 {
+    margin-bottom: 2.5rem;
   }
 
   .md\:mb-20 {
@@ -3282,16 +3271,12 @@ html {
     margin-top: 0px;
   }
 
-  .md\:mt-9 {
-    margin-top: 2.25rem;
-  }
-
-  .md\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
   .md\:mt-11 {
     margin-top: 2.75rem;
+  }
+
+  .md\:mt-9 {
+    margin-top: 2.25rem;
   }
 
   .md\:block {
@@ -3346,6 +3331,10 @@ html {
     min-height: 684px;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:w-\[170px\] {
     width: 170px;
   }
@@ -3362,16 +3351,12 @@ html {
     width: 684px;
   }
 
-  .md\:w-\[calc\(50\%_-_0\.5rem\)\] {
-    width: calc(50% - 0.5rem);
-  }
-
-  .md\:w-1\/2 {
-    width: 50%;
-  }
-
   .md\:w-\[calc\(100\%\+6rem\)\] {
     width: calc(100% + 6rem);
+  }
+
+  .md\:w-\[calc\(50\%_-_0\.5rem\)\] {
+    width: calc(50% - 0.5rem);
   }
 
   .md\:min-w-\[380px\] {
@@ -3443,6 +3428,11 @@ html {
     padding-bottom: 0px;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .md\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -3463,11 +3453,6 @@ html {
     padding-bottom: 60px;
   }
 
-  .md\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .md\:pb-0 {
     padding-bottom: 0px;
   }
@@ -3480,14 +3465,6 @@ html {
     padding-bottom: 2.5rem;
   }
 
-  .md\:pt-12 {
-    padding-top: 3rem;
-  }
-
-  .md\:pt-\[60px\] {
-    padding-top: 60px;
-  }
-
   .md\:pb-20 {
     padding-bottom: 5rem;
   }
@@ -3498,6 +3475,14 @@ html {
 
   .md\:pt-10 {
     padding-top: 2.5rem;
+  }
+
+  .md\:pt-12 {
+    padding-top: 3rem;
+  }
+
+  .md\:pt-\[60px\] {
+    padding-top: 60px;
   }
 
   .md\:text-\[12px\] {

@@ -92,7 +92,7 @@
             {% if forloop.index > 1 %}
             <div class="swiper-slide relative h-svh">
                 <img src="{{ image | img_url: 'master' }}" alt="Slide {{ forloop.index }}"
-                    class="swiper-img w-full h-full object-cover">
+                    class="swiper-img w-full h-full object-cover gallery-pdp-images">
             </div>
             {% endif %}
             {% endfor %}
@@ -237,6 +237,7 @@
             }
         });*/
 
+
         let activeVideo = null;
         let swiperOverlay = null;
         const galleryPdpImages = document.querySelectorAll('.gallery-pdp-images');
@@ -244,6 +245,31 @@
         const overlayGallery = document.querySelector('.overlay-gallery-pdp');
         const closeOverlayGallery = document.querySelector('.close-overlay-gallery-images');
         const progressBarContainers = document.querySelectorAll('.progress-container');
+
+        const isDesktop = window.innerWidth >= 1024;
+        handleImagesByDevice(galleryPdpImages, isDesktop);
+
+        function handleImagesByDevice(images, isDesktop) {
+            images.forEach((image) => {
+                const srcImage = image.getAttribute('src');
+
+                if (isDesktop) {
+                    if (srcImage.includes('desktop')) {
+                        image.parentElement.style.display = 'block';
+                    } else {
+                        image.parentElement.style.display = 'none';
+                    }
+                } else {
+                    if (!srcImage.includes('desktop')) {
+                        image.parentElement.style.display = 'block';
+                    } else {
+                        image.parentElement.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+
 
         function formatTime(seconds) {
             const mins = Math.floor(seconds / 60);
@@ -389,6 +415,7 @@
                 });
 
                 addMouseLeaveControls(videoContainer);
+                handleImagesByDevice(galleryPdpImages, isDesktop);
             });
         }
 
