@@ -21,14 +21,14 @@
         <!-- La prima immagine si espande inizialmente, ma si comporta come le altre all'hover -->
         {% if counter == 1 %}
         <div
-          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:grow-[4] lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
+          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px]  md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:grow-[4] lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
           id="{{ oriz_image }}">
           <img class="w-full h-full object-cover object-center" src="{{ oriz_image_url }}" alt="{{ oriz_image.alt }}">
         </div>
         {% else %}
         <!-- Per le altre immagini, la crescita avviene solo al passaggio del mouse -->
         <div
-          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear lg:min-w-0 lg:flex-1 lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
+          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px] md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
           id="{{ oriz_image }}">
           <img class="w-full h-full object-cover object-center" src="{{ oriz_image_url }}" alt="{{ oriz_image.alt }}">
         </div>

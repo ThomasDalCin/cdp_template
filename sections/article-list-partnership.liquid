@@ -1,6 +1,6 @@
-<!-- Article list home page -->
+<!-- Article list-->
 <div
-  class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 px-6 mt-[194px] lg:px-20 lg:pt-[60px] lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
+  class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 px-6 mt-[194px] md:px-12 md:pt-[60px] md:flex-row md:flex-wrap md:gap-x-4 md:items-start md:justify-start lg:px-20 lg:pt-[60px] lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
 
   <!-- Assign liquid variables -->
   {% assign allBlogs = "Partnership, " | split: "," %}
@@ -10,7 +10,7 @@
 
   <!-- Article wrap -->
   <div
-    class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] lg:w-[calc(50%_-_0.5rem)] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
+    class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] md:w-[calc(50%_-_0.5rem)] lg:w-[calc(50%_-_0.5rem)] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
     <!-- Article image -->
     <div class="w-full h-[220px] min-h-[220px]">
       <img src="{{ article.image |  img_url: 'master'}}" alt="{{ article.title }}"

@@ -1,5 +1,5 @@
 <!-- Simple Box Image Text Section -->
-<div class="w-full h-auto flex flex-col gap-y-6 pb-14 lg:px-20 lg:pb-[60px]">
+<div class="w-full h-auto flex flex-col gap-y-6 pb-14 md:px-12 lg:px-20 lg:pb-[60px]">
 
   {% for block in section.blocks %}
   <div class="w-full h-auto flex items-start justify-center flex-col">
@@ -7,12 +7,12 @@
     <img 
       src="{{ block.settings.box_image | img_url: '720x' }}" 
       alt="" 
-      class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px]{% else %}h-[240px] min-h-[240px]{% endif %} lg:h-[540px]">
+      class="w-full object-cover object-center {% if block.settings.large_image %}h-[340px] min-h-[340px] md:h-[394px]{% else %}h-[240px] min-h-[240px] md:h-[394px]{% endif %} lg:h-[540px]">
     
     <!-- Card Content -->
-    <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4">
+    <div class="w-full h-auto flex items-start justify-center p-6 flex-col gap-y-4 md:px-0 md:py-6">
       {% if block.settings.show_large_heading %}
-      <p class="{% if block.settings.large_heading %}text-[40px] leading-[46px]{% else %}text-[24px] leading-[30px]{% endif %}  tt-norms-pro-med">
+      <p class="{% if block.settings.large_heading %}text-[40px] leading-[46px]{% else %}text-[24px] leading-[30px] md:text-[40px] md:leading-[46px] {% endif %}  tt-norms-pro-med">
         {{ block.settings.box_heading }}
       </p>
       {% endif %}

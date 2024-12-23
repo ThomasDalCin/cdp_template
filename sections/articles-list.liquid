@@ -1,6 +1,6 @@
 <!-- Article List Home page -->
 
-<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center relative py-14">
+<div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center relative py-14 md:py-0">
 
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
@@ -15,7 +15,7 @@
   </div>
 
   <!--Article List Container -->
-  <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 lg:p-0 lg:px-20 lg:pb-4">
+  <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 md:px-12 md:py-14 lg:p-0 lg:px-20 lg:pb-4">
     <!-- Assign liquid variables -->
     {% assign allBlogs = "News, " | split: "," %}
     {% assign article_count = 0 %}
@@ -30,7 +30,7 @@
           {% if articlesDivided == 0 %}
             
             <!-- Article for even index -->
-            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
 
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>
@@ -48,7 +48,7 @@
 
           {% else %}
             <!-- Article for odd index -->
-            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl  md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
               
             <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.content |  truncate: 100 }}</p>

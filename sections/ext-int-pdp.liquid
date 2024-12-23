@@ -150,8 +150,11 @@
       <div class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-x-external snap-mandatory scroll-snap-type-x">
         <!-- assign variables -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
-        {% if externalBoat %}
+        {% assign externalBoatDesktop = product.metafields.custom.external_boat_images_desktop.value %}
+
+        {% if externalBoat or externalBoatDesktop  %}
           {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
+          {% assign externalBoatImagesDesktop = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
           {% assign external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
           {% assign additional_external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
           {% assign external_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten' | split: "," %}
@@ -164,7 +167,7 @@
 
               {% if externalImage %}
               <!-- container for external section image -->
-              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start flex flex-col items-start justify-center">
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center">
                 <img
                   class="w-full h-[620px] object-cover object-center"
                   src="{{ externalImage | img_url: 'master' }}"
@@ -191,6 +194,42 @@
               </div>
             {% endif %}
           {% endfor %}
+          
+          {% for externalBoatImageDes in externalBoatImagesDesktop %}
+              {% assign externalImageDesktop = externalBoatDesktop[externalBoatImageDes] %}
+              {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
+              {% assign additional_external_text_value = additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
+              {% assign external_images_text_title_value = external_images_text_titles[external_images_text_title[forloop.index0]] %}
+  
+                {% if externalImageDesktop %}
+                <!-- container for external section image -->
+                <div class="hidden h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
+                  <img
+                    class="w-full h-[620px] object-cover object-center"
+                    src="{{ externalImageDesktop | img_url: 'master' }}"
+                    id="externalImageDesktop_{{ forloop.index }}"
+                    alt="{{ externalImageDesktop.alt }}">
+  
+                  <!-- external text under images -->
+                  {% if external_text_value %}
+                    <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+                      <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value |  upcase }}</p>
+                      <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
+                    </div>
+                  {% endif %}
+  
+                  <!-- additional text under images -->
+                  {% if additional_external_text_value %}
+                    <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+                      <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
+                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
+                      </div>
+                      <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-external-{{ forloop.index }}">Read more</p>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+           {% endfor %}
         {% endif %}
       </div>
 
@@ -199,6 +238,7 @@
       <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
         <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
       </div>
+
     </div>
   </div>
 </div>
@@ -248,38 +288,79 @@
     <div class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto snap-x snap-x-internal snap-mandatory scroll-snap-type-x-internal">
       <!-- assign variables -->
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
-      {% if internalBoat %}
+      {% assign internalBoatDesktop = product.metafields.custom.internal_boat_images_desktop.value %}
+    
+      {% if internalBoat or internalBoatDesktop %}
         {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
+        {% assign internalBoatImagesDesktop = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten' | split: ',' %}
         {% assign internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
         {% assign additional_internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten' | split: ',' %}
         {% assign internal_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten' | split: "," %}
-
+    
+        <!-- For mobile images (internalBoat) -->
         {% for internalBoatImage in internalBoatImages %}
           {% assign internalImage = internalBoat[internalBoatImage] %}
           {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
-          {% assign additional_text_value = additionional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
+          {% assign additional_text_value = additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
           {% assign internal_images_text_title_value = internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
-
-            {% if internalImage %}
-            <!-- container explore section image -->
-            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start flex flex-col items-start justify-start">
+    
+          {% if internalImage %}
+            <!-- container for internal section image (mobile view) -->
+            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center">
               <img
                 class="w-full h-[620px] object-cover object-center"
                 src="{{ internalImage | img_url: 'master' }}"
                 id="internalImage_{{ forloop.index }}"
                 alt="{{ internalImage.alt }}">
-
+    
               <!-- internal text under images -->
               {% if internal_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-start p-6 gap-y-3 lg:pl-12">
-                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value |  upcase }}</p>
+                <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
                   <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
                 </div>
               {% endif %}
-
+    
               <!-- additional text under images -->
               {% if additional_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-start px-6 gap-y-3 lg:pl-12">
+                <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+                  <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
+                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
+                  </div>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+    
+        <!-- For desktop images (internalBoatDesktop) -->
+        {% for internalBoatImageDes in internalBoatImagesDesktop %}
+          {% assign internalImageDesktop = internalBoatDesktop[internalBoatImageDes] %}
+          {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
+          {% assign additional_text_value = additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
+          {% assign internal_images_text_title_value = internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
+    
+          {% if internalImageDesktop %}
+            <!-- container for internal section image (desktop view) -->
+            <div class="hidden lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
+              <img
+                class="w-full h-[620px] object-cover object-center"
+                src="{{ internalImageDesktop | img_url: 'master' }}"
+                id="internalImageDesktop_{{ forloop.index }}"
+                alt="{{ internalImageDesktop.alt }}">
+    
+              <!-- internal text under images -->
+              {% if internal_text_value %}
+                <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
+                </div>
+              {% endif %}
+    
+              <!-- additional text under images -->
+              {% if additional_text_value %}
+                <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
                   <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
                     <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
                   </div>
@@ -291,6 +372,7 @@
         {% endfor %}
       {% endif %}
     </div>
+    
 
 
     <!-- handle counter images during scroll -->
@@ -326,13 +408,15 @@
 <script>
   
   const changeImageExternal = (direction) => {
+    const isDesktop =  window.innerWidth >= 1024;
+    
     const container = document.querySelector('.snap-x-external');
-    const exploreImages = document.querySelectorAll('[id^="externalImage_"]');
-    if (!container || exploreImages.length === 0) return;
+    const externalImage = document.querySelectorAll( isDesktop? '[id^="externalImageDesktop_"]' : '[id^="externalImageDesktop_"]');
+    if (!container || externalImage.length === 0) return;
   
     const styles = window.getComputedStyle(container);
     const gap = parseInt(styles.getPropertyValue('gap'), 10) || 0;
-    const imageWidth = exploreImages[0].offsetWidth + gap;
+    const imageWidth = externalImage[0].offsetWidth + gap;
     const currentScrollLeft = container.scrollLeft;
     const targetScrollLeft = currentScrollLeft + direction * imageWidth;
   
@@ -343,8 +427,10 @@
   };
   
   const changeImageInternal = (direction) => {
+    const isDesktop =  window.innerWidth >= 1024;
+
     const containerInternal = document.querySelector('.snap-x-internal');
-    const internalImages = document.querySelectorAll('[id^="internalImage_"]');
+    const internalImages = document.querySelectorAll( isDesktop? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]');
   
     if (!containerInternal || internalImages.length === 0) return;
   
@@ -451,10 +537,12 @@
       updateCounter(); // Initial update
       container.addEventListener('scroll', updateCounter);
     };
+
+    const isDesktop = window.innerWidth >= 1024;
   
     // Exteriors
     const externalCounterText = document.querySelector('.counter-items');
-    const externalImages = document.querySelectorAll('[id^="externalImage_"]');
+    const externalImages = document.querySelectorAll( isDesktop ? '[id^="externalImageDesktop_"]' : '[id^="externalImage_"]' );
     const externalContainer = document.querySelector('.scroll-snap-type-x');
   
     if (externalImages.length) {
@@ -469,7 +557,7 @@
   
     // Interiors
     const internalCounterText = document.querySelector('.counter-items-internal');
-    const internalImages = document.querySelectorAll('[id^="internalImage_"]');
+    const internalImages = document.querySelectorAll( isDesktop ? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]' );
     const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
   
     if (internalImages.length) {
