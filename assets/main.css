@@ -1991,6 +1991,10 @@ p,
   min-width: 74px;
 }
 
+.min-w-\[148px\] {
+  min-width: 148px;
+}
+
 .max-w-\[118px\] {
   max-width: 118px;
 }
@@ -3288,6 +3292,14 @@ html {
 
   .md\:mt-11 {
     margin-top: 2.75rem;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:h-\[228px\] {

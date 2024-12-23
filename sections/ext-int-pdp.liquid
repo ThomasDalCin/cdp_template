@@ -15,85 +15,85 @@
 
 <div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
-  <!-- container-closing-icon -->
-  <div class="w-auto h-auto text-white rounded-full flex items-center justify-center p-3 absolute right-4 top-6 close-overlay-images bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
+  <!-- Close Button -->
+  <div class="close-overlay-images absolute right-4 top-6 w-auto h-auto text-white rounded-full flex items-center justify-center p-3 bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
     {% render 'x-icon' %}
   </div>
 
-  <!-- Swiper wrapper for external gallery -->
+  <!-- Swiper Wrapper for External Gallery -->
   <div class="swiper swiper-container-overlay-external transition-all duration-200 ease-linear relative hidden">
     <div class="swiper-wrapper">
-      {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
-      {% if externalBoat %}
-        {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-        {% for externalBoatImage in externalBoatImages %}
-          {% assign externalImage = externalBoat[externalBoatImage] %}
-          {% if externalImage %}
-            <div class="swiper-slide h-screen">
-              <img
-                src="{{ externalImage | img_url: 'master' }}"
-                alt="{{ externalImage.alt }}"
-                class="w-full h-full object-cover object-center">
-            </div>
+      {% assign image_keys = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten' | split: ',' %}
+      
+      {% for key in image_keys %}
+        {% assign mobileImage = product.metafields.custom.external_images_boat.value[key] %}
+        {% assign desktopImage = product.metafields.custom.external_boat_images_desktop.value[key] %}
+        
+        <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImage }}" data-desktop="{{ desktopImage }}">
+          <!-- Mobile Image -->
+          {% if mobileImage %}
+            <img src="{{ mobileImage | img_url: 'master' }}" alt="{{ mobileImage.alt }}" class="w-full h-full object-cover object-center md:hidden lg:hidden">
           {% endif %}
-        {% endfor %}
-      {% endif %}
+          <!-- Desktop Image -->
+          {% if desktopImage %}
+            <img src="{{ desktopImage | img_url: 'master' }}" alt="{{ desktopImage.alt }}" class="w-full h-full object-cover object-center hidden md:block lg:block">
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
 
-    <!-- Container swiper bullets -->
-    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
-      <!-- Container bullets -->
-      <div class="w-auto h-auto">
-        <div class="swiper-pagination-overlay"></div>
-      </div>
+    <!-- Swiper Pagination -->
+    <div class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
+      <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
-    <!-- Container turn into landspace -->
-    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
-      <div class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-button">
-        <p class="body-14 tt-norms-pro-med text-white">{{ section.settings.turn_landscape | default: "Turn into
-          landscape" }}</p>
+    <!-- Turn into Landscape Message -->
+    <div class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+      <div class="min-w-[148px] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20">
+        <p class="body-14 tt-norms-pro-med text-white">
+          {{ section.settings.turn_landscape | default: "Turn into landscape" }}
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- Swiper wrapper for internal gallery -->
+  <!-- Swiper Wrapper for Internal Gallery -->
   <div class="swiper swiper-container-overlay-internal transition-all duration-200 ease-linear relative hidden">
     <div class="swiper-wrapper">
-      {% assign internalBoat = product.metafields.custom.internal_boat.value %}
-      {% if internalBoat %}
-        {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four' | split: ',' %}
-        {% for internalBoatImage in internalBoatImages %}
-          {% assign internalImage = internalBoat[internalBoatImage] %}
-          {% if internalImage %}
-            <div class="swiper-slide h-screen">
-              <img
-                src="{{ internalImage | img_url: 'master' }}"
-                alt="{{ internalImage.alt }}"
-                class="w-full h-full object-cover object-center">
-            </div>
+      {% assign image_keys = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten' | split: ',' %}
+      
+      {% for key in image_keys %}
+        {% assign mobileImageInternal = product.metafields.custom.internal_boat.value[key] %}
+        {% assign desktopImageInternal = product.metafields.custom.internal_boat_images_desktop.value[key] %}
+        
+        <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImageInternal }}" data-desktop="{{ desktopImageInternal }}">
+          <!-- Mobile Image -->
+          {% if mobileImageInternal %}
+            <img src="{{ mobileImageInternal | img_url: 'master' }}" alt="{{ mobileImageInternal.alt }}" class="w-full h-full object-cover object-center md:hidden lg:hidden">
           {% endif %}
-        {% endfor %}
-      {% endif %}
+          <!-- Desktop Image -->
+          {% if desktopImageInternal %}
+            <img src="{{ desktopImageInternal | img_url: 'master' }}" alt="{{ desktopImageInternal.alt }}" class="w-full h-full object-cover object-center hidden md:block lg:block">
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
 
-
-    <!-- Container swiper bullets -->
-    <div class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
-      <!-- Container bullets -->
-      <div class="w-auto h-auto">
-        <div class="swiper-pagination-overlay"></div>
-      </div>
+    <!-- Swiper Pagination -->
+    <div class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
+      <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
-    <!-- Container turn into landspace -->
-    <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
-      <div class="w-auto h-auto min-w-[1480x] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20 turn-on-gallery-pdp">
-        <p class="body-14 tt-norms-pro-med text-white">{{ section.settings.turn_landscape | default: "Turn into
-          landscape" }}</p>
+    <!-- Turn into Landscape Message -->
+    <div class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+      <div class="min-w-[148px] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20">
+        <p class="body-14 tt-norms-pro-med text-white">
+          {{ section.settings.turn_landscape | default: "Turn into landscape" }}
+        </p>
       </div>
     </div>
   </div>
+
 </div>
 
 
@@ -447,6 +447,19 @@
   };
   
   document.addEventListener('DOMContentLoaded', () => {
+
+  const slides = document.querySelectorAll(".swiper-slide-custom");
+
+slides.forEach(slide => {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const mobileImage = slide.getAttribute("data-mobile");
+  const desktopImage = slide.getAttribute("data-desktop");
+
+  // Rimuovi il `div` se l'immagine per il dispositivo attuale non è presente
+  if ((isMobile && !mobileImage) || (!isMobile && !desktopImage)) {
+    slide.remove();
+  }
+});
   
     const overlay = document.querySelector('.overlay-images');
     const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
