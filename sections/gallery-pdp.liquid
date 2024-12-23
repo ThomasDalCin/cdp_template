@@ -248,6 +248,10 @@
 
         const isDesktop = window.innerWidth >= 1024;
         handleImagesByDevice(galleryPdpImages, isDesktop);
+        window.addEventListener('resize', () => {
+    const isDesktop = window.innerWidth >= 1024;
+    handleImagesByDevice(galleryPdpImages, isDesktop);
+});
 
         function handleImagesByDevice(images, isDesktop) {
             images.forEach((image) => {
