@@ -88,35 +88,36 @@
     "collab-section": {
       "type": "collab",
       "blocks": {
-        "collab_card_9TkDVh": {
-          "type": "collab-card",
-          "settings": {
-            "collab_custom_collab_heading": "",
-            "collab_custom_collab_cta_text": "",
-            "collab_custom_collab_cta_text_url": "",
-            "collab_custom_collab_url": ""
-          }
-        },
         "collab_card_nw9qf8": {
           "type": "collab-card",
           "settings": {
-            "collab_custom_collab_heading": "Testo 01",
+            "collab_custom_collab_heading": "",
             "collab_custom_collab_cta_text": "Scopri",
             "collab_custom_collab_cta_text_url": "shopify://pages/pardo-yatch-x-falconeri",
             "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
             "collab_custom_collab_url": "shopify://pages/pardo-yatch-x-falconeri"
           }
+        },
+        "collab_card_9TkDVh": {
+          "type": "collab-card",
+          "disabled": true,
+          "settings": {
+            "collab_custom_collab_heading": "Find us on Facebook",
+            "collab_custom_collab_cta_text": "",
+            "collab_custom_collab_cta_text_url": "",
+            "collab_custom_collab_url": ""
+          }
         }
       },
       "block_order": [
-        "collab_card_9TkDVh",
-        "collab_card_nw9qf8"
+        "collab_card_nw9qf8",
+        "collab_card_9TkDVh"
       ],
       "settings": {
-        "collab_custom_collab_heading": "",
+        "collab_custom_collab_heading": "Find us on Instagram",
         "collab_custom_collab_cta_text": "",
         "collab_custom_collab_cta_text_url": "https://www.instagram.com/",
-        "collab_custom_collab_image": "shopify://shop_images/ab94c9bd7d1a9f21b531a986901666f6.jpg"
+        "collab_custom_collab_image": "shopify://shop_images/pardoyacht_instagram.jpg"
       }
     }
   },
