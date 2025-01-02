@@ -2,13 +2,13 @@
 <div class="w-full h-auto flex flex-col items-center justify-center">
 
   <!-- wrapper content section headings -->
-  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14 lg:px-20 lg:pt-20 lg:pb-[60px]">
-    <h4 class="header-4 text-[#818181]">{{ section.settings.secondary_heading | upcase | default: "Shaped by the Sea" }}</h4>
-    <h2 class="text-[48px] leading-[54px]">{{ section.settings.primary_heading | default: "Lorem Ipsum" }}</h2>
+  <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1 px-6 pb-6 pt-14 md:pb-10 md:pt-[60px] md:px-12 lg:px-20 lg:pt-20 lg:pb-[60px]">
+    <h4 class="header-4 text-[#818181] md:text-[20px] md:leading-[26px] tt-norms-pro-reg">{{ section.settings.secondary_heading | upcase | default: "Shaped by the Sea" }}</h4>
+    <h2 class="text-[48px] leading-[54px] md:text-[96px] md:leading-[70px] tt-norms-pro-reg">{{ section.settings.primary_heading | default: "Lorem Ipsum" }}</h2>
   </div>
 
   <!-- explore gallery wrapper -->
-  <div class="w-full h-auto overflow-x-hidden mb-10 relative">
+  <div class="w-full h-auto overflow-x-hidden mb-10 relative md:mb-0">
     <div class="w-auto h-[620px] flex flex-row gap-x-1 overflow-x-auto snap-x snap-mandatory scroll-snap-type-x lg:h-[720px]">
       <!-- assign variables -->
       {% assign explore_images = "explore_image_one,explore_image_two,explore_image_three,explore_image_four" | split: "," %}
@@ -18,7 +18,7 @@
         {% assign explore_image_url = section.settings[explore_image] | img_url: 'master' %}
           {% if explore_image_url %}
           <!-- container explore section image -->
-          <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start" id="{{ explore_image }}">
+          <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear md:w-[720px] md:min-w-[720px] lg:w-[1024px] lg:min-w-[1024px] snap-start" id="{{ explore_image }}">
             <img
               class="w-full h-full object-cover object-center"
               src="{{ explore_image_url }}"

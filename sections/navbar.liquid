@@ -2,7 +2,7 @@
 
 <!--navbar-container-->
 <div
-    class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center transition-all duration-150 ease-linear lg:px-12 lg:pt-10">
+    class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center transition-all duration-150 ease-linear md:px-10 md:pt-12 lg:px-12 lg:pt-10">
     <div
         class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
@@ -79,7 +79,7 @@
 
 <!-- Yatch Menu Container -->
 <div
-    class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+    class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
@@ -250,7 +250,7 @@
 
 <!-- Main Menu Container -->
 <div
-    class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+    class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden md:pt-[160px] md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <div class="w-full h-full flex flex-col items-start justify-between">
 
@@ -326,7 +326,7 @@
 
 <!-- Second level Menu Container -->
 <div
-    class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+    class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] md:pt[160px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
     <!--back arrow container-->
     <div class="back-nav-container w-full h-auto items-center justify-start py-4 text-white relative hidden">
@@ -336,7 +336,7 @@
 
     <!--container horizontal chips-->
     <div
-        class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide">
+        class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide md:px-10 md:mt-6">
         {% assign collectionOrder = 'walkaround,endurance,grand-touring' | split: ',' %}
 
         {% for collectionHandle in collectionOrder %}
@@ -361,15 +361,15 @@
 
     <!--container images products-->
     <div
-        class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20">
+        class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20 md:pb-24">
         {% for collection in collections %}
         {% for product in collection.products %}
         {% assign productMainImg = product.images[0] %}
         <div class="container-product-main w-full h-auto flex flex-col items-center justify-center relative">
             <li class="container-product-main-image w-full h-auto list-none relative z-10"
                 data-product-collection="{{ collection.title }}">
-                <a href="{{ product.url }}" class="w-full h-auto">
-                    <img class="product-main-img w-full h-[172px] min-h-[172px] object-cover"
+                <a href="{{ product.url }}" class="w-full h-auto md:flex md:items-center md:justify-center">
+                    <img class="product-main-img w-full h-[172px] min-h-[172px] object-cover md:w-[442px] md:h-[200px]"
                         src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}">
                 </a>
                 {% for tag in product.tags %}
@@ -559,7 +559,7 @@
 
             //handle each links inside second menu level
             document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
-                if (screenSize <= 625) {
+                if (screenSize <= 1024) {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
                         secondMenu.classList.remove('hidden');
@@ -711,7 +711,7 @@
             const tagsContainers = document.querySelectorAll('.product-tags-container')
 
             //hide all this elements on mobile
-            if (screenSize <= 625) {
+            if (screenSize <= 1024) {
                 collectionDesktopInfo.forEach((div) => {
                     div.style.display = 'none';
                 });
