@@ -1386,6 +1386,14 @@ p,
   margin-top: 22px;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1761,6 +1769,10 @@ p,
 
 .min-h-\[640px\] {
   min-height: 640px;
+}
+
+.min-h-\[389px\] {
+  min-height: 389px;
 }
 
 .w-0 {
@@ -2218,6 +2230,10 @@ p,
 
 .gap-y-8 {
   row-gap: 2rem;
+}
+
+.gap-y-9 {
+  row-gap: 2.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2835,6 +2851,10 @@ p,
 
 .leading-\[56px\] {
   line-height: 56px;
+}
+
+.leading-\[96px\] {
+  line-height: 96px;
 }
 
 .-tracking-\[0\.2px\] {
