@@ -102,14 +102,14 @@
 <div class="w-full h-auto flex flex-col items-start justify-center" id="design">
 
   <!-- container main title -->
-  <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-6 lg:px-20 lg:pt-20 lg:pb-10">
+  <div class="w-full h-auto flex items-center justify-start px-6 pt-14 pb-6 md:border-t md:border-[#A9A09E] md:px-12 lg:px-20 lg:pt-20 lg:pb-10">
     <p class="text-[64px] leading-[56px]">{{ section.settings.main_title | default: "Design" }}</p>
   </div>
 
   <!-- container text exteriors text and images -->
   <div class="w-full h-auto flex flex-col items-start justify-center">
     <!-- container text -->
-    <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 lg:px-12 lg:py-[60px]">
+    <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
       <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.exterior_text_title | default:
  "Exteriors" | upcase }}</p>
 
@@ -167,16 +167,16 @@
 
               {% if externalImage %}
               <!-- container for external section image -->
-              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center">
+              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
                 <img
-                  class="w-full h-[620px] object-cover object-center"
+                  class="w-full h-[620px] object-cover object-center md:h-[634px]"
                   src="{{ externalImage | img_url: 'master' }}"
                   id="externalImage_{{ forloop.index }}"
                   alt="{{ externalImage.alt }}">
 
                 <!-- external text under images -->
                 {% if external_text_value %}
-                  <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+                  <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
                     <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value |  upcase }}</p>
                     <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
                   </div>
@@ -184,7 +184,7 @@
 
                 <!-- additional text under images -->
                 {% if additional_external_text_value %}
-                  <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+                  <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
                     <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
                       <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
                     </div>
@@ -212,7 +212,7 @@
   
                   <!-- external text under images -->
                   {% if external_text_value %}
-                    <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+                    <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
                       <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value |  upcase }}</p>
                       <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
                     </div>
@@ -220,7 +220,7 @@
   
                   <!-- additional text under images -->
                   {% if additional_external_text_value %}
-                    <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+                    <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
                       <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
                         <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
                       </div>
@@ -247,7 +247,7 @@
 <!-- container text interiors text and images -->
 <div class="w-full h-auto flex flex-col items-start justify-center">
   <!-- container text -->
-  <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-5 pb-6 gap-y-6 lg:px-12 lg:py-[60px]">
+  <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-5 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
     <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.interior_text_title | default: "Interior"
  | upcase }}</p>
 
@@ -306,9 +306,9 @@
     
           {% if internalImage %}
             <!-- container for internal section image (mobile view) -->
-            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center">
+            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
               <img
-                class="w-full h-[620px] object-cover object-center"
+                class="w-full h-[620px] object-cover object-center md:h-[634px]"
                 src="{{ internalImage | img_url: 'master' }}"
                 id="internalImage_{{ forloop.index }}"
                 alt="{{ internalImage.alt }}">

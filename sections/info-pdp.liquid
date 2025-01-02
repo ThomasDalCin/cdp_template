@@ -1,7 +1,7 @@
 <!--info pdp section-->
 <div class="w-full h-auto flex items-start justify-center flex-col">
     <!--product title container-->
-    <div class="w-full h-auto flex items-center justify-start px-6 pt-10 lg:px-20 lg:py-12">
+    <div class="w-full h-auto flex items-center justify-start px-6 pt-10 md:px-12 lg:px-20 lg:py-12">
         <h1 class="text-[64px] leading-[56px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title }}
         </h1>
     </div>
@@ -9,7 +9,7 @@
     <!-- Product details section -->
     <div class="w-full h-auto overflow-x-hidden lg:px-20 ">
         <div
-            class="product-details-component w-full h-auto px-6 flex flex-col gap-y-2 lg:pb-[40px] lg:px-0 lg:gap-y-16 lg:border-b lg:border-[#A9A09E]">
+            class="product-details-component w-full h-auto px-6 flex flex-col gap-y-2 lg:pb-[40px] md:px-12 md:mb-[60px] lg:px-0 lg:gap-y-16 lg:border-b lg:border-[#A9A09E]">
             <div
                 class="w-full h-auto flex items-start justify-center flex-col lg:flex-row-reverse lg:items-start lg:justify-start lg:gap-x-20">
                 <!--box container -->
@@ -26,7 +26,7 @@
                     {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
     
                     <div
-                        class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] lg:h-[100px] lg:flex-1">
+                        class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] p-4 lg:h-[100px] lg:flex-1">
                         <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue |  upcase }}</p>
                         <p class="body-14 text-nowrap tt-norms-pro-med badge-value">{{ infoValue }}</p>
                     </div>

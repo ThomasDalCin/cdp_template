@@ -3165,6 +3165,11 @@ html {
 }
 
 @media (min-width: 768px) {
+  .md\:tt-norms-pro-light {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Light";
+  }
+
   .md\:tt-norms-pro-med {
     /* General font settings */
     font-family: "TT-Norms-Pro-Medium";
@@ -3355,6 +3360,14 @@ html {
     height: 200px;
   }
 
+  .md\:h-\[634px\] {
+    height: 634px;
+  }
+
+  .md\:h-full {
+    height: 100%;
+  }
+
   .md\:min-h-\[460px\] {
     min-height: 460px;
   }
@@ -3478,8 +3491,17 @@ html {
          column-gap: 0.25rem;
   }
 
+  .md\:border-t {
+    border-top-width: 1px;
+  }
+
   .md\:border-transparent {
     border-color: transparent;
+  }
+
+  .md\:border-\[\#A9A09E\] {
+    --tw-border-opacity: 1;
+    border-color: rgb(169 160 158 / var(--tw-border-opacity));
   }
 
   .md\:bg-white {
@@ -3585,6 +3607,10 @@ html {
     padding-bottom: 6rem;
   }
 
+  .md\:pl-12 {
+    padding-left: 3rem;
+  }
+
   .md\:text-\[12px\] {
     font-size: 12px;
   }
@@ -3607,6 +3633,10 @@ html {
 
   .md\:text-\[96px\] {
     font-size: 96px;
+  }
+
+  .md\:uppercase {
+    text-transform: uppercase;
   }
 
   .md\:leading-\[14px\] {
