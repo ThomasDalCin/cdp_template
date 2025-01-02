@@ -3671,6 +3671,11 @@ html {
     margin-bottom: 0px;
   }
 
+  .lg\:-mx-20 {
+    margin-left: -5rem;
+    margin-right: -5rem;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -4005,6 +4010,14 @@ html {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[308px\] {
+    width: 308px;
+  }
+
+  .lg\:w-\[calc\(100\%_\+_10rem\)\] {
+    width: calc(100% + 10rem);
   }
 
   .lg\:min-w-0 {

@@ -119,7 +119,12 @@
         <div
             class="w-full h-auto flex flex-row items-center justify-start py-6 gap-x-6 relative wrap-content overflow-x-auto lg:items-center lg:gap-x-10 lg:justify-center lg:inline-flex lg:w-auto">
 
-            {% assign categoriesTabs = "Main deck, Lower Deck, Fly Bridge" | split: "," %}
+            {% assign categoriesTabs = "Main deck, Lower Deck" | split: "," %}
+
+            {% if product.metafields.custom.fly_bridge_std.value or  product.metafields.custom.fly_bridge_opt.value  %}
+            {% assign categoriesTabs = categoriesTabs | join: ", " | append: ", Fly Bridge" | split: ", " %}
+            {% endif %}
+
             {% for tabItem in categoriesTabs %}
             <div class="w-auto max-w-[99px] h-auto tab-gamma lg:cursor-pointer lg:max-w-none tab-categories"
                 id="{{ tabItem | strip }}">
@@ -136,49 +141,52 @@
         </div>
     </div>
 
+
+    <!-- arrows box -->
+    <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10 container-arrows">
+        <div
+            class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
+            <button id="prevArrowPng" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6">
+                {% render 'arrow-left-black' %}
+            </button>
+            <button id="nextArrowPng" class="carousel-arrow right-arrow flex items-center justify-center w-6 h-6">
+                {% render 'arrow-right-black' %}
+            </button>
+        </div>
+    </div>
+
     <!-- Horizontal Container Scrolling -->
     <div
-        class="horizontal-magnetic-scroll-container w-[calc(100%_+_3rem)] px-6 -mx-6 py-14 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_5rem)] lg:px-0 lg:py-[60px] lg:mb-[60px]">
+        class="horizontal-magnetic-scroll-container w-[calc(100%_+_3rem)] px-6 -mx-6 py-14 h-auto flex flex-row items-center justify-start gap-x-3 overflow-x-auto flex-shrink-0 lg:w-[calc(100%_+_10rem)] lg:px-20 lg:-mx-20 lg:py-[60px] lg:mb-[60px]">
 
-        <!-- Metafield Assignment for Galley Up, Galley Down, Interior view up, Interior view down -->
+        <!-- Metafield Assignment -->
         <!--standard-->
-        {% assign staOneCabOneBath = product.metafields.custom.standard_one_cab_one_bath.value %}
-        {% assign stTwoCabOneBath = product.metafields.custom.standard_two_cabs_one_bath.value %}
-        {% assign stUpThreeCabsThreeBathsOneCrew =
-        product.metafields.custom.galley_up_three_cabs_three_baths_one_crew.value %}
-        {% assign stUpThreeCabsTwoBathsOneCrew = product.metafields.custom.galley_up_three_cabs_two_baths_one_crew.value
-        %}
-        {% assign stUpThreeCabsThreeBathsOneVp =
-        product.metafields.custom.galley_up_three_cabs_three_baths_one_vip_db.value %}
-        {% assign stUpFourCabsFiveBaths = product.metafields.custom.galley_up_four_cabs_five_bath.value %}
+        {% assign flyBridge = product.metafields.custom.fly_bridge_std.value %}
+        {% assign flyBridgeOpt = product.metafields.custom.fly_bridge_opt.value %}
+        {% assign mainDeck = product.metafields.custom.main_deck_std.value %}
+        {% assign mainDeckOpt = product.metafields.custom.main_deck_opt.value %}
 
-        <!--optional-->
-        {% assign otOneCabOneBath = product.metafields.custom.optional_two_cabs_one_bath.value %}
-        {% assign otUpTwoCabsTwoBathsOneCrew = product.metafields.custom.optional_two_cabs_two_bath_one_crew.value %}
-        {% assign otUpTwoCabsThreeBaths = product.metafields.custom.optional_galley_up_two_cabs_three_baths.value %}
-        {% assign otUpThreeCabsThreeBaths =
-        product.metafields.custom.optional_galley_down_three_cabs_three_baths.value%}
-        {% assign otUpThreeCabsFourBaths = product.metafields.custom.optional_galley_up_four_three_cabs_four_baths.value
-        %}
-        {% assign otUpThreeCabsThreeBathsTwoVp =
-        product.metafields.custom.optional_galley_up_three_cabs_three_baths_vip2_single.value %}
-        {% assign otUpOneBathOneCrew = product.metafields.custom.optional_one_cabin_crew_one_bath.value %}
+        {% assign lowerDeck = product.metafields.custom.lower_deck_std.value %}
+        {% assign lowerDeck_1 = product.metafields.custom.lower_deck_opt_1.value %}
+        {% assign lowerDeck_2 = product.metafields.custom.lower_deck_opt_2.value %}
+        {% assign lowerDeck_3 = product.metafields.custom.lower_deck_opt_3.value %}
+        {% assign lowerDeck_4 = product.metafields.custom.lower_deck_opt_4.value %}
 
 
-        <!-- Galley Up Section -->
-        {% if staOneCabOneBath %}
-        {% assign staOneCabOneBath_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+
+        {% if flyBridge %}
+        {% assign flyBridge_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
         <!-- Loop Through Galley Up Images and Render Only the First Image -->
-        {% for image_key in staOneCabOneBath_images %}
-        {% assign image_item = staOneCabOneBath[image_key] %}
+        {% for image_key in flyBridge_images %}
+        {% assign image_item = flyBridge[image_key] %}
         {% if image_item %}
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center  lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="staOneCabOneBath"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="flyBridge"
                 data-image="lower-deck">
 
 
@@ -209,9 +217,9 @@
         {% endfor %}
 
         <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="staOneCabOneBath">
-            {% for image_key in staOneCabOneBath_images %}
-            {% assign image_item = staOneCabOneBath[image_key] %}
+        <div class="hidden-images-container" style="display: none;" data-overlay="flyBridge">
+            {% for image_key in flyBridge_images %}
+            {% assign image_item = flyBridge_images[image_key] %}
             {% if image_item %}
             <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
             {% endif %}
@@ -219,18 +227,17 @@
         </div>
         {% endif %}
 
-        <!-- stTwoCabOneBath -->
-        {% if stTwoCabOneBath %}
-        {% assign stTwoCabOneBath_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in stTwoCabOneBath_images %}
-        {% assign image_item = stTwoCabOneBath[image_key] %}
+        {% if flyBridgeOpt %}
+        {% assign flyBridgeOpt_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in flyBridgeOpt_images %}
+        {% assign image_item = flyBridgeOpt[image_key] %}
         {% if image_item %}
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="stTwoCabOneBath"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="flyBridgeOpt"
                 data-image="lower-deck">
 
                 <!--container standard badge -->
@@ -260,162 +267,9 @@
         {% endif %}
 
         <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="stTwoCabOneBath">
-            {% for image_key in stTwoCabOneBath_images %}
-            {% assign image_item = stTwoCabOneBath[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- stUpThreeCabsThreeBathsOneCrew -->
-        {% if stUpThreeCabsThreeBathsOneCrew %}
-        {% assign stUpThreeCabsThreeBathsOneCrew_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in stUpThreeCabsThreeBathsOneCrew_images %}
-        {% assign image_item = stUpThreeCabsThreeBathsOneCrew[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="stUpThreeCabsThreeBathsOneCrew" data-image="main-deck">
-
-                <!--container standard badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.standard_badge_text |
-                            default: "Standard" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="stUpThreeCabsThreeBathsOneCrew">
-            {% for image_key in stUpThreeCabsThreeBathsOneCrew_images %}
-            {% assign image_item = stUpThreeCabsThreeBathsOneCrew[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- stUpThreeCabsThreeBathsOneVp -->
-        {% if stUpThreeCabsThreeBathsOneVp %}
-        {% assign stUpThreeCabsThreeBathsOneVp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in stUpThreeCabsThreeBathsOneVp_images %}
-        {% assign image_item = stUpThreeCabsThreeBathsOneVp[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="stUpThreeCabsThreeBathsOneVp" data-image="lower-deck">
-
-                <!--container standard badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.standard_badge_text |
-                            default: "Standard" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="stUpThreeCabsThreeBathsOneVp">
-            {% for image_key in stUpThreeCabsThreeBathsOneVp_images %}
-            {% assign image_item = stUpThreeCabsThreeBathsOneVp[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- stUpFourCabsFiveBaths -->
-        {% if stUpFourCabsFiveBaths %}
-        {% assign stUpFourCabsFiveBaths_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in stUpFourCabsFiveBaths_images %}
-        {% assign image_item = stUpFourCabsFiveBaths[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="stUpFourCabsFiveBaths" data-image="lower-deck">
-
-                <!--container standard badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.standard_badge_text |
-                            default: "Standard" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="stUpFourCabsFiveBaths">
-            {% for image_key in stUpFourCabsFiveBaths_images %}
-            {% assign image_item = stUpFourCabsFiveBaths[image_key] %}
+        <div class="hidden-images-container" style="display: none;" data-overlay="flyBridgeOpt">
+            {% for image_key in flyBridgeOpt_images %}
+            {% assign image_item = flyBridgeOpt[image_key] %}
             {% if image_item %}
             <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
             {% endif %}
@@ -424,334 +278,222 @@
 
 
 
-        <!-- otOneCabOneBath -->
-        {% if otOneCabOneBath %}
-        {% assign otOneCabOneBath_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otOneCabOneBath_images %}
-        {% assign image_item = otOneCabOneBath[image_key] %}
+        {% if mainDeck %}
+        {% assign mainDeck_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in mainDeck_images %}
+        {% assign image_item = mainDeck[image_key] %}
         {% if image_item %}
         {% if forloop.first %}
         <div
             class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
 
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otOneCabOneBath"
-                data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otOneCabOneBath">
-            {% for image_key in otOneCabOneBath_images %}
-            {% assign image_item = otOneCabOneBath[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-
-        <!-- otUpTwoCabsTwoBathsOneCrew -->
-        {% if otUpTwoCabsTwoBathsOneCrew %}
-        {% assign otUpTwoCabsTwoBathsOneCrew_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpTwoCabsTwoBathsOneCrew_images %}
-        {% assign image_item = otUpTwoCabsTwoBathsOneCrew[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="otUpTwoCabsTwoBathsOneCrew" data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpTwoCabsTwoBathsOneCrew">
-            {% for image_key in otUpTwoCabsTwoBathsOneCrew_images %}
-            {% assign image_item = otUpTwoCabsTwoBathsOneCrew[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-
-
-        <!-- otUpTwoCabsThreeBaths -->
-        {% if otUpTwoCabsThreeBaths %}
-        {% assign otUpTwoCabsThreeBaths_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpTwoCabsThreeBaths_images %}
-        {% assign image_item = otUpTwoCabsThreeBaths[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="otUpTwoCabsThreeBaths" data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpTwoCabsThreeBaths">
-            {% for image_key in otUpTwoCabsThreeBaths_images %}
-            {% assign image_item = otUpTwoCabsThreeBaths[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-
-        <!-- otUpThreeCabsThreeBaths -->
-        {% if otUpThreeCabsThreeBaths %}
-        {% assign otUpThreeCabsThreeBaths_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpThreeCabsThreeBaths_images %}
-        {% assign image_item = otUpThreeCabsThreeBaths[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="otUpThreeCabsThreeBaths" data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpThreeCabsThreeBaths">
-            {% for image_key in otUpThreeCabsThreeBaths_images %}
-            {% assign image_item = otUpThreeCabsThreeBaths[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-
-
-        <!-- otUpThreeCabsFourBaths -->
-        {% if otUpThreeCabsFourBaths %}
-        {% assign otUpThreeCabsFourBaths_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpThreeCabsFourBaths_images %}
-        {% assign image_item = otUpThreeCabsFourBaths[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="otUpThreeCabsFourBaths" data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpThreeCabsFourBaths">
-            {% for image_key in otUpThreeCabsFourBaths_images %}
-            {% assign image_item = otUpThreeCabsFourBaths[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- otUpThreeCabsThreeBathsTwoVp -->
-        {% if otUpThreeCabsThreeBathsTwoVp %}
-        {% assign otUpThreeCabsThreeBathsTwoVp_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpThreeCabsThreeBathsTwoVp_images %}
-        {% assign image_item = otUpThreeCabsThreeBathsTwoVp[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');"
-                data-overlay="otUpThreeCabsThreeBathsTwoVp" data-image="lower-deck">
-
-                <!--container optional badge -->
-                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
-                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.optional_badge_text |
-                            default: "Optional" | upcase }}</p>
-                    </div>
-                </div>
-
-                <!--container see more images-->
-                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
-                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
-                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
-                            section.settings.see_more_images |
-                            default: "See more images" }}</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-
-        <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpThreeCabsThreeBathsTwoVp">
-            {% for image_key in otUpThreeCabsThreeBathsTwoVp_images %}
-            {% assign image_item = otUpThreeCabsThreeBathsTwoVp[image_key] %}
-            {% if image_item %}
-            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-
-        <!-- otUpOneBathOneCrew -->
-        {% if otUpOneBathOneCrew %}
-        {% assign otUpOneBathOneCrew_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
-        {% for image_key in otUpOneBathOneCrew_images %}
-        {% assign image_item = otUpOneBathOneCrew[image_key] %}
-        {% if image_item %}
-        {% if forloop.first %}
-        <div
-            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
-
-            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:flex-1 lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
-                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="otUpOneBathOneCrew"
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="mainDeck"
                 data-image="main-deck">
 
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="mainDeck">
+            {% for image_key in mainDeck_images %}
+            {% assign image_item = mainDeck[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+        {% if mainDeckOpt %}
+        {% assign mainDeckOpt_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in mainDeckOpt_images %}
+        {% assign image_item = mainDeckOpt[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="mainDeckOpt"
+                data-image="main-deck">
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="mainDeckOpt">
+            {% for image_key in mainDeckOpt_images %}
+            {% assign image_item = mainDeckOpt[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+        {% if lowerDeck %}
+        {% assign lowerDeck_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in lowerDeck_images %}
+        {% assign image_item = lowerDeck[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="lowerDeck"
+                data-image="lower-deck">
+
+                <!--container standard badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.standard_badge_text |
+                            default: "Standard" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="lowerDeck">
+            {% for image_key in lowerDeck_images %}
+            {% assign image_item = lowerDeck[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+        {% if lowerDeck_1 %}
+        {% assign lowerDeck_1_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in lowerDeck_1_images %}
+        {% assign image_item = lowerDeck_1[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="lowerDeck_1"
+                data-image="lower-deck">
+
+                <!--container optional badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
+                            default: "Optional" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="lowerDeck_1">
+            {% for image_key in lowerDeck_1_images %}
+            {% assign image_item = lowerDeck_1[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+        {% if lowerDeck_2 %}
+        {% assign lowerDeck_2_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in lowerDeck_2_images %}
+        {% assign image_item = lowerDeck_2[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:w-full lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="lowerDeck_2"
+                data-image="lower-deck">
+
                 <!--container optional badge -->
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
@@ -779,15 +521,117 @@
         {% endif %}
 
         <!-- Hidden Images -->
-        <div class="hidden-images-container" style="display: none;" data-overlay="otUpOneBathOneCrew">
-            {% for image_key in otUpOneBathOneCrew_images %}
-            {% assign image_item = otUpOneBathOneCrew[image_key] %}
+        <div class="hidden-images-container" style="display: none;" data-overlay="lowerDeck_2">
+            {% for image_key in lowerDeck_2_images %}
+            {% assign image_item = lowerDeck_2[image_key] %}
             {% if image_item %}
             <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
             {% endif %}
             {% endfor %}
         </div>
 
+
+
+        {% if lowerDeck_3 %}
+        {% assign lowerDeck_3_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in lowerDeck_3_images %}
+        {% assign image_item = lowerDeck_3[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="lowerDeck_3"
+                data-image="lower-deck">
+
+                <!--container optional badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
+                            default: "Optional" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="lowerDeck_3">
+            {% for image_key in lowerDeck_3_images %}
+            {% assign image_item = lowerDeck_3[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+        {% if lowerDeck_4 %}
+        {% assign lowerDeck_4_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
+        {% for image_key in lowerDeck_4_images %}
+        {% assign image_item = lowerDeck_4[image_key] %}
+        {% if image_item %}
+        {% if forloop.first %}
+        <div
+            class="top-view-scroll-img-container w-auto h-auto flex flex-col gap-y-2 items-start justify-center lg:h-[560px] lg:flex-1">
+
+            <div class="top-view-scroll-img rounded-xl w-[320px] max-w-[320px] h-[560px] bg-[#F2EDED] bg-contain bg-center flex-shrink-0 relative lg:w-[308px] lg:bg-no-repeat lg:bg-55% lg:max-h-[560px]"
+                style="background-image: url('{{ image_item | img_url: 'master' }}');" data-overlay="lowerDeck_4"
+                data-image="lower-deck">
+
+                <!--container optional badge -->
+                <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
+                    <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
+                            section.settings.optional_badge_text |
+                            default: "Optional" | upcase }}</p>
+                    </div>
+                </div>
+
+                <!--container see more images-->
+                <div class="w-full h-auto absolute right-0 bottom-0 pr-6 pb-6 flex flex-col items-end justify-center">
+                    <div class="w-auto h-auto rounded-3xl bg-[#423C3B] px-4 py-[2px]">
+                        <p class="text-[12px] leading-[20px] tt-norms-pro-med text-white">{{
+                            section.settings.see_more_images |
+                            default: "See more images" }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+        <!-- Hidden Images -->
+        <div class="hidden-images-container" style="display: none;" data-overlay="lowerDeck_4">
+            {% for image_key in lowerDeck_4_images %}
+            {% assign image_item = lowerDeck_4[image_key] %}
+            {% if image_item %}
+            <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
 
     </div>
 </div>
@@ -843,7 +687,7 @@
 
             // Classi da aggiungere ad ogni slide
             const slideClasses = ["h-screen", "flex", "items-center", "justify-center"];
-            const badgeElClasses = ["layout-badge","absolute", "left-6", "top-16", "w-auto", "h-auto", "rounded-[48px]", "bg-white", "px-4", "py-[2px]", "text-[12px]", "leading-[20px]", "tt-norms-pro-med"];
+            const badgeElClasses = ["layout-badge", "absolute", "left-6", "top-16", "w-auto", "h-auto", "rounded-[48px]", "bg-white", "px-4", "py-[2px]", "text-[12px]", "leading-[20px]", "tt-norms-pro-med"];
 
             // Crea badge se layoutTypeText è presente
             if (layoutTypeText) {
@@ -972,6 +816,8 @@
                     container.classList.add('hidden');
                 }
             });
+
+            handleScrollPngImages();
         }
 
         // Gestione del click sulle immagini principali per aprire l'overlay
@@ -1024,6 +870,7 @@
         // Aggiungi l'evento di clic alle tab
         tabs.forEach(tab => {
             tab.addEventListener('click', handleTabClick);
+            handleScrollPngImages();
         });
 
         // Imposta la tab iniziale come attiva
@@ -1045,7 +892,78 @@
                     }
                 });
             }
+            handleScrollPngImages();
         });
+
+        //handle scrolling png
+        function handleScrollPngImages() {
+            const containerArrows = document.querySelector('.container-arrows');
+            const prevArrow = document.getElementById('prevArrowPng');
+            const nextArrow = document.getElementById('nextArrowPng');
+            const scrollContainer = document.querySelector('.horizontal-magnetic-scroll-container');
+            const imagesToScroll = Array.from(scrollContainer.querySelectorAll('.top-view-scroll-img'));
+
+            //get the exact width + border of the image inside scroll container
+            const imageslenght = imagesToScroll.length;
+            const totalImageWidth = imagesToScroll.map((image) => {
+                const width = image.offsetWidth;
+                const marginRight = parseInt(getComputedStyle(image).marginRight);
+                return width + marginRight;
+            }).reduce((acc, width) => acc + width, 0);
+            const scrollAmout = totalImageWidth / imageslenght;
+
+            //check if there's images
+            if (imagesToScroll.length > 0) {
+                //update the arrows layout during scroll
+                function updateArrows() {
+                    //check the scrollable values
+                    const currentScrollLeft = scrollContainer.scrollLeft;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                    prevArrow.classList.toggle('disabled', currentScrollLeft === 0);
+                    nextArrow.classList.toggle('disabled', currentScrollLeft >= maxScrollLeft);
+                }
+                //function to scroll the container with the scrollAmount value
+                function scrollContainerBy(amount) {
+                    const currentScrollLeft = scrollContainer.scrollLeft;
+                    let newScrollLeft = currentScrollLeft + amount;
+                    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                    if (newScrollLeft < 0) {
+                        newScrollLeft = 0;
+                    } else if (newScrollLeft > maxScrollLeft) {
+                        newScrollLeft = maxScrollLeft;
+                    }
+
+                    scrollContainer.scrollTo({
+                        left: newScrollLeft,
+                        behavior: 'smooth'
+                    });
+
+                    setTimeout(updateArrows, 300);
+                }
+
+                //handle the scrollContainer by clicking on arrows
+                if (prevArrow && nextArrow && scrollContainer) {
+                    prevArrow.addEventListener('click', function () {
+                        scrollContainerBy(scrollAmout);
+                    });
+
+                    nextArrow.addEventListener('click', function () {
+                        scrollContainerBy(-scrollAmout);
+                    });
+
+                    updateArrows();
+                    scrollContainer.addEventListener('scroll', updateArrows);
+                }
+            }
+
+            if ((scrollContainer.scrollWidth - scrollContainer.clientWidth) > 0 && window.innerWidth > 1024) {
+                containerArrows.style.display = "flex"
+            } else {
+                containerArrows.style.display = "none";
+            }
+        }
+
     });
 
 </script>
