@@ -3,14 +3,9 @@
     "boat-list-approved": {
       "type": "boat-list-approved",
       "settings": {}
-    },
-    "page-title": {
-      "type": "page-title",
-      "settings": {}
     }
   },
   "order": [
-    "page-title",
     "boat-list-approved"
   ]
 }

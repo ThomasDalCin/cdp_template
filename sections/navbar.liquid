@@ -113,7 +113,12 @@
                     {% if link.title == "View all models" %}
                     <div
                         class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
-                        {% for collection in collections %}
+
+                        {% assign collectionSorted =  "Walkaround,Endurance,Grand Touring," | split: ',' %}
+
+                        {% for collectionHandle in collectionSorted %}
+                        {% assign collection = collections[collectionHandle] %}
+                        
                         {% for product in collection.products %}
                         {% unless collection.title == 'Pardo approved' %}
                         <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">

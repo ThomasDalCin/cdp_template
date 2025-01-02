@@ -1,16 +1,11 @@
 {
   "sections": {
-    "page-title": {
-      "type": "page-title",
-      "settings": {}
-    },
     "delear": {
       "type": "delear",
       "settings": {}
     }
   },
   "order": [
-    "page-title",
     "delear"
   ]
 }
