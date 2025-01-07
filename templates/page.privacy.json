@@ -15,6 +15,103 @@
     },
     "privacy-dropdown-list": {
       "type": "privacy-dropdown-list",
+      "blocks": {
+        "accordion_FUthWE": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Chi è il titolare dei miei dati",
+            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "extra_accordion_inside": false
+          }
+        },
+        "accordion_H8TdGV": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "Perché utilizziamo i tuoi dati",
+            "accordion_content": "",
+            "extra_accordion_inside": true
+          }
+        },
+        "accordion_extra_qHMN8T": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Navigazione sito web",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_extra_qNHrTi": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Acquisto online di prodotti",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_extra_93rkgz": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Customer Care",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_extra_NYV6KY": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Partecipazione a questionari di gradimento",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_extra_fBiaTx": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Programma fedeltà",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_extra_pRHChg": {
+          "type": "accordion-extra",
+          "settings": {
+            "accordion_extra_title": "Invio di comunicazioni commerciali (“Marketing diretto”)",
+            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+          }
+        },
+        "accordion_HCEAqj": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "",
+            "accordion_content": "",
+            "extra_accordion_inside": false
+          }
+        },
+        "accordion_RjDLEV": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "",
+            "accordion_content": "",
+            "extra_accordion_inside": false
+          }
+        },
+        "accordion_JKTqpg": {
+          "type": "accordion",
+          "settings": {
+            "accordion_title": "",
+            "accordion_content": "",
+            "extra_accordion_inside": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_FUthWE",
+        "accordion_H8TdGV",
+        "accordion_extra_qHMN8T",
+        "accordion_extra_qNHrTi",
+        "accordion_extra_93rkgz",
+        "accordion_extra_NYV6KY",
+        "accordion_extra_fBiaTx",
+        "accordion_extra_pRHChg",
+        "accordion_HCEAqj",
+        "accordion_RjDLEV",
+        "accordion_JKTqpg"
+      ],
       "settings": {}
     },
     "privacy-bottom-page": {
