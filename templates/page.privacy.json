@@ -78,7 +78,7 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "A chi comunichiamo i tuoi dati?",
-            "accordion_content": "",
+            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
             "extra_accordion_inside": false
           }
         },
@@ -86,7 +86,7 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "Cookie",
-            "accordion_content": "",
+            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
             "extra_accordion_inside": false
           }
         },
@@ -94,7 +94,7 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "Social network",
-            "accordion_content": "",
+            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
             "extra_accordion_inside": false
           }
         }
