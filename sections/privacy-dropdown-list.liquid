@@ -12,7 +12,7 @@
                 <!-- accordion title -->
                 <p class="text-[20px] leading-[26px] tt-norms-pro-med">{{ block.settings.accordion_title | default: "Accordion Title" }}</p>
                 <!-- plus accordion icon -->
-                <div class="w-auto h-auto toggle-accordion">
+                <div class="w-auto h-auto toggle-accordion cursor-pointer">
                     {% render 'plus-icon' %}
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <!-- accordion title -->
                         <p class="text-[16px] leading-[20px] tt-norms-pro-med">{{ block.settings.accordion_extra_title | default: "Accordion Title" }}</p>
                         <!-- plus accordion icon -->
-                        <div class="w-auto h-auto toggle-accordion-inside" data-target-id="{{ forloop.index0 }}">
+                        <div class="w-auto h-auto toggle-accordion-inside cursor-pointer" data-target-id="{{ forloop.index0 }}">
                             {% render 'plus-icon' %}
                         </div>
                     </div>
