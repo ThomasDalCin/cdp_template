@@ -1,0 +1,191 @@
+<!-- dropdown list container -->
+<div class="w-full h-auto p-6 gap-y-4 flex flex-col items-start justify-center">
+    <!-- each container dropdown accordion -->
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+        {% for block in section.blocks %}
+        {% if block.type == "accordion" %}
+
+        <!-- accordion -->
+        <div class="w-full h-auto p-4 rounded-2xl bg-[#EFEEED] flex flex-col items-start justify-center accordion-container">
+            <!-- accordion main -->
+            <div class="w-full h-auto flex flex-row items-center justify-between">
+                <!-- accordion title -->
+                <p class="text-[20px] leading-[26px] tt-norms-pro-med">{{ block.settings.accordion_title | default: "Accordion Title" }}</p>
+                <!-- plus accordion icon -->
+                <div class="w-auto h-auto toggle-accordion">
+                    {% render 'plus-icon' %}
+                </div>
+            </div>
+
+            <!-- accordion content -->
+            {% if block.settings.extra_accordion_inside %}
+            <div class="w-full h-0 overflow-hidden flex flex-col items-start justify-center gap-y-4 accordion-content transition-all duration-150 ease-linear accordion-container-inside">
+                {% for block in section.blocks %}
+                {% if block.type == "accordion-extra" %}
+                <div class="w-full h-auto p-4 rounded-2xl bg-white flex flex-col items-start justify-center">
+                    <div class="w-full h-auto flex flex-row items-center justify-between">
+                        <!-- accordion title -->
+                        <p class="text-[16px] leading-[20px] tt-norms-pro-med">{{ block.settings.accordion_extra_title | default: "Accordion Title" }}</p>
+                        <!-- plus accordion icon -->
+                        <div class="w-auto h-auto toggle-accordion-inside" data-target-id="{{ forloop.index0 }}">
+                            {% render 'plus-icon' %}
+                        </div>
+                    </div>
+
+                    <div class="w-full h-0 overflow-hidden transition-all duration-150 ease-linear accordion-content-inside" id="accordion-extra-{{ forloop.index0 }}">
+                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_extra_content | default: "Accordion Content" }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="w-full h-0 overflow-hidden transition-all duration-150 ease-linear accordion-content">
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_content | default: "Accordion Content" }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+        const closeAllAccordions = (selector, toggleClass) => {
+            document.querySelectorAll(selector).forEach(content => {
+                content.style.height = '0px';
+                content.style.opacity = '0';
+                content.style.overflow = 'hidden';
+                content.style.marginTop = '0px'
+                const toggleButton = content.closest('.accordion-container, .accordion-container-inside').querySelector(toggleClass);
+                if (toggleButton) toggleButton.classList.remove('rotate-90');
+            });
+        };
+
+        const openAccordion = (content, button) => {
+            content.style.height = `${content.scrollHeight}px`;
+            content.style.opacity = '1';
+            content.style.overflow = 'hidden';
+            content.style.marginTop = '16px'
+            button.classList.add('rotate-90');
+
+            content.addEventListener('transitionend', () => {
+                if (content.style.height !== '0px') {
+                    content.style.height = 'auto';
+                    content.style.overflow = 'visible';
+                }
+            }, { once: true });
+        };
+
+        const accordionButtons = document.querySelectorAll('.toggle-accordion');
+
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContainer = button.closest('.accordion-container');
+                const accordionContent = accordionContainer.querySelector('.accordion-content');
+                const isOpen = accordionContent.style.height && accordionContent.style.height !== '0px';
+
+                closeAllAccordions('.accordion-content', '.toggle-accordion');
+
+                if (!isOpen) {
+                    openAccordion(accordionContent, button);
+                }
+            });
+        });
+
+       
+        const accordionInsideButtons = document.querySelectorAll('.toggle-accordion-inside');
+
+        accordionInsideButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContainerInside = button.closest('.accordion-container');
+                const accordionContentInside = accordionContainerInside.querySelector(`#accordion-extra-${button.dataset.targetId}`);
+                const isOpen = accordionContentInside.style.height && accordionContentInside.style.height !== '0px';
+
+                accordionContainerInside.querySelectorAll('.accordion-content-inside').forEach(content => {
+                    content.style.height = '0px';
+                    content.style.opacity = '0';
+                    content.style.overflow = 'hidden';
+                     content.style.marginTop = '0px'
+                    const toggleButton = content.closest('.accordion-container').querySelector('.toggle-accordion-inside');
+                    if (toggleButton) toggleButton.classList.remove('rotate-90');
+                });
+
+                if (!isOpen) {
+                    openAccordion(accordionContentInside, button);
+                } else {
+                    accordionContentInside.style.height = '0px';
+                    accordionContentInside.style.opacity = '0';
+                    accordionContentInside.style.overflow = 'hidden';
+                    button.classList.remove('rotate-90');
+                }
+            });
+        });
+
+        document.querySelectorAll('.accordion-container').forEach(container => {
+            const toggleButton = container.querySelector('.toggle-accordion');
+            const content = container.querySelector('.accordion-content');
+            
+            content.addEventListener('transitionend', () => {
+                if (content.style.height === '0px') {
+                    toggleButton.classList.remove('rotate-90');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+{% schema %}
+{
+"name": "Privacy-drpopdown-list",
+"settings": [],
+"blocks": [
+{
+"type": "accordion",
+"name": "accordion",
+"settings": [
+{
+"type": "text",
+"id": "accordion_title",
+"label": "accordion title"
+}, {
+"type": "text",
+"id": "accordion_content",
+"label": "accordion content"
+}, {
+"type": "checkbox",
+"id": "extra_accordion_inside",
+"label": "extra accordion inside",
+"default": false
+}
+]
+}, {
+"type": "accordion-extra",
+"name": "accordion extra inside",
+"settings": [
+{
+"type": "text",
+"id": "accordion_extra_title",
+"label": "accordion title extra"
+}, {
+"type": "text",
+"id": "accordion_extra_content",
+"label": "accordion content extra"
+}
+]
+}
+]
+}
+{% endschema %}

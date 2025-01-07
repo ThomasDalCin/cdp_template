@@ -8,11 +8,18 @@
         "privacy-dropdown-list": {
             "type": "privacy-dropdown-list",
             "settings": {}
+        },
+        "privacy-bottom-page": {
+            "type": "privacy-bottom-page",
+            "settings": {}
         }
+
     },
     "order": [
         "privacy-top-page",
-        "privacy-dropdown-list"
+        "privacy-dropdown-list",
+        "privacy-bottom-page"
+
     ]
   }
   
