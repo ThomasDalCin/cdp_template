@@ -1,25 +1,33 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "privacy-top-page": {
-            "type": "privacy-top-page",
-            "settings": {}
-        },
-        "privacy-dropdown-list": {
-            "type": "privacy-dropdown-list",
-            "settings": {}
-        },
-        "privacy-bottom-page": {
-            "type": "privacy-bottom-page",
-            "settings": {}
-        }
-
+  "sections": {
+    "privacy-top-page": {
+      "type": "privacy-top-page",
+      "settings": {}
     },
-    "order": [
-        "privacy-top-page",
-        "privacy-dropdown-list",
-        "privacy-bottom-page"
-
-    ]
-  }
-  
+    "privacy-dropdown-list": {
+      "type": "privacy-dropdown-list",
+      "settings": {}
+    },
+    "privacy-bottom-page": {
+      "type": "privacy-bottom-page",
+      "settings": {
+        "underline_text": "Periodicamente ci riserviamo di aggiornare il contenuto di questa pagina. Ti invitiamo a consultare regolarmente questa informativa in modo da rimanere aggiornato rispetto ad eventuali modifiche intervenute successivamente alla tua ultima consultazione.",
+        "updates_info": "Ultimo aggiornamento: Dicembre 2024"
+      }
+    }
+  },
+  "order": [
+    "privacy-top-page",
+    "privacy-dropdown-list",
+    "privacy-bottom-page"
+  ]
+}
