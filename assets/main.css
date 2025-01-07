@@ -3969,6 +3969,14 @@ html {
     margin-top: ;
   }
 
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .lg\:mb-28 {
+    margin-bottom: 7rem;
+  }
+
   .lg\:block {
     display: block;
   }
