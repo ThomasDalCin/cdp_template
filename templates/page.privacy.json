@@ -77,7 +77,7 @@
         "accordion_HCEAqj": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "",
+            "accordion_title": "A chi comunichiamo i tuoi dati?",
             "accordion_content": "",
             "extra_accordion_inside": false
           }
@@ -85,7 +85,7 @@
         "accordion_RjDLEV": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "",
+            "accordion_title": "Cookie",
             "accordion_content": "",
             "extra_accordion_inside": false
           }
@@ -93,7 +93,7 @@
         "accordion_JKTqpg": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "",
+            "accordion_title": "Social network",
             "accordion_content": "",
             "extra_accordion_inside": false
           }
