@@ -1,0 +1,18 @@
+
+{
+    "sections": {
+        "privacy-top-page": {
+            "type": "privacy-top-page",
+            "settings": {}
+        },
+        "privacy-dropdown-list": {
+            "type": "privacy-dropdown-list",
+            "settings": {}
+        }
+    },
+    "order": [
+        "privacy-top-page",
+        "privacy-dropdown-list"
+    ]
+  }
+  
