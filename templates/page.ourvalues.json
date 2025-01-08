@@ -9,14 +9,6 @@
  */
 {
   "sections": {
-    "our-values": {
-      "type": "ourvalues-top",
-      "settings": {
-        "section_heading": "More than 50 years of experience",
-        "section_text": "Italian craftmanship at its finest.",
-        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
-      }
-    },
     "infinity-banner": {
       "type": "infinity-banner",
       "settings": {}
@@ -75,7 +67,7 @@
       "type": "pardo-box",
       "settings": {
         "box_title": "Cantiere del Pardo",
-        "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "box_text": "llorem Ipsum",
         "cta_text": "Discover more",
         "cta_link": "",
         "section_heading_etic": "Codice etico",
@@ -83,6 +75,14 @@
         "section_content_etic": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
         "cta_text_etic": "Scarica il codice etico",
         "cta_link_etic": ""
+      }
+    },
+    "our-values": {
+      "type": "ourvalues-top",
+      "settings": {
+        "section_heading": "More than 50 years of experience",
+        "section_text": "Italian craftmanship at its finest.",
+        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
       }
     }
   },
