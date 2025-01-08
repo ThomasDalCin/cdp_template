@@ -34,7 +34,7 @@
 
                 <!-- Container progrss bar-->
                 <div
-                    class="w-full h-auto hidden lg:flex items-center flex-col justify-center absolute left-0 right-0 bottom-[90px] lg:bottom-[60px] z-10 px-6 gap-y-4">
+                    class="w-full h-auto hidden lg:flex items-center flex-col justify-center absolute left-0 right-0 bottom-[90px] lg:bottom-[60px] lg:px-20 z-10 px-6 gap-y-4">
                     <!--container progress bar-->
 
                     <!-- Container on/off switch for audio -->
@@ -64,7 +64,7 @@
 
 
                     <div
-                        class="w-full h-auto flex items-start justify-center flex-col bg-[rgba(0,0,0,0.20)] backdrop-blur-lg gap-y-3 p-4 rounded-lg controls-container ">
+                        class="w-full h-auto flex items-start justify-center flex-col bg-[rgba(0,0,0,0.20)] backdrop-blur-lg gap-y-3 lg:gap-y-2 p-4 rounded-lg controls-container lg:px-6 lg:py-4">
                         <!--container current & total duration-->
                         <div class="w-full h-auto flex flex-row justify-between">
                             <p class="current-time body-12 text-white"></p>
@@ -211,6 +211,11 @@
     .swiper-button-prev::after {
         font-size: 14px;
     }
+
+    .swiper-button-next-galley-pdp::after,
+    .swiper-button-prev::after {
+        font-size: 14px;
+    }
 </style>
 
 
@@ -348,10 +353,12 @@
         }
 
         function openOverlay() {
+
             if (overlayGallery) {
                 overlayGallery.classList.remove('hidden');
                 document.body.classList.add('no-scroll');
             }
+            
             destroyOverlaySwiper();
             initializeOverlaySwiper();
 

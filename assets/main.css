@@ -2692,6 +2692,14 @@ p,
   padding-top: 136px;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3896,6 +3904,10 @@ html {
     top: calc(820px + 1rem);
   }
 
+  .lg\:bottom-\[100px\] {
+    bottom: 100px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -4593,6 +4605,10 @@ html {
 
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-2 {
+    padding: 0.5rem;
   }
 
   .lg\:px-0 {

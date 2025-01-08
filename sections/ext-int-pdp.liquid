@@ -16,39 +16,59 @@
 <div class="overlay-images hidden fixed z-50 inset-0 w-full h-svh bg-[#EFEEED] lg:h-screen">
 
   <!-- Close Button -->
-  <div class="close-overlay-images absolute right-4 top-6 w-auto h-auto text-white rounded-full flex items-center justify-center p-3 bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
+  <div
+    class="close-overlay-images absolute right-4 top-6 w-auto h-auto text-white rounded-full flex items-center justify-center p-3 bg-[rgba(0,0,0,0.20)] backdrop-blur-xl z-50 cursor-pointer">
     {% render 'x-icon' %}
   </div>
 
   <!-- Swiper Wrapper for External Gallery -->
   <div class="swiper swiper-container-overlay-external transition-all duration-200 ease-linear relative hidden">
     <div class="swiper-wrapper">
-      {% assign image_keys = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-      
+      {% assign image_keys =
+      'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+      | split: ',' %}
+
       {% for key in image_keys %}
-        {% assign mobileImage = product.metafields.custom.external_images_boat.value[key] %}
-        {% assign desktopImage = product.metafields.custom.external_boat_images_desktop.value[key] %}
-        
-        <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImage }}" data-desktop="{{ desktopImage }}">
-          <!-- Mobile Image -->
-          {% if mobileImage %}
-            <img src="{{ mobileImage | img_url: 'master' }}" alt="{{ mobileImage.alt }}" class="w-full h-full object-cover object-center md:hidden lg:hidden">
-          {% endif %}
-          <!-- Desktop Image -->
-          {% if desktopImage %}
-            <img src="{{ desktopImage | img_url: 'master' }}" alt="{{ desktopImage.alt }}" class="w-full h-full object-cover object-center hidden md:block lg:block">
-          {% endif %}
-        </div>
+      {% assign mobileImage = product.metafields.custom.external_images_boat.value[key] %}
+      {% assign desktopImage = product.metafields.custom.external_boat_images_desktop.value[key] %}
+
+      <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImage }}"
+        data-desktop="{{ desktopImage }}">
+        <!-- Mobile Image -->
+        {% if mobileImage %}
+        <img src="{{ mobileImage | img_url: 'master' }}" alt="{{ mobileImage.alt }}"
+          class="w-full h-full object-cover object-center md:hidden lg:hidden">
+        {% endif %}
+        <!-- Desktop Image -->
+        {% if desktopImage %}
+        <img src="{{ desktopImage | img_url: 'master' }}" alt="{{ desktopImage.alt }}"
+          class="w-full h-full object-cover object-center hidden md:block lg:block">
+        {% endif %}
+      </div>
       {% endfor %}
     </div>
 
     <!-- Swiper Pagination -->
-    <div class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
+    <div
+      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center lg:h-[100px]">
       <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
+    <div class="w-auto hidden absolute top-0 right-0 h-screen items-center justify-center md:flex lg:flex">
+      <div
+        class="swiper-button-next-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white z-20 mr-10">
+      </div>
+    </div>
+    <div class="w-auto hidden absolute top-0 left-0 h-screen items-center justify-center md:flex lg:flex">
+
+      <div
+        class="swiper-button-prev-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white z-20 ml-10">
+      </div>
+    </div>
+
     <!-- Turn into Landscape Message -->
-    <div class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+    <div
+      class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
       <div class="min-w-[148px] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20">
         <p class="body-14 tt-norms-pro-med text-white">
           {{ section.settings.turn_landscape | default: "Turn into landscape" }}
@@ -60,32 +80,53 @@
   <!-- Swiper Wrapper for Internal Gallery -->
   <div class="swiper swiper-container-overlay-internal transition-all duration-200 ease-linear relative hidden">
     <div class="swiper-wrapper">
-      {% assign image_keys = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-      
+      {% assign image_keys =
+      'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_eight,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+      | split: ',' %}
+
       {% for key in image_keys %}
-        {% assign mobileImageInternal = product.metafields.custom.internal_boat.value[key] %}
-        {% assign desktopImageInternal = product.metafields.custom.internal_boat_images_desktop.value[key] %}
-        
-        <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImageInternal }}" data-desktop="{{ desktopImageInternal }}">
-          <!-- Mobile Image -->
-          {% if mobileImageInternal %}
-            <img src="{{ mobileImageInternal | img_url: 'master' }}" alt="{{ mobileImageInternal.alt }}" class="w-full h-full object-cover object-center md:hidden lg:hidden">
-          {% endif %}
-          <!-- Desktop Image -->
-          {% if desktopImageInternal %}
-            <img src="{{ desktopImageInternal | img_url: 'master' }}" alt="{{ desktopImageInternal.alt }}" class="w-full h-full object-cover object-center hidden md:block lg:block">
-          {% endif %}
-        </div>
+      {% assign mobileImageInternal = product.metafields.custom.internal_boat.value[key] %}
+      {% assign desktopImageInternal = product.metafields.custom.internal_boat_images_desktop.value[key] %}
+
+      <div class="swiper-slide h-screen swiper-slide-custom" data-mobile="{{ mobileImageInternal }}"
+        data-desktop="{{ desktopImageInternal }}">
+        <!-- Mobile Image -->
+        {% if mobileImageInternal %}
+        <img src="{{ mobileImageInternal | img_url: 'master' }}" alt="{{ mobileImageInternal.alt }}"
+          class="w-full h-full object-cover object-center md:hidden lg:hidden">
+        {% endif %}
+        <!-- Desktop Image -->
+        {% if desktopImageInternal %}
+        <img src="{{ desktopImageInternal | img_url: 'master' }}" alt="{{ desktopImageInternal.alt }}"
+          class="w-full h-full object-cover object-center hidden md:block lg:block">
+        {% endif %}
+      </div>
       {% endfor %}
     </div>
 
     <!-- Swiper Pagination -->
-    <div class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
+    <div
+      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center lg:h-[100px]">
       <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
+    <div class="w-auto h-auto hidden lg:block">
+      <div
+        class="swiper-button-next-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white mr-10 flex items-center justify-center">
+        {% render 'arrow-right-white' %}
+      </div>
+    </div>
+    <div class="w-auto h-auto hidden lg:block">
+
+      <div
+        class="swiper-button-prev-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  ml-10 flex items-center justify-center">
+        {% render 'arrow-left-white' %}
+      </div>
+    </div>
+
     <!-- Turn into Landscape Message -->
-    <div class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
+    <div
+      class="turn-button w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[46px] lg:hidden">
       <div class="min-w-[148px] min-h-[32px] bg-[rgba(0,0,0,0.20)] backdrop-blur-xl rounded-3xl py-2 px-4 z-20">
         <p class="body-14 tt-norms-pro-med text-white">
           {{ section.settings.turn_landscape | default: "Turn into landscape" }}
@@ -109,24 +150,26 @@
   <!-- container text exteriors text and images -->
   <div class="w-full h-auto flex flex-col items-start justify-center">
     <!-- container text -->
-    <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
-      <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.exterior_text_title | default:
- "Exteriors" | upcase }}</p>
+    <div
+      class="w-full h-auto flex flex-col items-start justify-center px-6 pt-12 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
+      <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.exterior_text_title |
+        default:
+        "Exteriors" | upcase }}</p>
 
       {% if external_section_images_text %}
-        <p class="body-16 text-balance tt-norms-pro-reg">{{ external_section_images_text | default: "Korem ipsum dolor sit amet,
-    consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
-    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+      <p class="body-16 text-balance tt-norms-pro-reg">{{ external_section_images_text | default: "Korem ipsum dolor sit
+        amet,
+        consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
       {% endif %}
 
 
       <!-- contianer cta full view -->
       <div class="w-full h-auto flex flex-row items-center justify-end my-10 lg:my-0">
-        <div
-          class="cta-transparent-round h-[32px] px-6 lg:w-[220px] lg:px-4 lg:py-4 lg:h-auto"
-          data-target="external"
+        <div class="cta-transparent-round h-[32px] px-6 lg:w-[220px] lg:px-4 lg:py-4 lg:h-auto" data-target="external"
           onclick="toggleGallery(this)">
-          <p class="text-[14px] leading-[14px] tt-norms-pro-med -tracking-[0.2px]">{{ section.settings.cta_brochure | default: "Full
+          <p class="text-[14px] leading-[14px] tt-norms-pro-med -tracking-[0.2px]">{{ section.settings.cta_brochure |
+            default: "Full
             exterior gallery" }}</p>
         </div>
       </div>
@@ -135,101 +178,123 @@
     <!-- external gallery wrapper -->
     <div class="w-full h-auto overflow-x-hidden mb-10 relative">
 
-      <div class="arrow-left-external hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
-        <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg transition-all duration-150 ease-in cursor-pointer" onclick="changeImageExternal(-1)">
+      <div
+        class="arrow-left-external hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
+        <div
+          class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg transition-all duration-150 ease-in cursor-pointer"
+          onclick="changeImageExternal(-1)">
           {% render 'arrow-left-white' %}
         </div>
       </div>
-      <div class="arrow-right-external hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
-        <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg transition-all duration-150 ease-in cursor-pointer" onclick="changeImageExternal(-1)">
+      <div
+        class="arrow-right-external hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
+        <div
+          class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg transition-all duration-150 ease-in cursor-pointer"
+          onclick="changeImageExternal(-1)">
           {% render 'arrow-right-white' %}
         </div>
       </div>
 
 
-      <div class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-x-external snap-mandatory scroll-snap-type-x">
+      <div
+        class="w-auto h-auto flex flex-row items-start gap-x-1 overflow-x-auto snap-x snap-x-external snap-mandatory scroll-snap-type-x">
         <!-- assign variables -->
         {% assign externalBoat = product.metafields.custom.external_images_boat.value %}
         {% assign externalBoatDesktop = product.metafields.custom.external_boat_images_desktop.value %}
 
-        {% if externalBoat or externalBoatDesktop  %}
-          {% assign externalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-          {% assign externalBoatImagesDesktop = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-          {% assign external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15' | split: ',' %}
-          {% assign additional_external_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15' | split: ',' %}
-          {% assign external_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten,title_11,title_12,title_13,title_14,title_15' | split: "," %}
+        {% if externalBoat or externalBoatDesktop %}
+        {% assign externalBoatImages =
+        'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+        | split: ',' %}
+        {% assign externalBoatImagesDesktop =
+        'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+        | split: ',' %}
+        {% assign external_images_text_properties =
+        'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15'
+        | split: ',' %}
+        {% assign additional_external_images_text_properties =
+        'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15'
+        | split: ',' %}
+        {% assign external_images_text_title =
+        'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten,title_11,title_12,title_13,title_14,title_15'
+        | split: "," %}
 
-          {% for externalBoatImage in externalBoatImages %}
-            {% assign externalImage = externalBoat[externalBoatImage] %}
-            {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
-            {% assign additional_external_text_value = additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
-            {% assign external_images_text_title_value = external_images_text_titles[external_images_text_title[forloop.index0]] %}
+        {% for externalBoatImage in externalBoatImages %}
+        {% assign externalImage = externalBoat[externalBoatImage] %}
+        {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
+        {% assign additional_external_text_value =
+        additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
+        {% assign external_images_text_title_value =
+        external_images_text_titles[external_images_text_title[forloop.index0]] %}
 
-              {% if externalImage %}
-              <!-- container for external section image -->
-              <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
-                <img
-                  class="w-full h-[620px] object-cover object-center md:h-[634px]"
-                  src="{{ externalImage | img_url: 'master' }}"
-                  id="externalImage_{{ forloop.index }}"
-                  alt="{{ externalImage.alt }}">
+        {% if externalImage %}
+        <!-- container for external section image -->
+        <div
+          class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
+          <img class="w-full h-[620px] object-cover object-center md:h-[634px]"
+            src="{{ externalImage | img_url: 'master' }}" id="externalImage_{{ forloop.index }}"
+            alt="{{ externalImage.alt }}">
 
-                <!-- external text under images -->
-                {% if external_text_value %}
-                  <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
-                    <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value |  upcase }}</p>
-                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
-                  </div>
-                {% endif %}
+          <!-- external text under images -->
+          {% if external_text_value %}
+          <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
+            <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value | upcase }}</p>
+            <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
+          </div>
+          {% endif %}
 
-                <!-- additional text under images -->
-                {% if additional_external_text_value %}
-                  <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
-                    <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
-                      <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
-                    </div>
-                    <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-external-{{ forloop.index }}">Read more</p>
-                  </div>
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
-          
-          {% for externalBoatImageDes in externalBoatImagesDesktop %}
-              {% assign externalImageDesktop = externalBoatDesktop[externalBoatImageDes] %}
-              {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
-              {% assign additional_external_text_value = additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
-              {% assign external_images_text_title_value = external_images_text_titles[external_images_text_title[forloop.index0]] %}
-  
-                {% if externalImageDesktop %}
-                <!-- container for external section image -->
-                <div class="hidden h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
-                  <img
-                    class="w-full h-[620px] object-cover object-center"
-                    src="{{ externalImageDesktop | img_url: 'master' }}"
-                    id="externalImageDesktop_{{ forloop.index }}"
-                    alt="{{ externalImageDesktop.alt }}">
-  
-                  <!-- external text under images -->
-                  {% if external_text_value %}
-                    <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
-                      <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value |  upcase }}</p>
-                      <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
-                    </div>
-                  {% endif %}
-  
-                  <!-- additional text under images -->
-                  {% if additional_external_text_value %}
-                    <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
-                      <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-external-{{ forloop.index }}">
-                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
-                      </div>
-                      <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-external-{{ forloop.index }}">Read more</p>
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-           {% endfor %}
+          <!-- additional text under images -->
+          {% if additional_external_text_value %}
+          <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
+            <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
+              id="more-text-external-{{ forloop.index }}">
+              <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
+            </div>
+            <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
+              data-target="more-text-external-{{ forloop.index }}">Read more</p>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% for externalBoatImageDes in externalBoatImagesDesktop %}
+        {% assign externalImageDesktop = externalBoatDesktop[externalBoatImageDes] %}
+        {% assign external_text_value = external_images_text[external_images_text_properties[forloop.index0]] %}
+        {% assign additional_external_text_value =
+        additional_external_images_text[additional_external_images_text_properties[forloop.index0]] %}
+        {% assign external_images_text_title_value =
+        external_images_text_titles[external_images_text_title[forloop.index0]] %}
+
+        {% if externalImageDesktop %}
+        <!-- container for external section image -->
+        <div
+          class="hidden h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
+          <img class="w-full h-[620px] object-cover object-center" src="{{ externalImageDesktop | img_url: 'master' }}"
+            id="externalImageDesktop_{{ forloop.index }}" alt="{{ externalImageDesktop.alt }}">
+
+          <!-- external text under images -->
+          {% if external_text_value %}
+          <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
+            <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ external_images_text_title_value | upcase }}</p>
+            <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ external_text_value }}</p>
+          </div>
+          {% endif %}
+
+          <!-- additional text under images -->
+          {% if additional_external_text_value %}
+          <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
+            <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
+              id="more-text-external-{{ forloop.index }}">
+              <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_external_text_value }}</p>
+            </div>
+            <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
+              data-target="more-text-external-{{ forloop.index }}">Read more</p>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
         {% endif %}
       </div>
 
@@ -247,25 +312,27 @@
 <!-- container text interiors text and images -->
 <div class="w-full h-auto flex flex-col items-start justify-center">
   <!-- container text -->
-  <div class="w-full h-auto flex flex-col items-start justify-center px-6 pt-5 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
-    <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.interior_text_title | default: "Interior"
- | upcase }}</p>
+  <div
+    class="w-full h-auto flex flex-col items-start justify-center px-6 pt-5 pb-6 gap-y-6 md:px-12 lg:px-12 lg:py-[60px]">
+    <p class="text-[24px] leading-[30px] text-[#818181] tt-norms-pro-bold ">{{ section.settings.interior_text_title |
+      default: "Interior"
+      | upcase }}</p>
 
 
     {% if internal_section_images_text %}
-      <p class="body-16 text-balance tt-norms-pro-reg">{{ internal_section_images_text | default: "Korem ipsum dolor sit amet,
-    consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
-    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
+    <p class="body-16 text-balance tt-norms-pro-reg">{{ internal_section_images_text | default: "Korem ipsum dolor sit
+      amet,
+      consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent
+      taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." }}</p>
     {% endif %}
 
     <!-- contianer cta full view -->
     <div class="w-full h-auto flex flex-row items-center justify-end my-10 lg:my-0">
-      <div
-        class="cta-transparent-round h-[32px] lg:w-[220px] px-6 lg:px-4 lg:py-4 lg:h-auto"
-        data-target="internal"
+      <div class="cta-transparent-round h-[32px] lg:w-[220px] px-6 lg:px-4 lg:py-4 lg:h-auto" data-target="internal"
         onclick="toggleGallery(this)">
-        <p class="text-[14px] leading-[14px] tt-norms-pro-med -tracking-[0.2px]">{{ section.settings.cta_brochure_interior | default:
- "Full interior gallery" }}</p>
+        <p class="text-[14px] leading-[14px] tt-norms-pro-med -tracking-[0.2px]">{{
+          section.settings.cta_brochure_interior | default:
+          "Full interior gallery" }}</p>
       </div>
 
     </div>
@@ -274,110 +341,132 @@
   <!-- internal gallery wrapper -->
   <div class="w-full h-auto overflow-x-hidden mb-10 relative">
 
-    <div class="arrow-left-internal hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
-      <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg  transition-all duration-150 ease-in cursor-pointer" onclick="changeImageInternal(-1)">
+    <div
+      class="arrow-left-internal hidden lg:absolute h-full left-10 top-0 lg:flex flex-col items-center justify-center z-20">
+      <div
+        class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg  transition-all duration-150 ease-in cursor-pointer"
+        onclick="changeImageInternal(-1)">
         {% render 'arrow-left-white' %}
       </div>
     </div>
-    <div class="arrow-right-internal hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
-      <div class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg  transition-all duration-150 ease-in cursor-pointer" onclick="changeImageInternal(-1)">
+    <div
+      class="arrow-right-internal hidden lg:absolute h-full right-10 top-0 lg:flex flex-col items-center justify-center z-20">
+      <div
+        class="container-arrow w-[56px] h-[56px]  rounded-full flex items-center justify-center -mt-[70px] lg:hover:w-[72px] bg-[rgba(0,0,0,0.20)] backdrop-blur-lg  transition-all duration-150 ease-in cursor-pointer"
+        onclick="changeImageInternal(-1)">
         {% render 'arrow-right-white' %}
       </div>
     </div>
 
-    <div class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto snap-x snap-x-internal snap-mandatory scroll-snap-type-x-internal">
+    <div
+      class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto snap-x snap-x-internal snap-mandatory scroll-snap-type-x-internal">
       <!-- assign variables -->
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
       {% assign internalBoatDesktop = product.metafields.custom.internal_boat_images_desktop.value %}
-    
+
       {% if internalBoat or internalBoatDesktop %}
-        {% assign internalBoatImages = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-        {% assign internalBoatImagesDesktop = 'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15' | split: ',' %}
-        {% assign internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15' | split: ',' %}
-        {% assign additional_internal_images_text_properties = 'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15' | split: ',' %}
-        {% assign internal_images_text_title = 'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten,title_11,title_12,title_13,title_14,title_15' | split: "," %}
-    
-        <!-- For mobile images (internalBoat) -->
-        {% for internalBoatImage in internalBoatImages %}
-          {% assign internalImage = internalBoat[internalBoatImage] %}
-          {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
-          {% assign additional_text_value = additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
-          {% assign internal_images_text_title_value = internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
-    
-          {% if internalImage %}
-            <!-- container for internal section image (mobile view) -->
-            <div class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
-              <img
-                class="w-full h-[620px] object-cover object-center md:h-[634px]"
-                src="{{ internalImage | img_url: 'master' }}"
-                id="internalImage_{{ forloop.index }}"
-                alt="{{ internalImage.alt }}">
-    
-              <!-- internal text under images -->
-              {% if internal_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
-                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
-                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
-                </div>
-              {% endif %}
-    
-              <!-- additional text under images -->
-              {% if additional_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
-                  <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
-                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
-                  </div>
-                  <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
-    
-        <!-- For desktop images (internalBoatDesktop) -->
-        {% for internalBoatImageDes in internalBoatImagesDesktop %}
-          {% assign internalImageDesktop = internalBoatDesktop[internalBoatImageDes] %}
-          {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
-          {% assign additional_text_value = additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
-          {% assign internal_images_text_title_value = internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
-    
-          {% if internalImageDesktop %}
-            <!-- container for internal section image (desktop view) -->
-            <div class="hidden lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
-              <img
-                class="w-full h-[620px] object-cover object-center"
-                src="{{ internalImageDesktop | img_url: 'master' }}"
-                id="internalImageDesktop_{{ forloop.index }}"
-                alt="{{ internalImageDesktop.alt }}">
-    
-              <!-- internal text under images -->
-              {% if internal_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
-                  <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
-                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
-                </div>
-              {% endif %}
-    
-              <!-- additional text under images -->
-              {% if additional_text_value %}
-                <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
-                  <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text" id="more-text-{{ forloop.index }}">
-                    <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
-                  </div>
-                  <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1" data-target="more-text-{{ forloop.index }}">Read more</p>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+      {% assign internalBoatImages =
+      'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+      | split: ',' %}
+      {% assign internalBoatImagesDesktop =
+      'boat_image_one,boat_image_two,boat_image_three,boat_image_four,boat_image_five,boat_image_six,boat_image_seven,boat_image_height,boat_image_nine,boat_image_ten,boat_image_11,boat_image_12,boat_image_13,boat_image_14,boat_image_15'
+      | split: ',' %}
+      {% assign internal_images_text_properties =
+      'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15'
+      | split: ',' %}
+      {% assign additional_internal_images_text_properties =
+      'text_one,text_two,text_three,text_four,text_five,text_six,text_seven,text_height,text_nine,text_ten,text_11,text_12,text_13,text_14,text_15'
+      | split: ',' %}
+      {% assign internal_images_text_title =
+      'title_one,title_two,title_three,title_four,boat_title_five,title_six,title_seven,title_height,title_nine,title_ten,title_11,title_12,title_13,title_14,title_15'
+      | split: "," %}
+
+      <!-- For mobile images (internalBoat) -->
+      {% for internalBoatImage in internalBoatImages %}
+      {% assign internalImage = internalBoat[internalBoatImage] %}
+      {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
+      {% assign additional_text_value =
+      additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
+      {% assign internal_images_text_title_value =
+      internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
+
+      {% if internalImage %}
+      <!-- container for internal section image (mobile view) -->
+      <div
+        class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
+        <img class="w-full h-[620px] object-cover object-center md:h-[634px]"
+          src="{{ internalImage | img_url: 'master' }}" id="internalImage_{{ forloop.index }}"
+          alt="{{ internalImage.alt }}">
+
+        <!-- internal text under images -->
+        {% if internal_text_value %}
+        <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+          <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
+          <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
+        </div>
+        {% endif %}
+
+        <!-- additional text under images -->
+        {% if additional_text_value %}
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+          <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
+            id="more-text-{{ forloop.index }}">
+            <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
+          </div>
+          <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
+            data-target="more-text-{{ forloop.index }}">Read more</p>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% endfor %}
+
+      <!-- For desktop images (internalBoatDesktop) -->
+      {% for internalBoatImageDes in internalBoatImagesDesktop %}
+      {% assign internalImageDesktop = internalBoatDesktop[internalBoatImageDes] %}
+      {% assign internal_text_value = internal_images_text[internal_images_text_properties[forloop.index0]] %}
+      {% assign additional_text_value =
+      additional_internal_images_text[additional_internal_images_text_properties[forloop.index0]] %}
+      {% assign internal_images_text_title_value =
+      internal_images_text_titles[internal_images_text_title[forloop.index0]] %}
+
+      {% if internalImageDesktop %}
+      <!-- container for internal section image (desktop view) -->
+      <div class="hidden lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
+        <img class="w-full h-[620px] object-cover object-center" src="{{ internalImageDesktop | img_url: 'master' }}"
+          id="internalImageDesktop_{{ forloop.index }}" alt="{{ internalImageDesktop.alt }}">
+
+        <!-- internal text under images -->
+        {% if internal_text_value %}
+        <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
+          <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
+          <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
+        </div>
+        {% endif %}
+
+        <!-- additional text under images -->
+        {% if additional_text_value %}
+        <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
+          <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
+            id="more-text-{{ forloop.index }}">
+            <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
+          </div>
+          <p class="text-[14px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
+            data-target="more-text-{{ forloop.index }}">Read more</p>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% endfor %}
       {% endif %}
     </div>
-    
+
 
 
     <!-- handle counter images during scroll -->
     <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
-      <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend: '0' }})</p>
+      <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend:
+        '0' }})</p>
     </div>
   </div>
 </div>
@@ -402,190 +491,199 @@
   .visibility-more-text {
     transition: height 0.3s ease;
   }
+
 </style>
 
 
 <script>
-  
+
   const changeImageExternal = (direction) => {
-    const isDesktop =  window.innerWidth >= 1024;
-    
+    const isDesktop = window.innerWidth >= 1024;
+
     const container = document.querySelector('.snap-x-external');
-    const externalImage = document.querySelectorAll( isDesktop? '[id^="externalImageDesktop_"]' : '[id^="externalImageDesktop_"]');
+    const externalImage = document.querySelectorAll(isDesktop ? '[id^="externalImageDesktop_"]' : '[id^="externalImageDesktop_"]');
     if (!container || externalImage.length === 0) return;
-  
+
     const styles = window.getComputedStyle(container);
     const gap = parseInt(styles.getPropertyValue('gap'), 10) || 0;
     const imageWidth = externalImage[0].offsetWidth + gap;
     const currentScrollLeft = container.scrollLeft;
     const targetScrollLeft = currentScrollLeft + direction * imageWidth;
-  
+
     container.scrollTo({
       left: targetScrollLeft,
       behavior: 'smooth'
     });
   };
-  
+
   const changeImageInternal = (direction) => {
-    const isDesktop =  window.innerWidth >= 1024;
+    const isDesktop = window.innerWidth >= 1024;
 
     const containerInternal = document.querySelector('.snap-x-internal');
-    const internalImages = document.querySelectorAll( isDesktop? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]');
-  
+    const internalImages = document.querySelectorAll(isDesktop ? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]');
+
     if (!containerInternal || internalImages.length === 0) return;
-  
+
     const styles = window.getComputedStyle(containerInternal);
     const gap = parseInt(styles.getPropertyValue('gap'), 10) || 0;
     const imageWidth = internalImages[0].offsetWidth + gap;
     const currentScrollLeft = containerInternal.scrollLeft;
     const targetScrollLeft = currentScrollLeft + direction * imageWidth;
-  
+
     containerInternal.scrollTo({
       left: targetScrollLeft,
       behavior: 'smooth'
     });
   };
-  
+
   document.addEventListener('DOMContentLoaded', () => {
 
-  const slides = document.querySelectorAll(".swiper-slide-custom");
+    const slides = document.querySelectorAll(".swiper-slide-custom");
 
-slides.forEach(slide => {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const mobileImage = slide.getAttribute("data-mobile");
-  const desktopImage = slide.getAttribute("data-desktop");
+    slides.forEach(slide => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const mobileImage = slide.getAttribute("data-mobile");
+      const desktopImage = slide.getAttribute("data-desktop");
 
-  // Rimuovi il `div` se l'immagine per il dispositivo attuale non è presente
-  if ((isMobile && !mobileImage) || (!isMobile && !desktopImage)) {
-    slide.remove();
-  }
-});
-  
+      // Rimuovi il `div` se l'immagine per il dispositivo attuale non è presente
+      if ((isMobile && !mobileImage) || (!isMobile && !desktopImage)) {
+        slide.remove();
+      }
+    });
+
     const overlay = document.querySelector('.overlay-images');
     const externalSwiperContainer = document.querySelector('.swiper-container-overlay-external');
     const internalSwiperContainer = document.querySelector('.swiper-container-overlay-internal');
     const closeOverlay = document.querySelector('.close-overlay-images');
-  
+
     const arrowLeftExternal = document.querySelector('.arrow-left-external');
     const arrowRightExternal = document.querySelector('.arrow-right-external');
     const arrowLeftInternal = document.querySelector('.arrow-left-internal');
     const arrowRightInternal = document.querySelector('.arrow-right-internal');
     let externalSwiper, internalSwiper;
-  
-  
+
+
     if (arrowLeftExternal) {
       arrowLeftExternal.addEventListener('click', () => changeImageExternal(-1));
     }
     if (arrowRightExternal) {
       arrowRightExternal.addEventListener('click', () => changeImageExternal(1));
     }
-  
+
     if (arrowLeftInternal) {
       arrowLeftInternal.addEventListener('click', () => changeImageInternal(-1));
     }
     if (arrowRightInternal) {
       arrowRightInternal.addEventListener('click', () => changeImageInternal(1));
     }
-  
+
     window.changeImageExternal = changeImageExternal;
     window.changeImageInternal = changeImageInternal;
-  
+
     // Inizializza Swiper
     externalSwiper = new Swiper('.swiper-container-overlay-external', {
       loop: true,
+      navigation: {
+                nextEl: '.swiper-button-next-external',
+                prevEl: '.swiper-button-prev-external',
+            },
       pagination: {
         el: '.swiper-pagination-overlay',
         clickable: true,
-      },
+      }
     });
-  
+
     internalSwiper = new Swiper('.swiper-container-overlay-internal', {
       loop: true,
+      navigation: {
+                nextEl: '.swiper-button-next-internal',
+                prevEl: '.swiper-button-prev-internal',
+            },
       pagination: {
         el: '.swiper-pagination-overlay',
         clickable: true,
-      },
+      }
     });
-  
+
     // Funzione per aprire l'overlay
     window.toggleGallery = (button) => {
       const target = button.getAttribute('data-target');
-  
+
       overlay.classList.remove('hidden'); // Mostra l'overlay
       externalSwiperContainer.classList.add('hidden'); // Nasconde la galleria esterna
       internalSwiperContainer.classList.add('hidden'); // Nasconde la galleria interna
-  
+
       if (target === 'external') {
         externalSwiperContainer.classList.remove('hidden'); // Mostra la galleria esterna
       } else if (target === 'internal') {
         internalSwiperContainer.classList.remove('hidden'); // Mostra la galleria interna
       }
     };
-  
+
     // Chiudi l'overlay
     closeOverlay.addEventListener('click', () => {
       overlay.classList.add('hidden'); // Nascondi l'overlay
       externalSwiperContainer.classList.add('hidden'); // Nascondi la galleria esterna
       internalSwiperContainer.classList.add('hidden'); // Nascondi la galleria interna
     });
-  
+
     const updateCounterOnScroll = (images, counterText, container) => {
       const updateCounter = () => {
         let closestImageIndex = 0;
         let closestDistance = Infinity;
-  
+
         images.forEach((image, index) => {
           const rect = image.getBoundingClientRect();
           const distanceFromCenter = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
-  
+
           if (distanceFromCenter < closestDistance) {
             closestDistance = distanceFromCenter;
             closestImageIndex = index;
           }
         });
-  
+
         counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
       };
-  
+
       updateCounter(); // Initial update
       container.addEventListener('scroll', updateCounter);
     };
 
     const isDesktop = window.innerWidth >= 1024;
-  
+
     // Exteriors
     const externalCounterText = document.querySelector('.counter-items');
-    const externalImages = document.querySelectorAll( isDesktop ? '[id^="externalImageDesktop_"]' : '[id^="externalImage_"]' );
+    const externalImages = document.querySelectorAll(isDesktop ? '[id^="externalImageDesktop_"]' : '[id^="externalImage_"]');
     const externalContainer = document.querySelector('.scroll-snap-type-x');
-  
+
     if (externalImages.length) {
       updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
-  
+
       // Add event listener to the first external image to open the full view
       const firstExternalImage = externalImages[0];
       firstExternalImage.addEventListener('click', () => {
         window.toggleGallery({getAttribute: () => 'external'}); // Open external gallery on click of the first image
       });
     }
-  
+
     // Interiors
     const internalCounterText = document.querySelector('.counter-items-internal');
-    const internalImages = document.querySelectorAll( isDesktop ? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]' );
+    const internalImages = document.querySelectorAll(isDesktop ? '[id^="internalImageDesktop_"]' : '[id^="internalImage_"]');
     const internalContainer = document.querySelector('.scroll-snap-type-x-internal');
-  
+
     if (internalImages.length) {
       updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
-  
+
       // Add event listener to the first internal image to open the full view
       const firstInternalImage = internalImages[0];
       firstInternalImage.addEventListener('click', () => {
         window.toggleGallery({getAttribute: () => 'internal'}); // Open internal gallery on click of the first image
       });
     }
-  
+
     function handleOrientationChange() {
       const turnButton = document.querySelector('.turn-button');
-  
+
       if (window.matchMedia("(orientation: landscape)").matches) {
         if (turnButton) {
           turnButton.classList.add('hidden');
@@ -596,22 +694,22 @@ slides.forEach(slide => {
         }
       }
     }
-  
+
     window.addEventListener('resize', handleOrientationChange);
-  
+
     handleOrientationChange();
-  
+
     const readMoreButtons = document.querySelectorAll(".read-more-btn");
-  
+
     readMoreButtons.forEach(button => {
       button.addEventListener("click", () => {
         const targetId = button.getAttribute("data-target");
         const targetElement = document.getElementById(targetId);
-  
+
         if (targetElement) {
           // Controlla se è già espanso
           const isExpanded = targetElement.style.height && targetElement.style.height !== "0px";
-  
+
           if (isExpanded) {
             // Nascondi il testo
             targetElement.style.height = "0px";
@@ -629,59 +727,59 @@ slides.forEach(slide => {
 
 
 {% schema %}
-  {
-    "name": "Interior & Exterior",
-    "settings": [
-      {
-        "type": "text",
-        "id": "main_title",
-        "label": "Main Title",
-        "default": "Design"
-      },
-      {
-        "type": "text",
-        "id": "exterior_text_title",
-        "label": "Exteriors Title",
-        "default": "Exteriors"
-      },
-      {
-        "type": "text",
-        "id": "cta_brochure",
-        "label": "CTA Button Text (Exterior)",
-        "default": "Full exterior gallery"
-      },
-      {
-        "type": "text",
-        "id": "interior_text_title",
-        "label": "Interiors Title",
-        "default": "Interiors"
-      }, {
-        "type": "text",
-        "id": "cta_brochure_interior",
-        "label": "CTA Button Text (Interior)",
-        "default": "Full interior gallery"
-      }, {
-        "type": "text",
-        "id": "cta_content_text",
-        "label": "CTA Text for Content (Read More)",
-        "default": "Read more"
-      }, {
-        "type": "textarea",
-        "id": "interior_content_text",
-        "label": "Interior Content Text",
-        "default": "Lorem Ipsum dolor sit"
-      }, {
-        "type": "textarea",
-        "id": "exterior_content_text",
-        "label": "Exterior Content Text",
-        "default": "Lorem Ipsum dolor sit"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Interior & Exterior Design",
-        "category": "Custom"
-      }
-    ]
-  }
+{
+"name": "Interior & Exterior",
+"settings": [
+{
+"type": "text",
+"id": "main_title",
+"label": "Main Title",
+"default": "Design"
+},
+{
+"type": "text",
+"id": "exterior_text_title",
+"label": "Exteriors Title",
+"default": "Exteriors"
+},
+{
+"type": "text",
+"id": "cta_brochure",
+"label": "CTA Button Text (Exterior)",
+"default": "Full exterior gallery"
+},
+{
+"type": "text",
+"id": "interior_text_title",
+"label": "Interiors Title",
+"default": "Interiors"
+}, {
+"type": "text",
+"id": "cta_brochure_interior",
+"label": "CTA Button Text (Interior)",
+"default": "Full interior gallery"
+}, {
+"type": "text",
+"id": "cta_content_text",
+"label": "CTA Text for Content (Read More)",
+"default": "Read more"
+}, {
+"type": "textarea",
+"id": "interior_content_text",
+"label": "Interior Content Text",
+"default": "Lorem Ipsum dolor sit"
+}, {
+"type": "textarea",
+"id": "exterior_content_text",
+"label": "Exterior Content Text",
+"default": "Lorem Ipsum dolor sit"
+}
+],
+"presets": [
+{
+"name": "Interior & Exterior Design",
+"category": "Custom"
+}
+]
+}
 {% endschema %}
