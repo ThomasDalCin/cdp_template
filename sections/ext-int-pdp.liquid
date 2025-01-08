@@ -661,11 +661,23 @@
     if (externalImages.length) {
       updateCounterOnScroll(externalImages, externalCounterText, externalContainer);
 
-      // Add event listener to the first external image to open the full view
-      const firstExternalImage = externalImages[0];
-      firstExternalImage.addEventListener('click', () => {
-        window.toggleGallery({getAttribute: () => 'external'}); // Open external gallery on click of the first image
+
+      externalImages.forEach((image, index)=> {
+        image.addEventListener('click', () => {
+          window.toggleGallery({getAttribute: () => 'external'});
+          openOverlayWithImageClicked(index, '.swiper-container-overlay-external')
+        })
       });
+    }
+
+    function openOverlayWithImageClicked(index, overlayActive){
+        const swiperSlides = document.querySelectorAll(`${overlayActive} .swiper-slide`);
+        const targetSlide = swiperSlides[index];
+
+        if(targetSlide){
+          const swiperInstance = overlayActive === '.swiper-container-overlay-external' ? externalSwiper : internalSwiper;
+          swiperInstance.slideTo(index, 0);
+        }
     }
 
     // Interiors
@@ -676,10 +688,12 @@
     if (internalImages.length) {
       updateCounterOnScroll(internalImages, internalCounterText, internalContainer);
 
-      // Add event listener to the first internal image to open the full view
-      const firstInternalImage = internalImages[0];
-      firstInternalImage.addEventListener('click', () => {
-        window.toggleGallery({getAttribute: () => 'internal'}); // Open internal gallery on click of the first image
+        internalImages.forEach((image, index)=> {
+        image.addEventListener('click', () => {
+          window.toggleGallery({getAttribute: () => 'internal'});
+          openOverlayWithImageClicked(index, '.swiper-container-overlay-internal')
+
+        })
       });
     }
 
