@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "top-view-collection": {
@@ -7,7 +16,14 @@
     "emotional-text": {
       "type": "emotional-text",
       "settings": {
-        "ispirational_text": "Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+        "ispirational_text": "The lasting pleasure of a long cruise"
+      }
+    },
+    "oriz-scroll-text": {
+      "type": "oriz-scroll-text",
+      "settings": {
+        "main_title": "Discover Endurance",
+        "paragraph_text": "Gli yacht della gamma Endurance sono progettati per chi ama le lunghe crociere e una navigazione rilassata e silenziosa. I modelli E60 e E72 consentono infatti piacevoli trasferimenti, anche notturni, potendo disporre di grandi autonomie a velocità controllate e \nconsumi ridotti ed efficienti. Gli ampi spazi a disposizione, dalle cabine al flybridge, sono valorizzati da un design contemporaneo e sempre funzionale, per offrire una vivibilità e una permanenza a bordo in armonia con le più sofisticate soluzioni di comfort abitativo. Anche all’interno, questi yacht sono concepiti per far sentire l’ambiente marino, creando un continuum con l’esterno attraverso l’apertura delle grandi vetrate panoramiche."
       }
     },
     "collection-oriz-scroll": {
@@ -17,13 +33,6 @@
         "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
         "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
         "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
-      }
-    },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
-      "settings": {
-        "main_title": "DiscoverWalkaround",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
       }
     },
     "articles-list": {
@@ -42,9 +51,9 @@
   },
   "order": [
     "top-view-collection",
-    "emotional-text",
-    "collection-oriz-scroll",
     "oriz-scroll-text",
+    "collection-oriz-scroll",
+    "emotional-text",
     "articles-list",
     "find-delear"
   ]
