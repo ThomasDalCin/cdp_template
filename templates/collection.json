@@ -9,15 +9,15 @@
  */
 {
   "sections": {
-    "top-view-collection": {
-      "type": "top-view-collection",
-      "settings": {}
-    },
     "emotional-text": {
       "type": "emotional-text",
       "settings": {
         "ispirational_text": "The lasting pleasure of a long cruise"
       }
+    },
+    "top-view-collection": {
+      "type": "top-view-collection",
+      "settings": {}
     },
     "oriz-scroll-text": {
       "type": "oriz-scroll-text",
@@ -51,9 +51,9 @@
   },
   "order": [
     "top-view-collection",
+    "emotional-text",
     "oriz-scroll-text",
     "collection-oriz-scroll",
-    "emotional-text",
     "articles-list",
     "find-delear"
   ]
