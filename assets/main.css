@@ -3729,6 +3729,10 @@ html {
     padding-bottom: 61px;
   }
 
+  .md\:pt-9 {
+    padding-top: 2.25rem;
+  }
+
   .md\:text-\[12px\] {
     font-size: 12px;
   }
@@ -4701,6 +4705,11 @@ html {
     padding-bottom: 60px;
   }
 
+  .lg\:py-9 {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+
   .lg\:pb-0 {
     padding-bottom: 0px;
   }
@@ -4791,6 +4800,10 @@ html {
 
   .lg\:pb-\[81px\] {
     padding-bottom: 81px;
+  }
+
+  .lg\:pt-9 {
+    padding-top: 2.25rem;
   }
 
   .lg\:font-\[\'TT-Norms-Pro-Medium\'\] {
