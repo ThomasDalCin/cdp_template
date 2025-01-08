@@ -50,19 +50,21 @@
 
     <!-- Swiper Pagination -->
     <div
-      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center lg:h-[100px]">
+      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
       <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
     <div class="w-auto hidden absolute top-0 right-0 h-screen items-center justify-center md:flex lg:flex">
       <div
-        class="swiper-button-next-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white z-20 mr-10">
+        class="swiper-button-next-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 mr-10 flex items-center justify-center">
+        {% render 'arrow-right-white' %}
       </div>
     </div>
     <div class="w-auto hidden absolute top-0 left-0 h-screen items-center justify-center md:flex lg:flex">
 
       <div
-        class="swiper-button-prev-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white z-20 ml-10">
+        class="swiper-button-prev-external bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 ml-10 flex items-center justify-center">
+        {% render 'arrow-left-white' %}
       </div>
     </div>
 
@@ -106,20 +108,20 @@
 
     <!-- Swiper Pagination -->
     <div
-      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center lg:h-[100px]">
+      class="container-swiper-pagination absolute left-0 right-0 bottom-6 w-full h-auto z-10 flex items-center justify-center">
       <div class="swiper-pagination-overlay flex items-center justify-center"></div>
     </div>
 
-    <div class="w-auto h-auto hidden lg:block">
+    <div class="w-auto hidden absolute top-0 right-0 h-screen items-center justify-center md:flex lg:flex">
       <div
-        class="swiper-button-next-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white mr-10 flex items-center justify-center">
+        class="swiper-button-next-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 mr-10 flex items-center justify-center">
         {% render 'arrow-right-white' %}
       </div>
     </div>
-    <div class="w-auto h-auto hidden lg:block">
+    <div class="w-auto hidden absolute top-0 left-0 h-screen items-center justify-center md:flex lg:flex">
 
       <div
-        class="swiper-button-prev-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  ml-10 flex items-center justify-center">
+        class="swiper-button-prev-internal bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 ml-10 flex items-center justify-center">
         {% render 'arrow-left-white' %}
       </div>
     </div>

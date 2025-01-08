@@ -101,7 +101,7 @@
 
         <!-- Container swiper bullets -->
         <div
-            class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 lg:bottom-[130px] flex items-start justify-center">
+            class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
             <!-- Container bullets -->
             <div class="w-auto h-auto">
                 <div class="swiper-pagination-gallery-pdp"></div>
@@ -118,15 +118,17 @@
             </div>
         </div>
 
-        <div class="w-auto h-auto hidden lg:block">
+        <div class="w-auto hidden absolute top-0 right-0 h-screen items-center justify-center md:flex lg:flex">
             <div
-                class="swiper-button-next-gallery-pdp bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  mr-10">
+                class="swiper-button-next-overlay bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 mr-10 flex items-center justify-center">
+                {% render 'arrow-right-white' %}
             </div>
         </div>
-        <div class="w-auto h-auto hidden lg:block">
+        <div class="w-auto hidden absolute top-0 left-0 h-screen items-center justify-center md:flex lg:flex">
 
             <div
-                class="swiper-button-prev-gallery-pdp bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full text-white  ml-10">
+                class="swiper-button-prev-overlay bg-[rgba(0,0,0,0.20)] backdrop-blur-xl w-[52px] h-[52px] rounded-full z-20 ml-10 flex items-center justify-center">
+                {% render 'arrow-left-white' %}
             </div>
         </div>
 
@@ -342,8 +344,8 @@
             swiperOverlay = new Swiper('.swiper-container-gallery-pdp', {
                 slidesPerView: 1,
                 navigation: {
-                    nextEl: '.swiper-button-next-gallery-pdp',
-                    prevEl: '.swiper-button-prev-gallery-pdp',
+                    nextEl: '.swiper-button-next-overlay',
+                    prevEl: '.swiper-button-prev-overlay',
                 },
                 pagination: {
                     el: '.swiper-pagination-gallery-pdp',
@@ -358,7 +360,7 @@
                 overlayGallery.classList.remove('hidden');
                 document.body.classList.add('no-scroll');
             }
-            
+
             destroyOverlaySwiper();
             initializeOverlaySwiper();
 
