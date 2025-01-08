@@ -7,15 +7,21 @@
       <p class="text-[16px] leading-[16px] tt-norms-pro-med">{{ section.settings.technical_badge_text | default: "Technical data" | upcase }}</p>
     </div>
     <!-- container heading -->
-    <div class="w-full h-auto flex items-center justify-start">
-      {% for collection in collections %}
-        {% assign concatenatedTitle = collection.title | append: ' ' | append: product.title %}
-      {% endfor %}
+    {% assign main_collection = product.collections.first %}
 
-      <p class="text-[96px] leading-[96px] tt-norms-pro-light">
-        {{ concatenatedTitle }}
-      </p>
+    <div class="w-full h-auto flex items-center justify-start">
+      {% if main_collection %}
+        {% assign concatenatedTitle = main_collection.title | append: ' ' | append: product.title %}
+        <p class="text-[96px] leading-[96px] tt-norms-pro-light">
+          {{ concatenatedTitle }}
+        </p>
+      {% else %}
+        <p class="text-[96px] leading-[96px] tt-norms-pro-light">
+          {{ product.title }}
+        </p>
+      {% endif %}
     </div>
+    
   </div>
 
   <!-- Basics Information -->
