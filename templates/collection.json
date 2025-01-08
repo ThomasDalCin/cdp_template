@@ -9,12 +9,6 @@
  */
 {
   "sections": {
-    "emotional-text": {
-      "type": "emotional-text",
-      "settings": {
-        "ispirational_text": "The lasting pleasure of a long cruise"
-      }
-    },
     "top-view-collection": {
       "type": "top-view-collection",
       "settings": {}
@@ -35,6 +29,12 @@
         "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
       }
     },
+    "emotional-text": {
+      "type": "emotional-text",
+      "settings": {
+        "ispirational_text": "The lasting pleasure of a long cruise"
+      }
+    },
     "articles-list": {
       "type": "articles-list",
       "settings": {}
@@ -51,9 +51,9 @@
   },
   "order": [
     "top-view-collection",
-    "emotional-text",
     "oriz-scroll-text",
     "collection-oriz-scroll",
+    "emotional-text",
     "articles-list",
     "find-delear"
   ]
