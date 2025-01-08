@@ -4499,6 +4499,11 @@ html {
     row-gap: 70px;
   }
 
+  .lg\:gap-x-2 {
+    -moz-column-gap: 0.5rem;
+         column-gap: 0.5rem;
+  }
+
   .lg\:overflow-x-auto {
     overflow-x: auto;
   }
