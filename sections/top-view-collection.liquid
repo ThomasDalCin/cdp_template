@@ -81,8 +81,9 @@
         <p class="text-[24px] leading-[40px] md:text-[32px] md:leading-[38px] lg:text-[64px] lg:leading-[64px] tt-norms-pro-light">{{ section.settings.scroll_info_little_title | default: "Open the world" }}</p>
         <p class="text-[40px] leading-[40px] md:text-[48px] md:leading-[54px] lg:text-[96px] lg:leading-[96px] tt-norms-pro-light">{{ section.settings.scroll_info_main_title | default: "Adventure & Ocean" }}</p>
     </div>
-
-    <div class="product-details-magnetic-scroll w-full py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto md:px-12 lg:w-full lg:px-[166px] lg:gap-x-10 lg:py-0">
+     
+    {% comment %}
+            <div class="product-details-magnetic-scroll w-full py-6 h-auto flex flex-row items-center justify-start gap-x-2 overflow-x-auto md:px-12 lg:w-full lg:px-[166px] lg:gap-x-10 lg:py-0">
         {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
         {% for productMetafieldsValue in productMetafieldsValues %}
             {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
@@ -101,6 +102,7 @@
             {% endif %}
         {% endfor %}        
     </div>
+    {% endcomment %}
 </div>
 
 <style>
