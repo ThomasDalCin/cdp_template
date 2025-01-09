@@ -36,7 +36,9 @@
 
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="basics">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.basics_dropdown_title | default: "Interior & Exterior Design" }}</p>
-        {% render "plus-icon" %}
+        <div class="w-auto h-auto cursor-pointer">
+          {% render "plus-icon" %}
+        </div>
       </div>
 
       <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content basics">
@@ -84,7 +86,9 @@
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="dimensions">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.dimensions_dropdown_title | default:
  "Dimensions" }}</p>
-        {% render "plus-icon" %}
+ <div class="w-auto h-auto cursor-pointer">
+  {% render "plus-icon" %}
+</div>
       </div>
 
       <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content dimensions">
@@ -118,7 +122,9 @@
         <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="autonomy">
           <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.autonomy_dropdown_title | default:
  "Autonomy" }}</p>
-          {% render "plus-icon" %}
+ <div class="w-auto h-auto cursor-pointer">
+  {% render "plus-icon" %}
+</div>
         </div>
 
         <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content autonomy">
@@ -154,7 +160,9 @@
           <p class="text-[20px] leading-[18px] tt-norms-pro-med">
             {{ section.settings.engine_dropdown_title | default: "Engines" }}
           </p>
-          {% render "plus-icon" %}
+          <div class="w-auto h-auto cursor-pointer">
+            {% render "plus-icon" %}
+          </div>
         </div>
 
         <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content engines">
@@ -200,7 +208,9 @@
       <div class="w-full h-auto flex flex-row items-center justify-between py-6 dropdown-header" data-dropdown-target="accommodations">
         <p class="text-[20px] leading-[18px] tt-norms-pro-med">{{ section.settings.accommodations_dropdown_title | 
  default: "Accommodations" }}</p>
-        {% render "plus-icon" %}
+ <div class="w-auto h-auto cursor-pointer">
+  {% render "plus-icon" %}
+</div>
       </div>
 
       <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content accommodations">
