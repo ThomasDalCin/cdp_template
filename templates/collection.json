@@ -15,25 +15,15 @@
     },
     "oriz-scroll-text": {
       "type": "oriz-scroll-text",
-      "settings": {
-        "main_title": "Discover GT",
-        "paragraph_text": "Il perfetto equilibrio tra sportività, comfort abitativo e forte identità estetica caratterizza la gamma GT, che unisce lo spirito dinamico del walkaround agli ampi volumi tipici di un endurance . Le superfici disponibili a bordo dei modelli – GT52, GT75 e GT65 (in sviluppo) – sono razionalizzate da un design distintivo e funzionale, per offrire agli ospiti ambienti accoglienti in cui rigenerarsi, mantenendo sempre una continuità visiva e fisica con l’esterno, grazie a vetrate panoramiche e grandi finestrature apribili. Uno yacht GT consente così di alternare momenti di appagante convivialità, o di raccoglimento, al piacere di una navigazione potente e sportiva."
-      }
-    },
-    "collection-oriz-scroll": {
-      "type": "collection-oriz-scroll",
-      "settings": {
-        "oriz_image_one": "shopify://shop_images/bf7410d822f9c2a67a60eb3a5313c736.png",
-        "oriz_image_two": "shopify://shop_images/49e01ee7d08aa4b7f0edfda3555714fe.png",
-        "oriz_image_three": "shopify://shop_images/54324c5a1294abd1bf9a076fc2339c16.png",
-        "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
-      }
+      "settings": {}
     },
     "emotional-text": {
       "type": "emotional-text",
-      "settings": {
-        "ispirational_text": "The lasting pleasure of a long cruise"
-      }
+      "settings": {}
+    },
+    "collection-oriz-scroll": {
+      "type": "collection-oriz-scroll",
+      "settings": {}
     },
     "articles-list": {
       "type": "articles-list",
@@ -51,9 +41,9 @@
   },
   "order": [
     "top-view-collection",
-    "oriz-scroll-text",
-    "collection-oriz-scroll",
     "emotional-text",
+    "collection-oriz-scroll",
+    "oriz-scroll-text",
     "articles-list",
     "find-delear"
   ]
