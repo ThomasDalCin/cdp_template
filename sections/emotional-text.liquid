@@ -1,8 +1,17 @@
-<!-- hero inspirational text container -->
+<!-- collection inspirational text container -->
 <div class="w-full h-auto flex items-center justify-center px-6 pt-6 pb-14 md:px-12 md:py-[60px] lg:px-[120px] lg:py-[120px]" id="textSection">
-  <p id="ispirationalText" class="text-[24px] leading-[30px] text-center text-balance md:text-[48px] md:leading-[54px] lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
-    {{ section.settings.ispirational_text }}
-  </p>
+  {% assign collection_metaObj_group = collection.metafields.custom.collection_metafields_group.value %}
+  {% assign collection_emotional_text = "emotional_text" %}
+  {% assign collection_metaObj_value = collection_metaObj_group[collection_emotional_text] %}
+   {% if collection_metaObj_value %}
+    <p id="ispirationalText" class="text-[24px] leading-[30px] text-center text-balance md:text-[48px] md:leading-[54px] lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
+      {{ collection_metaObj_value }}
+    </p>
+    {% else %}
+    <p id="ispirationalText" class="text-[24px] leading-[30px] text-center text-balance md:text-[48px] md:leading-[54px] lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
+      no items found
+    </p>
+   {% endif %}
 </div>
 
 <script>
@@ -59,17 +68,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-{% schema %}
-  {
-    "name": "Emotional Text",
-    "settings": [
-      {
-        "type": "text",
-        "id": "ispirational_text",
-        "default": "Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-        "label": "Ispirational Home Text",
-        "info": "Set the ispirational text here"
-      }
-    ]
-  }
-{% endschema %}

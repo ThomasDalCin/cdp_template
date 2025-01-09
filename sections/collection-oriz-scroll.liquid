@@ -1,5 +1,4 @@
-<!-- Orizontal images-scroll container -->
-<!-- Orizontal images-scroll container -->
+<!-- Collection images-scroll container -->
 <div class="w-full h-auto flex flex-col items-center justify-center">
 
   <!-- Gallery wrapper -->
@@ -7,73 +6,31 @@
     <div class="w-auto h-auto flex flex-row overflow-x-auto lg:gap-x-1 snap-x snap-mandatory scroll-snap-type-x">
 
       <!-- assign variables -->
-      {% assign oriz_images = "oriz_image_one,oriz_image_two,oriz_image_three,oriz_image_four" | split: "," %}
-      {% assign total_images = oriz_images.size %}
-
-      {% assign counter = 0 %} <!-- Inizializza un contatore per verificare la prima immagine -->
-
-      {% for oriz_image in oriz_images %}
-        {% assign oriz_image_url = section.settings[oriz_image] | img_url: 'master' %}
-
-        <!-- Incrementa il contatore -->
-        {% assign counter = counter | plus: 1 %}
-        
-        <!-- La prima immagine si espande inizialmente, ma si comporta come le altre all'hover -->
-        {% if counter == 1 %}
-        <div
-          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px]  md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:grow-[4] lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
-          id="{{ oriz_image }}">
-          <img class="w-full h-full object-cover object-center" src="{{ oriz_image_url }}" alt="{{ oriz_image.alt }}">
-        </div>
-        {% else %}
-        <!-- Per le altre immagini, la crescita avviene solo al passaggio del mouse -->
-        <div
-          class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px] md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
-          id="{{ oriz_image }}">
-          <img class="w-full h-full object-cover object-center" src="{{ oriz_image_url }}" alt="{{ oriz_image.alt }}">
-        </div>
-        {% endif %}
+      {% assign collection_metaObj_group = collection.metafields.custom.collection_metafields_group.value %}
+      {% assign collection_gallery_images =
+      "collection_image_one,collection_image_two,collection_image_three,collection_image_four" | split: "," %}
+      {% assign counter = 0 %}
+      {% for collection_gallery_image in collection_gallery_images %}
+      {% assign counter = counter | plus: 1 %}
+      {% assign gallery_image = collection_metaObj_group[collection_gallery_image] %}
+      {% if gallery_image %}
+      <!-- La prima immagine si espande inizialmente, ma si comporta come le altre all'hover -->
+      {% if counter == 1 %}
+      <div
+        class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px]  md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:grow-[4] lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
+        id="{{ oriz_image }}">
+        <img class="w-full h-full object-cover object-center" src="{{ gallery_image |  img_url: 'master' }}" alt="{{ oriz_image.alt }}">
+      </div>
+      {% else %}
+      <!-- Per le altre immagini, la crescita avviene solo al passaggio del mouse -->
+      <div
+        class="w-[352px] min-w-[352px] h-[352px] max-h-[352px] relative transition-all duration-200 ease-linear md:min-w-[684px] md:w-[684px] md:h-[684px] md:min-h-[684px] lg:min-w-0 lg:flex-1 lg:hover:grow-[6] snap-start lg:h-[620px] lg:min-h-[620px]"
+        id="{{ oriz_image }}">
+        <img class="w-full h-full object-cover object-center" src="{{ gallery_image |  img_url: 'master' }}" alt="{{ oriz_image.alt }}">
+      </div>
+      {% endif %}
+      {% endif %}
       {% endfor %}
-      
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-{% comment %}
-Section Schema Settings here;
-{% endcomment %}
-
-{% schema %}
-{
-"name": "Oriz-scroll",
-"settings": [
-
-{
-"type": "image_picker",
-"id": "oriz_image_one",
-"label": "Explore image"
-},
-{
-"type": "image_picker",
-"id": "oriz_image_two",
-"label": "Explore image"
-},
-{
-"type": "image_picker",
-"id": "oriz_image_three",
-"label": "Explore image"
-},
-{
-"type": "image_picker",
-"id": "oriz_image_four",
-"label": "Explore image"
-}
-]
-}
-{% endschema %}
