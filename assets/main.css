@@ -2865,6 +2865,10 @@ p,
   line-height: 96px;
 }
 
+.leading-\[70px\] {
+  line-height: 70px;
+}
+
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }

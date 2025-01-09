@@ -43,22 +43,16 @@
             </div>
 
             <!--emotional text container-->
-            <div class="w-full h-auto flex items-center justify-center px-6 py-14 lg:bg-[#F7F7F7] lg:rounded-[32px]">
-                {% assign pdpHighLightText = product.metafields.custom.highlight_text.value %}
-                {% if pdpHighLightText %}
-                    <p
-                    class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">
-                    {{
-                    pdpHighLightText |
-                    default: "Lorem ipsum dolor sit,
-                    consectutor adipis mar tiss partiem." }}</p>
+            <div class="w-full h-auto flex flex-col gap-y-3 items-center justify-center px-6 py-14 lg:bg-[#F7F7F7] lg:rounded-[32px]">
+                {% assign pdpHighLightText = product.metafields.custom.highlights_pdp_text.value %}
+                {% assign boldTextHighLight = pdpHighLightText["bold_text"] %}
+                {% assign regularTextHighLight = pdpHighLightText["regular_text"] %}
+
+                {% if boldTextHighLight and regularTextHighLight  %}
+                    <p class="text-[64px] leading-[70px] tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[64px]">{{ boldTextHighLight }}</p>
+                    <p class="text-[48px] leading-[70px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">{{ regularTextHighLight }}</p>
                     {% else %}
-                    <p
-                    class="text-[32px] leading-[38px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">
-                    {{
-                    section.settings.ispirational_text |
-                    default: "Lorem ipsum dolor sit,
-                    consectutor adipis mar tiss partiem." }}</p>   
+                    <p>No item found</p>
                 {% endif %}
             </div>
 
