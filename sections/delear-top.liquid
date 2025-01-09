@@ -39,6 +39,10 @@
 
             <!--url section-->
             <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
+                <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-google-maps">
+                    <p class="tt-norms-pro-med text-[14px] leading-[20px]">Show on Google maps</p>
+                    {% render 'cta-icon' %}
+                </a>
                 <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-website">
                     <p class="tt-norms-pro-med text-[14px] leading-[20px]">Visita il sito web</p>
                     {% render 'website-icon' %}
@@ -85,6 +89,7 @@
             document.querySelector('.delear-email').textContent = savedDelear.email || '';
             document.querySelector('.delear-description').textContent = savedDelear.description || '';
             document.querySelector('.delear-website').setAttribute('href', savedDelear.sitoWeb || "" );
+            document.querySelector('.delear-google-maps').setAttribute('href', savedDelear.googleMaps || "" );
             document.querySelector('.delear-flag').setAttribute('src', savedDelear.flagSrc || "" );
 
         } else {

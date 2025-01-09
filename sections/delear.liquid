@@ -244,8 +244,12 @@
               </div>
             </div>
             <div class="w-full h-auto flex flex-col gap-y-2 items-start justify-center">
+              <a href=${delear['Google maps']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">Show on Google Maps</p>
+                {% render 'cta-icon' %}
+              </a>
               <a href=${delear['Sito Web']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
-                <p class="font-16 tt-norms-pro-reg">Visita il sito web</p>
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">Visita il sito web</p>
                 {% render 'website-icon' %}
               </a>
             </div>
@@ -271,6 +275,7 @@
               mobile: delear['Mobile:'],
               email: delear['E: Mail'],
               sitoWeb: delear['Sito Web'],
+              googleMaps: delear['Google maps'],
               description: cardDescription,
               flagSrc: flagSrc
             };
