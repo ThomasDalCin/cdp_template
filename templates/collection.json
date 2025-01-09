@@ -1,13 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "top-view-collection": {
       "type": "top-view-collection",
       "settings": {}
     },
-    "emotional-text": {
-      "type": "emotional-text",
+    "oriz-scroll-text": {
+      "type": "oriz-scroll-text",
       "settings": {
-        "ispirational_text": "Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+        "main_title": "Discover GT",
+        "paragraph_text": "Il perfetto equilibrio tra sportività, comfort abitativo e forte identità estetica caratterizza la gamma GT, che unisce lo spirito dinamico del walkaround agli ampi volumi tipici di un endurance . Le superfici disponibili a bordo dei modelli – GT52, GT75 e GT65 (in sviluppo) – sono razionalizzate da un design distintivo e funzionale, per offrire agli ospiti ambienti accoglienti in cui rigenerarsi, mantenendo sempre una continuità visiva e fisica con l’esterno, grazie a vetrate panoramiche e grandi finestrature apribili. Uno yacht GT consente così di alternare momenti di appagante convivialità, o di raccoglimento, al piacere di una navigazione potente e sportiva."
       }
     },
     "collection-oriz-scroll": {
@@ -19,11 +29,10 @@
         "oriz_image_four": "shopify://shop_images/25194cb11459cc4c349d1fa39e37a83c.png"
       }
     },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
+    "emotional-text": {
+      "type": "emotional-text",
       "settings": {
-        "main_title": "DiscoverWalkaround",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
+        "ispirational_text": "The lasting pleasure of a long cruise"
       }
     },
     "articles-list": {
@@ -42,9 +51,9 @@
   },
   "order": [
     "top-view-collection",
-    "emotional-text",
-    "collection-oriz-scroll",
     "oriz-scroll-text",
+    "collection-oriz-scroll",
+    "emotional-text",
     "articles-list",
     "find-delear"
   ]

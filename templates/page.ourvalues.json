@@ -1,14 +1,14 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "our-values": {
-      "type": "ourvalues-top",
-      "settings": {
-        "section_heading": "More than 50 years of experience",
-        "section_text": "Italian craftmanship at its finest.",
-        "section_image": "shopify://shop_images/d39e969a02d108683d79ec6bf4fe289e.jpg"
-      }
-    },
     "infinity-banner": {
       "type": "infinity-banner",
       "settings": {}
@@ -19,60 +19,47 @@
         "box_pfwyPB": {
           "type": "box",
           "settings": {
-            "box_image": "shopify://shop_images/1704d18f1693c194bf6b6e52ff2d2cf4.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
+            "box_image": "shopify://shop_images/PardoYacht_PardoModel_P38_exterior_mobile_002.jpg",
+            "box_heading": "Invertedbow, reinventing your sea story.",
+            "box_text": "Dal design originale della prua inversa degli yacht Pardo si delinea già un modo diverso di stare in mare. È l’affermazione di una visione autentica, in cui, per ogni yacht, è l’accordo con il mare che rappresenta la massima espressione di sé. Dal 2017 questa convinzione, che ci deriva dalla lunga esperienza nella creazione di barche a vela, dà forma a motoryacht marini ed eleganti, in cui l’innovazione spinge la ricerca tecnica e il linguaggio estetico verso frontiere sempre più audaci, alla ricerca di un perfetto equilibrio tra forma e funzionalità.",
             "large_image": true,
-            "large_heading": true
+            "large_heading": true,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
           }
         },
         "box_hQd44N": {
           "type": "box",
           "settings": {
-            "box_image": "shopify://shop_images/5bf19131e64b745b7b93240edf87ffb8.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
+            "box_image": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_001_vd.jpg",
+            "box_heading": "PardoYachts, building emotional time zones",
+            "box_text": "Walkaround, Endurance, Grand Touring sono le gamme che accolgono i modelli Pardo Yachts, progettati per ridefinire le emozioni e il tempo a bordo. Il design degli spazi, in ogni yacht, esprime il miglior utilizzo delle superfici e l’ottimizzazione degli ambienti e degli arredi, per offrire un comfort e un’abitabilità sorprendente e razionale. Questa contaminazione con le soluzioni spaziali tipiche della tradizione velista crea soluzioni inedite per il mondo dei motoryacht e sprigiona un senso di permanenza naturale, una purezza estetica priva di qualsiasi deviazione dalla sua efficiente funzionalità.",
             "large_image": false,
-            "large_heading": false
+            "large_heading": false,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
           }
         },
         "box_rhMLwn": {
           "type": "box",
           "settings": {
-            "box_image": "shopify://shop_images/3e96875638c5ed93e3a414e3f4b932fe.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
+            "box_image": "shopify://shop_images/PardoYacht_PardoModel_GT75_exterior_mobile_011.jpg",
+            "box_heading": "Cantiere del Pardo, the inspiring expertise.",
+            "box_text": "Cantiere del Pardo è il luogo dove nascono i capolavori di Pardo Yachts. Dall’idea alla progettazione, dallo studio degli spazi e della funzionalità fino all’interior design, tutto si trasforma in un viaggio unico tra passione per il mare, bellezza, made in Italy, artigianalità e tecnologia. L’expertise di Cantiere del Pardo, consolidata in più di 50 anni di storia, ispira l’innovazione e l’evoluzione di yacht contemporanei eppur senza tempo, caratterizzati da linee distintive e inconfondibili, che ne fanno opere esemplari di design italiano.\nCantiere del Pardo è presente nelle location più esclusive con una rete organizzata di servizi di assistenza, per garantire interventi efficaci nella gestione delle imbarcazioni.",
             "large_image": false,
-            "large_heading": false
-          }
-        },
-        "box_TcDA9w": {
-          "type": "box",
-          "settings": {
-            "box_image": "shopify://shop_images/9ad6bf2cc111d87977749fb000cffd5c.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
-            "large_image": false,
-            "large_heading": false
-          }
-        },
-        "box_XUkeac": {
-          "type": "box",
-          "settings": {
-            "box_image": "shopify://shop_images/7e77a3609d377d5301e1f93cc1f476f7.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
-            "large_image": false,
-            "large_heading": false
+            "large_heading": false,
+            "show_large_heading": true,
+            "show_cta": false,
+            "cta_text": "Click here"
           }
         }
       },
       "block_order": [
         "box_pfwyPB",
         "box_hQd44N",
-        "box_rhMLwn",
-        "box_TcDA9w",
-        "box_XUkeac"
+        "box_rhMLwn"
       ],
       "settings": {}
     },
@@ -80,16 +67,29 @@
       "type": "pardo-box",
       "settings": {
         "box_title": "Cantiere del Pardo",
-        "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+        "box_text": "llorem Ipsum",
         "cta_text": "Discover more",
-        "cta_link": ""
+        "cta_link": "",
+        "section_heading_etic": "Codice etico",
+        "section_subheading_etic": "Progettare il lusso con un approccio ecologico",
+        "section_content_etic": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "cta_text_etic": "Scarica il codice etico",
+        "cta_link_etic": ""
+      }
+    },
+    "our-values": {
+      "type": "ourvalues-top",
+      "settings": {
+        "section_heading": "More than 50 years of experience",
+        "section_text": "Italian craftmanship at its finest.",
+        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
       }
     }
   },
   "order": [
-    "our-values",
     "infinity-banner",
     "box-image",
-    "pardo-box"
+    "pardo-box",
+    "our-values"
   ]
 }
