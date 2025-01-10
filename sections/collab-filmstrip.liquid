@@ -37,7 +37,7 @@
             
             {% if block.settings.cta_filmstrip_card_text_visible %}
               <div class="w-full h-auto flex flex-row items-center justify-end absolute left-0 right-0 z-10 bottom-6 px-6">
-                <a href="{{ cta_filmstrip_card_url }}" class="w-auto h-auto flex flex-row items-start justify-center bg-white rounded-full px-4 py-2">
+                <a href="{{ block.settings.cta_filmstrip_card_url }}" class="w-auto h-auto flex flex-row items-start justify-center bg-white rounded-full px-4 py-2">
                   <p class="body-16 tt-norms-pro-med">{{ block.settings.cta_filmstrip_card_text | default: "Discover" }}</p>
                 </a>
               </div>
