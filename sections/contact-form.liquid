@@ -111,11 +111,14 @@
             class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
             <div id="dropdown-toggle"
               class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer focus:ring-black text-black">
-              <span id="placeholder-text"
-                class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">Models</span>
+              <span id="placeholder-text" class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">{{
+                section.settings.form_models | default: "Models" }}</span>
               <!-- Dropdown icon -->
-              <svg xmlns="http://www.w3.org/2000/svg"  id="dropdown-arrow"  width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M4.88056 8.17719C4.55561 7.84728 4 8.08094 4 8.5475C4 8.68703 4.05484 8.82078 4.15236 8.9191L10.5858 15.4053C11.3668 16.1982 12.6332 16.1982 13.4142 15.4053L19.8535 8.86761C19.9473 8.7724 20 8.64326 20 8.50862C20 8.05638 19.4614 7.82992 19.1464 8.1497L12.7071 14.6874C12.3166 15.0839 11.6834 15.0839 11.2929 14.6874L4.88056 8.17719Z" fill="black"/>
+              <svg xmlns="http://www.w3.org/2000/svg" id="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24"
+                fill="none">
+                <path
+                  d="M4.88056 8.17719C4.55561 7.84728 4 8.08094 4 8.5475C4 8.68703 4.05484 8.82078 4.15236 8.9191L10.5858 15.4053C11.3668 16.1982 12.6332 16.1982 13.4142 15.4053L19.8535 8.86761C19.9473 8.7724 20 8.64326 20 8.50862C20 8.05638 19.4614 7.82992 19.1464 8.1497L12.7071 14.6874C12.3166 15.0839 11.6834 15.0839 11.2929 14.6874L4.88056 8.17719Z"
+                  fill="black" />
               </svg>
             </div>
 
@@ -501,31 +504,30 @@ Section Schema Settings here;
 "id": "form_message",
 "label": "Message",
 "default": "Message"
-}, {
-"type": "textarea",
-"id": "form_info_primary_list",
-"label": "Primary Info Bullet Points",
-"default": "Keep me informed, so I can receive:"
-}, {
-"type": "textarea",
-"id": "bullet_list_one",
-"label": "Bullet Points First",
-"default": "Information about products and services of interest to me."
-}, {
-"type": "textarea",
-"id": "bullet_list_two",
-"label": "Bullet Points Second",
-"default": "Personalized communications delivered in the way that suits me best."
-}, {
-"type": "textarea",
-"id": "bullet_list_three",
-"label": "Bullet Points Third",
-"default": "Unique opportunities to have my say and help shape the future of Pardo Yachts."
-}, {
-"type": "textarea",
-"id": "form_info_secondary",
-"label": "Secondary Info",
-"default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience"
+},
+{
+"type": "text",
+"id": "marketing_consent_label",
+"label": "Marketing consent",
+"info": "Set the markeing consent text"
+},
+{
+"type": "text",
+"id": "marketing_policy_text",
+"label": "Marketing policy text pop-up",
+"info": "Set the markeing policy text pop-up"
+},
+{
+"type": "text",
+"id": "profiling_consent_label",
+"label": "Profiling consent",
+"info": "Set the profiling consent text"
+},
+{
+"type": "text",
+"id": "profilation_policy_text",
+"label": "Profilation policy text pop-up",
+"info": "Set the profilation policy text pop-up"
 }, {
 "type": "text",
 "id": "form_cta",
