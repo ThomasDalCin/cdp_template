@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "our-values": {
+      "type": "ourvalues-top",
+      "settings": {
+        "section_heading": "More than 50 years of experience",
+        "section_text": "Italian craftmanship at its finest.",
+        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
+      }
+    },
     "infinity-banner": {
       "type": "infinity-banner",
       "settings": {}
@@ -76,20 +84,12 @@
         "cta_text_etic": "Scarica il codice etico",
         "cta_link_etic": ""
       }
-    },
-    "our-values": {
-      "type": "ourvalues-top",
-      "settings": {
-        "section_heading": "More than 50 years of experience",
-        "section_text": "Italian craftmanship at its finest.",
-        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
-      }
     }
   },
   "order": [
-    "infinity-banner",
+    "our-values",
     "box-image",
-    "pardo-box",
-    "our-values"
+    "infinity-banner",
+    "pardo-box"
   ]
 }
