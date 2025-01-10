@@ -2865,6 +2865,10 @@ p,
   line-height: 42px;
 }
 
+.leading-\[36px\] {
+  line-height: 36px;
+}
+
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }
@@ -3193,6 +3197,11 @@ html {
   .lg\:tt-norms-pro-reg {
     /* General font settings */
     font-family: "TT-Norms-Pro-Regular";
+  }
+
+  .lg\:tt-norms-pro-med {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Medium";
   }
 }
 
@@ -4690,6 +4699,11 @@ html {
     padding-bottom: 60px;
   }
 
+  .lg\:py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
   .lg\:pb-0 {
     padding-bottom: 0px;
   }
@@ -4808,6 +4822,10 @@ html {
 
   .lg\:text-\[20px\] {
     font-size: 20px;
+  }
+
+  .lg\:text-\[48px\] {
+    font-size: 48px;
   }
 
   .lg\:leading-\[128px\] {

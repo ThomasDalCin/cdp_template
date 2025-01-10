@@ -37,20 +37,20 @@
                 <div
                     class="product-detaiils-component-main w-full h-auto pt-4 pb-6 flex flex-col gap-y-2 items-start justify-start lg:py-0">
                     {% if product.description and product.description != '' %}
-                    <p class="body-14">{{ product.description | raw }}</p>
+                    <p class="body-16 tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ product.description | raw }}</p>
                     {% endif %}
                 </div>
             </div>
 
             <!--emotional text container-->
-            <div class="w-full h-auto flex flex-col gap-y-3 items-center justify-center px-6 py-14 lg:bg-[#F7F7F7] lg:rounded-[32px]">
+            <div class="w-full h-auto flex flex-col gap-y-3 items-center justify-center mb-10 rounded-3xl p-6 lg:px-20 lg:mb-0 lg:py-14 bg-[#F7F7F7] lg:rounded-[32px]">
                 {% assign pdpHighLightText = product.metafields.custom.highlights_pdp_text.value %}
                 {% assign boldTextHighLight = pdpHighLightText["bold_text"] %}
                 {% assign regularTextHighLight = pdpHighLightText["regular_text"] %}
 
                 {% if boldTextHighLight and regularTextHighLight  %}
-                    <p class="text-[64px] leading-[70px] tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[64px]">{{ boldTextHighLight }}</p>
-                    <p class="text-[48px] leading-[70px] tt-norms-pro-light text-center text-balance lg:text-[64px] lg:leading-[64px]">{{ regularTextHighLight }}</p>
+                    <p class="text-[20px] leading-[26px] tt-norms-pro-light  lg:tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[70px]">{{ boldTextHighLight }}</p>
+                    <p class="text-[20px] leading-[26px] tt-norms-pro-light text-center text-balance lg:text-[48px] lg:leading-[70px]">{{ regularTextHighLight }}</p>
                     {% else %}
                     <p>No item found</p>
                 {% endif %}
