@@ -233,7 +233,7 @@
         <!-- container for external section image -->
         <div
           class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
-          <img class="w-full h-[620px] object-cover object-center md:h-[634px]"
+          <img class="w-full h-[352px] object-cover object-center md:h-[634px]"
             src="{{ externalImage | img_url: 'master' }}" id="externalImage_{{ forloop.index }}"
             alt="{{ externalImage.alt }}">
 
@@ -361,7 +361,7 @@
     </div>
 
     <div
-      class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto snap-x snap-x-internal snap-mandatory scroll-snap-type-x-internal">
+      class="w-auto h-auto flex flex-row gap-x-1 overflow-x-auto items-start snap-x snap-x-internal snap-mandatory scroll-snap-type-x-internal">
       <!-- assign variables -->
       {% assign internalBoat = product.metafields.custom.internal_boat.value %}
       {% assign internalBoatDesktop = product.metafields.custom.internal_boat_images_desktop.value %}
@@ -396,7 +396,7 @@
       <!-- container for internal section image (mobile view) -->
       <div
         class="w-[352px] min-w-[352px] h-auto relative transition-all duration-200 ease-linear lg:hidden snap-start flex flex-col items-start justify-center md:w-[720px] md:min-w-[720px]">
-        <img class="w-full h-[620px] object-cover object-center md:h-[634px]"
+        <img class="w-full h-[352px] object-cover object-center md:h-[634px]"
           src="{{ internalImage | img_url: 'master' }}" id="internalImage_{{ forloop.index }}"
           alt="{{ internalImage.alt }}">
 
