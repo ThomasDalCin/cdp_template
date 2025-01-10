@@ -43,6 +43,13 @@
       "type": "gamma-section",
       "settings": {}
     },
+    "oriz-scroll-text-home": {
+      "type": "oriz-scroll-text-home",
+      "settings": {
+        "main_title": "Discover the space.",
+        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. \n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
+      }
+    },
     "home-video": {
       "type": "home-video",
       "settings": {
@@ -54,7 +61,7 @@
       "type": "explore",
       "settings": {
         "secondary_heading": "Shaped by the Sea",
-        "primary_heading": "Lorem Ipsum",
+        "primary_heading": "",
         "explore_image_one": "shopify://shop_images/PY_HOME002.jpg",
         "explore_image_two": "shopify://shop_images/PY_HOME001.jpg",
         "explore_image_three": "shopify://shop_images/PY_HOME003.jpg",
@@ -76,13 +83,6 @@
         "oriz_image_two": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_001_vd.jpg",
         "oriz_image_three": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_004_vd.jpg",
         "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_003_vd.jpg"
-      }
-    },
-    "oriz-scroll-text-home": {
-      "type": "oriz-scroll-text-home",
-      "settings": {
-        "main_title": "Discover the space.",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. \n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
       }
     },
     "collab-section": {
@@ -126,12 +126,12 @@
     "hero-section",
     "home-text",
     "gamma-section-new",
+    "oriz-scroll-text-home",
     "home-video",
     "explore-section",
     "articles-list",
     "infinity-banner",
     "oriz-scroll-image-home",
-    "oriz-scroll-text-home",
     "collab-section"
   ]
 }
