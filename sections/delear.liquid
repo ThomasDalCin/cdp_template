@@ -245,18 +245,18 @@
             </div>
             <div class="w-full h-auto flex flex-col gap-y-2 items-start justify-center">
               <a href=${delear['Google maps']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
-                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">Show on Google Maps</p>
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ section.settings.cta_google_text }}s</p>
                 {% render 'cta-icon' %}
               </a>
               <a href=${delear['Sito Web']} class="underline font-14-medium flex flex-row gap-x-1 items-start items-center">
-                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">Visita il sito web</p>
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ section.settings.cta_website_text }}</p>
                 {% render 'website-icon' %}
               </a>
             </div>
             <div class="w-full h-auto lg:w-full lg:flex lg:items-center lg:justify-end">
             <div class="w-auto h-auto flex items-center justify-center absolute right-6 bottom-6 cta-choco-round h-[32px] w-[124px] min-w-[124px] cta-open-delear lg:static lg:w-[124px] lg:items-end">
               <a href="/pages/delear">
-                <p class="font-16 tt-norms-pro-reg">Scopri</p>
+                <p class="font-16 tt-norms-pro-reg">{{ section.settings.cta_card |  default: "Scopri" }}</p>
               </a>
             </div>
             </div>
@@ -342,18 +342,30 @@ Section Schema Settings here;
 "id": "cta_map",
 "default": "Map Delear",
 "label": "Map delear cta"
-}, {
+},
+{
 "type": "text",
-"id": "manager_sales",
-"default": "Manager sales",
-"label": "Manager sales"
-}, {
+"id": "cta_google_text",
+"default": "Apri in Google maps",
+"label": "Google maps text cta"
+},{
 "type": "text",
-"id": "card_contact",
-"default": "Contact",
-"label": "Card contact"
+"id": "cta_website_text",
+"default": "Visita il sito web",
+"label": "Website text cta"
+},
+{
+"type": "text",
+"id": "card_mobile",
+"default": "Telefono",
+"label": "Card Mobile text"
+},
+{
+"type": "text",
+"id": "cta_card",
+"default": "Scopri",
+"label": "Card delear cta text"
 }
-
 ]
 }
 {% endschema %}

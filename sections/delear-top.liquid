@@ -1,77 +1,79 @@
 <!-- Page Single Delear -->
 <div class="delear-top-view w-full h-auto flex flex-col gap-y-12 md:gap-y-0 lg:gap-y-0">
 
-    <!--Delear Full Width Image-->
-    <div class="delear-top-view-image w-full h-auto relative">
-        <img class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto md:h-[640px] lg:h-[860px]"
-            src="{{ section.settings.delear_image |  img_url: 'master' }}" alt="{{ section.settings.delear_image.alt }}">
-        <a href="javascript:history.back()">
-            <div
-                class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
-                {% render 'back-arrow-icon' %}
-                <p class="body-14-medium ml-2">{{ section.settings.delear_cta_text | default: "Back" }}</p>
-            </div>
+  <!-- Delear Full Width Image -->
+  <div class="delear-top-view-image w-full h-auto relative">
+    <img
+      class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto md:h-[640px] lg:h-[860px]"
+      src="{{ section.settings.delear_image |  img_url: 'master' }}"
+      alt="{{ section.settings.delear_image.alt }}">
+    <a href="javascript:history.back()">
+      <div class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
+        {% render 'back-arrow-icon' %}
+        <p class="body-14-medium ml-2">{{ section.settings.delear_cta_text | default: "Back" }}</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Delear Content -->
+  <div class="delear-top-view-content w-full h-auto flex flex-col gap-y-4 items-start justify-center p-6 mb-10 md:px-12 md:pt-10 md:mb-20  lg:px-20 lg:pt-[60px] lg:pb-[120px] lg:mb-0 lg:flex-row lg:justify-center lg:gap-x-10 lg:items-start">
+
+    <div class="w-full h-auto flex flex-col p-6 items-start justify-start bg-[#EFEEED] rounded-2xl gap-y-4 relative lg:w-[calc(50%_-_20px)]">
+
+      <div class="w-full h-auto flex flex-row items-center justify-between">
+        <p class="text-[24px] leading-[30px] tt-norms-pro-med delear-title"></p>
+        <div class="w-auto h-auto flag-content">
+          <img src="" class="w-6 h-4 delear-flag">
+        </div>
+      </div>
+
+      <!-- contact section -->
+      <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
+        <p class="text-[14px] leading-[20px] tt-norms-pro-reg text-[#646464]">{{ section.settings.contact_title
+ | default: "Contact" }}</p>
+        <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.card_mobile | default:
+ "Phone:" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-mobile"></span>
+        </p>
+        <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:
+ "E-mail:" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-email"></span>
+        </p>
+      </div>
+
+      <!-- url section -->
+      <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
+        <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-google-maps">
+          <p class="tt-norms-pro-med text-[14px] leading-[20px]">{{ section.settings.cta_google_text }}</p>
+          {% render 'cta-icon' %}
         </a>
+        <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-website">
+          <p class="tt-norms-pro-med text-[14px] leading-[20px]">{{ section.settings.cta_website_text }}</p>
+          {% render 'website-icon' %}
+        </a>
+      </div>
+
+      <div class="w-full h-auto flex items-center justify-end">
+        <div class="flex items-center justify-center cta-choco-round h-[32px] w-[124px] min-w-[124px] cta-open-delear">
+          <a href="">
+            <p class="font-14">{{ section.settings.contact_cta | default: "Contattaci" }}</p>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!--Delear Content-->
-    <div
-        class="delear-top-view-content w-full h-auto flex flex-col gap-y-4 items-start justify-center p-6 mb-10 md:px-12 md:pt-10 md:mb-20  lg:px-20 lg:pt-[60px] lg:pb-[120px] lg:mb-0 lg:flex-row lg:justify-center lg:gap-x-10 lg:items-start">
 
-        <div class="w-full h-auto flex flex-col p-6 items-start justify-start bg-[#EFEEED] rounded-2xl gap-y-4 relative lg:w-[calc(50%_-_20px)]">
-
-        <div class="w-full h-auto flex flex-row items-center justify-between">
-            <p class="text-[24px] leading-[30px] tt-norms-pro-med delear-title"></p>
-            <div class="w-auto h-auto flag-content">
-             <img src="" class="w-6 h-4 delear-flag">
-            </div>
-       </div>
-            
-            <!--contact section-->
-            <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
-                <p class="text-[14px] leading-[20px] tt-norms-pro-reg text-[#646464]">{{ section.settings.contact_title
-                    | default: "Contact" }}</p>
-                <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:
-                    "Phone:" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-mobile"></span></p>
-                <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:
-                    "E-mail:" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-email"></span></p>
-            </div>
-
-            <!--url section-->
-            <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
-                <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-google-maps">
-                    <p class="tt-norms-pro-med text-[14px] leading-[20px]">Show on Google maps</p>
-                    {% render 'cta-icon' %}
-                </a>
-                <a href="" class="underline font-14-medium flex flex-row gap-x-1 items-center justify-center delear-website">
-                    <p class="tt-norms-pro-med text-[14px] leading-[20px]">Visita il sito web</p>
-                    {% render 'website-icon' %}
-                </a>
-            </div>
-            
-            <div class="w-full h-auto flex items-center justify-end">
-                <div class="flex items-center justify-center cta-choco-round h-[32px] w-[124px] min-w-[124px] cta-open-delear">
-                    <a href="">
-                      <p class="font-14">{{ section.settings.contact_cta |  default: "Contact us" }}</p>
-                    </a>
-                </div>
-            </div>
+    <div class="w-full h-auto flex flex-col p-6 items-start justify-center bg-[#EFEEED] rounded-2xl lg:w-[calc(50%_-_20px)]">
+      <div class="w-full h-auto flex flex-row items-center justify-between">
+        <p class="text-[20px] leading-[20px] tt-norms-pro-med">{{ section.settings.about_us_text | default:
+ "About us" }}</p>
+        <div class="w-auto h-auto open-dropdonw-icon lg:hidden">
+          {% render 'plus-icon' %}
         </div>
-
-
-        <div class="w-full h-auto flex flex-col p-6 items-start justify-center bg-[#EFEEED] rounded-2xl lg:w-[calc(50%_-_20px)]">
-            <div class="w-full h-auto flex flex-row items-center justify-between">
-                <p class="text-[20px] leading-[20px] tt-norms-pro-med">{{ section.settings.about_us_text | default:
-                    "About us" }}</p>
-                <div class="w-auto h-auto open-dropdonw-icon lg:hidden">
-                    {% render 'plus-icon' %}
-                </div>
-            </div>
-            <div class="w-full h-0 overflow-y-hidden flex flex-col items-start justify-center lg:h-auto">
-                <p class="text-[14px] leading-[20px] tt-norms-pro-reg delear-description pt-4"></p>
-            </div>
-        </div>
+      </div>
+      <div class="w-full h-0 overflow-y-hidden flex flex-col items-start justify-center lg:h-auto">
+        <p class="text-[14px] leading-[20px] tt-norms-pro-reg delear-description pt-4"></p>
+      </div>
     </div>
+  </div>
 
 </div>
 
@@ -79,10 +81,10 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Recupera i dati salvati dal localStorage
         const savedDelear = JSON.parse(localStorage.getItem('selectedDelear'));
-
+  
         if (savedDelear) {
             console.log('Dati recuperati:', savedDelear);
-
+  
             // Inserisci i dati negli elementi HTML
             document.querySelector('.delear-title').textContent = savedDelear.dealer || '';
             document.querySelector('.delear-mobile').textContent = savedDelear.mobile || '';
@@ -91,15 +93,15 @@
             document.querySelector('.delear-website').setAttribute('href', savedDelear.sitoWeb || "" );
             document.querySelector('.delear-google-maps').setAttribute('href', savedDelear.googleMaps || "" );
             document.querySelector('.delear-flag').setAttribute('src', savedDelear.flagSrc || "" );
-
+  
         } else {
             console.error('Nessun dato trovato nel localStorage.');
         }
-
+  
         // Gestione del dropdown
         const dropdownIcon = document.querySelector('.open-dropdonw-icon');
         const dropdownContent = document.querySelector('.delear-description').parentElement;
-
+  
         dropdownIcon.addEventListener('click', () => {
             const isOpen = dropdownContent.style.height && dropdownContent.style.height !== '0px';
             
@@ -113,12 +115,12 @@
                 dropdownIcon.style.transform = 'rotate(45deg)';
             }
         });
-
+  
         // Rimuovi dati dal localStorage solo quando si lascia la pagina
         window.addEventListener('beforeunload', (event) => {
             const navEntries = performance.getEntriesByType('navigation');
             const navigationType = navEntries[0] ? navEntries[0].type : '';
-
+  
             // Controlla se NON è un refresh o ricaricamento
             if (navigationType !== 'reload') {
                 // Rimuovi i dati dal localStorage
@@ -130,27 +132,47 @@
 </script>
 
 
-
-
-{% comment %}
-Schema Section Settings Here
+{% comment %} 
+  Schema Section Settings Here 
 {% endcomment %}
 {% schema %}
-{
-"name": "delear-content",
-"settings": [
-{
-"type": "text",
-"id": "delear_cta_text",
-"default": "Back",
-"label": "Delear Text Cta",
-"info": "Set the text inside your Cta"
-},
-{
-"type": "image_picker",
-"id": "delear_image",
-"label": "Delear Image"
-}
-]
-}
+  {
+    "name": "delear-content",
+    "settings": [
+      {
+        "type": "text",
+        "id": "delear_cta_text",
+        "default": "Back",
+        "label": "Delear Text Cta",
+        "info": "Set the text inside your Cta"
+      },
+      {
+        "type": "image_picker",
+        "id": "delear_image",
+        "label": "Delear Image"
+      },
+      {
+        "type": "text",
+        "id": "cta_google_text",
+        "default": "Apri in Google maps",
+        "label": "Google maps text cta"
+      },
+      {
+        "type": "text",
+        "id": "cta_website_text",
+        "default": "Visita il sito web",
+        "label": "Website text cta"
+      }, {
+        "type": "text",
+        "id": "card_mobile",
+        "default": "Telefono",
+        "label": "Card Mobile text"
+      }, {
+        "type": "text",
+        "id": "contact_cta",
+        "default": "Contattaci",
+        "label": "Cta contact text"
+      }
+    ]
+  }
 {% endschema %}
