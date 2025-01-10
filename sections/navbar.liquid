@@ -7,10 +7,21 @@
         class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
         <!--menu yatch cta-->
-        <div
-            class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
-            <p class="body-14 chip-text">Models</p>
+        <div class="w-auto h-full min-h-[32px] flex flex-row items-center justify-start gap-x-4">
+            <div
+                class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
+                <p class="body-14 chip-text">Models</p>
+            </div>
+            <!--container cta gamma desktop-->
+            <div
+                class="hidden w-auto h-full px-4 py-3 flex items-center justify-center text-white bg-black rounded-full transition-all duration-150 ease-in discover-gamma-content">
+                <!--dynamic discover gamma text-->
+                <a href="#" class="w-auto h-auto discover-gamma-link">
+                    <p class="text-[14px] leading-[12px] tt-norms-pro-reg discover-gamma-text">Discover gamma</p>
+                </a>
+            </div>
         </div>
+
 
         <!--pardo logo container -->
         <div
@@ -114,11 +125,11 @@
                     <div
                         class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
 
-                        {% assign collectionSorted =  "Walkaround,Endurance,Grand Touring," | split: ',' %}
+                        {% assign collectionSorted = "Walkaround,Endurance,Grand Touring," | split: ',' %}
 
                         {% for collectionHandle in collectionSorted %}
                         {% assign collection = collections[collectionHandle] %}
-                        
+
                         {% for product in collection.products %}
                         {% unless collection.title == 'Pardo approved' %}
                         <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
@@ -281,15 +292,15 @@
                 {% endfor %}
             </div>
 
-                    <!--find delear button-->
-          <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
-            <a href="/pages/locate-delear">
-                <div class="w-auto h-auto inline-flex cta-white-rounded">
-                    <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
-                    </p>
-                </div>
-            </a>
-        </div>
+            <!--find delear button-->
+            <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
+                <a href="/pages/locate-delear">
+                    <div class="w-auto h-auto inline-flex cta-white-rounded">
+                        <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
+                        </p>
+                    </div>
+                </a>
+            </div>
         </div>
 
 
@@ -598,6 +609,10 @@
                             activeLink.classList.remove('tt-norms-pro-reg'); // Rimuovi il font dal link precedente
                         }
 
+                        let isGammaActive = true;
+                        handleGammaCta(e.currentTarget, isGammaActive);
+
+
                         link.classList.add('tt-norms-pro-reg'); // Imposta il font per il link cliccato
                         activeLink = link; // Aggiorna la variabile activeLink con il link cliccato
 
@@ -703,6 +718,41 @@
                 }
             });
         }
+
+        function handleGammaCta(linkItem, isActive) {
+            const discoverGammaContent = document.querySelector('.discover-gamma-content');
+            const discoverGammaLink = document.querySelector('.discover-gamma-link');
+            const discoverGammaText = document.querySelector('.discover-gamma-text');
+
+            if (isActive) {
+                discoverGammaContent.classList.remove('hidden');
+                discoverGammaContent.classList.add('flex');
+            }
+            const linkItemContent = linkItem.innerHTML.trim();
+            discoverGammaText.innerHTML = `Discover ${linkItemContent}`;
+            const gammaUrl = `/collections/${linkItemContent.toLowerCase()}`;
+            discoverGammaLink.setAttribute('href', gammaUrl);
+
+            handleClickOutside(linkItem, discoverGammaContent)
+            console.log(linkItemContent);
+
+        }
+
+        const handleClickOutside = (element, content) => {
+            const clickHandler = (e) => {
+                const targetLinks = ["Walkaround", "Endurance", "GT"]
+                const isTarget = targetLinks.some(link => e.target.innerHTML.includes(link));
+                if (!element.contains(e.target) && !isTarget ) {
+                    isGammaActive = false;
+                    content.classList.remove('flex');
+                    content.classList.add('hidden');
+                    console.log(isGammaActive)
+                    document.removeEventListener('click', clickHandler);
+                }
+            };
+
+            document.addEventListener('click', clickHandler);
+        };
 
 
 

@@ -2869,6 +2869,10 @@ p,
   line-height: 36px;
 }
 
+.leading-\[12px\] {
+  line-height: 12px;
+}
+
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }
@@ -2931,6 +2935,10 @@ p,
 
 .opacity-30 {
   opacity: 0.3;
+}
+
+.opacity-100 {
+  opacity: 1;
 }
 
 .shadow {
