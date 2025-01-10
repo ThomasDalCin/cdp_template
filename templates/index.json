@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "page-loading": {
@@ -35,10 +43,6 @@
       "type": "gamma-section",
       "settings": {}
     },
-    "oriz-scroll-text-home": {
-      "type": "oriz-scroll-text-home",
-      "settings": {}
-    },
     "home-video": {
       "type": "home-video",
       "settings": {
@@ -68,6 +72,17 @@
     "oriz-scroll-image-home": {
       "type": "oriz-scroll-image-home",
       "settings": {
+        "oriz_image_one": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_002_vd.jpg",
+        "oriz_image_two": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_001_vd.jpg",
+        "oriz_image_three": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_004_vd.jpg",
+        "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_003_vd.jpg"
+      }
+    },
+    "oriz-scroll-text-home": {
+      "type": "oriz-scroll-text-home",
+      "settings": {
+        "main_title": "Discover the space.",
+        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. \n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
       }
     },
     "collab-section": {
