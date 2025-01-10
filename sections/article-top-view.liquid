@@ -1,7 +1,6 @@
-<!-- Page Single Article -->
+<!-- Article blog single page -->
 <div class="article-top-view w-full h-auto flex flex-col gap-y-4">
-  
-  <!--Article Full Width Image-->
+  <!--Article main image -->
   <div class="article-top-view-image w-full h-auto relative">
     <img
       class="top-view-image-article w-full h-auto min-h-[565px] object-cover object-center aspect-auto lg:h-[860px]"
@@ -14,13 +13,11 @@
       </div>
     </a>
   </div>
-
-  <!--Article Content-->
+  <!--Article main content-->
   <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-6 mb-10 lg:px-20 lg:mb-[120px]">
     <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title | capitalize }}</h1>
     <p class="body-14">{{ article.content | capitalize }}</p>
   </div>
-
 </div>
 
 
@@ -29,14 +26,14 @@
 {% endcomment %}
 {% schema %}
   {
-    "name": "article-content",
+    "name": "article-contents",
     "settings": [
       {
         "type": "text",
         "id": "article_cta_text",
         "default": "Back",
         "label": "Article Text Cta",
-        "info": "Set the text inside your Cta"
+        "info": "Type the text you want inside the main cta"
       }
     ]
   }

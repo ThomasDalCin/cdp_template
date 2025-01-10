@@ -1,6 +1,4 @@
-<!-- Events Articles -->
-
-<!-- Blog event container -->
+<!-- Events blog container -->
 <div class="blog-events-container w-full h-auto flex flex-col items-start gap-y-4 p-6 mb-12 justify-center md:gap-x-4 md:px-12 md:flex-wrap md:flex-row md:justify-start lg:flex-wrap lg:flex-row lg:justify-start relative lg:gap-4 overflow-hidden lg:px-20">
   {% if blogs['events'] %}
     {% assign eventsArticles = blogs['events'].articles %}
@@ -13,13 +11,14 @@
           data-index="{{ forloop.index0 }}"
           style="display: {% if forloop.index0 < max_articles %}flex{% else %}none{% endif %};">
           <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
-            <!-- Events image Container -->
+            <!-- Event blog image content -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
               <img
                 src="{{ eventArticle | img_url: 'master' }}"
                 alt="{{ eventArticle.title }}"
                 class="w-full h-full object-cover object-center rounded-t-2xl">
             </div>
+             <!-- Event blog main content -->
             <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
               <div class="events-details-primary w-full h-auto flex flex-col gap-y-6">
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
@@ -36,15 +35,15 @@
                   {% endif %}
                 </div>
                 <div class="w-full h-auto flex flex-col items-start justify-center">
-                  <a href="{{ section.settings.redirect_google_url }}">
+                  <a href="{{  }}">
                     <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_google }}</p>
+                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_google_text |  default: "Show on Google maps" }}</p>
                       {% render 'cta-icon' %}
                     </div>
                   </a>
                   <a href="{{ section.settings.redirect_calendar }}">
                     <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_calendar }}</p>
+                      <p class="body-14 underline tt-norms-pro-med">{{ section.settings.redirect_calendar_text | default: "Open Google Calendar" }}</p>
                       {% render 'calendar-icon' %}
                     </div>
                   </a>
@@ -52,7 +51,7 @@
               </div>
               <div class="events-cta lg:w-full lg:flex lg:justify-end">
                 <div class="cta-choco-round h-[32px] min-w-[208px] book-appointment inline-flex">
-                  <p class="body-14">{{ section.settings.cta_appointment }}</p>
+                  <p class="body-14">{{ section.settings.cta_appointment_text |  default: "Book appointment" }}</p>
                 </div>
               </div>
             </div>
@@ -66,50 +65,17 @@
   <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 md:mt-11 lg:mt-11">
     <!-- cta load more -->
     <div class="w-auto h-auto max-w-[118px] flex items-center justify-center self-center cta-choco-round px-4 py-2 load-more-cta">
-      <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.load_more_cta | default: "Load 6 more" }}</p>
+      <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.load_more_cta_text | default: "Load 6 more" }}</p>
     </div>
     <!-- current item of total item -->
     <p class="text-[14px] leading-[20px] tt-norms-pro-reg current-items"></p>
   </div>  
 
-  <!-- Events article added by blocks -->
-  {% for block in section.blocks %}
-    {% if block.type == "card-event" %}
-      <div class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden lg:w-[calc(33.3%_-_1.65rem)]">
-        <div class="events-container w-full h-auto min-h-[224px] p-4 rounded-xl bg-[var(--secondary-background-color)] flex flex-col gap-y-6 outline-none border border-transparent transition-all duration-150  lg:hover:border-black cursor-pointer">
-          <div class="events-details-primary w-full h-auto flex flex-col gap-y-1">
-            <p class="article-title body-16-medium">{{ block.settings.card_event_title }}</p>
-          </div>
-          <div class="events-details-secondary w-full h-auto flex flex-col gap-y-2">
-            <a href="{{ block.settings.card_redirect_google_url }}">
-              <div class="events-details-cta-primary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">{{ block.settings.card_redirect_google }}</p>
-                {% render 'cta-icon' %}
-              </div>
-            </a>
-            <a href="{{ block.settings.card_redirect_google_calendar_url }}">
-              <div class="events-details-cta-secondary w-auto h-auto flex flex-row gap-x-2 items-center justify-start">
-                <p class="body-14 underline">{{ block.settings.card_redirect_calendar }}</p>
-                {% render 'calendar-icon' %}
-              </div>
-            </a>
-          </div>
-          <div class="events-cta lg:w-full lg:flex lg:justify-end">
-            <div class="cta-choco min-w-[208px] book-appointment inline-flex">
-              <p class="body-14">{{ block.settings.card_cta_appointment }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-
   <div class="json-ld-container hidden">
     <!-- json ld data structure -->
   </div>
 
-  <!-- Book appointment Form -->
-  <!-- Form container -->
+  <!-- Form book appointment container  -->
   <div class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-50  hidden md:fixed md:rounded-none md:w-full md:h-full md:top-0 md:left-0 md:backdrop-blur-md md:bg-black/50 md:z-50 md:items-center md:justify-center lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
     <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto md:m-auto md:bg-white md:w-[640px] md:h-auto md:rounded-[32px] md:p-10 lg:bg-white lg:w-[640px] lg:h-auto lg:rounded-[32px] lg:p-10">
 
@@ -125,8 +91,7 @@
 
       <!-- Form Content -->
       <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
-        {% form 'contact'
-          , class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
+        {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
 
           {% if form.posted_successfully? %}
             <!-- Confirm pop-up -->
@@ -171,7 +136,6 @@
             </div>
 
             <!-- calendar -->
-
             <div class="form-group w-full h-auto flex flex-col items-start justify-center relative">
               <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4 pointer-events-none">
                 {% render 'calendar-icon' %}
@@ -209,7 +173,7 @@
                   {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
                                                           commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
                                                           market research in order to evaluate your level of satisfaction with our products and services." }}
-                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy" }}</span>
+                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy_text | default: "Privacy Policy" }}</span>
                 </label>
               </div>
 
@@ -224,20 +188,17 @@
                   {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
                                                           send you personalized commercial communications based on your purchasing habits and, in general,
                                                           based on your interests, your requests and your interactions with us." }}
-                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy" }}</span>
+                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy_text | default: "Privacy Policy" }}</span>
                 </label>
               </div>
-
             </div>
-
 
             <!-- cta-privacy-page -->
             <div class="w-full h-auto flex flex-col items-start justify-center">
               <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | default: "Privacy Policy" }}</p>
+                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page_text | default: "Privacy Policy" }}</p>
               </a>
             </div>
-
 
             <!-- Submit Button -->
             <div class="cta-choco submit-cta mt-[22px] lg:mt-[]">
@@ -251,7 +212,7 @@
 
 </div>
 
-<!-- Past Articles Container -->
+<!-- Previous events list container -->
 <div class="w-full h-auto flex items-start justify-center flex-col hidden past-event overflow-x-hidden">
 
   <!-- Title section here -->
@@ -271,7 +232,7 @@
     </div>
   </div>
 
-  <!-- Scroll Past Article Container -->
+  <!-- Scroll past event container -->
   <div class="events-list-container w-full h-auto flex items-start justify-center flex-col py-4 px-6 md:px-12 md:py-0 lg:py-0">
 
     <!-- Scrolling container -->
@@ -685,36 +646,38 @@
     "settings": [
       {
         "type": "text",
-        "id": "redirect_google",
+        "id": "redirect_google_text",
         "label": "Google Maps",
         "default": "Show on Google maps",
         "info": "Set the text of google maps cta"
       },
       {
-        "type": "url",
-        "id": "redirect_google_url",
-        "label": "Google Maps Url",
-        "info": "Set the correct google maps url"
-      },
-      {
         "type": "text",
-        "id": "redirect_calendar",
+        "id": "redirect_calendar_text",
         "label": "Google Calendar",
         "default": "Open Google Calendar",
         "info": "Set the text of google calendar cta"
       },
       {
-        "type": "text",
-        "id": "cta_appointment",
-        "label": "Cta Appointment",
-        "default": "Book appointment",
-        "info": "Set the text of the appointment cta"
-      }, {
         "type": "url",
         "id": "redirect_google_calendar",
         "label": "Google Calendar Url",
         "info": "Set the correct google calendar url"
-      }, {
+      },
+      {
+        "type": "text",
+        "id": "load_more_cta_text",
+        "label": "Cta Load more events text",
+        "info": "Set the cta load more events text"
+      },
+      {
+        "type": "text",
+        "id": "cta_appointment_text",
+        "label": "Cta Appointment",
+        "default": "Book appointment",
+        "info": "Set the text of the appointment cta"
+      }, 
+      {
         "type": "text",
         "id": "confirm_message",
         "label": "Confirm form message",
@@ -744,12 +707,36 @@
         "label": "Message",
         "default": "Message",
         "info": "Set the input placeholder"
-      }, {
-        "type": "textarea",
-        "id": "form_privacy",
-        "label": "Secondary Info",
-        "default": "I would like to receive marketing communications about products, services, and events offered by CANTIERE DEL PARDO S.p.A. I understand that these communications may be personalized based on my interests, preferences, and use of products and services, including invitations to provide feedback on the customer experience.",
-        "info": "Set the privacy text directly here"
+      },
+      {
+        "type": "text",
+        "id": "marketing_consent_label",
+        "label": "Marketing consent",
+        "info": "Set the markeing consent text"
+      },
+      {
+        "type": "text",
+        "id": "marketing_policy_text",
+        "label": "Marketing policy text pop-up",
+        "info": "Set the markeing policy text pop-up"
+      },
+      {
+        "type": "text",
+        "id": "profiling_consent_label",
+        "label": "Profiling consent",
+        "info": "Set the profiling consent text"
+      },
+      {
+        "type": "text",
+        "id": "profilation_policy_text",
+        "label": "Profilation policy text pop-up",
+        "info": "Set the profilation policy text pop-up"
+      },  
+      {
+        "type": "text",
+        "id": "cta_privacy_page_text",
+        "label": "cta privacy text",
+        "info": "Set the cta privacy text"
       }, {
         "type": "text",
         "id": "form_cta",
@@ -757,55 +744,6 @@
         "default": "Send",
         "info": "Set the Text of the Cta's Form"
       }
-    ],
-    "blocks": [
-      {
-        "name": "card-event",
-        "type": "card-event",
-        "settings": [
-
-          {
-            "type": "text",
-            "id": "card_event_title",
-            "label": "Card Event Title",
-            "default": "Custom Event",
-            "info": "Set the event title"
-          },
-          {
-            "type": "text",
-            "id": "card_redirect_google",
-            "label": "Google Maps",
-            "default": "Show on Google maps",
-            "info": "Set the text of google maps cta"
-          },
-          {
-            "type": "url",
-            "id": "card_redirect_google_url",
-            "label": "Google Maps Url",
-            "info": "Set the correct google maps url"
-          },
-          {
-            "type": "text",
-            "id": "card_redirect_calendar",
-            "label": "Google Calendar",
-            "default": "Show on Google Calendar",
-            "info": "Set the text of google calendar cta"
-          }, {
-            "type": "url",
-            "id": "card_redirect_google_calendar_url",
-            "label": "Google calendar Url",
-            "info": "Set the correct google maps url"
-          }, {
-            "type": "text",
-            "id": "card_cta_appointment",
-            "label": "Cta Appointment",
-            "default": "Book appointment",
-            "info": "Set the cta text of the card event"
-          }
-
-        ]
-      }
-    ],
-    "max_blocks": 5
+    ]
   }
 {% endschema %}

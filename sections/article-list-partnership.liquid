@@ -1,14 +1,11 @@
-<!-- Article list-->
-<div
-  class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 px-6 mt-[194px] md:px-12 md:pt-[60px] md:flex-row md:flex-wrap md:gap-x-4 md:items-start md:justify-start lg:px-20 lg:pt-[60px] lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
-
+<!-- Articles partnership blog-->
+<div class="wrapper-articles-list w-full h-auto flex flex-col items-start justify-center gap-y-4 px-6 mt-[194px] md:px-12 md:pt-[60px] md:flex-row md:flex-wrap md:gap-x-4 md:items-start md:justify-start lg:px-20 lg:pt-[60px] lg:flex-row lg:flex-wrap lg:gap-x-4 lg:items-center lg:justify-start">
   <!-- Assign liquid variables -->
   {% assign allBlogs = "Partnership, " | split: "," %}
   {% for handle in allBlogs %}
   {% for article in blogs[handle].articles %}
   {% unless article.tags contains "Past" %}
-
-  <!-- Article wrap -->
+  <!-- Article wrap container -->
   <div
     class="card-article w-full h-auto flex flex-col items-start justify-start rounded-2xl bg-[#EFEEED] md:w-[calc(50%_-_0.5rem)] lg:w-[calc(50%_-_0.5rem)] border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
     <!-- Article image -->
@@ -16,16 +13,13 @@
       <img src="{{ article.image |  img_url: 'master'}}" alt="{{ article.title }}"
         class="w-full h-full object-cover object-center rounded-t-2xl">
     </div>
-
-    <!-- Article wrap content -->
+    <!-- Article content -->
     <div class="card-article-content w-full h-auto flex flex-col gap-y-6 items-start justify-start p-6">
-
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
         <p class="text-[24px] leading-[24px] tt-norms-pro-reg">{{ article.title }}</p>
         <p class="body-14">{{ article.content | truncate: 100 }}</p>
       </div>
-
-      <!-- Article card button -->
+      <!-- Article button container -->
       <div class="w-full h-auto flex flex-row items-start justify-end">
         <!-- Container button -->
         <a href="{{ article.url }}">
@@ -35,11 +29,8 @@
         </a>
       </div>
     </div>
-
-
   </div>
   {% endunless %}
-
   {% endfor %}
   {% endfor %}
 </div>

@@ -1,7 +1,6 @@
-<!-- News Articles -->
+<!-- news articles container -->
 <div id="news-layout" class="blog-news-container w-full flex flex-col overflow-x-hidden px-6 mb-14 md:px-12 lg:px-10">
 
-  <!-- container arrow carousel -->
   <!-- arrows box -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
     <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full  bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
@@ -108,7 +107,7 @@
 
                 <div class="blog-item-cta w-full flex items-center justify-end md:absolute md:right-6 md:bottom-6  lg:absolute lg:right-6 lg:bottom-6">
                   <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                    <p class="body-14-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
                   </a>
                 </div>
 
@@ -125,7 +124,7 @@
   {% endif %}
 </div>
 
-<!-- News Articles: Pressroom -->
+<!-- pressroom articles container -->
 <div id="pressroom-layout" class="blog-pressroom-container w-full h-auto flex flex-col items-start justify-center px-6 py-10 hidden  md:px-12  lg:px-20 lg:py-24">
 
   {% if blogs.news %}
@@ -177,10 +176,10 @@
                 <!-- Call-to-Actions -->
                 <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
                   <a href="{{ article.url }}" class="cta-transparent-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom | default: "Read more" }}</p>
+                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_text | default: "Read more" }}</p>
                   </a>
                   <a href="{{ article.url }}" class="cta-choco-round text-white h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_download | default: "Download" }}</p>
+                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_download_text | default: "Download" }}</p>
                     {% render 'download-icon' %}
                   </a>
                 </div>
@@ -208,7 +207,7 @@
 </div>
 
 
-<!-- News Articles: Awards -->
+<!-- awards articles container -->
 <div id="awards-layout" class="blog-awards-container w-full h-auto flex flex-col items-start justify-center px-6 py-10  hidden  md:px-12  lg:px-20 lg:py-24">
   {% if blogs.news %}
     {% assign newsArticles = blogs.news.articles %}
@@ -236,7 +235,7 @@
                 </div>
                 <div class="blog-item-cta w-full h-auto flex items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
                   <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                    <p class="body-14-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
                   </a>
                 </div>
               </div>
@@ -318,16 +317,31 @@ const updateVisibleArticles = () => {
   "settings": [
     {
       "type": "text",
-      "id": "article_download_cta",
+      "id": "article_cta_pressroom_download_text",
       "default": "Download",
       "label": "Article Download Cta",
       "info": "Set the cta text"
     }, {
       "type": "text",
+      "id": "article_cta_pressroom_text",
+      "default": "Read More",
+      "label": "Article Cta",
+      "info": "Set the cta text"
+    },
+    {
+      "type": "text",
       "id": "article_cta",
       "default": "Read More",
       "label": "Article Cta",
       "info": "Set the cta text"
-    }
+    },
+    {
+      "type": "text",
+      "id": "load_more_cta",
+      "default": "Load More",
+      "label": "Load more cta text",
+      "info": "Set the cta text"
+    },
+
   ]
 }{% endschema %}

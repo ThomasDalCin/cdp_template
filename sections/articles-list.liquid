@@ -1,8 +1,7 @@
-<!-- Article List Home page -->
-
+<!-- Articles blog list -->
 <div class="wrapper-articles-list w-full h-auto flex flex-col gap-y-10 items-start justify-center relative py-14 md:pt-9 lg:pt-9">
 
-  <!-- arrows box -->
+  <!-- Arrows box container -->
   <div class="w-full h-auto hidden lg:flex lg:justify-end lg:gap-x-6 lg:px-10">
     <div class="w-auto h-auto flex-row inline-flex gap-x-4 rounded-full bg-[#F7F7F7] px-4 py-2 hover:bg-[#A9A09E] transition-all duration-150 ease-in cursor-pointer">
       <button id="prevArrow" class="carousel-arrow left-arrow flex items-center justify-center w-6 h-6">
@@ -14,29 +13,24 @@
     </div>
   </div>
 
-  <!--Article List Container -->
+  <!--Articles scrolling list container -->
   <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 md:px-12 md:py-14 lg:p-0 lg:px-20 lg:pb-4">
     <!-- Assign liquid variables -->
     {% assign allBlogs = "News, " | split: "," %}
     {% assign article_count = 0 %}
     {% for handle in allBlogs %}
       {% assign sortedArticles = blogs[handle].articles |  sort: "published_at" |  reverse %}
-      {% for article in sortedArticles %}
-      
+      {% for article in sortedArticles %}      
         <!-- Check if less than 10 articles have been rendered -->
         {% if article_count < 10 %}
-
           <!-- container article news or events -->
           {% assign articlesDivided = article_count |  modulo: 2 %}
           {% if articlesDivided == 0 %}
-            
-            <!-- Article for even index -->
+            <!-- Articles for even index -->
             <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
-
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.title }}</p>
               </div>
-
               {% if handle == 'Events' %}
                 <div class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-end p-2 absolute left-0 bottom-4">
                   {% assign article_date = article.metafields.custom.article_date.value %}
@@ -46,15 +40,12 @@
                 </div>
               {% endif %}
             </a>
-
           {% else %}
-            <!-- Article for odd index -->
+            <!-- Articles for odd index -->
             <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl  md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
-              
             <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.title  }}</p>
             </div>
-            
             {% if handle == 'Events' %}
                 <div class="card-article-date-info w-full h-auto flex flex-col gap-1 items-start justify-center p-2 absolute left-0 bottom-4">
                   {% assign article_date = article.metafields.custom.article_date.value %}
@@ -65,7 +56,6 @@
               {% endif %}
             </a>
           {% endif %}
-          
           {% assign article_count = article_count | plus: 1 %}
         {% else %}
           {% break %}
