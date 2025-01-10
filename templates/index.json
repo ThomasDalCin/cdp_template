@@ -65,13 +65,9 @@
       "type": "infinity-banner",
       "settings": {}
     },
-    "collection-oriz-scroll": {
-      "type": "collection-oriz-scroll",
+    "oriz-scroll-image-home": {
+      "type": "oriz-scroll-image-home",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/PY_HOME002.jpg",
-        "oriz_image_two": "shopify://shop_images/PY_HOME003.jpg",
-        "oriz_image_three": "shopify://shop_images/PY_HOME004.jpg",
-        "oriz_image_four": "shopify://shop_images/PY_HOME001.jpg"
       }
     },
     "collab-section": {
@@ -115,12 +111,12 @@
     "hero-section",
     "home-text",
     "gamma-section-new",
-    "oriz-scroll-text-home",
     "home-video",
     "explore-section",
     "articles-list",
     "infinity-banner",
-    "collection-oriz-scroll",
+    "oriz-scroll-text-home",
+    "oriz-scroll-image-home",
     "collab-section"
   ]
 }
