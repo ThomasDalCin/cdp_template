@@ -16,7 +16,7 @@
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/417690b130674746b32f398fd65a2644.mp4",
+        "swiper_video_desktop": "",
         "swiper_image_1_desktop": "shopify://shop_images/PY_HOME001.jpg",
         "swiper_image_2_desktop": "shopify://shop_images/PY_HOME002.jpg",
         "swiper_image_3_desktop": "shopify://shop_images/PY_HOME003.jpg",
