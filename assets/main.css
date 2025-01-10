@@ -2861,6 +2861,10 @@ p,
   line-height: 96px;
 }
 
+.leading-\[42px\] {
+  line-height: 42px;
+}
+
 .-tracking-\[0\.2px\] {
   letter-spacing: -0.2px;
 }
@@ -3184,6 +3188,11 @@ html {
   .lg\:tt-norms-pro-light {
     /* General font settings */
     font-family: "TT-Norms-Pro-Light";
+  }
+
+  .lg\:tt-norms-pro-reg {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Regular";
   }
 }
 
@@ -4797,6 +4806,10 @@ html {
     font-size: 96px;
   }
 
+  .lg\:text-\[20px\] {
+    font-size: 20px;
+  }
+
   .lg\:leading-\[128px\] {
     line-height: 128px;
   }
@@ -4831,6 +4844,10 @@ html {
 
   .lg\:leading-\[96px\] {
     line-height: 96px;
+  }
+
+  .lg\:leading-\[26px\] {
+    line-height: 26px;
   }
 
   .lg\:text-black {

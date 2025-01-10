@@ -35,12 +35,9 @@
       "type": "gamma-section",
       "settings": {}
     },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
-      "settings": {
-        "main_title": "Inspiring freedom, exploring waves.",
-        "paragraph_text": "Il mare è libertà, un invito a esplorare senza limiti. Ogni onda è un’opportunità, ogni navigazione un viaggio verso l’ignoto. Non si tratta solo di un design, ma di una filosofia che unisce eleganza e funzionalità, per vivere il mare come una parte di sé. Ogni yacht è pensato per farti sentire a casa tra le onde, in perfetto equilibrio tra innovazione e tradizione. Naviga con il vento, senza paura, in cerca di nuove emozioni."
-      }
+    "oriz-scroll-text-home": {
+      "type": "oriz-scroll-text-home",
+      "settings": {}
     },
     "home-video": {
       "type": "home-video",
@@ -118,7 +115,7 @@
     "hero-section",
     "home-text",
     "gamma-section-new",
-    "oriz-scroll-text",
+    "oriz-scroll-text-home",
     "home-video",
     "explore-section",
     "articles-list",
