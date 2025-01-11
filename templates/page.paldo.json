@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "collab-top-page": {
@@ -11,33 +19,19 @@
         "box_mTpxQE": {
           "type": "box",
           "settings": {
-            "box_image": "shopify://shop_images/6f8afa0287eb263964fbc8aacb62c4be.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
+            "box_image": "shopify://shop_images/Pardo_Poldo-x-Pardo_slider-05_desktop-1440x810.jpg",
+            "box_heading": "",
+            "box_text": "",
             "large_image": true,
-            "large_heading": false,
-            "show_large_heading": true,
-            "show_cta": false,
-            "cta_text": "Click here"
-          }
-        },
-        "box_QWGnUX": {
-          "type": "box",
-          "settings": {
-            "box_image": "shopify://shop_images/e72db9f9fb169795c65de58b7b22fced.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Default body text",
-            "large_image": false,
             "large_heading": false,
             "show_large_heading": false,
             "show_cta": false,
-            "cta_text": "Click here"
+            "cta_text": ""
           }
         }
       },
       "block_order": [
-        "box_mTpxQE",
-        "box_QWGnUX"
+        "box_mTpxQE"
       ],
       "settings": {}
     }
