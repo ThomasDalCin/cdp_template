@@ -16,14 +16,14 @@
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/ccd43bcd9e154e7289a2d1eb3800f35d.mp4",
+        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/128fa753b62d4c8a99776102de3bc669.mp4",
         "swiper_image_1_desktop": "shopify://shop_images/PY_HOME001.jpg",
         "swiper_image_2_desktop": "shopify://shop_images/PY_HOME002.jpg",
         "swiper_image_3_desktop": "shopify://shop_images/PY_HOME003.jpg",
         "enable_cta_1_desktop": true,
         "cta_text_1_desktop": "Discover E60",
         "cta_url_1_desktop": "https://www.pardoyachts.com/it/",
-        "swiper_video_mobile": "https://cdn.shopify.com/videos/c/o/v/ccd43bcd9e154e7289a2d1eb3800f35d.mp4",
+        "swiper_video_mobile": "https://cdn.shopify.com/videos/c/o/v/fa03bee9d8314aaa9839074ece7ecab5.mp4",
         "swiper_image_1_mobile": "shopify://shop_images/PY_HOME004.jpg",
         "swiper_image_2_mobile": "shopify://shop_images/PY_HOME005.jpg",
         "swiper_image_3_mobile": "shopify://shop_images/PY_HOME003.jpg",
