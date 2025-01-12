@@ -42,7 +42,7 @@
     "gamma-section-new": {
       "type": "gamma-section",
       "custom_css": [
-        "@media (min-width: 1024px) {.lg\\:leading-\\[128px\\] {line-height: 54px; font-size: 64px; margin-top: -10px }}"
+        "@media (min-width: 1024px) {.lg\\:leading-\\[128px\\] {line-height: 54px; font-size: 64px; margin-top: -10px; }.w-full.h-auto.flex.items-center.justify-center.left-0.-bottom-\\[10px\\].right-0.absolute.z-20 {bottom: 0;}}"
       ],
       "settings": {}
     },
