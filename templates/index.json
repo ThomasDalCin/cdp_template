@@ -41,6 +41,9 @@
     },
     "gamma-section-new": {
       "type": "gamma-section",
+      "custom_css": [
+        "@media (min-width: 1024px) {.lg\\:leading-\\[128px\\] {line-height: 54px; font-size: 64px; margin-top: -10px }}"
+      ],
       "settings": {}
     },
     "oriz-scroll-text-home": {
