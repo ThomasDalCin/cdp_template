@@ -12,14 +12,10 @@
     "our-values": {
       "type": "ourvalues-top",
       "settings": {
-        "section_heading": "More than 50 years of experience",
-        "section_text": "Italian craftmanship at its finest.",
-        "section_image": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_003.jpg"
+        "section_heading": "Shaping together your sea story",
+        "section_text": "d",
+        "section_image": "shopify://shop_images/article_14.jpg"
       }
-    },
-    "infinity-banner": {
-      "type": "infinity-banner",
-      "settings": {}
     },
     "box-image": {
       "type": "box-image",
@@ -69,6 +65,10 @@
         "box_hQd44N",
         "box_rhMLwn"
       ],
+      "settings": {}
+    },
+    "infinity-banner": {
+      "type": "infinity-banner",
       "settings": {}
     },
     "pardo-box": {
