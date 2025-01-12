@@ -39,9 +39,7 @@
         "cta_brochure": "Full exterior gallery",
         "interior_text_title": "Interiors",
         "cta_brochure_interior": "Full interior gallery",
-        "cta_content_text": "Read more",
-        "interior_content_text": "Lorem Ipsum dolor sit",
-        "exterior_content_text": "Lorem Ipsum dolor sit"
+        "cta_content_text": "Read more"
       }
     },
     "top-view-pdp": {
@@ -68,7 +66,7 @@
       "type": "find-delear",
       "settings": {
         "section_title": "Time to find a dealer",
-        "section_image": "shopify://shop_images/pardoyacht_instagram.jpg",
+        "section_image": "shopify://shop_images/Pardo-Yachts-Ownership-Hero-1.jpg",
         "section_text": "Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
         "cta_text": "Find a dealer"
       }
