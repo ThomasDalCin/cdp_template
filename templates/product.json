@@ -64,9 +64,7 @@
     },
     "find-delear": {
       "type": "find-delear",
-      "custom_css": [
-        "@media (min-width: 1024px) {.lg\\:min-h-\\[460px\\] {min-height: 680px; }}"
-      ],
+      "custom_css": [],
       "settings": {
         "section_title": "Time to find a dealer",
         "section_image": "shopify://shop_images/Pardo-Yachts-News-Wise.jpg",
