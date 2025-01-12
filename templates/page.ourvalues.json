@@ -78,12 +78,12 @@
       "type": "pardo-box",
       "settings": {
         "box_title": "Cantiere del Pardo",
-        "box_text": "-",
+        "box_text": "Scopri l'essenza del lusso Made in Italy.\nEsplora il mondo di Cantiere del Pardo, dove design, innovazione e artigianalità si incontrano per creare imbarcazioni straordinarie.",
         "cta_text": "Discover more",
-        "cta_link": "",
+        "cta_link": "https://cantieredelpardo.com/",
         "section_heading_etic": "Codice etico",
         "section_subheading_etic": "Progettare il lusso con un approccio ecologico",
-        "section_content_etic": "Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+        "section_content_etic": "50 anni di esperienza e capacità di innovare sono alla base della produzione di yacht che continuano a navigare in tutto il mondo rispettando l’ecosistema marino, senza rinunciare all’eleganza e al design.",
         "cta_text_etic": "Scarica il codice etico",
         "cta_link_etic": ""
       }
