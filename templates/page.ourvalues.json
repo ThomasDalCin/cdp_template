@@ -11,9 +11,12 @@
   "sections": {
     "our-values": {
       "type": "ourvalues-top",
+      "custom_css": [
+        ".w-full.h-\\[480px\\].min-h-\\[480px\\].rounded-2xl.relative {display: none;}"
+      ],
       "settings": {
         "section_heading": "Shaping together your sea story",
-        "section_text": "d",
+        "section_text": "",
         "section_image": "shopify://shop_images/article_14.jpg"
       }
     },
