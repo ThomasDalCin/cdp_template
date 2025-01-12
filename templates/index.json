@@ -63,9 +63,9 @@
         "secondary_heading": "PARDO YACHTS",
         "primary_heading": "Shaped by the Sea",
         "explore_image_one": "shopify://shop_images/PY_HOME002.jpg",
-        "explore_image_two": "shopify://shop_images/PY_HOME001.jpg",
+        "explore_image_two": "shopify://shop_images/history-desktop.jpg",
         "explore_image_three": "shopify://shop_images/PY_HOME003.jpg",
-        "explore_image_four": "shopify://shop_images/PY_HOME004.jpg"
+        "explore_image_four": "shopify://shop_images/Pardo-Yachts-Shows-and-Events_Cannes-Yachting-Festival-thumb.jpg"
       }
     },
     "articles-list": {
@@ -79,10 +79,10 @@
     "oriz-scroll-image-home": {
       "type": "oriz-scroll-image-home",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_002_vd.jpg",
+        "oriz_image_one": "shopify://shop_images/Pardo-Yachts-Our-Values-A-different-story.jpg",
         "oriz_image_two": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_001_vd.jpg",
-        "oriz_image_three": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_004_vd.jpg",
-        "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_003_vd.jpg"
+        "oriz_image_three": "shopify://shop_images/Pardo-Yachts-Brokerage-1.jpg",
+        "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_002.jpg"
       }
     },
     "collab-section": {
