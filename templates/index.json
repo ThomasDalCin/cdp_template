@@ -114,6 +114,9 @@
         "collab_card_nw9qf8",
         "collab_card_9TkDVh"
       ],
+      "custom_css": [
+        "a.w-full {background-position: center center;}"
+      ],
       "settings": {
         "collab_custom_collab_heading": "Find us on Instagram",
         "collab_custom_collab_cta_text": "",
