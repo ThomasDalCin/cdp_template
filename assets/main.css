@@ -4094,6 +4094,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[324px\] {
+    height: 324px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
