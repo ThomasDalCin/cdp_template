@@ -269,10 +269,10 @@
         external_images_text_titles[external_images_text_title[forloop.index0]] %}
 
         {% if externalImageDesktop %}
-        <!-- container for external section image -->
+        <!-- container for external section image desktop -->
         <div
           class="hidden h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
-          <img class="w-full h-[620px] object-cover object-center" src="{{ externalImageDesktop | img_url: 'master' }}"
+          <img class="w-full h-[620px] object-cover object-center cursor-pointer" src="{{ externalImageDesktop | img_url: 'master' }}"
             id="externalImageDesktop_{{ forloop.index }}" alt="{{ externalImageDesktop.alt }}">
 
           <!-- external text under images -->
@@ -435,7 +435,7 @@
       {% if internalImageDesktop %}
       <!-- container for internal section image (desktop view) -->
       <div class="hidden lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
-        <img class="w-full h-[620px] object-cover object-center" src="{{ internalImageDesktop | img_url: 'master' }}"
+        <img class="w-full h-[620px] object-cover object-center cursor-pointer" src="{{ internalImageDesktop | img_url: 'master' }}"
           id="internalImageDesktop_{{ forloop.index }}" alt="{{ internalImageDesktop.alt }}">
 
         <!-- internal text under images -->
