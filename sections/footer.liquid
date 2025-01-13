@@ -93,7 +93,7 @@
               class="discover-links-container flex flex-col gap-y-4 py-4 items-start justify-center w-full h-auto lg:flex-row lg:items-center lg:justify-start lg:flex-wrap lg:gap-x-10 lg:gap-y-6">
               <div class="w-full h-auto flex flex-wrap items-center gap-x-8 gap-y-4 justify-start lg:gap-x-10">
                 {% for link in linklists.main-menu.links %}
-                {% if link.title != "Privacy preferences" and link.title != "Privacy policy" and link.title != "Work
+                {% if link.title != "Impostazioni Cookie" and link.title != "Privacy" and link.title != "Work
                 with us" and link.title != "Press room" %}
                 <li class="list-none w-[calc(50%_-_1.5rem)] lg:w-auto">
                   <a class="text-white text-[20px] leading-[26px] tt-norms-pro-reg block text-left"
@@ -107,7 +107,7 @@
               <div
                 class="w-full h-auto flex flex-col items-start justify-center gap-y-2 lg:flex-row lg:items-center lg:justify-start lg:gap-x-10">
                 {% for link in linklists.main-menu.links %}
-                {% if link.title == "Privacy preferences" or link.title == "Privacy policy" %}
+                {% if link.title == "Impostazioni Cookie" or link.title == "Privacy" %}
                 <li class="list-none">
                   <a class="text-white text-[14px] leading-[20px] tt-norms-pro-light text-center block underline lg:no-underline"
                     href="{{ link.url }}">

@@ -1232,6 +1232,14 @@ p,
   top: 576px;
 }
 
+.top-\[336px\] {
+  top: 336px;
+}
+
+.top-\[316px\] {
+  top: 316px;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -3890,6 +3898,10 @@ html {
 
   .lg\:top-\[calc\(820px_\+_1rem\)\] {
     top: calc(820px + 1rem);
+  }
+
+  .lg\:top-\[576px\] {
+    top: 576px;
   }
 
   .lg\:z-10 {

@@ -272,7 +272,7 @@
         <!-- container for external section image desktop -->
         <div
           class="hidden h-auto relative transition-all duration-200 ease-linear lg:w-[1024px] lg:min-w-[1024px] snap-start lg:flex flex-col items-start justify-center">
-          <img class="w-full h-[620px] object-cover object-center cursor-pointer" src="{{ externalImageDesktop | img_url: 'master' }}"
+          <img class="w-full h-[620px] object-cover object-center cur" src="{{ externalImageDesktop | img_url: 'master' }}"
             id="externalImageDesktop_{{ forloop.index }}" alt="{{ externalImageDesktop.alt }}">
 
           <!-- external text under images -->
@@ -302,7 +302,7 @@
 
 
       <!-- handle counter images during scroll -->
-      <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+      <div class="w-auto h-auto absolute left-4 top-[316px] lg:top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
         <p class="text-[12px] leading-[18px] text-white counter-items">(01/{{ total_images | prepend: '0' }})</p>
       </div>
 
@@ -466,7 +466,7 @@
 
 
     <!-- handle counter images during scroll -->
-    <div class="w-auto h-auto absolute left-4 top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
+    <div class="w-auto h-auto absolute left-4 top-[316px] lg:top-[576px] rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg p-1">
       <p class="text-[12px] leading-[18px] text-white counter-items-internal">(01/{{ total_images_internal | prepend:
         '0' }})</p>
     </div>
@@ -644,7 +644,7 @@
           }
         });
 
-        counterText.innerHTML = `(0${closestImageIndex + 1}/0${images.length})`;
+        counterText.innerHTML = `(${closestImageIndex + 1}/${images.length})`;
       };
 
       updateCounter(); // Initial update
