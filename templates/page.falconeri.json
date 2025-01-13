@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "collab-top-page": {
@@ -11,47 +19,19 @@
         "box_CDtHXj": {
           "type": "box",
           "settings": {
-            "box_image": "shopify://shop_images/b3ceb364d46f0ca266c95b619d2dec6f.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "box_image": "shopify://shop_images/py_falconeri_hp_desktop__-scaled.jpg",
+            "box_heading": "",
+            "box_text": "",
             "large_image": true,
             "large_heading": false,
             "show_large_heading": false,
             "show_cta": false,
             "cta_text": "Click here"
           }
-        },
-        "box_pntJ47": {
-          "type": "box",
-          "settings": {
-            "box_image": "shopify://shop_images/e72db9f9fb169795c65de58b7b22fced.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-            "large_image": false,
-            "large_heading": false,
-            "show_large_heading": false,
-            "show_cta": false,
-            "cta_text": "Click here"
-          }
-        },
-        "box_zaq7WM": {
-          "type": "box",
-          "settings": {
-            "box_image": "shopify://shop_images/207afceb8eda7f1d3534e759537f1443.jpg",
-            "box_heading": "Default heading",
-            "box_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-            "large_image": false,
-            "large_heading": false,
-            "show_large_heading": false,
-            "show_cta": true,
-            "cta_text": "Click here"
-          }
         }
       },
       "block_order": [
-        "box_CDtHXj",
-        "box_pntJ47",
-        "box_zaq7WM"
+        "box_CDtHXj"
       ],
       "settings": {}
     }

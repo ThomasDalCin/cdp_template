@@ -16,20 +16,20 @@
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/417690b130674746b32f398fd65a2644.mp4",
+        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/128fa753b62d4c8a99776102de3bc669.mp4",
         "swiper_image_1_desktop": "shopify://shop_images/PY_HOME001.jpg",
         "swiper_image_2_desktop": "shopify://shop_images/PY_HOME002.jpg",
         "swiper_image_3_desktop": "shopify://shop_images/PY_HOME003.jpg",
         "enable_cta_1_desktop": true,
-        "cta_text_1_desktop": "Discover E600",
+        "cta_text_1_desktop": "Discover E60",
         "cta_url_1_desktop": "https://www.pardoyachts.com/it/",
-        "swiper_video_mobile": "https://cdn.shopify.com/videos/c/o/v/903cc1960cfb485a985edad54605e954.mp4",
+        "swiper_video_mobile": "https://cdn.shopify.com/videos/c/o/v/fa03bee9d8314aaa9839074ece7ecab5.mp4",
         "swiper_image_1_mobile": "shopify://shop_images/PY_HOME004.jpg",
         "swiper_image_2_mobile": "shopify://shop_images/PY_HOME005.jpg",
         "swiper_image_3_mobile": "shopify://shop_images/PY_HOME003.jpg",
         "enable_cta_1_mobile": true,
-        "cta_text_1_mobile": "Discover E600",
-        "cta_url_1_mobile": "https://www.pardoyachts.com/it/"
+        "cta_text_1_mobile": "Discover E62",
+        "cta_url_1_mobile": "https://cdn.shopify.com/videos/c/o/v/ccd43bcd9e154e7289a2d1eb3800f35d.mp4"
       }
     },
     "home-text": {
@@ -41,13 +41,14 @@
     },
     "gamma-section-new": {
       "type": "gamma-section",
+      "custom_css": [],
       "settings": {}
     },
     "oriz-scroll-text-home": {
       "type": "oriz-scroll-text-home",
       "settings": {
-        "main_title": "Discover the space.",
-        "paragraph_text": "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. \n\nPraesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna."
+        "main_title": "Discover E72, the lasting pleasure of long cruise",
+        "paragraph_text": "Per chi desidera amplificare le emozioni da vivere in mare, l’Endurance 72 porta a una dimensione superiore gli elementi iconici del brand Pardo Yachts, sempre inconfondibile per la sua prua inversa e le linee filanti. \n\nConcepito per navigare a lungo, in modalità sia dislocante che planante, l’E72 si distingue per il perfetto equilibrio tra grandi volumi, efficienza, silenziosità e bassi consumi, grazie anche all’innovativo parametro eco-speed."
       }
     },
     "home-video": {
@@ -60,12 +61,12 @@
     "explore-section": {
       "type": "explore",
       "settings": {
-        "secondary_heading": "Shaped by the Sea",
-        "primary_heading": "",
+        "secondary_heading": "PARDO YACHTS",
+        "primary_heading": "Shaped by the Sea",
         "explore_image_one": "shopify://shop_images/PY_HOME002.jpg",
-        "explore_image_two": "shopify://shop_images/PY_HOME001.jpg",
+        "explore_image_two": "shopify://shop_images/history-desktop.jpg",
         "explore_image_three": "shopify://shop_images/PY_HOME003.jpg",
-        "explore_image_four": "shopify://shop_images/PY_HOME004.jpg"
+        "explore_image_four": "shopify://shop_images/Pardo-Yachts-Shows-and-Events_Cannes-Yachting-Festival-thumb.jpg"
       }
     },
     "articles-list": {
@@ -79,10 +80,10 @@
     "oriz-scroll-image-home": {
       "type": "oriz-scroll-image-home",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_002_vd.jpg",
+        "oriz_image_one": "shopify://shop_images/Pardo-Yachts-Our-Values-A-different-story.jpg",
         "oriz_image_two": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_001_vd.jpg",
-        "oriz_image_three": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_004_vd.jpg",
-        "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_P43_exterior_desktop_003_vd.jpg"
+        "oriz_image_three": "shopify://shop_images/Pardo-Yachts-Brokerage-1.jpg",
+        "oriz_image_four": "shopify://shop_images/PardoYacht_PardoModel_E72_interior_mobile_002.jpg"
       }
     },
     "collab-section": {
@@ -113,11 +114,14 @@
         "collab_card_nw9qf8",
         "collab_card_9TkDVh"
       ],
+      "custom_css": [
+        "a.w-full {background-position: center center;}"
+      ],
       "settings": {
         "collab_custom_collab_heading": "Find us on Instagram",
         "collab_custom_collab_cta_text": "",
         "collab_custom_collab_cta_text_url": "https://www.instagram.com/",
-        "collab_custom_collab_image": "shopify://shop_images/pardoyacht_instagram.jpg"
+        "collab_custom_collab_image": "shopify://shop_images/PardoYacht_p38_hero_desktop_004.jpg"
       }
     }
   },

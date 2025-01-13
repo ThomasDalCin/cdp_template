@@ -13,20 +13,20 @@
       "type": "top-view-collection",
       "settings": {}
     },
-    "oriz-scroll-text": {
-      "type": "oriz-scroll-text",
-      "settings": {}
-    },
     "emotional-text": {
       "type": "emotional-text",
       "settings": {}
     },
-    "collection-oriz-scroll": {
-      "type": "collection-oriz-scroll",
+    "oriz-scroll-text": {
+      "type": "oriz-scroll-text",
       "settings": {}
     },
     "articles-list": {
       "type": "articles-list",
+      "settings": {}
+    },
+    "collection-oriz-scroll": {
+      "type": "collection-oriz-scroll",
       "settings": {}
     },
     "find-delear": {
@@ -42,9 +42,9 @@
   "order": [
     "top-view-collection",
     "emotional-text",
-    "collection-oriz-scroll",
     "oriz-scroll-text",
     "articles-list",
+    "collection-oriz-scroll",
     "find-delear"
   ]
 }
