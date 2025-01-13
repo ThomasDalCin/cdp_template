@@ -1,9 +1,5 @@
 {
   "sections": {
-    "page-title": {
-      "type": "page-title",
-      "settings": {}
-    },
     "pardo-care": {
       "type": "pardo-care",
       "blocks": {
@@ -108,7 +104,6 @@
     }
   },
   "order": [
-    "page-title",
     "pardo-care",
     "pardo-care-service"
   ]

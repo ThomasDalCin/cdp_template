@@ -124,22 +124,72 @@
 
 
 
-      <!--language container-->
-      <div
-        class="w-full h-auto flex flex-col items-start justify-center py-6">
-        <div class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1">
+      <div class="w-full h-auto flex flex-col items-start justify-center py-6">
+        <div
+          class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1 cursor-pointer select-language"
+          aria-label="Seleziona lingua" data-locale-code="{{ request.locale.iso_code }}">
           <p class="body-16 tt-norms-pro-med">{{ section.settings.language_text | default: "Language" | upcase }}</p>
-          {% render 'gb-icon' %}
+
+          <!-- Language Icon -->
+          <div class="w-auto h-auto hidden" id="gb-icon" data-locale-code="en">
+            {% render 'gb-icon' %}
+          </div>
+          <div class="w-auto h-auto hidden" id="it-icon" data-locale-code="it">
+            {% render 'it-icon' %}
+          </div>
         </div>
       </div>
+
+      <div class="hidden w-full h-full fixed inset-0 backdrop-blur-lg z-[100] container-form">
+        <div
+          class="w-full h-auto absolute right-0 left-0 bottom-0 px-6 pb-6 pt-9 flex flex-col items-center justify-center bg-white rounded-t-[32px] gap-y-6 transition-all duration-150 ease-in content-form translate-y-[1000px]">
+
+          <!-- Pulsante per chiudere -->
+          <div class="icon-content cursor-pointer close-form absolute right-6 top-6 close-locale-form"
+            aria-label="Chiudi">
+            {% render 'x-icon' %}
+          </div>
+
+          <!-- Titolo -->
+          <p class="text-[14px] leading-[20px]">{{ section.settings.change_language_text | default: "Cambia lingua" }}
+          </p>
+
+          <!-- Modulo per selezionare la lingua -->
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-8">
+            {% form 'localization', id: 'localization_form_tag', class: "w-full h-auto" %}
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+              {% for locale in shop.published_locales %}
+              <button type="button" data-locale-code="{{ locale.iso_code }}"
+                class="localeCode w-full h-auto px-4 py-3 flex items-center justify-center text-[14px] leading-[20px] bg-[#F7F7F7] border border-transparent rounded-xl focus:border-black">
+                {% case locale.endonym_name %}
+                {% when "Italiano" %} Italiano
+                {% when "English" %} Inglese
+                {% else %}{{ locale.endonym_name }}
+                {% endcase %}
+              </button>
+              {% endfor %}
+            </div>
+            <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode" />
+            {% endform %}
+          </div>
+
+          <div class="w-full h-auto">
+            <button type="button"
+              class="w-full h-auto flex items-center justify-center rounded-xl bg-[#423C3B] text-white py-3 submit-locale">
+              {{ section.settings.cta_language_text | default: "Conferma selezione" }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+
 
 
     </div>
 
 
     <!-- gamma list containers -->
-    <div
-      class="w-full h-auto flex items-center justify-start flex-col pb-12 lg:pb-0 lg:w-[calc(50%_-_1.5rem)] lg:px-6">
+    <div class="w-full h-auto flex items-center justify-start flex-col pb-12 lg:pb-0 lg:w-[calc(50%_-_1.5rem)] lg:px-6">
       <div class="w-full h-auto flex items-center justify-start py-4">
         <p class="text-[32px] leading-[38px] tt-norms-pro-med text-white">{{ section.settings.gamma_title |
           default:"Pardo's gamma" }}</p>
@@ -234,54 +284,133 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
-  const userTag = document.getElementById('user-tag');
+  document.addEventListener('DOMContentLoaded', function () {
+    const radioButtons = document.querySelectorAll('input[name="contact[role]"]');
+    const userTag = document.getElementById('user-tag');
 
-  radioButtons.forEach(function (radio) {
-    radio.addEventListener('change', function () {
-      if (this.checked) {
-        userTag.value = `newsletter,${this.value}`;
+    radioButtons.forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        if (this.checked) {
+          userTag.value = `newsletter,${this.value}`;
+        }
+      });
+    });
+
+    const languageSelector = document.querySelector('.select-language');
+    const currentLocaleCode = languageSelector.getAttribute('data-locale-code');
+    handleFlag(currentLocaleCode);
+
+    function setLocaleCode(selectedLocaleCode) {
+      const localeCodeInput = document.getElementById('localeCode');
+      if (localeCodeInput) {
+        localeCodeInput.value = selectedLocaleCode;
+        handleFlag(selectedLocaleCode);
+      }
+    }
+
+    function handleFlag(value) {
+      const itIcon = document.getElementById('it-icon');
+      const gbIcon = document.getElementById('gb-icon');
+
+      itIcon.classList.add('hidden');
+      gbIcon.classList.add('hidden');
+
+      if (value === "it") {
+        itIcon.classList.remove('hidden');
+      } else if (value === "en") {
+        gbIcon.classList.remove('hidden');
+      }
+    }
+
+
+
+    function showLocaleForm() {
+      containerLocaleForm.classList.remove('hidden');
+      containerLocaleForm.classList.add('fixed');
+      contentLocaleForm.classList.remove('translate-y-[1000px]');
+    }
+
+    function hideLocaleForm() {
+      containerLocaleForm.classList.add('hidden');
+      containerLocaleForm.classList.remove('fixed');
+      contentLocaleForm.classList.add('translate-y-[1000px]');
+    }
+
+    const containerLocaleForm = document.querySelector('.container-form');
+    const contentLocaleForm = document.querySelector('.content-form');
+    const closeLocaleFormIcon = document.querySelector('.close-locale-form');
+    const localeButtons = document.querySelectorAll('.localeCode');
+    const submitButton = document.querySelector('.submit-locale');
+    const languageButton = document.querySelector('.select-language');
+
+    let selectedLocaleCode = null;
+
+
+    localeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedLocaleCode = button.getAttribute('data-locale-code');
+        setLocaleCode(selectedLocaleCode);
+      });
+    });
+
+    submitButton.addEventListener('click', () => {
+      const form = document.getElementById('localization_form_tag');
+      if (form && selectedLocaleCode) {
+        form.submit();
+        setTimeout(hideLocaleForm, 200);
+      } else {
+        alert('Seleziona una lingua prima di confermare.');
       }
     });
-  });
 
-  // Handle dropdown
-  const dropdownContents = document.querySelectorAll('.dropdown-content-gamma');
-  const dropIcons = document.querySelectorAll('.dropdown-icon');
+    languageButton.addEventListener('click', () => {
+      showLocaleForm();
+    });
 
-  // Initialize all dropdowns as closed
-  dropdownContents.forEach((content) => {
-    content.style.height = '0';
-    content.style.opacity = '0';
-  });
+    closeLocaleFormIcon.addEventListener('click', () => {
+      hideLocaleForm();
+    });
 
-  dropIcons.forEach((icon, index) => {
-    icon.addEventListener('click', function () {
-      dropdownContents.forEach((content, i) => {
-        const isActive = i === index; // Check if the current dropdown is being clicked
 
-        if (isActive) {
-          // Toggle the clicked dropdown
-          if (content.style.height === '0px' || content.style.height === '0') {
-            content.style.height = `${content.scrollHeight}px`;
-            content.style.opacity = '1';
-            dropIcons[i].classList.add('rotate-90');
+
+
+
+    // Handle dropdown
+    const dropdownContents = document.querySelectorAll('.dropdown-content-gamma');
+    const dropIcons = document.querySelectorAll('.dropdown-icon');
+
+    // Initialize all dropdowns as closed
+    dropdownContents.forEach((content) => {
+      content.style.height = '0';
+      content.style.opacity = '0';
+    });
+
+    dropIcons.forEach((icon, index) => {
+      icon.addEventListener('click', function () {
+        dropdownContents.forEach((content, i) => {
+          const isActive = i === index; // Check if the current dropdown is being clicked
+
+          if (isActive) {
+            // Toggle the clicked dropdown
+            if (content.style.height === '0px' || content.style.height === '0') {
+              content.style.height = `${content.scrollHeight}px`;
+              content.style.opacity = '1';
+              dropIcons[i].classList.add('rotate-90');
+            } else {
+              content.style.height = '0';
+              content.style.opacity = '0';
+              dropIcons[i].classList.remove('rotate-90');
+            }
           } else {
+            // Close all other dropdowns
             content.style.height = '0';
             content.style.opacity = '0';
             dropIcons[i].classList.remove('rotate-90');
           }
-        } else {
-          // Close all other dropdowns
-          content.style.height = '0';
-          content.style.opacity = '0';
-          dropIcons[i].classList.remove('rotate-90');
-        }
+        });
       });
     });
   });
-});
 
 </script>
 
