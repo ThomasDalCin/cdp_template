@@ -18,7 +18,7 @@
             {% if media.media_type == 'video' %}
             <div class="swiper-slide relative h-svh swiper-slide-video">
                 {{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: "swiper-video
-                w-full h-full object-cover" }}
+                w-full h-full object-cover", alt: media.alt }}
 
                 <!--controls video-->
                 <div class="w-auto h-auto hidden lg:absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 container-play-pause-icon z-10 p-4 lg:flex items-center justify-center rounded-full bg-[rgba(0,0,0,0.20)] backdrop-blur-lg cursor-pointer"
@@ -150,7 +150,7 @@
                 {% if media.media_type == 'video' %}
                 <div class="swiper-slide relative">
                     {{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: "swiper-video
-                    w-full h-full object-cover" }}
+                    w-full h-full object-cover", alt: media.alt }}
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -255,9 +255,11 @@
 
         const isDesktop = window.innerWidth >= 1024;
         handleImagesByDevice(galleryPdpImages, isDesktop);
+        handleVideoByDevices(galleryPdpVideos, isDesktop);
         window.addEventListener('resize', () => {
             const isDesktop = window.innerWidth >= 1024;
             handleImagesByDevice(galleryPdpImages, isDesktop);
+            handleVideoByDevices(galleryPdpVideos, isDesktop);
         });
 
         function handleImagesByDevice(images, isDesktop) {
@@ -275,6 +277,25 @@
                         image.parentElement.style.display = 'block';
                     } else {
                         image.parentElement.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function handleVideoByDevices(videos, isDesktop){
+            videos.forEach((video) => {
+                const altVideo = video.getAttribute('alt');
+                if (isDesktop) {
+                    if (altVideo.includes('desktop')) {
+                        video.parentElement.style.display = 'block';
+                    } else {
+                        video.parentElement.style.display = 'none';
+                    }
+                } else {
+                    if (!altVideo.includes('desktop')) {
+                        video.parentElement.style.display = 'block';
+                    } else {
+                        video.parentElement.style.display = 'none';
                     }
                 }
             });
