@@ -68,10 +68,10 @@
         "@media (min-width: 1024px) {.lg\\:min-h-\\[460px\\] {min-height: 55vh; }}"
       ],
       "settings": {
-        "section_title": "Time to find a dealer",
+        "section_title": "È ora di trovare un rivenditore",
         "section_image": "shopify://shop_images/Pardo-Yachts-News-Wise.jpg",
         "section_text": "L’esperienza dei nostri esperti concessionari è insostituibile. Trova il rivenditore più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
-        "cta_text": "Find a dealer"
+        "cta_text": "Trova un rivenditore"
       }
     }
   },
