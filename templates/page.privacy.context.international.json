@@ -12,5 +12,16 @@
   "context": {
     "market": "international"
   },
-  "sections": {}
+  "sections": {
+    "privacy-dropdown-list": {
+      "settings": {},
+      "blocks": {
+        "accordion_FUthWE": {
+          "settings": {
+            "accordion_title": "Data Controller"
+          }
+        }
+      }
+    }
+  }
 }
