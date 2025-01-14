@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="w-full h-0 overflow-hidden transition-all duration-150 ease-linear accordion-content-inside" id="accordion-extra-{{ forloop.index0 }}">
-                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_extra_content | default: "Accordion Content" }}</p>
+                        <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_extra_content | default: "Accordion Content" |  newline_to_br }}</p>
                     </div>
                 </div>
                 {% endif %}
@@ -41,7 +41,7 @@
             </div>
             {% else %}
             <div class="w-full h-0 overflow-hidden transition-all duration-150 ease-linear accordion-content">
-                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_content | default: "Accordion Content" }}</p>
+                <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.accordion_content | default: "Accordion Content" |  newline_to_br }}</p>
             </div>
             {% endif %}
         </div>
