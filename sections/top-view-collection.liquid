@@ -40,7 +40,7 @@
         {% assign firstImage = product.images[0] %}
         <a href="{{ product.url }}" class="product-cta" data-index="{{ forloop.index0 }}"
             style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
-            <div class="cta-transparent-round w-[113px] h-auto max-h-[36px] lg:hover:bg-white transition-all duration-150 ease-in">
+            <div class="cta-transparent-round w-auto min-w-[113px] h-auto max-h-[36px] lg:hover:bg-white transition-all duration-150 ease-in">
                 <p class="body-16 tt-norms-pro-med text-nowrap lg:text-[18px] lg:leading-[24px]">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
             </div>
         </a>

@@ -1381,6 +1381,10 @@ p,
   margin-top: 22px;
 }
 
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1984,6 +1988,10 @@ p,
 
 .min-w-\[74px\] {
   min-width: 74px;
+}
+
+.min-w-\[113px\] {
+  min-width: 113px;
 }
 
 .max-w-\[118px\] {
