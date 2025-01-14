@@ -1,24 +1,67 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "blog-tab": {
-      "type": "blog-tab",
-      "settings": {}
-    },
-    "blog-list": {
-      "type": "blog-list",
-      "settings": {}
-    },
-    "blog-events": {
-      "type": "blog-events",
-      "settings": {}
-    },
     "marketing-pop-up": {
       "type": "marketing-pop-up",
-      "settings": {}
+      "settings": {
+        "marketing_pop_up_title": "Consent to direct marketing",
+        "marketing_pop_up_content": "By selecting this box you give your consent to receive commercial communications and to participate in market research and activities to measure your level of satisfaction, regarding Pardo Yachts products and services, via e-mail and/or SMS, telephone and traditional paper mail. For this purpose we will use the personal and contact data that you have communicated to us (e.g. name, surname, address, e-mail, mobile number, etc.). The data collected will be stored until a request to withdraw consent is received from you. The Data Controller is Cantiere Del Pardo SpA. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy."
+      }
     },
     "profilation-pop-up": {
       "type": "profilation-pop-up",
-      "settings": {}
+      "settings": {
+        "profilation_pop_up_title": "Consent to direct profilation",
+        "profilation_pop_up_content": "By checking this box, we will send personalized (profiled) commercial communications. For this purpose, we will use the data relating to the «Pardo Yachts» boats that you have purchased or for which you have requested information, your country of origin, your personal data, your interactions with us through our website, through the Apps - which may be developed by us or by third parties - and through our social channels: we will thus send you personalized communications and we will be able to develop products and services consistent with the preferences of our customers. Furthermore, your profile may be enriched with information acquired lawfully from third parties and made available to Cantiere del Pardo. The data will be kept for 5 years from the date of collection. The Data Controller is Cantiere del Pardo Spa. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy."
+      }
+    },
+    "blog-tab": {
+      "type": "blog-tab",
+      "settings": {
+        "news_tab": "News",
+        "events_tab": "Events"
+      }
+    },
+    "blog-list": {
+      "type": "blog-list",
+      "custom_css": [
+        ".blog-item-horizontal-scroll-news {display: none;}"
+      ],
+      "settings": {
+        "article_cta_pressroom_download_text": "Download",
+        "article_cta_pressroom_text": "Read More",
+        "article_cta": "Read More",
+        "load_more_cta": "Load More"
+      }
+    },
+    "blog-events": {
+      "type": "blog-events",
+      "settings": {
+        "redirect_google_text": "Show on Google maps",
+        "redirect_calendar_text": "Open Google Calendar",
+        "redirect_google_calendar": "",
+        "load_more_cta_text": "",
+        "cta_appointment_text": "Book appointment",
+        "confirm_message": "Request sent",
+        "form_first_name": "Name",
+        "form_last_name": "Last Name",
+        "form_email": "Email*",
+        "form_content": "Message",
+        "marketing_consent_label": "",
+        "marketing_policy_text": "",
+        "profiling_consent_label": "",
+        "profilation_policy_text": "",
+        "cta_privacy_page_text": "",
+        "form_cta": "Send"
+      }
     }
   },
   "order": [
