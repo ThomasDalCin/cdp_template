@@ -10,7 +10,7 @@
           class="blog-events-container w-full h-auto flex-col gap-y-2 items-start justify-center hidden md:w-[calc(50%_-_0.5rem)] lg:w-[calc(33.3%_-_0.67rem)] event-item"
           data-index="{{ forloop.index0 }}"
           style="display: {% if forloop.index0 < max_articles %}flex{% else %}none{% endif %};">
-          <div class="events-container w-full h-auto min-h-[412px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
+          <div class="events-container w-full h-auto min-h-[412px] lg:h-[489.6px] rounded-2xl bg-[var(--secondary-background-color)] flex flex-col outline-none border border-transparent transition-all duration-150 lg:hover:border-black cursor-pointer">
             <!-- Event blog image content -->
             <div class="w-full h-[196px] max-h-[196px] rounded-2xl">
               <img
@@ -19,8 +19,8 @@
                 class="w-full h-full object-cover object-center rounded-t-2xl">
             </div>
              <!-- Event blog main content -->
-            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6">
-              <div class="events-details-primary w-full h-auto flex flex-col gap-y-6">
+            <div class="w-full h-auto lg:h-full flex flex-col items-start justify-center p-6 gap-y-6 lg:relative">
+              <div class="events-details-primary w-full h-auto flex flex-col gap-y-6 lg:h-full">
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
                   <p class="article-title text-[24px] leading-[24px] tt-norms-pro-med">{{ eventArticle.title }}</p>
                   {% assign articleDate = eventArticle.metafields.custom.range_date.value %}

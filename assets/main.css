@@ -1754,6 +1754,10 @@ p,
   min-height: 640px;
 }
 
+.min-h-\[489\.6px\] {
+  min-height: 489.6px;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -4001,6 +4005,10 @@ html {
     margin-top: ;
   }
 
+  .lg\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -4113,6 +4121,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[489\.6px\] {
+    height: 489.6px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -4175,6 +4187,10 @@ html {
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
+  }
+
+  .lg\:min-h-\[489\.6px\] {
+    min-height: 489.6px;
   }
 
   .lg\:w-1\/2 {
