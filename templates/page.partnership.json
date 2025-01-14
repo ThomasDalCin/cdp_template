@@ -47,7 +47,9 @@
     },
     "past-parntership-filmstrip": {
       "type": "past-parntership-filmstrip",
-      "custom_css": [],
+      "custom_css": [
+        ".w-full.h-auto.flex.items-start {display: none;}"
+      ],
       "settings": {
         "cta_text": "Discover more",
         "main_title": "Previous Partnerships"
