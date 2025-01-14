@@ -53,38 +53,38 @@
 
 
 {% if page.title %}
-    <div class="page-title-container w-full h-auto flex items-center justify-start relative py-3 mt-[138px] px-4 lg:px-12">
-        <div class="container-back-arrow">
-            <a href="javascript:history.back()">
-                {% render 'arrow-back-black' %}
-            </a>
-        </div>
-        <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-16 tt-norms-pro-med">{{ page.title }}</h1>
-        </div>
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-3 mt-[138px] px-4 lg:px-12">
+    <div class="container-back-arrow">
+        <a href="javascript:history.back()">
+            {% render 'arrow-back-black' %}
+        </a>
     </div>
-    {% elsif collection.title %}
-    <div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
-        <div class="container-back-arrow">
-            <a href="javascript:history.back()">
-                {% render 'arrow-back-black' %}
-            </a>
-        </div>
-        <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-16 tt-norms-pro-med">{{ collection.title }}</h1>
-        </div>
+    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 class="body-16 tt-norms-pro-med">{{ page.title }}</h1>
     </div>
-    {% elsif blog.title %}
-    <div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
-        <div class="container-back-arrow">
-            <a href="javascript:history.back()">
-                {% render 'arrow-back-black' %}
-            </a>
-        </div>
-        <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-16 tt-norms-pro-med">Events & News</h1>
-        </div>
+</div>
+{% elsif collection.title %}
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
+    <div class="container-back-arrow">
+        <a href="javascript:history.back()">
+            {% render 'arrow-back-black' %}
+        </a>
     </div>
+    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 class="body-16 tt-norms-pro-med">{{ collection.title }}</h1>
+    </div>
+</div>
+{% elsif blog.title %}
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
+    <div class="container-back-arrow">
+        <a href="javascript:history.back()">
+            {% render 'arrow-back-black' %}
+        </a>
+    </div>
+    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 class="body-16 tt-norms-pro-med">Events & News</h1>
+    </div>
+</div>
 {% endif %}
 
 <!-- Yatch Menu Container -->
@@ -104,7 +104,8 @@
                 <div class="relative inline-block">
                     {% if allLinksTitle contains link.title %}
                     {% if link.title == 'GT' %}
-                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
+                    tt-norms-pro-light
                     lg:text-[64px] lg:leading-[70px]" }}
                     {% elsif link.title == 'View all models' %}
                     {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
@@ -283,13 +284,18 @@
             <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-6">
                 {% for link in linklists.main-menu.links %}
                 {% if link.title == 'Press room' or link.title == 'Work with us' %}
-                {{ link.title | link_to: link.url, class: "text-white tt-norms-pro-extra-light text-[16px]
+                {% assign base_classes = "text-white tt-norms-pro-extra-light text-[16px]
                 leading-[22px] hover:font-['TT-Norms-Pro-Regular']
                 lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]
-                underline-offset-[2px]"}}
+                underline-offset-[2px]" %}
+                {% if link.title == "Press room" %}
+                {% assign base_classes = base_classes | append: " press-room-link" %}
+                {% endif %}
+                {{ link.title | link_to: link.url, class: base_classes }}
                 {% endif %}
                 {% endfor %}
             </div>
+
 
             <!--find delear button-->
             <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
@@ -743,7 +749,7 @@
             const clickHandler = (e) => {
                 const targetLinks = ["Walkaround", "Endurance", "GT"]
                 const isTarget = targetLinks.some(link => e.target.innerHTML.includes(link));
-                if (!element.contains(e.target) && !isTarget ) {
+                if (!element.contains(e.target) && !isTarget) {
                     isGammaActive = false;
                     content.classList.remove('flex');
                     content.classList.add('hidden');
@@ -1115,6 +1121,25 @@
 
         // Aggiungi i breadcrumbs al DOM con il separatore ">"
         breadcrumbsContainer.innerHTML = breadcrumbs.join('<span> > </span>');
+
+
+        //handle click on press room
+        const pressRoomLink = document.querySelector('.press-room-link');
+        pressRoomLink.addEventListener('click', handlePressRoomLink)
+        handlePressRoomLink();
+
+        function handlePressRoomLink(event) {
+            event.preventDefault();
+
+            let url = new URL(pressRoomLink.href);
+            let params = new URLSearchParams(url.search);
+
+            params.set("press-room", "active");
+            url.search = params.toString();
+
+            window.location.href = url.toString();
+        }
+
 
 
     });

@@ -4,7 +4,7 @@
   <div
     class="tab-blog-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer active md:w-[170px] md:flex-none lg:flex-none lg:w-[170px]"
     id="events-tab">
-    <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.events_tab |  default: "Events" }}</p>
+    <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.events_tab | default: "Events" }}</p>
     <div
       class="tab-events-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out flex">
     </div>
@@ -12,7 +12,7 @@
   <div
     class="tab-content flex-1 h-auto flex items-center justify-center relative p-2 cursor-pointer md:w-[170px]  md:flex-none lg:flex-none lg:w-[170px]"
     id="news-tab">
-    <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.news_tab |  default: "News" }}</p>
+    <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.news_tab | default: "News" }}</p>
     <div
       class="tab-news-rect absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 w-[16px] h-[1px] bg-black transition-transform duration-300 ease-in-out hidden">
     </div>
@@ -40,7 +40,8 @@
   <div
     class="chips-label flex items-center space-x-2 flex-1 {% if tag == 'News' %} chips-blog-active{% endif %} cursor-pointer  md:flex-none lg:flex-none"
     data-tag="{{ tag }}">
-    <div class="chips-text text-nowrap body-16 lg:text-[18px] lg:leading-[24px] flex flex-row gap-x-2 items-center justify-start">
+    <div
+      class="chips-text text-nowrap body-16 lg:text-[18px] lg:leading-[24px] flex flex-row gap-x-2 items-center justify-start">
       <p class="body-16 lg:text-[18px] lg:leading-[24px] chip-text-content tt-norms-pro-med">{{ tag }}</p>
       {% render 'arrow-down-icon' %}
     </div>
@@ -153,7 +154,7 @@
         newsContent.classList.remove('hidden'); // Mostra solo News Content
         newsContent.classList.add('flex');
 
-        
+
         const prevArrow = document.getElementById('prev-news-Arrow');
         const nextArrow = document.getElementById('next-news-Arrow');
         const scrollContainer = document.querySelector('.blog-item-horizontal-scroll-news');
@@ -286,6 +287,22 @@
       newsContent.classList.add('hidden');
       newsContent.classList.remove('flex');
     }
+
+    //handle news tab arriving by press room active
+    function handleLocationHref() {
+      let url = new URL(window.location.href);
+      let params = new URLSearchParams(url.search);
+
+      if (!params.has("press-room")) {
+        return
+      }
+
+      activateNewsTab();
+      handleChipClick("Press Room"); 
+    }
+
+    handleLocationHref();
+
   });
 </script>
 
