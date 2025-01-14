@@ -60,6 +60,7 @@
     },
     "explore-section": {
       "type": "explore",
+      "disabled": true,
       "settings": {
         "secondary_heading": "DISCOVER",
         "primary_heading": "THE ICONS OF THE SEA",
