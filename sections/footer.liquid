@@ -195,7 +195,7 @@
           default:"Pardo's gamma" }}</p>
       </div>
       <div class="w-full h-auto flex items-start justify-center flex-col">
-        {% assign collectionOrder = 'walkaround,endurance,grand-touring' | split: ',' %}
+        {% assign collectionOrder = 'walkaround,endurance,gt' | split: ',' %}
         {% for collectionHandle in collectionOrder %}
         {% assign collection = collections[collectionHandle] %}
         {% if collection %}
