@@ -19,8 +19,8 @@
         "accordion_FUthWE": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "TITOLARE DELTRATTAMENTO",
-            "accordion_content": "Il Titolare delTrattamento è Cantiere del Pardo S.p.A., con sede legale in Via F.lli Lumière34, Forlì (FC), e-mail data.protection@calzedonia.com.",
+            "accordion_title": "Titolare del trattamento",
+            "accordion_content": "Il Titolare delTrattamento è Cantiere del Pardo S.p.A., con sede legale in Via F.lli Lumière34, Forlì (FC), e-mail <u>data.protection@calzedonia.com</u>.",
             "extra_accordion_inside": false
           }
         },
@@ -36,7 +36,7 @@
           "type": "accordion-extra",
           "settings": {
             "accordion_extra_title": "Navigazionedel sito web",
-            "accordion_extra_content": "Finalità: consentire la navigazione web; \n\n\neffettuare analisi statistiche aggregatefinalizzate a misurare il corretto funzionamento di questo sito web e, in casodi reati informatici, accertare eventuali responsabilità.Categorie didati: indirizzi IP, nomi di dominio, URI.Basegiuridica: la necessità di fornire i servizi necessari per abilitare lanavigazione su questo sito e il nostro legittimo interesse a garantire ilcorretto funzionamento dei sistemi informatici e procedere all’accertamento direati informatici (anche sulla base dell’esistenza un obbligo di legge).Periodo diconservazione: 30 giorni, salvo diversa disposizione di legge o delleAutorità Pubbliche ai fini dell'accertamento di reati informatici."
+            "accordion_extra_content": "Finalità: consentire la navigazione web; \n\n\n<b>effettuare</b> analisi statistiche aggregatefinalizzate a misurare il corretto funzionamento di questo sito web e, in casodi reati informatici, accertare eventuali responsabilità.Categorie didati: indirizzi IP, nomi di dominio, URI.Basegiuridica: la necessità di fornire i servizi necessari per abilitare lanavigazione su questo sito e il nostro legittimo interesse a garantire ilcorretto funzionamento dei sistemi informatici e procedere all’accertamento direati informatici (anche sulla base dell’esistenza un obbligo di legge).Periodo diconservazione: 30 giorni, salvo diversa disposizione di legge o delleAutorità Pubbliche ai fini dell'accertamento di reati informatici."
           }
         },
         "accordion_extra_qNHrTi": {
