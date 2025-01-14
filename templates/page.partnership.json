@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "article-list": {
@@ -10,8 +19,8 @@
         "card_KaifqC": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/207afceb8eda7f1d3534e759537f1443.jpg",
-            "text": "Card description here.",
+            "image": "shopify://shop_images/fpardo-falconeri_gallery-01_desktop-1440x810.jpg",
+            "text": "Pardo x Falconeri",
             "cta_filmstrip_card_text_visible": true,
             "cta_filmstrip_card_text": "Buy now",
             "cta_filmstrip_card_url": ""
@@ -20,39 +29,17 @@
         "card_a7wybQ": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/5bf19131e64b745b7b93240edf87ffb8.jpg",
-            "text": "Card description here.",
+            "image": "shopify://shop_images/Pardo_Poldo-x-Pardo_slider-01_desktop-1440x810.jpg",
+            "text": "Poldo x Pardo",
             "cta_filmstrip_card_text_visible": true,
-            "cta_filmstrip_card_text": "Buy now",
-            "cta_filmstrip_card_url": ""
-          }
-        },
-        "card_xyyfxi": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/b3ceb364d46f0ca266c95b619d2dec6f.jpg",
-            "text": "Card description here.",
-            "cta_filmstrip_card_text_visible": true,
-            "cta_filmstrip_card_text": "Buy now",
-            "cta_filmstrip_card_url": ""
-          }
-        },
-        "card_idzFWL": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/e72db9f9fb169795c65de58b7b22fced.jpg",
-            "text": "Card description here.",
-            "cta_filmstrip_card_text_visible": true,
-            "cta_filmstrip_card_text": "Buy now",
-            "cta_filmstrip_card_url": ""
+            "cta_filmstrip_card_text": "Scopri",
+            "cta_filmstrip_card_url": "shopify://pages/pardo-yatch-x-poldo"
           }
         }
       },
       "block_order": [
         "card_KaifqC",
-        "card_a7wybQ",
-        "card_xyyfxi",
-        "card_idzFWL"
+        "card_a7wybQ"
       ],
       "settings": {
         "section_heading": "Collaborations"
@@ -60,6 +47,7 @@
     },
     "past-parntership-filmstrip": {
       "type": "past-parntership-filmstrip",
+      "custom_css": [],
       "settings": {
         "cta_text": "Discover more",
         "main_title": "Previous Partnerships"
