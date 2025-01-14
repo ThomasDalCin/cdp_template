@@ -94,7 +94,7 @@
 
     <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
         <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
-            {% assign allLinksTitle = "Walkaround,Endurance,Grand Touring,View all models" | split: ',' %}
+            {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models" | split: ',' %}
             {% for link in linklists.yatch.links %}
             {% assign matching_collection = collections[link.object.handle] %}
             {% unless link.title == 'Pardo pre-owned' %}
@@ -104,8 +104,8 @@
 
                 <div class="relative inline-block">
                     {% if allLinksTitle contains link.title %}
-                    {% if link.title == 'Grand Touring' %}
-                    {{ 'GT' | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light
+                    {% if link.title == 'GT' %}
+                    {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light
                     lg:text-[64px] lg:leading-[70px]" }}
                     {% elsif link.title == 'View all models' %}
                     {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
@@ -125,7 +125,7 @@
                     <div
                         class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
 
-                        {% assign collectionSorted = "Walkaround,Endurance,Grand Touring," | split: ',' %}
+                        {% assign collectionSorted = "Walkaround,Endurance,GT" | split: ',' %}
 
                         {% for collectionHandle in collectionSorted %}
                         {% assign collection = collections[collectionHandle] %}
@@ -359,7 +359,7 @@
     <!--container horizontal chips-->
     <div
         class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide md:px-10 md:mt-6">
-        {% assign collectionOrder = 'walkaround,endurance,grand-touring' | split: ',' %}
+        {% assign collectionOrder = 'walkaround,endurance,gt' | split: ',' %}
 
         {% for collectionHandle in collectionOrder %}
         {% assign collection = collections[collectionHandle] %}
@@ -728,7 +728,9 @@
                 discoverGammaContent.classList.remove('hidden');
                 discoverGammaContent.classList.add('flex');
             }
-            const linkItemContent = linkItem.innerHTML.trim();
+
+            const linkItemContent = linkItem == "GT" ? "grand-touring" : linkItem.innerHTML.trim();
+
             discoverGammaText.innerHTML = `Discover ${linkItemContent}`;
             const gammaUrl = `/collections/${linkItemContent.toLowerCase()}`;
             discoverGammaLink.setAttribute('href', gammaUrl);
@@ -1013,12 +1015,6 @@
         allSecondLinksMenu.forEach((link) => {
             link.addEventListener('click', (e) => {
                 let linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-
-                // Transform "GT" into "Grand Touring"
-                if (linkTarget === "GT") {
-                    linkTarget = "Grand Touring";
-                }
-
 
                 resetScroll();
 
