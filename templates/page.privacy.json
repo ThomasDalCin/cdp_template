@@ -36,7 +36,7 @@
           "type": "accordion-extra",
           "settings": {
             "accordion_extra_title": "Navigazione del sito web",
-            "accordion_extra_content": "<b>Finalità</b>: consentire la navigazione web; effettuare analisi statistiche aggregate finalizzate a misurare il corretto funzionamento di questo sito web e, in caso di reati informatici, accertare eventuali responsabilità."
+            "accordion_extra_content": "<b>Finalità:</b> consentire la navigazione web; effettuare analisi statistiche aggregate finalizzate a misurare il corretto funzionamento di questo sito web e, in caso di reati informatici, accertare eventuali responsabilità.\n<b>Categorie di dati:</b> indirizzi IP, nomi di dominio, URI.\n<b>Base giuridica:</b> la necessità di fornire i servizi necessari per abilitare la navigazione su questo sito e il nostro legittimo interesse a garantire il corretto funzionamento dei sistemi informatici e procedere all’accertamento di reati informatici (anche sulla base dell’esistenza un obbligo di legge).\n<b>Periodo di conservazione:</b> 30 giorni, salvo diversa disposizione di legge o delle Autorità Pubbliche ai fini dell'accertamento di reati informatici."
           }
         },
         "accordion_extra_qNHrTi": {
