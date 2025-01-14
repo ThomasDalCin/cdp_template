@@ -118,7 +118,7 @@
     "privacy-bottom-page": {
       "type": "privacy-bottom-page",
       "settings": {
-        "underline_text": "Periodicamente ci riserviamo di aggiornare il contenuto di questa pagina. Ti invitiamo a consultare regolarmente questa informativa in modo da rimanere aggiornato rispetto ad eventuali modifiche intervenute successivamente alla tua ultima consultazione.",
+        "underline_text": "",
         "updates_info": "Ultimo aggiornamento: gennaio 2025"
       }
     }
