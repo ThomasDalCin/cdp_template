@@ -67,18 +67,11 @@
             "accordion_extra_content": "<b>Finalità:</b> su tua richiesta, invio della brochure informativa che illustra le caratteristiche e le specifiche tecniche delle nostre imbarcazioni.\n<b>Categorie di dati:</b> i dati indicati nel form di richiesta della brochure (es. nome, cognome, indirizzo mail).\n<b>Base giuridica:</b> esecuzione di misure precontrattuali adottate su tua richiesta.\n<b>Periodo di conservazione:</b> i dati verranno cancellati dopo aver effettuato l’invio della brochure"
           }
         },
-        "accordion_extra_pRHChg": {
-          "type": "accordion-extra",
-          "settings": {
-            "accordion_extra_title": "Invio di comunicazioni commerciali (“Marketing diretto”)",
-            "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-          }
-        },
         "accordion_HCEAqj": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "A chi comunichiamo i tuoi dati?",
-            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "accordion_title": "Comunicazione, e trasferimento dei tuoi dati",
+            "accordion_content": "I tuoi dati non vengono diffusi. Per la realizzazione delle finalità indicate nella presente informativa, potremo comunicare i dati raccolti al personale e ai fornitori di Cantiere del Pardo (ad es., fornitori di servizi, piattaforme IT o consulenti). Inoltre, se necessario e se previsto dalla legge, i tuoi dati saranno comunicati alle autorità pubbliche su loro richiesta.\nPer specifiche finalità indicate nella presente informativa, con l’obiettivo di dare seguito alle richieste da te effettuate, i tuoi dati possono essere comunicati ai dealer di cui Cantiere del Pardo si avvale per finalizzare la vendita delle proprie imbarcazioni.\nI tuoi dati possono essere trasferiti fuori dall'UE; tuttavia, ciò sarà sempre fatto nel rispetto delle disposizioni del Regolamento UE 2016/679 (“GDPR”): in particolare, i dati verranno trasferiti soltanto previa sottoscrizione delle Clausole Contrattuali Standard approvate dalla Commissione UE con decisione n.2021/914/UE oppure verso Paesi in grado di garantire un adeguato livello di protezione dei dati personali e destinatari quindi di una Decisione di Adeguatezza adottata dalla Commissione UE.",
             "extra_accordion_inside": false
           }
         },
@@ -86,7 +79,7 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "Cookie",
-            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "accordion_content": "In alcune aree del nostro sito utilizziamo dei cookie. Per saperne di più consulta la Cookie Policy.",
             "extra_accordion_inside": false
           }
         },
@@ -94,15 +87,15 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "Social network",
-            "accordion_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "accordion_content": "Su questo sito sono presenti pulsanti social (ad es. pulsanti con icone di social network) come Facebook, Instagram, YouTube e LinkedIn. Questi pulsanti ti permettono di interagire con il social network di tuo interesse, di cui ti invitiamo a consultare la Privacy Policy. Inoltre, potrebbero essere presenti anche link a siti web di terze parti, le quali sono responsabili dei trattamenti dei dati da loro effettuati. Ti invitiamo pertanto a consultare le rispettive Privacy & Cookie Policy.",
             "extra_accordion_inside": false
           }
         },
         "accordion_Nyh8ba": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "",
-            "accordion_content": "",
+            "accordion_title": "I tuoi diritti privacy",
+            "accordion_content": "Il GDPR ti riconosce determinati diritti in merito ai tuoi dati personali, che puoi esercitare scrivendo a data.protection@calzedonia.com. Riceverai una risposta nel più breve tempo possibile e, in ogni caso, entro 30 giorni. Potremmo richiederti informazioni aggiuntive se, in relazione alla tua richiesta, è necessario verificare la tua identità.\n•\tDIRITTO DI ACCESSO: Hai il diritto di sapere se i tuoi dati vengono trattati e, in tal caso, ottenere una copia di tali dati. Hai anche il diritto di essere informato riguardo a: l'origine dei dati, le categorie di dati personali trattati, i destinatari dei dati, le finalità del trattamento, l'esistenza di processi decisionali automatizzati (compresa la profilazione), il periodo di conservazione dei dati e i diritti riconosciuti dal GDPR.\n•\tDIRITTO ALLA CANCELLAZIONE: Hai il diritto di richiedere che i tuoi dati siano cancellati se non sono più necessari o se il Titolare non è più autorizzato a trattarli.\n•\tDIRITTO DI RETTIFICA: Hai il diritto di ottenere la rettifica o l'integrazione dei tuoi dati se sono inesatti o incompleti.\n•\tDIRITTO ALLA PORTABILITÀ: Hai il diritto di ricevere i tuoi dati personali in un formato strutturato, di uso comune e leggibile da dispositivo automatico; hai anche il diritto di richiedere che tali dati siano trasmessi a un altro Titolare.\n•\tDIRITTO ALLA LIMITAZIONE DEL TRATTAMENTO: Hai il diritto di ottenere la limitazione del trattamento quando hai contestato l'esattezza dei dati personali, per il periodo necessario al Titolare per verificarne l'accuratezza; il Titolare non è autorizzato a trattare i tuoi dati e, invece di richiederne la cancellazione, puoi chiedere di limitarne l'uso; se i dati in possesso del Titolare - anche se non più necessari per le finalità del trattamento per cui sono stati raccolti - sono necessari per te per stabilire, esercitare o difendere un diritto in sede giudiziaria.\n•\tDIRITTO DI REVOCA DEL CONSENSO: Hai il diritto di revocare il tuo consenso in qualsiasi momento per i trattamenti basati su di esso.\n•\tDIRITTO DI OPPOSIZIONE: Hai il diritto di opporti in qualsiasi momento al trattamento dei tuoi dati personali basati su di un nostro legittimo interesse, compresa la profilazione.",
             "extra_accordion_inside": false
           }
         }
@@ -115,7 +108,6 @@
         "accordion_extra_93rkgz",
         "accordion_extra_NYV6KY",
         "accordion_extra_fBiaTx",
-        "accordion_extra_pRHChg",
         "accordion_HCEAqj",
         "accordion_RjDLEV",
         "accordion_JKTqpg",
