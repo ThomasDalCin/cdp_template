@@ -10,7 +10,7 @@
         <div class="w-auto h-full min-h-[32px] flex flex-row items-center justify-start gap-x-4">
             <div
                 class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
-                <p class="body-14 chip-text">Models</p>
+                <p class="body-16 chip-text">Models</p>
             </div>
             <!--container cta gamma desktop-->
             <div
@@ -58,7 +58,7 @@
             </a>
         </div>
         <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-14 tt-norms-pro-med">{{ page.title }}</h1>
+            <h1 class="body-16 tt-norms-pro-med">{{ page.title }}</h1>
         </div>
     </div>
     {% elsif collection.title %}
@@ -69,7 +69,7 @@
             </a>
         </div>
         <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-14 tt-norms-pro-med">{{ collection.title }}</h1>
+            <h1 class="body-16 tt-norms-pro-med">{{ collection.title }}</h1>
         </div>
     </div>
     {% elsif blog.title %}
@@ -80,7 +80,7 @@
             </a>
         </div>
         <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="body-14 tt-norms-pro-med">Events & News</h1>
+            <h1 class="body-16 tt-norms-pro-med">Events & News</h1>
         </div>
     </div>
     {% endif %}
@@ -175,7 +175,7 @@
         <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
             <a href="/pages/locate-delear">
                 <div class="w-auto h-auto inline-flex cta-white-rounded">
-                    <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
+                    <p class="body-16 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
                     </p>
                 </div>
             </a>
@@ -252,7 +252,7 @@
     <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px] lg:hidden">
         <a href="/pages/locate-delear">
             <div class="w-auto h-auto inline-flex cta-white-rounded">
-                <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                <p class="body-16 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
             </div>
         </a>
     </div>
@@ -296,7 +296,7 @@
             <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
                 <a href="/pages/locate-delear">
                     <div class="w-auto h-auto inline-flex cta-white-rounded">
-                        <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
+                        <p class="body-16 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}
                         </p>
                     </div>
                 </a>
@@ -338,7 +338,7 @@
     <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px] lg:hidden">
         <a href="/pages/locate-delear">
             <div class="w-auto h-auto inline-flex cta-white-rounded">
-                <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                <p class="body-16 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
             </div>
         </a>
     </div>
@@ -367,7 +367,7 @@
         {% if collection %}
         <div
             class="chips-label-white flex flex-row items-center justify-start gap-x-2 h-[40px] min-h-[40px] text-white flex-shrink-0">
-            <div class="chips-text text-nowrap body-14 text-white tt-norms-pro-reg" id="collection-chips-title">
+            <div class="chips-text text-nowrap body-16 text-white tt-norms-pro-reg" id="collection-chips-title">
                 {{ collection.title }}
             </div>
             {% render 'arrow-down-icon' %}
@@ -404,7 +404,7 @@
                 {% endfor %}
             </li>
             <p
-                class="text-[48px] leading-[52px] tt-norms-thin absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white text-center">
+                class="text-[24px] leading-[52px] tt-norms-thin absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white text-center">
                 {{ product.title | replace: "Pardo", "" }}</p>
         </div>
         {% endfor %}
@@ -415,7 +415,7 @@
     <!-- Fixed "View all ranges" label at the bottom -->
     <a class="w-full h-auto chip-fixed fixed left-0 right-0 bottom-0 px-6 py-4 bg-white z-50">
         <div class="w-full h-auto flex flex-row justify-between">
-            <div class="chips-text text-nowrap body-14 tt-norms-pro-reg"></div>
+            <div class="chips-text text-nowrap body-16 tt-norms-pro-reg"></div>
             {% render 'arrow-down-menu' %}
         </div>
     </a>

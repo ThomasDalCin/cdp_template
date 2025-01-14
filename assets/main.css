@@ -1228,14 +1228,6 @@ p,
   top: 1.5rem;
 }
 
-.top-\[576px\] {
-  top: 576px;
-}
-
-.top-\[336px\] {
-  top: 336px;
-}
-
 .top-\[316px\] {
   top: 316px;
 }
@@ -3155,6 +3147,18 @@ html {
   src: url("../assets/TT\ Norms\ Pro\ Thin.otf");
 }
 
+.placeholder\:body-16::-moz-placeholder {
+  font-weight: 400;
+  font-size: var(--body-16);
+  line-height: var(--body-16-height);
+}
+
+.placeholder\:body-16::placeholder {
+  font-weight: 400;
+  font-size: var(--body-16);
+  line-height: var(--body-16-height);
+}
+
 .placeholder\:body-14::-moz-placeholder {
   font-weight: 400;
   font-size: var(--body-14);
@@ -3896,12 +3900,12 @@ html {
     top: 16px;
   }
 
-  .lg\:top-\[calc\(820px_\+_1rem\)\] {
-    top: calc(820px + 1rem);
-  }
-
   .lg\:top-\[576px\] {
     top: 576px;
+  }
+
+  .lg\:top-\[calc\(820px_\+_1rem\)\] {
+    top: calc(820px + 1rem);
   }
 
   .lg\:z-10 {
@@ -4807,6 +4811,10 @@ html {
 
   .lg\:text-\[96px\] {
     font-size: 96px;
+  }
+
+  .lg\:text-\[18px\] {
+    font-size: 18px;
   }
 
   .lg\:leading-\[128px\] {

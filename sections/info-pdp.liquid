@@ -28,7 +28,7 @@
                     <div
                         class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] p-4 lg:h-[100px] lg:flex-1">
                         <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue |  upcase }}</p>
-                        <p class="body-14 text-nowrap tt-norms-pro-med badge-value">{{ infoValue }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-med badge-value">{{ infoValue }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -61,11 +61,11 @@
                 class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 lg:flex-row lg:gap-x-3 lg:justify-center">
                 <div class="cta-choco lg:w-[220px] h-[48px] min-h-[48px] cursor-pointer lg:px-4 lg:py-2">
                     <a href="/pages/locate-delear">
-                        <p class="body-14-medium">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
+                        <p class="body-16-medium">{{ section.settings.cta_delear | default: "Find a delear" }}</p>
                     </a>
                 </div>
                 <div class="cta-transparent h-[48px] min-h-[48px] lg:w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
-                    <p class="body-14-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
+                    <p class="body-16-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
                     {% render 'download-icon-black' %}
                 </div>
             </div>
@@ -84,7 +84,7 @@
         <!-- Form Header -->
         <div class="form-appointment-headers w-full flex items-center justify-end relative">
             <p
-                class="body-14 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                class="body-16 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 {{
                 section.settings.form_title | default: "Get the brochure" }}</p>
 
@@ -102,7 +102,7 @@
         <div
             class="w-full h-[60px] fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black">
             {% render 'check-icon' %}
-            <p class="body-14">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
+            <p class="body-16">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
         </div>
         {% else %}
 
@@ -112,7 +112,7 @@
             <!-- First Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[first_name]"
-                    class=" w-full p-4 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
                     value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
                     placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}" required>
             </div>
@@ -120,7 +120,7 @@
             <!-- Last Name -->
             <div class="form-group w-full">
                 <input type="text" name="contact[last_name]"
-                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
                     value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
                     placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}" required>
             </div>
@@ -128,7 +128,7 @@
             <!-- Email -->
             <div class="form-group w-full">
                 <input type="email" name="contact[email]"
-                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+                    class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
                     value="{% if form.email != blank %}{{ form.email }}{% endif %}"
                     placeholder="{{ section.settings.email_placeholder |  default: " Email" }}" required>
             </div>
@@ -170,7 +170,7 @@
         <!-- cta-privacy-page -->
         <div class="w-full h-auto flex flex-col items-start justify-center">
             <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
+                <p class="body-16 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
                     default: "Privacy Policy" }}</p>
             </a>
         </div>

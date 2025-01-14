@@ -17,14 +17,14 @@
     <div class="card-article-content w-full h-auto flex flex-col gap-y-6 items-start justify-start p-6">
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
         <p class="text-[24px] leading-[24px] tt-norms-pro-reg">{{ article.title }}</p>
-        <p class="body-14">{{ article.content | truncate: 100 }}</p>
+        <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px]">{{ article.content | truncate: 100 }}</p>
       </div>
       <!-- Article button container -->
       <div class="w-full h-auto flex flex-row items-start justify-end">
         <!-- Container button -->
         <a href="{{ article.url }}">
           <div class="inline-flex cta-choco-round w-[129px] h-[32px]">
-            <p class="body-14 tt-norms-pro-reg">{{ section.settings.cta_text | default: "Discover more" }}</p>
+            <p class="text-[16px] leading-[20px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_text | default: "Discover more" }}</p>
           </div>
         </a>
       </div>

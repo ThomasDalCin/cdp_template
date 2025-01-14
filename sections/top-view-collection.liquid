@@ -41,7 +41,7 @@
         <a href="{{ product.url }}" class="product-cta" data-index="{{ forloop.index0 }}"
             style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
             <div class="cta-transparent-round w-[113px] h-auto max-h-[36px] lg:hover:bg-white transition-all duration-150 ease-in">
-                <p class="body-14 tt-norms-pro-med text-nowrap">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
+                <p class="body-16 tt-norms-pro-med text-nowrap">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
             </div>
         </a>
         {% endif %}
@@ -92,14 +92,14 @@
             {% if forloop.first %}
                 <!-- Layout per il primo elemento -->
                 <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 md:h-[78px] lg:h-[180px] lg:flex-1">
-                    <p class="body-14 text-nowrap md:text-[12px] md:leading-[14px]  lg:text-[24px] lg:leading-[30px]">{{ metafieldCustom }}</p>
+                    <p class="body-16 text-nowrap md:text-[12px] md:leading-[14px]  lg:text-[24px] lg:leading-[30px]">{{ metafieldCustom }}</p>
                     <p class="body-12 text-[#818181] md:text-[12px] md:leading-[14px]  text-nowrap lg:text-[32px] lg:leading-[38px]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
                 </div>
             {% else %}
                 <!-- Layout per gli altri elementi -->
                 <div class="details-badge flex flex-1 p-4 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#EFEEED] flex-shrink-0 md:h-[78px] lg:h-[180px] lg:flex-1">
                     <p class="body-12 text-[#818181] text-nowrap md:text-[12px] md:leading-[14px] lg:text-[24px] lg:leading-[30px]">{{ productMetafieldsValue | replace: '_', ' ' | upcase }}</p>
-                    <p class="body-14 text-nowrap md:text-[12px] md:leading-[14px] lg:text-[32px] lg:leading-[38px]">{{ metafieldCustom }}</p>
+                    <p class="body-16 text-nowrap md:text-[12px] md:leading-[14px] lg:text-[32px] lg:leading-[38px]">{{ metafieldCustom }}</p>
                 </div>
             {% endif %}
         {% endfor %}        

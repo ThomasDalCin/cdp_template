@@ -46,13 +46,13 @@
                   {% endif %}
                 </div>
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+                  <h3 class="body-16 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
                   <p class="body-12">{{ article.content | truncate: 100 }}</p>
                 </div>
 
                 <div class="blog-item-cta w-full h-auto flex items-center justify-end absolute right-6 bottom-6">
                   <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta }}</p>
+                    <p class="body-16-medium">{{ section.settings.article_cta }}</p>
                   </a>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                   </div>
 
                   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1">
-                    <h3 class="body-14 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+                    <h3 class="body-16 tt-norms-pro-med">{{ article.title | capitalize }}</h3>
                     <p class="body-12">{{ article.content | truncate: 200 }}</p>
                   </div>
                 </div>
@@ -107,7 +107,7 @@
 
                 <div class="blog-item-cta w-full flex items-center justify-end md:absolute md:right-6 md:bottom-6  lg:absolute lg:right-6 lg:bottom-6">
                   <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
+                    <p class="body-16-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
                   </a>
                 </div>
 
@@ -170,16 +170,16 @@
                 <!-- Article Title and Content -->
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
                   <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                  <p class="body-14">{{ article.content | truncate: 100 }}</p>
+                  <p class="body-16">{{ article.content | truncate: 100 }}</p>
                 </div>
 
                 <!-- Call-to-Actions -->
                 <div class="blog-item-cta w-full h-auto flex flex-row gap-x-3 items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
                   <a href="{{ article.url }}" class="cta-transparent-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_text | default: "Read more" }}</p>
+                    <p class="body-16-medium">{{ section.settings.article_cta_pressroom_text | default: "Read more" }}</p>
                   </a>
                   <a href="{{ article.url }}" class="cta-choco-round text-white h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta_pressroom_download_text | default: "Download" }}</p>
+                    <p class="body-16-medium">{{ section.settings.article_cta_pressroom_download_text | default: "Download" }}</p>
                     {% render 'download-icon' %}
                   </a>
                 </div>
@@ -231,11 +231,11 @@
                 </div>
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
                   <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
-                  <p class="body-14">{{ article.content | truncate: 100 }}</p>
+                  <p class="body-16">{{ article.content | truncate: 100 }}</p>
                 </div>
                 <div class="blog-item-cta w-full h-auto flex items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
                   <a href="{{ article.url }}" class="cta-choco-round h-[32px]">
-                    <p class="body-14-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
+                    <p class="body-16-medium">{{ section.settings.article_cta |  default: "Read more" }}</p>
                   </a>
                 </div>
               </div>

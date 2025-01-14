@@ -14,19 +14,19 @@
           <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_default_heading }}</p>
         </div>
         <div class="card-loc-address-container w-full h-auto flex items-center justify-start">
-          <p class="body-14">{{ block.settings.card_loc_default_address }}</p>
+          <p class="body-16">{{ block.settings.card_loc_default_address }}</p>
         </div>
         <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
           <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
-            <a class="underline body-14 tt-norms-pro-med" href="/">Show on Google Maps</a>
+            <a class="underline body-16 tt-norms-pro-med" href="/">Show on Google Maps</a>
             {% render 'cta-icon' %}
           </li>
         </div>
         <div class="card-loc-email-container w-full h-auto flex items-center justify-start">
-          <p class="body-14">{{ block.settings.card_loc_default_email }}</p>
+          <p class="body-16">{{ block.settings.card_loc_default_email }}</p>
         </div>
         <div class="card-loc-phonedetails-container w-full h-auto flex items-center justify-start">
-          <p class="body-14">{{ block.settings.card_loc_default_phone }}</p>
+          <p class="body-16">{{ block.settings.card_loc_default_phone }}</p>
         </div>
       </div>
       {% elsif block.type == "card-location-additional" %}
@@ -36,11 +36,11 @@
           <p class="body-16 tt-norms-pro-med">{{ block.settings.card_loc_additional_heading }}</p>
         </div>
         <div class="card-loc-content-container w-full h-auto flex items-center justify-start">
-          <p class="body-14">{{ block.settings.card_loc_additional_content }}</p>
+          <p class="body-16">{{ block.settings.card_loc_additional_content }}</p>
         </div>
         <div class="card-loc-cta-container w-full h-auto flex items-center justify-start">
           <li class="card-loc-cta-content list-none w-full h-auto flex flex-row gap-x-2">
-            <a class="underline body-14 tt-norms-pro-med" href="/">{{ section.settings.delear_cta }}</a>
+            <a class="underline body-16 tt-norms-pro-med" href="/">{{ section.settings.delear_cta }}</a>
             {% render 'cta-icon' %}
           </li>
         </div>
@@ -75,7 +75,7 @@
           <div class="form-group w-full h-auto flex flex-col items-start justify-center">
             <input type="text" name="contact[first_name]" id="first_name"
               value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent  font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent  font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder="{{ section.settings.form_name }}" required>
           </div>
 
@@ -83,7 +83,7 @@
           <div class="form-group w-full h-auto flex flex-col items-start justify-center">
             <input type="text" name="contact[last_name]" id="last_name"
               value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder="{{ section.settings.form_lastname }}" required>
           </div>
 
@@ -91,7 +91,7 @@
           <div class="form-group w-full h-auto flex flex-col items-start justify-center">
             <input type="email" name="contact[email]" id="email"
               value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder="{{ section.settings.form_email }}" required>
           </div>
 
@@ -99,7 +99,7 @@
           <div class="form-group w-full h-auto flex flex-col items-start justify-center">
             <input type="tel" name="contact[phone]" id="phone"
               value="{% if form.phone != blank %}{{ form.phone }}{% endif %}"
-              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="w-full h-[44px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent font-['TT-Norms-Pro-Regular'] focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder="{{ section.settings.form_phone }}">
           </div>
 
@@ -111,7 +111,7 @@
             class="form-group w-full h-auto flex flex-col items-start justify-center bg-[var(--primary-background-color)] rounded-lg">
             <div id="dropdown-toggle"
               class="form-group-dropdown w-full h-[44px] flex flex-row justify-between items-center px-4 py-3 cursor-pointer focus:ring-black text-black">
-              <span id="placeholder-text" class="placeholder body-14 text-black font-['TT-Norms-Pro-Regular']">{{
+              <span id="placeholder-text" class="placeholder body-16 text-black font-['TT-Norms-Pro-Regular']">{{
                 section.settings.form_models | default: "Models" }}</span>
               <!-- Dropdown icon -->
               <svg xmlns="http://www.w3.org/2000/svg" id="dropdown-arrow" width="24" height="24" viewBox="0 0 24 24"
@@ -145,10 +145,10 @@
           <div class="form-group w-full relative">
             <input type="text" name="contact[port]" id="port"
               value="{% if form.port != blank %}{{ form.port }}{% endif %}"
-              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder=" " required>
             <label for="port"
-              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              class="floating-label absolute left-4 top-2 body-16 text-[#818181] transition-all text-sm">
               {{ section.settings.form_port }}
             </label>
           </div>
@@ -157,10 +157,10 @@
           <div class="form-group w-full relative">
             <input type="text" name="contact[boat_registration]" id="boat_registration"
               value="{% if form.boat_registration != blank %}{{ form.boat_registration }}{% endif %}"
-              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="floating-input w-full h-[80px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder=" " required>
             <label for="boat_registration"
-              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              class="floating-label absolute left-4 top-2 body-16 text-[#818181] transition-all text-sm">
               {{ section.settings.form_boat }}
             </label>
           </div>
@@ -168,13 +168,13 @@
           <!-- Message -->
           <div class="form-group w-full relative">
             <textarea name="contact[message]" id="message"
-              class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-14 placeholder:text-[#818181]"
+              class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-16 placeholder:text-[#818181]"
               placeholder=" " maxlength="230" oninput="updateCharCount()" required>
                   {% if form.message != blank %}
                     {{ form.message }}{% endif %}
                 </textarea>
             <label for="message"
-              class="floating-label absolute left-4 top-2 body-14 text-[#818181] transition-all text-sm">
+              class="floating-label absolute left-4 top-2 body-16 text-[#818181] transition-all text-sm">
               {{ section.settings.form_message }}
             </label>
             <div class="char-counter absolute right-[16px] bottom-[16px] body-12 text-[#818181]">
@@ -220,7 +220,7 @@
             <!-- cta-privacy-page -->
             <div class="w-full h-auto flex flex-col items-start justify-center">
               <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                <p class="body-14 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
+                <p class="body-16 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
                   default: "Privacy Policy" }}</p>
               </a>
             </div>

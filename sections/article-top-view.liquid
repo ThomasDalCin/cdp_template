@@ -9,14 +9,14 @@
     <a href="javascript:history.back()">
       <div class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
         {% render 'back-arrow-icon' %}
-        <p class="body-14-medium ml-2">{{ section.settings.article_cta_text }}</p>
+        <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-reg ml-2">{{ section.settings.article_cta_text }}</p>
       </div>
     </a>
   </div>
   <!--Article main content-->
   <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-6 mb-10 lg:px-20 lg:mb-[120px]">
     <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title }}</h1>
-    <p class="body-14">{{ article.content }}</p>
+    <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-reg">{{ article.content }}</p>
   </div>
 </div>
 

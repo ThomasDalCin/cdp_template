@@ -20,14 +20,14 @@
               {% if items_basics %}
                 {% for item in items_basics %}
                   <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-                    <span class="body-14 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
-                    <span class="body-14 tt-norms-pro-reg">{{ item }}</span>
+                    <span class="body-16 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                    <span class="body-16 tt-norms-pro-reg">{{ item }}</span>
                   </li>
                 {% endfor %}
               {% else %}
                 <li class="list-feature body-small flex justify-between w-full h-auto items-center rounded border-[var(--secondary-neutral-color)] p-2 border lg:flex-1 lg:min-w-[calc(50%-0.75rem)] lg:max-w-[calc(50%-0.75rem)]">
-                  <span class="body-14 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
-                  <span class="body-14 tt-norms-pro-reg">No data available</span>
+                  <span class="body-16 text-[#818181] tt-norms-pro-reg">{{ basicField | replace: '_', ' ' | capitalize }}:</span>
+                  <span class="body-16 tt-norms-pro-reg">No data available</span>
                 </li>
               {% endif %}
             {% endfor %}
@@ -45,10 +45,10 @@
 
     <div class="product-features-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 mt-5 md:mt-0 lg:flex-row lg:gap-x-3 lg:items-center lg:justify-center lg:mt-0">
       <div class="cta-choco flex-1 lg:max-w-[220px] lg:px-4 lg:py-2">
-        <p class="body-14-medium tt-norms-pro-reg">{{ section.settings.cta_details }}</p>
+        <p class="body-16-medium tt-norms-pro-reg">{{ section.settings.cta_details }}</p>
       </div>
       <div class="cta-transparent flex-1 lg:max-w-[220px] lg:px-4 lg:py-2">
-        <p class="body-14-medium tt-norms-pro-reg">{{ section.settings.cta_preowned }}</p>
+        <p class="body-16-medium tt-norms-pro-reg">{{ section.settings.cta_preowned }}</p>
       </div>
     </div>
 
