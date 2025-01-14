@@ -551,7 +551,7 @@
                 });
                 breadcrumbsContent.classList.add('text-white');
             } else if (hadScrolled > 0 && !isProductPage && isNotHomepage) {
-                navbar.classList.add("bg-blur-opacity");
+                breadcrumbsContent.classList.add("hidden");
             } else {
                 navBg.classList.add('bg-[#EFEEED]');
                 navBg.classList.remove('bg-blur-opacity');
@@ -868,7 +868,6 @@
                     pageTitleContainer.classList.remove('flex');
                 }
 
-                navbar.classList.remove('bg-blur-opacity');
                 document.body.classList.add('no-scroll');
 
                 breadcrumbsContent.classList.add('hidden');
@@ -903,9 +902,6 @@
                     pageTitleContainer.classList.add('flex');
                 }
 
-                if (isNotHomepage && !isProductPage) {
-                    navbar.classList.add('bg-blur-opacity');
-                }
 
                 document.body.classList.remove('no-scroll');
 
@@ -952,7 +948,6 @@
                     pageTitleContainer.classList.remove('flex');
                 }
 
-                navbar.classList.remove('bg-blur-opacity');
                 breadcrumbsContent.classList.add('hidden');
 
             } else {
@@ -969,10 +964,6 @@
                     pageTitleContainer.classList.add('flex');
                 }
 
-                // Se non siamo nella homepage o nella pagina del prodotto, applichiamo il blur al navbar
-                if (isNotHomepage && !isProductPage) {
-                    navbar.classList.add('bg-blur-opacity');
-                }
 
                 breadcrumbsContent.classList.remove('hidden');
             }
