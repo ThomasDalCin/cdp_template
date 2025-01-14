@@ -50,13 +50,13 @@
           "type": "accordion-extra",
           "settings": {
             "accordion_extra_title": "Invio di comunicazioni commerciali",
-            "accordion_extra_content": "<b>Finalità:</b> inviarti comunicazioni commerciali relative a Pardo Yachts via e-mail, SMS, telefono e posta tradizionale cartacea ed effettuare ricerche di mercato al fine di valutare il tuo livello di soddisfazione riguardo ai prodotti/servizi offerti.\n<b>Categorie di dati:</b> nome, cognome, il tuo indirizzo e-mail, numero di telefono, indirizzo di domicilio/ residenza.\n<b>Base giuridica:</b> il tuo consenso. Se desideri revocarlo, puoi farlo in qualsiasi momento cliccando sul link presente in calce alle nostre comunicazioni o scrivendo a data.protection@calzedonia.com.\n<b>Periodo di conservazione:</b> fino alla revoca del consenso."
+            "accordion_extra_content": "<b>Finalità:</b> inviarti comunicazioni commerciali relative a Pardo Yachts via e-mail, SMS, telefono e posta tradizionale cartacea ed effettuare ricerche di mercato al fine di valutare il tuo livello di soddisfazione riguardo ai prodotti/servizi offerti.\n<b>Categorie di dati:</b> nome, cognome, il tuo indirizzo e-mail, numero di telefono, indirizzo di domicilio/ residenza.\n<b>Base giuridica:</b> il tuo consenso. Se desideri revocarlo, puoi farlo in qualsiasi momento cliccando sul link presente in calce alle nostre comunicazioni o scrivendo a <a>data.protection@calzedonia.com</a>.\n<b>Periodo di conservazione:</b> fino alla revoca del consenso."
           }
         },
         "accordion_extra_NYV6KY": {
           "type": "accordion-extra",
           "settings": {
-            "accordion_extra_title": "Partecipazione a questionari di gradimento",
+            "accordion_extra_title": "Profilazione",
             "accordion_extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
           }
         },
