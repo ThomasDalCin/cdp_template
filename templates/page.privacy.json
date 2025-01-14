@@ -19,8 +19,8 @@
         "accordion_FUthWE": {
           "type": "accordion",
           "settings": {
-            "accordion_title": "TITOLARE DELTRATTAMENTO",
-            "accordion_content": "Il Titolare delTrattamento è Cantiere del Pardo S.p.A., con sede legale in Via F.lli Lumière34, Forlì (FC), e-mail data.protection@calzedonia.com.",
+            "accordion_title": "Titolare del trattamento",
+            "accordion_content": "Il Titolare delTrattamento è Cantiere del Pardo S.p.A., con sede legale in Via F.lli Lumière34, Forlì (FC), e-mail <u>data.protection@calzedonia.com</u>.",
             "extra_accordion_inside": false
           }
         },
