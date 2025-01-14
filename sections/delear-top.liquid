@@ -10,7 +10,7 @@
     <a href="javascript:history.back()">
       <div class="cta-back bg-[rgba(0,0,0,0.20)] border-transparent backdrop-blur-lg absolute left-1/2 bottom-6 transform -translate-x-1/2 inline-flex items-center justify-center cursor-pointer text-white">
         {% render 'back-arrow-icon' %}
-        <p class="body-16-medium ml-2">{{ section.settings.delear_cta_text | default: "Back" }}</p>
+        <p class="body-16-medium ml-2 lg:text-[18px] lg:leading-[24px]">{{ section.settings.delear_cta_text | default: "Back" }}</p>
       </div>
     </a>
   </div>
@@ -31,7 +31,7 @@
       <div class="w-full h-auto flex items-start justify-center flex-col gap-y-2">
         <p class="text-[14px] leading-[20px] tt-norms-pro-reg text-[#646464]">{{ section.settings.contact_title
  | default: "Contact" }}</p>
-        <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.card_mobile | default:
+        <p class="text-[16px] leading-[24px] tt-norms-pro-reg ">{{ section.settings.card_mobile | default:
  "Phone:" }}<span class="text-[16px] leading-[24px] tt-norms-pro-reg delear-mobile"></span>
         </p>
         <p class="text-[16px] leading-[24px] tt-norms-pro-reg">{{ section.settings.mobile_title | default:

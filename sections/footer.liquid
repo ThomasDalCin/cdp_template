@@ -16,7 +16,7 @@
             }}</label>
             {% endif %}
             {% if section.settings.subheading != blank %}
-          <p class="body-16 text-white tt-norms-pro-reg">{{ section.settings.subheading | escape }}</p>
+          <p class="body-16 text-white tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.subheading | escape }}</p>
           {% endif %}
         </div>
 
@@ -25,7 +25,7 @@
         gap-y-6" %}
         {{ form.errors | default_errors }}
         {% if form.posted_successfully? %}
-        <p class="body-16 text-white">{{ section.settings.thankyou_message }}</p>
+        <p class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.thankyou_message }}</p>
         {% else %}
         <div class="newsletter-form-radio-containers w-full h-auto flex flex-row items-center justify-start gap-x-2">
           <!-- radio one -->
@@ -33,14 +33,14 @@
             <input
               class="appearance-none w-5 h-5 border-[1.5px] border-white bg-transparent rounded-full checked:bg-white focus:ring-0"
               type="radio" id="visitor" name="contact[role]" value="visitor">
-            <label for="visitor" class="body-16 text-white">{{ section.settings.checkbox_2_label }}</label>
+            <label for="visitor" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.checkbox_2_label }}</label>
           </div>
           <!-- radio two -->
           <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
             <input
               class="appearance-none w-5 h-5 border-[1.5px] border-white bg-transparent rounded-full checked:bg-white focus:ring-0"
               type="radio" id="owner" name="contact[role]" value="owner">
-            <label for="owner" class="body-16 text-white">{{ section.settings.checkbox_1_label }}</label>
+            <label for="owner" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.checkbox_1_label }}</label>
           </div>
         </div>
 
@@ -128,7 +128,7 @@
         <div
           class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1 cursor-pointer select-language"
           aria-label="Seleziona lingua" data-locale-code="{{ request.locale.iso_code }}">
-          <p class="body-16 tt-norms-pro-med">{{ section.settings.language_text | default: "Language" | upcase }}</p>
+          <p class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ section.settings.language_text | default: "Language" | upcase }}</p>
 
           <!-- Language Icon -->
           <div class="w-auto h-auto hidden" id="gb-icon" data-locale-code="en">

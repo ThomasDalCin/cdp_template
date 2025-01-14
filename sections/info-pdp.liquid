@@ -28,7 +28,7 @@
                     <div
                         class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] p-4 lg:h-[100px] lg:flex-1">
                         <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue |  upcase }}</p>
-                        <p class="body-16 text-nowrap tt-norms-pro-med badge-value">{{ infoValue }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-med badge-value lg:text-[18px] lg:leading-[24px]">{{ infoValue }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -170,7 +170,7 @@
         <!-- cta-privacy-page -->
         <div class="w-full h-auto flex flex-col items-start justify-center">
             <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                <p class="body-16 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page |
+                <p class="body-16 leading-[20px] underline tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_privacy_page |
                     default: "Privacy Policy" }}</p>
             </a>
         </div>

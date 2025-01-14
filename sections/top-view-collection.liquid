@@ -15,7 +15,7 @@
         <div class="w-[61px] min-w-[61px] h-[38px] min-h-[38px] flex items-center justify-center p-badge z-10"
             data-attribute="{{ product.title }}" data-index="{{ forloop.index0 }}"
             onclick="selectBadge({{ forloop.index0 }})">
-            <p class="body-16 tt-norms-pro-reg">{{ product.title | replace: "Pardo", ""}}</p>
+            <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ product.title | replace: "Pardo", ""}}</p>
         </div>
         {% endfor %}
         <!--moving badge here-->
@@ -41,7 +41,7 @@
         <a href="{{ product.url }}" class="product-cta" data-index="{{ forloop.index0 }}"
             style="display: {% if forloop.index0 == 0 %} block {% else %} none {% endif %};">
             <div class="cta-transparent-round w-[113px] h-auto max-h-[36px] lg:hover:bg-white transition-all duration-150 ease-in">
-                <p class="body-16 tt-norms-pro-med text-nowrap">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
+                <p class="body-16 tt-norms-pro-med text-nowrap lg:text-[18px] lg:leading-[24px]">{{ section.settings.product_cta | default: "Discover " }} {{ product.title | replace: "Pardo", ""}}</p>
             </div>
         </a>
         {% endif %}

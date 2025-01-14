@@ -4881,6 +4881,10 @@ html {
     line-height: 96px;
   }
 
+  .lg\:leading-\[134px\] {
+    line-height: 134px;
+  }
+
   .lg\:text-black {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
