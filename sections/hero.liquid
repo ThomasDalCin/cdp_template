@@ -8,9 +8,9 @@
 
         <!-- Swiper Slide for Mobile -->
         {% assign swiper_images_mobile = "swiper_video_mobile,swiper_image_1_mobile,swiper_image_2_mobile,swiper_image_3_mobile" | split: "," %}
-        {% assign cta_texts_mobile = "cta_text_1_mobile,cta_text_2_mobile,cta_text_3_mobile" | split: "," %}
-        {% assign cta_urls_mobile = "cta_url_1_mobile,cta_url_2_mobile,cta_url_3_mobile" | split: "," %}
-        {% assign cta_enabled_mobile = "enable_cta_1_mobile,enable_cta_2_mobile,enable_cta_3_mobile" | split: "," %}
+        {% assign cta_texts_mobile = "cta_text_1_mobile,cta_text_2_mobile,cta_text_3_mobile,cta_text_4_mobile" | split: "," %}
+        {% assign cta_urls_mobile = "cta_url_1_mobile,cta_url_2_mobile,cta_url_3_mobile,cta_url_4_mobile" | split: "," %}
+        {% assign cta_enabled_mobile = "enable_cta_1_mobile,enable_cta_2_mobile,enable_cta_3_mobile,enable_cta_4_mobile" | split: "," %}
         {% assign max_index_mobile = swiper_images_mobile.size | minus: 1 %}
 
         {% for i in (0..max_index_mobile) %}
@@ -20,31 +20,29 @@
           {% assign cta_check_mobile = cta_enabled_mobile[i] %}
           {% assign image_url_mobile = section.settings[swiper_image_mobile] | img_url: "master" %}
 
-          <!-- Check for Video -->
-          {% if swiper_image_mobile == "swiper_video_mobile" and section.settings[swiper_image_mobile] %}
-            <div class="swiper-slide relative">
+          <!-- Swiper Slide -->
+          <div class="swiper-slide relative">
+            <!-- Check for Video -->
+            {% if swiper_image_mobile == "swiper_video_mobile" and section.settings[swiper_image_mobile] %}
               <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
                 <source src="{{ section.settings[swiper_image_mobile] }}" type="video/mp4">
-                Your browser does not support the video tag.
               </video>
-            </div>
-          {% elsif image_url_mobile %}
-            <!-- Swiper Image Slide for Mobile -->
-            <div class="swiper-slide relative">
+            {% elsif image_url_mobile %}
+              <!-- Swiper Image Slide for Mobile -->
               <img src="{{ image_url_mobile }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+            {% endif %}
 
-              <!-- Check for CTA -->
-              {% if section.settings[cta_check_mobile] or section.settings[cta_url_mobile] %}
-                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
-                  <a href="{{ section.settings[cta_url_mobile] }}">
-                    <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
-                      <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px] lg:text-[18px] lg:leading-[24px]">{{ section.settings[cta_text_mobile] }}</p>
-                    </div>
-                  </a>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
+            <!-- Check for CTA (only show it if the CTA is enabled for that slide) -->
+            {% if section.settings[cta_check_mobile] %}
+              <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
+                <a href="{{ section.settings[cta_url_mobile] }}">
+                  <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                    <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px] lg:text-[18px] lg:leading-[24px]">{{ section.settings[cta_text_mobile] }}</p>
+                  </div>
+                </a>
+              </div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
 
@@ -67,6 +65,7 @@
 </div>
 
 
+
 <!-- Hero Wrapper Section for Desktop -->
 <div class="hero-wrapper w-full h-svh relative hidden lg:block">
   <div class="wrapper-slider w-full h-full absolute overflow-x-hidden left-0 top-0 right-0 z-0">
@@ -77,9 +76,9 @@
 
         <!-- Swiper Slide for Desktop -->
         {% assign swiper_images_desktop = "swiper_video_desktop,swiper_image_1_desktop,swiper_image_2_desktop,swiper_image_3_desktop" | split: "," %}
-        {% assign cta_texts_desktop = "cta_text_1_desktop,cta_text_2_desktop,cta_text_3_desktop" | split: "," %}
-        {% assign cta_urls_desktop = "cta_url_1_desktop,cta_url_2_desktop,cta_url_3_desktop" | split: "," %}
-        {% assign cta_enabled_desktop = "enable_cta_1_desktop,enable_cta_2_desktop,enable_cta_3_desktop" | split: "," %}
+        {% assign cta_texts_desktop = "cta_text_1_desktop,cta_text_2_desktop,cta_text_3_desktop,cta_text_4_desktop" | split: "," %}
+        {% assign cta_urls_desktop = "cta_url_1_desktop,cta_url_2_desktop,cta_url_3_desktop,cta_url_4_desktop" | split: "," %}
+        {% assign cta_enabled_desktop = "enable_cta_1_desktop,enable_cta_2_desktop,enable_cta_3_desktop,enable_cta_4_desktop" | split: "," %}
         {% assign max_index_desktop = swiper_images_desktop.size | minus: 1 %}
 
         {% for i in (0..max_index_desktop) %}
@@ -89,31 +88,30 @@
           {% assign cta_check_desktop = cta_enabled_desktop[i] %}
           {% assign image_url_desktop = section.settings[swiper_image_desktop] | img_url: "master" %}
 
-          <!-- Check for Video -->
-          {% if swiper_image_desktop == "swiper_video_desktop" and section.settings[swiper_image_desktop] %}
-            <div class="swiper-slide relative">
+          <!-- Swiper Slide -->
+          <div class="swiper-slide relative">
+            <!-- Check for Video -->
+            {% if swiper_image_desktop == "swiper_video_desktop" and section.settings[swiper_image_desktop] %}
               <video autoplay playsinline muted loop class="swiper-img w-full h-full object-cover block">
                 <source src="{{ section.settings[swiper_image_desktop] }}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-            </div>
-          {% elsif image_url_desktop %}
-            <!-- Swiper Image Slide for Desktop -->
-            <div class="swiper-slide relative">
+            {% elsif image_url_desktop %}
+              <!-- Swiper Image Slide for Desktop -->
               <img src="{{ image_url_desktop }}" alt="Slide {{ i | plus: 1 }}" class="swiper-img w-full h-full object-cover block">
+            {% endif %}
 
-              <!-- Check for CTA -->
-              {% if section.settings[cta_check_desktop] or section.settings[cta_url_desktop] %}
-                <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
-                  <a href="{{ section.settings[cta_url_desktop] }}">
-                    <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
-                      <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px] lg:text-[18px] lg:leading-[24px]">{{ section.settings[cta_text_desktop] }}</p>
-                    </div>
-                  </a>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
+            <!-- Check for CTA (only show it if the CTA is enabled for that slide) -->
+            {% if section.settings[cta_check_desktop] %}
+              <div class="w-full h-auto absolute left-0 bottom-14 right-0 px-4 lg:flex lg:items-center lg:justify-center">
+                <a href="{{ section.settings[cta_url_desktop] }}">
+                  <div class="w-full h-[48px] bg-white flex items-center justify-center rounded-xl font-semibold lg:w-[220px]">
+                    <p class="body-16 tt-norms-pro-med tracking-wide leading-[22px] lg:text-[18px] lg:leading-[24px]">{{ section.settings[cta_text_desktop] }}</p>
+                  </div>
+                </a>
+              </div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
 
@@ -134,6 +132,7 @@
     </div>
   </div>
 </div>
+
 
 
 <!-- Initialize Swiper -->
@@ -192,89 +191,197 @@ Section Schema Settings here
   "name": "hero-section",
   "settings": [
     {
-      "type": "url",
-      "id": "swiper_video_desktop",
-      "label": "Swiper Video (Desktop)",
-      "info": "Choose the Swiper Video for Desktop"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_1_desktop",
-      "label": "Swiper Image 1 (Desktop)",
-      "info": "Choose the Swiper Image for Desktop"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_2_desktop",
-      "label": "Swiper Image 2 (Desktop)",
-      "info": "Choose the Swiper Image for Desktop"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_3_desktop",
-      "label": "Swiper Image 3 (Desktop)",
-      "info": "Choose the Swiper Image for Desktop"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta_1_desktop",
-      "label": "Enable CTA for Slide 1 (Desktop)",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "cta_text_1_desktop",
-      "label": "CTA Text 1 (Desktop)",
-      "info": "Text for CTA of Slide 1 (Desktop)"
-    },
-    {
-      "type": "url",
-      "id": "cta_url_1_desktop",
-      "label": "CTA URL 1 (Desktop)",
-      "info": "URL for CTA of Slide 1 (Desktop)"
-    },
-    {
-      "type": "url",
-      "id": "swiper_video_mobile",
-      "label": "Swiper Video (Mobile)",
-      "info": "Choose the Swiper Video for Mobile"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_1_mobile",
-      "label": "Swiper Image 1 (Mobile)",
-      "info": "Choose the Swiper Image for Mobile"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_2_mobile",
-      "label": "Swiper Image 2 (Mobile)",
-      "info": "Choose the Swiper Image for Mobile"
-    },
-    {
-      "type": "image_picker",
-      "id": "swiper_image_3_mobile",
-      "label": "Swiper Image 3 (Mobile)",
-      "info": "Choose the Swiper Image for Mobile"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta_1_mobile",
-      "label": "Enable CTA for Slide 1 (Mobile)",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "cta_text_1_mobile",
-      "label": "CTA Text 1 (Mobile)",
-      "info": "Text for CTA of Slide 1 (Mobile)"
-    },
-    {
-      "type": "url",
-      "id": "cta_url_1_mobile",
-      "label": "CTA URL 1 (Mobile)",
-      "info": "URL for CTA of Slide 1 (Mobile)"
-    }
+    "type": "url",
+    "id": "swiper_video_desktop",
+    "label": "Swiper Video (Desktop)",
+    "info": "Choose the Swiper Video for Desktop"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_1_desktop",
+    "label": "Swiper Image 1 (Desktop)",
+    "info": "Choose the Swiper Image for Desktop"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_2_desktop",
+    "label": "Swiper Image 2 (Desktop)",
+    "info": "Choose the Swiper Image for Desktop"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_3_desktop",
+    "label": "Swiper Image 3 (Desktop)",
+    "info": "Choose the Swiper Image for Desktop"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_1_desktop",
+    "label": "Enable CTA for Slide 1 (Desktop)",
+    "default": true
+  },
+  {
+    "type": "text",
+    "id": "cta_text_1_desktop",
+    "label": "CTA Text 1 (Desktop)",
+    "info": "Text for CTA of Slide 1 (Desktop)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_1_desktop",
+    "label": "CTA URL 1 (Desktop)",
+    "info": "URL for CTA of Slide 1 (Desktop)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_2_desktop",
+    "label": "Enable CTA for Slide 2 (Desktop)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_2_desktop",
+    "label": "CTA Text 2 (Desktop)",
+    "info": "Text for CTA of Slide 2 (Desktop)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_2_desktop",
+    "label": "CTA URL 2 (Desktop)",
+    "info": "URL for CTA of Slide 2 (Desktop)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_3_desktop",
+    "label": "Enable CTA for Slide 3 (Desktop)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_3_desktop",
+    "label": "CTA Text 3 (Desktop)",
+    "info": "Text for CTA of Slide 3 (Desktop)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_3_desktop",
+    "label": "CTA URL 3 (Desktop)",
+    "info": "URL for CTA of Slide 3 (Desktop)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_4_desktop",
+    "label": "Enable CTA for Slide 4 (Desktop)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_4_desktop",
+    "label": "CTA Text 4 (Desktop)",
+    "info": "Text for CTA of Slide 4 (Desktop)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_4_desktop",
+    "label": "CTA URL 4 (Desktop)",
+    "info": "URL for CTA of Slide 4 (Desktop)"
+  },
+  {
+    "type": "url",
+    "id": "swiper_video_mobile",
+    "label": "Swiper Video (Mobile)",
+    "info": "Choose the Swiper Video for Mobile"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_1_mobile",
+    "label": "Swiper Image 1 (Mobile)",
+    "info": "Choose the Swiper Image for Mobile"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_2_mobile",
+    "label": "Swiper Image 2 (Mobile)",
+    "info": "Choose the Swiper Image for Mobile"
+  },
+  {
+    "type": "image_picker",
+    "id": "swiper_image_3_mobile",
+    "label": "Swiper Image 3 (Mobile)",
+    "info": "Choose the Swiper Image for Mobile"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_1_mobile",
+    "label": "Enable CTA for Slide 1 (Mobile)",
+    "default": true
+  },
+  {
+    "type": "text",
+    "id": "cta_text_1_mobile",
+    "label": "CTA Text 1 (Mobile)",
+    "info": "Text for CTA of Slide 1 (Mobile)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_1_mobile",
+    "label": "CTA URL 1 (Mobile)",
+    "info": "URL for CTA of Slide 1 (Mobile)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_2_mobile",
+    "label": "Enable CTA for Slide 2 (Mobile)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_2_mobile",
+    "label": "CTA Text 2 (Mobile)",
+    "info": "Text for CTA of Slide 2 (Mobile)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_2_mobile",
+    "label": "CTA URL 2 (Mobile)",
+    "info": "URL for CTA of Slide 2 (Mobile)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_3_mobile",
+    "label": "Enable CTA for Slide 3 (Mobile)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_3_mobile",
+    "label": "CTA Text 3 (Mobile)",
+    "info": "Text for CTA of Slide 3 (Mobile)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_3_mobile",
+    "label": "CTA URL 3 (Mobile)",
+    "info": "URL for CTA of Slide 3 (Mobile)"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_cta_4_mobile",
+    "label": "Enable CTA for Slide 4 (Mobile)",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "cta_text_4_mobile",
+    "label": "CTA Text 4 (Mobile)",
+    "info": "Text for CTA of Slide 4 (Mobile)"
+  },
+  {
+    "type": "url",
+    "id": "cta_url_4_mobile",
+    "label": "CTA URL 4 (Mobile)",
+    "info": "URL for CTA of Slide 4 (Mobile)"
+  }
   ],
   "presets": [
     {
