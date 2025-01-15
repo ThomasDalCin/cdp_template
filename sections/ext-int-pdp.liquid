@@ -241,7 +241,7 @@
           {% if external_text_value %}
           <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
             <p class="text-[32px] leading-[36px] tt-norms-pro-med">{{ external_images_text_title_value | upcase }}</p>
-            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ external_text_value }}</p>
+            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ external_text_value }}</p>
           </div>
           {% endif %}
 
@@ -250,9 +250,9 @@
           <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
             <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
               id="more-text-external-{{ forloop.index }}">
-              <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ additional_external_text_value }}</p>
+              <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ additional_external_text_value }}</p>
             </div>
-            <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1 lg:text-[18px] lg:leading-[24px]"
+            <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1 "
               data-target="more-text-external-{{ forloop.index }}">Read more</p>
           </div>
           {% endif %}
@@ -279,7 +279,7 @@
           {% if external_text_value %}
           <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 md:pl-12 lg:pl-12">
             <p class="text-[32px] leading-[36px] tt-norms-pro-med">{{ external_images_text_title_value | upcase }}</p>
-            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ external_text_value }}</p>
+            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ external_text_value }}</p>
           </div>
           {% endif %}
 
@@ -288,9 +288,9 @@
           <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 md:pl-12 lg:pl-12">
             <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
               id="more-text-external-{{ forloop.index }}">
-              <p class="text-[16px] leading-[20px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ additional_external_text_value }}</p>
+              <p class="text-[16px] leading-[20px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ additional_external_text_value }}</p>
             </div>
-            <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1 lg:text-[18px] lg:leading-[24px]"
+            <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
               data-target="more-text-external-{{ forloop.index }}">Read more</p>
           </div>
           {% endif %}
@@ -404,7 +404,7 @@
         {% if internal_text_value %}
         <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
           <p class="text-[32px] leading-[36px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
-          <p class="text-[16px] leading-[22x] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ internal_text_value }}</p>
+          <p class="text-[16px] leading-[22x] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ internal_text_value }}</p>
         </div>
         {% endif %}
 
@@ -413,9 +413,9 @@
         <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
           <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
             id="more-text-{{ forloop.index }}">
-            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ additional_text_value }}</p>
+            <p class="text-[16px] leading-[22px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ additional_text_value }}</p>
           </div>
-          <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1 lg:text-[18px] lg:leading-[24px]"
+          <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
             data-target="more-text-{{ forloop.index }}">Read more</p>
         </div>
         {% endif %}
@@ -442,7 +442,7 @@
         {% if internal_text_value %}
         <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-3 lg:pl-12">
           <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ internal_images_text_title_value | upcase }}</p>
-          <p class="text-[16px] leading-[20px] tt-norms-pro-reg">{{ internal_text_value }}</p>
+          <p class="text-[16px] leading-[20px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ internal_text_value }}</p>
         </div>
         {% endif %}
 
@@ -451,7 +451,7 @@
         <div class="w-full h-auto flex flex-col items-start justify-center px-6 gap-y-3 lg:pl-12">
           <div class="w-full h-0 overflow-y-hidden flex items-start justify-center visibility-more-text"
             id="more-text-{{ forloop.index }}">
-            <p class="text-[16px] leading-[20px] tt-norms-pro-reg">{{ additional_text_value }}</p>
+            <p class="text-[16px] leading-[20px] tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ additional_text_value }}</p>
           </div>
           <p class="text-[16px] leading-[20px] tt-norms-pro-med underline read-more-btn mt-1"
             data-target="more-text-{{ forloop.index }}">Read more</p>
