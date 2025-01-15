@@ -16,7 +16,10 @@
             }}</label>
             {% endif %}
             {% if section.settings.subheading != blank %}
-          <p class="body-16 text-white tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.subheading | escape }}<span class="ml-1"><a href="/pages/pardo-privacy-policy" class="tt-norms-pro-reg body-16 lg:text-[18px] lg:leading-[24px] underline">Privacy Policy</a></span></p>
+          <p class="body-16 text-white tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.subheading
+            | escape }}<span class="ml-1"><a href="/pages/pardo-privacy-policy"
+                class="tt-norms-pro-reg body-16 lg:text-[18px] lg:leading-[24px] underline">Privacy Policy</a></span>
+          </p>
           {% endif %}
         </div>
 
@@ -33,14 +36,16 @@
             <input
               class="appearance-none w-5 h-5 border-[1.5px] border-white bg-transparent rounded-full checked:bg-white focus:ring-0"
               type="radio" id="visitor" name="contact[role]" value="visitor">
-            <label for="visitor" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.checkbox_2_label }}</label>
+            <label for="visitor" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{
+              section.settings.checkbox_2_label }}</label>
           </div>
           <!-- radio two -->
           <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
             <input
               class="appearance-none w-5 h-5 border-[1.5px] border-white bg-transparent rounded-full checked:bg-white focus:ring-0"
               type="radio" id="owner" name="contact[role]" value="owner">
-            <label for="owner" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.checkbox_1_label }}</label>
+            <label for="owner" class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{
+              section.settings.checkbox_1_label }}</label>
           </div>
         </div>
 
@@ -128,7 +133,8 @@
         <div
           class="w-[155px] h-auto bg-white flex flex-row items-center justify-between rounded-lg gap-x-3 px-4 py-1 cursor-pointer select-language"
           aria-label="Seleziona lingua" data-locale-code="{{ request.locale.iso_code }}">
-          <p class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ section.settings.language_text | default: "Language" | upcase }}</p>
+          <p class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ section.settings.language_text |
+            default: "Language" | upcase }}</p>
 
           <!-- Language Icon -->
           <div class="w-auto h-auto hidden" id="gb-icon" data-locale-code="en">
@@ -140,19 +146,23 @@
         </div>
       </div>
 
-      <div class="hidden w-full h-full fixed inset-0 backdrop-blur-lg z-[100] container-form">
+      <div
+        class="hidden w-full h-full fixed inset-0 backdrop-blur-lg z-[100] container-form lg:items-center lg:justify-center">
         <div
-          class="w-full h-auto absolute right-0 left-0 bottom-0 px-6 pb-6 pt-9 flex flex-col items-center justify-center bg-white rounded-t-[32px] gap-y-6 transition-all duration-150 ease-in content-form translate-y-[1000px]">
+          class="w-full h-auto absolute right-0 left-0 bottom-0 px-6 pb-6 pt-9 flex flex-col items-center justify-center bg-white rounded-t-[32px] gap-y-6 transition-all duration-150 ease-in content-form translate-y-[1000px] lg:w-[640px] lg:rounded-[32px] lg:relative lg:gap-y-8 lg:p-10">
 
           <!-- Pulsante per chiudere -->
-          <div class="icon-content cursor-pointer close-form absolute right-6 top-6 close-locale-form"
+          <div
+            class="icon-content cursor-pointer close-form absolute right-6 top-6 close-locale-form lg:right-10 lg:top-10"
             aria-label="Chiudi">
             {% render 'x-icon' %}
           </div>
 
           <!-- Titolo -->
-          <p class="text-[14px] leading-[20px]">{{ section.settings.change_language_text | default: "Cambia lingua" }}
-          </p>
+          <div class="w-full h-auto flex items-center justify-center lg:justify-start">
+            <p class="text-[14px] leading-[20px] tt-norms-pro-med">{{ section.settings.change_language_text | default:
+              "Cambia lingua" }} </p>
+          </div>
 
           <!-- Modulo per selezionare la lingua -->
           <div class="w-full h-auto flex flex-col items-start justify-center gap-y-8">
@@ -160,12 +170,15 @@
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
               {% for locale in shop.published_locales %}
               <button type="button" data-locale-code="{{ locale.iso_code }}"
-                class="localeCode w-full h-auto px-4 py-3 flex items-center justify-center text-[14px] leading-[20px] bg-[#F7F7F7] border border-transparent rounded-xl focus:border-black">
+                class="localeCode w-full h-auto px-4 py-3 flex items-center justify-center gap-x-2 text-[14px] leading-[20px] bg-[#F7F7F7] border border-transparent rounded-xl focus:border-black tt-norms-pro-reg ">
                 {% case locale.endonym_name %}
                 {% when "Italiano" %} Italiano
                 {% when "English" %} Inglese
                 {% else %}{{ locale.endonym_name }}
                 {% endcase %}
+                <span class="check-icon">
+                  {% render 'check-icon' %}
+                </span>
               </button>
               {% endfor %}
             </div>
@@ -175,7 +188,7 @@
 
           <div class="w-full h-auto">
             <button type="button"
-              class="w-full h-auto flex items-center justify-center rounded-xl bg-[#423C3B] text-white py-3 submit-locale">
+              class="w-full h-auto flex items-center justify-center rounded-xl bg-[#423C3B] text-white py-3 submit-locale tt-norms-pro-reg">
               {{ section.settings.cta_language_text | default: "Conferma selezione" }}
             </button>
           </div>
@@ -280,6 +293,15 @@
     transform: rotate(45deg);
     transition: transform 0.3s ease;
   }
+
+  .localeCode .check-icon {
+    display: none;
+  }
+
+
+  .localeCode:focus .check-icon {
+    display: inline;
+  }
 </style>
 
 
@@ -296,6 +318,8 @@
       });
     });
 
+
+    //handle language selector
     const languageSelector = document.querySelector('.select-language');
     const currentLocaleCode = languageSelector.getAttribute('data-locale-code');
     handleFlag(currentLocaleCode);
@@ -322,18 +346,36 @@
       }
     }
 
-
-
-    function showLocaleForm() {
+    function showLocaleForm(condition) {
       containerLocaleForm.classList.remove('hidden');
       containerLocaleForm.classList.add('fixed');
       contentLocaleForm.classList.remove('translate-y-[1000px]');
+
+      if (condition) {
+        containerLocaleForm.classList.add('flex');
+        contentLocaleForm.classList.add('static');
+        contentLocaleForm.classList.remove('absolute');
+      } else {
+        containerLocaleForm.classList.remove('flex');
+        contentLocaleForm.classList.add('absolute');
+        contentLocaleForm.classList.remove('static');
+      }
     }
 
-    function hideLocaleForm() {
+    function hideLocaleForm(condition) {
       containerLocaleForm.classList.add('hidden');
       containerLocaleForm.classList.remove('fixed');
       contentLocaleForm.classList.add('translate-y-[1000px]');
+
+      if (condition) {
+        containerLocaleForm.classList.remove('flex');
+        contentLocaleForm.classList.remove('static');
+        contentLocaleForm.classList.add('absolute');
+      } else {
+        containerLocaleForm.classList.add('flex');
+        contentLocaleForm.classList.remove('absolute');
+        contentLocaleForm.classList.add('static');
+      }
     }
 
     const containerLocaleForm = document.querySelector('.container-form');
@@ -344,7 +386,7 @@
     const languageButton = document.querySelector('.select-language');
 
     let selectedLocaleCode = null;
-
+    const isDesktop = window.innerWidth >= 1024;
 
     localeButtons.forEach((button) => {
       button.addEventListener('click', () => {
@@ -364,11 +406,11 @@
     });
 
     languageButton.addEventListener('click', () => {
-      showLocaleForm();
+      showLocaleForm(isDesktop);
     });
 
     closeLocaleFormIcon.addEventListener('click', () => {
-      hideLocaleForm();
+      hideLocaleForm(isDesktop);
     });
 
 
