@@ -74,9 +74,10 @@
 
 </div>
 
+{% assign pdf = product.metafields.custom.product_brochure.value %}
 
 <!-- Form Container -->
-<div id="form-container"
+<div id="form-container" data-pdf-url = "{{ pdf }}"
     class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 hidden md:inset-0 md:items-center md:justify-center md:rounded-none md:bg-[rgba(0,0,0,0.20)] md:backdrop-blur-lg lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:backdrop-blur-lg">
     <div
         class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto md:w-[640px] md:bg-white md:rounded-[32px] md:p-10 lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
@@ -96,7 +97,7 @@
 
         <!-- Form Content -->
 
-        {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px]" %}
+        {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px] form-brochure" %}
 
         {% if form.posted_successfully? %}
         <div
@@ -277,6 +278,8 @@
         const formContainer = document.getElementById('form-container');
         const wrapForm = document.querySelector('.wrapper-form-appointment');
         const closeForm = document.querySelector('.close-form');
+        const pdfUrl = formContainer.getAttribute('data-pdf-url');
+        const form = document.querySelector('.form-brochure');
 
         const submitButton = document.querySelector('.submit-cta'); // Bottone di submit
         const formInputs = document.querySelectorAll('input[required]'); // Input obbligatori
@@ -304,7 +307,17 @@
         formInputs.forEach(input => {
             input.addEventListener('input', updateSubmitButtonState);
         });
+         
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
 
+          if (pdfUrl && pdfUrl !== '#') {
+            window.open(pdfUrl, '_blank');
+            } else {
+                console.error("PDF URL non trovato!");
+           }
+
+        })
 
         // Funzione per aprire il form
         ctaBrochure.forEach(cta => {
@@ -372,7 +385,7 @@
         updateTags();
         updateProfilingState();
 
-        // Gestione pop-up privacy
+        //pop-up privacy
         const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
         const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
         const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
