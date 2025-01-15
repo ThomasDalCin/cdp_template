@@ -50,6 +50,14 @@
             <div class="card-image-content absolute inset-0 w-full h-full p-6 flex flex-col gap-y-1 items-start justify-end z-10 rounded-2xl">
               <p class="text-[24px] leading-[30px] text-white">{{ text | truncate: 100 }}</p>
             </div>
+
+            {% if block.settings.cta_filmstrip_card_text_visible %}
+              <div class="w-full h-auto flex flex-row items-center justify-end absolute left-0 right-0 z-10 top-6 px-6">
+                <a href="{{ block.settings.cta_filmstrip_card_url }}" class="w-auto h-auto flex flex-row items-start justify-center bg-white rounded-full px-4 py-2">
+                  <p class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ block.settings.cta_filmstrip_card_text | default: "Discover" }}</p>
+                </a>
+              </div>
+            {% endif %}
           </div>
         {% endif %}
       {% endif %}
