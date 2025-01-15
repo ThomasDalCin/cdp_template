@@ -228,16 +228,26 @@
                 {% for product in collection.products %}
                 <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2"
                     data-content="{{ product.title }}">
-                    {% assign productMetafieldsValues = 'top_speed,lenght,dry_weight' | split: ',' %}
-                    {% for productMetafieldsValue in productMetafieldsValues %}
-                    {% assign metafieldCustom = product.metafields.custom[productMetafieldsValue].value %}
+                    {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
+                    {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
+
+                    
+                    {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
+                    {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' |  split: ',' %}
+
+
+                    {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
+                    {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
+                    {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
+
                     <div
                         class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
-                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med">
-                            {{ productMetafieldsValue | replace: '_', ' ' | upcase }}
+                        <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med text-nowrap">
+                            {{ titleValue |  upcase}}
                         </p>
-                        <p class="body-16 text-nowrap tt-norms-pro-med">{{ metafieldCustom | upcase }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-med">{{ infoValue }}</p>
                     </div>
+
                     {% endfor %}
                 </div>
                 {% endfor %}
