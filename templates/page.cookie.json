@@ -1,25 +1,51 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-      "privacy-top-page": {
-        "type": "privacy-top-page",
-        "settings": {}
-      },
-      "privacy-cookie-content": {
-        "type": "privacy-cookie-content",
-        "settings": {}
-      },
-      "privacy-bottom-page": {
-        "type": "privacy-bottom-page",
-        "settings": {
-          "underline_text": "",
-          "updates_info": "Ultimo aggiornamento: gennaio 2025"
-        }
-      }
+  "sections": {
+    "privacy-top-page": {
+      "type": "privacy-top-page",
+      "settings": {}
     },
-    "order": [
-      "privacy-top-page",
-      "privacy-cookie-content",
-      "privacy-bottom-page"
-    ]
-  }
-  
+    "privacy-cookie-content": {
+      "type": "privacy-cookie-content",
+      "blocks": {
+        "paragraph_7UmNgF": {
+          "type": "paragraph",
+          "settings": {
+            "content-paragraph": "Su questo sito web sono presenti cookie per migliorare l’esperienza di navigazione e renderla più veloce e interattiva. Questa cookie policy descrive i cookie utilizzati e illustra come attivarli o disattivarli; ti invitiamo a consultare periodicamente il contenuto di questa pagina, unitamente alla privacy policy disponibile sul nostro sito web.\n\nCOSA SONO I COOKIE? QUALI COOKIE SONO UTILIZZATI? COME ATTIVARLI O DISATTIVARLI?\n\nI cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo e che consentono di personalizzare la tua navigazione online o, semplicemente, renderla più semplice (memorizzando, ad esempio, la lingua con cui vuoi consultare un sito, le credenziali di accesso alle aree riservate). Grazie ai cookie è possibile quindi raccogliere informazioni riguardanti la tua navigazione online e utilizzarle per facilitare o personalizzare la tua esperienza di navigazione.\n \nUtilizziamo vari tipi di cookie, diversi per tipologia e scopo. In generale, i cookie possono essere distinti in due macrocategorie: cookie \"tecnici\" e cookie \"di profilazione\".\nI cookie tecnici garantiscono un utilizzo ottimale del nostro sito web rendendo più fluida e semplice la navigazione e vengono utilizzati al solo scopo di consentire l’agevole utilizzo dei nostri servizi online. Abbiamo la necessità di utilizzare questi cookie perché, in assenza, alcune sezioni del nostro sito web non sarebbero accessibili o risulterebbero di difficile utilizzo. Non chiediamo il tuo consenso al loro uso, non è possibile disattivarli e il fondamento legale che ci consente di utilizzarli è il nostro interesse legittimo al regolare funzionamento del nostro sito web. Rientrano all’interno della categoria dei cookie tecnici anche i cookie di funzionalità che consentono la navigazione in funzione di una serie di criteri selezionati (ad esempio, la lingua).  Inoltre, sono assimilati ai cookie tecnici anche i cookie analitici tramite i quali veniamo a conoscenza esclusivamente di informazioni di tipo statistico, raccolte in forma aggregata relative al numero di visitatori e a come questi utilizzano il nostro sito web.\nI cookie di profilazione vengono utilizzati per raccogliere informazioni relative alle tue abitudini di navigazione (pagine visitate, articoli inseriti nel carrello, ecc.): questi dati vengono da noi utilizzati per proporti contenuti personalizzati e pubblicità mirate. I cookie di profilazione possono essere proprietari (o di prima parte) se gestiti direttamente da Cantiere del Pardo o di terza parte, ossia di proprietà di nostri partner commerciali.\nTutti i cookie di profilazione (sia cookie proprietari che quelli di terza parte) possono essere abilitati/disabilitati utilizzando il nostro Impostazioni cookie o modificando le impostazioni del browser che stai utilizzando per la navigazione web.\nTi ricordiamo che i cookie di profilazione, sebbene contrassegnati da una spunta, saranno effettivamente operativi soltanto se cliccherai il pulsante “Accetto” posizionato sul banner dedicato ai cookie presente sul nostro sito web. Pertanto, i cookie di profilazione raccolgono informazioni sulla tua navigazione soltanto in base al tuo consenso espresso."
+          }
+        },
+        "paragraph_4QiqK6": {
+          "type": "paragraph",
+          "settings": {
+            "content-paragraph": "TITOLARE DEL TRATTAMENTO\nIl Titolare del Trattamento è Cantiere del Pardo S.p.A., con sede legale in Via F.lli Lumière 34, Forlì (FC), e-mail data.protection@calzedonia.com.\n \nCOMUNICAZIONE, E TRASFERIMENTO DEI TUOI DATI\nLe informazioni raccolte tramite i cookie verranno comunicate al personale e ai fornitori di Cantiere del Pardo (ad es., fornitori di servizi, piattaforme IT o consulenti), coinvolti nella gestione e manutenzione del nostro sito web.\nI tuoi dati possono essere trasferiti fuori dall'UE; tuttavia, ciò sarà sempre fatto nel rispetto delle disposizioni del Regolamento UE 2016/679 (“GDPR”): in particolare, i dati verranno trasferiti soltanto previa sottoscrizione delle Clausole Contrattuali Standard approvate dalla Commissione UE con decisione n.2021/914/UE oppure verso Paesi in grado di garantire un adeguato livello di protezione dei dati personali e destinatari quindi di una Decisione di Adeguatezza adottata dalla Commissione UE.\n \nI TUOI DIRITTI PRIVACY\nIl GDPR ti riconosce determinati diritti in merito ai tuoi dati personali, che puoi esercitare scrivendo a data.protection@calzedonia.com. Riceverai una risposta nel più breve tempo possibile e, in ogni caso, entro 30 giorni. Potremmo richiederti informazioni aggiuntive se, in relazione alla tua richiesta, è necessario verificare la tua identità.\n\nDIRITTO DI ACCESSO: Hai il diritto di sapere se i tuoi dati vengono trattati e, in tal caso, ottenere una copia di tali dati. Hai anche il diritto di essere informato riguardo a: l'origine dei dati, le categorie di dati personali trattati, i destinatari dei dati, le finalità del trattamento, l'esistenza di processi decisionali automatizzati (compresa la profilazione), il periodo di conservazione dei dati e i diritti riconosciuti dal GDPR.\n\nDIRITTO ALLA CANCELLAZIONE: Hai il diritto di richiedere che i tuoi dati siano cancellati se non sono più necessari o se il Titolare non è più autorizzato a trattarli.\n\nDIRITTO DI RETTIFICA: Hai il diritto di ottenere la rettifica o l'integrazione dei tuoi dati se sono inesatti o incompleti.\n\nDIRITTO ALLA PORTABILITÀ: Hai il diritto di ricevere i tuoi dati personali in un formato strutturato, di uso comune e leggibile da dispositivo automatico; hai anche il diritto di richiedere che tali dati siano trasmessi a un altro Titolare.\n\n·       DIRITTO ALLA LIMITAZIONE DEL TRATTAMENTO: Hai il diritto di ottenere la limitazione del trattamento quando hai contestato l'esattezza dei dati personali, per il periodo necessario al Titolare per verificarne l'accuratezza; il Titolare non è autorizzato a trattare i tuoi dati e, invece di richiederne la cancellazione, puoi chiedere di limitarne l'uso; se i dati in possesso del Titolare - anche se non più necessari per le finalità del trattamento per cui sono stati raccolti - sono necessari per te per stabilire, esercitare o difendere un diritto in sede giudiziaria.\n\nDIRITTO DI REVOCA DEL CONSENSO: Hai il diritto di revocare il tuo consenso in qualsiasi momento per i trattamenti basati su di esso.\n\nDIRITTO DI OPPOSIZIONE: Hai il diritto di opporti in qualsiasi momento al trattamento dei tuoi dati personali basati su di un nostro legittimo interesse, compresa la profilazione.\n\nInoltre, se ritieni che il trattamento di dati personali che ti riguardano sia effettuato in violazione delle disposizioni del GDPR, hai il DIRITTO DI PROPORRE RECLAMO all'autorità di controllo competente."
+          }
+        }
+      },
+      "block_order": [
+        "paragraph_7UmNgF",
+        "paragraph_4QiqK6"
+      ],
+      "settings": {}
+    },
+    "privacy-bottom-page": {
+      "type": "privacy-bottom-page",
+      "settings": {
+        "underline_text": "",
+        "updates_info": "Ultimo aggiornamento: gennaio 2025"
+      }
+    }
+  },
+  "order": [
+    "privacy-top-page",
+    "privacy-cookie-content",
+    "privacy-bottom-page"
+  ]
+}
