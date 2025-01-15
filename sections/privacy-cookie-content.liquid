@@ -1,0 +1,35 @@
+<!-- Privacy cookie content -->
+<div class="w-full h-auto flex flex-col items-start justify-center px-6 py-14 md:px-12 lg:items-center lg:mb-0 lg:px-20 lg:pt-[60px]">
+
+  <!-- cookie text content -->
+  <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center">
+    <!-- content paragraph -->
+     {% for block in section.blocks %}
+      {% if block.type == "paragraph" %}
+        <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ block.settings.content-paragraph |  newline_to_br }}</p>
+      {% endif %}
+     {% endfor %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "privacy-cookie-content",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "name": "paragraph",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "content-paragraph",
+            "info": "Type the paragraph's content",
+            "label": "content paragraph"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

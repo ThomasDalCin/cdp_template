@@ -1,0 +1,25 @@
+{
+    "sections": {
+      "privacy-top-page": {
+        "type": "privacy-top-page",
+        "settings": {}
+      },
+      "privacy-cookie-content": {
+        "type": "privacy-cookie-content",
+        "settings": {}
+      },
+      "privacy-bottom-page": {
+        "type": "privacy-bottom-page",
+        "settings": {
+          "underline_text": "",
+          "updates_info": "Ultimo aggiornamento: gennaio 2025"
+        }
+      }
+    },
+    "order": [
+      "privacy-top-page",
+      "privacy-cookie-content",
+      "privacy-bottom-page"
+    ]
+  }
+  
