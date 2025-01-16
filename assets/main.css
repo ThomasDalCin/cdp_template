@@ -4038,6 +4038,10 @@ html {
     margin-top: ;
   }
 
+  .lg\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
