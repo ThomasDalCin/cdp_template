@@ -20,8 +20,9 @@
     {% assign article_count = 0 %}
     {% for handle in allBlogs %}
       {% assign sortedArticles = blogs[handle].articles |  sort: "published_at" |  reverse %}
-      {% for article in sortedArticles %}      
-        <!-- Check if less than 10 articles have been rendered -->
+      {% for article in sortedArticles %}
+        {% unless article.tags contains "Press Room" %}
+                  <!-- Check if less than 10 articles have been rendered -->
         {% if article_count < 10 %}
           <!-- container article news or events -->
           {% assign articlesDivided = article_count |  modulo: 2 %}
@@ -60,6 +61,7 @@
         {% else %}
           {% break %}
         {% endif %}
+        {% endunless %}      
       {% endfor %}
     {% endfor %}
   </div>
