@@ -11,6 +11,9 @@
   "sections": {
     "delear-top-view": {
       "type": "delear-top",
+      "custom_css": [
+        ".w-full.h-auto.flex.flex-col.p-6.items-start.justify-center.bg-\\[\\#EFEEED\\].rounded-2xl.lg\\:w-\\[calc\\(50\\%_-_20px\\)\\] {display: none;}"
+      ],
       "settings": {
         "delear_cta_text": "Back",
         "delear_image": "shopify://shop_images/Pardo-Yachts-Ownership-Hero-1.jpg",
