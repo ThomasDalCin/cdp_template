@@ -738,20 +738,18 @@
             const discoverGammaContent = document.querySelector('.discover-gamma-content');
             const discoverGammaLink = document.querySelector('.discover-gamma-link');
             const discoverGammaText = document.querySelector('.discover-gamma-text');
+            const linkItemContent = linkItem.innerHTML.trim();
 
-            if (isActive) {
+            if (isActive && linkItemContent != "View all models") {
                 discoverGammaContent.classList.remove('hidden');
                 discoverGammaContent.classList.add('flex');
             }
-
-            const linkItemContent = linkItem.innerHTML.trim();
 
             discoverGammaText.innerHTML = `Discover ${linkItemContent}`;
             const gammaUrl = `/collections/${linkItemContent.toLowerCase()}`;
             discoverGammaLink.setAttribute('href', gammaUrl);
 
-            handleClickOutside(linkItem, discoverGammaContent)
-            console.log(linkItemContent);
+            handleClickOutside(linkItem, discoverGammaContent);
 
         }
 
