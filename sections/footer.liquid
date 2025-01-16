@@ -79,9 +79,11 @@
           {% if block.type == "social-channel" %}
           <div class="social-link-container w-auto h-auto">
             <li class="social-link flex flex-row gap-x-3 items-center justify-start">
-              <img src="{{ block.settings.social_icon |  img_url: 'master' }}"
+              <a href="{{ block.settings.social_url }}">
+                <img src="{{ block.settings.social_icon |  img_url: 'master' }}"
                 alt="{{ block.settings.social_icon.alt }}" class="social-image w-5 h-5 object-cover"
                 style="width: 20px; height: 20px">
+              </a>
             </li>
           </div>
           {% endif %}
