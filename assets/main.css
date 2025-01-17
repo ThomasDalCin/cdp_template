@@ -1381,10 +1381,6 @@ p,
   margin-top: 138px;
 }
 
-.mt-\[194px\] {
-  margin-top: 194px;
-}
-
 .mt-\[22px\] {
   margin-top: 22px;
 }
@@ -4036,10 +4032,6 @@ html {
 
   .lg\:mt-\[\] {
     margin-top: ;
-  }
-
-  .lg\:mt-6 {
-    margin-top: 1.5rem;
   }
 
   .lg\:block {
