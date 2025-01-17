@@ -1638,6 +1638,26 @@ p,
   height: 100svh;
 }
 
+.h-\[364px\] {
+  height: 364px;
+}
+
+.h-\[354px\] {
+  height: 354px;
+}
+
+.h-\[360px\] {
+  height: 360px;
+}
+
+.h-\[374px\] {
+  height: 374px;
+}
+
+.h-\[420px\] {
+  height: 420px;
+}
+
 .max-h-\[1000px\] {
   max-height: 1000px;
 }

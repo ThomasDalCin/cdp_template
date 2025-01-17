@@ -223,7 +223,7 @@
           const flagSrc = flagMaps[delear.Nazione] || "";
 
           card.innerHTML = `
-          <div class="w-[300px] h-[344px] flex flex-col gap-y-4 p-4 rounded-lg bg-[var(--primary-background-color)] relative lg:w-full lg:p-6 lg:h-auto lg:justify-center">
+          <div class="w-[300px] h-[440px] flex flex-col gap-y-4 p-4 rounded-lg bg-[var(--primary-background-color)] relative lg:w-full lg:p-6 lg:h-auto lg:justify-center">
             <div class="w-full h-auto flex flex-col gap-y-4 items-start justify-center">
               <div class="w-full h-auto flex flex-col gap-y-1 items-start justify-center">
                 <div class="w-full h-auto flex flex-row items-center justify-between lg:justify-start lg:gap-x-2">
@@ -234,10 +234,16 @@
                 </div>
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">${delear.Nazione}</p>
               </div>
+              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
               <div class="w-full h-auto flex flex-col gap-y-1 items-start justify-center">
-                <p class="body-16 tt-norms-pro-reg text-[#646464] lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_contact }}</p>
+                <p class="body-16 tt-norms-pro-reg text-[#646464] lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_contact |  default: "Contatti" }}</p>
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_mobile |  default: "Mobile" }}: ${delear['Mobile:']}</p>
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_email |  default: "Email" }}: ${delear['E: Mail']}</p>
+              </div>
+              <div class="w-full h-auto flex flex-col gap-y-1 items-start justify-center">
+                <p class="body-16 tt-norms-pro-reg text-[#646464] lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_address |  default: "Indirizzo" }}</p>
+                <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">${delear.Indirizzo}</p>
+              </div>
               </div>
               <div class="hidden card-description">
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
@@ -365,6 +371,18 @@ Section Schema Settings here;
 "id": "cta_card",
 "default": "Scopri",
 "label": "Card delear cta text"
+},
+{
+"type": "text",
+"id": "cta_address",
+"default": "Indirizzo",
+"label": "Card delear address text"
+},
+{
+"type": "text",
+"id": "card_contact",
+"default": "Contatti",
+"label": "Card delear contact text"
 }
 ]
 }
