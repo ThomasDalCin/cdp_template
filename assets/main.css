@@ -3328,6 +3328,11 @@ html {
   --tw-ring-color: transparent;
 }
 
+.focus-visible\:border-black:focus-visible {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 @media (min-width: 768px) {
   .md\:fixed {
     position: fixed;
