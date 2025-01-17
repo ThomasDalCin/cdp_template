@@ -226,7 +226,7 @@
           <div class="w-[300px] h-[440px] flex flex-col gap-y-4 p-4 rounded-lg bg-[var(--primary-background-color)] relative lg:w-full lg:p-6 lg:h-auto lg:justify-center">
             <div class="w-full h-auto flex flex-col gap-y-4 items-start justify-center">
               <div class="w-full h-auto flex flex-col gap-y-1 items-start justify-center">
-                <div class="w-full h-auto flex flex-row items-center justify-between lg:justify-start lg:gap-x-2">
+                <div class="w-full h-auto flex flex-row items-center justify-between lg:justify-start lg:gap-x-4">
                      <p class="text-[18px] leading-[24px] tt-norms-pro-med">${delear.Dealer}</p>
                      <div class="w-auto h-auto flag-content">
                       <img src="${flagSrc}" alt="${delear.Nazione}flag" class="w-6 h-4">
@@ -234,7 +234,7 @@
                 </div>
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">${delear.Nazione}</p>
               </div>
-              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:gap-x-4">
               <div class="w-full h-auto flex flex-col gap-y-1 items-start justify-center">
                 <p class="body-16 tt-norms-pro-reg text-[#646464] lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_contact |  default: "Contatti" }}</p>
                 <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.card_mobile |  default: "Mobile" }}: ${delear['Mobile:']}</p>
