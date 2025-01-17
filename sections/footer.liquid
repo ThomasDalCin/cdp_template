@@ -171,7 +171,7 @@
             {% form 'localization', id: 'localization_form_tag', class: "w-full h-auto" %}
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
               {% for locale in shop.published_locales %}
-              <input type="text" data-locale-code="{{ locale.iso_code }}"
+              <button type="text" data-locale-code="{{ locale.iso_code }}"
                 class="localeCode w-full h-auto px-4 py-3 flex items-center justify-center gap-x-2 text-[14px] leading-[20px] bg-[#F7F7F7] rounded-xl focus:outline-none focus:ring-black focus:border-black tt-norms-pro-reg ">
                 {% case locale.endonym_name %}
                 {% when "Italiano" %} Italiano
@@ -181,7 +181,7 @@
                 <span class="check-icon">
                   {% render 'check-icon' %}
                 </span>
-              </input>
+              </button>
               {% endfor %}
             </div>
             <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}" id="localeCode" />
