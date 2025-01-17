@@ -2982,6 +2982,10 @@ p,
   outline-offset: 2px;
 }
 
+.outline-1 {
+  outline-width: 1px;
+}
+
 .ring-black {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
