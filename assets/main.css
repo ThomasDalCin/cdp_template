@@ -829,6 +829,27 @@ p,
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.cta-delear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: transparent;
+  background-color: var(--accent-dark-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .cta-brochure {
   display: flex;
   align-items: center;
