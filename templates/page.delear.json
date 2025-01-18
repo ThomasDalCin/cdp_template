@@ -1,8 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "delear": {
       "type": "delear",
-      "settings": {}
+      "custom_css": [],
+      "settings": {
+        "dealer_heading": "Our network of experts",
+        "dealer_text": "The experience of our expert dealers is irreplaceable. Find a local dealer to learn more.",
+        "cta_list": "List dealer",
+        "cta_map": "Map dealer",
+        "cta_google_text": "Apri in Google map",
+        "cta_website_text": "Visita il sito web",
+        "card_mobile": "Telefono",
+        "cta_card": "Scopri",
+        "cta_address": "Indirizzo",
+        "card_contact": "Contatti"
+      }
     }
   },
   "order": [
