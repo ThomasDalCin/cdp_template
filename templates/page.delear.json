@@ -11,9 +11,7 @@
   "sections": {
     "delear": {
       "type": "delear",
-      "custom_css": [
-        ".cta-open-dealer{display: none!important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "dealer_heading": "Our network of experts",
         "dealer_text": "The experience of our expert dealers is irreplaceable. Find a local dealer to learn more.",
