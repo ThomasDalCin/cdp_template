@@ -1634,6 +1634,10 @@ p,
   height: 100svh;
 }
 
+.h-\[70vh\] {
+  height: 70vh;
+}
+
 .max-h-\[1000px\] {
   max-height: 1000px;
 }
@@ -2895,6 +2899,10 @@ p,
 
 .leading-\[96px\] {
   line-height: 96px;
+}
+
+.leading-\[64px\] {
+  line-height: 64px;
 }
 
 .-tracking-\[0\.2px\] {
