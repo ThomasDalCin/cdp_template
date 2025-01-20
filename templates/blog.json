@@ -32,9 +32,7 @@
     },
     "blog-list": {
       "type": "blog-list",
-      "custom_css": [
-        ".blog-item-horizontal-scroll-news {display: none;}"
-      ],
+      "custom_css": [],
       "settings": {
         "article_cta_pressroom_download_text": "Download",
         "article_cta_pressroom_text": "Read More",
