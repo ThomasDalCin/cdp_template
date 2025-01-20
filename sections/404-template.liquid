@@ -1,32 +1,39 @@
 <!-- 404 template -->
 <div class="w-full h-auto">
-  <div class="w-full h-[70vh] flex flex-col items-start justify-center p-6">
+  <div class="w-full h-[100vh] flex flex-col items-start justify-center p-6 lg:px-10">
     <!-- main text content -->
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-10">
       <!-- content text -->
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
         <!-- content titles -->
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-2">
+        <div class="w-full h-auto flex flex-col items-center justify-center gap-2">
           <h1 class="text-[64px] leading-[64px] tt-norms-pro-med">{{ section.settings.main_title | default: "Oops!" }}</h1>
           <p class="text-[24px] leading-[30px] tt-norms-pro-med">{{ section.settings.sub_title | default: "404 - Page not found" }}</p>
         </div>
         <!-- content paragraphs -->
-        <div class="w-full h-auto">
-          <p class="body-16 tt-norms-pro-reg">{{ section.settings.content_page | default: "The page you are looking for might have been removed had its name changed or is temporarily unavailable." }}</p>
+        <div class="w-full h-auto flex items-center justify-center">
+          <p class="body-16 tt-norms-pro-reg text-center lg:text-[18px] lg:leading-[24px]">{{ section.settings.content_page | default: "The page you are looking for might have been removed had its name changed or is temporarily unavailable." }}</p>
         </div>
       </div>
       <!-- content cta -->
       <div class="w-full h-auto flex items-center justify-center">
         <!-- cta -->
-        <div class="w-auto h-auto">
+        <div class="w-full h-auto md:w-auto lg:w-auto">
           <a href="/" class="cta-choco">
-            <p class="text-white tt-norms-pro-med body-16">{{ section.settings.cta_text | default: "Go to home page" }}</p>
+            <p class="text-white tt-norms-pro-med body-16 text-center lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_text | default: "Go to home page" }}</p>
           </a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+    /*hide breadcrumbs content */
+    .breadcrumbs{
+        display: none;
+    }
+</style>
 
 {% schema %}
   {
