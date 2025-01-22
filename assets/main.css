@@ -1454,6 +1454,10 @@ p,
   height: 1.5rem;
 }
 
+.h-\[100vh\] {
+  height: 100vh;
+}
+
 .h-\[112px\] {
   height: 112px;
 }
@@ -1632,14 +1636,6 @@ p,
 
 .h-svh {
   height: 100svh;
-}
-
-.h-\[70vh\] {
-  height: 70vh;
-}
-
-.h-\[100vh\] {
-  height: 100vh;
 }
 
 .max-h-\[1000px\] {
@@ -2901,12 +2897,12 @@ p,
   line-height: 56px;
 }
 
-.leading-\[96px\] {
-  line-height: 96px;
-}
-
 .leading-\[64px\] {
   line-height: 64px;
+}
+
+.leading-\[96px\] {
+  line-height: 96px;
 }
 
 .-tracking-\[0\.2px\] {
@@ -3562,12 +3558,12 @@ html {
     width: calc(50% - 1.5rem);
   }
 
-  .md\:w-full {
-    width: 100%;
-  }
-
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:min-w-\[380px\] {

@@ -4,14 +4,23 @@
   <!-- cookie text content -->
   <div class="w-full h-auto flex flex-col gap-y-6 items-start justify-center">
     <!-- content paragraph -->
-     {% for block in section.blocks %}
+    {% for block in section.blocks %}
       {% if block.type == "paragraph" %}
-        <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ block.settings.content-paragraph |  newline_to_br }}</p>
+        <p class="body-16 tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ block.settings.content-paragraph | newline_to_br }}</p>
       {% endif %}
-     {% endfor %}
+    {% endfor %}
   </div>
 
 </div>
+
+<style>
+  #onetrust-consent-sdk .onetrust-pc-dark-filter {
+    display: none !important;
+  }
+  #onetrust-consent-sdk #onetrust-banner-sdk {
+    display: none !important;
+  }
+</style>
 
 {% schema %}
   {
