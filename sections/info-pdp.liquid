@@ -19,16 +19,18 @@
                     {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
 
                     {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
-                    {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' |  split: ',' %}
+                    {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' | split: ',' %}
 
                     {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
                     {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
                     {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
-    
+
                     <div
                         class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] p-4 lg:h-[100px] lg:flex-1">
-                        <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue |  upcase }}</p>
-                        <p class="body-16 text-nowrap tt-norms-pro-med badge-value lg:text-[18px] lg:leading-[24px]">{{ infoValue }}</p>
+                        <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue | upcase
+                            }}</p>
+                        <p class="body-16 text-nowrap tt-norms-pro-med badge-value lg:text-[18px] lg:leading-[24px]">{{
+                            infoValue }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -37,22 +39,28 @@
                 <div
                     class="product-detaiils-component-main w-full h-auto pt-4 pb-6 flex flex-col gap-y-2 items-start justify-start lg:py-0">
                     {% if product.description and product.description != '' %}
-                    <p class="body-16 tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ product.description | raw }}</p>
+                    <p class="body-16 tt-norms-pro-reg lg:text-[20px] lg:leading-[26px]">{{ product.description | raw }}
+                    </p>
                     {% endif %}
                 </div>
             </div>
 
             <!--emotional text container-->
-            <div class="w-full h-auto flex flex-col gap-y-3 items-center justify-center mb-10 rounded-3xl p-6 lg:px-20 lg:mb-0 lg:py-14 bg-[#F7F7F7] lg:rounded-[32px]">
+            <div
+                class="w-full h-auto flex flex-col gap-y-3 items-center justify-center mb-10 rounded-3xl p-6 lg:px-20 lg:mb-0 lg:py-14 bg-[#F7F7F7] lg:rounded-[32px]">
                 {% assign pdpHighLightText = product.metafields.custom.highlights_pdp_text.value %}
                 {% assign boldTextHighLight = pdpHighLightText["bold_text"] %}
                 {% assign regularTextHighLight = pdpHighLightText["regular_text"] %}
 
-                {% if boldTextHighLight and regularTextHighLight  %}
-                    <p class="text-[20px] leading-[26px] tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[70px]">{{ boldTextHighLight }}</p>
-                    <p class="text-[20px] leading-[26px] tt-norms-pro-light text-center text-balance lg:text-[48px] lg:leading-[70px]">{{ regularTextHighLight }}</p>
-                    {% else %}
-                    <p>No item found</p>
+                {% if boldTextHighLight and regularTextHighLight %}
+                <p
+                    class="text-[20px] leading-[26px] tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[70px]">
+                    {{ boldTextHighLight }}</p>
+                <p
+                    class="text-[20px] leading-[26px] tt-norms-pro-light text-center text-balance lg:text-[48px] lg:leading-[70px]">
+                    {{ regularTextHighLight }}</p>
+                {% else %}
+                <p>No item found</p>
                 {% endif %}
             </div>
 
@@ -65,10 +73,11 @@
                     </a>
                 </div>
                 {% unless product.title == "GT65" %}
-                    <div class="cta-transparent h-[48px] min-h-[48px] lg:w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
-                        <p class="body-16-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
-                        {% render 'download-icon-black' %}
-                    </div>
+                <div
+                    class="cta-transparent h-[48px] min-h-[48px] lg:w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
+                    <p class="body-16-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
+                    {% render 'download-icon-black' %}
+                </div>
                 {% endunless %}
             </div>
         </div>
@@ -79,7 +88,7 @@
 {% assign pdf = product.metafields.custom.product_brochure.value %}
 
 <!-- Form Container -->
-<div id="form-container" data-pdf-url = "{{ pdf }}"
+<div id="form-container" data-pdf-url="{{ pdf }}"
     class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 hidden md:inset-0 md:items-center md:justify-center md:rounded-none md:bg-[rgba(0,0,0,0.20)] md:backdrop-blur-lg lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:backdrop-blur-lg">
     <div
         class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto md:w-[640px] md:bg-white md:rounded-[32px] md:p-10 lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
@@ -101,17 +110,9 @@
 
         {% form 'customer', class: "flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px] form-brochure" %}
 
-        {% if form.posted_successfully? %}
-        <div
-            class="w-full h-[60px] fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black">
-            {% render 'check-icon' %}
-            <p class="body-16">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
-        </div>
-        {% else %}
-
         <!-- Form Errors -->
         {{ form.errors | default_errors }}
-        
+
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
             <!-- First Name -->
             <div class="form-group w-full">
@@ -174,7 +175,8 @@
         <!-- cta-privacy-page -->
         <div class="w-full h-auto flex flex-col items-start justify-center">
             <a href="{{ section.settings.cta_privacy_page_redirect }}">
-                <p class="body-16 leading-[20px] underline tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_privacy_page |
+                <p class="body-16 leading-[20px] underline tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{
+                    section.settings.cta_privacy_page |
                     default: "Privacy Policy" }}</p>
             </a>
         </div>
@@ -189,10 +191,16 @@
                 {{ section.settings.submit_button | default: "Get the brochure" }}
             </button>
         </div>
-        {% endif %}
         {% endform %}
 
     </div>
+</div>
+
+<!--Form success-->
+<div class="w-full h-[60px] hidden fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black px-6"
+    id="success-message">
+    {% render 'check-icon' %}
+    <p class="body-16">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
 </div>
 
 
@@ -312,15 +320,25 @@
         formInputs.forEach(input => {
             input.addEventListener('input', updateSubmitButtonState);
         });
-         
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
 
-          if (pdfUrl && pdfUrl !== '#') {
-            window.open(pdfUrl, '_blank');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const successMessage = document.getElementById('success-message');
+
+            if (pdfUrl && pdfUrl !== '#') {
+                window.open(pdfUrl, '_blank');
             } else {
                 console.error("PDF URL non trovato!");
-           }
+            }
+
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('flex');
+
+            // Nasconde il messaggio dopo 5 secondi
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+                successMessage.classList.remove('flex');
+            }, 3000);
 
         })
 
@@ -361,7 +379,7 @@
 
         // Funzione per aggiornare i tag
         const updateTags = () => {
-            const tags = ['brochure', productTag.value ]; // Tag statico
+            const tags = ['brochure', productTag.value]; // Tag statico
             if (marketingCheckbox.checked) tags.push('marketing');
             if (profilingCheckbox.checked) tags.push('profilazione');
             additionalTagsInput.value = tags.join(',');
