@@ -95,16 +95,16 @@
       <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
         {% form 'contact', class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
 
+          <!-- Form Errors -->
+          {{ form.errors | default_errors }}
+
           {% if form.posted_successfully? %}
             <!-- Confirm pop-up -->
             <div class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black bg-white hidden transition-opacity duration-300 ease-in-out">
               {% render 'check-icon' %}
               <p class="body-12">{{ section.settings.confirm_message }}</p>
             </div>
-          {% else %}
-
-            <!-- Form Errors -->
-            {{ form.errors | default_errors }}
+          {% endif %}
 
             <!-- First Name -->
             <div class="form-group w-full h-auto flex flex-col items-start justify-center">
@@ -206,7 +206,6 @@
             <div class="cta-choco submit-cta mt-[22px] lg:mt-[]">
               <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
             </div>
-          {% endif %}
         {% endform %}
       </div>
     </div>
