@@ -180,6 +180,7 @@
 
         <!-- Hidden Input for Brochure Tag -->
         <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
+        <input type="hidden" name="contact[product]" id="productTag" value="{{ product.title }}">
 
         <!-- Submit Button -->
         <div class="cta-transparent w-full flex items-center justify-center submit-cta mt-2">
@@ -289,6 +290,7 @@
         const profilingCheckbox = document.getElementById('profilingConsent'); // Checkbox Profiling
         const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
         const additionalTagsInput = document.getElementById('additionalTags'); // Input nascosto per i tag
+        const productTag = document.getElementById('productTag');//product tag for the form
 
         // Funzione per aggiornare lo stato del pulsante submit
         const updateSubmitButtonState = () => {
@@ -358,7 +360,7 @@
 
         // Funzione per aggiornare i tag
         const updateTags = () => {
-            const tags = ['brochure']; // Tag statico
+            const tags = ['brochure', productTag.value ]; // Tag statico
             if (marketingCheckbox.checked) tags.push('marketing');
             if (profilingCheckbox.checked) tags.push('profilazione');
             additionalTagsInput.value = tags.join(',');
