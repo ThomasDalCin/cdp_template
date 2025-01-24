@@ -35,12 +35,11 @@
     })(window, document, 'script', 'dataLayer', 'GTM-5HCT9DF4');</script>
   <!-- End Google Tag Manager -->
 
-  
-  <!--add /it to the current URL -->
+  {% comment %}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const currentPath = window.location.pathname;
-      const queryString = window.location.search; 
+      const queryString = window.location.search;
 
       if (!currentPath.startsWith('/it') && !currentPath.startsWith('/en')) {
         const newUrl = `/it${currentPath}${queryString}`;
@@ -48,6 +47,7 @@
       }
     });
   </script>
+  {% endcomment %}
 
 </head>
 
