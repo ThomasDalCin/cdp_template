@@ -1,16 +1,20 @@
 <!-- navbar-new -->
 
 <!-- navbar-container -->
-<div class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center transition-all duration-150 ease-linear md:px-10 md:pt-12 lg:px-12 lg:pt-10">
-  <div class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
+<div
+  class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center transition-all duration-150 ease-linear md:px-10 md:pt-12 lg:px-12 lg:pt-10">
+  <div
+    class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
     <!-- menu yatch cta -->
     <div class="w-auto h-full min-h-[32px] flex flex-row items-center justify-start gap-x-4">
-      <div class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
+      <div
+        class="menu-yachts-label cursor-pointer w-[74px] min-w-[74px] h-[32px] min-h-[32px] flex items-center justify-center">
         <p class="body-16 chip-text">Models</p>
       </div>
       <!-- container cta gamma desktop -->
-      <div class="hidden w-auto h-full px-4 py-3 flex items-center justify-center text-white bg-black rounded-full transition-all duration-150 ease-in discover-gamma-content">
+      <div
+        class="hidden w-auto h-full px-4 py-3 flex items-center justify-center text-white bg-black rounded-full transition-all duration-150 ease-in discover-gamma-content">
         <!-- dynamic discover gamma text -->
         <a href="#" class="w-auto h-auto discover-gamma-link">
           <p class="text-[14px] leading-[12px] tt-norms-pro-reg discover-gamma-text">Discover gamma</p>
@@ -20,12 +24,10 @@
 
 
     <!-- pardo logo container -->
-    <div class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div
+      class="menu-logo-container w-[93px] h-[23px] flex-shrink-0 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div class="w-auto h-auto">
-        <a
-          href="/"
-          id="pardo-logo"
-          class="w-auto h-auto">
+        <a href="/" id="pardo-logo" class="w-auto h-auto">
           <div class="w-auto h-auto pardo-logo">
             {% render 'pardo-logo-one' %}
           </div>
@@ -50,115 +52,120 @@
 
 
 {% if page.title %}
-  <div class="page-title-container w-full h-auto flex items-center justify-start relative py-3 mt-[138px] px-4 lg:px-12">
-    <div class="container-back-arrow">
-      <a href="javascript:history.back()">
-        {% render 'arrow-back-black' %}
-      </a>
-    </div>
-    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <h1 class="body-16 tt-norms-pro-med">{{ page.title }}</h1>
-    </div>
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-3 mt-[138px] px-4 lg:px-12">
+  <div class="container-back-arrow">
+    <a href="javascript:history.back()">
+      {% render 'arrow-back-black' %}
+    </a>
   </div>
+  <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h1 class="body-16 tt-norms-pro-med">{{ page.title }}</h1>
+  </div>
+</div>
 {% elsif collection.title %}
-  <div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
-    <div class="container-back-arrow">
-      <a href="javascript:history.back()">
-        {% render 'arrow-back-black' %}
-      </a>
-    </div>
-    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <h1 class="body-16 tt-norms-pro-med">{{ collection.title }}</h1>
-    </div>
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
+  <div class="container-back-arrow">
+    <a href="javascript:history.back()">
+      {% render 'arrow-back-black' %}
+    </a>
   </div>
+  <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h1 class="body-16 tt-norms-pro-med">{{ collection.title }}</h1>
+  </div>
+</div>
 {% elsif blog.title %}
-  <div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
-    <div class="container-back-arrow">
-      <a href="javascript:history.back()">
-        {% render 'arrow-back-black' %}
-      </a>
-    </div>
-    <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <h1 class="body-16 tt-norms-pro-med">Events & News</h1>
-    </div>
+<div class="page-title-container w-full h-auto flex items-center justify-start relative py-4 mt-[138px] px-4 lg:px-12">
+  <div class="container-back-arrow">
+    <a href="javascript:history.back()">
+      {% render 'arrow-back-black' %}
+    </a>
   </div>
+  <div class="w-auto h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h1 class="body-16 tt-norms-pro-med">Events & News</h1>
+  </div>
+</div>
 {% endif %}
 
 <!-- Yatch Menu Container -->
-<div class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+  class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
   <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
     <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
       {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models" | split: ',' %}
       {% for link in linklists.yatch.links %}
-        {% assign matching_collection = collections[link.object.handle] %}
-        {% unless link.title == 'Pardo pre-owned' %}
-          <li class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item lg:last-of-type:mt-4" data-collection="{{ link.object.handle }}">
+      {% assign matching_collection = collections[link.object.handle] %}
+      {% unless link.title == 'Pardo pre-owned' %}
+      <li
+        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item lg:last-of-type:mt-4"
+        data-collection="{{ link.object.handle }}">
 
 
-            <div class="relative inline-block">
-              {% if allLinksTitle contains link.title %}
-                {% if link.title == 'GT' %}
-                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
-                                        tt-norms-pro-light
-                                        lg:text-[64px] lg:leading-[70px]" }}
-                {% elsif link.title == 'View all models' %}
-                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
-                                        leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
-                {% else %}
-                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
-                                        tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
-                {% endif %}
-              {% endif %}
+        <div class="relative inline-block">
+          {% if allLinksTitle contains link.title %}
+          {% if link.title == 'GT' %}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
+          tt-norms-pro-light
+          lg:text-[64px] lg:leading-[70px]" }}
+          {% elsif link.title == 'View all models' %}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
+          leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
+          {% else %}
+          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
+          tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
+          {% endif %}
+          {% endif %}
+        </div>
+
+
+        <div
+          class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 opacity-0 ease-linear overflow-hidden h-0 max-h-[1000px]">
+          {% if link.title == "View all models" %}
+          <div
+            class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
+
+            {% assign collectionSorted = "Walkaround,Endurance,GT" | split: ',' %}
+
+            {% for collectionHandle in collectionSorted %}
+            {% assign collection = collections[collectionHandle] %}
+
+            {% for product in collection.products %}
+            {% unless collection.title == 'Pardo approved' %}
+            <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+              <a href="{{ product.url }}" class="tt-norms-pro-light">
+                {{ product.title | replace: 'Pardo', '' }}
+              </a>
             </div>
+            {% endunless %}
+            {% endfor %}
+            {% endfor %}
+          </div>
+          {% endif %}
 
-
-            <div class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 opacity-0 ease-linear overflow-hidden h-0 max-h-[1000px]">
-              {% if link.title == "View all models" %}
-                <div class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
-
-                  {% assign collectionSorted = "Walkaround,Endurance,GT" | split: ',' %}
-
-                  {% for collectionHandle in collectionSorted %}
-                    {% assign collection = collections[collectionHandle] %}
-
-                    {% for product in collection.products %}
-                      {% unless collection.title == 'Pardo approved' %}
-                        <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
-                          <a href="{{ product.url }}" class="tt-norms-pro-light">
-                            {{ product.title | replace: 'Pardo', '' }}
-                          </a>
-                        </div>
-                      {% endunless %}
-                    {% endfor %}
-                  {% endfor %}
-                </div>
-              {% endif %}
-
-              <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center mt-4">
-                {% for product in matching_collection.products %}
-                  <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
-                    <a href="{{ product.url }}" class="tt-norms-pro-reg">
-                      {{ product.title | replace: 'Pardo', '' }}
-                    </a>
-                  </div>
-                {% endfor %}
-              </div>
+          <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center mt-4">
+            {% for product in matching_collection.products %}
+            <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+              <a href="{{ product.url }}" class="tt-norms-pro-reg">
+                {{ product.title | replace: 'Pardo', '' }}
+              </a>
             </div>
+            {% endfor %}
+          </div>
+        </div>
 
-          </li>
-        {% endunless %}
+      </li>
+      {% endunless %}
       {% endfor %}
     </div>
 
 
     <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
       {% for link in linklists.yatch.links %}
-        {% unless allLinksTitle contains link.title %}
-          {{ link.title | link_to: link.url, class: "hidden text-white tt-norms-pro-extra-light text-[16px] leading-[22px]
-                        lg:text-[24px] hover:font-['TT-Norms-Pro-Regular']
-                        lg:leading-[24px] underline underline decoration-[.5px] hover:decoration-[1px] underline-offset-[2px]" }}
-        {% endunless %}
+      {% unless allLinksTitle contains link.title %}
+      {{ link.title | link_to: link.url, class: "hidden text-white tt-norms-pro-extra-light text-[16px] leading-[22px]
+      lg:text-[24px] hover:font-['TT-Norms-Pro-Regular']
+      lg:leading-[24px] underline underline decoration-[.5px] hover:decoration-[1px] underline-offset-[2px]" }}
+      {% endunless %}
       {% endfor %}
     </div>
 
@@ -174,72 +181,73 @@
     <!-- boat image container on desktop -->
     <div class="boat-image-container absolute right-20 bottom-[90px] w-[890px] h-[501px] z-30">
       {% for collection in collections %}
-        {% for product in collection.products %}
-          <!-- Title of the product inside the boat image container -->
-          <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
-            <p class="tt-norms-thin text-[96px] leading-[128px] text-white boat-title" data-title="{{ product.title }}">
-              {{ product.title | replace: "Pardo", "" }}
-            </p>
-          </div>
-        {% endfor %}
+      {% for product in collection.products %}
+      <!-- Title of the product inside the boat image container -->
+      <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
+        <p class="tt-norms-thin text-[96px] leading-[128px] text-white boat-title" data-title="{{ product.title }}">
+          {{ product.title | replace: "Pardo", "" }}
+        </p>
+      </div>
+      {% endfor %}
       {% endfor %}
 
 
       <!-- Boat image within the same container -->
       {% for collection in collections %}
-        {% for product in collection.products %}
-          <a href="{{ product.url }}" class="w-full h-full">
-            <img
-              src="{{ product.featured_image | img_url: 'master' }}"
-              alt="boat png image"
-              class="boat-image w-full h-full object-contain z-10"
-              data-image="{{ product.title }}">
-          </a>
-        {% endfor %}
+      {% for product in collection.products %}
+      <a href="{{ product.url }}" class="w-full h-full">
+        <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image"
+          class="boat-image w-full h-full object-contain z-10" data-image="{{ product.title }}">
+      </a>
+      {% endfor %}
       {% endfor %}
 
       <!-- container product tag -->
       {% for collection in collections %}
-        {% for product in collection.products %}
-          <div class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container" data-tags="{{ product.title }}">
-            {% for tag in product.tags %}
-              {% if tag != "" %}
-                <span class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
-                  {{ tag }}
-                </span>
-              {% endif %}
-            {% endfor %}
-          </div>
+      {% for product in collection.products %}
+      <div
+        class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container"
+        data-tags="{{ product.title }}">
+        {% for tag in product.tags %}
+        {% if tag != "" %}
+        <span class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
+          {{ tag }}
+        </span>
+        {% endif %}
         {% endfor %}
+      </div>
+      {% endfor %}
       {% endfor %}
 
       <!-- Container main features -->
       <div class="w-full h-auto absolute left-0 -bottom-[20px] right-0 product-details-container">
         {% for collection in collections %}
-          {% for product in collection.products %}
-            <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2" data-content="{{ product.title }}">
-              {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
-              {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
+        {% for product in collection.products %}
+        <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2"
+          data-content="{{ product.title }}">
+          {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
+          {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
 
 
-              {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
-              {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' | split: ',' %}
+          {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
+          {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' | split: ',' %}
 
 
-              {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
-                {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
-                {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
+          {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
+          {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
+          {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
 
-                <div class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
-                  <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med text-nowrap">
-                    {{ titleValue | upcase }}
-                  </p>
-                  <p class="body-16 text-nowrap tt-norms-pro-med">{{ infoValue }}</p>
-                </div>
+          <div
+            class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
+            <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med text-nowrap">
+              {{ titleValue | upcase }}
+            </p>
+            <p class="body-16 text-nowrap tt-norms-pro-med">{{ infoValue }}</p>
+          </div>
 
-              {% endfor %}
-            </div>
           {% endfor %}
+        </div>
+        {% endfor %}
         {% endfor %}
       </div>
 
@@ -259,7 +267,8 @@
 
 
 <!-- Main Menu Container -->
-<div class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden md:pt-[160px] md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+  class="main-menu-container w-full h-dvh fixed z-30 inset-0 flex-col items-start justify-between px-6 pt-[136px] pb-6 gap-y-10 hidden md:pt-[160px] md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
   <div class="w-full h-full flex flex-col items-start justify-between">
 
@@ -267,30 +276,30 @@
     <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8">
       <div class="w-full h-auto flex flex-col gap-y-8 items-start justify-center lg:gap-y-4">
         {% for link in linklists.main-menu.links %}
-          {% if link.title != "Cookie" and link.title != "Privacy" %}
-            {% unless link.title == 'Press room' or link.title == 'Work with us' %}
-              <li class="header-1-medium text-white list-none inline-flex items-center relative">
-                {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px]
-                                      tt-norms-pro-light hover:font-['TT-Norms-Pro-Regular']
-                                      lg:leading-[70px]" }}
-              </li>
-            {% endunless %}
-          {% endif %}
+        {% if link.title != "Cookie" and link.title != "Privacy" %}
+        {% unless link.title == 'Press room' or link.title == 'Work with us' %}
+        <li class="header-1-medium text-white list-none inline-flex items-center relative">
+          {{ link.title | link_to: link.url, class: "text-[32px] leading-[32px] lg:text-[64px]
+          tt-norms-pro-light hover:font-['TT-Norms-Pro-Regular']
+          lg:leading-[70px]" }}
+        </li>
+        {% endunless %}
+        {% endif %}
         {% endfor %}
       </div>
 
       <div class="grouped-links-container w-full h-auto flex flex-col gap-y-2 lg:gap-y-6">
         {% for link in linklists.main-menu.links %}
-          {% if link.title == 'Press room' or link.title == 'Work with us' %}
-            {% assign base_classes = "text-white tt-norms-pro-extra-light text-[16px]
-                              leading-[22px] hover:font-['TT-Norms-Pro-Regular']
-                              lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]
-                              underline-offset-[2px]" %}
-            {% if link.title == "Press room" %}
-              {% assign base_classes = base_classes | append: " press-room-link" %}
-            {% endif %}
-            {{ link.title | link_to: link.url, class: base_classes }}
-          {% endif %}
+        {% if link.title == 'Press room' or link.title == 'Work with us' %}
+        {% assign base_classes = "text-white tt-norms-pro-extra-light text-[16px]
+        leading-[22px] hover:font-['TT-Norms-Pro-Regular']
+        lg:text-[24px] lg:leading-[24px] underline decoration-[.5px] hover:decoration-[1px]
+        underline-offset-[2px]" %}
+        {% if link.title == "Press room" %}
+        {% assign base_classes = base_classes | append: " press-room-link" %}
+        {% endif %}
+        {{ link.title | link_to: link.url, class: base_classes }}
+        {% endif %}
         {% endfor %}
       </div>
 
@@ -307,27 +316,30 @@
 
 
     <!-- horizontal scroll partnership menu container -->
-    <div class="w-[calc(100%+4rem)] hidden px-6 -mx-6 h-auto flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:hidden">
+    <div
+      class="w-[calc(100%+4rem)] hidden px-6 -mx-6 h-auto flex-row items-start justify-start gap-x-2 overflow-x-auto overflow-y-hidden lg:p-4 lg:hidden">
       {% if blogs['Partnership'] %}
-        {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
-        {% if partnershipArticles.size > 0 %}
-          {% for partnershipArticle in partnershipArticles %}
-            {% assign articleItems = forloop.index | modulo: 2 %}
-            {% if articleItems == 0 %}
-              <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl" style="background-image:url({{ partnershipArticle.image | img_url: 'master' }});">
-                <div class="w-auto h-auto flex items-start justify-center absolute left-0 bottom-0 p-6">
-                  <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
-                </div>
-              </div>
-            {% else %}
-              <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl" style="background-image:url({{ partnershipArticle.image | img_url: 'master' }});">
-                <div class="w-auto h-auto flex items-start justify-center absolute left-0 top-0 p-6">
-                  <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
+      {% assign partnershipArticles = blogs['Partnership'].articles | reverse %}
+      {% if partnershipArticles.size > 0 %}
+      {% for partnershipArticle in partnershipArticles %}
+      {% assign articleItems = forloop.index | modulo: 2 %}
+      {% if articleItems == 0 %}
+      <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl"
+        style="background-image:url({{ partnershipArticle.image | img_url: 'master' }});">
+        <div class="w-auto h-auto flex items-start justify-center absolute left-0 bottom-0 p-6">
+          <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
+        </div>
+      </div>
+      {% else %}
+      <div class="w-[270px] min-w-[270px] h-[150px] relative bg-cover bg-center rounded-2xl"
+        style="background-image:url({{ partnershipArticle.image | img_url: 'master' }});">
+        <div class="w-auto h-auto flex items-start justify-center absolute left-0 top-0 p-6">
+          <p class="text-[28px] leading-[35px] text-white">{{ partnershipArticle.title }}</p>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
       {% endif %}
     </div>
   </div>
@@ -346,7 +358,8 @@
 
 
 <!-- Second level Menu Container -->
-<div class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] md:pt[160px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
+<div
+  class="second-level-menu-container fixed z-30 inset-0 w-full h-screen flex flex-col bg-[var(--primary-background-color)] px-6 pt-[120px] md:pt[160px] hidden bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
 
   <!-- back arrow container -->
   <div class="back-nav-container w-full h-auto items-center justify-start py-4 text-white relative hidden">
@@ -355,49 +368,53 @@
   </div>
 
   <!-- container horizontal chips -->
-  <div class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide md:px-10 md:mt-6">
+  <div
+    class="chips-horizontal-container w-[calc(100%_+_4rem)] min-h-[40px] h-auto flex flex-row items-center justify-start gap-x-2 px-6 -mx-6 mb-4 box-border overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide md:px-10 md:mt-6">
     {% assign collectionOrder = 'walkaround,endurance,gt' | split: ',' %}
 
     {% for collectionHandle in collectionOrder %}
-      {% assign collection = collections[collectionHandle] %}
+    {% assign collection = collections[collectionHandle] %}
 
-      {% if collection %}
-        <div class="chips-label-white flex flex-row items-center justify-start gap-x-2 h-[40px] min-h-[40px] text-white flex-shrink-0">
-          <div class="chips-text text-nowrap body-16 text-white tt-norms-pro-reg" id="collection-chips-title">
-            {{ collection.title }}
-          </div>
-          {% render 'arrow-down-icon' %}
-        </div>
-      {% endif %}
+    {% if collection %}
+    <div
+      class="chips-label-white flex flex-row items-center justify-start gap-x-2 h-[40px] min-h-[40px] text-white flex-shrink-0">
+      <div class="chips-text text-nowrap body-16 text-white tt-norms-pro-reg" id="collection-chips-title">
+        {{ collection.title }}
+      </div>
+      {% render 'arrow-down-icon' %}
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
 
 
   <!-- container images products -->
-  <div class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20 md:pb-24">
+  <div
+    class="second-level-menu-items w-full flex flex-col items-center justify-start gap-y-6 overflow-y-auto pb-52 pt-20 md:pb-24">
     {% for collection in collections %}
-      {% for product in collection.products %}
-        {% assign productMainImg = product.images[0] %}
-        <div class="container-product-main w-full h-auto flex flex-col items-center justify-center relative">
-          <li class="container-product-main-image w-full h-auto list-none relative z-10" data-product-collection="{{ collection.title }}">
-            <a href="{{ product.url }}" class="w-full h-auto md:flex md:items-center md:justify-center">
-              <img
-                class="product-main-img w-full h-[172px] min-h-[172px] object-cover md:w-[442px] md:h-[200px]"
-                src="{{ productMainImg | img_url: 'master' }}"
-                alt="{{ product.title }}">
-            </a>
-            {% for tag in product.tags %}
-              {% if tag != "" %}
-                <span class="inline-flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-[2px] items-center justify-center bg-white rounded-[48px] body-12 tt-norms-pro-reg">
-                  {{ tag }}
-                </span>
-              {% endif %}
-            {% endfor %}
-          </li>
-          <p class="text-[24px] leading-[52px] tt-norms-thin absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white text-center">
-            {{ product.title | replace: "Pardo", "" }}</p>
-        </div>
-      {% endfor %}
+    {% for product in collection.products %}
+    {% assign productMainImg = product.images[0] %}
+    <div class="container-product-main w-full h-auto flex flex-col items-center justify-center relative">
+      <li class="container-product-main-image w-full h-auto list-none relative z-10"
+        data-product-collection="{{ collection.title }}">
+        <a href="{{ product.url }}" class="w-full h-auto md:flex md:items-center md:justify-center">
+          <img class="product-main-img w-full h-[172px] min-h-[172px] object-cover md:w-[442px] md:h-[200px]"
+            src="{{ productMainImg | img_url: 'master' }}" alt="{{ product.title }}">
+        </a>
+        {% for tag in product.tags %}
+        {% if tag != "" %}
+        <span
+          class="inline-flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-[2px] items-center justify-center bg-white rounded-[48px] body-12 tt-norms-pro-reg">
+          {{ tag }}
+        </span>
+        {% endif %}
+        {% endfor %}
+      </li>
+      <p
+        class="text-[24px] leading-[52px] tt-norms-thin absolute -top-[52px] left-1/2 -translate-x-1/2 z-0 text-white text-center">
+        {{ product.title | replace: "Pardo", "" }}</p>
+    </div>
+    {% endfor %}
     {% endfor %}
   </div>
 
@@ -411,6 +428,11 @@
   </a>
 
 </div>
+
+{% assign collectionToDisplay = product.collections.first %}
+{% if collectionToDisplay %}
+<p class="hidden data-collection-value" data-collection-value="{{ collectionToDisplay.title }}"></p>
+{% endif %}
 
 
 <style>
@@ -470,672 +492,693 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Navbar elements
-        const navbar = document.querySelector('.navbar');
-        const navBg = document.querySelector('.navbar-container')
-        const menuIcon = document.querySelector('.menu-icon');
-        const menuChip = document.querySelector('.menu-yachts-label');
-        // Menu types
-        const menuYatch = document.querySelector('.yatch-menu-container');
-        const mainMenu = document.querySelector('.main-menu-container');
-        const secondMenu = document.querySelector('.second-level-menu-container');
-        const pageTitleContainer = document.querySelector('.page-title-container');
-        const navDynamicHeight = navbar.offsetHeight;
-        const pardoLogo = document.querySelector('.pardo-logo');
-        const lineIconMenu = document.querySelectorAll('.line');
-        const breadcrumbsContent = document.querySelector('.breadcrumbs');
-        // Chips label
-        const chipText = document.querySelector('.chip-text');
-  
-        //handle second menu layout base on device size
-        window.addEventListener('resize', handleSecondMenuLevel);
-        handleSecondMenuLevel();
-  
-        function updateNavBackground() {
-            const currentPage = window.location.pathname;
-            const isNotHomepage = currentPage !== '/';
-            const isProductPage = currentPage.startsWith('/products/');
-            const hadScrolled = window.scrollY;
-            const viewportHeight = window.innerHeight;
-  
-            // Selettore del breadcrumbsContainer
-            const breadcrumbsContainer = document.querySelector('.breadcrumbs');
-  
-            // Funzione per nascondere il breadcrumbs
-            const hideBreadcrumbs = () => {
-                if (breadcrumbsContainer) {
-                    breadcrumbsContainer.classList.add('hidden');
-                    breadcrumbsContainer.classList.remove('flex');
-                }
-            };
-  
-            // Funzione per mostrare il breadcrumbs
-            const showBreadcrumbs = () => {
-                if (breadcrumbsContainer) {
-                    breadcrumbsContainer.classList.remove('hidden');
-                    breadcrumbsContainer.classList.add('flex');
-                }
-            };
-  
-            if (hadScrolled > 0 && isNotHomepage) {
-                hideBreadcrumbs();
-            } else {
-                showBreadcrumbs();
-            }
-  
-            if (hadScrolled >= viewportHeight && !isNotHomepage) {
-                navBg.classList.remove('bg-[#EFEEED]');
-                navBg.classList.add('bg-blur-opacity');
-                pardoLogo.classList.add('text-white');
-                lineIconMenu.forEach((line) => {
-                    line.style.backgroundColor = "white";
-                });
-            } else if (isProductPage) {
-                navBg.classList.remove('bg-[#EFEEED]');
-                navBg.classList.add('bg-blur-opacity');
-                pardoLogo.classList.add('text-white');
-                lineIconMenu.forEach((line) => {
-                    line.style.backgroundColor = "white";
-                });
-                breadcrumbsContent.classList.add('text-white');
-            } else if (hadScrolled > 0 && !isProductPage && isNotHomepage) {
-                breadcrumbsContent.classList.add("hidden");
-            } else {
-                navBg.classList.add('bg-[#EFEEED]');
-                navBg.classList.remove('bg-blur-opacity');
-                navbar.classList.remove("bg-blur-opacity");
-                pardoLogo.classList.remove('text-white');
-                lineIconMenu.forEach((line) => {
-                    line.style.backgroundColor = "black";
-                });
-                breadcrumbsContent.classList.remove('text-white');
-                breadcrumbsContent.classList.remove('hidden');
-            }
+  document.addEventListener('DOMContentLoaded', () => {
+    // Navbar elements
+    const navbar = document.querySelector('.navbar');
+    const navBg = document.querySelector('.navbar-container')
+    const menuIcon = document.querySelector('.menu-icon');
+    const menuChip = document.querySelector('.menu-yachts-label');
+    // Menu types
+    const menuYatch = document.querySelector('.yatch-menu-container');
+    const mainMenu = document.querySelector('.main-menu-container');
+    const secondMenu = document.querySelector('.second-level-menu-container');
+    const pageTitleContainer = document.querySelector('.page-title-container');
+    const navDynamicHeight = navbar.offsetHeight;
+    const pardoLogo = document.querySelector('.pardo-logo');
+    const lineIconMenu = document.querySelectorAll('.line');
+    const breadcrumbsContent = document.querySelector('.breadcrumbs');
+    // Chips label
+    const chipText = document.querySelector('.chip-text');
+
+    //handle second menu layout base on device size
+    window.addEventListener('resize', handleSecondMenuLevel);
+    handleSecondMenuLevel();
+
+    function updateNavBackground() {
+      const currentPage = window.location.pathname;
+      const isNotHomepage = currentPage !== '/';
+      const isProductPage = currentPage.startsWith('/products/');
+      const hadScrolled = window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      // Selettore del breadcrumbsContainer
+      const breadcrumbsContainer = document.querySelector('.breadcrumbs');
+
+      // Funzione per nascondere il breadcrumbs
+      const hideBreadcrumbs = () => {
+        if (breadcrumbsContainer) {
+          breadcrumbsContainer.classList.add('hidden');
+          breadcrumbsContainer.classList.remove('flex');
         }
-  
-  
-        updateNavBackground();
-        window.addEventListener('scroll', () => {
-            updateNavBackground();
-        });
-  
-  
-        // Handle second menu
-        function handleSecondMenuLevel() {
-            const screenSize = window.innerWidth;
-            let lastBadge;
-            let activeLink = null; // Variabile per tenere traccia del link attivo
-  
-            //handle each links inside second menu level
-            document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
-                if (screenSize <= 1024) {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        secondMenu.classList.remove('hidden');
-                        secondMenu.classList.add('flex');
-                    });
-                } else {
-                    // Hover per aggiungere temporaneamente il font
-                    link.addEventListener('mouseover', (e) => {
-                        e.currentTarget.classList.add('tt-norms-pro-reg');
-                    });
-  
-                    link.addEventListener('mouseout', (e) => {
-                        // Rimuovi il font durante il mouseout solo se non è il link attivo
-                        if (e.currentTarget !== activeLink) {
-                            e.currentTarget.classList.remove('tt-norms-pro-reg');
-                        }
-                    });
-  
-                    // Clic per applicare il font in modo permanente
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-  
-                        // Cambia il font solo per il link cliccato
-                        if (activeLink) {
-                            activeLink.classList.remove('tt-norms-pro-reg'); // Rimuovi il font dal link precedente
-                        }
-  
-                        let isGammaActive = true;
-                        handleGammaCta(e.currentTarget, isGammaActive);
-  
-  
-                        link.classList.add('tt-norms-pro-reg'); // Imposta il font per il link cliccato
-                        activeLink = link; // Aggiorna la variabile activeLink con il link cliccato
-  
-                        navbar.classList.add('linear-gradient');
-  
-                        const collectionMenuItem = e.currentTarget.closest('.collection-menu-item');
-                        const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
-                        const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
-                        const boatImages = document.querySelectorAll('.boat-image');
-                        const boatTitles = document.querySelectorAll('.boat-title');
-                        const boatBadges = document.querySelectorAll('.product-details-badge');
-                        const tagsBadges = document.querySelectorAll('.product-tags-container');
-  
-                        // Nascondi tutte le immagini delle barche e altre informazioni
-                        boatImages.forEach(boatImage => {
-                            boatImage.style.display = 'none';
-                        });
-  
-                        boatTitles.forEach(boatTitle => {
-                            boatTitle.style.display = 'none';
-                        });
-  
-                        boatBadges.forEach(boatBadge => {
-                            boatBadge.style.display = 'none';
-                        });
-  
-                        tagsBadges.forEach(tag => {
-                            tag.style.display = 'none';
-                        });
-  
-                        // Rimuovi il background dai badge
-                        badgesProduct.forEach(badge => {
-                            badge.classList.remove('text-black', 'bg-white');
-                        });
-  
-                        // Imposta lo stile del primo badge
-                        lastBadge = badgesProduct[0];
-                        lastBadge.classList.add('text-black', 'bg-white');
-  
-                        // Gestione del mouseover sui badge
-                        badgesProduct.forEach((badge) => {
-                            badge.addEventListener('mouseover', (e) => {
-                                badgesProduct.forEach(badge => {
-                                    badge.classList.remove('text-black', 'bg-white');
-                                });
-  
-                                if (e.currentTarget !== lastBadge) {
-                                    e.currentTarget.classList.add('text-black', 'bg-white');
-                                    lastBadge.classList.remove('text-black', 'bg-white');
-                                    lastBadge = e.currentTarget;
-                                } else {
-                                    e.currentTarget.classList.add('text-black', 'bg-white');
-                                }
-                            });
-                        });
-  
-                        // Mostra l'immagine della barca associata al badge
-                        const targetImage = lastBadge.getAttribute('data-target');
-                        boatImages.forEach(boatImage => {
-                            if (boatImage.getAttribute('data-image') === targetImage) {
-                                boatImage.style.display = 'block';
-                            }
-                        });
-  
-                        boatTitles.forEach(boatTitle => {
-                            if (boatTitle.getAttribute('data-title') === targetImage) {
-                                boatTitle.style.display = 'block';
-                            }
-                        });
-  
-                        boatBadges.forEach(boatBadge => {
-                            if (boatBadge.getAttribute('data-content') === targetImage) {
-                                boatBadge.style.display = 'flex';
-                            }
-                        });
-  
-                        tagsBadges.forEach(tag => {
-                            if (tag.getAttribute('data-tags') === targetImage) {
-                                tag.style.display = 'flex';
-                            }
-                        });
-  
-                        const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
-                        allCollectionMenuItems.forEach(item => {
-                            if (item !== collectionMenuItem) {
-                                const otherCollectionInfoContainer = item.querySelector('.collection-info-container');
-                                if (otherCollectionInfoContainer) {
-                                    otherCollectionInfoContainer.classList.remove('overflow-auto');
-                                    otherCollectionInfoContainer.classList.add('overflow-hidden');
-                                    otherCollectionInfoContainer.style.height = '0'; // Nascondi in modo istantaneo
-                                    otherCollectionInfoContainer.style.opacity = '0'; // Nascondi anche l'opacità
-                                }
-                            }
-                        });
-  
-                        // Impostiamo l'altezza e opacità dinamica per il container selezionato
-                        collectionInfoContainer.classList.remove('overflow-hidden');
-                        collectionInfoContainer.classList.add('overflow-auto');
-                        collectionInfoContainer.style.height = `${collectionInfoContainer.scrollHeight}px`; // Usa scrollHeight per l'altezza dinamica
-                        collectionInfoContainer.style.opacity = '1'; // Rendi il contenuto visibile
-  
-                    });
-                }
-            });
+      };
+
+      // Funzione per mostrare il breadcrumbs
+      const showBreadcrumbs = () => {
+        if (breadcrumbsContainer) {
+          breadcrumbsContainer.classList.remove('hidden');
+          breadcrumbsContainer.classList.add('flex');
         }
-  
-        function handleGammaCta(linkItem, isActive) {
-            const discoverGammaContent = document.querySelector('.discover-gamma-content');
-            const discoverGammaLink = document.querySelector('.discover-gamma-link');
-            const discoverGammaText = document.querySelector('.discover-gamma-text');
-            const linkItemContent = linkItem.innerHTML.trim();
-  
-            if (isActive && linkItemContent != "View all models") {
-                discoverGammaContent.classList.remove('hidden');
-                discoverGammaContent.classList.add('flex');
-            }
-  
-            discoverGammaText.innerHTML = `Discover ${linkItemContent}`;
-            const gammaUrl = `/collections/${linkItemContent.toLowerCase()}`;
-            discoverGammaLink.setAttribute('href', gammaUrl);
-  
-            handleClickOutside(linkItem, discoverGammaContent);
-  
-        }
-  
-        const handleClickOutside = (element, content) => {
-            const clickHandler = (e) => {
-                const targetLinks = ["Walkaround", "Endurance", "GT"]
-                const isTarget = targetLinks.some(link => e.target.innerHTML.includes(link));
-                if (!element.contains(e.target) && !isTarget) {
-                    isGammaActive = false;
-                    content.classList.remove('flex');
-                    content.classList.add('hidden');
-                    console.log(isGammaActive)
-                    document.removeEventListener('click', clickHandler);
-                }
-            };
-  
-            document.addEventListener('click', clickHandler);
-        };
-  
-  
-  
-        //check device on resize event
-        window.addEventListener('resize', checkDevice);
-        checkDevice();
-  
-        //check screenSize to show the boat image container and link info pop-up
-        function checkDevice() {
-            const screenSize = window.innerWidth;
-            const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
-            const boatDesktopContainer = document.querySelector('.boat-image-container');
-            const badges = document.querySelectorAll('.badge-product');
-            const images = document.querySelectorAll('.boat-image-container img');
-            const titles = document.querySelectorAll('.boat-title');
-            const contents = document.querySelectorAll('.product-details-badge');
-            const tagsContainers = document.querySelectorAll('.product-tags-container')
-  
-            //hide all this elements on mobile
-            if (screenSize <= 1024) {
-                collectionDesktopInfo.forEach((div) => {
-                    div.style.display = 'none';
-                });
-                if (boatDesktopContainer) {
-                    boatDesktopContainer.style.display = 'none';
-                }
-            } else {
-                collectionDesktopInfo.forEach((div) => {
-                    div.style.display = 'flex';
-                });
-                if (boatDesktopContainer) {
-                    boatDesktopContainer.style.display = 'block';
-                }
-  
-                images.forEach(image => {
-                    image.style.display = 'none';
-                });
-  
-                titles.forEach(title => {
-                    title.style.display = 'none';
-                })
-  
-                contents.forEach(content => {
-                    content.style.display = 'none';
-                })
-  
-                tagsContainers.forEach(tagsContent => {
-                    tagsContent.style.display = 'none';
-                })
-  
-                badges.forEach(badge => {
-                    badge.addEventListener('mouseover', function () {
-                        const target = badge.getAttribute('data-target');
-  
-                        images.forEach(image => {
-                            image.style.display = 'none';
-                        });
-  
-                        titles.forEach(title => {
-                            title.style.display = 'none'
-                        });
-  
-                        contents.forEach(content => {
-                            content.style.display = 'none';
-                        });
-  
-                        tagsContainers.forEach(tagsContent => {
-                            tagsContent.style.display = 'none';
-                        })
-  
-                        const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`);
-                        const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
-                        const selectedContent = document.querySelector(`.boat-image-container .product-details-container .product-details-badge[data-content="${target}"]`);
-                        const selectedContainerTags = document.querySelector(`.boat-image-container .product-tags-container[data-tags="${target}"]`);
-  
-                        if (selectedImage && selectedText && selectedContent && selectedContainerTags) {
-                            selectedImage.style.display = 'block';
-                            selectedText.style.display = 'block';
-                            selectedContent.style.display = 'flex';
-                            selectedContainerTags.style.display = 'flex';
-                        }
-                    });
-                });
-            }
-        }
-  
-        // Handle click on menu chip
-        menuChip.addEventListener('click', () => {
-  
-            if (mainMenu.classList.contains('flex')) {
-                mainMenu.classList.remove('flex');
-                mainMenu.classList.add('hidden');
-                menuIcon.classList.remove('active');
-            }
-  
-            const isMenuYatchHidden = menuYatch.classList.contains('hidden');
-            const isSecondMenuOpen = secondMenu.classList.contains('flex');
-            const currentPage = window.location.pathname;
-            const isNotHomepage = currentPage !== '/';
-            const isProductPage = currentPage.startsWith('/products/');
-  
-            if (isMenuYatchHidden) {
-                // Show the menu
-                menuYatch.classList.remove('hidden');
-                menuYatch.classList.add('flex');
-                chipText.innerHTML = 'Close';
-  
-                // Check if pageTitleContainer exists before modifying
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.add('hidden');
-                    pageTitleContainer.classList.remove('flex');
-                }
-  
-                document.body.classList.add('no-scroll');
-  
-                breadcrumbsContent.classList.add('hidden');
-  
-            } else if (isSecondMenuOpen) {
-                chipText.innerHTML = 'Models';
-                secondMenu.classList.add('hidden');
-                secondMenu.classList.remove('flex');
-  
-                // Hide the menu
-                menuYatch.classList.remove('flex');
-                menuYatch.classList.add('hidden');
-  
-                // Check if pageTitleContainer exists before modifying
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.remove('hidden');
-                    pageTitleContainer.classList.add('flex');
-                }
-  
-                document.body.classList.remove('no-scroll');
-            } else {
-                // Hide the menu
-                menuYatch.classList.remove('flex');
-                menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Models';
-  
-                // Check if pageTitleContainer exists before modifying
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.remove('hidden');
-                    pageTitleContainer.classList.add('flex');
-                }
-  
-  
-                document.body.classList.remove('no-scroll');
-  
-                breadcrumbsContent.classList.remove('hidden');
-            }
+      };
+
+      if (hadScrolled > 0 && isNotHomepage) {
+        hideBreadcrumbs();
+      } else {
+        showBreadcrumbs();
+      }
+
+      if (hadScrolled >= viewportHeight && !isNotHomepage) {
+        navBg.classList.remove('bg-[#EFEEED]');
+        navBg.classList.add('bg-blur-opacity');
+        pardoLogo.classList.add('text-white');
+        lineIconMenu.forEach((line) => {
+          line.style.backgroundColor = "white";
         });
-  
-  
-  
-  
-        // handle click on menu icon
-        menuIcon.addEventListener('click', () => {
-  
-            const isMenuMainHidden = mainMenu.classList.contains('hidden');
-            const currentPage = window.location.pathname;
-            const isNotHomepage = currentPage !== '/';
-            const isProductPage = currentPage.startsWith('/products/');
-            const isSecondMenuOpen = secondMenu.classList.contains('flex');
-  
-            // Se il menu Yatch è aperto, lo nascondiamo e resettiamo il testo del chip
-            if (menuYatch.classList.contains('flex')) {
-                menuYatch.classList.remove('flex');
-                menuYatch.classList.add('hidden');
-                chipText.innerHTML = 'Models';
-            }
-  
-            // Se il secondo menu è aperto, lo chiudiamo prima di aprire il primo menu
-            if (isSecondMenuOpen) {
-                secondMenu.classList.add('hidden');
-                secondMenu.classList.remove('flex');
-            }
-  
-            // Se il menu principale è nascosto, lo mostriamo
-            if (isMenuMainHidden) {
-                mainMenu.classList.remove('hidden');
-                mainMenu.classList.add('flex');
-                document.body.classList.add('no-scroll');
-                menuIcon.classList.add('active');
-  
-                // Se esiste, nascondiamo la pageTitleContainer
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.add('hidden');
-                    pageTitleContainer.classList.remove('flex');
-                }
-  
-                breadcrumbsContent.classList.add('hidden');
-  
-            } else {
-                // Se il menu principale è già aperto, lo nascondiamo
-                mainMenu.classList.remove('flex');
-                mainMenu.classList.add('hidden');
-                document.body.classList.remove('no-scroll');
-                menuIcon.classList.remove('active');
-  
-                // Se esiste, mostriamo la pageTitleContainer
-                const pageTitleContainer = document.querySelector('.page-title-container');
-                if (pageTitleContainer) {
-                    pageTitleContainer.classList.remove('hidden');
-                    pageTitleContainer.classList.add('flex');
-                }
-  
-  
-                breadcrumbsContent.classList.remove('hidden');
-            }
+      } else if (isProductPage) {
+        navBg.classList.remove('bg-[#EFEEED]');
+        navBg.classList.add('bg-blur-opacity');
+        pardoLogo.classList.add('text-white');
+        lineIconMenu.forEach((line) => {
+          line.style.backgroundColor = "white";
         });
-  
-  
-  
-  
-        // Hide the second-level menu and show the main menu when the back arrow is clicked
-        document.querySelector('.back-nav-container').addEventListener('click', () => {
-            secondMenu.classList.add('hidden');
-            secondMenu.classList.remove('flex');
+        breadcrumbsContent.classList.add('text-white');
+      } else if (hadScrolled > 0 && !isProductPage && isNotHomepage) {
+        breadcrumbsContent.classList.add("hidden");
+      } else {
+        navBg.classList.add('bg-[#EFEEED]');
+        navBg.classList.remove('bg-blur-opacity');
+        navbar.classList.remove("bg-blur-opacity");
+        pardoLogo.classList.remove('text-white');
+        lineIconMenu.forEach((line) => {
+          line.style.backgroundColor = "black";
         });
-  
-        const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
-        const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
-        const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
-        const chipFixed = document.querySelector('.chip-fixed');
-        const chipFixedText = chipFixed.querySelector('.chips-text');
-  
-        function toggleProducts(chipClicked) {
-  
-            const selectedCollectionName = chipClicked.innerText.trim();
-            const collectionURL = `/collections/${selectedCollectionName.replace(/\s+/g, '-').toLowerCase()}`;
-  
-            productCols.forEach((product) => {
-                if (selectedCollectionName === product.getAttribute('data-product-collection')) {
-                    product.parentElement.classList.remove('hidden');
-                } else {
-                    product.parentElement.classList.add('hidden');
-                }
-            });
-  
-            chipFixedText.innerText = `Discover ${selectedCollectionName}`;
-            chipFixed.setAttribute('href', collectionURL);
-            chipFixed.classList.remove('hidden');
-        }
-  
-        allSecondLinksMenu.forEach((link) => {
-            link.addEventListener('click', (e) => {
-                let linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
-  
-                resetScroll();
-  
-                if (linkTarget === "View all models") {
-                    productCols.forEach((product) => {
-                        if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
-                            product.parentElement.classList.remove('hidden');
-                        } else {
-                            product.parentElement.classList.add('hidden');
-                        }
-                    });
-  
-                    chipFixed.classList.add('hidden');
-  
-                    allChipsCollection.forEach((chip) => {
-                        chip.parentElement.classList.remove('chips-label-active');
-                        chip.nextElementSibling.classList.add('-rotate-45');
-                    });
-  
-                    return;
-                }
-  
-                productCols.forEach((product) => {
-                    product.parentElement.classList.add('hidden');
-                });
-  
-                allChipsCollection.forEach((chipCol) => {
-                    const parentElement = chipCol.parentElement;
-                    parentElement.classList.remove('chips-label-active');
-                    chipCol.nextElementSibling.classList.add('-rotate-45');
-  
-  
-  
-                    if (chipCol.innerText.trim() === linkTarget) {
-                        chipCol.parentElement.classList.add('chips-label-active');
-                        chipCol.nextElementSibling.classList.remove('-rotate-45');
-                        toggleProducts(chipCol);
-                    }
-                });
-  
-                const collectionURL = `/collections/${linkTarget.replace(/\s+/g, '-').toLowerCase()}`;
-                chipFixedText.innerText = `Discover ${linkTarget}`;
-                chipFixed.setAttribute('href', collectionURL);
-            });
-        });
-  
-        //Handle click on chips
-        allChipsCollection.forEach((chipCol) => {
-            chipCol.addEventListener('click', (e) => {
-                const chipClicked = e.currentTarget;
-                const chipClickedRect = chipClicked.getBoundingClientRect();
-                const chipCenter = chipClickedRect.left + chipClickedRect.width / 2;
-  
-                // Seleziona il contenitore orizzontale delle chips
-                const chipHorizontalContainer = document.querySelector('.chips-horizontal-container');
-  
-                // Calcola il centro della chip rispetto al contenitore
-                const containerRect = chipHorizontalContainer.getBoundingClientRect();
-                const containerCenter = containerRect.left + containerRect.width / 2;
-  
-                // Calcola la posizione di scroll per centrare la chip
-                const scrollToPosition = chipCenter - containerCenter + chipHorizontalContainer.scrollLeft;
-  
-                // Fai lo scroll alla posizione calcolata
-                chipHorizontalContainer.scrollTo({
-                    left: scrollToPosition,
-                    behavior: 'smooth' // Per uno scroll fluido
-                });
-  
-                // Resetta lo scroll o altre modifiche se necessarie
-                resetScroll();
-  
-                // Rimuove l'active dalla chip precedente e la rotazione
-                allChipsCollection.forEach((el) => {
-                    el.parentElement.classList.remove('chips-label-active');
-                    el.nextElementSibling.classList.add('-rotate-45');
-                });
-  
-                // Aggiunge l'active alla chip selezionata e rimuove la rotazione
-                chipClicked.nextElementSibling.classList.remove('-rotate-45');
-                chipClicked.parentElement.classList.add('chips-label-active');
-  
-                // Mostra il chip fisso (se necessario)
-                chipFixed.classList.remove('hidden');
-  
-                // Chiama una funzione di toggle per i prodotti (se necessario)
-                toggleProducts(chipClicked);
-            });
-        });
-  
-  
-        function resetScroll() {
-            document.querySelector('.second-level-menu-items').scrollTop = 0;
-        }
-  
-  
-        //handle breadcrumbs
-  
-        const breadcrumbsContainer = document.getElementById('breadcrumbs');
-        const path = window.location.pathname.split('/').filter(Boolean); // Dividi il percorso in parti
-  
-        // Costruisci i breadcrumbs
-        const breadcrumbs = path.map((segment, index) => {
-            const url = '/' + path.slice(0, index + 1).join('/');
-            const formattedSegment = segment.replace(/-/g, ' '); // Sostituisci trattini con spazi
-            return `<a href="${url}">${formattedSegment}</a>`;
-        });
-  
-        // Aggiungi i breadcrumbs al DOM con il separatore ">"
-        breadcrumbsContainer.innerHTML = breadcrumbs.join('<span> > </span>');
-  
-  
-        //handle click on press room
-        const pressRoomLink = document.querySelector('.press-room-link');
-        pressRoomLink.addEventListener('click', handlePressRoomLink)
-        handlePressRoomLink();
-  
-        function handlePressRoomLink(event) {
-            event.preventDefault();
-  
-            let url = new URL(pressRoomLink.href);
-            let params = new URLSearchParams(url.search);
-  
-            params.set("press-room", "active");
-            url.search = params.toString();
-  
-            window.location.href = url.toString();
-        }
-  
-  
-  
+        breadcrumbsContent.classList.remove('text-white');
+        breadcrumbsContent.classList.remove('hidden');
+      }
+    }
+
+
+    updateNavBackground();
+    window.addEventListener('scroll', () => {
+      updateNavBackground();
     });
+
+
+    // Handle second menu
+    function handleSecondMenuLevel() {
+      const screenSize = window.innerWidth;
+      let lastBadge;
+      let activeLink = null; // Variabile per tenere traccia del link attivo
+
+      //handle each links inside second menu level
+      document.querySelectorAll('a[href="javascript:void(0);"]').forEach(link => {
+        if (screenSize <= 1024) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            secondMenu.classList.remove('hidden');
+            secondMenu.classList.add('flex');
+          });
+        } else {
+          // Hover per aggiungere temporaneamente il font
+          link.addEventListener('mouseover', (e) => {
+            e.currentTarget.classList.add('tt-norms-pro-reg');
+          });
+
+          link.addEventListener('mouseout', (e) => {
+            // Rimuovi il font durante il mouseout solo se non è il link attivo
+            if (e.currentTarget !== activeLink) {
+              e.currentTarget.classList.remove('tt-norms-pro-reg');
+            }
+          });
+
+          // Clic per applicare il font in modo permanente
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Cambia il font solo per il link cliccato
+            if (activeLink) {
+              activeLink.classList.remove('tt-norms-pro-reg'); // Rimuovi il font dal link precedente
+            }
+
+            let isGammaActive = true;
+            handleGammaCta(e.currentTarget, isGammaActive);
+
+
+            link.classList.add('tt-norms-pro-reg'); // Imposta il font per il link cliccato
+            activeLink = link; // Aggiorna la variabile activeLink con il link cliccato
+
+            navbar.classList.add('linear-gradient');
+
+            const collectionMenuItem = e.currentTarget.closest('.collection-menu-item');
+            const collectionInfoContainer = collectionMenuItem.querySelector('.collection-info-container');
+            const badgesProduct = collectionInfoContainer.querySelectorAll('.badge-product');
+            const boatImages = document.querySelectorAll('.boat-image');
+            const boatTitles = document.querySelectorAll('.boat-title');
+            const boatBadges = document.querySelectorAll('.product-details-badge');
+            const tagsBadges = document.querySelectorAll('.product-tags-container');
+
+            // Nascondi tutte le immagini delle barche e altre informazioni
+            boatImages.forEach(boatImage => {
+              boatImage.style.display = 'none';
+            });
+
+            boatTitles.forEach(boatTitle => {
+              boatTitle.style.display = 'none';
+            });
+
+            boatBadges.forEach(boatBadge => {
+              boatBadge.style.display = 'none';
+            });
+
+            tagsBadges.forEach(tag => {
+              tag.style.display = 'none';
+            });
+
+            // Rimuovi il background dai badge
+            badgesProduct.forEach(badge => {
+              badge.classList.remove('text-black', 'bg-white');
+            });
+
+            // Imposta lo stile del primo badge
+            lastBadge = badgesProduct[0];
+            lastBadge.classList.add('text-black', 'bg-white');
+
+            // Gestione del mouseover sui badge
+            badgesProduct.forEach((badge) => {
+              badge.addEventListener('mouseover', (e) => {
+                badgesProduct.forEach(badge => {
+                  badge.classList.remove('text-black', 'bg-white');
+                });
+
+                if (e.currentTarget !== lastBadge) {
+                  e.currentTarget.classList.add('text-black', 'bg-white');
+                  lastBadge.classList.remove('text-black', 'bg-white');
+                  lastBadge = e.currentTarget;
+                } else {
+                  e.currentTarget.classList.add('text-black', 'bg-white');
+                }
+              });
+            });
+
+            // Mostra l'immagine della barca associata al badge
+            const targetImage = lastBadge.getAttribute('data-target');
+            boatImages.forEach(boatImage => {
+              if (boatImage.getAttribute('data-image') === targetImage) {
+                boatImage.style.display = 'block';
+              }
+            });
+
+            boatTitles.forEach(boatTitle => {
+              if (boatTitle.getAttribute('data-title') === targetImage) {
+                boatTitle.style.display = 'block';
+              }
+            });
+
+            boatBadges.forEach(boatBadge => {
+              if (boatBadge.getAttribute('data-content') === targetImage) {
+                boatBadge.style.display = 'flex';
+              }
+            });
+
+            tagsBadges.forEach(tag => {
+              if (tag.getAttribute('data-tags') === targetImage) {
+                tag.style.display = 'flex';
+              }
+            });
+
+            const allCollectionMenuItems = document.querySelectorAll('.collection-menu-item');
+            allCollectionMenuItems.forEach(item => {
+              if (item !== collectionMenuItem) {
+                const otherCollectionInfoContainer = item.querySelector('.collection-info-container');
+                if (otherCollectionInfoContainer) {
+                  otherCollectionInfoContainer.classList.remove('overflow-auto');
+                  otherCollectionInfoContainer.classList.add('overflow-hidden');
+                  otherCollectionInfoContainer.style.height = '0'; // Nascondi in modo istantaneo
+                  otherCollectionInfoContainer.style.opacity = '0'; // Nascondi anche l'opacità
+                }
+              }
+            });
+
+            // Impostiamo l'altezza e opacità dinamica per il container selezionato
+            collectionInfoContainer.classList.remove('overflow-hidden');
+            collectionInfoContainer.classList.add('overflow-auto');
+            collectionInfoContainer.style.height = `${collectionInfoContainer.scrollHeight}px`; // Usa scrollHeight per l'altezza dinamica
+            collectionInfoContainer.style.opacity = '1'; // Rendi il contenuto visibile
+
+          });
+        }
+      });
+    }
+
+    function handleGammaCta(linkItem, isActive) {
+      const discoverGammaContent = document.querySelector('.discover-gamma-content');
+      const discoverGammaLink = document.querySelector('.discover-gamma-link');
+      const discoverGammaText = document.querySelector('.discover-gamma-text');
+      const linkItemContent = linkItem.innerHTML.trim();
+
+      if (isActive && linkItemContent != "View all models") {
+        discoverGammaContent.classList.remove('hidden');
+        discoverGammaContent.classList.add('flex');
+      }
+
+      discoverGammaText.innerHTML = `Discover ${linkItemContent}`;
+      const gammaUrl = `/collections/${linkItemContent.toLowerCase()}`;
+      discoverGammaLink.setAttribute('href', gammaUrl);
+
+      handleClickOutside(linkItem, discoverGammaContent);
+
+    }
+
+    const handleClickOutside = (element, content) => {
+      const clickHandler = (e) => {
+        const targetLinks = ["Walkaround", "Endurance", "GT"]
+        const isTarget = targetLinks.some(link => e.target.innerHTML.includes(link));
+        if (!element.contains(e.target) && !isTarget) {
+          isGammaActive = false;
+          content.classList.remove('flex');
+          content.classList.add('hidden');
+          console.log(isGammaActive)
+          document.removeEventListener('click', clickHandler);
+        }
+      };
+
+      document.addEventListener('click', clickHandler);
+    };
+
+
+
+    //check device on resize event
+    window.addEventListener('resize', checkDevice);
+    checkDevice();
+
+    //check screenSize to show the boat image container and link info pop-up
+    function checkDevice() {
+      const screenSize = window.innerWidth;
+      const collectionDesktopInfo = document.querySelectorAll('.collection-info-container');
+      const boatDesktopContainer = document.querySelector('.boat-image-container');
+      const badges = document.querySelectorAll('.badge-product');
+      const images = document.querySelectorAll('.boat-image-container img');
+      const titles = document.querySelectorAll('.boat-title');
+      const contents = document.querySelectorAll('.product-details-badge');
+      const tagsContainers = document.querySelectorAll('.product-tags-container')
+
+      //hide all this elements on mobile
+      if (screenSize <= 1024) {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'none';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'none';
+        }
+      } else {
+        collectionDesktopInfo.forEach((div) => {
+          div.style.display = 'flex';
+        });
+        if (boatDesktopContainer) {
+          boatDesktopContainer.style.display = 'block';
+        }
+
+        images.forEach(image => {
+          image.style.display = 'none';
+        });
+
+        titles.forEach(title => {
+          title.style.display = 'none';
+        })
+
+        contents.forEach(content => {
+          content.style.display = 'none';
+        })
+
+        tagsContainers.forEach(tagsContent => {
+          tagsContent.style.display = 'none';
+        })
+
+        badges.forEach(badge => {
+          badge.addEventListener('mouseover', function () {
+            const target = badge.getAttribute('data-target');
+
+            images.forEach(image => {
+              image.style.display = 'none';
+            });
+
+            titles.forEach(title => {
+              title.style.display = 'none'
+            });
+
+            contents.forEach(content => {
+              content.style.display = 'none';
+            });
+
+            tagsContainers.forEach(tagsContent => {
+              tagsContent.style.display = 'none';
+            })
+
+            const selectedText = document.querySelector(`.boat-image-container div p[data-title="${target}"]`);
+            const selectedImage = document.querySelector(`.boat-image-container img[data-image="${target}"]`);
+            const selectedContent = document.querySelector(`.boat-image-container .product-details-container .product-details-badge[data-content="${target}"]`);
+            const selectedContainerTags = document.querySelector(`.boat-image-container .product-tags-container[data-tags="${target}"]`);
+
+            if (selectedImage && selectedText && selectedContent && selectedContainerTags) {
+              selectedImage.style.display = 'block';
+              selectedText.style.display = 'block';
+              selectedContent.style.display = 'flex';
+              selectedContainerTags.style.display = 'flex';
+            }
+          });
+        });
+      }
+    }
+
+    // Handle click on menu chip
+    menuChip.addEventListener('click', () => {
+
+      if (mainMenu.classList.contains('flex')) {
+        mainMenu.classList.remove('flex');
+        mainMenu.classList.add('hidden');
+        menuIcon.classList.remove('active');
+      }
+
+      const isMenuYatchHidden = menuYatch.classList.contains('hidden');
+      const isSecondMenuOpen = secondMenu.classList.contains('flex');
+      const currentPage = window.location.pathname;
+      const isNotHomepage = currentPage !== '/';
+      const isProductPage = currentPage.startsWith('/products/');
+
+      if (isMenuYatchHidden) {
+        // Show the menu
+        menuYatch.classList.remove('hidden');
+        menuYatch.classList.add('flex');
+        chipText.innerHTML = 'Close';
+
+        // Check if pageTitleContainer exists before modifying
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+          pageTitleContainer.classList.add('hidden');
+          pageTitleContainer.classList.remove('flex');
+        }
+
+        document.body.classList.add('no-scroll');
+
+        breadcrumbsContent.classList.add('hidden');
+
+      } else if (isSecondMenuOpen) {
+        chipText.innerHTML = 'Models';
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+
+        // Check if pageTitleContainer exists before modifying
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+          pageTitleContainer.classList.remove('hidden');
+          pageTitleContainer.classList.add('flex');
+        }
+
+        document.body.classList.remove('no-scroll');
+      } else {
+        // Hide the menu
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Models';
+
+        // Check if pageTitleContainer exists before modifying
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+          pageTitleContainer.classList.remove('hidden');
+          pageTitleContainer.classList.add('flex');
+        }
+
+
+        document.body.classList.remove('no-scroll');
+
+        breadcrumbsContent.classList.remove('hidden');
+      }
+    });
+
+
+
+
+    // handle click on menu icon
+    menuIcon.addEventListener('click', () => {
+
+      const isMenuMainHidden = mainMenu.classList.contains('hidden');
+      const currentPage = window.location.pathname;
+      const isNotHomepage = currentPage !== '/';
+      const isProductPage = currentPage.startsWith('/products/');
+      const isSecondMenuOpen = secondMenu.classList.contains('flex');
+
+      // Se il menu Yatch è aperto, lo nascondiamo e resettiamo il testo del chip
+      if (menuYatch.classList.contains('flex')) {
+        menuYatch.classList.remove('flex');
+        menuYatch.classList.add('hidden');
+        chipText.innerHTML = 'Models';
+      }
+
+      // Se il secondo menu è aperto, lo chiudiamo prima di aprire il primo menu
+      if (isSecondMenuOpen) {
+        secondMenu.classList.add('hidden');
+        secondMenu.classList.remove('flex');
+      }
+
+      // Se il menu principale è nascosto, lo mostriamo
+      if (isMenuMainHidden) {
+        mainMenu.classList.remove('hidden');
+        mainMenu.classList.add('flex');
+        document.body.classList.add('no-scroll');
+        menuIcon.classList.add('active');
+
+        // Se esiste, nascondiamo la pageTitleContainer
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+          pageTitleContainer.classList.add('hidden');
+          pageTitleContainer.classList.remove('flex');
+        }
+
+        breadcrumbsContent.classList.add('hidden');
+
+      } else {
+        // Se il menu principale è già aperto, lo nascondiamo
+        mainMenu.classList.remove('flex');
+        mainMenu.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+        menuIcon.classList.remove('active');
+
+        // Se esiste, mostriamo la pageTitleContainer
+        const pageTitleContainer = document.querySelector('.page-title-container');
+        if (pageTitleContainer) {
+          pageTitleContainer.classList.remove('hidden');
+          pageTitleContainer.classList.add('flex');
+        }
+
+
+        breadcrumbsContent.classList.remove('hidden');
+      }
+    });
+
+
+
+
+    // Hide the second-level menu and show the main menu when the back arrow is clicked
+    document.querySelector('.back-nav-container').addEventListener('click', () => {
+      secondMenu.classList.add('hidden');
+      secondMenu.classList.remove('flex');
+    });
+
+    const allSecondLinksMenu = Array.from(document.querySelectorAll('[data-collection]'));
+    const allChipsCollection = Array.from(document.querySelectorAll('[id="collection-chips-title"]'));
+    const productCols = Array.from(document.querySelectorAll('[data-product-collection]'));
+    const chipFixed = document.querySelector('.chip-fixed');
+    const chipFixedText = chipFixed.querySelector('.chips-text');
+
+    function toggleProducts(chipClicked) {
+
+      const selectedCollectionName = chipClicked.innerText.trim();
+      const collectionURL = `/collections/${selectedCollectionName.replace(/\s+/g, '-').toLowerCase()}`;
+
+      productCols.forEach((product) => {
+        if (selectedCollectionName === product.getAttribute('data-product-collection')) {
+          product.parentElement.classList.remove('hidden');
+        } else {
+          product.parentElement.classList.add('hidden');
+        }
+      });
+
+      chipFixedText.innerText = `Discover ${selectedCollectionName}`;
+      chipFixed.setAttribute('href', collectionURL);
+      chipFixed.classList.remove('hidden');
+    }
+
+    allSecondLinksMenu.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        let linkTarget = e.currentTarget.innerText.replace(/[0-9]/g, '').trim();
+
+        resetScroll();
+
+        if (linkTarget === "View all models") {
+          productCols.forEach((product) => {
+            if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
+              product.parentElement.classList.remove('hidden');
+            } else {
+              product.parentElement.classList.add('hidden');
+            }
+          });
+
+          chipFixed.classList.add('hidden');
+
+          allChipsCollection.forEach((chip) => {
+            chip.parentElement.classList.remove('chips-label-active');
+            chip.nextElementSibling.classList.add('-rotate-45');
+          });
+
+          return;
+        }
+
+        productCols.forEach((product) => {
+          product.parentElement.classList.add('hidden');
+        });
+
+        allChipsCollection.forEach((chipCol) => {
+          const parentElement = chipCol.parentElement;
+          parentElement.classList.remove('chips-label-active');
+          chipCol.nextElementSibling.classList.add('-rotate-45');
+
+
+
+          if (chipCol.innerText.trim() === linkTarget) {
+            chipCol.parentElement.classList.add('chips-label-active');
+            chipCol.nextElementSibling.classList.remove('-rotate-45');
+            toggleProducts(chipCol);
+          }
+        });
+
+        const collectionURL = `/collections/${linkTarget.replace(/\s+/g, '-').toLowerCase()}`;
+        chipFixedText.innerText = `Discover ${linkTarget}`;
+        chipFixed.setAttribute('href', collectionURL);
+      });
+    });
+
+    //Handle click on chips
+    allChipsCollection.forEach((chipCol) => {
+      chipCol.addEventListener('click', (e) => {
+        const chipClicked = e.currentTarget;
+        const chipClickedRect = chipClicked.getBoundingClientRect();
+        const chipCenter = chipClickedRect.left + chipClickedRect.width / 2;
+
+        // Seleziona il contenitore orizzontale delle chips
+        const chipHorizontalContainer = document.querySelector('.chips-horizontal-container');
+
+        // Calcola il centro della chip rispetto al contenitore
+        const containerRect = chipHorizontalContainer.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+
+        // Calcola la posizione di scroll per centrare la chip
+        const scrollToPosition = chipCenter - containerCenter + chipHorizontalContainer.scrollLeft;
+
+        // Fai lo scroll alla posizione calcolata
+        chipHorizontalContainer.scrollTo({
+          left: scrollToPosition,
+          behavior: 'smooth' // Per uno scroll fluido
+        });
+
+        // Resetta lo scroll o altre modifiche se necessarie
+        resetScroll();
+
+        // Rimuove l'active dalla chip precedente e la rotazione
+        allChipsCollection.forEach((el) => {
+          el.parentElement.classList.remove('chips-label-active');
+          el.nextElementSibling.classList.add('-rotate-45');
+        });
+
+        // Aggiunge l'active alla chip selezionata e rimuove la rotazione
+        chipClicked.nextElementSibling.classList.remove('-rotate-45');
+        chipClicked.parentElement.classList.add('chips-label-active');
+
+        // Mostra il chip fisso (se necessario)
+        chipFixed.classList.remove('hidden');
+
+        // Chiama una funzione di toggle per i prodotti (se necessario)
+        toggleProducts(chipClicked);
+      });
+    });
+
+
+    function resetScroll() {
+      document.querySelector('.second-level-menu-items').scrollTop = 0;
+    }
+
+    const collectionElement = document.querySelector('p[data-collection-value]');
+    const collectionName = collectionElement ? collectionElement.getAttribute('data-collection-value') : '';
+    const breadcrumbsContainer = document.getElementById('breadcrumbs');
+
+    if (breadcrumbsContainer) {
+      const path = window.location.pathname.split('/').filter(Boolean);
+      const breadcrumbs = [];
+
+      if (path.length === 0) {
+        breadcrumbsContainer.innerHTML = '';
+      } else {
+        breadcrumbs.push('<a href="/">home</a>');
+
+        if (path.length === 2 && path[0] === 'products') {
+          const productName = path[1].replace(/-/g, ' ');
+          breadcrumbs.push(`<a href="/collections/${collectionName.toLowerCase()}">${collectionName}</a>`);
+          breadcrumbs.push(`<span>${productName}</span>`);
+        } else if (path.length === 2 && path[0] === 'pages') {
+          const pageName = path[1].replace(/-/g, ' ');
+          breadcrumbs.push(`<span>${pageName}</span>`);
+        } else if (path.length === 2 && path[0] === 'collections') {
+          const collectionNameFromUrl = path[1].replace(/-/g, ' ');
+          breadcrumbs.push(`<span>${collectionNameFromUrl}</span>`);
+        } else if (path.length === 2 && path[0] === 'blogs') {
+          const blogName = path[1].replace(/-/g, ' ');
+          breadcrumbs.push(`<span>${blogName}</span>`);
+        } else if (path.length === 3 && path[0] === 'blogs') {
+          const blogName = path[1].replace(/-/g, ' ');
+          const articleName = path[2].replace(/-/g, ' ');
+          breadcrumbs.push(`<a href="/blogs/${path[1]}">${blogName}</a>`);
+          breadcrumbs.push(`<span>${articleName}</span>`);
+        }
+
+        breadcrumbsContainer.innerHTML = breadcrumbs.join('<span> &gt; </span>');
+      }
+    }
+
+
+    //handle click on press room
+    const pressRoomLink = document.querySelector('.press-room-link');
+    pressRoomLink.addEventListener('click', handlePressRoomLink)
+    handlePressRoomLink();
+
+    function handlePressRoomLink(event) {
+      event.preventDefault();
+
+      let url = new URL(pressRoomLink.href);
+      let params = new URLSearchParams(url.search);
+
+      params.set("press-room", "active");
+      url.search = params.toString();
+
+      window.location.href = url.toString();
+    }
+
+
+
+  });
 </script>
 
 {% schema %}
-  {
-    "name": "navbar-settings",
-    "settings": [
-      {
-        "id": "cta_delear",
-        "type": "text",
-        "label": "Cta Find a dealer",
-        "default": "Find a dealer"
-      }
-    ]
-  }
+{
+"name": "navbar-settings",
+"settings": [
+{
+"id": "cta_delear",
+"type": "text",
+"label": "Cta Find a dealer",
+"default": "Find a dealer"
+}
+]
+}
 {% endschema %}
