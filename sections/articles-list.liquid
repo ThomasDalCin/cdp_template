@@ -28,8 +28,8 @@
           {% assign articlesDivided = article_count |  modulo: 2 %}
           {% if articlesDivided == 0 %}
             <!-- Articles for even index -->
-            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
-              <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center after:absolute after:inset-0 after:bg-gradient-to-t after:from-transparent after:to-black/60 after:rounded-2xl" style="background-image: url({{ article.image | img_url: 'master' }});">
+              <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2 z-10">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.title }}</p>
               </div>
               {% if handle == 'Events' %}
@@ -43,8 +43,8 @@
             </a>
           {% else %}
             <!-- Articles for odd index -->
-            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl  md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center" style="background-image: url({{ article.image | img_url: 'master' }});">
-            <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2">
+            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6  flex flex-col items-start justify-end rounded-2xl  md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:to-black/60 after:rounded-2xl" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2 z-10">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.title  }}</p>
             </div>
             {% if handle == 'Events' %}
