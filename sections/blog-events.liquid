@@ -98,14 +98,6 @@
           <!-- Form Errors -->
           {{ form.errors | default_errors }}
 
-          {% if form.posted_successfully? %}
-            <!-- Confirm pop-up -->
-            <div class="confirm-pop-up w-full h-auto fixed bottom-0 right-0 left-0 p-4 flex flex-col items-start justify-between rounded-lg border border-black bg-white hidden transition-opacity duration-300 ease-in-out">
-              {% render 'check-icon' %}
-              <p class="body-12">{{ section.settings.confirm_message }}</p>
-            </div>
-          {% endif %}
-
             <!-- First Name -->
             <div class="form-group w-full h-auto flex flex-col items-start justify-center">
               <input
@@ -298,6 +290,14 @@
     </div>
 
   </div>
+</div>
+
+<!-- Form success -->
+<div
+  class="w-auto mx-10 h-[60px] hidden fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black px-6"
+  id="success-message">
+  {% render 'check-icon' %}
+  <p class="body-16">{{ section.settings.thankyou_message | default: "Richiesta avvenuta correttamente" }}</p>
 </div>
 
 <style>
@@ -636,6 +636,22 @@
     visibleCount += maxToShow;
     updateVisibleArticles();
   });
+
+      //handle the message after the form sent
+      function handleSuccessMessage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const successMessage = document.getElementById('success-message');
+      if (urlParams.get('customer_posted') === 'true') {
+        successMessage.classList.remove('hidden');
+      }
+
+      setTimeout(() => {
+        successMessage.classList.add('hidden');
+      }, 3000)
+    }
+
+    handleSuccessMessage();
+
   
   
   });
