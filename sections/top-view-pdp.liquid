@@ -346,7 +346,7 @@
                 <div class="w-full h-auto absolute left-0 top-0 pl-6 pt-6 flex flex-col items-start justify-center">
                     <div class="w-auto h-auto rounded-[48px] bg-white px-4 py-[2px]">
                         <p class="text-[12px] leading-[20px] tt-norms-pro-med layout-type">{{
-                            section.settings.standard_badge_text |
+                            section.settings.optional_badge_text |
                             default: "Optional" | upcase }}</p>
                     </div>
                 </div>
@@ -967,3 +967,34 @@
     });
 
 </script>
+
+{% schema %}
+    {
+      "name": "top-view-pdp",
+      "settings": [
+        {
+          "id": "main_title",
+          "type": "text",
+          "label": "Top view section title",
+          "default": "Top view"
+        }, {
+          "id": "standard_badge_text",
+          "type": "text",
+          "label": "Standard badge text",
+          "default": "Standard"
+        },
+        {
+          "id": "optional_badge_text",
+          "type": "text",
+          "label": "Optional badge text",
+          "default": "Optional"
+        },
+        {
+          "id": "see_more_images",
+          "type": "text",
+          "label": "See more text badge",
+          "default": "See more"
+        }
+      ]
+    }
+  {% endschema %}
