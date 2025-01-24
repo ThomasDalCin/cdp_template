@@ -123,7 +123,9 @@
     "sections": {
       "navbar": {
         "type": "navbar",
-        "settings": {}
+        "settings": {
+          "cta_delear": "Find a dealer"
+        }
       },
       "footer": {
         "type": "footer",
@@ -173,7 +175,7 @@
           "footer_models_menu": "Models",
           "footer_discover_menu": "Discover",
           "footer_socials_menu": "Socials",
-          "right_reserved": "©2024 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved",
+          "right_reserved": "©2025 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved",
           "cta_gamma": "Discover",
           "cta_delear": "Find a dealer"
         }
