@@ -36,7 +36,19 @@
   <!-- End Google Tag Manager -->
 
 
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPath = window.location.pathname; // Ottiene il percorso
+      const queryString = window.location.search;  // Ottiene la query string (ad esempio "?press-room=active")
+
+      // Aggiunge "/it" se non è presente nel percorso e se non è la lingua inglese (/en)
+      if (!currentPath.startsWith('/it') && !currentPath.startsWith('/en')) {
+        const newUrl = `/it${currentPath}${queryString}`;
+        window.history.replaceState(null, '', newUrl); // Aggiorna l'URL senza ricaricare la pagina
+      }
+    });
+  </script>
+
 </head>
 
 
