@@ -267,7 +267,9 @@
         updateArrows();
   
         magneticScroll.addEventListener('scroll', updateArrows);
-  
+
+        const ctaButtonText = ctaButton.innerHTML;
+        
         function handleTabClick(event) {
             const clickedTab = event.currentTarget;
             const selectedTabId = clickedTab.id;
@@ -292,7 +294,7 @@
             } else {
                 ctaButton.parentElement.style.display = 'flex';
                 ctaButton.setAttribute('href', `/collections/${selectedTabId.replace(/\s+/g, '-').toLowerCase()}`);
-                ctaButton.innerHTML = `Discover ${selectedTabName}`;
+                ctaButton.innerHTML = `${ctaButtonText} ${selectedTabName}`;
             }
   
             magneticScroll.scrollTo({left: 0, behavior: "smooth"});
