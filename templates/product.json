@@ -16,8 +16,8 @@
     "info-pdp": {
       "type": "info-pdp",
       "settings": {
-        "cta_delear": "Find a dealer",
-        "cta_brochure": "Get the brochure"
+        "cta_delear": "Trova un dealer",
+        "cta_brochure": "Scarica la brochure"
       }
     },
     "marketing-pop-up": {
