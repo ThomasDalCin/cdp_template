@@ -15,7 +15,10 @@
     },
     "info-pdp": {
       "type": "info-pdp",
-      "settings": {}
+      "settings": {
+        "cta_delear": "Find a dealer",
+        "cta_brochure": "Get the brochure"
+      }
     },
     "marketing-pop-up": {
       "type": "marketing-pop-up",
@@ -44,7 +47,12 @@
     },
     "top-view-pdp": {
       "type": "top-view-pdp",
-      "settings": {}
+      "settings": {
+        "main_title": "Top view",
+        "standard_badge_text": "Standard",
+        "optional_badge_text": "Optional",
+        "see_more_images": "Full View"
+      }
     },
     "features-pdp": {
       "type": "features-pdp",
@@ -55,7 +63,8 @@
         "dimensions_dropdown_title": "Dimensions",
         "autonomy_dropdown_title": "Autonomy",
         "engine_dropdown_title": "Engine",
-        "accommodations_dropdown_title": "Accommodations"
+        "accommodations_dropdown_title": "Accommodations",
+        "general_features": "General arrangement"
       }
     },
     "overview-pdp": {
@@ -68,10 +77,10 @@
         "@media (min-width: 1024px) {.lg\\:min-h-\\[460px\\] {min-height: 55vh; }}"
       ],
       "settings": {
-        "section_title": "È ora di trovare un rivenditore",
+        "section_title": "È ora di trovare un dealer",
         "section_image": "shopify://shop_images/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
-        "section_text": "L’esperienza dei nostri esperti concessionari è insostituibile. Trova il rivenditore più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
-        "cta_text": "Trova un rivenditore"
+        "section_text": "L’esperienza dei nostri esperti dealers è insostituibile. Trova il dealer più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
+        "cta_text": "Trova un dealer"
       }
     }
   },
