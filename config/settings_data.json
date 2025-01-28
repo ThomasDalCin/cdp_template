@@ -166,17 +166,17 @@
           "social_channel_CdrF9U"
         ],
         "settings": {
-          "section_title": "Stay Updated",
-          "subheading": "Get relevant news from the Pardo world sent to your email.",
-          "thankyou_message": "Thank you you are on board now!",
-          "checkbox_1_label": "Pardo owner",
-          "checkbox_2_label": "Visitor",
+          "section_title": "Rimani aggiornato",
+          "subheading": "Ricevi le notizie più rilevanti dal mondo Pardo direttamente nella tua email.",
+          "thankyou_message": "Grazie e benvenuto a bordo!",
+          "checkbox_1_label": "Proprietario Pardo",
+          "checkbox_2_label": "Visitatore",
           "placeholder_text": "Email",
-          "footer_models_menu": "Models",
-          "footer_discover_menu": "Discover",
+          "footer_models_menu": "Modelli",
+          "footer_discover_menu": "Scopri",
           "footer_socials_menu": "Socials",
           "right_reserved": "©2025 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved",
-          "cta_gamma": "Discover",
+          "cta_gamma": "Scopri",
           "cta_delear": "Find a dealer"
         }
       }
