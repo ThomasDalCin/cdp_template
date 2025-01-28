@@ -38,11 +38,11 @@
       "type": "ext-int-pdp",
       "settings": {
         "main_title": "Design",
-        "exterior_text_title": "Exteriors",
-        "cta_brochure": "Full exterior gallery",
-        "interior_text_title": "Interiors",
-        "cta_brochure_interior": "Full interior gallery",
-        "cta_content_text": "Read more"
+        "exterior_text_title": "Esterno",
+        "cta_brochure": "Gallery Esterni",
+        "interior_text_title": "Interni",
+        "cta_brochure_interior": "Gallery Interni",
+        "cta_content_text": "Scopri di più"
       }
     },
     "top-view-pdp": {
@@ -57,14 +57,14 @@
     "features-pdp": {
       "type": "features-pdp",
       "settings": {
-        "product_basics": "Project",
-        "basics_dropdown_title": "Basic Boat Details",
-        "technical_features": "Technical Feature",
-        "dimensions_dropdown_title": "Dimensions",
-        "autonomy_dropdown_title": "Autonomy",
-        "engine_dropdown_title": "Engine",
-        "accommodations_dropdown_title": "Accommodations",
-        "general_features": "General arrangement"
+        "product_basics": "Progetto",
+        "basics_dropdown_title": "Dettagli di progetto",
+        "technical_features": "Specifiche Tecniche",
+        "dimensions_dropdown_title": "Dimensioni",
+        "autonomy_dropdown_title": "Autonomia",
+        "engine_dropdown_title": "Motori",
+        "accommodations_dropdown_title": "Capienza",
+        "general_features": "Informazioni generali"
       }
     },
     "overview-pdp": {
