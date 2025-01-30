@@ -1,10 +1,37 @@
 <!-- navbar-new -->
 
+<!-- menu bow svg -->
+<!-- svg menu icon -->
+<div class="w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 md:px-10 md:pt-12 lg:px-12 lg:pt-10 z-40">
+  <!--svg bow mobile -->
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 407 72" fill="none"
+    class="block md:hidden lg:hidden bow-svg">
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H375.583C379.332 0 382.579 2.60426 383.392 6.26456L395.837 62.2646C396.947 67.2607 393.145 72 388.027 72H7.99999C3.58171 72 0 68.4183 0 64V8Z"
+      fill="#EFEEED" />
+  </svg>
+  <!--svg tablet-->
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 942 72" fill="none"
+    class="hidden md:block lg:hidden bow-svg">
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H645.583C649.332 0 652.579 2.60426 653.392 6.26456L665.837 62.2646C666.947 67.2607 663.145 72 658.027 72H8.00001C3.58173 72 0 68.4183 0 64V8Z"
+      fill="#EFEEED" />
+  </svg>
+  <!--svg desktop -->
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1647 72"
+    class="hidden md:hidden lg:block bow-svg relative" fill="none">
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H1337.58C1341.33 0 1344.58 2.60426 1345.39 6.26456L1357.84 62.2646C1358.95 67.2607 1355.15 72 1350.03 72H8.00004C3.58176 72 0 68.4183 0 64V8Z"
+      fill="#EFEEED" />
+  </svg>
+</div>
+
 <!-- navbar-container -->
 <div
   class="navbar w-full h-auto fixed left-0 top-0 right-0 px-4 pt-6 z-50 flex flex-col items-start justify-center transition-all duration-150 ease-linear md:px-10 md:pt-12 lg:px-12 lg:pt-10">
+
   <div
-    class="navbar-container w-full h-[72px] bg-[#EFEEED] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
+    class="navbar-container w-full h-[72px] transition-all duration-150 ease-linear rounded-lg flex flex-row items-center justify-between p-6 relative">
 
     <!-- menu yatch cta -->
     <div class="w-auto h-full min-h-[32px] flex flex-row items-center justify-start gap-x-4">
@@ -544,35 +571,6 @@
         hideBreadcrumbs();
       } else {
         showBreadcrumbs();
-      }
-
-      if (hadScrolled >= viewportHeight && !isNotHomepage) {
-        navBg.classList.remove('bg-[#EFEEED]');
-        navBg.classList.add('bg-blur-opacity');
-        pardoLogo.classList.add('text-white');
-        lineIconMenu.forEach((line) => {
-          line.style.backgroundColor = "white";
-        });
-      } else if (isProductPage) {
-        navBg.classList.remove('bg-[#EFEEED]');
-        navBg.classList.add('bg-blur-opacity');
-        pardoLogo.classList.add('text-white');
-        lineIconMenu.forEach((line) => {
-          line.style.backgroundColor = "white";
-        });
-        breadcrumbsContent.classList.add('text-white');
-      } else if (hadScrolled > 0 && !isProductPage && isNotHomepage) {
-        breadcrumbsContent.classList.add("hidden");
-      } else {
-        navBg.classList.add('bg-[#EFEEED]');
-        navBg.classList.remove('bg-blur-opacity');
-        navbar.classList.remove("bg-blur-opacity");
-        pardoLogo.classList.remove('text-white');
-        lineIconMenu.forEach((line) => {
-          line.style.backgroundColor = "black";
-        });
-        breadcrumbsContent.classList.remove('text-white');
-        breadcrumbsContent.classList.remove('hidden');
       }
     }
 
@@ -1149,11 +1147,9 @@
 
     //handle click on press room
     const pressRoomLink = document.querySelector('.press-room-link');
-    pressRoomLink.addEventListener('click', handlePressRoomLink)
-    handlePressRoomLink();
+    pressRoomLink.addEventListener('click', handlePressRoomLink);
 
-    function handlePressRoomLink(event) {
-      event.preventDefault();
+    function handlePressRoomLink() {
 
       let url = new URL(pressRoomLink.href);
       let params = new URLSearchParams(url.search);
@@ -1162,6 +1158,50 @@
       url.search = params.toString();
 
       window.location.href = url.toString();
+    };
+    
+
+    //handle bow svg here
+    const bowSvg = document.querySelectorAll('.bow-svg');
+    const paths = document.querySelectorAll('.bow-svg path');
+
+    handleSvgBow();
+
+    window.addEventListener('resize', () => {
+      handleSvgBow();
+    });
+
+    function handleSvgBow() {
+      bowSvg.forEach((svg, index) => {
+        const valueSvg = window.getComputedStyle(svg).getPropertyValue('display') === 'block';
+        const visibility = window.getComputedStyle(svg).getPropertyValue('visibility');
+
+        if (valueSvg && visibility !== 'hidden') {
+          const width = svg.getBoundingClientRect().width;
+          const pathValue = paths[index];
+
+          if (!isNaN(width) && width > 0) {
+            updateViewBox(svg, pathValue, width);
+          } else {
+            console.error("Invalid SVG width:", width);
+          }
+        }
+      });
+    }
+
+    function updateViewBox(svg, path, width) {
+      if (path && path.getBBox) {
+        const originalWidth = path.getBBox().width;
+
+        if (!isNaN(originalWidth) && originalWidth > 0) {
+          const scaleFactor = width / originalWidth;
+
+          if (!isNaN(scaleFactor) && scaleFactor > 0) {
+            svg.setAttribute('viewBox', `0 0 ${width} 72`);
+            path.setAttribute('transform', `scale(${scaleFactor}, 1)`);
+          }
+        }
+      }
     }
 
 
