@@ -38,7 +38,8 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-5HCT9DF4');</script>
   <!-- End Google Tag Manager -->
-
+   
+  <!--handle scrolling page if the existing page is blog article page-->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const pathUrl = window.location.pathname.split("/").filter(Boolean);
