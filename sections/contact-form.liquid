@@ -169,7 +169,7 @@
           <div class="form-group w-full relative">
             <textarea name="contact[message]" id="message"
               class="floating-input w-full h-[150px] px-4 py-3 rounded-lg bg-[var(--primary-background-color)] font-['TT-Norms-Pro-Regular'] border-[0.5px] border-transparent focus:ring-black focus:outline-none focus:border-black placeholder:body-16 placeholder:text-[#818181]"
-              placeholder=" " maxlength="230" oninput="updateCharCount()" required>
+              placeholder=" " maxlength="230" oninput="updateCharCount()">
                   {% if form.message != blank %}
                     {{ form.message }}{% endif %}
                 </textarea>
