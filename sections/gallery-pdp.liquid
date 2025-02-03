@@ -104,7 +104,9 @@
             class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
             <!-- Container bullets -->
             <div class="w-full h-auto flex items-center justify-center">
-                <div class="swiper-pagination-gallery-pdp  bg-black bg-opacity-15 rounded-[50px] backdrop-blur-2xl p-[2px] *:min-w-[8px]"></div>
+                <div
+                    class="swiper-pagination-gallery-pdp  bg-black bg-opacity-15 rounded-[50px] backdrop-blur-2xl p-[2px] *:min-w-[8px]">
+                </div>
             </div>
         </div>
 
@@ -173,7 +175,9 @@
                 class="container-swiper-pagination w-full h-auto absolute left-0 right-0 bottom-6 z-10 flex items-start justify-center">
                 <!-- Container bullets -->
                 <div class="w-full h-auto flex items-center justify-center">
-                    <div class="swiper-pagination bg-black bg-opacity-15 rounded-[50px] backdrop-blur-2xl p-[2px] *:min-w-[8px]"></div>
+                    <div
+                        class="swiper-pagination bg-black bg-opacity-15 rounded-[50px] backdrop-blur-2xl p-[2px] *:min-w-[8px]">
+                    </div>
                 </div>
             </div>
 
@@ -195,31 +199,40 @@
 
 <!-- Swiper Custom Style -->
 <style>
-.swiper-pagination-gallery-pdp, .swiper-pagination {
-    display: flex  !important;
-    justify-content: center  !important;
-    gap: 4px  !important; /* Distanza tra i bullet */
-    width: auto !important; /* Permette a flex-grow di funzionare */
-    max-width: auto !important; /* Puoi regolare il valore per testare */
-    position: static !important;
-}
+    .swiper-pagination-gallery-pdp,
+    .swiper-pagination {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        /* Distanza tra i bullet */
+        width: auto !important;
+        /* Permette a flex-grow di funzionare */
+        max-width: auto !important;
+        /* Puoi regolare il valore per testare */
+        position: static !important;
+    }
 
-.swiper-pagination-bullet {
-    flex-grow: 0  !important; /* Normale, nessuna crescita */
-    transition: all 0.3s ease-in-out  !important;
-    width: 12px  !important;
-    height: 4px  !important;
-    border-radius: 2px !important;
-    background: white !important;
-}
+    .swiper-pagination-bullet {
+        flex-grow: 0 !important;
+        /* Normale, nessuna crescita */
+        transition: all 0.3s ease-in-out !important;
+        width: 12px !important;
+        height: 4px !important;
+        border-radius: 2px !important;
+        background: white !important;
+    }
 
-.swiper-pagination-bullet-active {
-    flex-grow: 1  !important; /* Occupa lo spazio disponibile */
-    height: 4px  !important;
-    min-width: 30px !important; /* Imposta una larghezza minima per vedere l'effetto */
-    border-radius: 2px  !important; /* Effetto pillola */
-    background: white !important;
-}
+    .swiper-pagination-bullet-active {
+        flex-grow: 1 !important;
+        /* Occupa lo spazio disponibile */
+        height: 4px !important;
+        min-width: 30px !important;
+        /* Imposta una larghezza minima per vedere l'effetto */
+        border-radius: 2px !important;
+        /* Effetto pillola */
+        background: white !important;
+    }
+
     .swiper-button-next::after,
     .swiper-button-prev::after {
         font-size: 14px;
@@ -265,8 +278,10 @@
         const progressBarContainers = document.querySelectorAll('.progress-container');
 
         const isDesktop = window.innerWidth >= 1024;
+
         handleImagesByDevice(galleryPdpImages, isDesktop);
         handleVideoByDevices(galleryPdpVideos, isDesktop);
+
         window.addEventListener('resize', () => {
             const isDesktop = window.innerWidth >= 1024;
             handleImagesByDevice(galleryPdpImages, isDesktop);
@@ -293,7 +308,7 @@
             });
         }
 
-        function handleVideoByDevices(videos, isDesktop){
+        function handleVideoByDevices(videos, isDesktop) {
             videos.forEach((video) => {
                 const altVideo = video.getAttribute('alt');
                 if (isDesktop) {
@@ -378,6 +393,13 @@
                 navigation: {
                     nextEl: '.swiper-button-next-overlay',
                     prevEl: '.swiper-button-prev-overlay',
+                },
+                on: {
+                    init: () => {
+                        console.log("Swiper initialized!");
+                        handleImagesByDevice(galleryPdpImages, isDesktop);
+                        handleVideoByDevices(galleryPdpVideos, isDesktop);
+                    }
                 },
                 pagination: {
                     el: '.swiper-pagination-gallery-pdp',
