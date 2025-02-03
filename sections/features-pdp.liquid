@@ -317,15 +317,17 @@
 
           <div class="specification-container-list w-full h-0 overflow-y-hidden lg:flex-1 dropdown-content basics">
             <ul class="list-features w-full h-auto flex flex-col gap-y-2">
-              {% for basicField in basicFields %}
+              {% for basicField in basicFields %} 
               {% assign items_basics = productBasics[basicField] %}
               {% if items_basics %}
               {% for item in items_basics %}
               <li
                 class="list-feature min-h-[52px] flex justify-between items-center rounded border px-4 py-[10px] lg:flex-1 lg:rounded-lg lg:bg-white">
-                <span class="body-12-medium text-[#818181] tt-norms-pro-med">{{ basicField | replace: '_', ' ' |
-                  capitalize
-                  }}:</span>
+                <span class="body-12-medium text-[#818181] tt-norms-pro-med">{% if basicField == "interior_exterior_design" %}
+                  Interior design
+                {% else %}
+                  {{ basicField | replace: '_', ' ' | capitalize }}
+                {% endif %}:</span>
                 <span class="font-12-medium tt-norms-pro-med">{{ item }}</span>
               </li>
               {% endfor %}
