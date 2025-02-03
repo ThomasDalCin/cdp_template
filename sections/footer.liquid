@@ -206,7 +206,7 @@
     <div class="w-full h-auto flex items-center justify-start flex-col pb-12 lg:pb-0 lg:w-[calc(50%_-_1.5rem)] lg:px-6">
       <div class="w-full h-auto flex items-center justify-start py-4">
         <p class="text-[32px] leading-[38px] tt-norms-pro-med text-white">{{ section.settings.gamma_title |
-          default:"Pardo's gamma" }}</p>
+          default:"Pardo's range" }}</p>
       </div>
       <div class="w-full h-auto flex items-start justify-center flex-col">
         {% assign collectionOrder = 'walkaround,endurance,gt' | split: ',' %}
@@ -465,6 +465,12 @@ Section Schema Settings here;
 {
 "name": "footer",
 "settings": [
+{
+"type": "text",
+"id": "gamma_title",
+"label": "Heading Gamma's range",
+"default": "Pardo's range"
+},
 {
 "type": "text",
 "id": "section_title",
