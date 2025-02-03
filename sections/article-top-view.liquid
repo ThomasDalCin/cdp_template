@@ -16,7 +16,7 @@
   <!--Article main content-->
   <div class="article-top-view-content w-full h-auto flex flex-col gap-y-6 items-start justify-center p-6 mb-10 lg:px-20 lg:mb-[120px]">
     <h1 class="text-[40px] leading-[40px] tt-norms-pro-med">{{ article.title }}</h1>
-    <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-reg">{{ article.content }}</p>
+    <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-reg">{{ article.content | newline_to_br }}</p>
   </div>
 </div>
 
