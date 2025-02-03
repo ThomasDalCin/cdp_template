@@ -172,8 +172,6 @@
         {% assign lowerDeck_3 = product.metafields.custom.lower_deck_opt_3.value %}
         {% assign lowerDeck_4 = product.metafields.custom.lower_deck_opt_4.value %}
 
-
-
         {% if flyBridge %}
         {% assign flyBridge_images = 'image_one,image_two,image_three,image_four' | split: ',' %}
 
@@ -219,7 +217,7 @@
         <!-- Hidden Images -->
         <div class="hidden-images-container" style="display: none;" data-overlay="flyBridge">
             {% for image_key in flyBridge_images %}
-            {% assign image_item = flyBridge_images[image_key] %}
+            {% assign image_item = flyBridge[image_key] %}
             {% if image_item %}
             <div class="hidden-image" data-image="{{ image_item | img_url: 'master' }}"></div>
             {% endif %}
