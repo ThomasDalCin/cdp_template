@@ -46,7 +46,7 @@
                   {% endif %}
                 </div>
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ article.title | capitalize }}</h3>
+                  <h3 class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ article.title }}</h3>
                   <p class="body-12">{{ article.content | truncate: 100 }}</p>
                 </div>
 
@@ -91,7 +91,7 @@
                   </div>
 
                   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-1">
-                    <h3 class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ article.title | capitalize }}</h3>
+                    <h3 class="body-16 tt-norms-pro-med lg:text-[18px] lg:leading-[24px]">{{ article.title }}</h3>
                     <p class="body-12">{{ article.content | truncate: 200 }}</p>
                   </div>
                 </div>
@@ -169,7 +169,7 @@
 
                 <!-- Article Title and Content -->
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title }}</h3>
                   <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ article.content | truncate: 100 }}</p>
                 </div>
 
@@ -230,7 +230,7 @@
                   <p class="body-12">{{ article.published_at | date: '%B %d, %Y' }}</p>
                 </div>
                 <div class="blog-item-info w-full h-auto flex flex-col items-start justify-center gap-y-3">
-                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title | capitalize }}</h3>
+                  <h3 class="text-[24px] leading-[24px] tt-norms-pro-med">{{ article.title }}</h3>
                   <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ article.content | truncate: 100 }}</p>
                 </div>
                 <div class="blog-item-cta w-full h-auto flex items-center justify-end lg:absolute lg:left-0 lg:right-0 lg:bottom-6 lg:pr-6">
