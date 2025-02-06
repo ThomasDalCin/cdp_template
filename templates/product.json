@@ -48,7 +48,7 @@
     "top-view-pdp": {
       "type": "top-view-pdp",
       "settings": {
-        "main_title": "Top view",
+        "main_title": "LAYOUT",
         "standard_badge_text": "Standard",
         "optional_badge_text": "Optional",
         "see_more_images": "Full View"
