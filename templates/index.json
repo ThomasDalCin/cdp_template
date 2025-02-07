@@ -114,6 +114,7 @@
       "blocks": {
         "collab_card_DqQBMW": {
           "type": "collab-card",
+          "disabled": true,
           "settings": {
             "collab_custom_collab_heading": "",
             "collab_custom_collab_cta_text": "",
