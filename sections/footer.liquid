@@ -26,12 +26,10 @@
         <!-- form block -->
         {% form 'customer', class: "newsletter-form-style w-full h-auto flex flex-col items-start justify-center
         gap-y-6" %}
+
+
         {{ form.errors | default_errors }}
 
-        {% if form.posted_successfully? %}
-        <p class="body-16 text-white lg:text-[18px] lg:leading-[24px]">{{ section.settings.thankyou_message }}</p>
-        {% endif %}
-        
         <div class="newsletter-form-radio-containers w-full h-auto flex flex-row items-center justify-start gap-x-2">
           <!-- radio one -->
           <div class="radio-contaier w-auto min-w-[124px] h-auto flex flex-row gap-x-2 items-center justify-start">
@@ -80,8 +78,8 @@
             <li class="social-link flex flex-row gap-x-3 items-center justify-start">
               <a href="{{ block.settings.social_url }}">
                 <img src="{{ block.settings.social_icon |  img_url: 'master' }}"
-                alt="{{ block.settings.social_icon.alt }}" class="social-image w-5 h-5 object-cover"
-                style="width: 20px; height: 20px">
+                  alt="{{ block.settings.social_icon.alt }}" class="social-image w-5 h-5 object-cover"
+                  style="width: 20px; height: 20px">
               </a>
             </li>
           </div>
@@ -289,6 +287,26 @@
 
 </div>
 
+<!--form success-->
+<div class="fixed inset-0 w-full h-screen flex flex-col justify-center items-center hidden backdrop-blur-[40px] z-50"
+  id="success-message">
+  <div
+    class="w-auto h-auto min-w-[382px] flex flex-col justify-center items-center bg-white rounded-[32px] gap-y-6 p-6">
+    <div class="w-full h-auto flex flex-row items-center justify-between">
+      <p class="body-14 lg:text-[18px] lg:leading-[24px] tt-norms-pro-med">{{ section.settings.thankyou_message_heading
+        | default: 'Subscription to the newsletter' }}</p>
+      <div class="w-auto h-auto cursor-pointer" id="closing-pop-up">
+        {% render 'x-icon' %}
+      </div>
+    </div>
+    <div class="w-full h-auto flex flex-col justify-center items-center">
+      <p class="text-[12px] leading-[18px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-reg">{{
+        section.settings.thankyou_message }}</p>
+    </div>
+  </div>
+</div>
+
+
 <style>
   .rotate-90 {
     transform: rotate(45deg);
@@ -414,10 +432,6 @@
       hideLocaleForm(isDesktop);
     });
 
-
-
-
-
     // Handle dropdown
     const dropdownContents = document.querySelectorAll('.dropdown-content-gamma');
     const dropIcons = document.querySelectorAll('.dropdown-icon');
@@ -453,6 +467,41 @@
         });
       });
     });
+
+    //handle newsletter form after sent
+    let isOpenPopUp = false;
+    const closePopUp = document.getElementById('closing-pop-up');
+    const successMessage = document.getElementById('success-message');
+    
+    function handleSuccessMessage() {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      if (urlParams.get('customer_posted') === 'true') {
+        successMessage.classList.remove('hidden');
+        document.body.classList.add('no-scroll');
+        isOpenPopUp = true;
+      }
+
+      setTimeout(() => {
+        if (!isOpenPopUp) {
+          return
+        } else {
+          successMessage.classList.add('hidden');
+          document.body.classList.remove('no-scroll');
+          isOpenPopUp = false;
+        }
+      }, 5000)
+    }
+
+    handleSuccessMessage();
+    
+    closePopUp.addEventListener('click', () => {
+      successMessage.classList.add('hidden');
+      document.body.classList.remove('no-scroll');
+      isOpenPopUp = false;
+    })
+
+
   });
 
 </script>
@@ -487,7 +536,7 @@ Section Schema Settings here;
 "type": "text",
 "id": "thankyou_message",
 "label": "Thank you message",
-"default": "Thank you you are on board now!"
+"default": "Consult your inbox to confirm subscription to the newsletter."
 },
 {
 "type": "text",
