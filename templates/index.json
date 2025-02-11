@@ -60,7 +60,10 @@
     "gamma-section-new": {
       "type": "gamma-section",
       "custom_css": [],
-      "settings": {}
+      "settings": {
+        "cta_gamma_delear": "Find a dealer",
+        "cta_gamma_product": "Discover"
+      }
     },
     "oriz-scroll-text-home": {
       "type": "oriz-scroll-text-home",
@@ -109,13 +112,23 @@
     "collab-section": {
       "type": "collab",
       "blocks": {
+        "collab_card_DqQBMW": {
+          "type": "collab-card",
+          "disabled": true,
+          "settings": {
+            "collab_custom_collab_heading": "",
+            "collab_custom_collab_cta_text": "",
+            "collab_custom_collab_cta_text_url": "",
+            "collab_custom_collab_url": ""
+          }
+        },
         "collab_card_nw9qf8": {
           "type": "collab-card",
           "settings": {
             "collab_custom_collab_heading": "Collaborazioni",
             "collab_custom_collab_cta_text": "Scopri",
             "collab_custom_collab_cta_text_url": "shopify://pages/pardo-yatch-x-falconeri",
-            "collab_custom_collab_image": "shopify://shop_images/PardoYatch-Home-Collaborations-FalconerixPardo.png",
+            "collab_custom_collab_image": "shopify://shop_images/py_falconeri_hp_desktop__-scaled.jpg",
             "collab_custom_collab_url": "shopify://pages/pardo-yatch-x-falconeri"
           }
         },
@@ -131,6 +144,7 @@
         }
       },
       "block_order": [
+        "collab_card_DqQBMW",
         "collab_card_nw9qf8",
         "collab_card_9TkDVh"
       ],
