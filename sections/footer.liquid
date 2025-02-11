@@ -288,7 +288,7 @@
 </div>
 
 <!--form success-->
-<div class="fixed inset-0 w-full h-screen flex flex-col justify-center items-center hidden backdrop-blur-[40px] z-50"
+<div class="fixed inset-0 w-full h-screen flex flex-col justify-center items-center hidden backdrop-blur-[40px] z-50 px-6"
   id="success-message">
   <div
     class="w-auto h-auto min-w-[382px] flex flex-col justify-center items-center bg-white rounded-[32px] gap-y-6 p-6">
@@ -494,12 +494,12 @@
     }
 
     handleSuccessMessage();
-    
+
     closePopUp.addEventListener('click', () => {
       successMessage.classList.add('hidden');
       document.body.classList.remove('no-scroll');
       isOpenPopUp = false;
-    })
+    });
 
 
   });
