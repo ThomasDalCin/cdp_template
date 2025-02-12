@@ -14,9 +14,8 @@
   <div class="w-full h-auto flex items-start justify-center p-4 lg:px-10 lg:pt-0 lg:pb-10">
     <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ section.settings.marketing_pop_up_content }}
       <span>
-        <a href="{{ section.settings.cta_privacy_page_redirect }}">
-          <p class="body-16 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | 
-default: "Full Privacy Policy" }}</p>
+        <a class="body-16 leading-[20px] underline tt-norms-pro-reg" href="{{ section.settings.cta_privacy_page_redirect }}">
+          {{ section.settings.cta_privacy_page | default: "Full Privacy Policy" }}
         </a>
       </span>
     </p>
