@@ -17,7 +17,7 @@
             {% endif %}
             {% if section.settings.subheading != blank %}
           <p class="body-16 text-white tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.subheading
-            | escape }}<span class="ml-1"><a href="/pages/pardo-privacy-policy"
+            | escape }}<span class="ml-1"><a href="{{ section.settings.privacy_policy_redirect }}"
                 class="tt-norms-pro-reg body-16 lg:text-[18px] lg:leading-[24px] underline">Privacy Policy</a></span>
           </p>
           {% endif %}
@@ -531,6 +531,11 @@ Section Schema Settings here;
 "id": "subheading",
 "label": "Subheading",
 "default": "Get relevant news from the Pardo world."
+},
+{
+ "type": "url",
+"id": "privacy_policy_redirect ",
+"label": "Privacy page link redirect"
 },
 {
 "type": "text",
