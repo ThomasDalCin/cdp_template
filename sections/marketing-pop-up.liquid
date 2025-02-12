@@ -12,7 +12,14 @@
   </div>
   <!-- marketing text container -->
   <div class="w-full h-auto flex items-start justify-center p-4 lg:px-10 lg:pt-0 lg:pb-10">
-    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ section.settings.marketing_pop_up_content }}</p>
+    <p class="text-[12px] leading-[18px] tt-norms-pro-reg">{{ section.settings.marketing_pop_up_content }}
+      <span>
+        <a href="{{ section.settings.cta_privacy_page_redirect }}">
+          <p class="body-16 leading-[20px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page | 
+default: "Full Privacy Policy" }}</p>
+        </a>
+      </span>
+    </p>
   </div>
 
 </div>
@@ -33,6 +40,16 @@
         "id": "marketing_pop_up_content",
         "default": "By selecting this box you give your consent to receive commercial communications and to participate in market research and activities to measure your level of satisfaction, regarding Pardo Yachts products and services, via e-mail and/or SMS, telephone and traditional paper mail. For this purpose we will use the personal and contact data that you have communicated to us (e.g. name, surname, address, e-mail, mobile number, etc.). The data collected will be stored until a request to withdraw consent is received from you. The Data Controller is Cantiere Del Pardo SpA. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy.",
         "label": "marketing pop up content"
+      },
+      {
+        "type": "text",
+        "id": "cta_privacy_page",
+        "label": "CTA Text",
+        "default": "Full Privacy Policy"
+      }, {
+        "type": "url",
+        "id": "cta_privacy_page_redirect",
+        "label": "CTA Privacy Page Link"
       }
     ]
   }
