@@ -195,9 +195,11 @@
                   {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
                   commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
                   market research in order to evaluate your level of satisfaction with our products and services." }}
-                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"
-                    data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy"
-                    }}</span>
+                  <a href="{{ section.settings.cta_privacy_page_redirect }}">
+                    <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"  data-attribute="marketing">
+                      {{ section.settings.marketing_policy | default: "Privacy Policy" }}
+                    </span>
+                  </a>
                 </label>
               </div>
 
@@ -209,9 +211,11 @@
                   {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
                   send you personalized commercial communications based on your purchasing habits and, in general,
                   based on your interests, your requests and your interactions with us." }}
-                  <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"
-                    data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy"
-                    }}</span>
+                  <a href="{{ section.settings.cta_privacy_page_redirect }}">
+                    <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up lg:cursor-pointer"  data-attribute="marketing">
+                      {{ section.settings.marketing_policy | default: "Privacy Policy" }}
+                    </span>
+                  </a>
                 </label>
               </div>
 
