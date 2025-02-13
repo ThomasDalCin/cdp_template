@@ -1855,10 +1855,6 @@ p,
   width: 247px;
 }
 
-.w-\[260px\] {
-  width: 260px;
-}
-
 .w-\[270px\] {
   width: 270px;
 }
@@ -4143,10 +4139,6 @@ html {
     height: 244px;
   }
 
-  .lg\:h-\[30px\] {
-    height: 30px;
-  }
-
   .lg\:h-\[314px\] {
     height: 314px;
   }
@@ -4708,11 +4700,6 @@ html {
     background-repeat: no-repeat;
   }
 
-  .lg\:object-contain {
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
   .lg\:p-0 {
     padding: 0px;
   }
@@ -5023,6 +5010,10 @@ html {
     --tw-backdrop-blur: blur(12px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  }
+
+  .lg\:bg-left-custom {
+    background-position: left -0.3px bottom 0px !important;
   }
 
   .lg\:last-of-type\:mr-0:last-of-type {
