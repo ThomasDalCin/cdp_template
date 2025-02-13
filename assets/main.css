@@ -4439,6 +4439,10 @@ html {
     min-width: 100%;
   }
 
+  .lg\:min-w-\[220px\] {
+    min-width: 220px;
+  }
+
   .lg\:max-w-\[220px\] {
     max-width: 220px;
   }

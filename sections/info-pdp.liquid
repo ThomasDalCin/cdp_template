@@ -66,13 +66,13 @@
       <!-- product cta container -->
       <div
         class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 lg:flex-row lg:gap-x-3 lg:justify-center">
-        <div class="cta-choco lg:w-[220px] h-[48px] min-h-[48px] cursor-pointer lg:px-4 lg:py-2">
+        <div class="cta-choco lg:w-auto lg:min-w-[220px]  h-[48px] min-h-[48px] cursor-pointer lg:px-4 lg:py-2">
           <a href="/pages/locate-dealer">
             <p class="body-16-medium">{{ section.settings.cta_delear | default: "Find a dealer" }}</p>
           </a>
         </div>
         {% unless product.title == "GT65" %}
-        <div class="cta-transparent h-[48px] min-h-[48px] lg:w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
+        <div class="cta-transparent h-[48px] min-h-[48px] lg:w-auto lg:min-w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
           <p class="body-16-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
           {% render 'download-icon-black' %}
         </div>
