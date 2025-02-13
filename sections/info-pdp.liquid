@@ -113,7 +113,7 @@
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
       <!-- First Name -->
       <div class="form-group w-full">
-        <input type="text" name="contact[first_name]"
+        <input type="text" name="customer[first_name]"
           class=" w-full p-4 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
           value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
           placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}" required>
@@ -121,7 +121,7 @@
 
       <!-- Last Name -->
       <div class="form-group w-full">
-        <input type="text" name="contact[last_name]"
+        <input type="text" name="customer[last_name]"
           class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
           value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
           placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}" required>
@@ -129,7 +129,7 @@
 
       <!-- Email -->
       <div class="form-group w-full">
-        <input type="email" name="contact[email]"
+        <input type="email" name="customer[email]"
           class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
           value="{% if form.email != blank %}{{ form.email }}{% endif %}"
           placeholder="{{ section.settings.email_placeholder |  default: " Email" }}" required>
@@ -141,7 +141,7 @@
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
       <!-- Marketing Consent Checkbox -->
       <div class="form-group w-full flex items-center gap-2">
-        <input type="checkbox" id="marketingConsent" name="contact[marketing_consent]"
+        <input type="checkbox" id="marketingConsent" name="customer[accepts_marketing]" 
           class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
         <label for="marketingConsent" class="text-[12px] leading-[18px]  tt-norms-pro-reg">
           {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
@@ -155,7 +155,7 @@
 
       <!-- Profiling Consent Checkbox -->
       <div class="form-group w-full flex items-center gap-2 opacity-30">
-        <input type="checkbox" id="profilingConsent" name="contact[profiling_consent]"
+        <input type="checkbox" id="profilingConsent" name="customer[profiling_consent]"
           class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
         <label for="profilingConsent" class="text-[12px] leading-[18px] tt-norms-pro-reg">
           {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
@@ -179,8 +179,8 @@
     </div>
 
     <!-- Hidden Input for Brochure Tag -->
-    <input type="hidden" name="contact[tags]" id="additionalTags" value="brochure">
-    <input type="hidden" name="contact[product]" id="productTag" value="{{ product.title }}">
+    <input type="hidden" name="customer[tags]" id="additionalTags" value="brochure">
+    <input type="hidden" name="customer[product]" id="productTag" value="{{ product.title }}">
 
     <!-- Submit Button -->
     <div class="cta-transparent w-full flex items-center justify-center submit-cta mt-2">
@@ -296,7 +296,6 @@
     const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
     const additionalTagsInput = document.getElementById('additionalTags'); // Input nascosto per i tag
     const productTag = document.getElementById('productTag');//product tag for the form
-
     // Funzione per aggiornare lo stato del pulsante submit
     const updateSubmitButtonState = () => {
       const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
