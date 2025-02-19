@@ -60,13 +60,6 @@
             "accordion_extra_content": "<b>Finalità:</b> inviarti comunicazioni commerciali personalizzate in base ai tuoi interessi, alle tue richieste e alle tue interazioni con noi; potremmo inoltre sviluppare prodotti e servizi in linea con le tue preferenze.\n<b>Categorie di dati:</b> i dati riguardanti le imbarcazioni «Pardo Yachts» che hai acquistato o per le quali hai richiesto informazioni, il tuo paese di provenienza, i tuoi dati anagrafici, le tue interazioni con noi attraverso il nostro sito web, attraverso le App - che potranno essere sviluppate da noi o da terzi – ed attraverso i nostri canali social. Inoltre, il tuo profilo potrà essere arricchito con informazioni acquisite lecitamente da terze parti e messe a disposizione di Cantiere del Pardo.\n<b>Base giuridica</b>: il tuo consenso, che puoi revocare in qualsiasi momento scrivendo a <a href=\"mailto:data.protection@calzedonia.com\" style=\"text-decoration: underline\">data.protection@calzedonia.com</a> o cliccando sul link in fondo alle comunicazioni.\n<b>Periodo di conservazione:</b> cinque anni dalla data di raccolta."
           }
         },
-        "accordion_extra_fBiaTx": {
-          "type": "accordion-extra",
-          "settings": {
-            "accordion_extra_title": "Get the Brochure",
-            "accordion_extra_content": "<b>Finalità:</b> su tua richiesta, invio della brochure informativa che illustra le caratteristiche e le specifiche tecniche delle nostre imbarcazioni.\n<b>Categorie di dati:</b> i dati indicati nel form di richiesta della brochure (es. nome, cognome, indirizzo mail).\n<b>Base giuridica:</b> esecuzione di misure precontrattuali adottate su tua richiesta.\n<b>Periodo di conservazione:</b> i dati verranno cancellati dopo aver effettuato l’invio della brochure"
-          }
-        },
         "accordion_HCEAqj": {
           "type": "accordion",
           "settings": {
@@ -107,7 +100,6 @@
         "accordion_extra_qNHrTi",
         "accordion_extra_93rkgz",
         "accordion_extra_NYV6KY",
-        "accordion_extra_fBiaTx",
         "accordion_HCEAqj",
         "accordion_RjDLEV",
         "accordion_JKTqpg",
