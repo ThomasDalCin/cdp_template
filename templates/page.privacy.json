@@ -79,7 +79,7 @@
           "type": "accordion",
           "settings": {
             "accordion_title": "Cookie",
-            "accordion_content": "In alcune aree del nostro sito utilizziamo dei cookie. Per saperne di più consulta la <a class=\"underline\" href=\"/pages/cookie-policy\">Cookie Policy.</a>",
+            "accordion_content": "In alcune aree del nostro sito utilizziamo dei cookie. Per saperne di più consulta la <a class=\"underline cookie link\" href=\"\">Cookie Policy.</a>",
             "extra_accordion_inside": false
           }
         },
