@@ -58,7 +58,7 @@
     "marketing-pop-up": {
       "type": "marketing-pop-up",
       "settings": {
-        "marketing_pop_up_title": "Consent to direct marketing",
+        "marketing_pop_up_title": "Consenso al marketing diretto",
         "marketing_pop_up_content": "Selezionando questa casella presti il tuo consenso a ricevere comunicazioni commerciali e a partecipare a ricerche di mercato ed attività di rilevazione del tuo grado disoddisfazione, riguardanti prodotti e servizi di Pardo Yachts, mediante e-mail e/o SMS, telefono e posta tradizionale cartacea. Per questa finalità utilizzeremo i datianagrafici e di contatto che ci hai comunicato (ad es. nome, cognome, indirizzo, e-mail, numero di cellulare ecc.). I dati raccolti saranno conservati fino a quando nonperverrà da parte tua una richiesta di revoca del consenso. Il Titolare del Trattamento è Cantiere Del Pardo SpA. Scrivendo a data.protection@calzedonia.com puoiesercitare il diritto: i) di accesso, per sapere se è in corso un trattamento di tuoi dati e ottenerne una copia; ii) di ottenere la rettifica o l’integrazione dei tuoi dati; iii) dichiedere la cancellazione dei tuoi dati; iv) di ottenere la limitazione del trattamento; v) alla portabilità dei dati; vi) di revoca del consenso. Puoi inoltre proporre reclamoalla competente autorità di controllo in materia di protezione dei dati nel caso in cui tu ritenga che il trattamento dei tuoi dati personali si svolga in contrasto con ledisposizioni del Regolamento UE 2016/679.",
         "cta_privacy_page": "Informativa completa",
         "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy"
