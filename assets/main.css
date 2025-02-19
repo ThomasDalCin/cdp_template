@@ -2773,6 +2773,10 @@ p,
   font-size: 24px;
 }
 
+.text-\[26px\] {
+  font-size: 26px;
+}
+
 .text-\[28px\] {
   font-size: 28px;
 }
@@ -2808,10 +2812,6 @@ p,
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-\[26px\] {
-  font-size: 26px;
 }
 
 .font-light {
@@ -4415,6 +4415,10 @@ html {
     min-width: 1024px;
   }
 
+  .lg\:min-w-\[220px\] {
+    min-width: 220px;
+  }
+
   .lg\:min-w-\[320px\] {
     min-width: 320px;
   }
@@ -4441,10 +4445,6 @@ html {
 
   .lg\:min-w-full {
     min-width: 100%;
-  }
-
-  .lg\:min-w-\[220px\] {
-    min-width: 220px;
   }
 
   .lg\:max-w-\[220px\] {
