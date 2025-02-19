@@ -2,7 +2,9 @@
 <div class="w-full h-auto flex items-start justify-center flex-col">
   <!-- product title container -->
   <div class="w-full h-auto flex items-center justify-start px-6 pt-10 md:px-12 lg:px-20 lg:py-12">
-    <h1 class="text-[64px] leading-[56px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">{{ product.title }}</h1>
+    <h1 class="text-[64px] leading-[56px] tt-norms-pro-light lg:text-[128px] lg:leading-[128px]">
+      {{ product.title }}
+    </h1>
   </div>
   <!-- product info box container -->
   <!-- Product details section -->
@@ -22,9 +24,10 @@
             {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
 
             <div class="details-badge flex flex-1 flex-col h-auto items-center justify-center gap-y-1 rounded-[10px] bg-[#EFEEED] p-4 lg:h-[100px] lg:flex-1">
-              <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue | upcase
-}}</p>
-              <p class="body-16 text-nowrap tt-norms-pro-med badge-value lg:text-[18px] lg:leading-[24px]">{{ infoValue }}</p>
+              <p class="body-12 text-[#818181] tt-norms-pro-med badge-text text-nowrap">{{ titleValue | upcase }}</p>
+              <p class="body-16 text-nowrap tt-norms-pro-med badge-value lg:text-[18px] lg:leading-[24px]">
+                {{ infoValue }}
+              </p>
             </div>
           {% endfor %}
         </div>
@@ -40,14 +43,16 @@
       <!-- emotional text container -->
       <div class="w-full h-auto flex flex-col gap-y-3 items-center justify-center mb-10 rounded-3xl p-6 lg:px-20 lg:mb-0 lg:py-14 bg-[#F7F7F7] lg:rounded-[32px]">
         {% assign pdpHighLightText = product.metafields.custom.highlights_pdp_text.value %}
-        {% assign boldTextHighLight = pdpHighLightText["bold_text"] %}
-        {% assign regularTextHighLight = pdpHighLightText["regular_text"] %}
+        {% assign boldTextHighLight = pdpHighLightText.bold_text %}
+        {% assign regularTextHighLight = pdpHighLightText.regular_text %}
 
         {% if boldTextHighLight and regularTextHighLight %}
           <p class="text-[20px] leading-[26px] tt-norms-pro-med text-center text-balance lg:text-[64px] lg:leading-[70px]">
-            {{ boldTextHighLight }}</p>
+            {{ boldTextHighLight }}
+          </p>
           <p class="text-[20px] leading-[26px] tt-norms-pro-light text-center text-balance lg:text-[48px] lg:leading-[70px]">
-            {{ regularTextHighLight }}</p>
+            {{ regularTextHighLight }}
+          </p>
         {% else %}
           <p>No item found</p>
         {% endif %}
@@ -57,19 +62,18 @@
       <div class="product-details-cta w-full h-auto flex flex-col items-center justify-start gap-y-3 lg:flex-row lg:gap-x-3 lg:justify-center">
         <div class="cta-choco lg:w-auto lg:min-w-[220px]  h-[48px] min-h-[48px] cursor-pointer lg:px-4 lg:py-2">
           <a href="/pages/locate-dealer">
-            <p class="body-16-medium">{{ section.settings.cta_delear | default: "Find a dealer" }}</p>
+            <p class="body-16-medium">{{ section.settings.cta_delear | default: 'Find a dealer' }}</p>
           </a>
         </div>
-        {% unless product.title == "GT65" %}
+        {% unless product.title == 'GT65' %}
           <div class="cta-transparent h-[48px] min-h-[48px] lg:w-auto lg:min-w-[220px] cursor-pointer lg:px-4 lg:py-2 cta-brochure">
-            <p class="body-16-medium">{{ section.settings.cta_brochure | default: "Get the brochure" }}</p>
+            <p class="body-16-medium">{{ section.settings.cta_brochure | default: 'Get the brochure' }}</p>
             {% render 'download-icon-black' %}
           </div>
         {% endunless %}
       </div>
     </div>
   </div>
-
 </div>
 
 {% assign pdf = product.metafields.custom.product_brochure.value %}
@@ -78,13 +82,14 @@
 <div
   id="form-container"
   data-pdf-url="{{ pdf }}"
-  class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 hidden md:inset-0 md:items-center md:justify-center md:rounded-none md:bg-[rgba(0,0,0,0.20)] md:backdrop-blur-lg lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:backdrop-blur-lg">
+  class="form-container fixed bottom-0 left-0 w-full h-auto bg-white p-6 rounded-t-[32px] shadow-custom z-50 hidden md:inset-0 md:items-center md:justify-center md:rounded-none md:bg-[rgba(0,0,0,0.20)] md:backdrop-blur-lg lg:inset-0 lg:items-center lg:justify-center lg:rounded-none lg:bg-[rgba(0,0,0,0.20)] lg:backdrop-blur-lg"
+>
   <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto md:w-[640px] md:bg-white md:rounded-[32px] md:p-10 lg:w-[640px] lg:bg-white lg:rounded-[32px] lg:p-10 ">
-
     <!-- Form Header -->
     <div class="form-appointment-headers w-full flex items-center justify-end relative">
       <p class="body-16 tt-norms-pro-med  events-name absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        {{ section.settings.form_title | default: "Get the brochure" }}</p>
+        {{ section.settings.form_title | default: 'Get the brochure' }}
+      </p>
 
       <!-- Close Icon -->
       <div class="icon-content cursor-pointer close-form">
@@ -94,13 +99,11 @@
 
     <!-- Form Content -->
 
-    {% form 'customer'
-      , class: "flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px] form-brochure" %}
-
+    {% form 'customer', class: 'flex flex-col items-start justify-center gap-y-6 lg:gap-y-[32px] form-brochure' %}
       <!-- Form Errors -->
       {{ form.errors | default_errors }}
 
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
         <!-- First Name -->
         <div class="form-group w-full">
           <input
@@ -108,7 +111,8 @@
             name="contact[first_name]"
             class=" w-full p-4 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
             value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
-            placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}">
+            placeholder="{{ section.settings.first_name_placeholder |  default: " Name" }}"
+          >
         </div>
 
         <!-- Last Name -->
@@ -118,7 +122,8 @@
             name="contact[last_name]"
             class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
             value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
-            placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}">
+            placeholder="{{ section.settings.last_name_placeholder |  default: " Last name" }}"
+          >
         </div>
 
         <!-- Email -->
@@ -128,15 +133,17 @@
             name="contact[email]"
             class=" w-full p-4  rounded-lg bg-[var(--primary-background-color)] border-[0.5px] font-['TT-Norms-Pro-Regular'] border-transparent focus:outline-none focus:ring-black focus:border-black placeholder:body-16 placeholder:text-[#818181]"
             value="{% if form.email != blank %}{{ form.email }}{% endif %}"
-            placeholder="{{ section.settings.email_placeholder |  default: " Email" }}">
+            placeholder="{{ section.settings.email_placeholder |  default: " Email" }}"
+          >
         </div>
       </div>
 
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
-        <p class="text-[16px] leading-[22px]  tt-norms-pro-med">{{ section.settings.get_in_touch_text |  default: "
-Stay in touch with Pardo Yatch" }}</p>
+        <p class="text-[16px] leading-[22px]  tt-norms-pro-med">
+          {{ section.settings.get_in_touch_text | default: '
+Stay in touch with Pardo Yatch' }}
+        </p>
       </div>
-
 
       <!-- container checkbox -->
       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
@@ -146,11 +153,21 @@ Stay in touch with Pardo Yatch" }}</p>
             type="checkbox"
             id="marketingConsent"
             name="contact[marketing_consent]"
-            class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+            class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent"
+          >
           <label class="text-[12px] leading-[18px]  tt-norms-pro-reg">
-            {{ section.settings.marketing_consent_label }}
-            <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy | default: "Privacy Policy"
-}}</span>
+            {{
+              section.settings.marketing_consent_label
+              | default: 'By giving your consent, we may send you
+                        commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
+                        market research in order to evaluate your level of satisfaction with our products and services.'
+            }}
+            <span
+              class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up"
+              data-attribute="marketing"
+            >
+              {{- section.settings.marketing_policy | default: 'Privacy Policy' -}}
+            </span>
           </label>
         </div>
 
@@ -160,21 +177,31 @@ Stay in touch with Pardo Yatch" }}</p>
             type="checkbox"
             id="profilingConsent"
             name="contact[profiling_consent]"
-            class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+            class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent"
+          >
           <label class="text-[12px] leading-[18px] tt-norms-pro-reg">
-            {{ section.settings.profiling_consent_label }}
-            <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy | default: "Privacy Policy"
-}}</span>
+            {{
+              section.settings.profiling_consent_label
+              | default: 'By giving your consent, we will be able to
+                        send you personalized commercial communications based on your purchasing habits and, in general,
+                        based on your interests, your requests and your interactions with us.'
+            }}
+            <span
+              class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up"
+              data-attribute="profilation"
+            >
+              {{- section.settings.profilation_policy | default: 'Privacy Policy' -}}
+            </span>
           </label>
         </div>
-
       </div>
 
       <!-- cta-privacy-page -->
       <div class="w-full h-auto flex flex-col items-start justify-center">
         <a href="{{ section.settings.cta_privacy_page_redirect }}">
-          <p class="body-16 leading-[20px] underline tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_privacy_page | 
- default: "Privacy Policy" }}</p>
+          <p class="body-16 leading-[20px] underline tt-norms-pro-reg lg:text-[18px] lg:leading-[24px]">
+            {{ section.settings.cta_privacy_page | default: 'Privacy Policy' }}
+          </p>
         </a>
       </div>
 
@@ -183,33 +210,37 @@ Stay in touch with Pardo Yatch" }}</p>
         type="hidden"
         name="contact[tags]"
         id="additionalTags"
-        value="brochure">
+        value="brochure"
+      >
       <input
         type="hidden"
         name="contact[product]"
         id="productTag"
-        value="{{ product.title }}">
+        value="{{ product.title }}"
+      >
 
       <!-- Submit Button -->
       <div class="cta-transparent w-full flex items-center justify-center submit-cta mt-2">
         <button
           type="button"
           id="Subscribe"
-          class="px-6 py-3">
-          {{ section.settings.submit_button | default: "Get the brochure" }}
+          class="px-6 py-3"
+        >
+          {{ section.settings.submit_button | default: 'Get the brochure' }}
         </button>
       </div>
     {% endform %}
-
   </div>
 </div>
 
 <!-- Form success -->
-<div class="w-auto mx-6 lg:mx-10 h-[60px] hidden fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black px-6" id="success-message">
+<div
+  class="w-auto mx-6 lg:mx-10 h-[60px] hidden fixed left-0 right-0 bottom-4 bg-white z-50 flex items-center justify-start gap-x-2 flex-row rounded-xl border border-black px-6"
+  id="success-message"
+>
   {% render 'check-icon' %}
-  <p class="body-16">{{ section.settings.thankyou_message | default: "Richiesta brochure avvenuta" }}</p>
+  <p class="body-16">{{ section.settings.thankyou_message | default: 'Richiesta brochure avvenuta' }}</p>
 </div>
-
 
 <style>
   body.no-scroll {
@@ -297,7 +328,7 @@ Stay in touch with Pardo Yatch" }}</p>
     const closeForm = document.querySelector('.close-form');
     const pdfUrl = formContainer.getAttribute('data-pdf-url');
     const form = document.querySelector('.form-brochure');
-  
+
     const submitButton = document.querySelector('.submit-cta'); // Bottone di submit
     const formInputs = document.querySelectorAll('input[required]'); // Input obbligatori
     const marketingCheckbox = document.getElementById('marketingConsent'); // Checkbox Marketing
@@ -305,9 +336,9 @@ Stay in touch with Pardo Yatch" }}</p>
     const profilingContainer = profilingCheckbox.closest('.form-group'); // Contenitore Profiling
     const additionalTagsInput = document.getElementById('additionalTags'); // Input nascosto per i tag
     const productTag = document.getElementById('productTag');//product tag for the form
-  
+
     // Funzione per aggiornare lo stato del pulsante submit
-  
+
     // const updateSubmitButtonState = () => {
     //   const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
     //   if (allFieldsFilled) {
@@ -318,47 +349,47 @@ Stay in touch with Pardo Yatch" }}</p>
     //     submitButton.disabled = true;
     //   }
     // };
-  
+
     // Inizializza lo stato del pulsante al caricamento
     // updateSubmitButtonState();
-  
+
     // Aggiungi event listeners a tutti gli input obbligatori
     // formInputs.forEach(input => {
     //   input.addEventListener('input', updateSubmitButtonState);
     // });
-  
+
     // form.addEventListener('submit', (e) => {
     //   e.preventDefault();
     //   const emailInput = form.querySelector('input[type="email"]');
-  
+
     //   if(emailInput && emailInput.value.trim()){
     //     form.submit();
     //   }
-  
+
     //   if (pdfUrl && pdfUrl !== '#') {
     //     window.open(pdfUrl, '_blank');
     //   } else {
     //     console.error("PDF URL non trovato!");
     //   }
     // })
-  
+
     submitButton.addEventListener('click', (e) => {
-  
+
       e.preventDefault();
-  
+
       const emailInput = form.querySelector('input[type="email"]');
-  
+
       if (emailInput && emailInput.value.trim()) {
         form.submit();
       }
-  
+
       if (pdfUrl && pdfUrl !== '#') {
         window.open(pdfUrl, '_blank');
       } else {
         console.error("PDF URL non trovato!");
       }
     });
-  
+
     //handle the message after the form sent
     function handleSuccessMessage() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -366,27 +397,27 @@ Stay in touch with Pardo Yatch" }}</p>
       if (urlParams.get('customer_posted') === 'true') {
         successMessage.classList.remove('hidden');
       }
-  
+
       setTimeout(() => {
         successMessage.classList.add('hidden');
       }, 3000)
     }
-  
+
     handleSuccessMessage();
-  
+
     // Funzione per aprire il form
     ctaBrochure.forEach(cta => {
       cta.addEventListener('click', function (e) {
         e.preventDefault(); // Preveniamo il comportamento predefinito (ad esempio il redirect)
         e.stopPropagation(); // Impediamo che l'evento venga propagato al document
-  
+
         // Mostra il form
         formContainer.classList.remove('hidden');
         formContainer.classList.add('flex');
         document.body.classList.add('no-scroll');
       });
     });
-  
+
     // Logica per chiudere il form cliccando sull'icona di chiusura o all'esterno
     document.addEventListener('click', function (e) {
       // Se l'elemento cliccato non è né il form né l'icona di chiusura
@@ -397,15 +428,15 @@ Stay in touch with Pardo Yatch" }}</p>
         document.body.classList.remove('no-scroll');
       }
     });
-  
+
     // Event listener per il click sull'icona di chiusura
     closeForm.addEventListener('click', function () {
       formContainer.classList.remove('flex');
       formContainer.classList.add('hidden');
       document.body.classList.remove('no-scroll');
     });
-  
-  
+
+
     // Funzione per aggiornare i tag
     const updateTags = () => {
       const tags = ['brochure', productTag.value]; // Tag statico
@@ -413,7 +444,7 @@ Stay in touch with Pardo Yatch" }}</p>
       if (profilingCheckbox.checked) tags.push('profilazione');
       additionalTagsInput.value = tags.join(',');
     };
-  
+
     // Logica per aggiornare lo stato della checkbox Profiling
     const updateProfilingState = () => {
       if (marketingCheckbox.checked) {
@@ -425,24 +456,24 @@ Stay in touch with Pardo Yatch" }}</p>
         profilingCheckbox.checked = false; // Deseleziona Profiling se Marketing non è selezionato
       }
     };
-  
+
     // Event listeners per le checkbox
     marketingCheckbox.addEventListener('change', () => {
       updateProfilingState();
       updateTags();
     });
     profilingCheckbox.addEventListener('change', updateTags);
-  
+
     // Inizializza lo stato al caricamento
     updateTags();
     updateProfilingState();
-  
+
     //pop-up privacy
     const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
     const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
     const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
     const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
-  
+
     linksToPopUp.forEach((link) => {
       const linkReference = link.getAttribute('data-attribute');
       link.addEventListener('click', () => {
@@ -453,7 +484,7 @@ Stay in touch with Pardo Yatch" }}</p>
         }
       });
     });
-  
+
     closingPopUpIcon.forEach((icon) => {
       const iconReference = icon.getAttribute('data-attribute');
       icon.addEventListener('click', () => {
@@ -464,15 +495,100 @@ Stay in touch with Pardo Yatch" }}</p>
         }
       });
     });
-  
+
     function openPopUp(elementToOpen) {
       elementToOpen.classList.remove('hidden');
       elementToOpen.classList.add('flex');
     }
-  
+
     function closePopUp(elementToClose) {
       elementToClose.classList.add('hidden');
       elementToClose.classList.remove('flex');
     }
   });
 </script>
+
+{% schema %}
+{
+  "name": "info-pdp",
+  "settings": [
+    {
+      "id": "cta_delear",
+      "type": "text",
+      "label": "Cta Find a dealer",
+      "default": "Find a dealer"
+    },
+    {
+      "id": "get_in_touch_text",
+      "type": "text",
+      "label": "Get in touch text",
+      "default": "Stay in touch with Pardo Yatch"
+    },
+    {
+      "id": "cta_brochure",
+      "type": "text",
+      "label": "Cta Brochure",
+      "default": "Get the brochure"
+    },
+    {
+      "id": "form_title",
+      "type": "text",
+      "label": "Form Title",
+      "default": "Get the brochure"
+    },
+    {
+      "id": "first_name_placeholder",
+      "type": "text",
+      "label": "First Name Placeholder",
+      "default": "Name"
+    },
+    {
+      "id": "last_name_placeholder",
+      "type": "text",
+      "label": "Last Name Placeholder",
+      "default": "Last name"
+    },
+    {
+      "id": "email_placeholder",
+      "type": "text",
+      "label": "Email Placeholder",
+      "default": "Email"
+    },
+    {
+      "id": "marketing_consent_label",
+      "type": "text",
+      "label": "Marketing Consent Label",
+      "default": "I consent to receiving marketing communications."
+    },
+    {
+      "id": "profiling_consent_label",
+      "type": "text",
+      "label": "Profiling Consent Label",
+      "default": "I consent to profiling for personalized experiences."
+    },
+    {
+      "id": "marketing_policy",
+      "type": "text",
+      "label": "Marketing Policy Link Text",
+      "default": "Privacy Policy"
+    }
+    {
+      "id": "cta_privacy_page_redirect",
+      "type": "url",
+      "label": "Privacy Page URL Redirect",
+    },
+    {
+      "id": "cta_privacy_page",
+      "type": "text",
+      "label": "Privacy Page Link Text",
+      "default": "Privacy Policy"
+    },
+    {
+      "id": "thankyou_message",
+      "type": "text",
+      "label": "Thank You Message",
+      "default": "Brochure request successful"
+    }
+  ]
+}
+{% endschema %}
