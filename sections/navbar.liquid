@@ -114,89 +114,71 @@
 {% endif %}
 
 <!-- Yatch Menu Container -->
-<div
-  class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
-
+<div class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
   <div class="main-manu-container w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
     <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
-      {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models" | split: ',' %}
+      {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models,Tutti i modelli" | split: ',' %}
       {% for link in linklists.yatch.links %}
-      {% assign matching_collection = collections[link.object.handle] %}
-      {% unless link.title == 'Pardo pre-owned' %}
-      <li
-        class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item lg:last-of-type:mt-4"
-        data-collection="{{ link.object.handle }}">
-
-
-        <div class="relative inline-block">
-          {% if allLinksTitle contains link.title %}
-          {% if link.title == 'GT' %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
-          tt-norms-pro-light
-          lg:text-[64px] lg:leading-[70px]" }}
-          {% elsif link.title == 'View all models' %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light
-          leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
-          {% else %}
-          {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px]
-          tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
-          {% endif %}
-          {% endif %}
-        </div>
-
-
-        <div
-          class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 opacity-0 ease-linear overflow-hidden h-0 max-h-[1000px]">
-          {% if link.title == "View all models" %}
-          <div
-            class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
-
-            {% assign collectionSorted = "Walkaround,Endurance,GT" | split: ',' %}
-
-            {% for collectionHandle in collectionSorted %}
-            {% assign collection = collections[collectionHandle] %}
-
-            {% for product in collection.products %}
-            {% unless collection.title == 'Pardo approved' %}
-            <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
-              <a href="{{ product.url }}" class="tt-norms-pro-light">
-                {{ product.title | replace: 'Pardo', '' }}
-              </a>
+        {% assign matching_collection = collections[link.object.handle] %}
+        {% unless link.title == 'Pardo pre-owned' %}
+          <li class="header-1-medium text-white list-none inline-flex flex-col justify-center items-start relative collection-menu-item lg:last-of-type:mt-4" data-collection="{{ link.object.handle }}">
+  
+            <div class="relative inline-block">
+              {% if allLinksTitle contains link.title %}
+                {% if link.title == 'GT' %}
+                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
+                {% elsif link.title == 'View all models' or link.title == "Tutti i modelli" %}
+                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
+                {% else %}
+                  {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
+                {% endif %}
+              {% endif %}
             </div>
-            {% endunless %}
-            {% endfor %}
-            {% endfor %}
-          </div>
-          {% endif %}
-
-          <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center mt-4">
-            {% for product in matching_collection.products %}
-            <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
-              <a href="{{ product.url }}" class="tt-norms-pro-reg">
-                {{ product.title | replace: 'Pardo', '' }}
-              </a>
+  
+            <div class="collection-info-container w-auto inline-flex flex-col items-start justify-start transition-all duration-200 opacity-0 ease-linear overflow-hidden h-0 max-h-[1000px]">
+              {% if link.title == "View all models" or link.title == "Tutti i modelli" %}
+                <div class="contaiener-badges h-auto flex flex-wrap gap-x-2 gap-y-2 items-start justify-start max-w-[343px] w-full mt-4">
+                  {% assign collectionSorted = "Walkaround,Endurance,GT" | split: ',' %}
+                  {% for collectionHandle in collectionSorted %}
+                    {% assign collection = collections[collectionHandle] %}
+                    {% for product in collection.products %}
+                      {% unless collection.title == 'Pardo approved' %}
+                        <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+                          <a href="{{ product.url }}" class="tt-norms-pro-light">
+                            {{ product.title | replace: 'Pardo', '' }}
+                          </a>
+                        </div>
+                      {% endunless %}
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+  
+              <div class="contaiener-badges w-auto h-auto flex flex-row gap-x-2 items-start justify-center mt-4">
+                {% for product in matching_collection.products %}
+                  <div class="badge-product border-white cursor-pointer" data-target="{{ product.title }}">
+                    <a href="{{ product.url }}" class="tt-norms-pro-reg">
+                      {{ product.title | replace: 'Pardo', '' }}
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
             </div>
-            {% endfor %}
-          </div>
-        </div>
-
-      </li>
-      {% endunless %}
+  
+          </li>
+        {% endunless %}
       {% endfor %}
     </div>
-
-
+  
     <div class="container-secondary-link w-full h-auto flex flex-col gap-y-2 lg:gap-y-2">
       {% for link in linklists.yatch.links %}
-      {% unless allLinksTitle contains link.title %}
-      {{ link.title | link_to: link.url, class: "hidden text-white tt-norms-pro-extra-light text-[16px] leading-[22px]
-      lg:text-[24px] hover:font-['TT-Norms-Pro-Regular']
-      lg:leading-[24px] underline underline decoration-[.5px] hover:decoration-[1px] underline-offset-[2px]" }}
-      {% endunless %}
+        {% unless allLinksTitle contains link.title %}
+          {{ link.title | link_to: link.url, class: "hidden text-white tt-norms-pro-extra-light text-[16px] leading-[22px] lg:text-[24px] hover:font-['TT-Norms-Pro-Regular'] lg:leading-[24px] underline underline decoration-[.5px] hover:decoration-[1px] underline-offset-[2px]" }}
+        {% endunless %}
       {% endfor %}
     </div>
-
-    <!-- find delear button -->
+  
+    <!-- find dealer button -->
     <div class="w-full h-auto items-center justify-start hidden lg:flex lg:mt-2">
       <a href="/pages/locate-dealer">
         <div class="w-auto h-auto inline-flex cta-white-rounded">
@@ -204,84 +186,66 @@
         </div>
       </a>
     </div>
-
+  
     <!-- boat image container on desktop -->
     <div class="boat-image-container absolute right-20 bottom-[90px] w-[890px] h-[501px] z-30">
       {% for collection in collections %}
-      {% for product in collection.products %}
-      <!-- Title of the product inside the boat image container -->
-      <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
-        <p class="tt-norms-thin text-[96px] leading-[128px] text-white boat-title" data-title="{{ product.title }}">
-          {{ product.title | replace: "Pardo", "" }}
-        </p>
-      </div>
-      {% endfor %}
-      {% endfor %}
-
-
-      <!-- Boat image within the same container -->
-      {% for collection in collections %}
-      {% for product in collection.products %}
-      <a href="{{ product.url }}" class="w-full h-full">
-        <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image"
-          class="boat-image w-full h-full object-contain z-10" data-image="{{ product.title }}">
-      </a>
-      {% endfor %}
-      {% endfor %}
-
-      <!-- container product tag -->
-      {% for collection in collections %}
-      {% for product in collection.products %}
-      <div
-        class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container"
-        data-tags="{{ product.title }}">
-        {% for tag in product.tags %}
-        {% if tag != "" %}
-        <span class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
-          {{ tag }}
-        </span>
-        {% endif %}
+        {% for product in collection.products %}
+          <div class="w-full h-auto absolute left-0 -top-4 right-0 flex items-center justify-center -z-10">
+            <p class="tt-norms-thin text-[96px] leading-[128px] text-white boat-title" data-title="{{ product.title }}">
+              {{ product.title | replace: "Pardo", "" }}
+            </p>
+          </div>
         {% endfor %}
-      </div>
       {% endfor %}
+  
+      {% for collection in collections %}
+        {% for product in collection.products %}
+          <a href="{{ product.url }}" class="w-full h-full">
+            <img src="{{ product.featured_image | img_url: 'master' }}" alt="boat png image" class="boat-image w-full h-full object-contain z-10" data-image="{{ product.title }}">
+          </a>
+        {% endfor %}
       {% endfor %}
-
-      <!-- Container main features -->
+  
+      {% for collection in collections %}
+        {% for product in collection.products %}
+          <div class="w-full h-auto absolute left-0 bottom-[157px] flex items-center justify-center right-0 product-tags-container" data-tags="{{ product.title }}">
+            {% for tag in product.tags %}
+              {% if tag != "" %}
+                <span class="px-4 py-1 items-center justify-center bg-white rounded-[48px] tt-norms-pro-reg">
+                  {{ tag }}
+                </span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% endfor %}
+  
       <div class="w-full h-auto absolute left-0 -bottom-[20px] right-0 product-details-container">
         {% for collection in collections %}
-        {% for product in collection.products %}
-        <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2"
-          data-content="{{ product.title }}">
-          {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
-          {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
-
-
-          {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
-          {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' | split: ',' %}
-
-
-          {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
-          {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
-          {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
-
-          <div
-            class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
-            <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med text-nowrap">
-              {{ titleValue | upcase }}
-            </p>
-            <p class="body-16 text-nowrap tt-norms-pro-med">{{ infoValue }}</p>
-          </div>
-
+          {% for product in collection.products %}
+            <div class="w-full h-auto flex flex-row items-center justify-center product-details-badge gap-x-2" data-content="{{ product.title }}">
+              {% assign keyFeaturesTitles = product.metafields.custom.key_features_titles.value %}
+              {% assign keyFeaturesDetails = product.metafields.custom.key_features_details.value %}
+              {% assign productKeyFeaturesTitles = 'title_one,title_two,title_three' | split: ',' %}
+              {% assign productKeyFeaturesInfo = 'info_one,info_two,info_three' | split: ',' %}
+              {% for productKeyFeaturesTitle in productKeyFeaturesTitles %}
+                {% assign titleValue = keyFeaturesTitles[productKeyFeaturesTitle] %}
+                {% assign infoValue = keyFeaturesDetails[productKeyFeaturesInfo[forloop.index0]] %}
+                <div class="flex min-w-[185px] w-[185px] h-[84px] p-6 flex-col items-center justify-center gap-y-1 rounded-xl bg-[#FFF] flex-shrink-0 lg:h-[100px]">
+                  <p class="body-16 text-[var(--hover-color)] tt-norms-pro-med text-nowrap">
+                    {{ titleValue | upcase }}
+                  </p>
+                  <p class="body-16 text-nowrap tt-norms-pro-med">{{ infoValue }}</p>
+                </div>
+              {% endfor %}
+            </div>
           {% endfor %}
-        </div>
-        {% endfor %}
         {% endfor %}
       </div>
-
     </div>
-
   </div>
-
+  
   <!-- find delear button -->
   <div class="w-full h-auto flex items-center justify-center absolute left-0 right-0 bottom-[56px] lg:hidden">
     <a href="/pages/locate-dealer">
@@ -734,7 +698,7 @@
       const discoverGammaText = document.querySelector('.discover-gamma-text');
       const linkItemContent = linkItem.innerHTML.trim();
 
-      if (isActive && linkItemContent != "View all models") {
+      if (isActive && linkItemContent != "View all models" && linkItemContent!= "Tutti i modelli" ) {
         discoverGammaContent.classList.remove('hidden');
         discoverGammaContent.classList.add('flex');
       }
@@ -1016,7 +980,7 @@
 
         resetScroll();
 
-        if (linkTarget === "View all models") {
+        if (linkTarget === "View all models" || linkTarget == "Tutti i modelli" ) {
           productCols.forEach((product) => {
             if (product.getAttribute('data-product-collection') !== 'Pardo approved') {
               product.parentElement.classList.remove('hidden');
