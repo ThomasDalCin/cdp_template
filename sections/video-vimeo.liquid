@@ -1,0 +1,10 @@
+<!--container viemo video -->
+{% assign vimeoSource = product.metafields.custom.vimeo_source_link.value %}
+<div class="w-full h-auto flex flex-col items-center justify-center lg:px-[120px] py-[60px]">
+    <div class="w-full h-[468px] lg:h-[680px]">
+        {% if vimeoSource %}
+            <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay playisinline controls></video>
+        {% endif %}
+    </div>
+</div>
+

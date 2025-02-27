@@ -1555,6 +1555,10 @@ p,
   height: 44px;
 }
 
+.h-\[468px\] {
+  height: 468px;
+}
+
 .h-\[480px\] {
   height: 480px;
 }
@@ -2643,6 +2647,11 @@ p,
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.py-\[60px\] {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .pb-10 {
@@ -4189,6 +4198,10 @@ html {
 
   .lg\:h-\[620px\] {
     height: 620px;
+  }
+
+  .lg\:h-\[680px\] {
+    height: 680px;
   }
 
   .lg\:h-\[720px\] {

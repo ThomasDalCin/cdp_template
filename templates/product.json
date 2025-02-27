@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "gallery-pdp": {
@@ -30,6 +21,12 @@
         "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy",
         "cta_privacy_page": "Privacy Policy",
         "thankyou_message": "Richiesta brochure avvenuta"
+      }
+    },
+    "video-vimeo": {
+      "type": "video-vimeo",
+      "settings": {
+
       }
     },
     "marketing-pop-up": {
@@ -103,6 +100,7 @@
   "order": [
     "gallery-pdp",
     "info-pdp",
+    "video-vimeo",
     "marketing-pop-up",
     "profilation-pop-up",
     "ext-int-pdp",
