@@ -7,11 +7,11 @@
 
     <div
         class="main-container w-full h-full absolute left-0 top-0 right-0 z-10 cursor-none transition-all duration-500 ease-out">
-           <!--container floating icon play -->
-           <div
-           class="w-[80px] h-[80px] z-20 flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
-           {% render 'play-icon' %}
-       </div>
+        <!--container floating icon play -->
+        <div
+            class="w-[80px] h-[80px] z-20 flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+            {% render 'play-icon' %}
+        </div>
 
         <!--container floating icon play -->
         <div
@@ -20,8 +20,8 @@
         </div>
 
         {% if vimeoSource %}
-        <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay
-        playsinline loop disablePictureInPicture></video>
+        <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay playsinline loop
+            disablePictureInPicture></video>
         {% endif %}
 
     </div>
@@ -34,7 +34,8 @@
             <div class="w-full h-auto embed-content">
                 {{ vimeoEmbed }}
             </div>
-            <div class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
+            <div
+                class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
                 <div
                     class="w-auto h-auto bg-white flex flex-col items-center justify-center rounded-[50px] backdrop:blur-[40px] p-3 close-embed cursor-pointer transition-all duration-150 ease-in">
                     {% render 'x-icon' %}
@@ -87,7 +88,7 @@
 
         //handle size vimeo embed;
         const iframe = document.querySelector('.embed-content').firstElementChild;
-        iframe.classList.add('w-full','h-[210px]','md:h-[380px]', 'lg:h-[480px]');
+        iframe.classList.add('w-full', 'h-[210px]', 'md:h-[380px]', 'lg:h-[480px]');
 
         let iframeSource = iframe.getAttribute('src');
 
