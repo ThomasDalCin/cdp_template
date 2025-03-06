@@ -54,6 +54,7 @@
 
 </div>
 
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -63,7 +64,31 @@
         const embedContent = document.querySelector('.embed-content');
         const embedContainer = document.querySelector('.embed-container');
 
-        targetContainer.addEventListener('mousemove', handleMouseMove);
+        let player;
+
+        const script = document.createElement('script');
+        script.src = "https://player.vimeo.com/api/player.js";
+        document.body.appendChild(script);
+
+        script.onload = () => {
+            const iframe = document.querySelector('.embed-content').firstElementChild;
+            player = new Vimeo.Player(iframe);
+
+            targetContainer.addEventListener('click', () => {
+                embedContainer.classList.remove('translate-y-[100%]');
+                if (player) {
+                    player.play();
+                }
+            });
+
+            closeEmbed.addEventListener('click', () => {
+                embedContainer.classList.add('translate-y-[100%]');
+                closeEmbed.classList.toggle('rotate-[90deg]');
+                if (player) {
+                    player.pause();
+                }
+            });
+        };
 
         function positionFloatingDiv() {
             const rect = targetContainer.getBoundingClientRect();
@@ -71,15 +96,15 @@
             const centerY = (rect.height - floatingDiv.offsetHeight) / 2;
             floatingDiv.style.transform = `translate(${centerX}px, ${centerY}px)`;
         }
+
         positionFloatingDiv();
 
         targetContainer.addEventListener('mouseleave', () => {
             positionFloatingDiv();
         });
 
-
         function handleMouseMove(event) {
-            if (!window.innerWidth >= 1024) return;
+            if (window.innerWidth < 1024) return;
 
             const {clientX, clientY} = event;
             const rect = targetContainer.getBoundingClientRect();
@@ -94,19 +119,10 @@
             const finalY = Math.min(maxY, Math.max(0, mouseY));
 
             floatingDiv.style.transform = `translate(${finalX}px, ${finalY}px)`;
-        };
+        }
 
-        targetContainer.addEventListener('click', () => {
-            embedContainer.classList.remove('translate-y-[100%]');
+        targetContainer.addEventListener('mousemove', handleMouseMove);
 
-        });
-
-        closeEmbed.addEventListener('click', () => {
-            embedContainer.classList.add('translate-y-[100%]');
-            closeEmbed.classList.toggle('rotate-[90deg]');
-        })
-
-        //handle size vimeo embed;
         const iframe = document.querySelector('.embed-content').firstElementChild;
         iframe.classList.add('w-full', 'h-[210px]', 'md:h-[380px]', 'lg:h-[480px]');
 
@@ -119,8 +135,5 @@
         }
 
         iframe.setAttribute('src', iframeSource);
-
-
-
-    })
+    });
 </script>
