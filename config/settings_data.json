@@ -125,7 +125,7 @@
         "type": "navbar",
         "settings": {
           "cta_delear": "Find a dealer",
-          "page_ref": ""
+          "page_ref": "shopify://pages/contact"
         }
       },
       "footer": {
