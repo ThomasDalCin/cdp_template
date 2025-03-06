@@ -77,8 +77,8 @@
     "features-pdp": {
       "type": "features-pdp",
       "settings": {
-        "page_ref": "",
-        "cta_text": "",
+        "page_ref": "shopify://pages/contact",
+        "cta_text": "Chiedi a Pardo",
         "product_basics": "Progetto",
         "basics_dropdown_title": "Dettagli di progetto",
         "technical_features": "Specifiche Tecniche",
