@@ -1,13 +1,99 @@
 <!--container viemo video -->
-{% comment %}
-   {% assign vimeoSource = product.metafields.custom.vimeo_source_link.value %}
-<div class="w-full h-auto flex flex-col items-center justify-center lg:px-[120px] py-[60px]">
-    <div class="w-full h-[468px] lg:h-[680px]">
+
+{% assign vimeoSource = product.metafields.custom.vimeo_source_link.value %}
+{% assign vimeoEmbed = product.metafields.custom.embed_vimeo.value %}
+
+<div class="w-full h-[580px] flex flex-col items-center justify-center my-10 relative overflow-hidden md:h-[680px]">
+
+    <div
+        class="main-container w-full h-full absolute left-0 top-0 right-0 z-20 cursor-none transition-all duration-500 ease-out">
+
+        <!--container floating icon play -->
+        <div
+            class="floating-div w-[80px] h-[80px] flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:top-0 transition-all duration-150 ease-linear">
+            {% render 'play-icon' %}
+        </div>
+
         {% if vimeoSource %}
-            <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay playisinline controls></video>
+        <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay
+            playisinline></video>
+        {% endif %}
+
+    </div>
+
+    <div
+        class="embed-container w-full h-full absolute left-0 top-0 right-0 z-0 bg-[#262322] flex flex-col items-center justify-center">
+        {% if vimeoEmbed %}
+        <div class="w-full h-full flex flex-col items-center justify-center gap-y-4 md:py-[60px] md:px-[120px]">
+            <!--embed source-->
+            <div class="w-full h-auto embed-content">
+                {{ vimeoEmbed }}
+            </div>
+            <div class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
+                <div
+                    class="w-auto h-auto bg-white flex flex-col items-center justify-center rounded-[50px] backdrop:blur-[40px] p-3 close-embed cursor-pointer transition-all duration-150 ease-in">
+                    {% render 'x-icon' %}
+                </div>
+            </div>
+        </div>
         {% endif %}
     </div>
+
+
 </div>
 
-{% endcomment %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
 
+        const floatingDiv = document.querySelector('.floating-div');
+        const targetContainer = document.querySelector('.main-container');
+        const closeEmbed = document.querySelector('.close-embed');
+        const embedContent = document.querySelector('.embed-content');
+
+        targetContainer.addEventListener('mousemove', handleMouseMove);
+
+        function handleMouseMove(event) {
+            if (!window.innerWidth >= 1024) return;
+
+            const {clientX, clientY} = event;
+            const rect = targetContainer.getBoundingClientRect();
+
+            const mouseX = clientX - rect.left;
+            const mouseY = clientY - rect.top;
+
+            const maxX = rect.width - floatingDiv.offsetWidth;
+            const maxY = rect.height - floatingDiv.offsetHeight;
+
+            const finalX = Math.min(maxX, Math.max(0, mouseX));
+            const finalY = Math.min(maxY, Math.max(0, mouseY));
+
+            floatingDiv.style.transform = `translate(${finalX}px, ${finalY}px)`;
+        };
+
+        targetContainer.addEventListener('click', () => {
+            targetContainer.classList.add('translate-y-[-100%]');
+        });
+
+        closeEmbed.addEventListener('click', () => {
+            targetContainer.classList.remove('translate-y-[-100%]');
+            closeEmbed.classList.toggle('rotate-[90deg]')
+        })
+
+        //handle size vimeo embed;
+        const iframe = document.querySelector('.embed-content').firstElementChild;
+        iframe.classList.add('w-full','h-[210px]','md:h-[380px]', 'lg:h-[480px]');
+
+        let iframeSource = iframe.getAttribute('src');
+
+        if (iframeSource.indexOf('?') === -1) {
+            iframeSource = iframeSource + '?autoplay=1&loop=1';
+        } else {
+            iframeSource = iframeSource + '&autoplay=1&loop=1';
+        }
+
+        iframe.setAttribute('src', iframeSource);
+
+
+
+    })
+</script>
