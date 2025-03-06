@@ -124,7 +124,7 @@
       "navbar": {
         "type": "navbar",
         "settings": {
-          "cta_delear": "Find a dealer",
+          "cta_delear": "Chiedi a Pardo",
           "page_ref": "shopify://pages/contact"
         }
       },
