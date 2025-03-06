@@ -7,9 +7,10 @@
 
     <div
         class="main-container w-full h-full absolute left-0 top-0 right-0 z-10 cursor-none transition-all duration-500 ease-out">
-        <!--container floating icon play -->
+
+        <!--container floating icon play on mobile -->
         <div
-            class="w-[80px] h-[80px] z-20 flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+            class="w-[80px] h-[80px] flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden transition-all duration-150 ease-linear">
             {% render 'play-icon' %}
         </div>
 
@@ -19,32 +20,37 @@
             {% render 'play-icon' %}
         </div>
 
+        <!--container vimeo direct links-->
         {% if vimeoSource %}
         <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay playsinline loop
             disablePictureInPicture></video>
         {% endif %}
 
     </div>
+</div>
 
-    <div
-        class="embed-container w-full h-full absolute left-0 top-0 right-0 z-0 bg-[#262322] flex flex-col items-center justify-center">
-        {% if vimeoEmbed %}
-        <div class="w-full h-full flex flex-col items-center justify-center gap-y-4 md:py-[60px] md:px-[120px]">
-            <!--embed source-->
-            <div class="w-full h-auto embed-content">
-                {{ vimeoEmbed }}
-            </div>
+
+<div
+    class="embed-container w-full h-full fixed left-0 top-0 right-0 z-50 bg-[#262322] flex flex-col items-center justify-center translate-y-[100%] transition-all duration-500 ease-out">
+
+    {% if vimeoEmbed %}
+    <div class="w-full h-full flex flex-col items-center justify-center gap-y-4 md:py-[60px] md:px-[120px]">
+
+        <!--embed source-->
+        <div class="w-full h-auto embed-content">
+            {{ vimeoEmbed }}
+        </div>
+        <!--control overlay -->
+        <div
+            class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
             <div
-                class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
-                <div
-                    class="w-auto h-auto bg-white flex flex-col items-center justify-center rounded-[50px] backdrop:blur-[40px] p-3 close-embed cursor-pointer transition-all duration-150 ease-in">
-                    {% render 'x-icon' %}
-                </div>
+                class="w-auto h-auto bg-white flex flex-col items-center justify-center rounded-[50px] backdrop:blur-[40px] p-3 close-embed cursor-pointer transition-all duration-150 ease-in">
+                {% render 'x-icon' %}
             </div>
         </div>
-        {% endif %}
-    </div>
 
+    </div>
+    {% endif %}
 
 </div>
 
@@ -55,6 +61,7 @@
         const targetContainer = document.querySelector('.main-container');
         const closeEmbed = document.querySelector('.close-embed');
         const embedContent = document.querySelector('.embed-content');
+        const embedContainer = document.querySelector('.embed-container');
 
         targetContainer.addEventListener('mousemove', handleMouseMove);
 
@@ -77,12 +84,12 @@
         };
 
         targetContainer.addEventListener('click', () => {
-            targetContainer.classList.add('translate-y-[-100%]');
+            embedContainer.classList.remove('translate-y-[100%]');
 
         });
 
         closeEmbed.addEventListener('click', () => {
-            targetContainer.classList.remove('translate-y-[-100%]');
+            embedContainer.classList.add('translate-y-[100%]');
             closeEmbed.classList.toggle('rotate-[90deg]');
         })
 
