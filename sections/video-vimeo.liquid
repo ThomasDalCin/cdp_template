@@ -65,6 +65,19 @@
 
         targetContainer.addEventListener('mousemove', handleMouseMove);
 
+        function positionFloatingDiv() {
+            const rect = targetContainer.getBoundingClientRect();
+            const centerX = (rect.width - floatingDiv.offsetWidth) / 2;
+            const centerY = (rect.height - floatingDiv.offsetHeight) / 2;
+            floatingDiv.style.transform = `translate(${centerX}px, ${centerY}px)`;
+        }
+        positionFloatingDiv();
+
+        targetContainer.addEventListener('mouseleave', () => {
+            positionFloatingDiv();
+        });
+
+
         function handleMouseMove(event) {
             if (!window.innerWidth >= 1024) return;
 
