@@ -7,10 +7,15 @@
 
     <div
         class="main-container w-full h-full absolute left-0 top-0 right-0 z-10 cursor-none transition-all duration-500 ease-out">
+           <!--container floating icon play -->
+           <div
+           class="w-[80px] h-[80px] z-20 flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+           {% render 'play-icon' %}
+       </div>
 
         <!--container floating icon play -->
         <div
-            class="floating-div w-[80px] h-[80px] flex flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:top-0 transition-all duration-150 ease-linear">
+            class="floating-div w-[80px] h-[80px] flex-col items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] hidden lg:flex lg:absolute lg:left-0 lg:top-0 transition-all duration-150 ease-linear">
             {% render 'play-icon' %}
         </div>
 
@@ -72,14 +77,12 @@
 
         targetContainer.addEventListener('click', () => {
             targetContainer.classList.add('translate-y-[-100%]');
-            floatingDiv.classList.add('hidden');
 
         });
 
         closeEmbed.addEventListener('click', () => {
             targetContainer.classList.remove('translate-y-[-100%]');
             closeEmbed.classList.toggle('rotate-[90deg]');
-            floatingDiv.classList.remove('hidden');
         })
 
         //handle size vimeo embed;
