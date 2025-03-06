@@ -698,15 +698,22 @@
 
 
             // Aggiungi le immagini al wrapper
-            images.forEach(imageUrl => {
+            images.forEach((imageUrl, index) => {
                 const slide = document.createElement('div');
+
                 slide.classList.add('swiper-slide');
                 slideClasses.forEach(cls => {
                     slide.classList.add(cls);
                 });
 
                 const slideImg = document.createElement('img');
-                slideImg.classList.add('w-[247px]', 'h-[598px]');
+
+                if(index != 0 ){
+                    slideImg.classList.add('w-full', 'h-full', 'object-cover');
+                } else {
+                    slideImg.classList.add('w-[247px]', 'h-[598px]');
+                }
+
                 slideImg.setAttribute('src', imageUrl);
                 slide.appendChild(slideImg);
                 swiperWrapper.appendChild(slide);
