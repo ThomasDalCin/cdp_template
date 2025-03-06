@@ -80,9 +80,9 @@
           </div>
           <div class="w-full h-[56px] min-h-[56px]  md:w-[220px] lg:w-[220px]">
             <a
-              href="pages/locate-dealer"
+              href="{{ section.settings.page_ref }}"
               class="w-full h-full cta-transparent tt-norms-pro-med md:bg-white md:text-black md:border-transparent lg:bg-white lg:text-black lg:border-transparent"
-              id="cta-delear">{{ section.settings.cta_gamma_delear | default: "Find a dealer" }}</a>
+              id="cta-delear">{{ section.settings.cta_gamma_delear | default: "Ask to Pardo" }}</a>
           </div>
         </div>
       </div>
@@ -425,14 +425,18 @@
         "type": "text",
         "id": "cta_gamma_delear",
         "info": "Type Cta Gamma Dealer",
-        "label": "Cta Gamma Dealer",
-        "default": "Find a dealer"
+        "label": "Cta Gamma Dealer"
       }, {
         "type": "text",
         "id": "cta_gamma_product",
         "info": "Type Cta Gamma Product",
         "label": "Cta Gamma Product",
         "default": "Discover"
+      },
+      {
+        "type": "url",
+        "id": "page_ref",
+        "label": "Redirect for a page"
       }
     ]
   }

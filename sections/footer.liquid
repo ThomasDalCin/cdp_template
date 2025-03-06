@@ -261,9 +261,9 @@
 
       <!--find delear button-->
       <div class="w-full h-auto flex items-center justify-center">
-        <a href="/pages/locate-dealer">
+        <a href="{{ section.settings.page_ref }}">
           <div class="w-auto h-auto inline-flex cta-white-rounded">
-            <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Find a dealer" }}</p>
+            <p class="body-14 tt-norms-pro-med">{{ section.settings.cta_delear | default: "Ask to Pardo" }}</p>
           </div>
         </a>
       </div>
@@ -594,9 +594,13 @@ Section Schema Settings here;
 "type": "text",
 "id": "cta_delear",
 "label": "Cta delear",
-"default": "Find a delear",
 "info": "Cta delear"
-}
+},
+{
+        "type": "url",
+        "id": "page_ref",
+        "label": "Redirect for a page"
+      }
 ],
 "blocks": [
 {

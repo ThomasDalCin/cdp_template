@@ -25,8 +25,8 @@
   <div class="w-full h-[112px] flex flex-row items-start justify-end p-6 md:h-auto md:px-0 md:justify-center lg:px-0 lg:py-0 lg:justify-center lg:h-auto">
     <!-- container button -->
     <div class="inline-flex cta-choco-round h-[32px] lg:flex">
-      <a href="/pages/locate-dealer">
-        <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_text | default: "Find a dealer" }}</p>
+      <a href="{{ section.settings.page_ref }}">
+        <p class="body-16 lg:text-[18px] lg:leading-[24px]">{{ section.settings.cta_text | default: "Ask to pardo" }}</p>
       </a>
     </div>
   </div>
@@ -37,11 +37,22 @@
     "name": "Find a dealer",
     "settings": [
       {
+        "type": "url",
+        "id": "page_ref",
+        "label": "Redirect for a page"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Cta text"
+      },
+      {
         "type": "text",
         "id": "section_title",
         "label": "Section Title",
         "default": "Time to find a dealer"
-      }, {
+      },
+      {
         "type": "image_picker",
         "id": "section_image",
         "label": "Section Image"
