@@ -72,11 +72,14 @@
 
         targetContainer.addEventListener('click', () => {
             targetContainer.classList.add('translate-y-[-100%]');
+            floatingDiv.classList.add('hidden');
+
         });
 
         closeEmbed.addEventListener('click', () => {
             targetContainer.classList.remove('translate-y-[-100%]');
-            closeEmbed.classList.toggle('rotate-[90deg]')
+            closeEmbed.classList.toggle('rotate-[90deg]');
+            floatingDiv.classList.remove('hidden');
         })
 
         //handle size vimeo embed;
