@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "gallery-pdp": {
@@ -7,7 +16,8 @@
     "info-pdp": {
       "type": "info-pdp",
       "settings": {
-        "cta_delear": "Trova un dealer",
+        "cta_delear": "Chiedi a Pardo",
+        "page_ref": "shopify://pages/contact",
         "get_in_touch_text": "Rimani in contatto con Pardo Yatch",
         "cta_brochure": "Scarica la brochure",
         "form_title": "Get the brochure",
@@ -17,7 +27,6 @@
         "marketing_consent_label": "Prestando il tuo consenso, potremo inviarti comunicazioni commerciali relative a Pardo Yachts via e-mail, telefono, e potremo effettuarericerche di mercato al fine di valutare il tuo livello di soddisfazione riguardo i nostri prodotti e servizi.",
         "profiling_consent_label": "Prestando il tuo consenso, potremo inviarti comunicazioni commerciali personalizzate in base alle tue abitudini di acquisto e, in generale, inbase ai tuoi interessi, alle tue richieste e alle tue interazioni con noi.",
         "marketing_policy": "",
-        "profilation_policy": "Privacy Policy",
         "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy",
         "cta_privacy_page": "Privacy Policy",
         "thankyou_message": "Richiesta brochure avvenuta"
@@ -25,9 +34,7 @@
     },
     "video-vimeo": {
       "type": "video-vimeo",
-      "settings": {
-
-      }
+      "settings": {}
     },
     "marketing-pop-up": {
       "type": "marketing-pop-up",
@@ -70,6 +77,8 @@
     "features-pdp": {
       "type": "features-pdp",
       "settings": {
+        "page_ref": "shopify://pages/contact",
+        "cta_text": "Chiedi a Pardo",
         "product_basics": "Progetto",
         "basics_dropdown_title": "Dettagli di progetto",
         "technical_features": "Specifiche Tecniche",
