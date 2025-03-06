@@ -124,7 +124,8 @@
       "navbar": {
         "type": "navbar",
         "settings": {
-          "cta_delear": "Find a dealer"
+          "cta_delear": "Find a dealer",
+          "page_ref": ""
         }
       },
       "footer": {
@@ -180,7 +181,8 @@
           "footer_socials_menu": "Socials",
           "right_reserved": "©2025 CANTIERE DEL PARDO S.p.A. • ITALY • P.IVA 03869300404 • Cap. Soc. € 5.261.600,00 i.v. • All Rights Reserved",
           "cta_gamma": "Scopri",
-          "cta_delear": "Find a dealer"
+          "cta_delear": "Ask to Pardo",
+          "page_ref": "shopify://pages/contact"
         }
       }
     },
