@@ -757,42 +757,6 @@
   },
   {
     "Area": "Europa",
-    "Nazione": "SPAIN",
-    "Dealer": "SPORT NAUTIC",
-    "Nome ufficio": "ALICANTE",
-    "Indirizzo": "avda, Joan Fuster, 2 Local 1, 03700 Denia",
-    "Manager Vendite": "Antonio Gadea",
-    "E: Mail": "a.gadea@sportnautic.com",
-    "Mobile:": " 629 379 279",
-    "Sito Web": "https://sportnautic.com/",
-    "Google maps": "https://goo.gl/maps/UuwZTjfZW96JA1YUA"
-  },
-  {
-    "Area": "Europa",
-    "Nazione": "SPAIN",
-    "Dealer": "SPORT NAUTIC",
-    "Nome ufficio": "VALENCIA",
-    "Indirizzo": "Camino Canal 91, 46024",
-    "Manager Vendite": "Bruno Gadea Serra",
-    "E: Mail": "bruno@sportnautic.com",
-    "Mobile:": " 670 244 436",
-    "Sito Web": "https://sportnautic.com/",
-    "Google maps": "https://goo.gl/maps/RzJBJUqYeuT6YvSD8"
-  },
-  {
-    "Area": "Europa",
-    "Nazione": "SPAIN",
-    "Dealer": "SPORT NAUTIC",
-    "Nome ufficio": "CASTELLON",
-    "Indirizzo": "Marina Burriana Nova, Locales 4 y5, 12530 Burriana",
-    "Manager Vendite": "Vicente Llopis",
-    "E: Mail": "vicente@sportnautic.com",
-    "Mobile:": " 619 009 089",
-    "Sito Web": "https://sportnautic.com/",
-    "Google maps": "https://goo.gl/maps/1qC4qA21SMR4AMKx8"
-  },
-  {
-    "Area": "Europa",
     "Nazione": "FRANCE",
     "Dealer": "SUNCAP",
     "Nome ufficio": "SAINT TROPEZ",
