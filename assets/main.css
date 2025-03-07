@@ -1272,10 +1272,6 @@ p,
   z-index: 99999;
 }
 
-.z-\[1000\] {
-  z-index: 1000;
-}
-
 .-mx-4 {
   margin-left: -1rem;
   margin-right: -1rem;
@@ -2091,18 +2087,13 @@ p,
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.translate-y-\[-100\%\] {
-  --tw-translate-y: -100%;
+.translate-y-\[100\%\] {
+  --tw-translate-y: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-y-\[1000px\] {
   --tw-translate-y: 1000px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-\[100\%\] {
-  --tw-translate-y: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -3486,6 +3477,10 @@ html {
     top: 0px;
   }
 
+  .md\:right-\[50px\] {
+    right: 50px;
+  }
+
   .md\:z-50 {
     z-index: 50;
   }
@@ -3768,15 +3763,6 @@ html {
 
   .md\:rounded-none {
     border-radius: 0px;
-  }
-
-  .md\:border-b {
-    border-bottom-width: 1px;
-  }
-
-  .md\:border-\[\#A9A09E\] {
-    --tw-border-opacity: 1;
-    border-color: rgb(169 160 158 / var(--tw-border-opacity));
   }
 
   .md\:border-transparent {
@@ -4089,6 +4075,14 @@ html {
 
   .lg\:top-\[calc\(820px_\+_1rem\)\] {
     top: calc(820px + 1rem);
+  }
+
+  .lg\:right-\[100px\] {
+    right: 100px;
+  }
+
+  .lg\:right-\[50px\] {
+    right: 50px;
   }
 
   .lg\:z-10 {
@@ -4729,15 +4723,6 @@ html {
 
   .lg\:rounded-tr-\[32px\] {
     border-top-right-radius: 32px;
-  }
-
-  .lg\:border-b {
-    border-bottom-width: 1px;
-  }
-
-  .lg\:border-\[\#A9A09E\] {
-    --tw-border-opacity: 1;
-    border-color: rgb(169 160 158 / var(--tw-border-opacity));
   }
 
   .lg\:border-transparent {
