@@ -13,6 +13,7 @@
     </div>
   </div>
 
+
   <!--Articles scrolling list container -->
   <div class="articles-list-container w-full h-auto flex flex-row gap-x-2 overflow-x-auto items-center justify-start p-6 md:px-12 md:py-14 lg:p-0 lg:px-20 lg:pb-4">
     <!-- Assign liquid variables -->
@@ -21,6 +22,7 @@
     {% for handle in allBlogs %}
       {% assign sortedArticles = blogs[handle].articles |  sort: "published_at" |  reverse %}
       {% for article in sortedArticles %}
+        {% assign articleCover = article.metafields.custom.article_cover.value %}
         {% unless article.tags contains "Press Room" %}
                   <!-- Check if less than 10 articles have been rendered -->
         {% if article_count < 10 %}
@@ -28,7 +30,7 @@
           {% assign articlesDivided = article_count |  modulo: 2 %}
           {% if articlesDivided == 0 %}
             <!-- Articles for even index -->
-            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center after:absolute after:inset-0 after:bg-gradient-to-t after:from-transparent after:to-black/60 after:rounded-2xl" style="background-image: url({{ article.image | img_url: 'master' }});">
+            <a href="{{ article.url }}" class="card-article w-[340px] min-w-[340px] h-[440px] min-h-[440px] p-6 flex flex-col items-start justify-start rounded-2xl md:w-[380px] md:min-w-[380px] md:h-[480px] md:min-h-[480px] lg:w-[380px] lg:min-w-[380px] lg:h-[480px] lg:min-h-[480px] relative bg-cover bg-center after:absolute after:inset-0 after:bg-gradient-to-t after:from-transparent after:to-black/60 after:rounded-2xl" style="{% if articleCover %} background-image: url({{ articleCover | img_url: 'master' }}); {% else %} background-image: url({{ article.image |  img_url: 'master' }}); {% endif %}">
               <div class="card-article-content w-full h-auto flex flex-col gap-y-1 items-start justify-start p-2 z-10">
                 <p class="text-[24px] leading-[30px] text-white">{{ article.title }}</p>
               </div>

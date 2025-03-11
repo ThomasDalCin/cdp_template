@@ -1,6 +1,6 @@
 <!--container viemo video -->
-
-{% assign vimeoSource = product.metafields.custom.vimeo_source_link.value %}
+{% comment %}
+    {% assign vimeoSource = product.metafields.custom.vimeo_source_link.value %}
 {% assign vimeoEmbed = product.metafields.custom.embed_vimeo.value %}
 
 <div class="w-full h-[580px] flex flex-col items-center justify-center my-10 relative overflow-hidden md:h-[680px]">
@@ -130,3 +130,6 @@
         iframe.classList.add('w-full', 'h-[210px]', 'md:h-[380px]', 'lg:h-[480px]');
     });
 </script>
+
+{% endcomment %}
+
