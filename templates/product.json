@@ -16,7 +16,7 @@
     "info-pdp": {
       "type": "info-pdp",
       "settings": {
-        "cta_delear": "Chiedi a Pardo",
+        "cta_delear": "Richiedi informazioni",
         "page_ref": "shopify://pages/contact",
         "get_in_touch_text": "Rimani in contatto con Pardo Yatch",
         "cta_brochure": "Scarica la brochure",
@@ -78,7 +78,7 @@
       "type": "features-pdp",
       "settings": {
         "page_ref": "shopify://pages/contact",
-        "cta_text": "Chiedi a Pardo",
+        "cta_text": "Richiedi informazioni",
         "product_basics": "Progetto",
         "basics_dropdown_title": "Dettagli di progetto",
         "technical_features": "Specifiche Tecniche",
@@ -103,7 +103,7 @@
         "section_title": "È ora di trovare un dealer",
         "section_image": "shopify://shop_images/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
         "section_text": "L’esperienza dei nostri esperti dealers è insostituibile. Trova il dealer più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
-        "cta_text": "Chiedi a Pardo"
+        "cta_text": "Richiedi informazioni"
       }
     }
   },
