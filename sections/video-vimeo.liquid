@@ -3,6 +3,8 @@
 {% assign vimeoSource = product.metafields.custom.vimeo_short.value %}
 {% assign vimeoEmbed = product.metafields.custom.vimeo_long.value %}
 
+{% if vimeoSource %}
+
 <div class="w-full h-[580px] flex flex-col items-center justify-center my-10 relative overflow-hidden md:h-[680px]">
 
     <div
@@ -21,19 +23,20 @@
         </div>
 
         <!--container vimeo direct links-->
-        {% if vimeoSource %}
         <video class="w-full h-full object-cover object-center" src="{{ vimeoSource }}" muted autoplay playsinline loop
-            disablePictureInPicture></video>
-        {% endif %}
+            disablePictureInPicture>
+        </video>
 
     </div>
 </div>
 
+{% endif %}
+
+{% if vimeoEmbed %}
 
 <div
     class="embed-container w-full h-full fixed left-0 top-0 right-0 z-50 bg-[#262322] flex flex-col items-center justify-center translate-y-[100%] transition-all duration-500 ease-out">
 
-    {% if vimeoEmbed %}
     <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 md:py-[60px] md:px-[120px]">
 
         <!--embed source-->
@@ -50,9 +53,10 @@
         </div>
 
     </div>
-    {% endif %}
 
 </div>
+{% endif %}
+
 
 
 <script>
@@ -130,6 +134,3 @@
         iframe.classList.add('w-full', 'h-[210px]', 'md:h-[380px]', 'lg:h-[480px]');
     });
 </script>
-
-
-
