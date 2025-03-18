@@ -1,14 +1,14 @@
 <!-- collection inspirational text container -->
-<div class="w-full h-auto px-6 pt-6 pb-14 md:px-12 md:py-[60px] lg:px-[120px] lg:pb-[120px] lg:pt-0" id="textSection">
+<div class="w-full h-auto px-6 pt-6 pb-14 md:px-12 md:py-[60px] flex items-center justify-center lg:px-[120px] lg:pb-[120px] lg:pt-0" id="textSection">
   {% assign collection_metaObj_group = collection.metafields.custom.collection_metafields_group.value %}
   {% assign collection_emotional_text = "emotional_text" %}
   {% assign collection_metaObj_value = collection_metaObj_group[collection_emotional_text] %}
    {% if collection_metaObj_value %}
-    <p id="ispirationalText" class="text-[28px] leading-[32px] text-center break-words lg:text-center md:text-[48px] md:leading-[54px] lg:text-[64px] lg:leading-[64px] tt-norms-pro-reg">
+    <p id="ispirationalText" class="text-[28px] leading-[32px] text-center break-words max-w-[350px] lg:max-w-0 lg:text-center md:text-[48px] md:leading-[54px] lg:text-[64px] lg:leading-[64px] tt-norms-pro-reg">
       {{ collection_metaObj_value }}
     </p>
     {% else %}
-    <p id="ispirationalText" class="text-[28px] leading-[30px] break-words lg:text-center md:text-[48px] md:leading-[54px] lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
+    <p id="ispirationalText" class="text-[28px] leading-[30px] break-words max-w-[350px] lg:max-w-0 lg:text-center md:text-[48px] md:leading-[54px] lg:text-[40px] lg:leading-[46px] tt-norms-pro-reg">
       no items found
     </p>
    {% endif %}
