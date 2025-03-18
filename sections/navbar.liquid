@@ -1076,37 +1076,44 @@
     const breadcrumbsContainer = document.getElementById('breadcrumbs');
   
     if (breadcrumbsContainer) {
-      const path = window.location.pathname.split('/').filter(Boolean);
-      const breadcrumbs = [];
-  
-      if (path.length === 0) {
-        breadcrumbsContainer.innerHTML = '';
-      } else {
-        breadcrumbs.push('<a href="/">home</a>');
-  
-        if (path.length === 2 && path[0] === 'products') {
-          const productName = path[1].replace(/-/g, ' ');
-          breadcrumbs.push(`<a href="/collections/${collectionName.toLowerCase()}">${collectionName}</a>`);
-          breadcrumbs.push(`<span>${productName}</span>`);
-        } else if (path.length === 2 && path[0] === 'pages') {
-          const pageName = path[1].replace(/-/g, ' ');
-          breadcrumbs.push(`<span>${pageName}</span>`);
-        } else if (path.length === 2 && path[0] === 'collections') {
-          const collectionNameFromUrl = path[1].replace(/-/g, ' ');
-          breadcrumbs.push(`<span>${collectionNameFromUrl}</span>`);
-        } else if (path.length === 2 && path[0] === 'blogs') {
-          const blogName = path[1].replace(/-/g, ' ');
-          breadcrumbs.push(`<span>${blogName}</span>`);
-        } else if (path.length === 3 && path[0] === 'blogs') {
-          const blogName = path[1].replace(/-/g, ' ');
-          const articleName = path[2].replace(/-/g, ' ');
-          breadcrumbs.push(`<a href="/blogs/${path[1]}">${blogName}</a>`);
-          breadcrumbs.push(`<span>${articleName}</span>`);
-        }
-  
-        breadcrumbsContainer.innerHTML = breadcrumbs.join('<span> &gt; </span>');
-      }
+  const path = window.location.pathname.split('/').filter(Boolean);
+
+  // Remove the first element if it's the language code (e.g., "it")
+  if (path[0] === 'it') {
+    path.shift();
+  }
+
+  const breadcrumbs = [];
+
+  if (path.length === 0) {
+    breadcrumbsContainer.innerHTML = '';
+  } else {
+    breadcrumbs.push('<a href="/">home</a>');
+
+    if (path.length === 2 && path[0] === 'products') {
+      const productName = path[1].replace(/-/g, ' ');
+      breadcrumbs.push(`<a href="/collections/${collectionName.toLowerCase()}">${collectionName}</a>`);
+      breadcrumbs.push(`<span>${productName}</span>`);
+    } else if (path.length === 2 && path[0] === 'pages') {
+      const pageName = path[1].replace(/-/g, ' ');
+      breadcrumbs.push(`<span>${pageName}</span>`);
+    } else if (path.length === 2 && path[0] === 'collections') {
+      const collectionNameFromUrl = path[1].replace(/-/g, ' ');
+      breadcrumbs.push(`<span>${collectionNameFromUrl}</span>`);
+    } else if (path.length === 2 && path[0] === 'blogs') {
+      const blogName = path[1].replace(/-/g, ' ');
+      breadcrumbs.push(`<span>${blogName}</span>`);
+    } else if (path.length === 3 && path[0] === 'blogs') {
+      const blogName = path[1].replace(/-/g, ' ');
+      const articleName = path[2].replace(/-/g, ' ');
+      breadcrumbs.push(`<a href="/blogs/${path[1]}">${blogName}</a>`);
+      breadcrumbs.push(`<span>${articleName}</span>`);
     }
+
+    breadcrumbsContainer.innerHTML = breadcrumbs.join('<span> &gt; </span>');
+  }
+}
+
   
   
     //handle click on press room
