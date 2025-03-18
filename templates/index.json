@@ -61,7 +61,7 @@
       "type": "gamma-section",
       "custom_css": [],
       "settings": {
-        "cta_gamma_delear": "Chiedi a Pardo",
+        "cta_gamma_delear": "Richiedi informazioni",
         "cta_gamma_product": "Discover",
         "page_ref": "shopify://pages/contact"
       }
