@@ -124,7 +124,8 @@
       "navbar": {
         "type": "navbar",
         "custom_css": [
-          "#breadcrumbs a,#breadcrumbs span {text-transform: capitalize;}"
+          "#breadcrumbs a,#breadcrumbs span {text-transform: capitalize;}",
+          ".menu-icon {margin-right: 10px;}"
         ],
         "settings": {
           "cta_delear": "Chiedi a Pardo",
