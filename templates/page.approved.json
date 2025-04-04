@@ -1,11 +1,12 @@
 {
   "sections": {
-    "boat-list-approved": {
-      "type": "boat-list-approved",
-      "settings": {}
-    }
+    "hero-approved":{
+      "type": "approved-hero",
+      "settings": {
+      }
+    } 
   },
   "order": [
-    "boat-list-approved"
+    "hero-approved"
   ]
 }

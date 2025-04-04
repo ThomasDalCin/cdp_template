@@ -1,0 +1,89 @@
+<!-- hero approved -->
+<div class="w-full h-auto">
+  <div class="w-full h-svh relative">
+    <div class="w-full h-full absolute left-0 top-0 right-0 bottom-0 z-0">
+      <img
+        class="w-full h-full object-cover object-center brightness-75"
+        src="{{ section.settings.hero_image |  img_url: 'master' }}"
+        alt="{{ section.settings.hero_image.alt }}">
+    </div>
+    <div class="w-full h-full absolute left-0 top-0 right-0 bottom-0 flex flex-col items-start justify-center z-20">
+
+      {% assign layout_type = section.settings.layout_type %}
+
+      {% case layout_type %}
+
+        {% when "small_layout" %}
+          <div class="w-full h-full flex flex-col items-center justify-center px-[50px] lg:px-[60px]">
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+              <h1 class="lg:text-[96px] lg:leading-[88px] text-white">{{ section.settings.main_section_title }}</h1>
+              <p class="text-[24px] leading-[28px] text-white">{{ section.settings.main_section_subheadings }}</p>
+            </div>
+          </div>
+
+        {% when "expansive_layout" %}
+          <div class="w-full h-full flex flex-col items-center justify-center px-[50px] gap-y-10 lg:px-[200px]">
+            <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+              <h1 class="lg:text-[64px] lg:leading-[64px] text-white">{{ section.settings.main_section_title }}</h1>
+              <p class="text-[24px] leading-[30px] text-white">{{ section.settings.main_section_subheadings }}</p>
+            </div>
+            {% if section.settings.is_cta_active and section.settings.cta_text != blank %}
+              <div class="w-full h-auto flex items-center justify-center">
+                <div class="w-auto h-auto">
+                  <div class="w-[220px] h-[48px] flex items-center justify-center p-2.5 rounded-xl bg-[#423C3B]">
+                    <p class="text-[16px] leading-[22px] text-white">{{ section.settings.cta_text }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+      {% endcase %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "hero_approved",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "main_section_title",
+        "label": "Hero title"
+      },
+      {
+        "type": "textarea",
+        "id": "main_section_subheadings",
+        "label": "Hero Subheading"
+      },
+      {
+        "type": "checkbox",
+        "id": "is_cta_active",
+        "label": "Active Cta"
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Cta Text"
+      }, {
+        "type": "select",
+        "id": "layout_type",
+        "label": "Layout Type",
+        "options": [
+          {
+            "label": "Small Layout",
+            "value": "small_layout"
+          }, {
+            "label": "Expansive Layout",
+            "value": "expansive_layout"
+          }
+        ],
+        "default": "small_layout"
+      }
+    ]
+  }
+{% endschema %}
