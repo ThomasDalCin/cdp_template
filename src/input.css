@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+/* Personalized CSS */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* General colors */
+  --primary-text-color: black;
+  --secondary-text-color: #ffff;
+  --primary-background-color: #f7f7f7;
+  --secondary-background-color: #efeeed;
+  --secondary-neutral-color: #f2eded;
+  --accent-color: #8c7372;
+  --accent-dark-color: #6f6262;
+  --footer-color: #333333;
+
+  /* System colors */
+  --error-color: #e40d0d;
+  --inactive-color: #646464;
+  --hover-color: #bebebe;
+  --hover-gray: #7a7a7a;
+  --background-color: #3f3e3e;
+  --valitadion-color: #29bd52;
+
+  /* Font variables */
+  --big-header-1: 60px;
+  --big-header-1-height: 40px;
+  --header-2: 40px;
+  --header-2-height: 40px;
+  --header-3: 20px;
+  --header-3-height: 26px;
+  --header-4: 16px;
+  --header-4-height: 16px;
+  --header-1-medium: 20px;
+  --header-1-medium-height: 26px;
+  --body-16-medium: 16px;
+  --body-16-medium-height: 22px;
+  --body-14-medium: 14px;
+  --body-14-medium-height: 20px;
+  --header-1: 20px;
+  --header-1-height: 26px;
+  --body-16: 16px;
+  --body-16-height: 22px;
+  --body-14: 14px;
+  --body-14-height: 20px;
+  --body-12: 12px;
+  --body-12-height: 18px;
+  --body-small: 12px;
+  --body-small-height: 18px;
+  --caption: 10px;
+  --caption-height: 16px;
+}
+
+/* font face settings */
+@font-face {
+  font-family: "General-regular";
+  src: url("../assets/GeneralSans-Regular.otf");
+}
+@font-face {
+  font-family: "General-medium";
+  src: url("../assets/GeneralSans-Medium.otf");
+}
+@font-face {
+  font-family: "General-light";
+  src: url("../assets/GeneralSans-Light.otf");
+}
+@font-face {
+  font-family: "General-Bold";
+  src: url("../assets/GeneralSans-Bold.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Regular";
+  src: url("../assets/TT\ Norms\ Pro\ Regular.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Medium";
+  src: url("../assets/TT\ Norms\ Pro\ Medium.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Light";
+  src: url("../assets/TT\ Norms\ Pro\ Light.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Bold";
+  src: url("../assets/TT\ Norms\ Pro\ Bold.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Black";
+  src: url("../assets/TT\ Norms\ Pro\ Black.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Extra-Light";
+  src: url("../assets/TT\ Norms\ Pro\ ExtraLight.otf");
+}
+@font-face {
+  font-family: "TT-Norms-Pro-Thin";
+  src: url("../assets/TT\ Norms\ Pro\ Thin.otf");
+}
+
+@layer base {
+  body {
+    /* Optimize font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* General font settings */
+    font-family: "General-regular", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: -0.4px;
+  }
+
+  p,
+  span {
+    font-size: var(--body-12);
+    line-height: var(--body-12-height);
+  }
+
+  /* Custom text classes */
+  .big-header-1 {
+    font-weight: 600;
+    font-size: var(--big-header-1);
+    line-height: var(--big-header-1-height);
+  }
+
+  .header-2 {
+    font-weight: 500;
+    font-size: var(--header-2);
+    line-height: var(--header-2-height);
+  }
+
+  .header-3 {
+    font-weight: 500;
+    font-size: var(--header-3);
+    line-height: var(--header-3-height);
+  }
+
+  .header-4 {
+    font-weight: 500;
+    font-size: var(--header-4);
+    line-height: var(--header-4-height);
+  }
+
+  .header-1-medium {
+    font-weight: 500;
+    font-size: var(--header-1-medium);
+    line-height: var(--header-1-medium-height);
+  }
+
+  .body-16-medium {
+    font-weight: 500;
+    font-size: var(--body-16-medium);
+    line-height: var(--body-16-medium-height);
+  }
+
+  .body-14-medium {
+    font-weight: 500;
+    font-size: var(--body-14-medium);
+    line-height: var(--body-14-medium-height);
+  }
+
+  .header-1 {
+    font-weight: 400;
+    font-size: var(--header-1);
+    line-height: var(--header-1-height);
+  }
+
+  .body-16 {
+    font-weight: 400;
+    font-size: var(--body-16);
+    line-height: var(--body-16-height);
+  }
+
+  .body-14 {
+    font-weight: 400;
+    font-size: var(--body-14);
+    line-height: var(--body-14-height);
+  }
+
+  .body-12 {
+    font-weight: 400;
+    font-size: var(--body-12);
+    line-height: var(--body-12-height);
+  }
+
+  .body-small {
+    font-weight: 400;
+    font-size: var(--body-small);
+    line-height: var(--body-small-height);
+  }
+
+  .caption {
+    font-weight: 400;
+    font-size: var(--caption);
+    line-height: var(--caption-height);
+  }
+
+  .icon-size {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tt-norms-pro-extra-light {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Extra-Light";
+  }
+  .tt-norms-pro-light {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Light";
+  }
+
+  .tt-norms-pro-reg {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Regular";
+  }
+  .tt-norms-pro-med {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Medium";
+  }
+  .tt-norms-pro-bold {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Bold";
+  }
+  .tt-norms-pro-bold {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Black";
+  }
+
+  .tt-norms-thin {
+    /* General font settings */
+    font-family: "TT-Norms-Pro-Thin";
+  }
+}
+
+@layer components {
+  .hero-cta {
+    @apply flex p-3 justify-center items-center gap-2 w-full;
+    background: var(--secondary-text-color);
+    border-radius: 24px;
+  }
+
+  .chips-block.active {
+    @apply flex w-auto px-3 py-2 justify-center items-center gap-2 text-white;
+    background: var(--accent-color);
+  }
+
+  .chips-block {
+    @apply flex w-auto px-3 py-2 justify-center items-center gap-2;
+  }
+
+  .chips-label {
+    @apply flex items-center justify-center px-3 py-2 border border-black rounded-full;
+  }
+
+  
+  .chips-label-white{
+    @apply flex items-center justify-center px-3 py-2 border border-white rounded-full;
+  }
+
+  .chips-label-active {
+    @apply flex w-auto px-3 py-2 justify-center items-center gap-2 text-white border-transparent bg-[#423C3B];
+  }
+
+  .chips-blog-active {
+    @apply flex w-auto px-3 py-2 justify-center items-center gap-2 text-white border-transparent bg-[#423C3B];
+  }
+
+  .badge-product {
+    @apply flex px-3 py-2 items-center border border-black rounded-full;
+  }
+
+  .collab-container {
+    @apply w-[260px] h-[170px] rounded-xl bg-[var(--background-color)] px-10 flex items-center justify-center flex-shrink-0;
+  }
+
+  .menu-yachts-label {
+    @apply flex rounded-full px-4 py-2 border border-transparent text-white bg-[#423C3B];
+  }
+
+  .cta-accent {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border rounded-full bg-[var(--accent-dark-color)] text-white outline-none border-transparent;
+  }
+
+  .cta-delear {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border rounded-full bg-[var(--accent-dark-color)] text-white outline-none border-transparent;
+  }
+
+  .cta-appointment {
+    @apply px-4 py-3 items-center justify-center gap-x-2 inline-flex border rounded-full bg-[var(--accent-dark-color)] text-white outline-none border-transparent;
+  }
+
+  .cta-blog {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border rounded-full bg-[var(--accent-dark-color)] text-white min-w-[100px] outline-none border-transparent;
+  }
+
+  .cta-brochure {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none;
+  }
+
+  .cta-download {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none;
+  }
+
+  .cta-eco {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none;
+  }
+
+  .cta-primary {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none;
+  }
+
+  .cta-back {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 border rounded-full bg-white outline-none;
+  }
+
+  .cta-brochure {
+    @apply flex px-4 py-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none;
+  }
+
+  .cta-choco {
+    @apply flex px-4 py-2 items-center justify-center gap-x-2 self-stretch border border-transparent rounded-xl bg-[#423C3B] outline-none text-white h-[56px] min-h-[56px];
+  }
+
+  .cta-choco-round {
+    @apply flex px-4 py-2 items-center justify-center gap-x-2 self-stretch border border-transparent rounded-full bg-[#423C3B] outline-none text-white;
+  }
+
+  .cta-black {
+    @apply flex p-3 items-center justify-center gap-x-2 self-stretch border border-transparent rounded-xl bg-black outline-none text-white;
+  }
+
+  .cta-transparent {
+    @apply flex p-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-xl bg-transparent outline-none text-black  h-[56px] min-h-[56px];
+  }
+
+  .cta-transparent-round {
+    @apply flex p-3 items-center justify-center gap-x-2 self-stretch border border-black rounded-full bg-transparent outline-none text-black;
+  }
+
+  .cta-white-rounded {
+    @apply flex px-4 py-2 items-center justify-center gap-x-2 self-stretch border border-transparent rounded-full bg-white outline-none text-black;
+  }
+
+  .cta-white {
+    @apply flex p-3 items-center justify-center gap-x-2 self-stretch border border-transparent rounded-xl bg-white outline-none text-black  h-[56px] min-h-[56px];
+  }
+
+  .bg-lightgray-50 {
+    background-color: rgba(139, 126, 122, 0.5);
+  }
+
+  .text-shadow {
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.32);
+  }
+
+  .bg-blur-opacity {
+    @apply bg-black backdrop-blur-lg;
+  }
+}
