@@ -20,25 +20,35 @@
               <p class="text-[24px] leading-[28px] font-semibold text-white lg:max-w-[1000px]">{{ section.settings.main_section_subheadings }}</p>
             </div>
           </div>
-           
+
           {% if section.settings.highlights_text != blank and section.settings.is_video_active and section.settings.video_source != blank %}
             <div class="w-full h-auto absolute left-0 bottom-0 right-0">
               <div class="w-full h-auto flex flex-row items-end justify-between lg:gap-x-[60px] lg:px-[60px] lg:pb-[60px]">
                 {% if section.settings.highlights_text != blank %}
                   <div class="w-auto h-auto">
                     <p class="text-[20px] leading-[24px] font-medium text-white">{{ section.settings.highlights_text }}</p>
-                   </div>
+                  </div>
                 {% endif %}
 
-                <div class="w-[440px] h-[240px]">
+                <div class="w-[440px] h-[240px] relative cursor-pointer hidden lg:block">
                   {% if section.settings.video_source != blank and section.settings.is_video_active %}
-                    <video autoplay muted playisinline loop src="{{ section.settings.video_source }}" class="w-full h-full object-cover object-center rounded-lg"></video>
+                    <video
+                      autoplay
+                      muted
+                      playisinline
+                      loop
+                      src="{{ section.settings.video_source }}"
+                      class="w-full h-full object-cover object-center rounded-lg"></video>
+                    <div class="floating-div w-[56px] h-[56px] flex items-center justify-center rounded-[50px] bg-blur-opacity backdrop:blur-[40px] lg:absolute lg:left-0 lg:top-0 transition-all duration-150 ease-linear">
+                      {% render 'play-icon' %}
+                    </div>
                   {% endif %}
                 </div>
+
               </div>
             </div>
           {% endif %}
-          
+
 
         {% when "small_layout" %}
 
@@ -61,7 +71,80 @@
       {% endcase %}
     </div>
   </div>
+
+  {% if section.settings.is_video_active and section.settings.video_source != blank and section.settings.video_embedded %}
+    <div class="embed-container w-full h-full fixed left-0 top-0 right-0 z-50 bg-[#262322] flex flex-col items-center justify-center translate-y-[100%] transition-all duration-500 ease-out">
+      <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 md:py-[60px] md:px-[120px]">
+        <!-- embed source -->
+        <div class="w-full h-auto embed-content">
+          {{ section.settings.video_embedded }}
+        </div>
+        <!-- control overlay -->
+        <div class="w-full absolute left-0 right-0 bottom-10 h-auto flex flex-row items-center justify-center md:static">
+          <div class="w-auto h-auto bg-white flex flex-col items-center justify-center rounded-[50px] backdrop:blur-[40px] p-3 close-embed cursor-pointer transition-all duration-150 ease-in">
+            {% render 'x-icon' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 </div>
+
+<script>
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    //get elements;
+    const floatingDiv = document.querySelector('.floating-div');
+    const targetContainer = floatingDiv.closest('.relative');
+    const embedContainer = document.querySelector('.embed-container');
+    const closeEmbed = document.querySelector('.close-embed');
+  
+    function positionFloatingCursor() {
+      const rect = targetContainer.getBoundingClientRect();
+      const centerX = (rect.width - floatingDiv.offsetWidth) / 2;
+      const centerY = (rect.height - floatingDiv.offsetHeight) / 2;
+      floatingDiv.style.transform = `translate(${centerX}px, ${centerY}px)`;
+    }
+  
+    function handleFloatingCursor(event){
+      const windowSize = window.innerWidth;
+
+      if(windowSize >= 1024){
+        const {clientX, clientY} = event;
+        const rect = targetContainer.getBoundingClientRect();
+  
+        const mouseX = clientX - rect.left;
+        const mouseY = clientY - rect.top; 
+  
+        const maxX = rect.width - floatingDiv.offsetWidth;
+        const maxY = rect.height - floatingDiv.offsetHeight;
+  
+        const finalX = Math.min(maxX, Math.max(0, mouseX));
+        const finalY = Math.min(maxY, Math.max(0, mouseY));
+  
+        floatingDiv.style.transform = `translate(${finalX}px, ${finalY}px)`;
+      }
+    }
+  
+    targetContainer.addEventListener('mousemove', handleFloatingCursor);
+  
+    targetContainer.addEventListener('mouseleave', () => {
+      positionFloatingCursor();
+    })
+  
+    targetContainer.addEventListener('click', () => {
+      embedContainer.classList.remove('translate-y-[100%]');
+    })
+  
+    closeEmbed.addEventListener('click', () => {
+      embedContainer.classList.add('translate-y-[100%]');
+      closeEmbed.classList.toggle('rotate-[90deg]');
+    });
+  
+    positionFloatingCursor()
+  
+  })
+</script>
 
 {% schema %}
   {
@@ -90,23 +173,23 @@
         "type": "text",
         "id": "cta_text",
         "label": "Cta Text"
-      },
-      {
+      }, {
         "type": "text",
         "id": "highlights_text",
         "label": "Highlighits Text"
-      },
-      {
+      }, {
         "type": "checkbox",
         "id": "is_video_active",
         "label": "Active Video"
-      },
-      {
+      }, {
         "type": "url",
         "id": "video_source",
         "label": "Video Source"
-      },
-       {
+      }, {
+        "type": "html",
+        "id": "video_embedded",
+        "label": "Video Embedded vimeo"
+      }, {
         "type": "select",
         "id": "layout_type",
         "label": "Layout Type",
