@@ -9,10 +9,16 @@
       "type": "approved-overview",
       "settings": {
       }
+    },
+    "approved-focus":{
+      "type": "approved-focus",
+      "settings": {
+      }
     } 
   },
   "order": [
     "hero-approved",
-    "approved-overview"
+    "approved-overview",
+    "approved-focus"
   ]
 }
