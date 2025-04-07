@@ -8,9 +8,10 @@
         "main_section_subheadings": "Il programma ufficiale di certificazione dei pre-owned che garantisce qualità, tranquillità e fiducia immediata nella navigazione con il sigillo di approvazione di Cantiere del Pardo.",
         "is_cta_active": true,
         "cta_text": "Iscriviti",
-        "highlights_text": "",
-        "is_video_active": false,
-        "video_source": "",
+        "highlights_text": "Scopri la migliore selezione Pardo Approved, il programma ufficiale di certificazione dell’usato.",
+        "is_video_active": true,
+        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/bc8a115175d544b7b37c6f87d00e78df.mp4",
+        "video_embedded": "<iframe src=\"https:\/\/player.vimeo.com\/video\/1055612925?h=b22773af2b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media\" title=\"P38 - Long\"><\/iframe>",
         "layout_type": "expansive_layout"
       }
     },
