@@ -4,9 +4,15 @@
       "type": "approved-hero",
       "settings": {
       }
+    },
+    "approved-overview":{
+      "type": "approved-overview",
+      "settings": {
+      }
     } 
   },
   "order": [
-    "hero-approved"
+    "hero-approved",
+    "approved-overview"
   ]
 }

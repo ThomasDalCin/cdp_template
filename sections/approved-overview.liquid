@@ -1,0 +1,78 @@
+<!-- overview approved section -->
+<div class="w-full h-auto flex flex-col items-start justify-center lg:px-[160px] lg:py-[120px] lg:gap-y-[120px]" style="background-color: {{ section.settings.bg_section }};">
+  {% for block in section.blocks %}
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      {% if block.type == "block_overview" %}
+        {% assign blockCount = forloop.index0 | plus: 1 %}
+        {% if block.settings.overview_title != blank %}
+          <div class="w-full h-auto flex flex-col items-start justify-center lg:{{ block.settings.alignment_columns }} lg:items-center lg:justify-start lg:gap-x-4">
+            <p class="text-[16px] leading-[20px] font-light text-white">0{{ blockCount }}</p>
+            <p class="text-[16px] leading-[20px] font-light text-white">{{ block.settings.overview_title }}</p>
+          </div>
+        {% endif %}
+
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:{{ block.settings.alignment_columns  }} lg:items-center lg:justify-start lg:gap-x-[60px]">
+          {% if block.settings.main_section_title != blank and block.settings.main_paragraph_text %}
+            <div class="w-auto h-auto flex items-start justify-center">
+              <h2 class="text-[48px] leading-[48px] font-semibold text-white lg:min-w-[460px] {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %}">{{ block.settings.main_section_title }}</h2>
+            </div>
+
+            <div class="w-auto h-auto flex items-start justify-center">
+              <p class="text-[18px] leading-[24px] text-white {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %}">{{ block.settings.main_paragraph_text | newline_to_br }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "approved_overview",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_section",
+        "label": "Background section color"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "block_overview",
+        "type": "block_overview",
+        "settings": [
+          {
+            "type": "text",
+            "id": "overview_title",
+            "label": "Overview Title"
+          }, {
+            "type": "text",
+            "id": "main_section_title",
+            "label": "Main Title"
+          }, {
+            "type": "textarea",
+            "id": "main_paragraph_text",
+            "label": "Main paragraph text"
+          },
+          {
+            "type": "select",
+            "id": "alignment_columns",
+            "label": "Alignment columns",
+            "default": "flex-row",
+            "options": [
+                {
+                    "label" : "left",
+                    "value": "flex-row-reverse"
+                },
+                {
+                    "label" : "right",
+                    "value": "flex-row"
+                }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
