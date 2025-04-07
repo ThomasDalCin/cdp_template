@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "page-loading": {
@@ -16,38 +7,38 @@
     "hero-section": {
       "type": "hero",
       "settings": {
-        "swiper_video_desktop": "https://cdn.shopify.com/videos/c/o/v/128fa753b62d4c8a99776102de3bc669.mp4",
-        "swiper_image_1_desktop": "shopify://shop_images/GT75---Sun.jpg",
-        "swiper_image_2_desktop": "shopify://shop_images/DJI_0428.jpg",
-        "swiper_image_3_desktop": "shopify://shop_images/PY_HOME001.jpg",
+        "swiper_video_desktop": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/128fa753b62d4c8a99776102de3bc669.mp4",
+        "swiper_image_1_desktop": "shopify:\/\/shop_images\/GT75---Sun.jpg",
+        "swiper_image_2_desktop": "shopify:\/\/shop_images\/DJI_0428.jpg",
+        "swiper_image_3_desktop": "shopify:\/\/shop_images\/PY_HOME001.jpg",
         "enable_cta_1_desktop": false,
         "cta_text_1_desktop": "Discover E60",
-        "cta_url_1_desktop": "https://www.pardoyachts.com/it/",
+        "cta_url_1_desktop": "https:\/\/www.pardoyachts.com\/it\/",
         "enable_cta_2_desktop": true,
         "cta_text_2_desktop": "Discover GT75",
-        "cta_url_2_desktop": "shopify://products/gt75",
+        "cta_url_2_desktop": "shopify:\/\/products\/gt75",
         "enable_cta_3_desktop": true,
         "cta_text_3_desktop": "Discover E72",
-        "cta_url_3_desktop": "shopify://products/e72",
+        "cta_url_3_desktop": "shopify:\/\/products\/e72",
         "enable_cta_4_desktop": true,
         "cta_text_4_desktop": "Discover P38",
-        "cta_url_4_desktop": "shopify://products/p38",
-        "swiper_video_mobile": "https://cdn.shopify.com/videos/c/o/v/fa03bee9d8314aaa9839074ece7ecab5.mp4",
-        "swiper_image_1_mobile": "shopify://shop_images/a1.jpg",
-        "swiper_image_2_mobile": "shopify://shop_images/h-1-3-a1.jpg",
-        "swiper_image_3_mobile": "shopify://shop_images/p38_ok.jpg",
+        "cta_url_4_desktop": "shopify:\/\/products\/p38",
+        "swiper_video_mobile": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/fa03bee9d8314aaa9839074ece7ecab5.mp4",
+        "swiper_image_1_mobile": "shopify:\/\/shop_images\/a1.jpg",
+        "swiper_image_2_mobile": "shopify:\/\/shop_images\/h-1-3-a1.jpg",
+        "swiper_image_3_mobile": "shopify:\/\/shop_images\/p38_ok.jpg",
         "enable_cta_1_mobile": false,
         "cta_text_1_mobile": "Discover E62",
-        "cta_url_1_mobile": "https://cdn.shopify.com/videos/c/o/v/ccd43bcd9e154e7289a2d1eb3800f35d.mp4",
+        "cta_url_1_mobile": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ccd43bcd9e154e7289a2d1eb3800f35d.mp4",
         "enable_cta_2_mobile": true,
         "cta_text_2_mobile": "Discover GT75",
-        "cta_url_2_mobile": "shopify://products/gt75",
+        "cta_url_2_mobile": "shopify:\/\/products\/gt75",
         "enable_cta_3_mobile": true,
         "cta_text_3_mobile": "Discover E72",
-        "cta_url_3_mobile": "shopify://products/e72",
+        "cta_url_3_mobile": "shopify:\/\/products\/e72",
         "enable_cta_4_mobile": true,
         "cta_text_4_mobile": "Discover P38",
-        "cta_url_4_mobile": "shopify://products/p38"
+        "cta_url_4_mobile": "shopify:\/\/products\/p38"
       }
     },
     "home-text": {
@@ -63,7 +54,7 @@
       "settings": {
         "cta_gamma_delear": "Richiedi informazioni",
         "cta_gamma_product": "Discover",
-        "page_ref": "shopify://pages/contact"
+        "page_ref": "shopify:\/\/pages\/contact"
       }
     },
     "oriz-scroll-text-home": {
@@ -77,7 +68,7 @@
     "home-video": {
       "type": "home-video",
       "settings": {
-        "video_cover_image": "shopify://shop_images/PardoYacht_Model_PardoE72_Hero_002.jpg",
+        "video_cover_image": "shopify:\/\/shop_images\/PardoYacht_Model_PardoE72_Hero_002.jpg",
         "draggable_text": "Trascina per scoprire E72"
       }
     },
@@ -87,10 +78,10 @@
       "settings": {
         "secondary_heading": "DISCOVER",
         "primary_heading": "THE ICONS OF THE SEA",
-        "explore_image_one": "shopify://shop_images/PY_HOME002.jpg",
-        "explore_image_two": "shopify://shop_images/history-desktop.jpg",
-        "explore_image_three": "shopify://shop_images/PY_HOME003.jpg",
-        "explore_image_four": "shopify://shop_images/Pardo-Yachts-Shows-and-Events_Cannes-Yachting-Festival-thumb.jpg"
+        "explore_image_one": "shopify:\/\/shop_images\/PY_HOME002.jpg",
+        "explore_image_two": "shopify:\/\/shop_images\/history-desktop.jpg",
+        "explore_image_three": "shopify:\/\/shop_images\/PY_HOME003.jpg",
+        "explore_image_four": "shopify:\/\/shop_images\/Pardo-Yachts-Shows-and-Events_Cannes-Yachting-Festival-thumb.jpg"
       }
     },
     "articles-list": {
@@ -104,10 +95,10 @@
     "oriz-scroll-image-home": {
       "type": "oriz-scroll-image-home",
       "settings": {
-        "oriz_image_one": "shopify://shop_images/1.jpg",
-        "oriz_image_two": "shopify://shop_images/4.jpg",
-        "oriz_image_three": "shopify://shop_images/PY_HOME003.jpg",
-        "oriz_image_four": "shopify://shop_images/3.jpg"
+        "oriz_image_one": "shopify:\/\/shop_images\/1.jpg",
+        "oriz_image_two": "shopify:\/\/shop_images\/4.jpg",
+        "oriz_image_three": "shopify:\/\/shop_images\/PY_HOME003.jpg",
+        "oriz_image_four": "shopify:\/\/shop_images\/3.jpg"
       }
     },
     "collab-section": {
@@ -128,9 +119,9 @@
           "settings": {
             "collab_custom_collab_heading": "Pardo Yachts X Falconeri",
             "collab_custom_collab_cta_text": "Scopri",
-            "collab_custom_collab_cta_text_url": "shopify://pages/pardo-yacth-x-falconeri",
-            "collab_custom_collab_image": "shopify://shop_images/py_falconeri_hp_desktop__-scaled.jpg",
-            "collab_custom_collab_url": "shopify://pages/pardo-yacth-x-falconeri"
+            "collab_custom_collab_cta_text_url": "shopify:\/\/pages\/pardo-yacth-x-falconeri",
+            "collab_custom_collab_image": "shopify:\/\/shop_images\/py_falconeri_hp_desktop__-scaled.jpg",
+            "collab_custom_collab_url": "shopify:\/\/pages\/pardo-yacth-x-falconeri"
           }
         },
         "collab_card_9TkDVh": {
@@ -155,8 +146,8 @@
       "settings": {
         "collab_custom_collab_heading": "Trovaci su Instagram",
         "collab_custom_collab_cta_text": "Scopri",
-        "collab_custom_collab_cta_text_url": "https://www.instagram.com/pardoyachts/",
-        "collab_custom_collab_image": "shopify://shop_images/find.jpg"
+        "collab_custom_collab_cta_text_url": "https:\/\/www.instagram.com\/pardoyachts\/",
+        "collab_custom_collab_image": "shopify:\/\/shop_images\/find.jpg"
       }
     }
   },

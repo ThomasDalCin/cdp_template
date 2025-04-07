@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "gallery-pdp": {
@@ -17,7 +8,7 @@
       "type": "info-pdp",
       "settings": {
         "cta_delear": "Richiedi informazioni",
-        "page_ref": "shopify://pages/contact",
+        "page_ref": "shopify:\/\/pages\/contact",
         "get_in_touch_text": "Rimani in contatto con Pardo Yatch",
         "cta_brochure": "Scarica la brochure",
         "form_title": "Get the brochure",
@@ -27,7 +18,7 @@
         "marketing_consent_label": "Prestando il tuo consenso, potremo inviarti comunicazioni commerciali relative a Pardo Yachts via e-mail, telefono, e potremo effettuarericerche di mercato al fine di valutare il tuo livello di soddisfazione riguardo i nostri prodotti e servizi.",
         "profiling_consent_label": "Prestando il tuo consenso, potremo inviarti comunicazioni commerciali personalizzate in base alle tue abitudini di acquisto e, in generale, inbase ai tuoi interessi, alle tue richieste e alle tue interazioni con noi.",
         "marketing_policy": "",
-        "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy",
+        "cta_privacy_page_redirect": "shopify:\/\/pages\/pardo-privacy-policy",
         "cta_privacy_page": "Privacy Policy",
         "thankyou_message": "Richiesta brochure avvenuta"
       }
@@ -40,18 +31,18 @@
       "type": "marketing-pop-up",
       "settings": {
         "marketing_pop_up_title": "Consenso al marketing diretto",
-        "marketing_pop_up_content": "Selezionando questa casella presti il tuo consenso a ricevere comunicazioni commerciali e a partecipare a ricerche di mercato ed attività di rilevazione del tuo grado disoddisfazione, riguardanti prodotti e servizi di Pardo Yachts, mediante e-mail e/o SMS, telefono e posta tradizionale cartacea. Per questa finalità utilizzeremo i datianagrafici e di contatto che ci hai comunicato (ad es. nome, cognome, indirizzo, e-mail, numero di cellulare ecc.). I dati raccolti saranno conservati fino a quando nonperverrà da parte tua una richiesta di revoca del consenso. Il Titolare del Trattamento è Cantiere Del Pardo SpA. Scrivendo a data.protection@calzedonia.com puoiesercitare il diritto: i) di accesso, per sapere se è in corso un trattamento di tuoi dati e ottenerne una copia; ii) di ottenere la rettifica o l’integrazione dei tuoi dati; iii) dichiedere la cancellazione dei tuoi dati; iv) di ottenere la limitazione del trattamento; v) alla portabilità dei dati; vi) di revoca del consenso. Puoi inoltre proporre reclamoalla competente autorità di controllo in materia di protezione dei dati nel caso in cui tu ritenga che il trattamento dei tuoi dati personali si svolga in contrasto con ledisposizioni del Regolamento UE 2016/679. Informativa completa:",
+        "marketing_pop_up_content": "Selezionando questa casella presti il tuo consenso a ricevere comunicazioni commerciali e a partecipare a ricerche di mercato ed attività di rilevazione del tuo grado disoddisfazione, riguardanti prodotti e servizi di Pardo Yachts, mediante e-mail e\/o SMS, telefono e posta tradizionale cartacea. Per questa finalità utilizzeremo i datianagrafici e di contatto che ci hai comunicato (ad es. nome, cognome, indirizzo, e-mail, numero di cellulare ecc.). I dati raccolti saranno conservati fino a quando nonperverrà da parte tua una richiesta di revoca del consenso. Il Titolare del Trattamento è Cantiere Del Pardo SpA. Scrivendo a data.protection@calzedonia.com puoiesercitare il diritto: i) di accesso, per sapere se è in corso un trattamento di tuoi dati e ottenerne una copia; ii) di ottenere la rettifica o l’integrazione dei tuoi dati; iii) dichiedere la cancellazione dei tuoi dati; iv) di ottenere la limitazione del trattamento; v) alla portabilità dei dati; vi) di revoca del consenso. Puoi inoltre proporre reclamoalla competente autorità di controllo in materia di protezione dei dati nel caso in cui tu ritenga che il trattamento dei tuoi dati personali si svolga in contrasto con ledisposizioni del Regolamento UE 2016\/679. Informativa completa:",
         "cta_privacy_page": "Privacy Policy",
-        "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy"
+        "cta_privacy_page_redirect": "shopify:\/\/pages\/pardo-privacy-policy"
       }
     },
     "profilation-pop-up": {
       "type": "profilation-pop-up",
       "settings": {
         "profilation_pop_up_title": "Consenso alla profilazione",
-        "profilation_pop_up_content": "Selezionando questa casella, invieremo comunicazioni commerciali personalizzate (profilate). A tal scopo, utilizzeremo i dati riguardanti le imbarcazioni «Pardo Yachts» che\nhai acquistato o per le quali hai richiesto informazioni, il tuo paese di provenienza, i tuoi dati anagrafici, le tue interazioni con noi attraverso il nostro sito web, attraverso le\nApp - che potranno essere sviluppate da noi o da terzi - ed attraverso i nostri canali social: ti invieremo così comunicazioni personalizzate (“profilate”) e potremo sviluppare\nprodotti e servizi coerenti con le preferenze dei nostri clienti. Inoltre, il tuo profilo potrà essere arricchito con informazioni acquisite lecitamente da terze parti e messe a\ndisposizione di Cantiere del Pardo. I dati verranno conservati per 5 anni dalla data della raccolta. Il Titolare del Trattamento è Cantiere del Pardo Spa. Scrivendo\na data.protection@calzedonia.com puoi esercitare il diritto: i) di accesso, per sapere se è in corso un trattamento di tuoi dati e ottenerne una copia; ii) di ottenere la rettifica\no l’integrazione dei tuoi dati; iii) di chiedere la cancellazione dei tuoi dati; iv) di ottenere la limitazione del trattamento; v) alla portabilità dei dati; vi) di revoca del consenso.\nPuoi inoltre proporre reclamo alla competente autorità di controllo in materia di protezione dei dati nel caso in cui tu ritenga che il trattamento dei tuoi dati personali si\nsvolga in contrasto con le disposizioni del Regolamento UE 2016/679. Informativa completa:",
+        "profilation_pop_up_content": "Selezionando questa casella, invieremo comunicazioni commerciali personalizzate (profilate). A tal scopo, utilizzeremo i dati riguardanti le imbarcazioni «Pardo Yachts» che\nhai acquistato o per le quali hai richiesto informazioni, il tuo paese di provenienza, i tuoi dati anagrafici, le tue interazioni con noi attraverso il nostro sito web, attraverso le\nApp - che potranno essere sviluppate da noi o da terzi - ed attraverso i nostri canali social: ti invieremo così comunicazioni personalizzate (“profilate”) e potremo sviluppare\nprodotti e servizi coerenti con le preferenze dei nostri clienti. Inoltre, il tuo profilo potrà essere arricchito con informazioni acquisite lecitamente da terze parti e messe a\ndisposizione di Cantiere del Pardo. I dati verranno conservati per 5 anni dalla data della raccolta. Il Titolare del Trattamento è Cantiere del Pardo Spa. Scrivendo\na data.protection@calzedonia.com puoi esercitare il diritto: i) di accesso, per sapere se è in corso un trattamento di tuoi dati e ottenerne una copia; ii) di ottenere la rettifica\no l’integrazione dei tuoi dati; iii) di chiedere la cancellazione dei tuoi dati; iv) di ottenere la limitazione del trattamento; v) alla portabilità dei dati; vi) di revoca del consenso.\nPuoi inoltre proporre reclamo alla competente autorità di controllo in materia di protezione dei dati nel caso in cui tu ritenga che il trattamento dei tuoi dati personali si\nsvolga in contrasto con le disposizioni del Regolamento UE 2016\/679. Informativa completa:",
         "cta_privacy_page": "Privacy Policy",
-        "cta_privacy_page_redirect": "shopify://pages/pardo-privacy-policy"
+        "cta_privacy_page_redirect": "shopify:\/\/pages\/pardo-privacy-policy"
       }
     },
     "ext-int-pdp": {
@@ -77,7 +68,7 @@
     "features-pdp": {
       "type": "features-pdp",
       "settings": {
-        "page_ref": "shopify://pages/contact",
+        "page_ref": "shopify:\/\/pages\/contact",
         "cta_text": "Richiedi informazioni",
         "product_basics": "Progetto",
         "basics_dropdown_title": "Dettagli di progetto",
@@ -99,9 +90,9 @@
         "@media (min-width: 1024px) {.lg\\:min-h-\\[460px\\] {min-height: 55vh; }}"
       ],
       "settings": {
-        "page_ref": "shopify://pages/contact",
+        "page_ref": "shopify:\/\/pages\/contact",
         "section_title": "È ora di trovare un dealer",
-        "section_image": "shopify://shop_images/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
+        "section_image": "shopify:\/\/shop_images\/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
         "section_text": "L’esperienza dei nostri esperti dealers è insostituibile. Trova il dealer più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
         "cta_text": "Richiedi informazioni"
       }

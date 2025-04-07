@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "top-view-collection": {
@@ -33,7 +24,7 @@
       "type": "find-delear",
       "settings": {
         "section_title": "Time to find a dealer",
-        "section_image": "shopify://shop_images/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
+        "section_image": "shopify:\/\/shop_images\/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
         "section_text": "L’esperienza dei nostri esperti concessionari è insostituibile. Trova il rivenditore più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
         "cta_text": "Find a dealer"
       }

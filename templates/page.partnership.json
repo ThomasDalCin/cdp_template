@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "article-list": {
@@ -19,21 +10,21 @@
         "card_KaifqC": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/fpardo-falconeri_gallery-01_desktop-1440x810.jpg",
+            "image": "shopify:\/\/shop_images\/fpardo-falconeri_gallery-01_desktop-1440x810.jpg",
             "text": "Pardo x Falconeri",
             "cta_filmstrip_card_text_visible": true,
             "cta_filmstrip_card_text": "Scopri",
-            "cta_filmstrip_card_url": "shopify://pages/pardo-yacth-x-falconeri"
+            "cta_filmstrip_card_url": "shopify:\/\/pages\/pardo-yacth-x-falconeri"
           }
         },
         "card_a7wybQ": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Pardo_Poldo-x-Pardo_slider-01_desktop-1440x810.jpg",
+            "image": "shopify:\/\/shop_images\/Pardo_Poldo-x-Pardo_slider-01_desktop-1440x810.jpg",
             "text": "Poldo x Pardo",
             "cta_filmstrip_card_text_visible": true,
             "cta_filmstrip_card_text": "Scopri",
-            "cta_filmstrip_card_url": "shopify://pages/pardo-yacth-x-poldo"
+            "cta_filmstrip_card_url": "shopify:\/\/pages\/pardo-yacth-x-poldo"
           }
         }
       },
