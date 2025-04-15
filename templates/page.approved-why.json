@@ -1,0 +1,17 @@
+{
+    "sections": {
+      "approved-why": {
+        "type": "approved-why",
+        "settings": {}
+      },
+      "approved-why-body": {
+        "type": "approved-why-body",
+        "settings": {}
+      }
+    },
+    "order": [
+      "approved-why",
+      "approved-why-body"
+    ]
+  }
+  
