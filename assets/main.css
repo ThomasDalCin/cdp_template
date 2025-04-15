@@ -1647,6 +1647,10 @@ p,
   height: 100svh;
 }
 
+.h-\[187px\] {
+  height: 187px;
+}
+
 .max-h-\[1000px\] {
   max-height: 1000px;
 }
@@ -2178,6 +2182,10 @@ p,
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
@@ -3014,6 +3022,10 @@ p,
 
 .leading-\[96px\] {
   line-height: 96px;
+}
+
+.leading-\[44px\] {
+  line-height: 44px;
 }
 
 .-tracking-\[0\.2px\] {
@@ -4136,6 +4148,10 @@ html {
     top: calc(820px + 1rem);
   }
 
+  .lg\:bottom-0 {
+    bottom: 0px;
+  }
+
   .lg\:z-10 {
     z-index: 10;
   }
@@ -4334,6 +4350,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[240px\] {
+    height: 240px;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -4396,6 +4416,10 @@ html {
 
   .lg\:min-h-\[960px\] {
     min-height: 960px;
+  }
+
+  .lg\:min-h-\[438px\] {
+    min-height: 438px;
   }
 
   .lg\:w-1\/2 {
@@ -4516,6 +4540,14 @@ html {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[440px\] {
+    width: 440px;
+  }
+
+  .lg\:w-\[346px\] {
+    width: 346px;
   }
 
   .lg\:min-w-0 {
@@ -4815,6 +4847,11 @@ html {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
+  .lg\:bg-\[\#423C3B\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(66 60 59 / var(--tw-bg-opacity));
+  }
+
   .lg\:bg-custom-gradient-desktop {
     background-image: linear-gradient(90deg, #433C3B 0%, #A29997 100%);
   }
@@ -4958,6 +4995,11 @@ html {
   .lg\:py-\[60px\] {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .lg\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .lg\:pb-0 {
@@ -5140,6 +5182,14 @@ html {
     line-height: 96px;
   }
 
+  .lg\:leading-\[28px\] {
+    line-height: 28px;
+  }
+
+  .lg\:leading-\[48px\] {
+    line-height: 48px;
+  }
+
   .lg\:text-\[\#818181\] {
     --tw-text-opacity: 1;
     color: rgb(129 129 129 / var(--tw-text-opacity));
@@ -5148,6 +5198,11 @@ html {
   .lg\:text-black {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+
+  .lg\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   .lg\:no-underline {

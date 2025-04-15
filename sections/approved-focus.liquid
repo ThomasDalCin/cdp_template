@@ -1,18 +1,18 @@
 <!-- approved focus -->
 <div class="w-full h-auto">
-  <div class="w-full h-auto flex flex-col items-start justify-center lg:p-[160px]">
-    <div class="w-full h-auto flex flex-col items-center justify-center gap-y-[60px]">
+  <div class="w-full h-auto flex flex-col items-start justify-center p-4 py-12 lg:p-[160px]">
+    <div class="w-full h-auto flex flex-col items-center justify-center gap-y-8 lg:gap-y-[60px]">
 
       {% if section.settings.main_section_title != blank %}
         <div class="w-full h-auto flex items-center justify-center">
-          <h2 class="text-[40px] leading-[40px] font-semibold text-center">{{ section.settings.main_section_title }}</h2>
+          <h2 class="text-[24px] leading-[30px] lg:text-[40px] lg:leading-[40px] font-semibold text-center">{{ section.settings.main_section_title }}</h2>
         </div>
       {% endif %}
 
-      <div class="w-full h-auto flex flex-col items-start justify-center lg:flex-row lg:items-start lg:justify-start lg:gap-x-10">
+      <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 lg:flex-row lg:items-start lg:justify-start lg:gap-x-10">
         {% for block in section.blocks %}
           {% if block.type == "focus_card_block" %}
-            <div class="w-[346px] h-auto flex flex-col items-start justify-center rounded-[32px]" style="box-shadow: 0px 4px 24px 0px rgba(105, 105, 105, 0.25);">
+            <div class="w-full h-auto flex flex-col items-start justify-center rounded-[32px] lg:w-[346px]" style="box-shadow: 0px 4px 24px 0px rgba(105, 105, 105, 0.25);">
 
               {% if block.settings.card_image %}
                 <div class="w-full h-[220px]">
@@ -24,7 +24,7 @@
               {% endif %}
 
               {% if block.settings.card_title != blank and block.settings.card_content != blank %}
-                <div class="w-full h-auto min-h-[438px] flex flex-col items-start justify-between px-10 pb-10 py-8 gap-y-6 bg-[#F7F7F7]">
+                <div class="w-full h-auto flex flex-col items-start justify-between px-8 pb-8 py-6 lg:px-10 lg:pb-10 lg:py-8 gap-y-6 bg-[#F7F7F7] lg:min-h-[438px]">
 
                   <div class="w-full h-auto flex flex-col items-start justify-center gap-y-[46px]">
                     <div class="w-full h-auto flex flex-row items-center justify-start gap-x-5">
