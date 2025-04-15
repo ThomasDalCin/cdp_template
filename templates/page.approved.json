@@ -72,7 +72,8 @@
         "focus_card_block_dgBxtY"
       ],
       "settings": {
-        "main_section_title": "Perché scegliere Pardo Approved?"
+        "main_section_title": "Perché scegliere Pardo Approved?",
+        "redirect_page": "shopify:\/\/pages\/why-pardo-approved"
       }
     }
   },
