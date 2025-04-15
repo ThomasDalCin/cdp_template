@@ -1,1 +1,127 @@
-<!--approved why body -->
+<!-- approved why body -->
+<div class="w-full h-auto">
+  <div class="w-full h-auto flex flex-col items-start justify-center px-4 py-8 gap-y-10 bg-[#F7F7F7] lg:px-20 lg:py-[120px]">
+    {% for block in section.blocks %}
+    {% assign counter = forloop.index0 | modulo: 2 %}
+      {% if block.type == "card_benefit" %}
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:relative lg:h-[80vh]" id="benefit-{{ forloop.index }}">
+
+          <div class="w-full h-auto rounded-2xl lg:w-auto lg:h-auto lg:absolute {% if counter == 0 %} lg:left-0 lg:top-0 {% else %} lg:right-0 lg:top-0 {% endif %}">
+            <img
+              class="w-full h-full object-cover object-center rounded-2xl lg:w-[640px] lg:h-[480px]"
+              src="{{ block.settings.card_image |  img_url: 'master' }}"
+              alt="{{ block.settings.card_image.alt }}">
+          </div>
+
+          <div class="w-full h-auto flex flex-col items-start justify-center rounded-2xl bg-white  {% if block.settings.card_additional_text != blank %} gap-y-10 {% endif %} transition-all duration-150 ease-linear lg:shadow-box-shadow lg:w-auto lg:min-w-[780px] lg:absolute {% if counter == 0 %} lg:right-0 lg:bottom-0 {% else %} lg:bottom-0 lg:left-0 {% endif %}">
+            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6 lg:w-[720px] lg:p-[60px]">
+
+              {% if block.settings.card_text != blank and block.settings.card_subheading != blank %}
+                <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+                  <h3 class="text-[24px] leading-[28px] font-semibold">{{ block.settings.card_title }}</h3>
+                  <p class="text-[20px] leading-[26px] font-light italic">{{ block.settings.card_subheading }}</p>
+                </div>
+              {% endif %}
+
+              {% if block.settings.card_text != blank %}
+                <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+                  <p class="text-[14px] leading-[20px]">{{ block.settings.card_text }}</p>
+                </div>
+              {% endif %}
+
+              {% if block.settings.card_additional_text != blank %}
+
+                <div class="additional-text-content w-full h-0 flex flex-col items-start justify-center overflow-y-hidden">
+                  <p class="text-[14px] leading-[20px]">{{ block.settings.card_additional_text }}</p>
+                </div>
+
+                <div class="w-full h-auto flex flex-col items-center justify-center">
+                  <div class="open-additional-text w-[56px] h-[56px] rounded-full bg-[#F7F7F7] flex items-center justify-center cursor-pointer">
+                    <div class="w-auto h-auto transition-all duration-150 ease-linear">
+                      {% render 'plus-icon' %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  
+      const extendText = document.querySelectorAll('.open-additional-text');
+      const extendTextContainer = document.querySelectorAll('.additional-text-content');
+  
+      if( extendText.length > 0 && extendTextContainer.length > 0){
+        extendText.forEach((item, index) => {
+            item.addEventListener('click', () => {
+              item.firstElementChild.classList.toggle('rotate-90');
+
+              if(extendTextContainer[index].classList.contains('h-0')){
+                extendTextContainer[index].classList.add('h-auto');
+                extendTextContainer[index].classList.remove('h-0');
+              } else {
+                extendTextContainer[index].classList.remove('h-auto');
+                extendTextContainer[index].classList.add('h-0');
+              }
+            })
+        })
+      }
+      
+      //scroll into view after landing into page
+      const id = sessionStorage.getItem('id');
+      if(id){
+        const target = document.getElementById(id);
+        if(target){
+            target.scrollIntoView({ behavior:"smooth"});
+        }
+        sessionStorage.removeItem('id')
+      };
+  
+    })
+</script>
+
+{% schema %}
+  {
+    "name": "benefit_approved",
+    "settings": [],
+    "blocks": [
+      {
+        "name": "card_benefit",
+        "type": "card_benefit",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card_image",
+            "label": "Card Image"
+          },
+          {
+            "type": "text",
+            "id": "card_title",
+            "label": "Card Title"
+          },
+          {
+            "type": "text",
+            "id": "card_subheading",
+            "label": "Card Subheading"
+          },
+          {
+            "type": "textarea",
+            "id": "card_text",
+            "label": "Card Text"
+          }, {
+            "type": "textarea",
+            "id": "card_additional_text",
+            "label": "Card Additional text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

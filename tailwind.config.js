@@ -11,6 +11,7 @@ module.exports = {
       boxShadow: {
         'custom': '0px 0px 12px 0px rgba(30, 29, 29, 0.20)',
         'custom-hover': ' 0px 0px 32px 0px rgba(38, 38, 38, 0.32)',
+        'box-shadow': '0px 4px 24px 0px rgba(105, 105, 105, 0.25)',
       },
       backgroundSize:{
         '55%': '55%',

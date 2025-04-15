@@ -1,14 +1,14 @@
 <!-- approved why section main -->
 <div class="w-full h-auto">
-  <div class="w-full h-auto flex flex-col items-start justify-center px-4 py-6">
+  <div class="w-full h-auto flex flex-col items-start justify-center px-4 py-6 gap-y-6 lg:px-[160px] lg:py-[100px]">
     {% if section.settings.main_title != blank and section.settings.main_subheading != blank %}
-      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:gap-y-8 lg:items-center">
         <h1 class="text-[32px] leading-[36px] font-semibold">{{ section.settings.main_title }}</h1>
-        <h2 class="text-[20px] leading-[26px] italic">{{ section.settings.main_subheading }}</h2>
+        <h2 class="text-[20px] leading-[26px] italic font-light">{{ section.settings.main_subheading }}</h2>
       </div>
     {% endif %}
-    {% if section.settings.paragraph != blank %}
-      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6">
+
+    <div class="w-full h-auto flex flex-col items-start justify-center gap-y-6 lg:gap-y-[60px]">
         {% for block in section.blocks %}
           {% if block.type == "block_text" %}
             {% if block.settings.paragraph_text != blank %}
@@ -16,8 +16,7 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-      </div>
-    {% endif %}
+    </div>
   </div>
 </div>
 
