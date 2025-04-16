@@ -75,11 +75,16 @@
         "main_section_title": "Perché scegliere Pardo Approved?",
         "redirect_page": "shopify:\/\/pages\/why-pardo-approved"
       }
+    },
+    "future-events": {
+      "type": "future-events",
+      "settings": {}
     }
   },
   "order": [
     "hero-approved",
     "approved-overview",
-    "approved-focus"
+    "approved-focus",
+    "future-events"
   ]
 }
