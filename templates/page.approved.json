@@ -1,17 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero-approved": {
       "type": "approved-hero",
       "settings": {
-        "hero_image": "shopify:\/\/shop_images\/European-powerboat-of-the-year-2025.jpg",
+        "hero_image": "shopify://shop_images/European-powerboat-of-the-year-2025.jpg",
         "main_section_title": "Benvenuto in Pardo Approved",
         "main_section_subheadings": "Il programma ufficiale di certificazione dei pre-owned che garantisce qualità, tranquillità e fiducia immediata nella navigazione con il sigillo di approvazione di Cantiere del Pardo.",
         "is_cta_active": true,
         "cta_text": "Iscriviti",
         "highlights_text": "Scopri la migliore selezione Pardo Approved, il programma ufficiale di certificazione dell’usato.",
         "is_video_active": true,
-        "video_source": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/bc8a115175d544b7b37c6f87d00e78df.mp4",
-        "video_embedded": "<iframe src=\"https:\/\/player.vimeo.com\/video\/1055612925?h=b22773af2b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media\" title=\"P38 - Long\"><\/iframe>",
+        "video_source": "https://cdn.shopify.com/videos/c/o/v/bc8a115175d544b7b37c6f87d00e78df.mp4",
+        "video_embedded": "<iframe src=\"https://player.vimeo.com/video/1055612925?h=b22773af2b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media\" title=\"P38 - Long\"></iframe>",
         "layout_type": "expansive_layout"
       }
     },
@@ -41,7 +50,7 @@
         "focus_card_block_CB9GKx": {
           "type": "focus_card_block",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/GW-DJI_0912-WEB.jpg",
+            "card_image": "shopify://shop_images/GW-DJI_0912-WEB.jpg",
             "card_title": "Garanzia di qualità e sicurezza",
             "card_content": "La certificazione Pardo Approved è concessa solo dopo che ogni yacht ha superato un dettagliato processo di ispezione che include più di 100 punti di controllo. Questi esami rigorosi sono svolti per assicurare che ogni imbarcazione rispetti gli elevati criteri di sicurezza, funzionalità e estetica che definiscono Pardo Yachts.",
             "card_cta_text": "Scopri di più"
@@ -50,7 +59,7 @@
         "focus_card_block_WL3aPh": {
           "type": "focus_card_block",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/Immagine.jpg",
+            "card_image": "shopify://shop_images/Immagine.jpg",
             "card_title": "Esclusività e Benefici per il cliente",
             "card_content": "Ogni acquirente di uno yacht Pardo Approved accede a vantaggi esclusivi che arricchiscono l'esperienza di navigazione. Questi includono accesso a eventi esclusivi, offerte speciali, e servizi personalizzati che elevano il possesso di un yacht a un livello superiore di lusso e personalizzazione.",
             "card_cta_text": "Scopri di più"
@@ -59,7 +68,7 @@
         "focus_card_block_dgBxtY": {
           "type": "focus_card_block",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/pardoyacht_miami_2025.jpg",
+            "card_image": "shopify://shop_images/pardoyacht_miami_2025.jpg",
             "card_title": "Integrità e trasparenza",
             "card_content": "Con Pardo Approved, ogni dettaglio del passato di una imbarcazione viene esaminato per garantire massima trasparenza. La storia di manutenzione, la provenienza e ogni intervento effettuato sono chiaramente documentati, offrendo ai futuri proprietari una completa comprensione della qualità e delle condizioni dell'imbarcazione.",
             "card_cta_text": "Scopri di più"
@@ -73,7 +82,7 @@
       ],
       "settings": {
         "main_section_title": "Perché scegliere Pardo Approved?",
-        "redirect_page": "shopify:\/\/pages\/why-pardo-approved"
+        "redirect_page": "shopify://pages/why-pardo-approved"
       }
     },
     "futured-boats": {
@@ -82,7 +91,7 @@
         "product_card_NFcEVE": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -96,10 +105,10 @@
             "approved_page": ""
           }
         },
-        "product_card_WkT4qV": {
+        "product_card_CTghTe": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -113,10 +122,10 @@
             "approved_page": ""
           }
         },
-        "product_card_VzUm3K": {
+        "product_card_NRHG4N": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -130,10 +139,10 @@
             "approved_page": ""
           }
         },
-        "product_card_wg7xB4": {
+        "product_card_CxgdjL": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -147,10 +156,10 @@
             "approved_page": ""
           }
         },
-        "product_card_UAnjfT": {
+        "product_card_JNXrVn": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -164,10 +173,10 @@
             "approved_page": ""
           }
         },
-        "product_card_dRKfAU": {
+        "product_card_Gprbk7": {
           "type": "product_card",
           "settings": {
-            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image": "shopify://shop_images/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -184,11 +193,11 @@
       },
       "block_order": [
         "product_card_NFcEVE",
-        "product_card_WkT4qV",
-        "product_card_VzUm3K",
-        "product_card_wg7xB4",
-        "product_card_UAnjfT",
-        "product_card_dRKfAU"
+        "product_card_CTghTe",
+        "product_card_NRHG4N",
+        "product_card_CxgdjL",
+        "product_card_JNXrVn",
+        "product_card_Gprbk7"
       ],
       "settings": {
         "overview_title": "Imbarcazioni in evidenza",
@@ -202,7 +211,7 @@
         "main_title": "I nostri eventi",
         "subheading": "Vogliamo conoscerti, iscriviti e vediamoci lì.",
         "cta_text": "Scopri tutti gli eventi",
-        "section_image": "shopify:\/\/shop_images\/HERO.jpg",
+        "section_image": "shopify://shop_images/HERO.jpg",
         "cta_text_card": "Iscriviti"
       }
     }
