@@ -82,7 +82,7 @@
         "product_card_NFcEVE": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -96,10 +96,10 @@
             "approved_page": ""
           }
         },
-        "product_card_hNnPJi": {
+        "product_card_WkT4qV": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -113,10 +113,10 @@
             "approved_page": ""
           }
         },
-        "product_card_Y3WLHc": {
+        "product_card_VzUm3K": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -130,10 +130,10 @@
             "approved_page": ""
           }
         },
-        "product_card_9D7eby": {
+        "product_card_wg7xB4": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -147,10 +147,10 @@
             "approved_page": ""
           }
         },
-        "product_card_nrTDzf": {
+        "product_card_UAnjfT": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -164,10 +164,10 @@
             "approved_page": ""
           }
         },
-        "product_card_JYyyDR": {
+        "product_card_dRKfAU": {
           "type": "product_card",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "card_image_01": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
             "approved_year": "2022",
             "approved_text": "Pardo Approved",
             "approved_title": "Pardo P50",
@@ -184,11 +184,11 @@
       },
       "block_order": [
         "product_card_NFcEVE",
-        "product_card_hNnPJi",
-        "product_card_Y3WLHc",
-        "product_card_9D7eby",
-        "product_card_nrTDzf",
-        "product_card_JYyyDR"
+        "product_card_WkT4qV",
+        "product_card_VzUm3K",
+        "product_card_wg7xB4",
+        "product_card_UAnjfT",
+        "product_card_dRKfAU"
       ],
       "settings": {
         "overview_title": "Imbarcazioni in evidenza",
