@@ -22,8 +22,8 @@
             <div class="w-full h-auto">
               <img
                 class="w-full h-[280px] object-cover object-center rounded-t-2xl"
-                src="{{ block.settings.card_image_01 |  img_url: 'master' }}"
-                alt="{{ block.settings.card_image_01.alt }}">
+                src="{{ block.settings.card_image |  img_url: 'master' }}"
+                alt="{{ block.settings.card_image.alt }}">
             </div>
 
             <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-8">
@@ -147,23 +147,8 @@
         "settings": [
           {
             "type": "image_picker",
-            "id": "card_image_01",
-            "label": "Approved Image 01"
-          },
-          {
-            "type": "image_picker",
-            "id": "card_image_02",
-            "label": "Approved Image 02"
-          },
-          {
-            "type": "image_picker",
-            "id": "card_image_03",
-            "label": "Approved Image 03"
-          },
-          {
-            "type": "image_picker",
-            "id": "card_image_04",
-            "label": "Approved Image 04"
+            "id": "card_image",
+            "label": "Approved Image"
           },
           {
             "type": "text",
