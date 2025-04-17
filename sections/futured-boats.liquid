@@ -1,0 +1,205 @@
+<!-- futured boats section -->
+<div class="w-full h-auto bg-[#F7F7F7]">
+  <div class="w-full h-auto flex flex-col items-start justify-center p-20 gap-y-[60px]">
+
+    {% if section.settings.overview_title != blank and section.settings.main_title != blank %}
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+        <div class="w-full h-auto flex flex-row items-center justify-start gap-x-4">
+          <p class="text-[16px] leading-[20px] font-light">02</p>
+          <p class="text-[16px] leading-[20px] font-light">{{ section.settings.overview_title }}</p>
+        </div>
+        <div class="w-full h-auto flex flex-col items-start justify-center">
+          <h2 class="text-[48px] leading-[48px] font-semibold">{{ section.settings.main_title }}</h2>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="w-full h-auto flex flex-row flex-wrap items-center justify-center gap-x-10 gap-y-10">
+      {% for block in section.blocks %}
+        {% if block.type == "product_card" %}
+          <div class="card-approved w-[calc(33.3%_-_1.7rem)] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow bg-white">
+
+            <div class="w-full h-auto">
+              <img
+                class="w-full h-[280px] object-cover object-center rounded-t-2xl"
+                src="{{ block.settings.card_image |  img_url: 'master' }}"
+                alt="{{ block.settings.card_image.alt }}">
+            </div>
+
+            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-8">
+
+              <div class="w-full h-auto flex flex-col items-start justify-start gap-y-6">
+
+                <div class="w-full h-auto flex flex-col items-start justify-start gap-y-4">
+
+                  <div class="w-full h-auto flex flex-row items-center justify-between">
+                    <p class="text-[20px] leading-[20px] font-medium">{{ block.settings.approved_year }}</p>
+                    <div class="w-auto h-auto flex flex-row items-center justify-between px-6 py-2 bg-[#F7F7F7] rounded-2xl gap-x-1">
+                      <p class="text-[16px] leading-[20px] font-light">{{ block.settings.approved_text }}</p>
+                      {% render 'check-icon' %}
+                    </div>
+                  </div>
+
+                  <div class="w-full h-auto flex flex-col items-start justify-start gap-y-2">
+                    <h4 class="text-[32px] leading-[32px] font-semibold">{{ block.settings.approved_title }}</h4>
+                    <h4 class="text-[20px] leading-[24px] font-medium">{{ block.settings.approved_price }}</h4>
+                  </div>
+
+                </div>
+
+                <div class="w-full h-auto flex flex-col items-start justify-start">
+                  <div class="w-full h-auto flex flex-row items-center justify-between">
+                    <div class="w-full h-auto flex flex-col items-start justify-start gap-y-1">
+                      <h6 class="text-[16px] leading-[28px] font-medium text-[#656565]">{{ block.settings.approved_location_title }}</h6>
+                      <p class="text-[20px] leading-[20px] font-medium">{{ block.settings.approved_location }}</p>
+                    </div>
+                    <div class="w-full h-auto flex flex-col items-start justify-start gap-y-1">
+                      <h6 class="text-[16px] leading-[28px] font-medium text-[#656565]">{{ block.settings.approved_gamma_title }}</h6>
+                      <p class="text-[20px] leading-[20px] font-medium">{{ block.settings.approved_gamma
+}}</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="w-full h-auto flex flex-row items-center justify-between gap-x-6">
+                <div class="w-full h-auto min-h-[48px] flex items-center justify-center cursor-pointer bg-[#262322] rounded-xl p-3">
+                  <p class="text-[16px] leading-[22px] text-white">{{ block.settings.cta_contact }}</p>
+                </div>
+                <a class="w-full h-auto min-h-[48px]" href="{{ block.settings.approved_page }}">
+                  <div class="w-full h-auto flex items-center justify-center cursor-pointer rounded-xl border border-[#262322] p-3">
+                    <p class="text-[16px] leading-[22px]">{{ block.settings.cta_details }}</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+
+    <div class="w-full h-auto flex items-center justify-center">
+      <div class="full-item-cta w-auto min-w-[220px] h-auto min-h-[48px] flex items-center justify-center cursor-pointer rounded-xl border border-[#262322] p-3">
+        <p class="text-[16px] leading-[22px]">{{ section.settings.cta_full_item }}</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const fullItemCta = document.querySelector('.full-item-cta');
+        const approvedCards = Array.from(document.querySelectorAll('.card-approved'));
+  
+        intialItemView();
+  
+        function intialItemView() {
+            for (let i = 0; i < approvedCards.length; i++) {
+                if (!(i <= 2)) {
+                    approvedCards[i].classList.add('hidden');
+                }
+            }
+        }
+  
+        fullItemCta.addEventListener('click', showAllItem);
+  
+        function showAllItem() {
+            const hiddenItems = approvedCards.some((el) => el.classList.contains('hidden'));
+
+            if (hiddenItems) {
+                approvedCards.forEach((el) => el.classList.remove('hidden'));
+            };
+
+            fullItemCta.remove();
+
+        }
+  
+  
+    })
+</script>
+
+{% schema %}
+  {
+    "name": "futured_boats",
+    "settings": [
+      {
+        "type": "text",
+        "id": "overview_title",
+        "label": "Overview Title"
+      }, {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main Title Section"
+      }, {
+        "type": "text",
+        "id": "cta_full_item",
+        "label": "Cta Full Item Text"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "product_card",
+        "type": "product_card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card_image",
+            "label": "Approved Image"
+          },
+          {
+            "type": "text",
+            "id": "approved_year",
+            "label": "Approved year"
+          },
+          {
+            "type": "text",
+            "id": "approved_text",
+            "label": "Approved Text"
+          },
+          {
+            "type": "text",
+            "id": "approved_title",
+            "label": "Approved Title"
+          }, {
+            "type": "text",
+            "id": "approved_price",
+            "label": "Approved Price"
+          }, {
+            "type": "text",
+            "id": "approved_location_title",
+            "label": "Approved Location Title"
+          }, {
+            "type": "text",
+            "id": "approved_location",
+            "label": "Approved Location"
+          }, {
+            "type": "text",
+            "id": "approved_gamma_title",
+            "label": "Approved Gamma Title"
+          }, {
+            "type": "text",
+            "id": "approved_gamma",
+            "label": "Approved Gamma"
+          }, {
+            "type": "text",
+            "id": "cta_contact",
+            "label": "Cta Contact Text"
+          }, {
+            "type": "text",
+            "id": "cta_details",
+            "label": "Cta Details Text"
+          }, {
+            "type": "url",
+            "id": "approved_page",
+            "label": "Approved Page Redirect Url"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

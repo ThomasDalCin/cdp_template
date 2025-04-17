@@ -76,15 +76,142 @@
         "redirect_page": "shopify:\/\/pages\/why-pardo-approved"
       }
     },
+    "futured-boats": {
+      "type": "futured-boats",
+      "blocks": {
+        "product_card_NFcEVE": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        },
+        "product_card_hNnPJi": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        },
+        "product_card_Y3WLHc": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        },
+        "product_card_9D7eby": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        },
+        "product_card_nrTDzf": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        },
+        "product_card_JYyyDR": {
+          "type": "product_card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/PardoYacht_Model_Pardo38_Hero_desktop_010_eaa03690-cd10-49f9-9f2b-a6b457cf4a5d.jpg",
+            "approved_year": "2022",
+            "approved_text": "Pardo Approved",
+            "approved_title": "Pardo P50",
+            "approved_price": "500.000 €",
+            "approved_location_title": "Location",
+            "approved_location": "Venezia, Italia",
+            "approved_gamma_title": "Gamma",
+            "approved_gamma": "Walkaround",
+            "cta_contact": "Contattaci",
+            "cta_details": "Dettagli",
+            "approved_page": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_NFcEVE",
+        "product_card_hNnPJi",
+        "product_card_Y3WLHc",
+        "product_card_9D7eby",
+        "product_card_nrTDzf",
+        "product_card_JYyyDR"
+      ],
+      "settings": {
+        "overview_title": "Imbarcazioni in evidenza",
+        "main_title": "In primo piano.",
+        "cta_full_item": "Visualizza tutto"
+      }
+    },
     "future-events": {
       "type": "future-events",
-      "settings": {}
+      "settings": {
+        "main_title": "I nostri eventi",
+        "subheading": "Vogliamo conoscerti, iscriviti e vediamoci lì.",
+        "cta_text": "Scopri tutti gli eventi",
+        "section_image": "shopify:\/\/shop_images\/HERO.jpg",
+        "cta_text_card": "Iscriviti"
+      }
     }
   },
   "order": [
     "hero-approved",
     "approved-overview",
     "approved-focus",
+    "futured-boats",
     "future-events"
   ]
 }
