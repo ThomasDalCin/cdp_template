@@ -19,11 +19,23 @@
         {% if block.type == "product_card" %}
           <div class="card-approved w-[calc(33.3%_-_1.7rem)] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow bg-white">
 
-            <div class="w-full h-auto">
-              <img
-                class="w-full h-[280px] object-cover object-center rounded-t-2xl"
-                src="{{ block.settings.card_image |  img_url: 'master' }}"
-                alt="{{ block.settings.card_image.alt }}">
+            <!-- hidden containers for all cards images insert by user using editor -->
+            <div class="hidden">
+              {% assign cardImages = "card_image_01,card_image_02,card_image_03,card_image_04" | split: "," %}
+              {% for cardImage in cardImages %}
+                {% assign item = block.settings[cardImage] %}
+                {% if item %}
+                  <img
+                    class="card-image w-full h-[280px] object-cover object-center rounded-t-2xl"
+                    src="{{ item |  img_url: 'master' }}"
+                    alt="{{ item.alt }}">
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="container-card-images w-full h-auto">
+              <!-- render dynamic card images here after page loaded -->
+
             </div>
 
             <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-8">
@@ -90,36 +102,123 @@
   </div>
 </div>
 
+{% style %}
+  .swiper-button-prev::after, .swiper-button-next::after{
+    font-size: 12px !important;
+    color: black !important;
+  }
+
+  .swiper-button-prev::after{
+    transform: translateX(-1px);
+  }
+
+  .swiper-button-next::after{
+    transform: translateX(1px);
+  }
+
+  .swiper-pagination-bullet {
+      transition: all 0.3s ease-in-out !important;
+      transform-origin: center;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 16px !important;
+    height: 16px !important;
+    background: transparent !important;
+    border: 2px solid white; /* Aggiungi il bordo bianco */
+  }
+
+  .swiper-pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 15px !important;
+  }
+
+{% endstyle %}
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const fullItemCta = document.querySelector('.full-item-cta');
-        const approvedCards = Array.from(document.querySelectorAll('.card-approved'));
+  document.addEventListener('DOMContentLoaded', () => {
+    const fullItemCta = document.querySelector('.full-item-cta');
+    const approvedCards = Array.from(document.querySelectorAll('.card-approved'));
   
-        intialItemView();
+    intialItemView();
   
-        function intialItemView() {
-            for (let i = 0; i < approvedCards.length; i++) {
-                if (!(i <= 2)) {
-                    approvedCards[i].classList.add('hidden');
-                }
-            }
+    function intialItemView() {
+      for (let i = 0; i < approvedCards.length; i++) {
+        if (!(i <= 2)) {
+          approvedCards[i].classList.add('hidden');
         }
-  
-        fullItemCta.addEventListener('click', showAllItem);
-  
-        function showAllItem() {
-            const hiddenItems = approvedCards.some((el) => el.classList.contains('hidden'));
-
-            if (hiddenItems) {
-                approvedCards.forEach((el) => el.classList.remove('hidden'));
-            };
-
-            fullItemCta.remove();
-
+        if(approvedCards.length <= 3){
+          fullItemCta.classList.add('hidden');
         }
+      }
+    }
   
+    fullItemCta.addEventListener('click', showAllItem);
   
-    })
+    function showAllItem() {
+      const hiddenItems = approvedCards.some((el) => el.classList.contains('hidden'));
+  
+      if (hiddenItems) {
+        approvedCards.forEach((el) => el.classList.remove('hidden'));
+      };
+  
+      fullItemCta.remove();
+  
+    };
+  
+    function addSlider(items, container) {
+      const slides = items.map(item => {
+        return `<div class="swiper-slide w-full h-auto">
+                 <img class="card-image w-full h-[280px] object-cover object-center" src="${item.src}"/>
+                </div>`;
+         }).join('');
+  
+      const sliderTemplate = `
+         <div class="swiper rounded-t-2xl">
+            <div class="swiper-wrapper">
+             ${slides}
+         </div>
+         <div class="swiper-pagination"></div>
+         <div class="swiper-button-prev w-[24px] h-[24px] rounded-full z-20 fle flex-col items-center justify-center bg-white p-4"></div>
+         <div class="swiper-button-next w-[24px] h-[24px] rounded-full z-20 flex flex-col items-center justify-center bg-white p-4"></div>
+       `;
+  
+      const range = document.createRange();
+      const fragment = range.createContextualFragment(sliderTemplate);
+      container.querySelector('.container-card-images').appendChild(fragment);
+    }
+  
+    function doNothing(items, container) {
+      if (items.length > 0) {
+        const imageTemplate = `<div class="w-full h-auto">
+         <img class="card-image w-full h-[280px] object-cover object-center rounded-t-2xl" src="${items[0].src}"/>
+         </div>`;
+        const range = document.createRange();
+        const fragment = range.createContextualFragment(imageTemplate);
+        container.querySelector('.container-card-images').appendChild(fragment);
+      }
+    }
+  
+    approvedCards.forEach((container) => {
+      const nodeList = Array.from(container.querySelectorAll('.card-image'));
+      const cardImages = nodeList.length > 0 ? nodeList : [];
+      cardImages.length <= 1 ? doNothing(cardImages, container) : addSlider(cardImages, container);
+    });
+  
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  
+  })
 </script>
 
 {% schema %}
@@ -147,20 +246,32 @@
         "settings": [
           {
             "type": "image_picker",
-            "id": "card_image",
+            "id": "card_image_01",
             "label": "Approved Image"
           },
           {
+            "type": "image_picker",
+            "id": "card_image_02",
+            "label": "Approved Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "card_image_03",
+            "label": "Approved Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "card_image_04",
+            "label": "Approved Image"
+          }, {
             "type": "text",
             "id": "approved_year",
             "label": "Approved year"
-          },
-          {
+          }, {
             "type": "text",
             "id": "approved_text",
             "label": "Approved Text"
-          },
-          {
+          }, {
             "type": "text",
             "id": "approved_title",
             "label": "Approved Title"
