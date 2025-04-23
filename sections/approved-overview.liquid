@@ -1,11 +1,11 @@
 <!-- overview approved section -->
-<div class="w-full h-auto flex flex-col items-start justify-center px-8 py-10 lg:px-[160px] lg:py-[120px] lg:gap-y-[120px]" style="background-color: {{ section.settings.bg_section }};">
+<div class="w-full h-auto flex flex-col items-start justify-center px-8 py-10 md:px-[120px] md:py-[60px] lg:px-[80px] lg:py-[100px] lg:gap-y-[100px] xl:px-[160px] xl:py-[120px] xl:gap-y-[120px]" style="background-color: {{ section.settings.bg_section }};">
   {% for block in section.blocks %}
     <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
       {% if block.type == "block_overview" %}
         {% assign blockCount = forloop.index0 | plus: 1 %}
         {% if block.settings.overview_title != blank %}
-          <div class="w-full h-auto flex flex-col items-start justify-center lg:{{ block.settings.alignment_columns }} lg:items-center lg:justify-start lg:gap-x-4">
+          <div class="w-full h-auto flex flex-col items-start justify-center md:{{ block.settings.alignment_columns }} md:items-center md:justify-start md:gap-x-4 lg:{{ block.settings.alignment_columns }} lg:items-center lg:justify-start lg:gap-x-4">
             <p class="text-[16px] leading-[20px] font-light text-white">0{{ blockCount }}</p>
             <p class="text-[16px] leading-[20px] font-light text-white">{{ block.settings.overview_title }}</p>
           </div>

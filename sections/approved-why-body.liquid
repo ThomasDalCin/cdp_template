@@ -1,20 +1,20 @@
 <!-- approved why body -->
 <div class="w-full h-auto">
-  <div class="w-full h-auto flex flex-col items-start justify-center px-4 py-8 gap-y-10 bg-[#F7F7F7] lg:px-20 lg:py-[120px]">
+  <div class="w-full h-auto flex flex-col items-start justify-center px-4 py-8 gap-y-10 bg-[#F7F7F7] md:px-[160px] md:py-20 lg:px-20 lg:py-[120px] lg:gap-y-[120px]">
     {% for block in section.blocks %}
     {% assign counter = forloop.index0 | modulo: 2 %}
       {% if block.type == "card_benefit" %}
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:relative lg:h-[80vh]" id="benefit-{{ forloop.index }}">
 
-          <div class="w-full h-auto rounded-2xl lg:w-auto lg:h-auto lg:absolute {% if counter == 0 %} lg:left-0 lg:top-0 {% else %} lg:right-0 lg:top-0 {% endif %}">
+          <div class="w-full h-auto rounded-2xl md:h-[258px] lg:w-[40%] lg:min-w-[640px] lg:h-[480px] lg:absolute {% if counter == 0 %} lg:left-0 lg:top-0 {% else %} lg:right-0 lg:top-0 {% endif %} 2xl:w-[50%]">
             <img
-              class="w-full h-full object-cover object-center rounded-2xl lg:w-[640px] lg:h-[480px]"
+              class="w-full h-full object-cover object-center rounded-2xl"
               src="{{ block.settings.card_image |  img_url: 'master' }}"
               alt="{{ block.settings.card_image.alt }}">
           </div>
 
-          <div class="w-full h-auto flex flex-col items-start justify-center rounded-2xl bg-white  {% if block.settings.card_additional_text != blank %} gap-y-10 {% endif %} transition-all duration-150 ease-linear lg:shadow-box-shadow lg:w-auto lg:min-w-[780px] lg:absolute {% if counter == 0 %} lg:right-0 lg:bottom-0 {% else %} lg:bottom-0 lg:left-0 {% endif %}">
-            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6 lg:w-[720px] lg:p-[60px]">
+          <div class="w-full h-auto flex flex-col items-start justify-center rounded-2xl bg-white  {% if block.settings.card_additional_text != blank %} gap-y-10 {% endif %} transition-all duration-150 ease-linear lg:shadow-box-shadow lg:w-[60%] lg:min-w-[720px] lg:absolute {% if counter == 0 %} lg:right-0 lg:bottom-0 {% else %} lg:bottom-0 lg:left-0 {% endif %}">
+            <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-6 md:p-10  lg:p-[60px]">
 
               {% if block.settings.card_text != blank and block.settings.card_subheading != blank %}
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
@@ -46,6 +46,7 @@
 
             </div>
           </div>
+
         </div>
       {% endif %}
     {% endfor %}

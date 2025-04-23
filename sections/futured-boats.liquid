@@ -1,9 +1,9 @@
 <!-- futured boats section -->
 <div class="w-full h-auto bg-[#F7F7F7]">
-  <div class="w-full h-auto flex flex-col items-start justify-center p-20 gap-y-[60px]">
+  <div class="w-full h-auto flex flex-col items-start justify-center py-[32px] gap-y-6 md:py-[60px] lg:p-20 lg:gap-y-[60px]">
 
     {% if section.settings.overview_title != blank and section.settings.main_title != blank %}
-      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+      <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 px-4 md:px-20 lg:px-0">
         <div class="w-full h-auto flex flex-row items-center justify-start gap-x-4">
           <p class="text-[16px] leading-[20px] font-light">02</p>
           <p class="text-[16px] leading-[20px] font-light">{{ section.settings.overview_title }}</p>
@@ -14,10 +14,10 @@
       </div>
     {% endif %}
 
-    <div class="w-full h-auto flex flex-row flex-wrap items-center justify-center gap-x-10 gap-y-10">
+    <div class="w-full h-auto flex flex-row items-start justify-start p-4 gap-x-4 gap-y-4 overflow-x-auto md:px-20 md:gap-x-10 lg:gap-x-10 lg:gap-y-10 lg:justify-center lg:items-center lg:px-0 lg:flex-wrap">
       {% for block in section.blocks %}
         {% if block.type == "product_card" %}
-          <div class="card-approved w-[calc(33.3%_-_1.7rem)] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow bg-white">
+          <div class="card-approved w-[319px] min-w-[319px] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow bg-white md:w-[541px] md:min-w-[541px] lg:min-w-[calc(33.3%_-_1.7rem)] lg:w-[calc(33.3%_-_1.7rem)]">
 
             <!-- hidden containers for all cards images insert by user using editor -->
             <div class="hidden">

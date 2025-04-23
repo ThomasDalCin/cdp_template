@@ -14,22 +14,22 @@
       {% case layout_type %}
 
         {% when "expansive_layout" %}
-          <div class="w-full h-full flex flex-col items-center justify-end p-4 gap-y-6 lg:px-[60px] lg:justify-center">
+          <div class="w-full h-full flex flex-col items-center justify-end p-4 gap-y-6 md:px-[60px] md:py-[60px] lg:py-0 lg:px-[60px] lg:justify-center">
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
-              <h1 class="text-[32px] leading-[36px] lg:text-[96px] lg:leading-[88px] font-semibold text-white" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
+              <h1 class="text-[32px] leading-[36px] font-semibold text-white lg:text-[66px] lg:leading-[54px] xl:text-[96px] xl:leading-[88px]" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
               <p class="text-[16px] leading-[22px] font-semibold text-white lg:text-[24px] lg:leading-[28px] lg:max-w-[1000px]">{{ section.settings.main_section_subheadings }}</p>
             </div>
 
             {% if section.settings.highlights_text != blank and section.settings.is_video_active and section.settings.video_source != blank %}
               <div class="w-full h-auto lg:absolute lg:left-0 lg:bottom-0 lg:right-0">
-                <div class="w-full h-auto flex flex-col-reverse items-center justify-start gap-y-6 lg:flex-row lg:items-end lg:justify-between lg:gap-x-[60px] lg:px-[60px] lg:pb-[60px]">
+                <div class="w-full h-auto flex flex-col-reverse items-center justify-start gap-y-6 md:items-end lg:flex-row lg:items-end lg:justify-between lg:gap-x-[60px] lg:px-[60px] lg:pb-[60px]">
                   {% if section.settings.highlights_text != blank %}
                     <div class="w-auto h-auto">
                       <p class="text-[16px] leading-[22px] font-semibold text-white lg:text-[24px] lg:leading-[28px]">{{ section.settings.highlights_text }}</p>
                     </div>
                   {% endif %}
   
-                  <div class="w-full h-[187px] relative cursor-pointer lg:w-[440px] lg:h-[240px]">
+                  <div class="w-full h-[187px] relative cursor-pointer md:w-[400px] md:h-[218px] lg:w-[540px] lg:h-[200px] xl:w-[440px] xl:h-[240px]">
                     {% if section.settings.video_source != blank and section.settings.is_video_active %}
                       <video
                         autoplay
