@@ -32,7 +32,7 @@
     "find-delear": {
       "type": "find-delear",
       "settings": {
-        "page_ref": "shopify://pages/dealer",
+        "page_ref": "https://pardoyachts.com/pages/locate-dealer",
         "section_title": "Time to find a dealer",
         "section_image": "shopify://shop_images/Pardo-Yachts-Find-a-dealer_69ecd90a-1c13-4492-9582-ccf862f1096c.jpg",
         "section_text": "L’esperienza dei nostri esperti concessionari è insostituibile. Trova il rivenditore più vicino a te per saperne di più ed entrare nel mondo Pardo Yacht",
