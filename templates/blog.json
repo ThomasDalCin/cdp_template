@@ -37,7 +37,9 @@
     },
     "blog-list": {
       "type": "blog-list",
-      "custom_css": [],
+      "custom_css": [
+        ".blog-item-cta{position:relative!important;}"
+      ],
       "settings": {
         "article_cta_pressroom_download_text": "Download",
         "article_cta_pressroom_text": "Read More",
@@ -48,7 +50,7 @@
     "blog-events": {
       "type": "blog-events",
       "custom_css": [
-        ".load-more-cta{max-width: fit-content;}"
+        ".load-more-cta {max-width: fit-content;}"
       ],
       "settings": {
         "redirect_google_text": "Show on Google maps",
