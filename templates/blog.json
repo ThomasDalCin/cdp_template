@@ -11,9 +11,7 @@
   "sections": {
     "marketing-pop-up": {
       "type": "marketing-pop-up",
-      "custom_css": [
-        ".load-more-cta{max-width: fit-content;}"
-      ],
+      "custom_css": [],
       "settings": {
         "marketing_pop_up_title": "Consent to direct marketing",
         "marketing_pop_up_content": "By selecting this box you give your consent to receive commercial communications and to participate in market research and activities to measure your level of satisfaction, regarding Pardo Yachts products and services, via e-mail and/or SMS, telephone and traditional paper mail. For this purpose we will use the personal and contact data that you have communicated to us (e.g. name, surname, address, e-mail, mobile number, etc.). The data collected will be stored until a request to withdraw consent is received from you. The Data Controller is Cantiere Del Pardo SpA. By writing to data.protection@calzedonia.com you can exercise the right: i) to access, to find out if your data is being processed and to obtain a copy; ii) to obtain the rectification or integration of your data; iii) to request the deletion of your data; iv) to obtain the limitation of processing; v) data portability; vi) revocation of consent. You can also lodge a complaint with the competent data protection supervisory authority if you believe that the processing of your personal data is in conflict with the provisions of EU Regulation 2016/679. Complete information: Privacy Policy.",
@@ -49,6 +47,9 @@
     },
     "blog-events": {
       "type": "blog-events",
+      "custom_css": [
+        ".load-more-cta{max-width: fit-content;}"
+      ],
       "settings": {
         "redirect_google_text": "Show on Google maps",
         "redirect_calendar_text": "Open Google Calendar",
