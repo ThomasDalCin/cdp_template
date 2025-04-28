@@ -145,12 +145,29 @@
             "cta_details": "Dettagli",
             "approved_page": ""
           }
+        },
+        "product_card_VfmE9C": {
+          "type": "product_card",
+          "settings": {
+            "approved_year": "ergerg",
+            "approved_text": "regerg",
+            "approved_title": "rgerg",
+            "approved_price": "reg",
+            "approved_location_title": "rg",
+            "approved_location": "greg",
+            "approved_gamma_title": "rgre",
+            "approved_gamma": "ergr",
+            "cta_contact": "ergr",
+            "cta_details": "erger",
+            "approved_page": ""
+          }
         }
       },
       "block_order": [
         "product_card_NFcEVE",
         "product_card_HEKJQi",
-        "product_card_KnCj9T"
+        "product_card_KnCj9T",
+        "product_card_VfmE9C"
       ],
       "settings": {
         "overview_title": "Imbarcazioni in evidenza",
