@@ -18,7 +18,7 @@
         "is_cta_active": true,
         "cta_text": "Iscriviti",
         "cta_hover_color": "#dd1d1d",
-        "hover_is_active": false,
+        "hover_is_active": true,
         "hover_animation_duration": 200,
         "highlights_text": "Scopri la migliore selezione Pardo Approved, il programma ufficiale di certificazione dell’usato.",
         "is_video_active": true,
