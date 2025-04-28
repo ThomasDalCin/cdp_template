@@ -24,7 +24,7 @@
         "is_video_active": true,
         "video_source": "https://cdn.shopify.com/videos/c/o/v/bc8a115175d544b7b37c6f87d00e78df.mp4",
         "video_embedded": "<iframe src=\"https://player.vimeo.com/video/1055612925?h=b22773af2b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media\" title=\"P38 - Long\"></iframe>",
-        "layout_type": "small_layout"
+        "layout_type": "expansive_layout"
       }
     },
     "approved-overview": {
