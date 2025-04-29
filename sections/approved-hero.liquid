@@ -59,11 +59,13 @@
             </div>
             {% if section.settings.is_cta_active and section.settings.cta_text != blank %}
               <div class="w-full h-auto flex items-center justify-center md:px-[100px] lg:px-0">
-                <div class="w-full h-auto lg:w-auto">
+                <a href="{% if section.settings.hero_cta_redirect != blank %}{{ section.settings.hero_cta_redirect }}{% else %}#newsletter{% endif %}" >
+                  <div class="w-full h-auto lg:w-auto">
                   <div class="w-full h-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white cursor-pointer lg:bg-white lg:w-[220px]" {% if section.settings.hover_is_active %} style="transition: all {{ section.settings.hover_animation_duration }}ms ease" onmouseover="this.style.backgroundColor='{{ section.settings.cta_hover_color }}';" onmouseout="this.style.backgroundColor='white'"{% endif %}>
                     <p class="text-[16px] leading-[22px] tt-norms-pro-med">{{ section.settings.cta_text }}</p>
                   </div>
                 </div>
+                </a>
               </div>
             {% endif %}
           </div>
@@ -174,7 +176,12 @@
         "type": "text",
         "id": "cta_text",
         "label": "Cta Text"
-      }, {
+      },
+      {
+        "type": "url",
+        "id": "hero_cta_redirect",
+        "label": "Hero cta Redirect Url"
+      },  {
         "type": "color",
         "id": "cta_hover_color",
         "label": "Hover color cta"
