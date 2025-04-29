@@ -9,7 +9,7 @@
         </div>
       {% endif %}
 
-      <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 md:px-10 md:gap-y-10 lg:px-0 lg:flex-row lg:items-start lg:justify-start lg:gap-x-10">
+      <div class="w-full h-auto flex flex-col items-center justify-center gap-y-4 md:px-10 md:gap-y-10 lg:px-0 lg:flex-row lg:items-start lg:justify-center lg:gap-x-10">
         {% for block in section.blocks %}
           {% if block.type == "focus_card_block" %}
             <a href="{{ section.settings.redirect_page }}" class="redirect-cta" id="benefit-{{ forloop.index }}">
