@@ -540,6 +540,13 @@ p,
   font-family: "TT-Norms-Pro-Medium";
 }
 
+.tt-norms-pro-bold {
+  /* General font settings */
+  font-family: "TT-Norms-Pro-Bold";
+  /* General font settings */
+  font-family: "TT-Norms-Pro-Black";
+}
+
 .tt-norms-thin {
   /* General font settings */
   font-family: "TT-Norms-Pro-Thin";

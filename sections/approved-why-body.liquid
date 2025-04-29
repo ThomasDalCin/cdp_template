@@ -18,21 +18,21 @@
 
               {% if block.settings.card_text != blank and block.settings.card_subheading != blank %}
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
-                  <h3 class="text-[24px] leading-[28px] font-semibold">{{ block.settings.card_title }}</h3>
-                  <p class="text-[20px] leading-[26px] font-light italic">{{ block.settings.card_subheading }}</p>
+                  <h3 class="text-[24px] leading-[28px] tt-norms-pro-med">{{ block.settings.card_title }}</h3>
+                  <p class="text-[20px] leading-[26px] tt-norms-pro-thin italic">{{ block.settings.card_subheading }}</p>
                 </div>
               {% endif %}
 
               {% if block.settings.card_text != blank %}
                 <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
-                  <p class="text-[14px] leading-[20px]">{{ block.settings.card_text }}</p>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.card_text }}</p>
                 </div>
               {% endif %}
 
               {% if block.settings.card_additional_text != blank %}
 
                 <div class="additional-text-content w-full h-0 flex flex-col items-start justify-center overflow-y-hidden">
-                  <p class="text-[14px] leading-[20px]">{{ block.settings.card_additional_text }}</p>
+                  <p class="text-[14px] leading-[20px] tt-norms-pro-reg">{{ block.settings.card_additional_text }}</p>
                 </div>
 
                 <div class="w-full h-auto flex flex-col items-center justify-center">

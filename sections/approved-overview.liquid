@@ -6,19 +6,19 @@
         {% assign blockCount = forloop.index0 | plus: 1 %}
         {% if block.settings.overview_title != blank %}
           <div class="w-full h-auto flex flex-col items-start justify-center md:{{ block.settings.alignment_columns }} md:items-center md:justify-start md:gap-x-4 lg:{{ block.settings.alignment_columns }} lg:items-center lg:justify-start lg:gap-x-4">
-            <p class="text-[16px] leading-[20px] font-light text-white">0{{ blockCount }}</p>
-            <p class="text-[16px] leading-[20px] font-light text-white">{{ block.settings.overview_title }}</p>
+            <p class="text-[16px] leading-[20px] tt-norms-pro-thin text-white">0{{ blockCount }}</p>
+            <p class="text-[16px] leading-[20px] tt-norms-pro-thin text-white">{{ block.settings.overview_title }}</p>
           </div>
         {% endif %}
 
         <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:{{ block.settings.alignment_columns  }} lg:items-center lg:justify-start lg:gap-x-[60px]">
           {% if block.settings.main_section_title != blank and block.settings.main_paragraph_text %}
             <div class="w-auto h-auto flex items-start justify-center">
-              <h2 class="text-[40px] leading-[44px] font-semibold text-white lg:min-w-[460px] {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %} lg:text-[48px] lg:leading-[48px]">{{ block.settings.main_section_title }}</h2>
+              <h2 class="text-[40px] leading-[44px] tt-norms-pro-med text-white lg:min-w-[460px] {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %} lg:text-[48px] lg:leading-[48px]">{{ block.settings.main_section_title }}</h2>
             </div>
 
             <div class="w-auto h-auto flex items-start justify-center">
-              <p class="text-[14px] leading-[20px] text-white {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %} lg:text-[18px] lg:leading-[24px]">{{ block.settings.main_paragraph_text | newline_to_br }}</p>
+              <p class="text-[14px] leading-[20px] text-white tt-norms-pro-reg {% if block.settings.alignment_columns == "flex-row-reverse" %} text-right {% else %} text-left {% endif %} lg:text-[18px] lg:leading-[24px]">{{ block.settings.main_paragraph_text | newline_to_br }}</p>
             </div>
           {% endif %}
         </div>

@@ -16,8 +16,8 @@
         {% when "expansive_layout" %}
           <div class="w-full h-full flex flex-col items-center justify-end p-4 gap-y-6 md:px-[60px] md:py-[60px] lg:py-0 lg:px-[60px] lg:justify-center">
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
-              <h1 class="text-[32px] leading-[36px] font-semibold text-white lg:text-[66px] lg:leading-[54px] xl:text-[96px] xl:leading-[88px]" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
-              <p class="text-[16px] leading-[22px] font-semibold text-white lg:text-[24px] lg:leading-[28px] lg:max-w-[1000px]">{{ section.settings.main_section_subheadings }}</p>
+              <h1 class="text-[32px] leading-[36px] tt-norms-pro-med text-white lg:text-[66px] lg:leading-[54px] xl:text-[96px] xl:leading-[88px]" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
+              <p class="text-[16px] leading-[22px] tt-norms-pro-med text-white lg:text-[24px] lg:leading-[28px] lg:max-w-[1000px]">{{ section.settings.main_section_subheadings }}</p>
             </div>
 
             {% if section.settings.highlights_text != blank and section.settings.is_video_active and section.settings.video_source != blank %}
@@ -25,7 +25,7 @@
                 <div class="w-full h-auto flex flex-col-reverse items-center justify-start gap-y-6 md:items-end lg:flex-row lg:items-end lg:justify-between lg:gap-x-[60px] lg:px-[60px] lg:pb-[60px]">
                   {% if section.settings.highlights_text != blank %}
                     <div class="w-auto h-auto">
-                      <p class="text-[16px] leading-[22px] font-semibold text-white lg:text-[24px] lg:leading-[28px]">{{ section.settings.highlights_text }}</p>
+                      <p class="text-[16px] leading-[22px] tt-norms-pro-med text-white lg:text-[24px] lg:leading-[28px]">{{ section.settings.highlights_text }}</p>
                     </div>
                   {% endif %}
 
@@ -54,14 +54,14 @@
 
           <div class="w-full h-full flex flex-col items-center justify-end p-4 gap-y-10 md:justify-center md:gap-y-20 md:px-[60px] lg:justify-center lg:px-[200px]">
             <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
-              <h1 class="text-[32px] leading-[36px] md:text-[48px] md:leading-[54px] lg:text-[64px] lg:leading-[64px] font-semibold text-white" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
-              <p class="text-[16px] leading-[22px] font-semibold text-white md:text-[20px] md:leading-[26px] lg:text-[24px] lg:leading-[28px]">{{ section.settings.main_section_subheadings }}</p>
+              <h1 class="text-[32px] leading-[36px] md:text-[48px] md:leading-[54px] lg:text-[64px] lg:leading-[64px] tt-norms-pro-med text-white" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
+              <p class="text-[16px] leading-[22px] tt-norms-pro-reg text-white md:text-[20px] md:leading-[26px] lg:text-[24px] lg:leading-[28px]">{{ section.settings.main_section_subheadings }}</p>
             </div>
             {% if section.settings.is_cta_active and section.settings.cta_text != blank %}
               <div class="w-full h-auto flex items-center justify-center md:px-[100px] lg:px-0">
                 <div class="w-full h-auto lg:w-auto">
                   <div class="w-full h-[48px] flex items-center justify-center p-2.5 rounded-xl bg-white cursor-pointer lg:bg-white lg:w-[220px]" {% if section.settings.hover_is_active %} style="transition: all {{ section.settings.hover_animation_duration }}ms ease" onmouseover="this.style.backgroundColor='{{ section.settings.cta_hover_color }}';" onmouseout="this.style.backgroundColor='white'"{% endif %}>
-                    <p class="text-[16px] leading-[22px] font-semibold">{{ section.settings.cta_text }}</p>
+                    <p class="text-[16px] leading-[22px] tt-norms-pro-med">{{ section.settings.cta_text }}</p>
                   </div>
                 </div>
               </div>
