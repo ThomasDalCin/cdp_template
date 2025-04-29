@@ -4522,6 +4522,14 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[60vh\] {
+    height: 60vh;
+  }
+
+  .lg\:h-\[70vh\] {
+    height: 70vh;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -5481,6 +5489,14 @@ html {
 
   .xl\:h-\[240px\] {
     height: 240px;
+  }
+
+  .xl\:h-\[80vh\] {
+    height: 80vh;
+  }
+
+  .xl\:h-\[60vh\] {
+    height: 60vh;
   }
 
   .xl\:min-h-\[450px\] {
