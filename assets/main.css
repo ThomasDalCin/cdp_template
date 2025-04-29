@@ -4517,6 +4517,10 @@ html {
     height: 100vh;
   }
 
+  .lg\:h-\[80vh\] {
+    height: 80vh;
+  }
+
   .lg\:max-h-\[418px\] {
     max-height: 418px;
   }
@@ -5480,6 +5484,10 @@ html {
 
   .xl\:h-\[80vh\] {
     height: 80vh;
+  }
+
+  .xl\:h-\[60vh\] {
+    height: 60vh;
   }
 
   .xl\:min-h-\[450px\] {

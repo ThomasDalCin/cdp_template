@@ -4,7 +4,7 @@
     {% for block in section.blocks %}
     {% assign counter = forloop.index0 | modulo: 2 %}
       {% if block.type == "card_benefit" %}
-        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:relative lg:h-[70vh] xl:h-[80vh]" id="benefit-{{ forloop.index }}">
+        <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4 lg:flex-row lg:relative lg:h-[80vh] xl:h-[60vh]" id="benefit-{{ forloop.index }}">
 
           <div class="w-full h-auto rounded-2xl md:h-[258px] lg:w-[40%] lg:min-w-[640px] lg:h-[480px] lg:absolute {% if counter == 0 %} lg:left-0 lg:top-0 {% else %} lg:right-0 lg:top-0 {% endif %} 2xl:w-[50%]">
             <img
