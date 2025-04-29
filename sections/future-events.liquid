@@ -44,7 +44,7 @@
     </div>
 
     <div class="w-full h-auto">
-      <div class="containers-card w-auto h-auto flex flex-row items-center justify-start gap-x-4 cursor-pointer overflow-x-auto px-10">
+      <div class="containers-card w-auto h-auto flex flex-row items-center justify-start gap-x-4 cursor-pointer px-10">
         {% for article in blogs['events'].articles %}
           {% if article.tags contains 'Future' %}
             <div class="event-card w-[380px] min-w-[380px] h-[560px] rounded-[32px] p-10 flex flex-col items-start justify-between relative">
@@ -147,6 +147,7 @@
             setTimeout(() => {
                 // containerArticles.style.left = `${parseInt(window.getComputedStyle(textContainer.parentElement).getPropertyValue('padding-left'), 10)}px`;
                 containerArticles.style.left = '0';
+                containerCards.classList.add('overflow-x-auto');
                 textContainer.parentElement.style.display = 'none';
                 textContainer.remove();
                 containerControls.classList.add('flex');
