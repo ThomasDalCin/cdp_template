@@ -2502,6 +2502,11 @@ p,
   border-top-right-radius: 0.75rem;
 }
 
+.rounded-b-\[32px\] {
+  border-bottom-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
+
 .border {
   border-width: 1px;
 }
