@@ -17,7 +17,7 @@
     <div class="w-full h-auto flex flex-row items-start justify-start p-4 gap-x-4 gap-y-4 overflow-x-auto md:px-20 md:gap-x-10 lg:gap-x-10 lg:gap-y-10 lg:justify-center lg:items-center lg:px-0 lg:flex-wrap">
       {% for block in section.blocks %}
         {% if block.type == "product_card" %}
-          <div class="card-approved w-[319px] min-w-[319px] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow bg-white md:w-[541px] md:min-w-[541px] lg:min-w-[calc(33.3%_-_1.7rem)] lg:w-[calc(33.3%_-_1.7rem)]">
+          <div class="card-approved w-[319px] min-w-[319px] h-auto flex flex-col items-start justify-start rounded-2xl shadow-box-shadow cursor-pointer bg-white md:w-[541px] md:min-w-[541px] lg:min-w-[calc(33.3%_-_1.7rem)] lg:w-[calc(33.3%_-_1.7rem)]">
 
             <!-- hidden containers for all cards images insert by user using editor -->
             <div class="hidden">
@@ -35,7 +35,6 @@
 
             <div class="container-card-images w-full h-auto">
               <!-- render dynamic card images here after page loaded -->
-
             </div>
 
             <div class="w-full h-auto flex flex-col items-start justify-center p-6 gap-y-8">
@@ -103,32 +102,34 @@
 </div>
 
 {% style %}
-  .swiper-button-prev::after, .swiper-button-next::after{
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
     font-size: 12px !important;
     color: black !important;
   }
 
-  .swiper-button-prev::after{
+  .swiper-button-prev::after {
     transform: translateX(-1px);
   }
 
-  .swiper-button-next::after{
+  .swiper-button-next::after {
     transform: translateX(1px);
   }
 
   .swiper-pagination-bullet {
-      transition: all 0.3s ease-in-out !important;
-      transform-origin: center;
+    transition: all 0.3s ease-in-out !important;
+    transform-origin: center;
   }
 
   .swiper-pagination-bullet-active {
     width: 16px !important;
     height: 16px !important;
     background: transparent !important;
-    border: 2px solid white; /* Aggiungi il bordo bianco */
+    border: 2px solid white;
+    /* Aggiungi il bordo bianco */
   }
 
-  .swiper-pagination{
+  .swiper-pagination {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,7 +150,7 @@
         if (!(i <= 2)) {
           approvedCards[i].classList.add('hidden');
         }
-        if(approvedCards.length <= 3){
+        if (approvedCards.length <= 3) {
           fullItemCta.classList.add('hidden');
         }
       }
@@ -173,7 +174,7 @@
         return `<div class="swiper-slide w-full h-auto">
                  <img class="card-image w-full h-[280px] object-cover object-center" src="${item.src}"/>
                 </div>`;
-         }).join('');
+      }).join('');
   
       const sliderTemplate = `
          <div class="swiper rounded-t-2xl">
@@ -217,6 +218,34 @@
         prevEl: '.swiper-button-prev',
       },
     });
+  
+    approvedCards.forEach((cardContainer) => {
+      const swiperButtonPrev = cardContainer.querySelector('.swiper-button-prev');
+      const swiperButtonNext = cardContainer.querySelector('.swiper-button-next');
+      const swiperPagination = cardContainer.querySelector('.swiper-pagination');
+      const swiperControls = [swiperButtonPrev, swiperButtonNext, swiperPagination].filter(Boolean);
+  
+      if (swiperControls.length > 0) {
+        swiperControls.forEach((control) => {
+          control.classList.add('opacity-0');
+        });
+  
+        cardContainer.addEventListener('mouseover', () => {
+          swiperControls.forEach((control) => {
+            if (control.classList.contains('opacity-0')) {
+              control.classList.remove('opacity-0');
+            }
+          });
+        });
+  
+        cardContainer.addEventListener('mouseout', () => {
+          swiperControls.forEach((control) => {
+            control.classList.add('opacity-0');
+          });
+        });
+      }
+    });
+  
   
   })
 </script>
