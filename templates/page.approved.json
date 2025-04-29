@@ -167,6 +167,14 @@
         "section_image": "shopify://shop_images/HERO.jpg",
         "cta_text_card": "Iscriviti"
       }
+    },
+    "marketing-pop-up": {
+      "type": "marketing-pop-up",
+      "settings": {}
+    },
+    "profilation-pop-up": {
+      "type": "profilation-pop-up",
+      "settings": {}
     }
   },
   "order": [
@@ -174,6 +182,8 @@
     "approved-overview",
     "approved-focus",
     "futured-boats",
-    "future-events"
+    "future-events",
+    "marketing-pop-up",
+    "profilation-pop-up"
   ]
 }

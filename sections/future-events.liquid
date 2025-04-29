@@ -56,17 +56,18 @@
               <div class="absolute left-0 top-0 right-0 bottom-0 w-full h-full z-10 rounded-[32px]" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%);"></div>
 
               <div class="w-full h-full flex flex-col items-start justify-start gap-y-6 z-20">
-                <h3 class="text-[24px] leading-[30px] font-bold text-white tt-norms-pro-med min-h-[60px]">{{ article.title }}</h3>
+                <h3 class="article-title text-[24px] leading-[30px] font-bold text-white tt-norms-pro-med min-h-[60px]">{{ article.title
+}}</h3>
                 <div class="w-full h-auto flex flex-col items-start justify-center rounded-2xl px-4 py-6 gap-y-4 border border-white backdrop-blur-[20px]" style="background: rgba(0, 0, 0, 0.50);">
-                  {% assign articleRangeDate = article.metafields.custom.range_date.value  %}
-                  {% assign articleStand = article.metafields.custom.stand.value  %}
-                  {% assign articleFlag = article.metafields.custom.image_flag.value  %}
-                  {% assign articleLocation = article.metafields.custom.article_location.value  %}
-                  {% assign articleMaps = article.metafields.custom.article_maps_location.value  %}
+                  {% assign articleRangeDate = article.metafields.custom.range_date.value %}
+                  {% assign articleStand = article.metafields.custom.stand.value %}
+                  {% assign articleFlag = article.metafields.custom.image_flag.value %}
+                  {% assign articleLocation = article.metafields.custom.article_location.value %}
+                  {% assign articleMaps = article.metafields.custom.article_maps_location.value %}
 
                   <div class="w-full h-auto flex flex-row items-center justify-start gap-x-4">
 
-                    {% if articleRangeDate%}
+                    {% if articleRangeDate %}
                       <div class="w-auto h-auto flex flex-row items-center gap-x-1 justify-between">
                         {% render 'time-icon' %}
                         <p class="text-white text-[16px] leading-[14px] whitespace-nowrap tt-norms-pro-reg">{{ articleRangeDate }}</p>
@@ -86,11 +87,14 @@
                   <div class="w-full h-auto flex flex-row items-center justify-start gap-x-2">
 
                     {% if articleFlag %}
-                       <div class="w-[20px] h-[15px]">
-                         <img src="{{ articleFlag |  img_url: 'master' }}" class="w-full h-full object-cover object-center" alt="">
-                       </div>
+                      <div class="w-[20px] h-[15px]">
+                        <img
+                          src="{{ articleFlag |  img_url: 'master' }}"
+                          class="w-full h-full object-cover object-center"
+                          alt="">
+                      </div>
                     {% endif %}
-                   
+
                     {% if articleLocation %}
                       <div class="w-full h-auto flex flex-col items-start justify-center gap-y-2">
                         <p class="text-white text-[16px] leading-[14px] tt-norms-pro-reg">{{ articleLocation }}</p>
@@ -98,7 +102,7 @@
                           <a href="{{ articleMaps }}" class="text-white text-[14px] leading-[20px] underline tt-norms-pro-med">{{ section.settings.google_maps_text }}</a>
                         {% endif %}
                       </div>
-                   {% endif %}
+                    {% endif %}
 
 
                   </div>
@@ -106,20 +110,145 @@
               </div>
 
               <div class="w-full h-auto flex items-center justify-center z-20">
-                <a href="{{ section.settings.cta_card_url }}" class="w-full h-auto">
-                  <div class="w-full h-[48px] px-2 py-4 rounded-lg bg-white flex items-center justify-center cursor-pointer">
-                    <p class="text-[16px] leading-[14px] tt-norms-pro-med">{{ section.settings.cta_text_card }}</p>
-                  </div>
-                </a>
+                <div class="book-appointment w-full h-[48px] px-2 py-4 rounded-lg bg-white flex items-center justify-center cursor-pointer">
+                  <p class="text-[16px] leading-[14px] tt-norms-pro-med">{{ section.settings.cta_text_card }}</p>
+                </div>
               </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
     </div>
-
   </div>
 
+  <!-- Form book appointment container -->
+  <div class="form-container w-full h-auto fixed bottom-0 left-0 right-0 p-4 rounded-t-[32px] shadow-custom bg-white z-50  hidden md:fixed md:rounded-none md:w-full md:h-full md:top-0 md:left-0 md:backdrop-blur-md md:bg-black/50 md:z-50 md:items-center md:justify-center lg:fixed lg:rounded-none lg:w-full lg:h-full lg:top-0 lg:left-0 lg:backdrop-blur-md lg:bg-black/50 lg:z-50 lg:items-center lg:justify-center">
+    <div class="wrapper-form-appointment w-full flex flex-col gap-y-6 mx-auto md:m-auto md:bg-white md:w-[640px] md:h-auto md:rounded-[32px] md:p-10 lg:bg-white lg:w-[640px] lg:h-auto lg:rounded-[32px] lg:p-10">
+
+      <!-- Form Header -->
+      <div class="form-appointment-headers w-full h-auto flex flex-col items-center justify-center relative">
+        <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] tt-norms-pro-med events-name"></p>
+
+        <!-- Close Icon -->
+        <div class="icon-content absolute right-0 top-0 cursor-pointer">
+          {% render 'x-icon' %}
+        </div>
+      </div>
+
+      <!-- Form Content -->
+      <div class="form-appointment-content w-full h-auto flex flex-col items-start justify-center">
+        {% form 'contact'
+          , class: "w-full h-full flex flex-col items-start justify-center gap-y-3" %}
+
+          <!-- Form Errors -->
+          {{ form.errors | default_errors }}
+
+          <!-- First Name -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input
+              type="text"
+              name="contact[first_name]"
+              class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-black placeholder:body-16 placeholder:text-black"
+              value="{% if form.first_name != blank %}{{ form.first_name }}{% endif %}"
+              placeholder="{{ section.settings.form_first_name }}">
+          </div>
+
+          <!-- Last Name -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input
+              type="text"
+              name="contact[last_name]"
+              class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-black placeholder:body-16 placeholder:text-black"
+              value="{% if form.last_name != blank %}{{ form.last_name }}{% endif %}"
+              placeholder="{{ section.settings.form_last_name }}">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <input
+              type="email"
+              name="contact[email]"
+              value="{% if form.email != blank %}{{ form.email }}{% endif %}"
+              class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] border-[0.5px] ring-black focus:ring-0 border-transparent focus:outline-none focus:border-black placeholder:body-16 placeholder:text-black"
+              placeholder="{{ section.settings.form_email }}"
+              required>
+          </div>
+
+          <!-- calendar -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center relative">
+            <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4 pointer-events-none">
+              {% render 'calendar-icon' %}
+            </div>
+            <input
+              datepicker
+              id="default-datepicker"
+              datepicker-autohide
+              data-picker-orientation="left bottom"
+              name="contact[date]"
+              type="text"
+              class="block w-full rounded-lg bg-[var(--primary-background-color)] border-[0.5px] border-transparent focus:outline-none ring-black focus:ring-0 focus:border-transparent placeholder:body-16 placeholder:text-black"
+              placeholder="Select date">
+          </div>
+
+
+          <!-- Message -->
+          <div class="form-group w-full h-auto flex flex-col items-start justify-center">
+            <textarea
+              name="contact[message]"
+              class="w-full p-3 rounded-lg bg-[var(--primary-background-color)] ring-black focus:ring-0 border-[0.5px] border-transparent focus:outline-none focus:border-black placeholder:body-16 placeholder:text-black"
+              placeholder="{{ section.settings.form_content }} {% if form.message != blank %}{{ form.message }}{% endif %}"></textarea>
+          </div>
+
+          <!-- container checkbox -->
+          <div class="w-full h-auto flex flex-col items-start justify-center gap-y-3">
+            <!-- Marketing Consent Checkbox -->
+            <div class="form-group w-full flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="marketingConsent"
+                name="contact[marketing_consent]"
+                class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+              <label class="text-[12px] leading-[18px]  tt-norms-pro-reg">
+                {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
+                                commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
+                                market research in order to evaluate your level of satisfaction with our products and services." }}
+                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy_text | default: "Privacy Policy"
+}}</span>
+              </label>
+            </div>
+
+            <!-- Profiling Consent Checkbox -->
+            <div class="form-group w-full flex items-center gap-2 opacity-30">
+              <input
+                type="checkbox"
+                id="profilingConsent"
+                name="contact[profiling_consent]"
+                class="w-4 h-4 appearance-none border border-black rounded checked:bg-black checked:border-black focus:outline-none focus:ring-0 focus:ring-transparent">
+              <label class="text-[12px] leading-[18px] tt-norms-pro-reg">
+                {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
+                                send you personalized commercial communications based on your purchasing habits and, in general,
+                                based on your interests, your requests and your interactions with us." }}
+                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy_text | default: "Privacy Policy"
+}}</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- cta-privacy-page -->
+          <div class="w-full h-auto flex flex-col items-start justify-center">
+            <a href="{{ section.settings.cta_privacy_page_redirect }}">
+              <p class="text-[16px] leading-[20px] lg:text-[18px] lg:leading-[24px] underline tt-norms-pro-reg">{{ section.settings.cta_privacy_page_text | default: "Privacy Policy" }}</p>
+            </a>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="cta-choco submit-cta mt-[22px] lg:mt-[]">
+            <button type="submit" id="Subscribe">{{ section.settings.form_cta }}</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
 </div>
 
 {% style %}
@@ -131,80 +260,185 @@
 {% endstyle %}
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const containerArticles = document.querySelector('.container-articles');
-        const textContainer = document.querySelector('.container-main');
-        const containerControls = document.querySelector('.container-controls');
-        const containerCards = document.querySelector('.containers-card');
-        const eventCards = document.querySelectorAll('.event-card');
-        const arrowLeft = document.querySelector('.arrow-left');
-        const arrowRight = document.querySelector('.arrow-right');
+  document.addEventListener('DOMContentLoaded', () => {
+    const containerArticles = document.querySelector('.container-articles');
+    const textContainer = document.querySelector('.container-main');
+    const containerControls = document.querySelector('.container-controls');
+    const containerCards = document.querySelector('.containers-card');
+    const eventCards = document.querySelectorAll('.event-card');
+    const arrowLeft = document.querySelector('.arrow-left');
+    const arrowRight = document.querySelector('.arrow-right');
   
-        let currentOffset = 0;
+    let currentOffset = 0;
   
-        containerArticles.addEventListener('mouseover', () => {
-            textContainer.classList.add('opacity-0');
-            setTimeout(() => {
-                // containerArticles.style.left = `${parseInt(window.getComputedStyle(textContainer.parentElement).getPropertyValue('padding-left'), 10)}px`;
-                containerArticles.style.left = '0';
-                containerCards.classList.add('overflow-x-auto');
-                textContainer.parentElement.style.display = 'none';
-                textContainer.remove();
-                containerControls.classList.add('flex');
-                containerControls.classList.remove('hidden');
-            }, 100)
-        }, {once: true})
+    containerArticles.addEventListener('mouseover', () => {
+      textContainer.classList.add('opacity-0');
+      setTimeout(() => {
+        // containerArticles.style.left = `${parseInt(window.getComputedStyle(textContainer.parentElement).getPropertyValue('padding-left'), 10)}px`;
+        containerArticles.style.left = '0';
+        containerCards.classList.add('overflow-x-auto');
+        textContainer.parentElement.style.display = 'none';
+        textContainer.remove();
+        containerControls.classList.add('flex');
+        containerControls.classList.remove('hidden');
+      }, 100)
+    }, {once: true})
   
-        arrowLeft.addEventListener('click', () => {
-            handleScroll(-1)
-        });
+    arrowLeft.addEventListener('click', () => {
+      handleScroll(-1)
+    });
   
-        arrowRight.addEventListener('click', () => {
-            handleScroll(1)
-        });
+    arrowRight.addEventListener('click', () => {
+      handleScroll(1)
+    });
   
   
-        updateArrowState();
+    updateArrowState();
   
-        function updateArrowState() {
-            if (containerCards.scrollLeft === 0) {
-                arrowLeft.classList.add('disabled');
-            } else {
-                arrowLeft.classList.remove('disabled');
-            }
+    function updateArrowState() {
+      if (containerCards.scrollLeft === 0) {
+        arrowLeft.classList.add('disabled');
+      } else {
+        arrowLeft.classList.remove('disabled');
+      }
+    }
+  
+  
+  
+    function handleScroll(direction) {
+      const cardWidth = eventCards[0].getBoundingClientRect().width;
+      const maxScroll = containerCards.scrollWidth - containerCards.clientWidth;
+  
+      let currentScroll = containerCards.scrollLeft;
+  
+      currentScroll += direction * cardWidth;
+  
+      if (currentScroll < 0) {
+        currentScroll = 0;
+        arrowLeft.classList.add('disabled');
+      } else {
+        arrowLeft.classList.remove('disabled');
+      }
+      if (currentScroll > maxScroll) {
+        currentScroll = maxScroll;
+        arrowRight.classList.add('disabled');
+      } else {
+        arrowRight.classList.remove('disabled');
+      }
+  
+      containerCards.scrollTo({
+        left: currentScroll,
+        behavior: 'smooth'
+      });
+    }
+  
+    //handle form appointment
+    const marketingCheckbox = document.getElementById('marketingConsent');
+    const profilingCheckbox = document.getElementById('profilingConsent');
+    const profilingContainer = profilingCheckbox.closest('.form-group');
+    const formInputs = document.querySelectorAll('input[required]');
+    const submitButton = document.querySelector('.submit-cta');
+  
+  
+    const updateSubmitButtonState = () => {
+      const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
+      if (allFieldsFilled) {
+        submitButton.style.opacity = '1';
+        submitButton.disabled = false;
+      } else {
+        submitButton.style.opacity = '.2';
+        submitButton.disabled = true;
+      }
+    };
+  
+    updateSubmitButtonState();
+  
+    formInputs.forEach(input => {
+      input.addEventListener('input', updateSubmitButtonState);
+    });
+  
+    const updateProfilingState = () => {
+      if (marketingCheckbox.checked) {
+        profilingContainer.style.opacity = '1';
+        profilingCheckbox.disabled = false;
+      } else {
+        profilingContainer.style.opacity = '0.3';
+        profilingCheckbox.disabled = true;
+        profilingCheckbox.checked = false;
+      }
+    };
+  
+    marketingCheckbox.addEventListener('change', () => {
+      updateProfilingState();
+    });
+  
+    updateProfilingState();
+  
+    const marketingPopUpContainer = document.querySelector('.pop-up-marketing');
+    const profilationPopUpContainer = document.querySelector('.pop-up-profilation');
+    const linksToPopUp = document.querySelectorAll('.link-to-pop-up');
+    const closingPopUpIcon = document.querySelectorAll('.closing-pop-up');
+  
+    linksToPopUp.forEach((link) => {
+      const linkReference = link.getAttribute('data-attribute');
+      link.addEventListener('click', () => {
+        if (linkReference === "marketing") {
+          openPopUp(marketingPopUpContainer);
+        } else if (linkReference === "profilation") {
+          openPopUp(profilationPopUpContainer);
         }
+      });
+    });
   
-  
-  
-        function handleScroll(direction) {
-            const cardWidth = eventCards[0].getBoundingClientRect().width;
-            const maxScroll = containerCards.scrollWidth - containerCards.clientWidth;
-  
-            let currentScroll = containerCards.scrollLeft;
-  
-            currentScroll += direction * cardWidth;
-  
-            if (currentScroll < 0) {
-                currentScroll = 0;
-                arrowLeft.classList.add('disabled');
-            } else {
-                arrowLeft.classList.remove('disabled');
-            }
-            if (currentScroll > maxScroll) {
-                currentScroll = maxScroll;
-                arrowRight.classList.add('disabled');
-            } else {
-                arrowRight.classList.remove('disabled');
-            }
-  
-            containerCards.scrollTo({
-                left: currentScroll,
-                behavior: 'smooth'
-            });
+    closingPopUpIcon.forEach((icon) => {
+      const iconReference = icon.getAttribute('data-attribute');
+      icon.addEventListener('click', () => {
+        if (iconReference === "marketing") {
+          closePopUp(marketingPopUpContainer);
+        } else if (iconReference === "profilation") {
+          closePopUp(profilationPopUpContainer);
         }
+      });
+    });
   
+    function openPopUp(elementToOpen) {
+      elementToOpen.classList.remove('hidden');
+      elementToOpen.classList.add('flex');
+    }
   
-    })
+    function closePopUp(elementToClose) {
+      elementToClose.classList.add('hidden');
+      elementToClose.classList.remove('flex');
+    }
+  
+    const appointmentButtons = document.querySelectorAll('.book-appointment');
+    const formContainer = document.querySelector('.form-container');
+    const eventNameElement = formContainer.querySelector('.events-name');
+    const confirmPopup = document.querySelector('.confirm-pop-up');
+    const closeIcon = formContainer.querySelector('.icon-content');
+  
+    appointmentButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const articleTitle = this.closest('.event-card').querySelector('.article-title').innerText;
+        eventNameElement.textContent = articleTitle;
+        formContainer.classList.remove('hidden');
+        formContainer.classList.add('flex');
+        document.body.classList.add('no-scroll');
+        if (window.innerWidth <= 435) {
+          const formContainerPosition = formContainer.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: formContainerPosition - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  
+    closeIcon.addEventListener('click', function () {
+      formContainer.classList.add('hidden');
+      document.body.classList.remove('no-scroll');
+    });
+  })
 </script>
 
 {% schema %}
@@ -230,8 +464,7 @@
         "type": "url",
         "id": "cta_url",
         "label": "Main Cta Url"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "section_image",
         "label": "Section Main Image"
@@ -239,16 +472,75 @@
         "type": "text",
         "id": "cta_text_card",
         "label": "Cta text card"
-      },
-      {
+      }, {
         "type": "text",
         "id": "google_maps_text",
         "label": "Google maps text card"
-      },
-      {
+      }, {
         "type": "url",
         "id": "cta_card_url",
         "label": "Cta Event Card Url"
+      }, {
+        "type": "text",
+        "id": "confirm_message",
+        "label": "Confirm form message",
+        "default": "Request sent",
+        "info": "Set the input placeholder"
+      }, {
+        "type": "text",
+        "id": "form_first_name",
+        "label": "Form Name",
+        "default": "Name",
+        "info": "Set the input placeholder"
+      }, {
+        "type": "text",
+        "id": "form_last_name",
+        "label": "Last Name",
+        "default": "Last Name",
+        "info": "Set the input placeholder"
+      }, {
+        "type": "text",
+        "id": "form_email",
+        "label": "Email",
+        "default": "Email*",
+        "info": "Set the input placeholder"
+      }, {
+        "type": "text",
+        "id": "form_content",
+        "label": "Message",
+        "default": "Message",
+        "info": "Set the input placeholder"
+      }, {
+        "type": "text",
+        "id": "marketing_consent_label",
+        "label": "Marketing consent",
+        "info": "Set the markeing consent text"
+      }, {
+        "type": "text",
+        "id": "marketing_policy_text",
+        "label": "Marketing policy text pop-up",
+        "info": "Set the markeing policy text pop-up"
+      }, {
+        "type": "text",
+        "id": "profiling_consent_label",
+        "label": "Profiling consent",
+        "info": "Set the profiling consent text"
+      }, {
+        "type": "text",
+        "id": "profilation_policy_text",
+        "label": "Profilation policy text pop-up",
+        "info": "Set the profilation policy text pop-up"
+      }, {
+        "type": "text",
+        "id": "cta_privacy_page_text",
+        "label": "cta privacy text",
+        "info": "Set the cta privacy text"
+      }, {
+        "type": "text",
+        "id": "form_cta",
+        "label": "CTA Text",
+        "default": "Send",
+        "info": "Set the Text of the Cta's Form"
       }
     ]
   }
