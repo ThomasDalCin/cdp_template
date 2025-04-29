@@ -77,9 +77,11 @@
               </div>
 
               <div class="w-full h-auto flex items-center justify-center z-20">
-                <div class="w-full h-[48px] px-2 py-4 rounded-lg bg-white flex items-center justify-center cursor-pointer">
-                  <p class="text-[16px] leading-[14px]">{{ section.settings.cta_text_card }}</p>
-                </div>
+                <a href="{{ section.settings.cta_url }}">
+                  <div class="w-full h-[48px] px-2 py-4 rounded-lg bg-white flex items-center justify-center cursor-pointer">
+                    <p class="text-[16px] leading-[14px]">{{ section.settings.cta_text_card }}</p>
+                  </div>
+                </a>
               </div>
             </div>
           {% endif %}
@@ -193,6 +195,11 @@
         "type": "text",
         "id": "cta_text",
         "label": "Cta text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "Cta Url"
       },
       {
         "type": "image_picker",
