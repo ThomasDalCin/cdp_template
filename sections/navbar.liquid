@@ -128,7 +128,7 @@
 <div class="yatch-menu-container fixed z-30 inset-0 w-full h-dvh flex-col gap-y-10 hidden px-6 pt-[136px] md:pt-[160px]  md:px-10 lg:mb-10 lg:px-20 lg:pt-[180px] bg-custom-gradient-mobile lg:bg-custom-gradient-desktop">
   <div class="main-manu-container relative w-full h-auto flex flex-col gap-y-10 lg:gap-y-8">
     <div class="w-full h-auto flex items-start justify-center flex-col gap-y-8 lg:gap-y-4">
-      {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models,Tutti i modelli" | split: ',' %}
+      {% assign allLinksTitle = "Walkaround,Endurance,GT,View all models,Pardo approved,Tutti i modelli" | split: ',' %}
       {% for link in linklists.yatch.links %}
         {% assign matching_collection = collections[link.object.handle] %}
         {% unless link.title == 'Pardo pre-owned' %}
@@ -140,6 +140,8 @@
                   {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
                 {% elsif link.title == 'View all models' or link.title == "Tutti i modelli" %}
                   {{ link.title | link_to: 'javascript:void(0);', class: "text-[20px] tt-norms-pro-light leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
+                  {% elsif link.title == 'Pardo approved' %}
+                    {{ link.title | link_to: link.url, class: "text-[20px] tt-norms-pro-light leading-[20px] lg:text-[40px] lg:leading-[40px]" }}
                 {% else %}
                   {{ link.title | link_to: 'javascript:void(0);', class: "text-[32px] leading-[32px] tt-norms-pro-light lg:text-[64px] lg:leading-[70px]" }}
                 {% endif %}
