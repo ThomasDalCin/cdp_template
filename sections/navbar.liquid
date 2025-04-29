@@ -81,8 +81,15 @@
   </div>
 </div>
 
+{% assign approvedPageTitles = "Pardo approved, pardo approved" | split: "," %}
+{% assign currentPageTitle = page.title %}
+{% for title in approvedPageTitles %}
+  {% if currentPageTitle == title %}
+     {% assign approvedPageTitle = title %}
+  {% endif %}
+{% endfor %}
 
-{% if page.title %}
+{% if page.title and page.title != approvedPageTitle %}
   <div class="page-title-container w-full h-auto flex items-center justify-start relative py-3 mt-[138px] px-4 lg:px-12">
     <div class="container-back-arrow">
       <a href="javascript:history.back()">
