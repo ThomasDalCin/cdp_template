@@ -17,13 +17,24 @@
         <div class="w-auto h-auto flex flex-col items-start justify-center gap-y-4 lg:gap-y-7">
           <h2 class="text-[32px] leading-[30px] lg:text-[48px] lg:leading-[48px] tt-norms-pro-med">{{ section.settings.main_title }}</h2>
           <h3 class="text-[20px] leading-[26px] lg:text-[32px] lg:leading-[38px] lg:max-w-[550px] tt-norms-pro-reg">{{ section.settings.subheading }}</h3>
-          <div class="w-auto h-auto">
+
+          <!-- discover all events cta just on tablet / desktop -->
+          <div class="w-auto h-auto hidden md:block">
             <a href="{{ section.settings.cta_url }}">
               <div class="w-[220px] h-[48px] bg-black flex items-center justify-center rounded-xl p-3 cursor-pointer">
                 <p class="text-[16px] leading-[16px] text-white tt-norms-pro-reg">{{ section.settings.cta_text }}</p>
               </div>
             </a>
           </div>
+
+          <!-- discover scrollable events section cta just on mobile -->
+          <div class="w-full h-auto md:hidden">
+            <div class="cta-discover w-full h-[48px] bg-black flex items-center justify-center rounded-xl p-3">
+              <p class="text-[16px] leading-[16px] text-white tt-norms-pro-reg">{{ section.settings.cta_discover_section_text }}</p>
+            </div>
+          </div>
+
+
         </div>
       {% endif %}
 
@@ -44,7 +55,7 @@
     </div>
 
     <div class="w-full h-auto">
-      <div class="containers-card w-auto h-auto flex flex-row items-center justify-start gap-x-4 cursor-pointer px-10">
+      <div class="containers-card w-auto h-auto flex flex-row items-center justify-start gap-x-4 cursor-pointer px-4 md:px-10">
         {% for article in blogs['events'].articles %}
           {% if article.tags contains 'Future' %}
             <div class="event-card w-[380px] min-w-[380px] h-[560px] rounded-[32px] p-10 flex flex-col items-start justify-between relative">
@@ -56,9 +67,8 @@
               <div class="absolute left-0 top-0 right-0 bottom-0 w-full h-full z-10 rounded-[32px]" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%);"></div>
 
               <div class="w-full h-full flex flex-col items-start justify-start gap-y-6 z-20">
-                <h3 class="article-title text-[24px] leading-[30px] font-bold text-white tt-norms-pro-med min-h-[60px]">{{ article.title
-}}</h3>
-                <div class="w-full h-auto flex flex-col items-start justify-center rounded-2xl px-4 py-6 gap-y-4 border border-white backdrop-blur-[20px]" style="background: rgba(0, 0, 0, 0.50);">
+                <h3 class="article-title text-[24px] leading-[30px] font-bold text-white tt-norms-pro-med min-h-[60px]">{{ article.title }}</h3>
+                <div class="w-[calc(100%_+_48px)] -mx-6 h-auto flex flex-col items-start justify-center rounded-2xl px-4 py-6 gap-y-4 border border-white backdrop-blur-[20px]" style="background: rgba(0, 0, 0, 0.50);">
                   {% assign articleRangeDate = article.metafields.custom.range_date.value %}
                   {% assign articleStand = article.metafields.custom.stand.value %}
                   {% assign articleFlag = article.metafields.custom.image_flag.value %}
@@ -118,6 +128,18 @@
           {% endif %}
         {% endfor %}
       </div>
+
+        <!--show all events cta just on mobile-->
+  <div class="show-all-cta-content w-full h-auto hidden px-4 py-6 md:hidden">
+    <a href="{{ section.settings.cta_url }}">
+      <div class="w-full h-[48px] flex items-center justify-center rounded-xl border border-black p-3">
+        <p class="text-[16px] leading-[16px] tt-norms-pro-reg">{% if request.locale.iso_code == 'it' %}
+          Vedi tutti {% else %}
+          Show all
+        {% endif %}</p>
+      </div>
+    </a>
+  </div>
     </div>
   </div>
 
@@ -212,8 +234,7 @@
                 {{ section.settings.marketing_consent_label | default: "By giving your consent, we may send you
                                 commercial communications relating to Pardo Yachts via e-mail, telephone, and we may carry out
                                 market research in order to evaluate your level of satisfaction with our products and services." }}
-                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy_text | default: "Privacy Policy"
-}}</span>
+                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="marketing">{{ section.settings.marketing_policy_text | default: "Privacy Policy" }}</span>
               </label>
             </div>
 
@@ -228,8 +249,7 @@
                 {{ section.settings.profiling_consent_label | default: "By giving your consent, we will be able to
                                 send you personalized commercial communications based on your purchasing habits and, in general,
                                 based on your interests, your requests and your interactions with us." }}
-                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy_text | default: "Privacy Policy"
-}}</span>
+                <span class="text-[12px] leading-[18px] underline tt-norms-pro-reg link-to-pop-up" data-attribute="profilation">{{ section.settings.profilation_policy_text | default: "Privacy Policy" }}</span>
               </label>
             </div>
           </div>
@@ -249,6 +269,8 @@
       </div>
     </div>
   </div>
+
+
 </div>
 
 {% style %}
@@ -268,21 +290,42 @@
     const eventCards = document.querySelectorAll('.event-card');
     const arrowLeft = document.querySelector('.arrow-left');
     const arrowRight = document.querySelector('.arrow-right');
+    const discoverCta = document.querySelector('.cta-discover');
+    const showAllCtaContent = document.querySelector('.show-all-cta-content');
   
     let currentOffset = 0;
   
     containerArticles.addEventListener('mouseover', () => {
+       handleScrollableSection();
+    }, {once: true});
+
+    discoverCta.addEventListener('click', () => {
+      handleScrollableSection();
+    })
+
+    function handleScrollableSection(){
       textContainer.classList.add('opacity-0');
       setTimeout(() => {
-        // containerArticles.style.left = `${parseInt(window.getComputedStyle(textContainer.parentElement).getPropertyValue('padding-left'), 10)}px`;
+
+        showAllCtaContent.classList.remove('hidden');
+
+        if(containerArticles.classList.contains('hidden')){
+          containerArticles.classList.remove('hidden');
+          containerArticles.classList.add('absolute');
+        }
+
         containerArticles.style.left = '0';
         containerCards.classList.add('overflow-x-auto');
         textContainer.parentElement.style.display = 'none';
         textContainer.remove();
-        containerControls.classList.add('flex');
-        containerControls.classList.remove('hidden');
+        if(window.innerWidth >= 768){
+          containerControls.classList.add('flex');
+          containerControls.classList.remove('hidden');
+        }
       }, 100)
-    }, {once: true})
+    }
+
+
   
     arrowLeft.addEventListener('click', () => {
       handleScroll(-1)
@@ -302,7 +345,6 @@
         arrowLeft.classList.remove('disabled');
       }
     }
-  
   
   
     function handleScroll(direction) {
@@ -461,6 +503,10 @@
         "label": "Cta text"
       },
       {
+        "type": "text",
+        "id": "cta_discover_section_text",
+        "label": "Cta Discover Section text"
+      }, {
         "type": "url",
         "id": "cta_url",
         "label": "Main Cta Url"

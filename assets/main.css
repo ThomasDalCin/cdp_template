@@ -2012,6 +2012,10 @@ p,
   width: 100%;
 }
 
+.w-\[calc\(100\%_\+_48px\)\] {
+  width: calc(100% + 48px);
+}
+
 .min-w-\[113px\] {
   min-width: 113px;
 }
@@ -4485,12 +4489,12 @@ html {
     height: 620px;
   }
 
-  .lg\:h-\[70vh\] {
-    height: 70vh;
-  }
-
   .lg\:h-\[720px\] {
     height: 720px;
+  }
+
+  .lg\:h-\[80vh\] {
+    height: 80vh;
   }
 
   .lg\:h-\[860px\] {
@@ -4515,10 +4519,6 @@ html {
 
   .lg\:h-screen {
     height: 100vh;
-  }
-
-  .lg\:h-\[80vh\] {
-    height: 80vh;
   }
 
   .lg\:max-h-\[418px\] {
@@ -5480,10 +5480,6 @@ html {
 
   .xl\:h-\[240px\] {
     height: 240px;
-  }
-
-  .xl\:h-\[80vh\] {
-    height: 80vh;
   }
 
   .xl\:h-\[60vh\] {
