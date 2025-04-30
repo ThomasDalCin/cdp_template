@@ -70,6 +70,33 @@
             {% endif %}
           </div>
 
+        
+          {% when "searching_layout" %}
+            <div class="w-full h-full flex flex-col items-center justify-end p-4 gap-y-10 md:justify-center md:gap-y-20 md:px-[60px] lg:justify-center lg:px-[200px]">
+              <div class="w-full h-auto flex flex-col items-start justify-center gap-y-4">
+                <h1 class="text-[32px] leading-[36px] md:text-[48px] md:leading-[54px] lg:text-[64px] lg:leading-[64px] tt-norms-pro-med text-white" style="text-wrap: balance;">{{ section.settings.main_section_title }}</h1>
+                <p class="text-[16px] leading-[22px] tt-norms-pro-reg text-white md:text-[20px] md:leading-[26px] lg:text-[24px] lg:leading-[28px]">{{ section.settings.main_section_subheadings }}</p>
+              </div>
+              <!--predective searching-->
+              {% if section.settings.is_searchbar_active %}
+                {% render 'predective-search-logic' %}
+                <div class="w-full h-auto flex items-center justify-center">
+                  <div class="w-auto h-auto flex flex-row items-center justify-start gap-x-4">
+                      <div class="w-auto h-auto">
+                        <form action="/search" method="get" role="search" class="seach-form relative">
+                          <input type="search" name="q" id="searchInput" placeholder="{% if request.locale.iso_code == 'it' %}Cerca per modello{% else %}Search by model{% endif %}" autocomplete="off" class="search-input pl-[calc(16px_+_24px_+_10px)] pr-3 py-4 rounded-xl bg-[#F7F7F7] w-[398px] placeholder:pl-[calc(16px_+_24px_+_10px)] focus:outline-transparent focus:border-none focus:ring-0">
+                          <div class="search-icon w-auto h-auto absolute left-4 top-4 bottom-4">
+                            {% render 'search-icon' %}
+                          </div>
+                           <div id="searchSuggestions"></div>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              {% endif %}
+
+            </div>
+
       {% endcase %}
     </div>
   </div>
@@ -91,6 +118,12 @@
     </div>
   {% endif %}
 </div>
+
+{% style %}
+  .search-input:focus + .search-icon{
+    display:none;
+  }
+{% endstyle %}
 
 
 <script>
@@ -172,7 +205,13 @@
         "type": "checkbox",
         "id": "is_cta_active",
         "label": "Active Cta"
-      }, {
+      },
+      {
+        "type": "checkbox",
+        "id": "is_searchbar_active",
+        "label": "Active Searchbar"
+      },
+      {
         "type": "text",
         "id": "cta_text",
         "label": "Cta Text"
@@ -224,6 +263,10 @@
           }, {
             "label": "Expansive Layout",
             "value": "expansive_layout"
+          },
+          {
+            "label": "Searching Layout",
+            "value": "searching_layout"
           }
         ],
         "default": "small_layout"

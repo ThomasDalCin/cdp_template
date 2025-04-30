@@ -1,0 +1,43 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const input = document.getElementById('searchInput');
+        const resultsBox = document.getElementById('searchSuggestions');
+
+        if (input) {
+            input.form.addEventListener('submit', function (e) {
+                e.preventDefault();
+            });
+
+            input.addEventListener('input', function () {
+                const query = input.value.trim().toLowerCase();
+
+                if (query.length < 3) {
+                    resultsBox.innerHTML = "";
+                    return;
+                }
+
+                fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Errore nella risposta: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const products = data.resources.results.products;
+
+                        const filtered = products.filter(product =>
+                            product.title.toLowerCase().includes(query)
+                        );
+
+                        console.clear();
+                        console.log("Prodotti filtrati:", filtered);
+                        filtered.forEach(product => console.log(product.title));
+                    })
+                    .catch(error => {
+                        console.error("Errore durante la ricerca:", error);
+                    });
+            });
+        }
+    })
+</script>
