@@ -16,6 +16,7 @@
         "main_section_title": "Benvenuto in Pardo Approved",
         "main_section_subheadings": "Il programma ufficiale di certificazione dei pre-owned che garantisce qualità, tranquillità e fiducia immediata nella navigazione con il sigillo di approvazione di Cantiere del Pardo.",
         "is_cta_active": true,
+        "is_searchbar_active": false,
         "cta_text": "Iscriviti",
         "hero_cta_redirect": "",
         "cta_hover_color": "#dd1d1d",
@@ -156,7 +157,6 @@
         "product_card_HEKJQi",
         "product_card_KnCj9T"
       ],
-      "disabled": true,
       "settings": {
         "overview_title": "Imbarcazioni in evidenza",
         "main_title": "In primo piano.",
