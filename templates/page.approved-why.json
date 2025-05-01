@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "approved-why": {
@@ -12,19 +21,19 @@
         "block_text_Qj4wXC": {
           "type": "block_text",
           "settings": {
-            "paragraph_text": "Pardo Approved è il programma ufficiale di certificazione di pre-owned di Cantiere del Pardo, progettato per coloro che cercano sicurezza, qualità e affidabilità nel mercato dell'usato nautico. Questo programma esclusivo non solo garantisce che ogni yacht venduto sia in condizioni impeccabili, ma offre anche una serie di benefici esclusivi che elevano l'esperienza di possesso di una barca Pardo."
+            "paragraph_text": "Attraverso Pardo Approved, ci impegniamo a fornire non solo una barca, ma una promessa – quella di mantenere gli standard di lusso e di prestazione che sono sinonimo del nome Pardo. Ogni yacht nel nostro programma è stato attentamente ispezionato e rinnovato per assicurare che rispetti le specifiche originali. Siamo orgogliosi di offrire yacht che non solo soddisfano le aspettative dei nostri clienti, ma le superano."
           }
         },
         "block_text_Uzi7fW": {
           "type": "block_text",
           "settings": {
-            "paragraph_text": "Pardo Approved è il programma ufficiale di certificazione di pre-owned di Cantiere del Pardo, progettato per coloro che cercano sicurezza, qualità e affidabilità nel mercato dell'usato nautico. Questo programma esclusivo non solo garantisce che ogni yacht venduto sia in condizioni impeccabili, ma offre anche una serie di benefici esclusivi che elevano l'esperienza di possesso di una barca Pardo."
+            "paragraph_text": "Pardo Approved rappresenta la nostra dedizione alla qualità e all'attenzione per il dettaglio. Il nostro obiettivo è garantire che ogni cliente possa godere del massimo piacere e sicurezza nella navigazione, con la certezza di avere fatto un investimento duraturo. Scoprite come il nostro programma può portarvi in mare con stile e tranquillità, garantendo un'esperienza senza pari."
           }
         },
         "block_text_9tdXML": {
           "type": "block_text",
           "settings": {
-            "paragraph_text": "Pardo Approved è il programma ufficiale di certificazione di pre-owned di Cantiere del Pardo, progettato per coloro che cercano sicurezza, qualità e affidabilità nel mercato dell'usato nautico. Questo programma esclusivo non solo garantisce che ogni yacht venduto sia in condizioni impeccabili, ma offre anche una serie di benefici esclusivi che elevano l'esperienza di possesso di una barca Pardo."
+            "paragraph_text": "Unisciti a noi nella scoperta di un mondo dove la qualità si incontra con la sicurezza e il lusso diventa un'esperienza quotidiana. Pardo Approved è più di un certificato; è il tuo passaporto per un'avventura nautica eccezionale."
           }
         }
       },
@@ -45,31 +54,31 @@
         "card_benefit_MUCKLE": {
           "type": "card_benefit",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/thumb__1440_400_0_0_auto.jpg",
+            "card_image": "shopify://shop_images/thumb__1440_400_0_0_auto.jpg",
             "card_title": "Garanzia di Qualità e Sicurezza",
             "card_subheading": "Naviga con fiducia",
             "card_text": "Acquistare una barca usata non significa compromettere la sicurezza o la qualità. Con Pardo Approved, ogni yacht è sottoposto a un esame meticoloso per assicurare che soddisfi i rigorosi standard di Cantiere del Pardo. Dal controllo tecnico completo, alla verifica delle origini e della manutenzione, ci assicuriamo che la tua nuova barca sia pronta per salpare non appena la ricevi. Inoltre, la garanzia ufficiale estesa di 12 mesi ti offre quella tranquillità aggiuntiva, sapendo che il tuo investimento è protetto. Pardo Approved è il tuo partner affidabile nel mondo della nautica.",
-            "card_additional_text": "Acquistare una barca usata non significa compromettere la sicurezza o la qualità. Con Pardo Approved, ogni yacht è sottoposto a un esame meticoloso per assicurare che soddisfi i rigorosi standard di Cantiere del Pardo. Dal controllo tecnico completo, alla verifica delle origini e della manutenzione, ci assicuriamo che la tua nuova barca sia pronta per salpare non appena la ricevi. Inoltre, la garanzia ufficiale estesa di 12 mesi ti offre quella tranquillità aggiuntiva, sapendo che il tuo investimento è protetto. Pardo Approved è il tuo partner affidabile nel mondo della nautica."
+            "card_additional_text": "·  \tIspezioni Tecniche Approfondite: Oltre 100 punti di controllo specifici per ogni yacht.\n·  \tCertificazioni Aggiornate: Rinnovo annuale delle certificazioni di sicurezza e prestazione.\n·  \tAnalisi Dettagliata dei Componenti: Controllo di motori, scafo e sistemi elettronici.\n·  \tPreparazione Pre-Consegna: Rigoroso processo di preparazione e pulizia.\n·  \tAssicurazione Contro Danni e Difetti: Copertura assicurativa completa da eventuali difetti nascosti."
           }
         },
         "card_benefit_KPKR8j": {
           "type": "card_benefit",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/thumb__1440_400_0_0_auto.jpg",
-            "card_title": "Garanzia di Qualità e Sicurezza",
-            "card_subheading": "Naviga con fiducia",
-            "card_text": "Acquistare una barca usata non significa compromettere la sicurezza o la qualità. Con Pardo Approved, ogni yacht è sottoposto a un esame meticoloso per assicurare che soddisfi i rigorosi standard di Cantiere del Pardo. Dal controllo tecnico completo, alla verifica delle origini e della manutenzione, ci assicuriamo che la tua nuova barca sia pronta per salpare non appena la ricevi. Inoltre, la garanzia ufficiale estesa di 12 mesi ti offre quella tranquillità aggiuntiva, sapendo che il tuo investimento è protetto. Pardo Approved è il tuo partner affidabile nel mondo della nautica.",
-            "card_additional_text": "Acquistare una barca usata non significa compromettere la sicurezza o la qualità. Con Pardo Approved, ogni yacht è sottoposto a un esame meticoloso per assicurare che soddisfi i rigorosi standard di Cantiere del Pardo. Dal controllo tecnico completo, alla verifica delle origini e della manutenzione, ci assicuriamo che la tua nuova barca sia pronta per salpare non appena la ricevi. Inoltre, la garanzia ufficiale estesa di 12 mesi ti offre quella tranquillità aggiuntiva, sapendo che il tuo investimento è protetto. Pardo Approved è il tuo partner affidabile nel mondo della nautica."
+            "card_image": "shopify://shop_images/thumb__1440_400_0_0_auto.jpg",
+            "card_title": "Esclusività e Benefici per il Cliente",
+            "card_subheading": "\"Esperienze Esclusive, Privilegi Inimitabili\"",
+            "card_text": "Essere proprietari di un yacht Pardo Approved va oltre il semplice possesso di una barca; è un'esperienza completa che arricchisce la vita. Oltre ad avere una barca che riflette gli altissimi standard di Pardo Yachts, ti offriamo accesso a una serie di vantaggi esclusivi. Da servizi personalizzati a inviti a eventi VIP e promozioni speciali, facciamo di tutto per far sentire ogni proprietario un membro privilegiato della famiglia Pardo. La tua soddisfazione e il tuo comfort sono la nostra priorità, e il nostro obiettivo è rendere ogni uscita in mare indimenticabile.",
+            "card_additional_text": "·  \tClub Pardo Owners: Accesso al club esclusivo per proprietari con eventi dedicati.\n·  \tPersonalizzazione dell'Yacht: Opzioni di personalizzazione interna ed esterna.\n·  \tUpgrade Tecnologici Prioritari: Accesso anticipato a miglioramenti tecnici e aggiornamenti.\n·  \tSupporto Premium H24: Assistenza clienti premium disponibile 24 ore su 24.\n·  \tRitiri Esclusivi e Test Drive: Inviti a test drive privati e ritiri in località esclusive."
           }
         },
         "card_benefit_HCrFrn": {
           "type": "card_benefit",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/thumb__1440_400_0_0_auto.jpg",
-            "card_title": "Garanzia di Qualità e Sicurezza",
-            "card_subheading": "Naviga con fiducia",
-            "card_text": "Acquistare una barca usata non significa compromettere la sicurezza o la qualità. Con Pardo Approved, ogni yacht è sottoposto a un esame meticoloso per assicurare che soddisfi i rigorosi standard di Cantiere del Pardo. Dal controllo tecnico completo, alla verifica delle origini e della manutenzione, ci assicuriamo che la tua nuova barca sia pronta per salpare non appena la ricevi. Inoltre, la garanzia ufficiale estesa di 12 mesi ti offre quella tranquillità aggiuntiva, sapendo che il tuo investimento è protetto. Pardo Approved è il tuo partner affidabile nel mondo della nautica.",
-            "card_additional_text": ""
+            "card_image": "shopify://shop_images/thumb__1440_400_0_0_auto.jpg",
+            "card_title": "Integrità e Trasparenza",
+            "card_subheading": "\"Chiarezza Completa, Nessuna Sorpresa\"",
+            "card_text": "Acquistare un Pardo Approved significa scegliere un'esperienza di acquisto senza stress, grazie alla nostra politica di trasparenza totale. Ogni yacht viene venduto con un dettagliato \"passaporto digitale\" che traccia la sua storia completa, offrendoti una chiara comprensione delle sue condizioni e della sua manutenzione. Questo documento ti permette di verificare l'autenticità e l'integrità della tua nuova barca, assicurando che non ci siano sorprese dopo l'acquisto. Con Pardo Approved, il processo di acquisto è aperto e onesto, proprio come dovrebbe essere.",
+            "card_additional_text": "·  \tRapporto Completo di Stato: Relazione dettagliata sullo stato attuale dell'Yacht.\n·  \tCronologia di Proprietà Verificata: Accesso a una cronologia di proprietà chiara e verificata.\n·  \tAuditing Indipendente: Revisione da parte di terzi indipendenti per garantire la massima trasparenza.\n·  \tCodice QR per la Storia del Yacht: Codice QR unico che fornisce accesso immediato alla storia completa.\n·  \tConsulenza Trasparente: Comunicazioni chiare e trasparenti senza termini nascosti o complessi."
           }
         }
       },
